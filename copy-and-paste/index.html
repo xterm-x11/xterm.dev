@@ -7,15 +7,17 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+        <meta name="author" content="Max Leonov">
       
-        <link rel="canonical" href="https://xterm.org/scrolling/">
+      
+        <link rel="canonical" href="https://xterm.org/copy-and-paste/">
       
       <link rel="icon" href="../favicon.png">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.2.11">
     
     
       
-        <title>Scrolling - XTerm</title>
+        <title>Copy and paste - XTerm</title>
       
     
     
@@ -65,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#scrolling" class="md-skip">
+        <a href="#copy-and-paste" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Scrolling
+              Copy and paste
             
           </span>
         </div>
@@ -339,11 +341,66 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../copy-and-paste/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Copy and paste
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Copy and paste
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#selecting-text-in-xterm" class="md-nav__link">
+    Selecting text in XTerm
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copying-text-in-xterm" class="md-nav__link">
+    Copying text in XTerm
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pasting-text-in-xterm" class="md-nav__link">
+    Pasting text in XTerm
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -381,21 +438,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../scrolling/" class="md-nav__link">
         Scrolling
       </a>
-      
     </li>
   
 
@@ -1070,6 +1117,35 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#selecting-text-in-xterm" class="md-nav__link">
+    Selecting text in XTerm
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copying-text-in-xterm" class="md-nav__link">
+    Copying text in XTerm
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pasting-text-in-xterm" class="md-nav__link">
+    Pasting text in XTerm
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1080,14 +1156,34 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/xterm-x11/docs/edit/master/docs/scrolling.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/xterm-x11/docs/edit/master/docs/copy-and-paste.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="scrolling">Scrolling</h1>
-<p>This page is under construction.</p>
+<h1 id="copy-and-paste">Copy and paste</h1>
+<h2 id="selecting-text-in-xterm">Selecting text in XTerm</h2>
+<p>You can easily select text in an XTerm window as you would expect in another application:
+* Left-click and drag to select any text.
+* Double-click to select a word.
+* Triple-click to select the whole line.</p>
+<p><strong>TIP</strong> XTerm's X resources enable you to configure how much of text you wish to get selected on multiple clicks, adjust the clicking speed (as time interval) for multiple clicks, include or exclude the new line, and more. For more information, see <a href="../configure/">Configure</a> and <a href="customize-copy-and-paste.md">Customize copy and paste</a>.</p>
+<p>With a mouse or trackball that has a scroll wheel, you can extend your initial selection beyond the visible screen in an XTerm window:</p>
+<p>1. Make your initial selection by left-clicking and dragging to highlight text.</p>
+<p>2. Scroll down (or up) to where you want to continue the started selection.</p>
+<p>3. Right-click precisely on the line and column where you want to complete the selection.</p>
+<p>If the selection is very long, you can continue to scroll and right-click to extend the selection multiple times.</p>
+<p><strong>NOTE</strong> Right-clicking means using mouse button 3, and scrolling works as described when XTerm is not using the mouse protocol.</p>
+<h2 id="copying-text-in-xterm">Copying text in XTerm</h2>
+<p>By default, XTerm automatically copies every text selection you make in an XTerm window. You don't need to press any keyboard shortcuts (like <strong>Ctrl+C</strong>) or go into any menu (like clicking a <strong>Copy</strong> button). XTerm has already copied the selected text.</p>
+<p><strong>IMPORTANT</strong> Unconfigured XTerm copies text to the PRIMARY buffer rather than CLIPBOARD that most applications use nowadays. Unless you prefer or need to use the PRIMARY buffer on purpose, it's best that you configure XTerm to copy all text to CLIPBOARD instead. To do that, all you need to do is add the <code>XTerm.vt100.selectToClipboard: true</code> X resource to your dotfile (this is already <code>true</code> in <a href="https://github.com/xterm-x11/files.Xresources/blob/main/sample.Xresources">sample.Xresources</a>). For more information, see <a href="../configure/">Configure</a> and <a href="customize-copy-and-paste.md">Customize copy and paste</a>.</p>
+<p><strong>TIP</strong> You can configure XTerm to work with a keyboard shortcut to copy text if you can't get used to the convenience of not having to press any keys to copy. For how to set a custom keyboard shortcut, see <a href="../configure/">Configure</a> and <a href="customize-copy-and-paste.md">Customize copy and paste</a>.</p>
+<h2 id="pasting-text-in-xterm">Pasting text in XTerm</h2>
+<p>By default, to paste copied text into an XTerm window, use the <strong>Shift+Insert</strong> keyboard shortcut or the middle mouse button (if your mouse or trackpad has one).</p>
+<p><strong>TIP</strong> Depending on your system, you should be able to use the <strong>Shift+Insert</strong> keyboard shortcut for pasting text copied from an XTerm window into other applications (like <strong>Ctrl+V</strong>). If you stick with using the <strong>Shift+Insert</strong> keyboard shortcut in XTerm, it's easier to remember and more convenient to use this same shortcut every time you paste text copied to or from XTerm.</p>
+<p><strong>TIP</strong> You can set a custom keyboard shortcut for pasting selected text. For how to do that, see <a href="../configure/">Configure</a> and <a href="customize-copy-and-paste.md">Customize copy and paste</a>. This is useful in some situations such as when the keyboard you're using doesn't have a dedicated <strong>Insert</strong> button, making it difficult to press <strong>Shift+Insert</strong>.</p>
+<p><strong>TIP</strong> If your hardware doesn't have the middle mouse button, you might be able to set up emulation to use both the left and right mouse buttons instead of the middle mouse button.</p>
 
               
             </article>
@@ -1101,7 +1197,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../full-screen/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Full-screen" rel="prev">
+        <a href="../configure/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Configure" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1110,20 +1206,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Full-screen
+              Configure
             </div>
           </div>
         </a>
       
       
         
-        <a href="../prompt/" class="md-footer__link md-footer__link--next" aria-label="Next: Prompt" rel="next">
+        <a href="../tabs/" class="md-footer__link md-footer__link--next" aria-label="Next: Tabs" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Prompt
+              Tabs
             </div>
           </div>
           <div class="md-footer__button md-icon">
