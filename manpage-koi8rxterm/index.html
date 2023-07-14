@@ -1087,8 +1087,58 @@
 
 
 <h1 id="koi8rxterm-manpage">koi8rxterm manpage</h1>
-<p>This page is under construction.</p>
-<p>This content is currently available on <a href="https://invisible-island.net/xterm/manpage/koi8rxterm.html">Thomas E. Dickey's website</a>.</p>
+<h2><a name="h2-NAME" id="h2-NAME">NAME</a></h2>
+<pre>       koi8rxterm - X terminal emulator for KOI8-R environments
+
+</pre>
+<h2><a name="h2-SYNOPSIS" id="h2-SYNOPSIS">SYNOPSIS</a></h2>
+<pre>       <b>koi8rxterm</b> [ <i>xterm-options</i> ]
+
+</pre>
+<h2><a name="h2-DESCRIPTION" id="h2-DESCRIPTION">DESCRIPTION</a></h2>
+<pre>       <b>koi8rxterm</b>  is  a  wrapper around the <a href="/xterm/manpage/xterm.html"><b>xterm(1)</b></a> program that invokes the
+       latter program  with  the  "KOI8RXTerm"  X  resource  class  set.   All
+       arguments  to  <b>koi8rxterm</b>  are  passed to <b>xterm</b> without processing; the
+       <b>-class</b> and <b>-k8</b> options should not be specified because they are used by
+       the  wrapper.  See the <b>xterm</b> manual page for more information on <i>xterm-</i>
+       <i>options</i>.
+
+       The environment's locale settings (see "ENVIRONMENT" below) are used to
+       discern  the  locale's  character  set.   If  no  current locale can be
+       determined, the locale "ru_RU.KOI8-R" (the Russian language as used  in
+       the  territory  of  Russia,  with the KOI8-R character set) is assumed.
+       The <b><a href="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/locale.html">locale(1)</a></b> utility is used to determine whether the system  supports
+       the  selected  locale.   If  it  does not, <b>koi8rxterm</b> will exit with an
+       error and report the output of <b>locale</b>.
+
+       <b>Note:</b> <b>koi8rxterm</b> may produce unexpected results if the  current  locale
+       is  set to one in which the KOI8-R character encoding is not supported,
+       or if fonts using that encoding  are  not  available.   In  the  Debian
+       system,   the   "xfonts-cyrillic"   package  provides  the  fonts  that
+       <b>koi8rxterm</b> uses by default.  To change the fonts <b>koi8rxterm</b> uses,  edit
+       the <i>/etc/X11/app-defaults/KOI8RXTerm</i> file.
+
+       A   similar   wrapper,   <a href="/xterm/manpage/uxterm.html"><b>uxterm(1)</b></a>,  is  available  for  Unicode  UTF-8
+       environments.
+
+</pre>
+<h2><a name="h2-ENVIRONMENT" id="h2-ENVIRONMENT">ENVIRONMENT</a></h2>
+<pre>       <b>LC_ALL</b>, <b>LC_CTYPE</b>, <b>LANG</b>
+              The  values  of  these  variables  are  checked,  in  order,  to
+              determine the character set used by the current locale.
+
+</pre>
+<h2><a name="h2-AUTHOR" id="h2-AUTHOR">AUTHOR</a></h2>
+<pre>       <b>koi8rxterm</b> was written by Branden Robinson and is very heavily based on
+       <b>uxterm</b>,  by  Thomas  Dickey.   The  assistance  of  Jurij  Smakov   was
+       invaluable in sanity-checking its operation.
+
+</pre>
+<h2><a name="h2-SEE-ALSO" id="h2-SEE-ALSO">SEE ALSO</a></h2>
+<pre>       <b>locale(1),</b> <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap07.html#tag_07"><b>locale(7)</b></a>, <a href="/xterm/manpage/uxterm.html"><b>uxterm(1)</b></a>, <a href="/xterm/manpage/xterm.html"><b>xterm(1)</b></a>
+
+Patch #380                        2023-02-26                     <b>KOI8RXTERM(1)</b>
+</pre>
 
               
             </article>

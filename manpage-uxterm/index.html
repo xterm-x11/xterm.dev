@@ -1087,8 +1087,54 @@
 
 
 <h1 id="uxterm-manpage">uxterm manpage</h1>
-<p>This page is under construction.</p>
-<p>This content is currently available on <a href="https://invisible-island.net/xterm/manpage/uxterm.html">Thomas E. Dickey's website</a>.</p>
+<h2><a name="h2-NAME" id="h2-NAME">NAME</a></h2>
+<pre>       uxterm - X terminal emulator for Unicode (UTF-8) environments
+
+</pre>
+<h2><a name="h2-SYNOPSIS" id="h2-SYNOPSIS">SYNOPSIS</a></h2>
+<pre>       <b>uxterm</b> [ <i>xterm-options</i> ]
+
+</pre>
+<h2><a name="h2-DESCRIPTION" id="h2-DESCRIPTION">DESCRIPTION</a></h2>
+<pre>       <b>uxterm</b> is a wrapper around the <a href="/xterm/manpage/xterm.html"><b>xterm(1)</b></a> program that invokes the latter
+       program with the "UXTerm" X  resource  class  set.   All  arguments  to
+       <b>uxterm</b>  are  passed  to  <b>xterm</b>  without  processing; the <b>-class</b> and <b>-u8</b>
+       options should not be specified because they are used by  the  wrapper.
+       See the <b>xterm</b> manual page for more information on <i>xterm-options</i>.
+
+       The environment's locale settings (see "ENVIRONMENT" below) are used to
+       discern the locale's character  set.   If  no  current  locale  can  be
+       determined,  the  locale  "en_US"  (the English language as used in the
+       territory of the United States) is assumed.  The <b><a href="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/locale.html">locale(1)</a></b>  utility  is
+       used  to determine whether the system supports the selected locale.  If
+       it does not, <b>uxterm</b> will exit with an error and report  the  output  of
+       <b>locale</b>.
+
+       <b>Note:</b>  <b>uxterm</b>  may  produce unexpected results if the current locale is
+       set to one in which the UTF-8 character encoding is not  supported,  or
+       if fonts using the ISO 10646-1 character set are not available.  In the
+       Debian system, the "xfonts-base" package provides the fonts that <b>uxterm</b>
+       uses   by   default.   To  change  the  fonts  <b>uxterm</b>  uses,  edit  the
+       <i>/etc/X11/app-defaults/UXTerm</i> file.
+
+       A similar wrapper, <a href="/xterm/manpage/koi8rxterm.html"><b>koi8rxterm(1)</b></a>, is available for KOI8-R environments.
+
+</pre>
+<h2><a name="h2-ENVIRONMENT" id="h2-ENVIRONMENT">ENVIRONMENT</a></h2>
+<pre>       <b>LC_ALL</b>, <b>LC_CTYPE</b>, <b>LANG</b>
+              The  values  of  these  variables  are  checked,  in  order,  to
+              determine the character set used by the current locale.
+
+</pre>
+<h2><a name="h2-AUTHOR" id="h2-AUTHOR">AUTHOR</a></h2>
+<pre>       Thomas Dickey
+
+</pre>
+<h2><a name="h2-SEE-ALSO" id="h2-SEE-ALSO">SEE ALSO</a></h2>
+<pre>       <b>locale(1),</b> <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap07.html#tag_07"><b>locale(7)</b></a>, <a href="/xterm/manpage/koi8rxterm.html"><b>koi8rxterm(1)</b></a>, <a href="/xterm/manpage/xterm.html"><b>xterm(1)</b></a>
+
+Patch #380                        2023-02-26                         <b>UXTERM(1)</b>
+</pre>
 
               
             </article>
