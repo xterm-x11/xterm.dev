@@ -156,11 +156,15 @@ mv CHANGES other-scripts-changes
 wget https://invisible-island.net/personal/git-exports.html #Xorg libs used by XTerm and apps related to those libs
 # https://invisible-island.net/personal/git-exports.html#others # see what can be linked or forked under Other stuff, and where to incorporate it in the docs website
 #
-wget https://invisible-island.net/ncurses/
-wget https://invisible-island.net/ncurses/announce.html
 wget https://invisible-island.net/ncurses/ncurses.html
+wget https://invisible-island.net/ncurses/INSTALL.html
+wget https://invisible-island.net/ncurses/ncurses-license.html
+wget https://invisible-island.net/ncurses/announce.html
 wget https://invisible-island.net/ncurses/man/ # ADD ALL LINKS FROM THIS PAGE AS NEW PAGES!
 wget https://invisible-island.net/ncurses/ncurses.faq.html
+wget https://invisible-island.net/ncurses/NEWS.html
+wget https://invisible-island.net/ncurses/NEWS.gz
+# more ncurses-related content targets to add for download here from https://invisible-island.net/ncurses/ncurses.html
 #
 wget https://invisible-island.net/xterm/xtoolkit/xtoolkit.html #X Toolkit links
 # wget https://github.com/freedesktop/xorg-libXt/commit/85eb751e4e1683af6cee3ee9dce29f74911a639d
