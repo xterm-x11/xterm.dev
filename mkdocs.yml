@@ -1,6 +1,6 @@
 # favicon.ico is converted by using GIMP from https://github.com/xterm-x11/xterm-snapshots/blob/master/icons/xterm-color.png (the .svg file is a bit corrupted)
 site_name: XTerm
-site_url: https://xterm.org
+site_url: https://xterm.dev
 # &copy; as ©
 copyright: >
   Copyright © 1997-2024 by Thomas E. Dickey et al.
@@ -111,6 +111,6 @@ theme:
         - manage
         - reject
 
-repo_url: https://github.com/xterm-x11/docs
+repo_url: https://github.com/xterm-x11/xterm.dev
 plugins:
   - search
