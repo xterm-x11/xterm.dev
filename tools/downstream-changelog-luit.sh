@@ -29,16 +29,16 @@ cat ../stage/changelog-luit-nav.html ../stage/changelog-luit-content.html > ../s
 # delete both file excerpts
 rm ../stage/changelog-luit-nav.html ../stage/changelog-luit-content.html
 
-cp ../site/changelog-luit/index.html ../site/changelog-luit/index-part-1.html
-cp ../site/changelog-luit/index.html ../site/changelog-luit/index-part-2.html
+cp ../docs/changelog-luit/index.html ../docs/changelog-luit/index-part-1.html
+cp ../docs/changelog-luit/index.html ../docs/changelog-luit/index-part-2.html
 
 # get the line number for this HTML element, pipe it as a variable with read, and delete the last lines of the file including the line of this HTML element
-sed -n '/downstreamed content/=' ../site/changelog-luit/index-part-1.html | (read ; sed -i "$REPLY,$ d" ../site/changelog-luit/index-part-1.html)
+sed -n '/downstreamed content/=' ../docs/changelog-luit/index-part-1.html | (read ; sed -i "$REPLY,$ d" ../docs/changelog-luit/index-part-1.html)
 
 # get the line number for this HTML element, pipe it as a variable with read, and delete the first lines of the file including the line of this HTML element
-sed -n '/end of downstreamed content/=' ../site/changelog-luit/index-part-2.html | (read ; sed -i "1,$REPLY d" ../site/changelog-luit/index-part-2.html)
+sed -n '/end of downstreamed content/=' ../docs/changelog-luit/index-part-2.html | (read ; sed -i "1,$REPLY d" ../docs/changelog-luit/index-part-2.html)
 
-cat ../site/changelog-luit/index-part-1.html ../stage/downstreamed-complete-changelog-luit-page.html ../site/changelog-luit/index-part-2.html > ../site/changelog-luit/index.html
+cat ../docs/changelog-luit/index-part-1.html ../stage/downstreamed-complete-changelog-luit-page.html ../docs/changelog-luit/index-part-2.html > ../docs/changelog-luit/index.html
 
 rm ../stage/downstreamed-complete-changelog-luit-page.html
-rm ../site/changelog-luit/index-part-1.html ../site/changelog-luit/index-part-2.html
+rm ../docs/changelog-luit/index-part-1.html ../docs/changelog-luit/index-part-2.html

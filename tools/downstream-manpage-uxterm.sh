@@ -36,16 +36,16 @@ sed -n '/<\/div>/=' ../stage/manpage-uxterm-nav.html | (read ; sed -i "$REPLY,$ 
 
 comment
 
-cp ../site/manpage-uxterm/index.html ../site/manpage-uxterm/index-part-1.html
-cp ../site/manpage-uxterm/index.html ../site/manpage-uxterm/index-part-2.html
+cp ../docs/manpage-uxterm/index.html ../docs/manpage-uxterm/index-part-1.html
+cp ../docs/manpage-uxterm/index.html ../docs/manpage-uxterm/index-part-2.html
 
 # get the line number for this HTML element, pipe it as a variable with read, and delete the last lines of the file including the line of this HTML element
-sed -n '/downstreamed content/=' ../site/manpage-uxterm/index-part-1.html | (read ; sed -i "$REPLY,$ d" ../site/manpage-uxterm/index-part-1.html)
+sed -n '/downstreamed content/=' ../docs/manpage-uxterm/index-part-1.html | (read ; sed -i "$REPLY,$ d" ../docs/manpage-uxterm/index-part-1.html)
 
 # get the line number for this HTML element, pipe it as a variable with read, and delete the first lines of the file including the line of this HTML element
-sed -n '/end of downstreamed content/=' ../site/manpage-uxterm/index-part-2.html | (read ; sed -i "1,$REPLY d" ../site/manpage-uxterm/index-part-2.html)
+sed -n '/end of downstreamed content/=' ../docs/manpage-uxterm/index-part-2.html | (read ; sed -i "1,$REPLY d" ../docs/manpage-uxterm/index-part-2.html)
 
-cat ../site/manpage-uxterm/index-part-1.html ../stage/manpage-uxterm-text.html ../site/manpage-uxterm/index-part-2.html > ../site/manpage-uxterm/index.html
+cat ../docs/manpage-uxterm/index-part-1.html ../stage/manpage-uxterm-text.html ../docs/manpage-uxterm/index-part-2.html > ../docs/manpage-uxterm/index.html
 
 rm ../stage/manpage-uxterm-text.html
-rm ../site/manpage-uxterm/index-part-1.html ../site/manpage-uxterm/index-part-2.html
+rm ../docs/manpage-uxterm/index-part-1.html ../docs/manpage-uxterm/index-part-2.html

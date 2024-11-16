@@ -1,4 +1,6 @@
 # favicon.ico is converted by using GIMP from https://github.com/xterm-x11/xterm-snapshots/blob/master/icons/xterm-color.png (the .svg file is a bit corrupted)
+docs_dir: mkdocs
+site_dir: docs
 site_name: XTerm
 site_url: https://xterm.dev
 # &copy; as ©

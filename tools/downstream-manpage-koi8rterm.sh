@@ -36,16 +36,16 @@ sed -n '/<\/div>/=' ../stage/manpage-koi8rxterm-nav.html | (read ; sed -i "$REPL
 
 comment
 
-cp ../site/manpage-koi8rxterm/index.html ../site/manpage-koi8rxterm/index-part-1.html
-cp ../site/manpage-koi8rxterm/index.html ../site/manpage-koi8rxterm/index-part-2.html
+cp ../docs/manpage-koi8rxterm/index.html ../docs/manpage-koi8rxterm/index-part-1.html
+cp ../docs/manpage-koi8rxterm/index.html ../docs/manpage-koi8rxterm/index-part-2.html
 
 # get the line number for this HTML element, pipe it as a variable with read, and delete the last lines of the file including the line of this HTML element
-sed -n '/downstreamed content/=' ../site/manpage-koi8rxterm/index-part-1.html | (read ; sed -i "$REPLY,$ d" ../site/manpage-koi8rxterm/index-part-1.html)
+sed -n '/downstreamed content/=' ../docs/manpage-koi8rxterm/index-part-1.html | (read ; sed -i "$REPLY,$ d" ../docs/manpage-koi8rxterm/index-part-1.html)
 
 # get the line number for this HTML element, pipe it as a variable with read, and delete the first lines of the file including the line of this HTML element
-sed -n '/end of downstreamed content/=' ../site/manpage-koi8rxterm/index-part-2.html | (read ; sed -i "1,$REPLY d" ../site/manpage-koi8rxterm/index-part-2.html)
+sed -n '/end of downstreamed content/=' ../docs/manpage-koi8rxterm/index-part-2.html | (read ; sed -i "1,$REPLY d" ../docs/manpage-koi8rxterm/index-part-2.html)
 
-cat ../site/manpage-koi8rxterm/index-part-1.html ../stage/manpage-koi8rxterm-text.html ../site/manpage-koi8rxterm/index-part-2.html > ../site/manpage-koi8rxterm/index.html
+cat ../docs/manpage-koi8rxterm/index-part-1.html ../stage/manpage-koi8rxterm-text.html ../docs/manpage-koi8rxterm/index-part-2.html > ../docs/manpage-koi8rxterm/index.html
 
 rm ../stage/manpage-koi8rxterm-text.html
-rm ../site/manpage-koi8rxterm/index-part-1.html ../site/manpage-koi8rxterm/index-part-2.html
+rm ../docs/manpage-koi8rxterm/index-part-1.html ../docs/manpage-koi8rxterm/index-part-2.html

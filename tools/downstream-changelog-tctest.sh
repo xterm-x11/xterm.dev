@@ -29,16 +29,16 @@ cat ../stage/changelog-tctest-nav.html ../stage/changelog-tctest-content.html > 
 # delete both file excerpts
 rm ../stage/changelog-tctest-nav.html ../stage/changelog-tctest-content.html
 
-cp ../site/changelog-tctest/index.html ../site/changelog-tctest/index-part-1.html
-cp ../site/changelog-tctest/index.html ../site/changelog-tctest/index-part-2.html
+cp ../docs/changelog-tctest/index.html ../docs/changelog-tctest/index-part-1.html
+cp ../docs/changelog-tctest/index.html ../docs/changelog-tctest/index-part-2.html
 
 # get the line number for this HTML element, pipe it as a variable with read, and delete the last lines of the file including the line of this HTML element
-sed -n '/downstreamed content/=' ../site/changelog-tctest/index-part-1.html | (read ; sed -i "$REPLY,$ d" ../site/changelog-tctest/index-part-1.html)
+sed -n '/downstreamed content/=' ../docs/changelog-tctest/index-part-1.html | (read ; sed -i "$REPLY,$ d" ../docs/changelog-tctest/index-part-1.html)
 
 # get the line number for this HTML element, pipe it as a variable with read, and delete the first lines of the file including the line of this HTML element
-sed -n '/end of downstreamed content/=' ../site/changelog-tctest/index-part-2.html | (read ; sed -i "1,$REPLY d" ../site/changelog-tctest/index-part-2.html)
+sed -n '/end of downstreamed content/=' ../docs/changelog-tctest/index-part-2.html | (read ; sed -i "1,$REPLY d" ../docs/changelog-tctest/index-part-2.html)
 
-cat ../site/changelog-tctest/index-part-1.html ../stage/downstreamed-complete-changelog-tctest-page.html ../site/changelog-tctest/index-part-2.html > ../site/changelog-tctest/index.html
+cat ../docs/changelog-tctest/index-part-1.html ../stage/downstreamed-complete-changelog-tctest-page.html ../docs/changelog-tctest/index-part-2.html > ../docs/changelog-tctest/index.html
 
 rm ../stage/downstreamed-complete-changelog-tctest-page.html
-rm ../site/changelog-tctest/index-part-1.html ../site/changelog-tctest/index-part-2.html
+rm ../docs/changelog-tctest/index-part-1.html ../docs/changelog-tctest/index-part-2.html

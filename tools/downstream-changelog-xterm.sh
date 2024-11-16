@@ -29,16 +29,16 @@ cat ../stage/changelog-xterm-nav.html ../stage/changelog-xterm-content.html > ..
 # delete both file excerpts
 rm ../stage/changelog-xterm-nav.html ../stage/changelog-xterm-content.html
 
-cp ../site/changelog-xterm/index.html ../site/changelog-xterm/index-part-1.html
-cp ../site/changelog-xterm/index.html ../site/changelog-xterm/index-part-2.html
+cp ../docs/changelog-xterm/index.html ../docs/changelog-xterm/index-part-1.html
+cp ../docs/changelog-xterm/index.html ../docs/changelog-xterm/index-part-2.html
 
 # get the line number for this HTML element, pipe it as a variable with read, and delete the last lines of the file including the line of this HTML element
-sed -n '/downstreamed content/=' ../site/changelog-xterm/index-part-1.html | (read ; sed -i "$REPLY,$ d" ../site/changelog-xterm/index-part-1.html)
+sed -n '/downstreamed content/=' ../docs/changelog-xterm/index-part-1.html | (read ; sed -i "$REPLY,$ d" ../docs/changelog-xterm/index-part-1.html)
 
 # get the line number for this HTML element, pipe it as a variable with read, and delete the first lines of the file including the line of this HTML element
-sed -n '/end of downstreamed content/=' ../site/changelog-xterm/index-part-2.html | (read ; sed -i "1,$REPLY d" ../site/changelog-xterm/index-part-2.html)
+sed -n '/end of downstreamed content/=' ../docs/changelog-xterm/index-part-2.html | (read ; sed -i "1,$REPLY d" ../docs/changelog-xterm/index-part-2.html)
 
-cat ../site/changelog-xterm/index-part-1.html ../stage/downstreamed-complete-changelog-xterm-page.html ../site/changelog-xterm/index-part-2.html > ../site/changelog-xterm/index.html
+cat ../docs/changelog-xterm/index-part-1.html ../stage/downstreamed-complete-changelog-xterm-page.html ../docs/changelog-xterm/index-part-2.html > ../docs/changelog-xterm/index.html
 
 rm ../stage/downstreamed-complete-changelog-xterm-page.html
-rm ../site/changelog-xterm/index-part-1.html ../site/changelog-xterm/index-part-2.html
+rm ../docs/changelog-xterm/index-part-1.html ../docs/changelog-xterm/index-part-2.html

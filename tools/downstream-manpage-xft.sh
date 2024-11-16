@@ -36,16 +36,16 @@ sed -n '/<\/div>/=' ../stage/manpage-xft-nav.html | (read ; sed -i "$REPLY,$ d" 
 
 comment
 
-cp ../site/manpage-xft/index.html ../site/manpage-xft/index-part-1.html
-cp ../site/manpage-xft/index.html ../site/manpage-xft/index-part-2.html
+cp ../docs/manpage-xft/index.html ../docs/manpage-xft/index-part-1.html
+cp ../docs/manpage-xft/index.html ../docs/manpage-xft/index-part-2.html
 
 # get the line number for this HTML element, pipe it as a variable with read, and delete the last lines of the file including the line of this HTML element
-sed -n '/downstreamed content/=' ../site/manpage-xft/index-part-1.html | (read ; sed -i "$REPLY,$ d" ../site/manpage-xft/index-part-1.html)
+sed -n '/downstreamed content/=' ../docs/manpage-xft/index-part-1.html | (read ; sed -i "$REPLY,$ d" ../docs/manpage-xft/index-part-1.html)
 
 # get the line number for this HTML element, pipe it as a variable with read, and delete the first lines of the file including the line of this HTML element
-sed -n '/end of downstreamed content/=' ../site/manpage-xft/index-part-2.html | (read ; sed -i "1,$REPLY d" ../site/manpage-xft/index-part-2.html)
+sed -n '/end of downstreamed content/=' ../docs/manpage-xft/index-part-2.html | (read ; sed -i "1,$REPLY d" ../docs/manpage-xft/index-part-2.html)
 
-cat ../site/manpage-xft/index-part-1.html ../stage/manpage-xft-text.html ../site/manpage-xft/index-part-2.html > ../site/manpage-xft/index.html
+cat ../docs/manpage-xft/index-part-1.html ../stage/manpage-xft-text.html ../docs/manpage-xft/index-part-2.html > ../docs/manpage-xft/index.html
 
 rm ../stage/manpage-xft-text.html
-rm ../site/manpage-xft/index-part-1.html ../site/manpage-xft/index-part-2.html
+rm ../docs/manpage-xft/index-part-1.html ../docs/manpage-xft/index-part-2.html
