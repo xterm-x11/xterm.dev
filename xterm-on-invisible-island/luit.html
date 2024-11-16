@@ -1,0 +1,960 @@
+<!--
+  $Id: luit.html,v 1.76 2022/04/10 23:50:08 tom Exp $
+  -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0">
+  <title>luit &ndash; Locale and ISO 2022 support for Unicode
+  terminals</title>
+  <link rel="author" href="mailto:dickey@invisible-island.net">
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii">
+  <meta name="keywords" content=
+  "luit, ISO-2022, Unicode, UTF-8, fontenc, iconv">
+  <meta name="description" content=
+  "Thomas Dickey maintains and develops luit, a character-set converter originally written by Juliusz Chroboczek for XFree86. This page gives some background and pointers to luit resources.">
+  <link rel="SHORTCUT ICON" href="/xterm/images/mini.xterm_48.ico"
+  type="image/x-icon">
+  <link rel="stylesheet" href="/css/simplestyle.css" type=
+  "text/css">
+  <link rel="stylesheet" href="/css/xterm-icons.css" type=
+  "text/css">
+  <style type="text/css">
+  @import "/css/simplenavXX.css" all;
+  </style>
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1">
+</head>
+<body>
+  <hr>
+
+  <p><a href="/">http://invisible-island.net/</a><br>
+  Copyright &copy; 2006&ndash;2018,2022 by Thomas E. Dickey</p>
+
+  <hr>
+
+  <div class="nav">
+    <ul>
+      <li class="nav-top"><a href="/luit/luit.html">(top)</a></li>
+
+      <li><a href="#synopsis">Synopsis</a></li>
+
+      <li><a href="#history">History</a></li>
+
+      <li><a href="#metrics">Metrics</a></li>
+
+      <li><a href="#platforms">Platforms</a></li>
+
+      <li><a href="#bugs">Bugs</a></li>
+
+      <li><a href="#changes">Changes</a></li>
+
+      <li><a href="#documentation">Documentation</a></li>
+
+      <li><a href="#download">Download</a></li>
+
+      <li><a href="#screenshot">Screenshots</a></li>
+
+      <li>
+        <a href="#related">Related links</a>
+        <ul>
+          <li><a href="#related_discussion">Mailing list
+          discussion</a></li>
+
+          <li><a href="#related_packages">Packages for Luit</a></li>
+
+          <li><a href="#related_sources">Other Luit sources</a></li>
+
+          <li><a href="#related_comments">Discussion of Luit
+          usage</a></li>
+
+          <li><a href="#related_programs">Other programs</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h1 class="no-header">luit &ndash; Locale and ISO 2022 support
+  for Unicode terminals</h1>
+
+  <h2 id="synopsis-toc"><a name="synopsis" id=
+  "synopsis">Synopsis</a></h2>
+
+  <p><strong>Luit</strong> is a filter that can be run between an
+  arbitrary application and a UTF-8 terminal emulator. It will
+  convert application output from the locale's encoding into UTF-8,
+  and convert terminal input from UTF-8 into the locale's encoding.
+  It is mainly used to support <a href=
+  "/xterm/xterm.html">xterm</a>.</p>
+
+  <h2 id="history-toc"><a name="history" id="history">History</a></h2>
+
+  <p><strong>Luit</strong> was written by Juliusz Chroboczek for
+  the <a href="http://www.xfree86.org/current/luit.1.html">XFree86
+  Project</a> in 2001-2002. There were improvements and fixes by
+  several people, in particular Tomohiro Kubota's extensions for
+  CJK encodings.</p>
+
+  <p>Like <a href="/xterm/xterm.faq.html">xterm</a>,
+  <strong>luit</strong> uses the MIT-X11 license. There was some
+  early speculation (in 2001) about using GPL which can be seen in
+  mailing list archive (<a href=
+  "http://comments.gmane.org/gmane.comp.internationalization.linux/2814">this</a>
+  and <a href=
+  "https://www.mail-archive.com/linux-utf8@nl.linux.org/msg01493.html">
+  this</a> for example). However, because GPL-licensed code is/was
+  unacceptable in that realm, that speculation came to <a href=
+  "http://osdir.com/ml/internationalization.linux/2001-07/msg00045.html">
+  nothing</a>.</p>
+
+  <p>There was no maintainer for some time; I adopted it in
+  <a href="http://comments.gmane.org/gmane.linux.lfs.beyond.devel/14643">
+  2006</a> to ensure that it continued to support xterm (details
+  are listed in the <a href="/luit/luit.log.html">luit.log.html</a>
+  file within the source).</p>
+
+  <p>Besides the maintenance issue that attracted my attention in
+  2005 (untested changes to compiled-in file locations by Xorg
+  hackers), <strong>Luit</strong> has had from the outset a
+  technical issue: its associated font-encoding library.</p>
+
+  <p>Juliusz Chroboczek used the font-encoding library to work
+  around performance issues with direct use of <em>iconv</em>. This
+  solution has proven to be a drawback:</p>
+
+  <ul>
+    <li>the font-encoding library is little used (other than by
+    <strong>luit</strong>), and also lacks a maintainer.</li>
+
+    <li>the font-encoding library does not provide the full range
+    of encodings that <em>iconv</em> does.</li>
+
+    <li>the Xorg configure scripting and other dependencies
+    surrounding the library have been subject to uncontrolled
+    growth.</li>
+  </ul>
+
+  <p>I solved the problem by implementing an efficient conversion
+  using <em>iconv</em>. <strong>Luit</strong> still supports the
+  font-encoding library if it is found by the configure script. If
+  you choose, <strong>luit</strong> can easily be built using
+  <em>iconv</em>.</p>
+
+  <p>However, as of <strong>luit</strong> 2.0, the font-encoding
+  library has been deprecated:</p>
+
+  <ul>
+    <li>
+      <strong>Luit</strong> includes all of the relevant
+      functionality for using the ".enc" files which are
+      distributed separately. You may have these files as a
+      separate package, e.g., "xfonts-encodings", or as part of
+      "xfonts-x11-fonts-misc", "x11-font-encodings" or even
+      "encodings". If you have trouble finding the package, look
+      for a specific file such as <code>adobe-standard.enc</code>.
+      The encoding files are rarely packaged with
+      <strong>luit</strong>, and oddly enough are never made a
+      package dependency. The only other use that I am aware of for
+      the files is for the defunct <strong>xprint</strong> program.
+      <p>To see which ".enc" files <strong>luit</strong> may use,
+      run</p>
+
+      <blockquote>
+        <pre>
+luit -list-fontenc
+</pre>
+      </blockquote>
+
+      <p><a href="/luit/manpage/list-fontenc.txt">Here</a> is
+      sample output. The old version of <strong>luit</strong> can
+      use only about a third of these encodings, i.e.,</p>
+
+      <blockquote>
+        <p>big5.eten-0, big5hkscs-0, dec-special, gb18030.2000-0,
+        gb18030.2000-1, gb2312.1980-0, gbk-0, ibm-cp437, ibm-cp850,
+        ibm-cp852, ibm-cp866, iso8859-11, iso8859-13, iso8859-16,
+        jisx0201.1976-0, jisx0208.1990-0, jisx0212.1990-0,
+        ksc5601.1987-0, microsoft-cp1250, microsoft-cp1251,
+        microsoft-cp1252, tcvn-0</p>
+      </blockquote>
+
+      <p>With <strong>luit</strong> 2.0, the <code>-encoding</code>
+      option permits you to use the remaining files (as well as any
+      you may have customized):</p>
+
+      <blockquote>
+        <p>adobe-dingbats, adobe-standard, adobe-symbol, armscii-8,
+        ascii-0, big5-0, big5.cp950-0, cns11643-1, cns11643-2,
+        cns11643-3, gb18030-0, iso8859-6.16, iso8859-6.8x,
+        jisx0208.1983-0, ksc5601.1992-3, ksx1001.1997-0,
+        ksx1001.1998-0, ksx1001.1998-3, ksxjohab-1, microsoft-ansi,
+        microsoft-cp1253, microsoft-cp1254, microsoft-cp1255,
+        microsoft-cp1256, microsoft-cp1257, microsoft-cp1258,
+        microsoft-win3.1, mulearabic-0, mulearabic-1, mulearabic-2,
+        mulelao-1, sun.unicode.india-0, suneu-greek, tis620-0,
+        tis620-2, tis620.2529-1, tis620.2533-0, tis620.2533-1,
+        viscii1.1-1</p>
+      </blockquote>
+    </li>
+
+    <li>Some of the ".enc" files are unused by the old
+    <strong>luit</strong> because the font-encoding library has
+    built-in tables of the ISO-8859-x encodings and a few others.
+    With <strong>luit</strong> 2.0, you can make a list of the
+    built-in tables as well as change <strong>luit</strong>'s
+    preference when looking in the font-encoding files, built-in
+    tables and iconv tables.</li>
+
+    <li>
+      <strong>Luit</strong> 2.0 can use the data from iconv
+      directly without relying upon external ".enc" files. The
+      ".enc" files (and built-in tables) are preferred for
+      performance reasons. Existing users of <strong>luit</strong>
+      would complain about the loss of 1- or 2-tenths of a second
+      for startup with CJK encodings. Really.
+      <p>Normally <strong>luit</strong> uses your locale settings
+      to determine the corresponding character encoding. Use
+      <code>--list-iconv</code> to see the available choices,
+      e.g.,</p>
+
+      <blockquote>
+        <pre>
+luit -list-iconv
+</pre>
+      </blockquote>
+
+      <p><a href="/luit/manpage/list-iconv.txt">Here</a> is sample
+      output on a suitably configured system. Your system may have
+      fewer (locale support generally has been made more difficult
+      to configure in systems geared toward novice developers such
+      as Ubuntu). But the portable iconv implementation does
+      support a wide range of encodings, and you may find
+      additional encodings using</p>
+
+      <blockquote>
+        <pre>
+iconv -l
+</pre>
+      </blockquote>
+
+      <p>On the Debian system where I am writing this, that gives a
+      list of 1168 encodings.</p>
+    </li>
+  </ul>
+
+  <h2 id="metrics-toc"><a name="metrics" id="metrics">Metrics</a></h2>
+
+  <p>Here is a summary of the code growth, starting from XFree86
+  and contrasting against changes made in the Xorg fork. To provide
+  a better comparison, I first discarded generated or
+  externally-maintained files:</p>
+
+  <blockquote>
+    <p>.gitignore, Makefile.in (when autogenerated), ChangeLog
+    (when autogenerated), aclocal.m4 (when autogenerated),
+    config.h.in (when autogenerated), autogen.sh, compile,
+    config.guess, config.sub, configure, depcomp, install-sh,
+    missing, mkdirs.sh, mkinstalldirs, builtin.c (generated), *.enc
+    (generated)</p>
+  </blockquote>
+
+  <p>In short, discard the files which are not maintained by the
+  respective developers of each branch. The autogenerated files
+  were initially included, and later dropped without any effort
+  expended.</p>
+
+  <table border="1" summary="Luit code-growth">
+    <caption>
+      Luit code-growth
+    </caption>
+
+    <tr>
+      <th rowspan="2">Date</th>
+      <th rowspan="2">Branch</th>
+      <th rowspan="2">Release</th>
+      <th rowspan="2">Total<br>
+      Files</th>
+      <th rowspan="2">Total<br>
+      Lines</th>
+      <th colspan="3">Diffstat</th>
+      <th rowspan="2">Diff against</th>
+    </tr>
+
+    <tr>
+      <th>Files<br>
+      Changed</th>
+      <th>Lines<br>
+      Added</th>
+      <th>Lines<br>
+      Deleted</th>
+    </tr>
+
+    <tr>
+      <td>2002-12-08</td>
+      <td>XFree86</td>
+      <td>snapshot</td>
+      <td>15</td>
+      <td>3490</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+
+    <tr>
+      <td>2004-10-27</td>
+      <td>XFree86</td>
+      <td>snapshot</td>
+      <td>15</td>
+      <td>3780</td>
+      <td>8</td>
+      <td>403</td>
+      <td>113</td>
+      <td>2002-12-08</td>
+    </tr>
+
+    <tr>
+      <td>2005-12-21</td>
+      <td>Xorg</td>
+      <td>1.0.1</td>
+      <td>21</td>
+      <td>3899</td>
+      <td>8</td>
+      <td>218</td>
+      <td>99</td>
+      <td>2004-10-27</td>
+    </tr>
+
+    <tr>
+      <td><a href="/luit/luit.log.html#t20080821">2006-08-21</a>
+      </td>
+      <td>XTerm</td>
+      <td><a href=
+      "http://freecode.com/projects/luit/releases/234457">20060820</a>
+      </td>
+      <td>20</td>
+      <td>6158</td>
+      <td>21</td>
+      <td>4044</td>
+      <td>1666</td>
+      <td>2004-10-27</td>
+    </tr>
+
+    <tr>
+      <td>2006-11-08</td>
+      <td>Xorg</td>
+      <td><a href=
+      "http://www.spinics.net/lists/xorg/msg19270.html">1.0.2</a>
+      </td>
+      <td>21</td>
+      <td>3915</td>
+      <td>4</td>
+      <td>62</td>
+      <td>46</td>
+      <td>1.0.1</td>
+    </tr>
+
+    <tr>
+      <td>2008-01-31</td>
+      <td>Xorg</td>
+      <td><a href=
+      "http://lists.x.org/archives/xorg-announce/2008-January/000446.html">
+      1.0.3</a>
+      </td>
+      <td>21</td>
+      <td>3918</td>
+      <td>9</td>
+      <td>108</td>
+      <td>105</td>
+      <td>1.0.2</td>
+    </tr>
+
+    <tr>
+      <td><a href="/luit/luit.log.html#t20080823">2008-08-23</a>
+      </td>
+      <td>XTerm</td>
+      <td><a href=
+      "http://freecode.com/projects/luit/releases/283564">20080823</a>
+      </td>
+      <td>20</td>
+      <td>6650</td>
+      <td>18</td>
+      <td>971</td>
+      <td>479</td>
+      <td><a href="/luit/luit.log.html#t20080821">2006-08-21</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><a href="/luit/luit.log.html#t20080829">2008-08-29</a>
+      </td>
+      <td>XTerm</td>
+      <td>20080829</td>
+      <td>20</td>
+      <td>6714</td>
+      <td>3</td>
+      <td>108</td>
+      <td>44</td>
+      <td><a href="/luit/luit.log.html#t20080823">2008-08-23</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><a href="/luit/luit.log.html#t20090816">2009-08-16</a>
+      </td>
+      <td>XTerm</td>
+      <td><a href=
+      "http://freecode.com/projects/luit/releases/304017">20090816</a>
+      </td>
+      <td>21</td>
+      <td>7003</td>
+      <td>15</td>
+      <td>436</td>
+      <td>172</td>
+      <td><a href="/luit/luit.log.html#t20080829">2008-08-29</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td>2009-10-01</td>
+      <td>Xorg</td>
+      <td><a href=
+      "http://lists.x.org/archives/xorg-announce/2009-October/001080.html">
+      1.0.4</a>
+      </td>
+      <td>21</td>
+      <td>3951</td>
+      <td>7</td>
+      <td>80</td>
+      <td>47</td>
+      <td>1.0.3</td>
+    </tr>
+
+    <tr>
+      <td><a href="/luit/luit.log.html#t20091014">2009-10-14</a>
+      </td>
+      <td>XTerm</td>
+      <td><a href=
+      "http://freecode.com/projects/luit/releases/306766">1.0-20091014</a>
+      </td>
+      <td>21</td>
+      <td>7080</td>
+      <td>8</td>
+      <td>149</td>
+      <td>47</td>
+      <td><a href="/luit/luit.log.html#t20090816">2009-08-16</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td>2010-02-09</td>
+      <td>Xorg</td>
+      <td><a href=
+      "http://lists.x.org/archives/xorg-announce/2010-February/001254.html">
+      1.0.5</a>
+      </td>
+      <td>18</td>
+      <td>3973</td>
+      <td>3</td>
+      <td>36</td>
+      <td>14</td>
+      <td>1.0.4</td>
+    </tr>
+
+    <tr>
+      <td><a href="/luit/luit.log.html#t20100601">2010-06-01</a>
+      </td>
+      <td>XTerm</td>
+      <td><a href=
+      "http://freecode.com/projects/luit/releases/317555">1.0-20100601</a>
+      </td>
+      <td>32</td>
+      <td>7324</td>
+      <td>31</td>
+      <td>806</td>
+      <td>562</td>
+      <td><a href="/luit/luit.log.html#t20091014">2009-10-14</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><a href="/luit/luit.log.html#t20100605">2010-06-05</a>
+      </td>
+      <td>XTerm</td>
+      <td><a href=
+      "http://freecode.com/projects/luit/releases/317768">1.0-20100605</a>
+      </td>
+      <td>32</td>
+      <td>7515</td>
+      <td>8</td>
+      <td>206</td>
+      <td>15</td>
+      <td><a href="/luit/luit.log.html#t20100601">2010-06-01</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td>2010-10-06</td>
+      <td>Xorg</td>
+      <td><a href=
+      "http://lists.x.org/archives/xorg-announce/2010-October/001428.html">
+      1.1.0</a>
+      </td>
+      <td>20</td>
+      <td>4653</td>
+      <td>17</td>
+      <td>2702</td>
+      <td>2022</td>
+      <td>1.0.5</td>
+    </tr>
+
+    <tr>
+      <td><a href="/luit/luit.log.html#t20101128">2010-11-28</a>
+      </td>
+      <td>XTerm</td>
+      <td><a href=
+      "http://freecode.com/projects/luit/releases/325122">1.0-20101128</a>
+      </td>
+      <td>37</td>
+      <td>8820</td>
+      <td>25</td>
+      <td>1651</td>
+      <td>346</td>
+      <td><a href="/luit/luit.log.html#t20100605">2010-06-05</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><a href="/luit/luit.log.html#t20111030">2011-10-30</a>
+      </td>
+      <td>XTerm</td>
+      <td>1.2-20111030</td>
+      <td>37</td>
+      <td>9253</td>
+      <td>16</td>
+      <td>620</td>
+      <td>187</td>
+      <td><a href="/luit/luit.log.html#t20101128">2010-11-28</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><a href="/luit/luit.log.html#t20120129">2012-01-29</a>
+      </td>
+      <td>XTerm</td>
+      <td><a href=
+      "http://freecode.com/projects/luit/releases/337929">1.2-20120129</a>
+      </td>
+      <td>37</td>
+      <td>9688</td>
+      <td>11</td>
+      <td>549</td>
+      <td>114</td>
+      <td><a href="/luit/luit.log.html#t20111030">2011-10-30</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td>2012-03-23</td>
+      <td>Xorg</td>
+      <td><a href=
+      "http://lists.x.org/archives/xorg-announce/2012-March/001894.html">
+      1.1.1</a>
+      </td>
+      <td>20</td>
+      <td>4655</td>
+      <td>8</td>
+      <td>39</td>
+      <td>37</td>
+      <td>1.1.0</td>
+    </tr>
+
+    <tr>
+      <td><a href="/luit/luit.log.html#t20121014">2012-10-14</a>
+      </td>
+      <td>XTerm</td>
+      <td><a href=
+      "http://freecode.com/projects/luit/releases/348937">1.2-20121014</a>
+      </td>
+      <td>37</td>
+      <td>9727</td>
+      <td>15</td>
+      <td>873</td>
+      <td>834</td>
+      <td><a href="/luit/luit.log.html#t20120129">2012-01-29</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><a href="/luit/luit.log.html#t20130217">2013-02-17</a>
+      </td>
+      <td>XTerm</td>
+      <td><a href=
+      "http://freecode.com/projects/luit/releases/352338">2.0-20130217</a>
+      </td>
+      <td>39</td>
+      <td>12586</td>
+      <td>21</td>
+      <td>3505</td>
+      <td>646</td>
+      <td><a href="/luit/luit.log.html#t20121014">2012-10-14</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><a href="/luit/luit.log.html#t20141204">2014-12-04</a>
+      </td>
+      <td>XTerm</td>
+      <td>2.0-20141204</td>
+      <td>39</td>
+      <td>12702</td>
+      <td>10</td>
+      <td>196</td>
+      <td>80</td>
+      <td><a href="/luit/luit.log.html#t20130217">2013-02-17</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><a href="/luit/luit.log.html#t20150706">2015-07-06</a>
+      </td>
+      <td>XTerm</td>
+      <td>2.0-20150706</td>
+      <td>39</td>
+      <td>12893</td>
+      <td>9</td>
+      <td>521</td>
+      <td>330</td>
+      <td><a href="/luit/luit.log.html#t20141204">2014-12-04</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><a href="/luit/luit.log.html#t20160508">2016-05-08</a>
+      </td>
+      <td>XTerm</td>
+      <td>2.0-20160508</td>
+      <td>39</td>
+      <td>12980</td>
+      <td>10</td>
+      <td>144</td>
+      <td>57</td>
+      <td><a href="/luit/luit.log.html#t20150706">2015-07-06</a>
+      </td>
+    </tr>
+  </table>
+
+  <p>You may notice several things from the data:</p>
+
+  <ul>
+    <li>I was not able to find an announcement for luit 1.0.1
+    release.</li>
+
+    <li>It appears (to me, at any rate) that my Freshmeat
+    announcement in August 2006 was the first luit announcement
+    outside of XFree86 development.</li>
+
+    <li>My distribution is larger:
+      <ul>
+        <li>I write my own autoconf macros, and distribute those
+        with the source.</li>
+
+        <li>I have included packaging scripts for the past couple
+        of years.</li>
+      </ul>
+    </li>
+
+    <li>I have done most of the development work on luit since
+    2004.</li>
+
+    <li>The large change in luit 1.1.0 is due to Xorg copying my
+    work into their repository.</li>
+
+    <li>That Xorg commit used 1.0-20100601. Even though it was made
+    nearly a month later, it omits the bug-fix which I made shortly
+    after.</li>
+  </ul>
+
+  <h2 id="platforms-toc"><a name="platforms" id=
+  "platforms">Platforms</a></h2>
+
+  <p><strong>Luit</strong> is known to work with</p>
+
+  <ul>
+    <li>SVR4-based Unix systems: IRIX64, HPUX, Solaris</li>
+
+    <li>Other Unix systems: AIX, Tru64</li>
+
+    <li>BSD-based systems: FreeBSD, NetBSD, OpenBSD, Mac OS X</li>
+
+    <li>Linux</li>
+  </ul>
+
+  <p>Aside from Solaris, <strong>luit</strong> had not been ported
+  to other Unix systems before 2012.</p>
+
+  <p>For some older versions (noticed with HPUX and FreeBSD) you
+  may need to use the <code>-p</code> command-line option to work
+  around a problem copying the terminal settings from the standard
+  input to the pseudo-terminal.</p>
+
+  <h2 id="bugs-toc"><a name="bugs" id="bugs">Bugs</a></h2>
+
+  <p>You should report bugs to <a href=
+  "mailto:dickey@invisible-island.net">me</a>.</p>
+
+  <hr>
+
+  <h2 id="changes-h2"><a name="changes" id="changes">Changes</a></h2>
+
+  <p>See the changelog for details:</p>
+
+  <blockquote>
+    <p><a href="/luit/luit.log.html">changes with links...</a></p>
+  </blockquote>
+
+  <h2 id="documentation-toc"><a name="documentation" id=
+  "documentation">Documentation</a></h2>
+
+  <ul>
+    <li><a href="/luit/manpage/luit.html">luit program</a>
+    (<a href="/luit/manpage/luit.pdf">pdf</a>) (<a href=
+    "/luit/manpage/luit.ps">postscript</a>) (<a href=
+    "/luit/manpage/luit.txt">plain text</a>)</li>
+  </ul>
+
+  <hr>
+
+  <h2 id="download-toc"><a name="download" id=
+  "download">Download</a></h2>
+
+  <ul>
+    <li><a href="/datafiles/release/luit.tar.gz">The source</a></li>
+
+    <li><a href="/archives/luit/">archives</a></li>
+  </ul>
+
+  <h2><a id="screenshot" name="screenshot">Screenshots</a></h2>
+
+  <p><a href="/luit/luit-figures.html">Here</a> are some
+  screenshots of <strong>luit</strong>.</p>
+
+  <h2 id="related-toc"><a name="related" id="related">Related
+  links</a></h2>
+
+  <p>There are numerous references on the net to
+  <strong>luit</strong>. Here are a few of the more interesting
+  ones:</p>
+
+  <h3 id="related_discussion-toc"><a name="related_discussion" id=
+  "related_discussion">Mailing list discussions</a></h3>
+
+  <ul>
+    <li><a href=
+    "http://marc.info/?t=100515510000008&amp;r=1&amp;w=3">[I18n]
+    Call for testers: luit in XFree86 CVS</a><br>
+    2001-11-07 thread started by Juliusz Chroboczek</li>
+
+    <li><a href=
+    "http://www.mail-archive.com/i18n@xfree86.org/msg00531.html">[I18n][patch]
+    xterm to invoke luit</a><br>
+    2002-01-30 thread discussing Tomohiro Kubota proposal to
+    integrate xterm and luit.</li>
+
+    <li><a href=
+    "http://marc.info/?t=102337972200001&amp;r=1&amp;w=4">[I18n][call
+    for comments] XTerm patch to invoke luit</a><br>
+    2002-06-06 thread discussing Tomohiro Kubota patch to integrate
+    xterm and luit.</li>
+
+    <li><a href=
+    "http://marc.info/?t=102496973500003&amp;r=1&amp;w=2">[I18n]Test
+    implementation of luit extension</a><br>
+    2002-06-25 thread discussing Tomohiro Kubota proposal to extend
+    luit to handle CJK encodings.</li>
+
+    <li>
+      <a href=
+      "http://lists.x.org/archives/xorg-devel/2010-June/009697.html">
+      [PATCH luit] Integrate changes from Thomas Dickey's
+      luit-20100601 fork</a>.<br>
+      Relevant discussion:
+      <ul>
+        <li><a href=
+        "http://lists.x.org/archives/xorg/2009-April/thread.html#44897">
+        luit forked?</a> (April 2009 thread)<br>
+        Coopersmith's comments were made in the context of a
+        different thread; the only purpose served was to widen the
+        dispute:</li>
+
+        <li><a href=
+        "http://lists.x.org/archives/xorg/2009-April/thread.html#44661">
+        Documentation?</a> (April 2009 thread)</li>
+
+        <li><a href=
+        "http://lists.x.org/archives/xorg/2010-June/thread.html#50128">
+        ANN luit 20100601</a> (June 2010)</li>
+
+        <li><a href=
+        "http://lists.x.org/archives/xorg/2010-June/050202.html">ANN
+        luit 20100605</a> (June 2010)</li>
+
+        <li><a href=
+        "http://lists.x.org/archives/xorg/2010-October/051226.html">
+        [ANNOUNCE] luit 1.1.0</a> (October 2010)</li>
+
+        <li><a href=
+        "http://lists.x.org/archives/xorg/2010-November/thread.html#51792">
+        ANN: luit 20101128</a> (November 2010)</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3 id="related_packages-toc"><a name="related_packages" id=
+  "related_packages">Packages for Luit</a></h3>
+
+  <ul>
+    <li><a href=
+    "https://web.archive.org/web/20140717075110/http://oswatershed.org/pkg/luit">
+    OS<em>Watershed</em>.org</a> (archived in 2014)</li>
+
+    <li><a href=
+    "http://cdn.netbsd.org/pub/pkgsrc/current/pkgsrc/x11/luit/README.html">
+    NetBSD</a> and <a href=
+    "https://software.opensuse.org/package/luit">OpenSUSE</a> have
+    packages of luit 2.x, for example.</li>
+
+    <li>The older (Xorg) versions are typically bundled with the
+    "xorg-x11-apps" (RPM) or <a href=
+    "http://packages.debian.org/search?keywords=x11-utils">"x11-utils"</a>
+    (DPKG) packages.</li>
+
+    <li><strong>Luit</strong> is actually not an X application,
+    although it is most useful with xterm.<br>
+    Some packagers needlessly link it against the X libraries.<br>
+    <strong>Luit</strong> depends on the "font-encoding" library,
+    which has no X dependencies.</li>
+
+    <li>Some packages are incomplete, probably due to its inclusion
+    in a miscellany of small X applications.<br>
+      For example, Red Hat RPMs omit the data files needed to
+      support CJK encodings.<br>
+      In Debian, that is the <a href=
+      "http://packages.debian.org/search?keywords=xfonts-encodings">
+      xfonts-encodings</a> package. See these for the missing
+      parts:
+      <ul>
+        <li><a href=
+        "http://cgit.freedesktop.org/xorg/font/encodings">git
+        repository</a></li>
+
+        <li><a href=
+        "http://xorg.freedesktop.org/releases/individual/font/">encodings</a>
+        tar-files.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3 id="related_sources-toc"><a name="related_sources" id=
+  "related_sources">Other Luit sources</a></h3>
+
+  <ul>
+    <li><a href=
+    "http://www.pps.univ-paris-diderot.fr/~jch/software/luit">Juliusz
+    Chroboczek's page discussing luit</a></li>
+
+    <li><a href=
+    "http://www8.plala.or.jp/tkubota1/xterm.html">Tomohiro Kubota
+    page discussing luit and xterm</a></li>
+
+    <li><a href=
+    "http://cvsweb.xfree86.org/cvsweb/xc/programs/luit">XFree86
+    CVS</a> (shows development work until 2006)</li>
+
+    <li><a href="http://cgit.freedesktop.org/xorg/app/luit/">Xorg
+    git-repository</a> (incorporates my changes through
+    2010-06-01)</li>
+
+    <li><a href="https://gitlab.freedesktop.org/xorg/app/luit">Xorg
+    latest git repository</a> is marked as an inactive project,
+    recommending this site.</li>
+  </ul>
+
+  <h3 id="related_comments-toc"><a name="related_comments" id=
+  "related_comments">Discussion of Luit usage</a></h3>
+
+  <ul>
+    <li><a href=
+    "http://unix.stackexchange.com/questions/25350/working-with-filenames-in-a-different-encoding-over-ssh">
+    terminal - working with filenames in a different encoding over
+    ssh</a></li>
+
+    <li><a href=
+    "http://unix.stackexchange.com/questions/33574/how-to-use-grep-ack-with-files-in-arbitrary-encoding">
+    How to use grep/ack with files in arbitrary encoding?</a></li>
+
+    <li><a href=
+    "http://www.linuxquestions.org/questions/linux-software-2/how-to-switch-charset-in-terminal-925945/">
+    How to switch charset in terminal?</a></li>
+  </ul>
+
+  <h3 id="related_programs-toc"><a name="related_programs" id=
+  "related_programs">Other programs</a></h3>
+
+  <ul>
+    <li>
+      <a href="http://vmi.jp/software/cygwin/cocot.html">cocot
+      &ndash; COde COnverter on Tty</a>
+      <p>Less portable and well-integrated, but essentially the
+      same concept.</p>
+
+      <ul>
+        <li><a href=
+        "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=638838">#638838
+        - ITP: cocot -- Wraps and converts charset encoding of
+        program input/output.</a></li>
+
+        <li>
+          <a href=
+          "http://lists.debian.org/debian-l10n-english/2010/04/msg00032.html">
+          Re: package description : cocot</a>
+          <p>Jonathan Nieder comments on the similarity of luit and
+          cocot, suggesting that luit's description would be a good
+          starting point for the latter.</p>
+        </li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="http://mosh.mit.edu">Mosh: the mobile shell</a>
+      <p><strong>Mosh</strong> is more closely related to
+      <strong>luit</strong> and <strong>cocot</strong> than to
+      quasi-terminal emulators such as <strong>screen</strong> and
+      <strong>tmux</strong>. It aims to enforce a particular style
+      of UTF-8 encoding.</p>
+
+      <p>For instance, Keith Winstein <a href=
+      "https://github.com/keithw/mosh/issues/115">comments</a> that
+      <strong>mosh</strong> does not support ISO-2022 <em>locking
+      shifts</em> whereas <strong>screen</strong> and
+      <strong>luit</strong> do this.</p>
+    </li>
+
+    <li>
+      <a href="http://pypi.python.org/pypi/jacot/0.2.3">jacot 0.2.3
+      : Python Package Index</a>
+      <p>This references both <strong>luit</strong> and
+      <strong>cocot</strong>.</p>
+    </li>
+
+    <li><a href=
+    "http://unix.stackexchange.com/questions/35662/tail-f-iconv-fjis-does-not-output-anything">
+    &ldquo;tail -f | iconv -fjis&rdquo; does not output
+    anything</a><br>
+    discussion which proposes <strong>luit</strong> as solution,
+    and mentions <strong>ttyconv</strong> (which uses iconv).</li>
+  </ul>
+</body>
+</html>

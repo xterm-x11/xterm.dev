@@ -1,0 +1,845 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0">
+  <title>Change-Log for TCTEST</title>
+  <link rel="author" href="mailto:dickey@invisible-island.net">
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8">
+  <link rel="stylesheet" href="/css/simplestyle.css" type=
+  "text/css">
+  <link rel="SHORTCUT ICON" href="/img/icons/favicon.ico" type=
+  "image/x-icon">
+  <meta name="keywords" content="CHANGES,change-log">
+  <meta name="description" content="Change-Log for TCTEST">
+  <style type="text/css">
+  @import "/css/simplenavXX.css" all;
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <h1 class="no-header">Change-Log for TCTEST</h1>
+  <hr>
+  <a href="/">https://invisible-island.net/</a><a href=
+  "/ncurses/">ncurses/</a><a href=
+  "/ncurses/tctest/">tctest/</a><a href=
+  "/ncurses/tctest/CHANGES.html">CHANGES</a>
+  <hr>
+  <pre>
+<a name="t20240429" href="#index-t20240429" id=
+"t20240429">2024-04-29</a>
+
+        * tctest.1: workaround for groff mis-hyphenating
+
+        * package/tctest.spec: compromise between Mageia and Fedora
+
+        * package/tctest.spec:
+        rpmlint, and remove the "strip" command which now confuses Fedora's rpmbuild
+
+        * tctest.1: style/formatting fixes
+
+        * package/debian/compat, package/debian/copyright, COPYING, VERSION,
+          package/debian/changelog, package/tctest.spec:
+        bump
+
+<a name="t20240107" href="#index-t20240107" id=
+"t20240107">2024-01-07</a>
+
+        * configure: regen
+
+        * aclocal.m4: resync with my-autoconf, for compiler warning fixes
+
+<a name="t20231227" href="#index-t20231227" id=
+"t20231227">2023-12-27</a>
+
+        * config.sub: 2023-12-27
+
+<a name="t20231202" href="#index-t20231202" id=
+"t20231202">2023-12-02</a>
+
+        * config.guess: 2023-12-02
+
+<a name="t20230130" href="#index-t20230130" id=
+"t20230130">2023-01-30</a>
+
+        * makefile.in, testing/run_test.sh: shellcheck-warnings
+
+        * configure: regen
+
+        * configure.in: initialize $ac_includes_default
+
+        * COPYING, VERSION, package/debian/changelog, package/debian/copyright,
+          package/tctest.spec:
+        bump
+
+        * aclocal.m4: resync with my-autoconf
+
+<a name="t20221008" href="#index-t20221008" id=
+"t20221008">2022-10-08</a>
+
+        * tctest.1: check-manpage fixes
+
+        * COPYING, VERSION, package/debian/changelog, package/debian/copyright,
+          package/tctest.spec:
+        bump
+
+        * aclocal.m4: resync with my-autoconf
+
+        * configure: regen
+
+        * configure.in: resync with my-autoconf
+
+<a name="t20220801" href="#index-t20220801" id=
+"t20220801">2022-08-01</a>
+
+        * config.guess, config.sub: 2022-08-01
+
+<a name="t20210328" href="#index-t20210328" id=
+"t20210328">2021-03-28</a>
+
+        * aclocal.m4: corrected initial date for this particular collection
+
+        * tctest.c:
+        added a -vvv check to show the number of parameters needed for a capability
+
+        * package/debian/rules, package/debian/compat, VERSION,
+          package/debian/changelog, package/debian/copyright,
+          package/tctest.spec, COPYING:
+        bump
+
+        * configure: regen
+
+        * aclocal.m4: resync with my-autoconf
+
+        * configure.in: use CF_WITHOUT_X
+
+<a name="t20201130" href="#index-t20201130" id=
+"t20201130">2020-11-30</a>
+
+        * install-sh: update to 2020-11-14
+
+<a name="t20200816" href="#index-t20200816" id=
+"t20200816">2020-08-16</a>
+
+        * config.guess, config.sub: 2020-08-17
+
+<a name="t20180512" href="#index-t20180512" id=
+"t20180512">2018-05-12</a>
+
+        * configure: regen
+
+        * configure.in:
+        if the curses/termcap libraries are preset using CFLAGS/LIBS, do not
+        look for the actual libraries.
+
+        * aclocal.m4: resync with my-autoconf
+
+        * configure: regen
+
+        * COPYING, VERSION, package/debian/changelog, package/debian/copyright,
+          package/tctest.spec:
+        bump
+
+<a name="t20180205" href="#index-t20180205" id=
+"t20180205">2018-02-05</a>
+
+        * config.sub: 2018-01-15
+
+        * config.guess: 2018-01-26
+
+<a name="t20150706" href="#index-t20150706" id=
+"t20150706">2015-07-06</a>
+
+        * package/debian/copyright, COPYING, package/debian/changelog,
+          package/tctest.spec, VERSION:
+        bump
+
+        * configure: regen
+
+        * makefile.in: remove redundant rules
+
+        * aclocal.m4: add new macros
+
+        * configure.in: add --with-man2html
+
+        * makefile.in: add --with-man2html option
+
+        * aclocal.m4: resync with my-autoconf
+        add --with-man2html option
+
+<a name="t20150502" href="#index-t20150502" id=
+"t20150502">2015-05-02</a>
+
+        * config.guess: 2015-03-04
+
+        * config.sub: 2015-03-08
+
+<a name="t20131208" href="#index-t20131208" id=
+"t20131208">2013-12-08</a>
+
+        * configure: regen
+
+        * makefile.in: fix substitution warnings from autoconf
+
+        * aclocal.m4, configure.in: add check for lint-program
+
+        * configure: regen
+
+        * aclocal.m4:
+        resync with my-autoconf, pull in CF_PROG_CC and discard unused macros
+
+        * COPYING, package/debian/copyright, package/debian/changelog,
+          package/tctest.spec, VERSION:
+        bump
+
+        * configure.in: use CF_PROG_CC
+
+<a name="t20131025" href="#index-t20131025" id=
+"t20131025">2013-10-25</a>
+
+        * config.sub: 2013-10-01
+
+<a name="t20130907" href="#index-t20130907" id=
+"t20130907">2013-09-07</a>
+
+        * config.guess: 2013-06-10
+
+<a name="t20111001" href="#index-t20111001" id=
+"t20111001">2011-10-01</a>
+
+        * tctest.c: icc warnings
+
+        * makefile.in: remove a duplicate suffix rule
+
+        * makefile.in: add docs rule
+
+        * testing/entry-size2.gnu, testing/entry-size.gnu, testing/waste-size.gnu:
+        RCS_BASE
+
+        * testing/includes.ref: resync for a case where names cannot be found
+
+        * package/debian/changelog, package/tctest.spec, VERSION: bump
+
+        * tctest.1: document -1 and -g options
+
+        * tctest.c:
+        add "-1" option to get counts from a single call to tgetent() per entry.
+
+        * tctest.c:
+        provide a breakdown of names+aliases into v6-names, primary and aliases
+
+<a name="t20110930" href="#index-t20110930" id=
+"t20110930">2011-09-30</a>
+
+        * testing/bsd44.ref, testing/3bsd.ref: RCS_BASE
+
+        * tctest.c:
+        if -g and -s are set, get counts for number of capabilities with subcategory
+        for obsolete and distinct/obsolete.
+
+        * tctest.c:
+        add a column to by-name.dat which tells whether the capability is standard
+        or obsolete with respect to BSD 4.3
+
+<a name="t20110929" href="#index-t20110929" id=
+"t20110929">2011-09-29</a>
+
+        * tctest.c:
+        add -g option, to write data-files for plotting frequency of entries at
+        a given size, and for plotting frequencies of given capability names.
+
+        * tctest.c:
+        use explicit range rather than isgraph(), to avoid bias with systems such
+        as OpenBSD which use broken locale data.
+
+        * tctest.c: libtic isn't relevant here - only in configure script
+
+<a name="t20110926" href="#index-t20110926" id=
+"t20110926">2011-09-26</a>
+
+        * testing/run_test.sh:
+        use ncurses tic -K option if available, to suppress extensions to escapes.
+
+<a name="t20110924" href="#index-t20110924" id=
+"t20110924">2011-09-24</a>
+
+        * testing/run_test.sh:
+        omit ".db" from TERMCAP and TERMPATH values, needed for *BSD's.
+        use "time -p" for more consistent reporting of timing.
+
+<a name="t20110818" href="#index-t20110818" id=
+"t20110818">2011-08-18</a>
+
+        * VERSION, package/debian/changelog, package/tctest.spec: bump
+
+        * testing/run_test.sh: workaround for Solaris' sh
+
+<a name="t20110815" href="#index-t20110815" id=
+"t20110815">2011-08-15</a>
+
+        * testing/escapes.ref, testing/bsd43.ref, testing/bsd42.ref: regen
+
+        * testing/escapes.tc:
+        add ^'s and \'s for punctuation, to exercise ^? and friends
+
+<a name="t20110813" href="#index-t20110813" id=
+"t20110813">2011-08-13</a>
+
+        * tctest.c:
+        configure script changed so that USE_TERMINFO isn't set for FreeBSD builds
+
+        * testing/run_test.sh: fix in case infocmp is not available
+
+        * testing/run_test.sh:
+        check if infocmp uses a hashed-database.  If so, expect that ncurses is
+        configured to support this.
+
+        * tctest.c: add a null-pointer check in same_list()
+
+<a name="t20110812" href="#index-t20110812" id=
+"t20110812">2011-08-12</a>
+
+        * tctest.c:
+        improve check for "unknown" status return from tgetent, showing "unknown"
+        in the comment for a name/alias.
+
+        * tctest.c:
+        check for NetBSD's "ZZ" entry, to get the resolved size of the entry
+
+        * testing/includes.ref: RCS_BASE
+
+<a name="t20110811" href="#index-t20110811" id=
+"t20110811">2011-08-11</a>
+
+        * tctest.c: add counts for tc's before/after
+
+        * testing/includes.tc: RCS_BASE
+
+        * tctest.c:
+        consolidate the two instances of unsetenv() into one ifdef'd fallback.
+        add ifdef based on configure check for broken tgetent status.
+
+        * configure: regen
+
+        * aclocal.m4: add CF_BROKEN_TGETENT_STATUS
+
+        * configure.in: add check for broken tgetent status
+
+<a name="t20110810" href="#index-t20110810" id=
+"t20110810">2011-08-10</a>
+
+        * tctest.1: add -c, -n and -r options
+
+        * testing/run_test.sh:
+        use -n and -r options to show timing of tgetent calls
+
+        * tctest.c: add -c, -n and -r options
+
+<a name="t20110809" href="#index-t20110809" id=
+"t20110809">2011-08-09</a>
+
+        * package/debian/changelog, package/tctest.spec, VERSION: bump
+
+        * configure: regen
+
+        * aclocal.m4: add check for otermcap (OpenBSD)
+        modify CF_XOPEN_SOURCE for NetBSD to add _NETBSD_SOURCE.
+
+        * configure.in: add check for otermcap (OpenBSD)
+
+        * configure: regen
+
+        * configure.in:
+        add --with-curses option, for NetBSD termcap-emulation in curses library.
+
+        * tctest.c: gcc warnings for 64-bits
+
+        * tctest.c: add largest-size to summary report
+
+        * testing/run_test.sh: reduce the ".err" to a reminder
+
+        * makefile.in: add check-cap and check-tic rules
+
+        * tctest.c: fixes/improvements for the dangling "\" check.
+
+        * testing/freebsd.ref: regen
+
+        * testing/run_test.sh:
+        improve redirection of stderr to separate output from 'time' (stderr on
+        some BSDs) from the program's output.
+
+<a name="t20110808" href="#index-t20110808" id=
+"t20110808">2011-08-08</a>
+
+        * testing/bsd43.ref: regen
+
+        * tctest.c:
+        provide for entries which have continuation markers in odd places
+
+        * tctest.c: gcc-warnings for 64-bits
+
+        * testing/run_test.sh:
+        redirect error messages from the terminal database compilers - want numbers only
+
+        * testing/run_test.sh: improve the cleanup of temporary files
+
+        * testing/run_test.sh:
+        modify to allow "-t" option to tell the script to use tic to first create
+        a database, which can be used with the termcap library
+
+        * testing/run_test.sh:
+        modify to test with hashed-db using NetBSD termcap
+
+<a name="t20110805" href="#index-t20110805" id=
+"t20110805">2011-08-05</a>
+
+        * configure: regen
+
+        * configure.in: add check for unsetenv()
+
+        * tctest.c: suppress curses' use of $CC
+
+        * tctest.c: correct parameter to check_tgoto()
+
+        * testing/run_test.sh: redirect library errors to a file, give counts
+
+        * tctest.1, tctest.c:
+        modify -o option so that reports go to stdout as well
+
+        * package/debian/changelog, package/tctest.spec, VERSION: bump
+
+        * tctest.c:
+        again, wrap tgetstr() to work around various BSD4.2 flavors which are defective.
+        show totals for library-failures and tctest-warnings in summary.
+
+<a name="t20110804" href="#index-t20110804" id=
+"t20110804">2011-08-04</a>
+
+        * tctest.c: fix count for tgetent() calls for terminfo systems.
+
+        * tctest.c: gcc warnings
+
+        * testing/run_test.sh:
+        collect statistics with the summary-option of tctest
+
+        * package/debian/changelog, package/tctest.spec, VERSION: bump
+
+        * tctest.1: document -o and -w options
+
+        * tctest.c: split-out the warning-related stuff as a new option "-w"
+
+        * tctest.c:
+        adapt table from ncurses to provide "params" parameter to _nc_infotocap()
+        which controls whether it tries to convert parameter-functions.  Add a
+        simple check of the result from tgetstr() for unrecognized parameter
+        functions.
+
+<a name="t20110803" href="#index-t20110803" id=
+"t20110803">2011-08-03</a>
+
+        * testing/escapes.ref: regen
+
+        * testing/escapes.tc: typo
+
+        * testing/escapes.tc: add test-case for carets
+
+        * testing/vim-amiga.ref, testing/freebsd.ref, testing/bsd43.ref,
+          testing/bsd42.ref:
+        regen
+
+        * tctest.c:
+        remove two cases which are terminfo-specific, to help test ncurses' conversion
+
+<a name="t20110731" href="#index-t20110731" id=
+"t20110731">2011-07-31</a>
+
+        * tctest.c: implement -s option
+
+        * tctest.1: add -s option
+
+        * tctest.c: fix sign-extension in use of ctype macros
+
+<a name="t20110730" href="#index-t20110730" id=
+"t20110730">2011-07-30</a>
+
+        * package/debian/changelog, package/tctest.spec, VERSION: bump
+
+        * testing/escapes.ref:
+        termcap library has more bugs to research - use this as reference.
+
+        * tctest.c: add another debug-trace
+
+        * testing/escapes.ref, testing/escapes.tc: RCS_BASE
+
+        * testing/freebsd.ref, testing/bsd43.ref, testing/bsd42.ref:
+        regen with fixed BSD4.2 library which checks for dangling backslash at the
+        end of an entry (a syntax error).
+
+        * tctest.c:
+        provide for generating statistics if "-v" option is repeated.
+
+<a name="t20110729" href="#index-t20110729" id=
+"t20110729">2011-07-29</a>
+
+        * testing/freebsd.ref, testing/bsd43.ref, testing/bsd42.ref,
+          testing/vim-amiga.ref:
+        regen
+
+        * tctest.c:
+        modify so that the 2-character short-name used in antique termcaps is
+        processed last, since it is not guaranteed to be unique.  This is done
+        to fix (among others) an obscure problem with the tvi912 entry in bsd42.tc
+
+        * configure: regen
+
+        * tctest.c: instrument for leak-checking with ncurses
+
+        * configure.in: add checks for ncurses no-leaks functions
+
+<a name="t20110728" href="#index-t20110728" id=
+"t20110728">2011-07-28</a>
+
+        * testing/run_test.sh:
+        improve use of environment variables so the test looks only at the test
+        data-file.
+
+<a name="t20110727" href="#index-t20110727" id=
+"t20110727">2011-07-27</a>
+
+        * tctest.c: remove unused debug-code
+
+        * tctest.c: escape backslashes before calling _nc_infotocap()
+
+        * testing/run_test.sh:
+        collect numbers for both standard and complete flavors.
+
+        * tctest.c: add a "-o" option to simplify testing.
+
+        * makefile.in: change run_test.sh, making different temporary files.
+
+        * testing/vim-amiga.ref, testing/freebsd.ref: regen using "-b" option
+
+        * tctest.c: "#" is a legal character in capability names
+
+        * tctest.c: remove duplicate "ma" entry from conventional table.
+
+        * testing/bsd43.ref:
+        regen using "-b" (brute-force) option to pick up non-standard capabilities.
+        this also eliminates a duplicate "ma" capability due to table error.
+
+        * testing/bsd42.ref: regen, eliminating a duplicate "ma" line
+
+        * testing/run_test.sh:
+        prefer "-b" option, since the termcaps may contain nonstandard entries
+
+        * testing/bsd43.ref, testing/bsd42.ref: RCS_BASE
+
+<a name="t20110726" href="#index-t20110726" id=
+"t20110726">2011-07-26</a>
+
+        * tctest.c: remove leftover debug variable
+
+        * tctest.c:
+        ncurses' translation makes "\^" and "\\" into "\136" and "\134",
+        which do not match the common usage in BSD termcaps.  Fix.
+
+        * tctest.c:
+        suppress expansion of escapes if we're getting _nc_infotocap() to help.
+
+<a name="t20110725" href="#index-t20110725" id=
+"t20110725">2011-07-25</a>
+
+        * testing/run_test.sh:
+        set TERMINFO_DIRS to specify that the termcap file should be read first
+        (new feature of ncurses)
+
+<a name="t20110724" href="#index-t20110724" id=
+"t20110724">2011-07-24</a>
+
+        * makefile.in: widen the mostlyclean rule to add valgrind's core-files.
+
+        * tctest.c: compiler warning
+
+        * configure: regen
+
+        * tctest.c:
+        if we can link with use_env(), it's probably because we're also linked
+        with (n)curses.  Ask it to leave the lines/columns values alone.
+
+        * configure.in: add configure-check for use_env()
+
+        * testing/run_test.sh:
+        adjust $PATH to allow for diffstat in /usr/local/bin
+
+        * testing/freebsd.ref:
+        regen using a copy of BSD 4.2 termcap with its buffer-size set to 4096,
+        to just get the "correct" settings.
+
+        * tctest.c: use const strings.
+
+        * configure: regen
+
+        * tctest.1, package/debian/copyright, COPYING, package/tctest.spec:
+        RCS_BASE
+
+        * tctest.c: add copyright and version message
+
+        * makefile.in: add VERSION file
+
+        * package/debian/rules, package/debian/docs, package/debian/watch,
+          package/debian/control, package/debian/changelog:
+        RCS_BASE
+
+        * testing/run_test.sh:
+        only summarize results with diffstat since they can be quite large.
+
+        * VERSION: RCS_BASE
+
+        * testing/run_test.sh:
+        try to override some of the environment variables that can affect results
+
+        * tctest.c:
+        use ncurses' _nc_infotocap() to translate terminfo strings back to termcap.
+
+        * configure.in:
+        add options --with-ncurses, --with-ncursesw and --with-curses to override
+        the default search for a termcap library
+
+        * aclocal.m4: add CF_FUNC_TGETENT
+
+        * configure.in: add xterm's check for full tgetent()
+
+<a name="t20110723" href="#index-t20110723" id=
+"t20110723">2011-07-23</a>
+
+        * testing/run_test.sh: typo
+
+        * testing/run_test.sh: if there is an error, leave the ".tmp" file
+
+        * tctest.c:
+        add setjmp/longjmp to stop Solaris termcap from dumping core on too-large
+        entries.
+
+        * testing/vim-amiga.ref:
+        regen this with Solaris termcap library, because it fixes values for "li"
+        which my old build of BSD 4.3 termcap allows to use the terminal's value.
+
+        * testing/run_test.sh: cleanup
+
+        * makefile.in: use test-script
+
+        * testing/freebsd.ref, testing/vim-amiga.ref: RCS_BASE
+
+        * tctest.c:
+        format result as a termcap file, one capability per line, to simplify diffs
+
+        * testing/run_test.sh, README: RCS_BASE
+
+        * tctest.c: add -a option
+
+        * tctest.c: add -l option, for listing name and aliases
+
+        * tctest.c:
+        tgetstr() might return -1 for cancelled values in some implementations.
+
+        * tctest.c:
+        as alternative to -b, dump the conventional names defined in ncurses.
+
+        * tctest.c: start adding options: -b, -e and -f.
+
+        * makefile.in, aclocal.m4, configure, configure.in: RCS_BASE
+
+        * tctest.c: todo "-o"
+
+        * tctest.c: to-do list
+
+<a name="t20110722" href="#index-t20110722" id=
+"t20110722">2011-07-22</a>
+
+        * tctest.c:
+        for a start, trim out the features that assume I have terminfo, from ncurses.
+
+        * testing/vim-amiga.tc: RCS_BASE
+
+<a name="t20110401" href="#index-t20110401" id=
+"t20110401">2011-04-01</a>
+
+        * config.sub: RCS_BASE
+
+<a name="t20110202" href="#index-t20110202" id=
+"t20110202">2011-02-02</a>
+
+        * config.guess: RCS_BASE
+
+<a name="t20110115" href="#index-t20110115" id=
+"t20110115">2011-01-15</a>
+
+        * tctest.c: RCS_BASE
+
+<a name="t20100904" href="#index-t20100904" id=
+"t20100904">2010-09-04</a>
+
+        * package/debian/source/format: RCS_BASE
+
+<a name="t20100808" href="#index-t20100808" id=
+"t20100808">2010-08-08  gavin</a>
+
+        * testing/freebsd.tc: FROM_KEYS
+
+<a name="t20100420" href="#index-t20100420" id=
+"t20100420">2010-04-20</a>
+
+        * package/debian/compat: RCS_BASE
+
+<a name="t20031129" href="#index-t20031129" id=
+"t20031129">2003-11-29</a>
+
+        * install-sh: RCS_BASE
+
+<a name="t19940711" href="#index-t19940711" id=
+"t19940711">1994-07-11</a>
+
+        * config_h.in: RCS_BASE
+
+        * config_h.in: s/Header/Id/
+
+<a name="t19920825" href="#index-t19920825" id=
+"t19920825">1992-08-25  dickey@software.org</a>
+
+        * testing/bsd44.tc: RCS_BASE
+
+<a name="t19900521" href="#index-t19900521" id=
+"t19900521">1990-05-21  dickey@software.org</a>
+
+        * testing/bsd43.tc: RCS_BASE
+
+<a name="t19830701" href="#index-t19830701" id=
+"t19830701">1983-07-01  Thomas E. Dickey</a>
+
+        * testing/bsd42.tc: RCS_BASE
+
+<a name="t19791231" href="#index-t19791231" id=
+"t19791231">1979-12-31  Thomas E. Dickey</a>
+
+        * testing/3bsd.tc: RCS_BASE
+
+</pre>
+  <div class="nav">
+    <ul>
+      <li class="nav-top"><a href="CHANGES.html">(top)</a></li>
+      <li><a name="index-t20240429" href="#t20240429" id=
+      "index-t20240429">2024-04-29</a></li>
+      <li><a name="index-t20240107" href="#t20240107" id=
+      "index-t20240107">2024-01-07</a></li>
+      <li><a name="index-t20231227" href="#t20231227" id=
+      "index-t20231227">2023-12-27</a></li>
+      <li><a name="index-t20231202" href="#t20231202" id=
+      "index-t20231202">2023-12-02</a></li>
+      <li><a name="index-t20230130" href="#t20230130" id=
+      "index-t20230130">2023-01-30</a></li>
+      <li><a name="index-t20221008" href="#t20221008" id=
+      "index-t20221008">2022-10-08</a></li>
+      <li><a name="index-t20220801" href="#t20220801" id=
+      "index-t20220801">2022-08-01</a></li>
+      <li><a name="index-t20210328" href="#t20210328" id=
+      "index-t20210328">2021-03-28</a></li>
+      <li><a name="index-t20201130" href="#t20201130" id=
+      "index-t20201130">2020-11-30</a></li>
+      <li><a name="index-t20200816" href="#t20200816" id=
+      "index-t20200816">2020-08-16</a></li>
+      <li><a name="index-t20180512" href="#t20180512" id=
+      "index-t20180512">2018-05-12</a></li>
+      <li><a name="index-t20180205" href="#t20180205" id=
+      "index-t20180205">2018-02-05</a></li>
+      <li><a name="index-t20150706" href="#t20150706" id=
+      "index-t20150706">2015-07-06</a></li>
+      <li><a name="index-t20150502" href="#t20150502" id=
+      "index-t20150502">2015-05-02</a></li>
+      <li><a name="index-t20131208" href="#t20131208" id=
+      "index-t20131208">2013-12-08</a></li>
+      <li><a name="index-t20131025" href="#t20131025" id=
+      "index-t20131025">2013-10-25</a></li>
+      <li><a name="index-t20130907" href="#t20130907" id=
+      "index-t20130907">2013-09-07</a></li>
+      <li><a name="index-t20111001" href="#t20111001" id=
+      "index-t20111001">2011-10-01</a></li>
+      <li><a name="index-t20110930" href="#t20110930" id=
+      "index-t20110930">2011-09-30</a></li>
+      <li><a name="index-t20110929" href="#t20110929" id=
+      "index-t20110929">2011-09-29</a></li>
+      <li><a name="index-t20110926" href="#t20110926" id=
+      "index-t20110926">2011-09-26</a></li>
+      <li><a name="index-t20110924" href="#t20110924" id=
+      "index-t20110924">2011-09-24</a></li>
+      <li><a name="index-t20110818" href="#t20110818" id=
+      "index-t20110818">2011-08-18</a></li>
+      <li><a name="index-t20110815" href="#t20110815" id=
+      "index-t20110815">2011-08-15</a></li>
+      <li><a name="index-t20110813" href="#t20110813" id=
+      "index-t20110813">2011-08-13</a></li>
+      <li><a name="index-t20110812" href="#t20110812" id=
+      "index-t20110812">2011-08-12</a></li>
+      <li><a name="index-t20110811" href="#t20110811" id=
+      "index-t20110811">2011-08-11</a></li>
+      <li><a name="index-t20110810" href="#t20110810" id=
+      "index-t20110810">2011-08-10</a></li>
+      <li><a name="index-t20110809" href="#t20110809" id=
+      "index-t20110809">2011-08-09</a></li>
+      <li><a name="index-t20110808" href="#t20110808" id=
+      "index-t20110808">2011-08-08</a></li>
+      <li><a name="index-t20110805" href="#t20110805" id=
+      "index-t20110805">2011-08-05</a></li>
+      <li><a name="index-t20110804" href="#t20110804" id=
+      "index-t20110804">2011-08-04</a></li>
+      <li><a name="index-t20110803" href="#t20110803" id=
+      "index-t20110803">2011-08-03</a></li>
+      <li><a name="index-t20110731" href="#t20110731" id=
+      "index-t20110731">2011-07-31</a></li>
+      <li><a name="index-t20110730" href="#t20110730" id=
+      "index-t20110730">2011-07-30</a></li>
+      <li><a name="index-t20110729" href="#t20110729" id=
+      "index-t20110729">2011-07-29</a></li>
+      <li><a name="index-t20110728" href="#t20110728" id=
+      "index-t20110728">2011-07-28</a></li>
+      <li><a name="index-t20110727" href="#t20110727" id=
+      "index-t20110727">2011-07-27</a></li>
+      <li><a name="index-t20110726" href="#t20110726" id=
+      "index-t20110726">2011-07-26</a></li>
+      <li><a name="index-t20110725" href="#t20110725" id=
+      "index-t20110725">2011-07-25</a></li>
+      <li><a name="index-t20110724" href="#t20110724" id=
+      "index-t20110724">2011-07-24</a></li>
+      <li><a name="index-t20110723" href="#t20110723" id=
+      "index-t20110723">2011-07-23</a></li>
+      <li><a name="index-t20110722" href="#t20110722" id=
+      "index-t20110722">2011-07-22</a></li>
+      <li><a name="index-t20110401" href="#t20110401" id=
+      "index-t20110401">2011-04-01</a></li>
+      <li><a name="index-t20110202" href="#t20110202" id=
+      "index-t20110202">2011-02-02</a></li>
+      <li><a name="index-t20110115" href="#t20110115" id=
+      "index-t20110115">2011-01-15</a></li>
+      <li><a name="index-t20100904" href="#t20100904" id=
+      "index-t20100904">2010-09-04</a></li>
+      <li><a name="index-t20100808" href="#t20100808" id=
+      "index-t20100808">2010-08-08 gavin</a></li>
+      <li><a name="index-t20100420" href="#t20100420" id=
+      "index-t20100420">2010-04-20</a></li>
+      <li><a name="index-t20031129" href="#t20031129" id=
+      "index-t20031129">2003-11-29</a></li>
+      <li><a name="index-t19940711" href="#t19940711" id=
+      "index-t19940711">1994-07-11</a></li>
+      <li><a name="index-t19920825" href="#t19920825" id=
+      "index-t19920825">1992-08-25 dickey@software.org</a></li>
+      <li><a name="index-t19900521" href="#t19900521" id=
+      "index-t19900521">1990-05-21 dickey@software.org</a></li>
+      <li><a name="index-t19830701" href="#t19830701" id=
+      "index-t19830701">1983-07-01 Thomas E. Dickey</a></li>
+      <li><a name="index-t19791231" href="#t19791231" id=
+      "index-t19791231">1979-12-31 Thomas E. Dickey</a></li>
+    </ul>
+  </div><!-- vile:html
+  -->
+</body>
+</html>

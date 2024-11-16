@@ -1,0 +1,354 @@
+<!--
+  $Id: xterm.html,v 1.64 2023/02/17 21:20:39 tom Exp $
+  -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0">
+  <title>XTERM &ndash; Terminal emulator for the X Window
+  System</title>
+  <link rel="author" href="mailto:dickey@invisible-island.net">
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii">
+  <meta name="keywords" content=
+  "xterm, terminal, vt220, vt420, 256-colors, UTF-8">
+  <meta name="description" content=
+  "Thomas Dickey is the maintainer/developer of xterm, the standard terminal emulator for the X Window System. This page gives some background and pointers to xterm resources.">
+  <link rel="SHORTCUT ICON" href="/img/icons/xterm.ico" type=
+  "image/x-icon">
+  <link rel="stylesheet" href="/css/simplestyle.css" type=
+  "text/css">
+  <link rel="stylesheet" href="/css/xterm-icons.css" type=
+  "text/css">
+  <style type="text/css">
+  @import "/css/simplenavXX.css" all;
+  </style>
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1">
+</head>
+<body>
+  <hr>
+
+  <p><a href="/">http://invisible-island.net/</a><br>
+  Copyright &copy; 1996-2022,2023 by Thomas E. Dickey</p>
+
+  <hr>
+
+  <div class="nav">
+    <ul>
+      <li class="nav-top"><a href="/xterm/xterm.html">(top)</a></li>
+
+      <li><a href="#synopsis">Synopsis</a></li>
+
+      <li>
+        <a href="#history">History</a>
+        <ul>
+          <li><a href="/xterm/xterm.faq.html">XTerm FAQ</a></li>
+
+          <li><a href="/xterm/xterm.log.html">XTerm ChangeLog</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#see_also">See Also</a></li>
+
+      <li><a href="#download">Download</a></li>
+
+      <li>
+        <a href="#related">Related Links</a>
+        <ul>
+          <li><a href="#related-packages">Packages</a></li>
+
+          <li><a href="#related-discussion">Discussion of
+          features</a></li>
+
+          <li><a href="#related-sources">Historical sources</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h1 class="no-header">XTERM &ndash; Terminal emulator for the X
+  Window System</h1>
+
+  <h2 id="synopsis-h2"><a name="synopsis" id=
+  "synopsis">Synopsis</a></h2>
+
+  <p>The <strong>xterm</strong> program is a terminal emulator for
+  the X Window System. It was originally developed in the mid-1980s
+  to provide DEC VT102 and Tektronix 4014 compatible terminals for
+  programs that cannot use the window system directly.</p>
+
+  <p>Each <strong>xterm</strong> window runs as a separate process.
+  Some may run on remote machines, using the X protocol to display
+  on a local machine, while others may run and display on the same
+  local machine. X allows applications to update their windows
+  independently, but the local machine's keyboard and mouse are
+  shared, i.e., only delivering input events to the window which
+  currently has <em>focus</em>.</p>
+
+  <p>This version implements ISO/ANSI colors using the "new"
+  <a href="/ncurses/ncurses-slang.html#cause_bce">color model</a>
+  (i.e., background color erase). It also implements most of the
+  control sequences for VT220, as well as selected features from
+  other DEC terminals such as VT320, VT420 and VT520.</p>
+
+  <h2 id="history-h2"><a name="history" id="history">History</a></h2>
+
+  <p>I decided to work on <strong>xterm</strong> in early 1995, to
+  support <a href="/ded/ded.html">ded</a> and <a href=
+  "/add/add.html">add</a> (and incidentally <a href=
+  "/ncurses/ncurses.html">ncurses</a>) in the X environment.
+  Several people had made modifications to <strong>xterm</strong>
+  to support color, but none (except for the completely independent
+  <strong>rxvt</strong>) implemented background color erase. That
+  is rather like preferring MS-DOS to UNIX. Completely
+  mystifying.</p>
+
+  <p>Being bogged down in ncurses, I didn't get involved in
+  <strong>xterm</strong> until the very end of 1995, after working
+  on <a href="/atac/atac.html">atac</a>.</p>
+
+  <p>I implemented a workable version of colorized
+  <strong>xterm</strong> just at the point where XFree86 3.1.2B was
+  announced, complete with a color xterm. As luck would have it,
+  they'd incorporated the "old" color model. So I joined the
+  XFree86 project to fix it.</p>
+
+  <p>As I learned more about <strong>xterm</strong>, I realized
+  that it implemented part of VT220 (i.e., the locking shifts for
+  extended character sets). Since a number of people on the
+  Internet are looking for a good VT220 emulator, it seemed a
+  natural follow-on project to make <strong>xterm</strong> a good
+  VT220 emulator. By the release of XFree86 3.2, I had implemented
+  most of the control sequences, except for a handful (DECSTR, the
+  KAM and SRM modes, the ones pertaining to doublesize and soft
+  characters, and of course, blink).</p>
+
+  <p>Programs that run in a terminal (emulator or not) use terminal
+  descriptions to tell them how to use the terminal's capabilities.
+  While <strong>xterm</strong> and each model of DEC terminal have
+  features not found in the other, <strong>xterm</strong> is
+  &ldquo;complete&rdquo; within the scope of those terminal
+  descriptions. The preferred terminal description for
+  <strong>xterm</strong> has evolved over time, so that programs
+  can use more advanced features:</p>
+
+  <ul>
+    <li>
+      <p>For the first ten years of <strong>xterm</strong>'s
+      history (until 1996), the preferred terminal description was
+      based on the VT102.</p>
+    </li>
+
+    <li>
+      <p>The following eighteen years (until 2012) preferred a
+      description based on VT220.</p>
+    </li>
+
+    <li>
+      <p>Since 2012, the preferred description is based on
+      VT420.</p>
+    </li>
+  </ul>
+
+  <h3 id="faq_link-h3"><a name="faq_link" id="faq_link">XTerm
+  FAQ</a></h3>
+
+  <p>The <a href="/xterm/xterm.faq.html">XTerm FAQ</a> gives more
+  information, showing how to resolve problems with it, as well as
+  contrasting <strong>xterm</strong> with other terminals.</p>
+
+  <div>
+    <p><a href="/xterm/images/xterm-menus.gif"><img width="360"
+    style="float:right; margin-left:10px;" src=
+    "/xterm/images/merged-xterm-menus.png" alt=
+    "XTerm &ndash; showing all menus on Unicode demo"></a></p>
+
+    <h3 id="changes-h3"><a name="changes" id="changes">XTerm Change
+    Log</a></h3>
+
+    <p>The <a href="/xterm/xterm.log.html">CHANGE LOG</a> shows
+    when and why features were added or changed.</p>
+
+    <h2 id="see_also-h2"><a name="see_also" id="see_also">See
+    Also</a></h2>
+
+    <p>See this <a href="/xterm/xterm.icon.html">discussion</a> of
+    the icons used for <strong>xterm</strong>.</p>
+
+    <p>To support <strong>xterm</strong>, I also work on <a href=
+    "/vttest/vttest.html">vttest</a>.</p>
+
+    <p><a href="/luit/luit.html">luit</a> allows
+    <strong>xterm</strong> to support character encodings other
+    than ISO-8859-1 and UTF-8.</p>
+
+    <p><a href="/xterm/xtoolkit/xtoolkit.html">X Toolkit</a>
+    provides <strong>xterm</strong> with support for X
+    resources.</p>
+
+    <p><a href="/xterm/xft/xft.html">Xft</a> provides
+    <strong>xterm</strong> with support for TrueType fonts.</p>
+
+    <p><a href="/xterm/xcursor/xcursor.html">Xcursor</a> provides
+    cursor-themes for X applications.</p>
+
+    <p>Like <a href="/vile/vile.html">vile</a>,
+    <strong>xterm</strong> works with the different flavors of the
+    <a href="/athena_widgets/index.html">Athena widgets</a>.</p>
+  </div>
+
+  <hr>
+
+  <h2 id="download-h2"><a name="download" id=
+  "download">Download</a></h2>
+
+  <ul>
+    <li><a href="/datafiles/release/xterm.tar.gz">source</a></li>
+
+    <li><a href="/archives/xterm/">archives</a></li>
+  </ul>
+
+  <hr>
+
+  <h2 id="related-h2"><a name="related" id="related">Related
+  links</a></h2>
+
+  <p>There are numerous references on the net to
+  <strong>xterm</strong>. Here are a few of the more interesting
+  ones:</p>
+
+  <ul>
+    <li id="related-packages">
+      <p>Packages for XTerm:</p>
+
+      <ul>
+        <li>
+          <p><a href=
+          "https://web.archive.org/web/20141006204823/http://oswatershed.org/pkg/xterm">
+          OS<em>Watershed</em>.org</a> (archived 2014)</p>
+        </li>
+
+        <li>
+          <p><a href=
+          "http://packages.debian.org/search?searchon=names&amp;keywords=xterm">
+          Debian</a></p>
+        </li>
+
+        <li>
+          <p><a href=
+          "http://cvsweb.netbsd.org/bsdweb.cgi/pkgsrc/x11/xterm/">NetBSD
+          pkgsrc</a></p>
+        </li>
+
+        <li>
+          <p><a href=
+          "http://www.opencsw.org/packages/xterm/">OpenCSW</a> and
+          <a href=
+          "http://unixpackages.com/packages/package-matrix/?frm_search=xterm">
+          UnixPackages</a> (Solaris)</p>
+        </li>
+      </ul>
+    </li>
+
+    <li id="related-discussion">
+      <p>Discussion of XTerm's features:</p>
+
+      <ul>
+        <li>
+          <p><a href=
+          "http://web.archive.org/web/20130125000058/http://www.frexx.de/xterm-256-notes/">
+          The 256 color mode of xterm</a></p>
+        </li>
+
+        <li>
+          <p><a href="http://tldp.org/HOWTO/Xterm-Title.html">How
+          to change the title of an xterm</a></p>
+        </li>
+
+        <li>
+          <p><a href=
+          "http://www.cl.cam.ac.uk/~mgk25/unicode.html">UTF-8 and
+          Unicode FAQ for Unix/Linux</a></p>
+        </li>
+
+        <li>
+          <p><a href=
+          "http://thrysoee.dk/xtermcontrol/">XtermControl &ndash;
+          Dynamically Control Xterm Properties</a></p>
+        </li>
+
+        <li>
+          <p><a href=
+          "http://www.in-ulm.de/~mascheck/various/xterm/">Creating
+          HTML Screenshots from Thomas Dickey's XFree86 XTerm</a></p>
+        </li>
+
+        <li>
+          <p><a href="https://systemundertest.org/xterm/">System
+          Under Test &ndash; XTerm</a></p>
+        </li>
+      </ul>
+    </li>
+
+    <li id="related-sources">
+      <p>Historical sources:</p>
+
+      <ul>
+        <li>
+          <p><a href=
+          "https://github.com/ThomasDickey/xterm-snapshots">Archive</a>
+          of snapshots (see <a href=
+          "/personal/git-exports.html">discussion</a>).<br>
+          I export to this on completing a patch update.<br>
+          I began the archive with <a href=
+          "xterm.log.html#xterm_50">patch #50</a> (1997/8/22).<br>
+          While I have the earlier <a href=
+          "/xterm/old-xterm-patches/">patches and mail</a>, the
+          XFree86 mailing list archives are not available.</p>
+        </li>
+
+        <li>
+          <p>XFree86 archives have commits for my patches from 1996
+          to 2006.<br>
+          I made my own commits to XFree86 CVS for <a href=
+          "xterm.log.html#xterm_149">patch #149</a> through <a href=
+          "xterm.log.html#xterm_215">#215</a>.<br>
+          These developers have copies of the XFree86 CVS (see
+          <a href=
+          "https://lists.x.org/archives/xorg-devel/2018-August/057436.html">
+          mailing list</a>):</p>
+
+          <ul>
+            <li><a href=
+            "https://gitlab.freedesktop.org/ajax/xfree86">Adam
+            Jackson</a></li>
+
+            <li><a href=
+            "https://cgit.freedesktop.org/~libv/xfree86/">Luc
+            Verhaegen</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <p>Prior to XFree86, the X Consortium maintained RCS
+          archives.<br>
+          <a href=
+          "https://cgit.freedesktop.org/~alanc/xc-historical/log/">Alan
+          Coopersmith</a> has a copy of that (seen <a href=
+          "https://unix.stackexchange.com/questions/317809/history-of-xsession-errors-file-and-what-predated-it">
+          here</a>).</p>
+        </li>
+
+        <li>
+          <p><a href=
+          "https://github.com/ThomasDickey/old-xterm">X11
+          release</a> versions of xterm, from the distribution
+          tarballs.</p>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</body>
+</html>

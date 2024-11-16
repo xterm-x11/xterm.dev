@@ -1,0 +1,507 @@
+2023-02-04  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* release2git:
+	add a check/fix in case the rcs archives have file-permissions different from
+	git's index.
+
+2023-01-18  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* manifest:
+	strip patch/version from basename to better match my use in Git-snapshots
+
+2022-10-31  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* git-utimes:
+	modify to handle merge-branches, using the latest commit on the branch
+	rather than the merge-time as done by git-extras
+
+2022-06-14  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* resync-git: sign merges -- needed for freedesktop gitlab
+
+2022-03-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gimme-git: quiet the X-forwarding messages
+
+2022-01-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* manifest: show a diff if -v option is given
+
+2022-01-14  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* manifest: implement a "-n" (no-op) option
+	tidy-up error-exits
+
+2021-12-30  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* manifest: no more MANIFEST.bak!
+
+2021-12-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gimme-git:
+	recreate tmp-directory on each pass in the loop, to attempt to work around
+	permissions problems with MacOS.
+
+2021-12-11  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gimme-git:
+	print full pathname for "OOPS" to simplify investigating those.
+
+2021-12-04  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gimme-git: prune old stuff, and try to point out bad merges
+
+2020-02-12  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* release2git: workaround for rcs-blame
+
+2020-01-25  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* release2git: filter out "RCS,v" file
+
+	* release2git:
+	a little more general, check for missing files and assume that co is confused
+
+	* release2git: add workaround for rcs-blame's ",v" test-data
+
+	* release2git: add -Q option, for debugging
+
+	* release2git:
+	check for $RCS_DIR environment variable, to handle special case needed
+	for "rcs-blame"
+
+2019-12-25  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* git-stats: add -d option, to make it possible to sort the report
+
+	* git-stats: improve alignment of columns
+
+2019-03-22  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* git-stats:
+	make the binmode optional, to work around garbage in some repos
+
+	* git-stats: Git's metadata uses UTF-8; account for this in the report.
+
+2019-03-21  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* git-stats: account for multiple records per commit
+
+	* git-stats: RCS_BASE
+
+2019-03-12  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* resync-git: RCS_BASE
+
+2018-06-23  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* release2git:
+	account for timezone in cutoff, which will be compared with gmt dates
+
+2018-04-16  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* release2git:
+	improve tagging for the generated CHANGES file by accounting for localtime
+	offset from gmtime.
+
+2017-10-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gimme-git:
+	ignore git's notion of directory-timestamps, if any - recur for file-timestamps
+
+2017-10-16  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gimme-git: missed one (the top-level directory)
+
+	* gimme-git:
+	quote directory- and file-names to help when they have embedded spaces
+
+2017-08-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gimme-git: RCS_BASE
+
+	* git-utimes: initial import of some git's doesn't fit pattern
+
+	* git-utimes: RCS_BASE
+
+2017-08-12  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* manifest: use SIGQUIT(3) rather than SIGTRAP(5) in trap commands
+	This error dates back to 1997 (970802) in ncurses:
+		+ many corrections to make progs/capconvert work, as well as make it
+		  reasonably portable and integrated with ncurses 4.1 (reported by Dave
+		  Furstenau <df@ravine.binary.net>).
+
+	but I see in my "nfilter" script I used it as far back as December 1993, on the
+	other hand in "externs" (August 1991) I had it corrrect.
+
+	But here are the first uses in ncurses:
+		capconvert	1997/08/02 21:52:06	1.3
+		edit_cfg.sh	1997/11/08 18:14:57	1.7
+		make_sed.sh     1997/12/06 20:52:47       tom
+		MKterminfo.sh	1998/09/05 23:53:51	1.4
+		MKtermsort.sh	2001/05/26 23:37:57	1.7
+		MKkey_defs.sh   2001/06/16 15:25:10       tom
+		MKkeys_list.sh  2001/06/16 16:47:39       tom
+		make-tar.sh     2010/02/20 22:46:57       tom
+
+2017-03-19  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* release2git: restore a special case for ncurses's components
+
+	* release2git: handle compressed archives by expanding as needed.
+
+	* release2git: ensure the temporary file is writable
+
+	* release2git: set modification time for generated CHANGES files.
+
+	* release2git: make -y work without -x
+
+	* release2git: add -y option
+
+	* release2git: make the rcs2log part less verbose
+
+	* release2git: -x depends upon -d
+
+	* release2git: add -x option
+
+2017-01-01  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* release2git:
+	git commit is using local time, not UTC.  work around by setting TZ=0, so
+	the log will show correct local time.
+
+2016-09-07  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* release2git:
+	change format of date returned from git to make it match the format used
+	in rcs, allowing comparison of the two lists.
+
+2016-08-17  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* release2git:
+	make special case of changelog-name for dbmalloc, where I left the original
+	"CHANGES" alone, and distributed the program with generated "ChangeLog" in
+	2003.
+
+2016-07-31  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* release2git: corrected destination directory for git clone
+
+2016-07-07  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* release2git: overlooked GNU case
+
+	* release2git: linklint special case
+
+2016-07-06  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* release2git: done testing
+
+	* release2git: fixes for -v option
+	add my-indent to manifest list, temporarily
+
+2016-07-03  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* compare-manifests:
+	output from release2git can have multiple tags for a given date
+
+	* compare-manifests: create output directory
+
+	* compare-manifests: RCS_BASE
+
+	* manifest: make this a little less verbose
+
+	* release2git: add -p option for compare-manifests
+
+	* release2git: add -t option, for use by compare-manifests
+
+	* release2git:
+	handle "." parameter the same as no-parameters: current-project
+
+	* release2git: simplify -d option by eliminating $destdir variable
+
+2016-07-02  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* release2git: recover better when rcs2log doesn't do the right thing
+
+	* release2git: move the email stuff to run-rcs2log
+
+2016-07-01  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* tag-cutoff: RCS_BASE
+
+	* release2git: add -s option
+
+	* release2git: actually show the report
+
+	* release2git: workable merge also for sizes
+
+	* release2git: workable merge for number-of-files
+
+	* release2git: working on merge for -D (about half-done)
+
+	* release2git: second part of -D option computes total sizes
+
+	* release2git: manage the date-conversion for -D option
+
+	* release2git: start work on -D option
+
+	* release2git: fix -C option again
+
+2016-06-29  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* bundle2github: quoting
+
+2016-06-28  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* release2git: show messages when cloning/bundling
+
+	* manifest: make this less verbose, for release2git
+
+	* release2git: implemented the rest of -b
+
+	* release2git: add bundle_finish
+
+	* release2git:
+	eliminate a duplicate check whether I need to use my-rcs2log
+
+2016-06-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* release2git: correct a typo that added CHANGES to xterm's archive
+
+	* release2git:
+	modify email shown in CHANGES to be a ... little ... less anachronistic
+
+	* release2git:
+	only generate CHANGES once (saves a lot of awk), keeping it in memory for
+	the different subsets
+
+2016-06-22  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* release2git: add special-case for misc/terminfo.src
+
+	* release2git: add -L option
+
+2016-06-21  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* release2git: start work on multi-archive needed for ncurses
+
+2016-06-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* release2git: eliminated old_XXX
+
+	* release2git: use "-a" option of git commit to delete obsoleted files
+
+	* release2git: tag multiple labels in git
+
+	* release2git:
+	start work to handle label-aliases.  This makes "-R" work.
+
+2016-06-19  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* release2git:
+	eliminated an unnecessary rcsget when no manifest is generated
+
+	* release2git: split-out need_CHANGES and need_MANIFEST
+
+	* release2git: eliminate label_date()
+
+2016-06-17  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* release2git:
+	be less stringent about "valid RCS archive", works with pgf-vile
+
+	* release2git: to-do items
+
+	* release2git: notice
+
+	* release2git:
+	be more specific about MANIFEST, based on existing tar-balls
+
+	* release2git: got CHANGES to generate for byacc
+
+	* release2git: fix type
+
+	* release2git:
+	workable version which generates MANIFEST file for "add".
+
+	* release2git: add make_rcs_tree()
+
+	* release2git: implement incremental-add
+
+	* release2git: add -c option
+
+	* release2git: implement -G option
+
+2016-06-16  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* release2git: good enough: "-C" works
+
+2016-06-15  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* release2git: first cut of cutoff-matching
+
+	* release2git: implement -n option
+
+2016-06-14  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* release2git: split-out read_rcs_logs
+
+	* release2git: start work on -C option
+
+	* release2git: added git tags
+
+2016-06-13  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* release2git: successfully converted all snapshots for "add"
+
+	* release2git: got initial commit
+
+	* release2git: construct working directory
+
+	* release2git:
+	eliminated %rcs_labels global, so I can manipulate file-list and label-list
+	separately
+
+2016-06-12  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* release2git: another step toward eliminating global %rcs_labels
+
+	* release2git:
+	add find_rcs_files (another step toward eliminating global %rcs_labels)
+
+	* release2git: add -a and -r options, call make_workdir with label info
+
+	* release2git: start work on building rcs checkouts
+
+2016-06-10  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* rcs2git: exclude pgf-vile from keyword expansion feature
+
+2016-06-07  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* release2git: RCS_BASE
+
+2012-08-30  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* rcs2git: testing for xterm
+	skip branches
+
+2012-08-28  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* manifest: dash didn't like shift of empty args
+
+2012-06-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* bundle2github: RCS_BASE
+
+2012-06-25  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* rcs2git: combine the authors stuff, since it's gotten to be clutter
+
+2012-06-03  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* manifest: oops - fix LINE initialization.
+
+2012-06-02  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* rcs2git: Neider's req
+
+2012-03-18  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* manifest:
+	add -p option for cdk-perl which needs manifest w/o directories since perl
+	insists
+
+2012-02-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* manifest:
+	some macros in my-autoconf have pathnames longer than 32, which made the
+	description bump to column 64.  Change the expression for tabstop to check
+	the name-length.
+
+2012-01-22  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* rcs2git: fill in authors,
+
+	* rcs2git: implemented --expand-keywords option
+
+2012-01-19  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* rcs2git: corrected path of source-archives
+
+	* rcs2git: RCS_BASE
+
+2010-07-05  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* manifest:
+	since I'm usually checking-in configure scripts now, it turns out that this
+	script always assumed they weren't, and generated an entry for it right after
+	configure.in - however, the checked-in script appears right before configure.in,
+	and is a duplicate (report by Jonathan Neider).
+
+2007-12-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* manifest: use csort
+
+2003-04-30  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* manifest: allow more than one option, in any order
+
+2002-11-23  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* manifest: a couple of programs (tin, bcpp) have config.h files
+
+2002-07-28  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* manifest:
+	add -d option, so I can suppress "subdirectory" lines which confuse Perl's
+	packaging
+
+1999-12-31  Thomas E. Dickey  <dickey@clark.net>
+
+	* manifest:
+	workaround defect in Redhat 6.1, which folds case on 'sort' command
+
+1997-12-08  Thomas E. Dickey  <dickey@clark.net>
+
+	* manifest: add special cases for config.guess and config.sub
+
+1995-12-03  Thomas E. Dickey  <dickey@clark.net>
+
+	* manifest: a couple of error-recovery nits
+
+1995-09-04  Thomas E. Dickey  <dickey@clark.net>
+
+	* manifest: redirect stderr
+
+1994-10-15  Thomas E. Dickey  <dickey@clark.net>
+
+	* manifest:
+	make dummy-entries for directories, so cshar will do the right thing
+
+	* manifest:
+	added logic to let me append auto-generated files into the manifest
+
+	* manifest: rewrote so I don't need 'checkup'
+
+1994-09-03  Thomas E. Dickey  <dickey@clark.net>
+
+	* manifest:
+	strip off the "-r" from the revision so the generated file looks nicer
+
+1994-08-19  Thomas E. Dickey  <dickey@clark.net>
+
+	* manifest:
+	hack to make 'configure' appear after other files (for timestamps)
+
+1994-08-18  Thomas E. Dickey  <dickey@clark.net>
+
+	* manifest:
+	mods to sort subdirectories into separate clumps, for readability
+
+1994-08-16  Thomas E. Dickey  <dickey@clark.net>
+
+	* manifest: RCS_BASE
+

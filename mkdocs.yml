@@ -1,0 +1,116 @@
+# favicon.ico is converted by using GIMP from https://github.com/xterm-x11/xterm-snapshots/blob/master/icons/xterm-color.png (the .svg file is a bit corrupted)
+site_name: XTerm
+site_url: https://xterm.org
+# &copy; as ©
+copyright: >
+  Copyright © 1997-2024 by Thomas E. Dickey et al.
+  <br/>
+  No cookies are served on this website.
+nav:
+  - Home: index.md
+  - Changelog (release notes): changelog-xterm.md
+  - History: history.md
+  - Install:
+       - Package: package.md
+       - xterm.tar.gz: xterm.tar.gz.md
+  - Configure: configure.md
+  - Get started:
+       # Select content from
+       # https://invisible-island.net/xterm/xterm.faq.html
+       # and
+       # https://invisible-island.net/xterm/#related-discussion
+       # Figure out a way to reference the manpage from each separate procedure page under Use,
+       # where applicable.
+       - Keyboard shortcuts: keyboard-shortcuts.md
+       - Copy and paste: copy-and-paste.md
+       - Tabs: tabs.md
+       - Full-screen: full-screen.md
+       - Scrolling: scrolling.md
+       - Prompt: prompt.md
+  - Customize:
+       - Sample: sample.md
+       - Themes: themes.md
+       - Fonts: fonts.md
+       - Template: template.md
+       - Icon: icon.md
+       - Manual window title: manual-window-title.md
+       - Static window title: static-window-title.md
+       - Scrollbar: scrollbar.md
+       - Window properties: window-properties.md
+  - Manpage:
+       - xterm: manpage-xterm.md
+       - uxterm: manpage-uxterm.md
+       - koi8rxterm: manpage-koi8rxterm.md
+       - resize: manpage-resize.md
+  - Control sequences:
+       - Getting started with control sequences: getting-started-with-ctlseqs.md
+       - Guide: ctlseqs-guide.md
+       - List: ctlseqs-list.md
+  - Libraries:
+       - Xtoolkit: xtoolkit.md
+       - Xcursor: manpage-xcursor.md
+       - Xft: manpage-xft.md
+       - NCURSES: ncurses.md
+#          - ?
+  - Quality engineering:
+       - VTtest:
+           - Manpage: manpage-vttest.md
+           - Changelog: changelog-vttest.md
+           - About: about-vttest.md
+           - vttest.tar.gz: vttest.tar.gz.md
+           - VTtest archives: vttest-archives.md
+       - Luit:
+           - Manpage: manpage-luit.md
+           - Changelog: changelog-luit.md
+           - About: about-luit.md
+           - luit.tar.gz: luit.tar.gz.md
+           - Luit archives: luit-archives.md
+       - tack (ncurses):
+           - Manpage: manpage-tack.md
+           - Changelog: changelog-tack.md
+           - About: about-tack.md
+#          - download?
+       - tctest (ncurses):
+           - Manpage: manpage-tctest.md
+           - Changelog: changelog-tctest.md
+           - About: about-tctest.md
+#          - download?
+       - ncurses-examples (ncurses):
+           - About: ncurses-examples-about.md
+#          - download?
+       - Scripts: scripts.md
+#          - download?
+       - Recommended tools: recommended-tools.md
+#          - download?
+#
+theme:
+  name: material
+  favicon: favicon.png
+  logo: logo-favicon.png # https://github.com/xterm-x11/xterm-snapshots/blob/master/icons/xterm-color.png (the .svg file is a bit corrupted)
+  palette:
+    primary: deep purple
+    accent: lime
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.expand
+#   - navigation.tabs
+   
+  extra:
+    consent:
+      title: Cookie consent
+      description: >- 
+        We use cookies to recognize your repeated visits and preferences, as well
+        as to measure the effectiveness of our documentation and whether users
+        find what they're searching for. With your consent, you're helping us to
+        make our documentation better.
+        # https://squidfunk.github.io/mkdocs-material/setup/ensuring-data-privacy/#cookie-consent
+      actions:
+        - accept
+        - manage
+        - reject
+
+repo_url: https://github.com/xterm-x11/docs
+plugins:
+  - search

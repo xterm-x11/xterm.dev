@@ -1,0 +1,1034 @@
+<!--
+  $Id: vttest.html,v 1.108 2024/10/24 23:40:54 tom Exp $
+  -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0">
+  <title>VTTEST &ndash; VT100/VT220/XTerm test utility</title>
+  <link rel="author" href="mailto:dickey@invisible-island.net">
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii">
+  <meta name="keywords" content=
+  "computer terminals, xterm, vt100, vt220, vt420">
+  <meta name="description" content=
+  "vttest tests the functionality of a VT100/VT220/VT420 terminal (or emulator, in particular xterm) with menus and demo screens">
+  <link rel="SHORTCUT ICON" href="/xterm/images/mini.xterm_48.ico"
+  type="image/x-icon">
+  <link rel="stylesheet" href="/css/simplestyle.css" type=
+  "text/css">
+  <link rel="stylesheet" href="/css/xterm-icons.css" type=
+  "text/css">
+  <style type="text/css">
+  @import "/css/simplenavXX.css" all;
+  </style>
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1">
+</head>
+<body>
+  <hr>
+
+  <p><a href="/">http://invisible-island.net/</a><br>
+  Copyright &copy; 1996-2023,2024 by Thomas E. Dickey</p>
+
+  <hr>
+
+  <h1 class="no-header">VTTEST &ndash; VT100/VT220/XTerm test
+  utility</h1>
+
+  <div class="nav">
+    <ul>
+      <li class="nav-top"><a href="vttest.html">(top)</a></li>
+
+      <li><a href="#synopsis">Synopsis</a></li>
+
+      <li><a href="#history">History</a></li>
+
+      <li><a href="#licensing">Licensing</a></li>
+
+      <li><a href="#documentation">Documentation</a></li>
+
+      <li><a href="#screenshots">Screenshots</a></li>
+
+      <li><a href="#download">Download</a></li>
+
+      <li>
+        <a href="#related">Related Links</a>
+        <ul>
+          <li><a href="#link_packages">Packages</a></li>
+
+          <li><a href="#link_sources">Other Sources</a></li>
+
+          <li><a href="#link_discussion">Discussion/mention</a></li>
+
+          <li><a href="#link_tools">Test-tools</a></li>
+
+          <li><a href="#link_screenshots">Screenshots</a></li>
+
+          <li><a href="#link_scorecard">VTTEST "Score Card"</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2 id="synopsis-h2"><a name="synopsis" id=
+  "synopsis">Synopsis</a></h2>
+
+  <p><strong>Vttest</strong> tests the compatibility (demonstrates
+  the non-compatibility) of so-called
+  &ldquo;VT100-compatible&rdquo; terminals. In conformance of the
+  good old hacker traditions, the only documentation of this
+  program is the source code itself. To understand it, you also
+  need a copy of the original VT100 manual from DEC.</p>
+
+  <p>Additional tests (past version 1.7) are provided for analysis
+  of vt220 through vt520 terminals, as well as variants of
+  <em>xterm</em>.</p>
+
+  <h2 id="history-h2"><a name="history" id="history">History</a></h2>
+
+  <p><strong>Vttest</strong> was written in 1983-1985 by Per
+  Lindberg at the Stockholm University Computing Center. The last
+  version was 1.7b (1985-04-19). Per Lindberg later distributed
+  1.7b via the Usenet mod.sources group (Volume 7, Issue 16,
+  September 2, 1986). It became an established part of the Unix
+  source archives, e.g,. as noted in <a href=
+  "https://web.archive.org/web/20120221203921/http://www.skytel.co.cr/unix-source-code/research/1988/0419.html">
+  these postings</a> from 1988.</p>
+
+  <p>I began this version in <a href=
+  "http://www.ibiblio.org/pub/linux/utils/console/vttest.lsm">May
+  1996</a> (starting with 1.7b) to support changes that I am making
+  to <a href="/xterm/xterm.html">xterm</a>. The program has grown
+  from about 2400 lines to more than 18,000 lines of code. See the
+  changelog for details.</p>
+
+  <ul>
+    <li><a href="CHANGES">plain text</a></li>
+
+    <li><a href="CHANGES.html">changes in html format</a></li>
+  </ul>
+
+  <p>I changed the version number to 2.0 in the <a href=
+  "http://www.ibiblio.org/pub/linux/utils/console/vttest.lsm">initial
+  release</a>, in 1996, and went up to 2.7 shortly after. Since
+  then, the patch-date is the effective version number.</p>
+
+  <p>Most of my visible changes are via two menu entries at the
+  bottom of the main screen:</p>
+
+  <blockquote>
+    <p><a href="/vttest/images/VTTEST-main%20menu.png"><img width=
+    "450" src="/vttest/images/VTTEST-main%20menu.png" alt=
+    "Main menu of VTTEST"></a></p>
+  </blockquote>
+
+  <p>However, I restructured the entire program, adding screens to
+  existing tests, and menu entries (for instance in the terminal
+  reports). In the restructured program, it is much simpler to add
+  menu entries, since they are built from tables rather than case
+  statements.</p>
+
+  <p>On the other hand, I kept the overall indentation style of the
+  program. There are no tab characters.</p>
+
+  <h3>Color</h3>
+
+  <p>VT100's never did color.</p>
+
+  <p>My original motivation for working on <em>vttest</em> was to
+  provide a way to test the color changes I was making for
+  <em>xterm</em>. Drawing colored text is straightforward. Drawing
+  colored backgrounds presents many choices. For instance:</p>
+
+  <ul>
+    <li>which control sequences can erase the screen, restoring the
+    original background.</li>
+
+    <li>which control sequences can erase the screen, retaining the
+    current original background.</li>
+
+    <li>do the different control sequences for erasing the screen,
+    erasing above/below the cursor position, erasing all or part of
+    the current line have the same effect on the background
+    color.</li>
+
+    <li>how is the color determined for the background when
+    scrolling up (or down).</li>
+  </ul>
+
+  <p>None of those choices are automatically "right" or "wrong".
+  Designers of different terminals (and emulators) have chosen to
+  implement color in different ways.</p>
+
+  <p>For <em>xterm</em>, I chose to match the Linux console
+  behavior. That was a starting point. But (see below) I continued
+  past this point, implementing features from VT220 and later,
+  including controls (DECSCA) that can protect against erasure.</p>
+
+  <p>The particular erasure choices used in <em>xterm</em> and
+  Linux console are modeled in ncurses as the back color erase
+  (bce) feature. Early on, we (I and Alexander V. Lukyanov) found
+  that the bce feature was nowhere defined precisely, and settled
+  on the current behavior. Other terminals (such as rxvt) do not
+  exactly match this set of choices, so controls which differ are
+  not in the corresponding terminal description.</p>
+
+  <p>I added screens to <em>vttest</em> to illustrate the bce
+  behavior, helping to ensure consistency.</p>
+
+  <p>For instance, this was once of the earlier screens I wrote to
+  demonstrate and test erases against the bce color model:</p>
+
+  <blockquote>
+    <table summary="BCE Test using ECH">
+      <tr valign="top">
+        <td><a href=
+        "/vttest/images/VTTEST-BCE%20before.png"><img width="450"
+        src="/vttest/images/VTTEST-BCE%20before.png" alt=
+        "BCE Test &ndash; Before"></a>
+        </td>
+        <td><a href=
+        "/vttest/images/VTTEST-BCE%20after.png"><img width="450"
+        src="/vttest/images/VTTEST-BCE%20after.png" alt=
+        "BCE Test &ndash; After"></a>
+        </td>
+      </tr>
+
+      <tr>
+        <th>Before Erase</th>
+        <th>After Erase</th>
+      </tr>
+    </table>
+  </blockquote>
+
+  <p>The terminal also has to fill color properly for double-sized
+  characters. Here are examples with and without font support for
+  double-sized characters:</p>
+
+  <blockquote>
+    <table summary="Double-sized characters with color">
+      <tr valign="top">
+        <td><a href=
+        "/vttest/images/VTTEST-double%20width%20color.png"><img width="450"
+        src="/vttest/images/VTTEST-double%20width%20color.png" alt=
+        "Color &ndash; With scaled fonts"></a>
+        </td>
+        <td><a href=
+        "/vttest/images/VTTEST-NO%20double-sized%20color.png"><img width="450"
+        src="/vttest/images/VTTEST-NO%20double-sized%20color.png"
+        alt="Color &ndash; Without scaled fonts"></a>
+        </td>
+      </tr>
+
+      <tr>
+        <th>Using scaled fonts</th>
+        <th>Without scaled fonts</th>
+      </tr>
+    </table>
+  </blockquote>
+
+  <p>Even Linux console has had occasional issues, where it is
+  inconsistent, e.g., a blunder in 2008 as reported on the Linux
+  kernel mailing list <a href=
+  "http://lkml.org/lkml/2008/10/3/66">here</a> by Alexander V.
+  Lukyanov. The problem was introduced <a href=
+  "http://lkml.org/lkml/2008/4/26/305">here</a>, and <a href=
+  "https://bugzilla.novell.com/show_bug.cgi?id=418613">broke the
+  bce feature</a> of Linux console for several months. Vttest might
+  have been useful in that case. 
+  <!-- TODO screenshots showing the one for protected areas
+  --></p>
+
+  <h3>Character Sets</h3>
+
+  <p>Double-sized characters required some work on <em>xterm</em>.
+  Initially, it only drew normal sized characters with spaces in
+  between (and there were a few issues to resolve). <em>Xterm</em>
+  now draws double-sized characters using scaled fonts (a feature
+  introduced by XFree86). Here is an example from the VT100
+  tests:</p>
+
+  <blockquote>
+    <p><a href=
+    "/vttest/images/VTTEST-double-sized%20characters.png"><img width="450"
+    src="/vttest/images/VTTEST-double-sized%20characters.png" alt=
+    "VT100 Double-sized Character Test"></a></p>
+  </blockquote>
+
+  <p>After I had been working on <em>vttest</em> for a while, I
+  realized that <em>xterm</em> had features (other than the obvious
+  case of function keys) that were not found in a VT100. These
+  control sequences switch to a different character set for just
+  one character (a single shift) or until undone (locking shifts).
+  The VT100 line-drawing characters are a special case of the
+  latter.</p>
+
+  <p>The set of single- and locking-shifts are features of the more
+  advanced VT220 terminal. Seeing that, and understanding that it
+  would allow <em>xterm</em> to be more useful to people around the
+  world, I decided to fill in the missing pieces to make a workable
+  VT220 emulator. Years later, of course, UTF-8 became a more
+  valued feature. But I use different programs than <em>vttest</em>
+  for testing <em>xterm</em>'s UTF-8 support.</p>
+
+  <p>Some of the features (in particular the character sets) are
+  visible only when the terminal identifies itself as a VT220 or
+  above. For instance, the top-level menu "Test of character sets"
+  shows only the VT100 character sets for VT100s:</p>
+
+  <blockquote>
+    <p><a href=
+    "/vttest/images/VTTEST-VT100%20character%20sets.png"><img width="480"
+    src="/vttest/images/VTTEST-VT100%20character%20sets.png" alt=
+    "VT100 Character Sets"></a></p>
+  </blockquote>
+
+  <p>But for VT220s (e.g., <em>xterm</em> with the command line
+  option "<code>-ti&nbsp;220</code>"), <em>vttest</em> shows a
+  menu, with the VT100 character sets as an option:</p>
+
+  <blockquote>
+    <p><a href=
+    "/vttest/images/VTTEST-character%20set%20choices%20above%20VT100.png">
+    <img width="450" src=
+    "/vttest/images/VTTEST-character%20set%20choices%20above%20VT100.png"
+    alt="Character Set Choices Above VT100"></a></p>
+  </blockquote>
+
+  <p>VT220s provide something like ISO-2022 support for several
+  European encodings. Here is an example using the locking shifts,
+  showing French and Italian:</p>
+
+  <blockquote>
+    <p><a href=
+    "/vttest/images/VTTEST-locking%20shifts.png"><img width="450"
+    src="/vttest/images/VTTEST-locking%20shifts.png" alt=
+    "Example of VT220 Locking Shifts"></a></p>
+  </blockquote>
+
+  <p>Incidentally, the VT220 and up can be switched into a mode
+  where they identify themselves as lower-level models (analogous
+  to the VT100/VT52 switching). You can do this in <em>vttest</em>
+  using menu 12:</p>
+
+  <blockquote>
+    <p><a href=
+    "/vttest/images/VTTEST-modify%20test%20parameters.png"><img width="450"
+    src="/vttest/images/VTTEST-modify%20test%20parameters.png" alt=
+    "Menu for Modifying Test Parameters"></a></p>
+  </blockquote>
+
+  <p>The Linux console used to recognize 8-bit controls. I gave
+  advice to Albert Cahalan (see <a href=
+  "#link_discussion">links</a>), who used <em>vttest</em> to
+  identify and repair most issues. However, later work to change
+  the console driver to support UTF-8 broke that, though comments
+  in the code still claimed that the feature was supported. Early
+  in 2006, I submitted changes which were applied to the
+  <em>console_codes</em> manpage, including the <a href=
+  "http://man7.org/linux/man-pages/man4/console_codes.4.html#BUGS">BUGS</a>
+  section. This paragraph is pertinent:</p>
+
+  <blockquote>
+    <pre class="code-block">
+    Some  older  kernel  versions  (after  2.0)  interpret  8-bit   control
+    sequences.   These  "C1  controls"  use  codes  between  128 and 159 to
+    replace ESC [, ESC ] and similar two-byte control sequence  initiators.
+    There  are  fragments  of  that in modern kernels (either overlooked or
+    broken by changes to support UTF-8), but the implementation  is  incom-
+    plete and should be regarded as unreliable.
+</pre>
+  </blockquote>
+
+  <h3>VT220 and Beyond</h3>
+
+  <p>DEC's terminals were all upward-compatible:</p>
+
+  <ul>
+    <li>The VT100 provided emulation of the VT52 (except for some
+    differences of graphic characters).</li>
+
+    <li>The VT220 recognized all of the VT100's controls.</li>
+
+    <li>Subsequent models (VT320, VT420, VT520) recognized the
+    predecessor's controls.</li>
+  </ul>
+
+  <p>Each model also provides more <em>new</em> features than the
+  total in its predecessor. Not all features are useful for a
+  terminal emulation (such as the dual-session feature of VT420). I
+  have implemented tests for the features which either are in
+  <em>xterm</em>, or are simple extensions (such as the variations
+  on status responses).</p>
+
+  <p><em>Vttest</em> organizes these according to the terminal
+  type. Features found in ISO 6429 but not in a particular DEC
+  terminal are via separate menu choices from XTERM and the
+  VT<em>xxx</em> flavors:</p>
+
+  <blockquote>
+    <p><a href=
+    "/vttest/images/VTTEST-non-VT100%20choices.png"><img width=
+    "450" src="/vttest/images/VTTEST-non-VT100%20choices.png" alt=
+    "Menu for non-VT100 Tests"></a></p>
+  </blockquote>
+
+  <p>Early on, I found that ECH (erase character) is a VT220
+  feature rather than VT102. It is perhaps the most commonly
+  implemented extension of &ldquo;VT100 emulators&rdquo;.</p>
+
+  <blockquote>
+    <p><a href="/vttest/images/VTTEST-ECH%20test.png"><img width=
+    "450" src="/vttest/images/VTTEST-ECH%20test.png" alt=
+    "Test for ECH (monochrome)"></a></p>
+  </blockquote>
+
+  <p>As it is implemented in rxvt (unlike <em>xterm</em> and Linux
+  console) it does not behave the same with regard to color as ED
+  (erase display). After some discussion, it was determined
+  that</p>
+
+  <ul>
+    <li>DEC implemented non-ANSI color controls for a few
+    models.</li>
+
+    <li>Those models treated the full-screen ED differently from
+    line (EL) and character (ECH) erases.</li>
+
+    <li>ANSI color as outlined in ISO 6429 was implemented by other
+    manufacturers.</li>
+
+    <li>ANSI color with DEC terminals is a feature of terminal
+    emulators rather than the hardware implementations.</li>
+  </ul>
+
+  <p>For example, I recall using more than one terminal emulator
+  with &ldquo;VT340&rdquo; and color, for instance TNVTPlus
+  (developed by FTP Software, Inc.). That, by the way, differed
+  from <em>xterm</em> regarding the way color was set when
+  scrolling in "blank lines". There are as noted several choices,
+  and none are blessed by an official standard. <em>Vttest</em>
+  demonstrates the set of choices used in <em>xterm</em> and Linux
+  console.</p>
+
+  <p><em>Xterm</em> implements several features from models past
+  VT220. One of the more interesting is the ability to work with
+  rectangles on the screen (from VT420). That is (both in
+  <em>vttest</em> and <em>xterm</em>) only provided when the
+  terminal identifies itself as (at least) a VT420:</p>
+
+  <blockquote>
+    <table summary="Test menu for Rectangles">
+      <tr valign="top">
+        <td><a href=
+        "/vttest/images/VTTEST-VT100%20rectangle%20choices.png"><img width="450"
+        src="/vttest/images/VTTEST-VT100%20rectangle%20choices.png"
+        alt="Menu shown as a VT100"></a>
+        </td>
+        <td><a href=
+        "/vttest/images/VTTEST-VT420%20rectangle%20choices.png"><img width="450"
+        src="/vttest/images/VTTEST-VT420%20rectangle%20choices.png"
+        alt="Menu shown as a VT420"></a>
+        </td>
+      </tr>
+
+      <tr>
+        <th>As a VT100</th>
+        <th>As a VT420</th>
+      </tr>
+    </table>
+  </blockquote>
+
+  <p>Given the proper configuration, <em>vttest</em> shows
+  rectangles. As an extension, <em>xterm</em> supports color:</p>
+
+  <blockquote>
+    <table summary="Example of Rectangle Test">
+      <tr valign="top">
+        <td><a href=
+        "/vttest/images/VTTEST-monochrome%20rectangles.png"><img width="450"
+        src="/vttest/images/VTTEST-monochrome%20rectangles.png"
+        alt="Rectangle example (monochrome)"></a>
+        </td>
+        <td><a href=
+        "/vttest/images/VTTEST-color%20rectangles%20example.png"><img width="450"
+        src=
+        "/vttest/images/VTTEST-color%20rectangles%20example.png"
+        alt="Rectangle example (color)"></a>
+        </td>
+      </tr>
+
+      <tr>
+        <th>Monochrome</th>
+        <th>Color (XTerm)</th>
+      </tr>
+    </table>
+  </blockquote>
+
+  <h3>ISO 6429 Features</h3>
+
+  <p>ISO 6429 has several features (including scrolling not
+  implemented by DEC terminals). The most useful set of tests is
+  the color menu:</p>
+
+  <blockquote>
+    <p><a href=
+    "/vttest/images/VTTEST-ISO%206429%20color%20choices.png"><img width="450"
+    src="/vttest/images/VTTEST-ISO%206429%20color%20choices.png"
+    alt="Menu for ISO 6429 Color Tests"></a></p>
+  </blockquote>
+  <!-- comment on errors in documents - SD (ISO) vs SD (DEC) -->
+
+  <h3>XTerm Features</h3>
+
+  <blockquote>
+    <p><a href=
+    "/vttest/images/VTTEST-XTerm%20choices.png"><img width="450"
+    src="/vttest/images/VTTEST-XTerm%20choices.png" alt=
+    "Tests for XTerm"></a></p>
+  </blockquote>
+
+  <p>The window modify- and report-operations attributed to
+  <strong>dtterm</strong> (because that was the only extant usage
+  in 1996) had appeared in the X10 "6.6b" version <em>xterm</em>.
+  Like its successors through X11R6, there is no changelog, so it
+  was not possible to determine when/where the features originated.
+  But they predate <strong>dtterm</strong>. Some additional
+  information is given in <a href=
+  "/xterm/ctlseqs/ctlseqs.html#h3-Miscellaneous"><em>XTerm Control
+  Sequences</em></a>.</p>
+
+  <h2 id="licensing-h2"><a name="licensing" id=
+  "licensing">Licensing</a></h2>
+
+  <p>The original distribution of <em>vttest</em> used licensing
+  terms which were problematic ("noncommercial"), e.g., for the
+  Debian packagers:</p>
+
+  <blockquote>
+    <pre class="code-block">
+                   This software is (c) 1984 by QZ
+               Non-commercial use and copying allowed.
+
+If you are developing a commercial product, and use this program to do
+it, and that product is successful, please send a sum of money of your
+choice to the address below.
+  
+</pre>
+  </blockquote>
+
+  <p>I contacted Per Lindberg in 2007, and suggested that it be
+  changed to a BSD license. He agreed. My changes have always been
+  compatible with that.</p>
+
+  <h2 id="documentation-h2"><a name="documentation" id=
+  "documentation">Documentation</a></h2>
+
+  <ul>
+    <li><a href="manpage/vttest.html">vttest program</a> (<a href=
+    "manpage/vttest.pdf">pdf</a>) (<a href=
+    "manpage/vttest.ps">postscript</a>) (<a href=
+    "manpage/vttest.txt">plain text</a>)</li>
+  </ul>
+
+  <hr>
+
+  <h2 id="screenshots-h2"><a name="screenshots" id=
+  "screenshots">Screenshots</a></h2>
+
+  <p>Here are additional screenshots.</p>
+
+  <ul>
+    <li><a href="vttest-nrcs.html">National Replacement Character
+    Sets</a></li>
+
+    <li><a href="vttest-codepages.html">Other Character Sets
+    (Code-pages)</a></li>
+
+    <li><a href="vttest-wrap.html">VT100/non-VT100 wrapping</a></li>
+
+    <li><a href="vttest-checksums.html">VT420/VT520 checksums</a></li>
+  </ul>
+
+  <h2 id="download-h2"><a name="download" id=
+  "download">Download</a></h2>
+
+  <ul>
+    <li><a href="/datafiles/release/vttest.tar.gz">source</a></li>
+
+    <li><a href="/archives/vttest/">archives</a></li>
+  </ul>
+
+  <h2 id="related-h2"><a name="related" id="related">Related
+  links</a></h2>
+
+  <p>There are numerous references on the net to
+  <strong>vttest</strong>. Here are a few of the more interesting
+  ones:</p>
+
+  <ul>
+    <li><a href="#link_packages">Packages for vttest</a></li>
+
+    <li><a href="#link_sources">Other vttest Sources</a></li>
+
+    <li><a href="#link_discussion">Discussion/mention of vttest</a></li>
+
+    <li><a href="#link_tools">Test-tools</a></li>
+
+    <li><a href="#link_screenshots">Screenshots using vttest</a></li>
+
+    <li><a href="#link_scorecard">VTTEST "Score Card"</a></li>
+  </ul>
+
+  <h3 id="link_packages-h3"><a name="link_packages" id=
+  "link_packages">Packages for vttest</a></h3>
+
+  <ul>
+    <li><a rel="nofollow" href=
+    "https://repology.org/project/vttest/versions">Repology</a></li>
+
+    <li><a rel="nofollow" href=
+    "https://web.archive.org/web/20140122011443/http://oswatershed.org/pkg/vttest">
+    OS<em>Watershed</em>.org</a> (archived 2014)</li>
+
+    <li>
+      <a rel="nofollow" href=
+      "http://fr2.rpmfind.net/linux/rpm2html/search.php?query=vttest">
+      RPM search</a>.
+      <p>Usually <em>vttest</em> is a separate package. However
+      OpenSuSE bundles <em>vttest</em> within the <em>xterm</em>
+      package.</p>
+    </li>
+
+    <li><a href=
+    "http://packages.debian.org/search?searchon=names&amp;keywords=vttest">
+    Debian</a></li>
+
+    <li><a href="http://pkgsrc.se/misc/vttest">NetBSD pkgsrc</a>
+    (<a href=
+    "http://cvsweb.netbsd.org/bsdweb.cgi/pkgsrc/misc/vttest/">CVS</a>)</li>
+
+    <li><a href=
+    "http://www.freshports.org/sysutils/vttest/">FreshPorts</a></li>
+
+    <li><a href="http://openports.se/misc/vttest">OpenPorts</a></li>
+
+    <li><a href=
+    "https://cygwin.com/packages/summary/vttest-src.html">Cygwin</a></li>
+
+    <li><a href=
+    "http://hpux.connect.org.uk/hppd/cgi-bin/search?term=vttest&amp;Search=Search">
+    HP-UX Porting and Archiving Centre</a></li>
+
+    <li><a href="http://www.opencsw.org/packages/vttest/">OpenCSW
+    (Solaris)</a></li>
+
+    <li><a href=
+    "http://www.decuslib.com/DECUS/freewarev80/vttest-20051020/">DECUS
+    Freeware 8.0</a>. <em>Vttest</em> was included in more than one
+    of the VMS freeware cdroms, starting with release 2.6 in
+    <a href=
+    "http://www.decuslib.com/DECUS/freewarev30/VTTEST/">1996</a>.</li>
+  </ul>
+
+  <h3 id="link_sources-h3"><a name="link_sources" id=
+  "link_sources">Other vttest Sources</a></h3>
+
+  <ul>
+    <li>
+      <p>FreeBSD (likewise NetBSD, OpenBSD) had a source (and
+      typically installed <em>vttest</em>) as part of PCVT. The
+      PCVT console driver is not much used now, but (like
+      <em>xterm</em> of the same era) aimed at good VT220
+      emulation. <a href=
+      "http://svnweb.freebsd.org/base/stable/5/usr.sbin/pcvt/">Here</a>
+      is a place to read about it.</p>
+
+      <p><a href=
+      "http://svnweb.freebsd.org/base/stable/6/usr.sbin/">Since
+      2005</a> (see also <a href=
+      "http://manned.org/vttest/cba6d5b8">manned.org</a>),
+      <em>vttest</em> has been provided as a port (not part of the
+      base system).</p>
+
+      <p>Recently (at least since 2009), FreeBSD has been revising
+      the SYSCONS console driver (the "TEKEN_XTERM" feature seen
+      <a href=
+      "http://www.freebsd.org/cgi/cvsweb.cgi/src/sys/dev/syscons/">here</a>).
+      As noted <a href=
+      "http://lists.freebsd.org/pipermail/svn-src-head/2009-January/002980.html">
+      here</a>, <em>vttest</em> has been useful in this
+      development.</p>
+    </li>
+
+    <li>
+      <p>rxvt used to have a bundled copy of 1.7b (see <a href=
+      "http://rxvt.svn.sourceforge.net/viewvc/rxvt/trunk/doc/">changes.txt</a>).<br>
+
+      Mark Olesen dropped it from rxvt in his final release 2.18
+      (announced August 2, 1996) to reflect my work on
+      <em>vttest</em>. However, its presence in rxvt's source
+      (combined with my having sent Mark a patch in April 1996 to
+      improve rxvt's handling of SGR 39/49 default colors) was what
+      led me to start adding the color-related tests to
+      <em>vttest</em>.</p>
+    </li>
+
+    <li>
+      <p>KDE konsole used to have a copy of 1.7b, which I noticed
+      in 1.0.2 (2001) when responding to a <a href=
+      "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=121159">bug
+      report</a> where konsole had incorrectly implemented
+      <em>xterm</em>'s SGR 1049 (no cursor save/restore was done).
+      Ultimately it turned out that the bug had been fixed, but was
+      poorly communicated since the corresponding <a href=
+      "https://bugs.kde.org/show_bug.cgi?id=35650">upstream bug
+      report</a> was not cited in Debian's update ("fix konsole"
+      can cover a lot of territory), nor was there any changelog
+      note in KDE describing the change.</p>
+
+      <p><em>Vttest</em> comprised most of the files in the "tests"
+      subdirectory. It was removed in 2009, according to the commit
+      comment due to <a href=
+      "https://cgit.kde.org/konsole.git/commit/?id=602c1ce87ceaf1442e3329af1ff9aae40bbbaf73">
+      "license issues/age"</a> (and is not mentioned in <a href=
+      "http://konsole.kde.org/changelogfull.php">its
+      changelog</a>).</p>
+
+      <p>Konsole's copy had been modified, of course, to work with
+      POSIX termio, although it was done inline (rather than moving
+      the repeated ioctl's to a separate function). Seeing that
+      <em>vttest</em> was apparently being used made it puzzling
+      that at the time Konsole used a nonstandard response for its
+      terminal identifier (the primary device attributes):</p>
+
+      <blockquote>
+        <pre class="code-block100">
+  if (getMode(MODE_Ansi))
+//  sendString("\033[?1;2c");     // I'm a VT100 with AP0 //FIXME: send only in response to ^[[0c
+    sendString("\033[&gt;0;115;0c"); // I'm a VT220          //FIXME: send only in response to ^[[&gt;c
+  else
+    sendString("\033/Z");         // I'm a VT52
+</pre>
+      </blockquote>
+
+      <p>That is, it was returning xterm's <em>secondary</em>
+      response. The &ldquo;115&rdquo; was xterm's patch level in
+      <a href="/xterm/xterm.log.html#xterm_115">late 1999</a>.
+      However, that was partially corrected around the same time as
+      the bug report&mdash; mentioned above. The string is (as of
+      December 2011) returned as the response to the secondary
+      device attributes control.</p>
+
+      <p>The comment &ldquo;<tt>I'm a VT52</tt>&rdquo; should be
+      &ldquo;<tt>VT100 emulating VT52</tt>&rdquo; (real VT52s
+      respond differently).</p>
+    </li>
+
+    <li>
+      <p><a href="http://aminet.net/package/comm/term/Vttest">old
+      source on Aminet</a>, from 1987</p>
+    </li>
+
+    <li>
+      <p><a href=
+      "http://www.nic.funet.fi/pub/msdos/languages/c/vt100.c">older
+      source</a>, from 1983</p>
+    </li>
+  </ul>
+
+  <h3 id="link_discussion-h3"><a name="link_discussion" id=
+  "link_discussion">Discussion/mention of vttest</a></h3>
+
+  <ul>
+    <li>
+      <p><a href="http://vt100.net">VT100.net</a></p>
+    </li>
+
+    <li>
+      <p><a href=
+      "https://web.archive.org/web/20150828220340/http://labs.hoffmanlabs.com/node/1569">
+      AskHL: VT-series Terminal Emulation</a></p>
+    </li>
+
+    <li>
+      <p><a href="http://lwn.net/Articles/88266">LWN</a></p>
+    </li>
+
+    <li>
+      <p><a href=
+      "http://mail.gnome.org/archives/gnome-devel-list/2002-April/msg00070.html">
+      zvtterm</a></p>
+    </li>
+
+    <li>
+      <p><a href="http://lkml.org/lkml/1999/1/20/149">broken
+      console fails vttest</a> (Albert D Cahalan, 20 Jan 1999)</p>
+    </li>
+
+    <li>
+      <p><a href=
+      "/archives/shuford/terminal/emulation_how_to_news.txt">comp.terminals
+      newsgroup</a></p>
+    </li>
+
+    <li>
+      <p><a href=
+      "http://www.kernel.org/doc/man-pages/online/pages/man4/console_codes.4.html">
+      Linux console_codes manpage</a> (<a href=
+      "http://man.he.net/man4/console_codes">readable
+      version</a>).</p>
+    </li>
+
+    <li>
+      <p><a href=
+      "http://the.taoofmac.com/space/apps/Terminal">Terminal.app is
+      not your grandfather's VT100 terminal</a> (Tao of Mac).<br>
+      This is an example of how <em>vttest</em> is used to validate
+      the correctness of a terminal.</p>
+
+      <p>By the way, the comment "passes more suites" refers to an
+      earlier source (apparently not available) whose writer was
+      confused about <em>xterm</em>'s support for double-sized
+      characters, stating that Terminal.app did this while
+      <em>xterm</em> did not. <em>Xterm</em>'s done this since
+      1998. Since Terminal.app is an OS X application, it cannot be
+      older than 2002.</p>
+
+      <p>The existing article (from 2005) goes on to comment that
+      Terminal.app does not handle mouse location reporting. That
+      gives a clue: As of 2014, Terminal.app as a rule does not
+      handle the VT220 and higher-level control sequences which
+      comprise the bulk of the screens in <em>vttest</em>. It is
+      not <em>xterm</em>. Perhaps its developers intended it to
+      compete with dtterm, which it more closely resembled at that
+      point in time.</p>
+    </li>
+
+    <li><a href=
+    "https://tomscii.sig7.se/zutty/doc/VTTEST.html">Results of
+    testing Zutty with Vttest</a></li>
+  </ul>
+
+  <h3 id="link_tools-h3"><a name="link_tools" id=
+  "link_tools">Test-tools</a></h3>
+
+  <p>The <a href="#comment_sut"><em>System Under Test</em></a> page
+  only skims the surface of testing a terminal.</p>
+
+  <ul>
+    <li>
+      <p><a href="/ncurses/tack.html">tack</a> is an interactive
+      tool like <em>vttest</em>, used for testing terminal
+      descriptions. A terminal description provides details about
+      the most commonly used features (which applications and
+      libraries such as ncurses may use portably).</p>
+
+      <p>When I test a terminal description, I rely on
+      <em>vttest</em> and <em>tack</em> and make notes on the
+      problems found (see <a href=
+      "/ncurses/ncurses.html#download_database">terminfo.src</a>
+      for examples)</p>
+    </li>
+
+    <li>
+      <p>The <a href=
+      "/ncurses/ncurses-examples.html">ncurses-examples</a>
+      (whether separate or bundled with <a href=
+      "/ncurses/ncurses.html">ncurses</a>) indirectly test terminal
+      features, due to their reliance upon the line-drawing and
+      character encoding support of the terminal.</p>
+    </li>
+
+    <li>
+      <p><a href="/xterm/xterm.html">XTerm</a>'s sources include
+      several scripts which demonstrate features that generally are
+      outside the scope of <em>vttest</em> e.g., because they are
+      specific to <em>xterm</em> rather than DEC terminals (see
+      <a href=
+      "https://github.com/ThomasDickey/xterm-snapshots/tree/master/vttests/">
+      snapshot</a>).</p>
+    </li>
+
+    <li>
+      <p>I have more than two thousand <a href=
+      "/scripts/readme.html">scripts</a>, aside from those which
+      are bundled with one of the programs I develop. Some of these
+      scripts provide more in-depth testing of terminal
+      capabilities. If a given script provides the only test for a
+      feature, I generally move it into the collection bundled with
+      <em>xterm</em>.</p>
+    </li>
+  </ul>
+
+  <p>These are tools which others have developed:</p>
+
+  <ul>
+    <li>
+      <p><a href=
+      "https://github.com/mattiase/wraptest"><em><code>wraptest</code></em></a>
+      <em>&ndash; DEC VT terminal line-wrapping semantics</em>
+      (Mattias Engdeg&aring;rd).</p>
+
+      <p>Beyond its immediate usefulness, Engdeg&aring;rd pointed
+      out a useful document which provides details on similar
+      obscure features of DEC's terminals:</p>
+
+      <blockquote>
+        <p><a href=
+        "http://www.bitsavers.org/pdf/dec/standards/EL-SM070-00_DEC_STD_070_Video_Systems_Reference_Manual_Dec91.pdf">
+        <em>DEC STD 070 Video Systems Reference Manual</em></a>
+        (EL-SM070-00, December 1991).</p>
+      </blockquote>
+    </li>
+
+    <li>
+      <p><a href=
+      "https://github.com/ThomasDickey/esctest2"><em><code>esctest</code></em></a>
+      <em>&ndash; Automatic unit tests for terminal emulation</em>
+      (George Nachman, <a href=
+      "https://github.com/gnachman/esctest"><em>original
+      site</em></a>).</p>
+
+      <p>While <em>vttest</em> uses query/response control
+      sequences to determine if the responses are valid, it relies
+      upon (a knowledgeable) user to inspect test screens. Rather
+      than inspect each test screen, this set of scripts uses the
+      VT420 DECRCRA control sequence to infer the contents of the
+      screen at different points. It cannot test interactive
+      features, and there are large areas (such as NRCS, C1, UTF-8)
+      which are not yet covered (writing in August 2019), but
+      within its intended scope is useful for regression
+      testing.</p>
+    </li>
+  </ul>
+
+  <p>When I test with <em>esctest</em>, I use a script which
+  exercises it for five levels (VT100 to VT525), in non-UTF-8 and
+  UTF-8 (wide) configurations. The test results differ slightly
+  between the two configurations. Neither comes close to testing
+  all of <em>xterm</em>:</p>
+
+  <blockquote>
+    <p><a href="/vttest/images/esctest-394g.png"><img width="450"
+    src="/vttest/images/esctest-394g.png" alt=
+    "LCOV report for ESCTEST"></a></p>
+  </blockquote>
+
+  <blockquote>
+    <p><a href="/vttest/images/esctest-wide-394g.png"><img width=
+    "450" src="/vttest/images/esctest-wide-394g.png" alt=
+    "LCOV report for ESCTEST (wide)"></a></p>
+  </blockquote>
+
+  <p><em>vttest</em> covers far more of <em>xterm</em> than that
+  (about twice as much). I have special scripts which cover some of
+  the remainder. To make it easier to measure this, I modified
+  <em>vttest</em> to enable it to re-read its log file as a command
+  script. By doing that, I could use <em>lcov</em> to determine if
+  I was using most of the available tests. For some tests, there
+  are many combinations of parameters via the menus, and it takes
+  time to develop those scripts. Here are results from October
+  2024:</p>
+
+  <blockquote>
+    <p><a href="/vttest/images/vttest-20241015.png"><img width=
+    "450" src="/vttest/images/vttest-20241015.png" alt=
+    "LCOV report for VTTEST"></a></p>
+  </blockquote>
+
+  <p>With those scripts, as well as about 30 scripts and
+  <em>tack</em> and the ncurses test-program, I produced this
+  report:</p>
+
+  <blockquote>
+    <p><a href="/vttest/images/xterm-394h.png"><img width="450"
+    src="/vttest/images/xterm-394h.png" alt=
+    "LCOV report for VTTEST"></a></p>
+  </blockquote>
+
+  <p>Those scripts include <em>esctest</em>, but it contributed
+  only 2% of the coverage because almost all of it duplicates
+  <em>vttest</em> or the other scripts.</p>
+
+  <h3 id="link_screenshots-h3"><a name="link_screenshots" id=
+  "link_screenshots">Screenshots using vttest</a></h3>
+
+  <ul>
+    <li><a href=
+    "https://sourceforge.net/projects/ackterm/">AckTerm</a></li>
+
+    <li><a href=
+    "http://atariage.com/forums/topic/217539-ice-t-xe-276-released/">
+    Ice-T XE</a> (AtariAge forums)</li>
+
+    <li><a href=
+    "https://github.com/timmoorhouse/imgui-terminal/tree/master/doc/vttest">
+    ImGui</a></li>
+
+    <li><a href=
+    "http://code.google.com/p/nally/wiki/vttest">nally</a></li>
+
+    <li><a href=
+    "http://nanno.dip.jp/softlib/man/rlogin/vttest/index.html">nanno</a></li>
+
+    <li><a href=
+    "http://leonerds-code.blogspot.com/2013/07/double-width-and-double-height-in.html">
+    pangoterm</a></li>
+
+    <li><a href=
+    "http://qodem.sourceforge.net/screenshots.html">qodem</a></li>
+
+    <li id="comment_sut"><a href=
+    "https://systemundertest.org/xterm/">System Under Test</a></li>
+
+    <li><a href=
+    "http://ttssh2.sourceforge.jp/tmp/vttest-result/">ttsh2</a></li>
+
+    <li><a href=
+    "https://itguygonebad.medium.com/vttest-on-different-terminals-4235d4d7aee6">
+    vttest on different terminals</a></li>
+
+    <li><a href="http://www.youtube.com/watch?v=4vTu0KekGOc">Wyse
+    WY-185 Terminal demo</a> (YouTube, last 2 minutes)</li>
+
+    <li><a href=
+    "https://www.emtec.com/zoc/screenshots.html#vttest">ZOC
+    Terminal and SSH Client</a></li>
+  </ul>
+
+  <h3 id="link_scorecard-h3"><a name="link_scorecard" id=
+  "link_scorecard">VTTEST "Score Card"</a></h3>
+
+  <ul>
+    <li>
+      <a href="http://www.kermitproject.org/vttest.html">The VTTEST
+      VT100/102 Terminal Emulation Test</a>
+      <ul>
+        <li><a href="http://www.kermitproject.org/">Kermit
+        project</a></li>
+
+        <li><a href="ftp://ftp.kermitproject.org/kermit/">Kermit
+        ftp site</a></li>
+      </ul>
+    </li>
+
+    <li><a href=
+    "http://www.kermitproject.org/k95compare.html">Kermit
+    comparisons with other products</a></li>
+
+    <li><a href=
+    "http://www.celestialsoftware.net/absolutetelnet-ssh-client/absolutetelnet/ssh-vttest-score.html">
+    AbsoluteTelnet/SSH</a></li>
+
+    <li><a href="http://home.planet.nl/~ruurdb/VTTEST.HTM">IVT</a></li>
+
+    <li><a href="https://www.emtec.com/zoc/index.html">ZOC
+    Terminal</a> <a href=
+    "https://www.emtec.com/zoc/whitepapers/ZOC_vttest_Score_Sheet.pdf">
+    score sheet</a>.</li>
+  </ul>
+</body>
+</html>

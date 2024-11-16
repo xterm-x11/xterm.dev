@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="Manpage converted by man2html - see https://invisible-island.net/scripts/readme.html#others_scripts">
+<title>vttest(1)</title>
+<link rel="SHORTCUT ICON" href="/img/icons/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/css/man2html.css" type="text/css">
+<style type="text/css">
+@import "/css/simplenav15.css" all;
+</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<hr><p><a 
+href="/">https://invisible-island.net/</a><a 
+href="/vttest/">vttest/</a>
+<hr>
+<h1 class="no-header">vttest(1)</h1>
+<pre>
+</pre>
+<h2><a name="h2-NAME" id="h2-NAME">NAME</a></h2>
+<pre>       vttest - test VT100-type terminal
+
+</pre>
+<h2><a name="h2-SYNOPSIS" id="h2-SYNOPSIS">SYNOPSIS</a></h2>
+<pre>       <b>vttest</b> <i>[options] [24x80.132]</i>
+
+</pre>
+<h2><a name="h2-DESCRIPTION" id="h2-DESCRIPTION">DESCRIPTION</a></h2>
+<pre>       <i>Vttest</i>  is  a  program  designed  to  test the functionality of a VT100
+       terminal (or emulator thereof).  It tests both display (escape sequence
+       handling) and keyboard.
+
+       The   program  is  menu-driven  and  contains  full  on-line  operating
+       instructions.
+
+       <b>o</b>   To run a given menu-item, you must enter its number.
+
+       <b>o</b>   Menu items start at zero; this is the "Exit"  item  in  almost  all
+           cases.
+
+       <b>o</b>   You  can  run  all  menu-items  (for  a given level) by entering an
+           asterisk, i.e, "*'.
+
+       <b>o</b>   You can force a repaint of the menu items by entering "?".
+
+       <b>o</b>   A few menus can be more than one page.  Use "n" and "p"  to  switch
+           to the next or previous page.
+
+</pre>
+<h2><a name="h2-OPTIONS" id="h2-OPTIONS">OPTIONS</a></h2>
+<pre>       You can specify the screen geometry in the form <i>[24x80.132]</i>, i.e.,
+
+       <b>o</b>   24 lines,
+
+       <b>o</b>   80 minimum columns, and
+
+       <b>o</b>   132 maximum columns.
+
+       If  your  terminal  does  not switch between 80 and 132 columns you may
+       specify 24x80.80, for example, to avoid a misleading display.
+
+       Other options are:
+
+       <b>-V</b>   print the program version, and exit.
+
+       <b>-f</b> <i>fontfile</i>
+            specify a file  containing  a  DRCS  (soft  character  definition)
+            string.
+
+       <b>-l</b>   log test results to <i>vttest.log</i>.
+
+       <b>-p</b>   use padding, e.g., for a VT100 connected to a high-speed line.
+
+       <b>-q</b>   show  only  the  most  recent part of a continuous response, e.g.,
+            any-event mouse tests, to improve readability of the test.
+
+       <b>-s</b>   add time-delay  in  selected  panning/scrolling  options  to  show
+            details.
+
+       <b>-8</b>   use 8-bit controls (this can be changed with a menu option).
+
+</pre>
+<h2><a name="h2-AUTHOR" id="h2-AUTHOR">AUTHOR</a></h2>
+<pre>       Per Lindberg (mcvax,seismo)!enea!suadb!lindberg sometime 1985.
+
+       Modified by Thomas Dickey from June 1996, to support nonstandard screen
+       geometry, VT220-VT520, ISO color and xterm-specific tests.
+
+                                  2020-09-20                         <b>VTTEST(1)</b>
+</pre>
+<div class="nav">
+<ul>
+<li><a href="vttest.html" class="nav-top">(top)</a><br>
+<li><a href="#h2-NAME">NAME</a></li>
+<li><a href="#h2-SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#h2-DESCRIPTION">DESCRIPTION</a></li>
+<li><a href="#h2-OPTIONS">OPTIONS</a></li>
+<li><a href="#h2-AUTHOR">AUTHOR</a></li>
+</ul>
+</div>
+</body>
+</html>

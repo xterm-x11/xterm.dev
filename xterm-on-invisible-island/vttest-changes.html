@@ -1,0 +1,1241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+<title>Change-Log for VTTEST</title>
+<link rel="author" href="mailto:dickey@invisible-island.net">
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<link rel="stylesheet" href="/css/simplestyle.css" type="text/css">
+<link rel="SHORTCUT ICON" href="/img/icons/xterm.ico" type="image/x-icon">
+<meta name="keywords" content="CHANGES,change-log">
+<meta name="description" content="Change-Log for VTTEST">
+<style type="text/css">
+  @import "/css/simplenavXX.css" all;
+</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<h1 class="no-header">Change-Log for VTTEST</h1>
+
+<hr>
+<a href="/">https://invisible-island.net/</a><a href="/vttest/">vttest/</a><a href="/vttest/CHANGES.html">CHANGES</a>
+
+<hr>
+
+<pre>
+-- $Id: CHANGES,v 1.308 2024/10/31 07:53:39 tom Exp $
+-------------------------------------------------------------------------------
+
+<a name="t20241031" href="#index-t20241031" id="t20241031">20241031</a>
+        + add null-pointer check in window-modify tests when logging is not
+          enabled (report/patch by Mark Peek).
+
+<a name="t20241024" href="#index-t20241024" id="t20241024">20241024</a>
+        + improve replay logic for skipping consecutive wait/done chunks as in
+          the mouse test-screens.
+
+<a name="t20241014" href="#index-t20241014" id="t20241014">20241014</a>
+        + modify checks for cursor position after alternate-screen restoring
+          the cursor position to work with command-replay.
+
+        + modify send32() function to log the numeric values of non-mapped
+          characters rather than the actual characters.
+
+        + improve error-checking in test_window_opts().
+
+        + add test-screen for DECATC
+
+<a name="t20241010" href="#index-t20241010" id="t20241010">20241010</a>
+        + add "-c" option, which can replay the logfile, with exclusions for
+          the places where vttest requires keyboard or mouse events.
+
+        + change "-l" option to require a value, for consistency.
+
+        + improve usage-message.
+
+        + modify character-set tables to work with xterm <a href="/xterm/xterm.log.html#xterm_395">#395</a> Russian and SCS
+          NRCS.
+
+        + add test-screen for XTVERSION
+
+<a name="t20240929" href="#index-t20240929" id="t20240929">20240929</a>
+        + add setting to demonstrate 7-bit parsing tables, as per ECMA-48
+          section 9.
+
+        + check DA3 response for validity
+
+        + add charset and reports table entries for VT382
+
+        + correct initialization for nl_langinfo() call (cf: <a href="#t20231230">20231230</a>).
+
+        + improve configure-script handling of file pathnames
+
+        + update config.guess, config.sub
+
+<a name="t20240708" href="#index-t20240708" id="t20240708">20240708</a>
+        + ensure stdout is flushed before getting response from DECID, fixing
+          regression in <a href="#t20231230">20231230</a> (report by James Holderness)
+
+<a name="t20240218" href="#index-t20240218" id="t20240218">20240218</a>
+        + other improvements (report by James Holderness)
+
+          + modify DECAC test to include the window-frame
+
+          + accept a 23/unsupported response for DSR status of UDK
+
+        + improve/correct resetting of character-sets after tests:
+
+          + improve use of current settings in the reset function
+
+          + fix a case which tried to set a 96-character set in G0
+
+          + add a reset after SI/SO test (report by James Holderness)
+
+        + update config.guess, config.sub
+
+<a name="t20231230" href="#index-t20231230" id="t20231230">20231230</a>
+        + modify get_reply() to wait only 0.1 seconds for a response, in case
+          vttest is run on a terminal which is not VT100-compatible.
+
+        + switch to/from ISO-2022 mode from UTF-8 if the user's locale is
+          currently set to UTF-8.
+
+        + add DECRQSS test for XTQMODKEYS
+
+        + modify character set menus to filter out NRCS charsets when NRCS is
+          not enabled.
+
+        + improve DECRQSS tests for DECAC and DECATC
+
+        + add DA2 code 48 for Thai VT382
+
+        + make separate VT510 DECRQSS menu to distinguish from VT520.
+
+        + modify DECAUPSS/DECRQUPSS tests to exercise switching to valid
+          combinations for VT320 and VT520, etc., to test xterm <a href="/xterm/xterm.log.html#xterm_389">#389</a>.
+
+        + improve "-q" option, e.g., to avoid resetting the display of the
+          response on string-terminator (cf: <a href="#t20200920">20200920</a>).
+
+        &gt; fixes/improvements (report by James Holderness)
+          + correct code and comment for DECTEK mode (38) with DECRPM
+          + remove redundant code for DECVSSM mode (69)
+          + correct locator status query
+          + add identify-locator query
+          + correct final characters in DECSDDT, DECSDPT, DECSEST tests
+          + correct mnemonic for VT520 alternate text color
+          + add DECPRO test with VT320 DECRQSS
+          + add DECSRFR test with VT520 DECRQSS
+          + add DECUS test with VT520 DECRQSS
+          + add keyboard status codes for VT382
+          + add keyboard types from VT420, VT510 and VT520 manuals
+          + modify keyboard type parsing to report "unknown" for a zero
+          + use VT525 DECAC to initialize that terminal to white-on-black
+
+<a name="t20230924" href="#index-t20230924" id="t20230924">20230924</a>
+        + modify DEC private mode table and lookup function to handle different
+          interpretations of modes 35 and 69.
+
+        + add xterm private modes 1014, 1016 to DECRQM tests
+
+        + updated/improved configure macros
+
+        + update config.guess, config.sub
+
+<a name="t20230201" href="#index-t20230201" id="t20230201">20230201</a>
+        + reduce compiler-warnings in configure-checks
+
+<a name="t20221229" href="#index-t20221229" id="t20221229">20221229</a>
+        + configure-script fixes:
+          CF_XOPEN_SOURCE:  amend the test for conflict between _XOPEN_SOURCE
+          and _POSIX_C_SOURCE to allow for the former to be undefined because
+          unneeded.
+          CF_FCNTL_VS_IOCTL:  include &lt;sys/ioctl.h&gt;, for systems which may
+          define FIONREAD there (Redhat <a href="https://bugzilla.redhat.com/show_bug.cgi?id=2151353">#2151353</a>)
+
+<a name="t20221111" href="#index-t20221111" id="t20221111">20221111</a>
+        + improve DECTABSR test by adding menu for changing/resetting tabs.
+
+        + improve DECCIR test by adding character-set menu
+
+        + replace va_out() with vfprintf() where available, fixing some recent
+          changes which used formatting not handled in logging; improve
+          va_out() as well, e.g., for VMS (report by James Holderness).
+
+        + updated/improved configure macros
+
+        + update install-sh
+
+        + update config.guess, config.sub
+
+<a name="t20220827" href="#index-t20220827" id="t20220827">20220827</a>
+        + modify alternate-screen tests to demonstrate the effect of setting
+          color, as well as making their use of DECALN optional.
+
+        + updated/improved configure macros, i.e., for compiler-warnings
+
+        + update config.guess
+
+<a name="t20220227" href="#index-t20220227" id="t20220227">20220227</a>
+        + improve checks for malloc failure, consolidating error-exits to use
+          strerror.
+
+        + fix several minor issues reported by coverity and clang; a couple
+          of test results now handle zeroes in status results.
+
+<a name="t20220215" href="#index-t20220215" id="t20220215">20220215</a>
+        + add test-screen using cursor-addressing in the status line.
+
+        + add underline and bold attributes to the test-screen for status-line.
+
+        + improve logging, showing the test-strings to give better context for
+          escape-sequences.
+
+        + fix typos in keyboard.c and reports.c (patch by Kelvin Sherlock).
+
+        + updated/improved configure macros, i.e., for compiler-warnings
+
+        + update config.guess, config.sub
+
+<a name="t20210210" href="#index-t20210210" id="t20210210">20210210</a>
+        + improve test-screen for VT420 cursor movement, when left/right
+          margins are enabled (prompted by discussion with Tom Szilagyi).
+
+        + updated/improved configure macros, i.e., for shellcheck-warnings
+
+<a name="t20201225" href="#index-t20201225" id="t20201225">20201225</a>
+        + correct highlighting for ISO Greek, Hebrew and Latin-5.
+
+        + correct highlighting for DEC Cyrillic, Greek and Hebrew.
+
+        + add Latin-2 character set for VT510.
+
+        + updated/improved configure macros, i.e., for compiler-warnings
+
+        + update config.guess, config.sub
+
+<a name="t20200920" href="#index-t20200920" id="t20200920">20200920</a>
+        + add test for xterm's 1016 pixel-coordinates mouse-mode.
+
+        + add "-q" option to display only the most recent part of a response,
+          e.g., for any-event mouse tests.
+
+        + remove obsolete MANIFEST, dist, dist-shar makefile targets, since
+          those are done by external scripts.
+
+        + use makefile ".PHONY" feature if available.
+
+        + updated/improved configure macros, i.e., for compiler-warnings
+
+        + update config.guess, config.sub
+
+<a name="t20200610" href="#index-t20200610" id="t20200610">20200610</a>
+        + modify DECSCA test to show whether EL/ED and ECH/ICH/DCH ignore
+          DECSCA.
+
+        + modify DECERA test to assume that the terminal uses bce, and prompt
+          for an additional color-change/erase to demonstrate this.
+
+<a name="t20200420" href="#index-t20200420" id="t20200420">20200420</a>
+        + improve test-coverage for REP/SD/SL/SR/SU, exercising default params.
+
+        + improve DA/DA2 reports for VT125, VT240, VT382, VT510 used in xterm.
+
+<a name="t20200303" href="#index-t20200303" id="t20200303">20200303</a>
+        + spelling fixes found with codespell.
+
+        + correct a few other highlighting items for Turkish NRCS and DEC
+          Supplemental Graphic NRCS.
+
+        + correct highlighting for Spanish NRCS pound-sign in character-sets
+          (report by James Holderness)
+
+        + updated/improved configure macros
+
+<a name="t20191231" href="#index-t20191231" id="t20191231">20191231</a>
+        + updated/improved configure macros
+
+        + update config.guess, config.sub
+
+<a name="t20190710" href="#index-t20190710" id="t20190710">20190710</a>
+        + improve alternate-screen test, with additional cursor-position check.
+
+        + add extensions found in DEC standard 070 to the primary response table.
+
+        + updated/improved configure macros
+
+        + update config.guess, config.sub
+
+<a name="t20190105" href="#index-t20190105" id="t20190105">20190105</a>
+        + added/updated port-files from pkgsrc for test-builds.
+
+        + updated port-files from FreeBSD for test-builds.
+
+        + updated/improved configure macros
+          CF_CC_ENV_FLAGS, CF_GNU_SOURCE, CF_POSIX_C_SOURCE, CF_XOPEN_SOURCE
+
+        + update config.guess, config.sub
+
+<a name="t20181116" href="#index-t20181116" id="t20181116">20181116</a>
+        + improve mouse-tracking test, logging the decoded button- and
+          modifier-information as well as fixing a special case for button 6.
+
+<a name="t20180911" href="#index-t20180911" id="t20180911">20180911</a>
+        + add "-V" option, for version information.
+        + ensure logfile is flushed after each command.
+        + demonstrate DECRQCRA with GR, checked with VT520 screenshot.
+        + improve DECRQCRA test, demonstrating treatment of whitespace and
+          video attributes by DEC terminals, seen in VT520 screenshots.
+        + modify locking-shift test, changing the default GR character set to
+          match hardware terminals more closely, e.g., setting it to Latin-1.
+        + add/improve character-set table entries for xterm <a href="/xterm/xterm.log.html#xterm_336">#336</a>.
+        + modify CNL test to demonstrate its treatment of zero as default.
+        + revise DECRQCRA test to match VT520 screenshots from Markus Schmidt
+
+<a name="t20180811" href="#index-t20180811" id="t20180811">20180811</a>
+        + recent BSD-make mishandled .1.cat rule; fix
+
+<a name="t20180728" href="#index-t20180728" id="t20180728">20180728</a>
+        + update xterm DECRPM table
+
+<a name="t20180725" href="#index-t20180725" id="t20180725">20180725</a>
+        + remove obsolete message about diagonal in DECIC/DECDC test; since
+          xterm <a href="/xterm/xterm.log.html#xterm_315">#315</a> the test result is on the margin.
+
+        + fix an off-by-one in right-margin for ICH/DCH test.
+
+        + add tests for DECRSPS for xterm <a href="/xterm/xterm.log.html#xterm_334">#334</a>.
+
+        + improve formatting of highlighted response-strings, fixing a problem
+          with wrapping.
+
+<a name="t20180702" href="#index-t20180702" id="t20180702">20180702</a>
+        + updated test-packages to use recommended flags.
+
+        + improved DECRQCRA check, updating to work with xterm <a href="/xterm/xterm.log.html#xterm_334">#334</a>.
+
+        + add tests for xterm's extensions to DECSCUSR.
+
+        + updated/improved configure macros
+
+        + update config.guess, config.sub
+
+<a name="t20150706" href="#index-t20150706" id="t20150706">20150706</a>
+        + add configure option --with-man2html
+
+        + update config.guess, config.sub
+
+<a name="t20140305" href="#index-t20140305" id="t20140305">20140305</a>
+        + save/restore color enable-flag for menu 11.6 in a couple of places
+          so that the ISO-6429 tests do not reset it unexpectedly.
+
+        + amend the REP test to not reset colors if it happens to be run via
+          the menu entry for BCE-related tests.
+
+<a name="t20140116" href="#index-t20140116" id="t20140116">20140116</a>
+        + cosmetic changes (suggested by Itay Chamiel):
+
+          + clear screen just before resetting SCS in menu #3 character sets,
+            in case a VT100 emulator does not simply ignore VT220 G2/G3
+            selections when it does not implement them.
+
+          + add check for maximum operating level before deciding whether
+            to send a DECSCL to set it to VT100-level.
+
+          + adjust starting point of items for menu #9 "Test of known bugs"
+            to avoid overwriting part of the description of the test.
+
+        + add configure check for -Wlogical-op to gcc-warnings
+
+        + update config.guess, config.sub
+
+<a name="t20130915" href="#index-t20130915" id="t20130915">20130915</a>
+        + when NRCS is active, suppress ISO Latin-1 from menu to avoid
+          confusion with British NRCS.
+
+        + do not highlight ISO Latin-1 for NRCS, since it is a 96-character
+          set, not applicable to NRCS.
+
+        + correct position of ruler for SD and REP screens, which obscured the
+          result.
+
+        + expand menu 11.6.6 to demonstrate bce with top-level menus 1 and 2
+          in addition to the existing menu 8.
+
+        + correct description for DA response 24; it denotes VT320.
+
+        + correct highlighting for French NRC mapping; "`" is not mapped.
+
+        + add port-files from FreeBSD for test-builds.
+
+        + add highlighting information for VT320 Portuguese NRC mapping.
+
+        + add highlighting information for VT220 DEC Supplemental NRC mapping.
+
+        + updated configure-macros to add msys changes from ncurses <a href="/ncurses/NEWS.html#t20130907">20130907</a>.
+
+        + update config.guess, config.sub
+
+<a name="t20130818" href="#index-t20130818" id="t20130818">20130818</a>
+        + modify character-sets screens to optionally highlight the characters
+          which do not correspond to ISO-8859-1.  This makes the National
+          Replacement Characters easier to see.
+
+        + modify DSR cursor-position report to check if the terminal
+          accounts for origin-mode.
+
+        + support --datarootdir option in makefile.in, to match configure
+          script updates.
+
+        + updated configure macros:
+
+          + change from byacc for autoheader
+
+          + improved checks for gcc attributes
+
+          + improved checks for gcc version
+
+          + miscellaneous fixes in CF_XOPEN_SOURCE
+
+        + update config.guess, config.sub
+
+<a name="t20120603" href="#index-t20120603" id="t20120603">20120603</a>
+        + change cursor-position before IL/DL in
+          "Test of VT102-style features with BCE (Insert/Delete Char/Line)"
+          to demonstrate whether the terminal sets the cursor to the first
+          column as a side-effect, as noted in VT220 reference manual.
+
+<a name="t20120506" href="#index-t20120506" id="t20120506">20120506</a>
+        + build-fix in case compiler does not recognize gcc's __attribute__.
+
+        + modify vt420 rectangle menu to allow testing with applications which
+          misreport their operating level, e.g., Reflection which states that
+          it is a vt340.  The menu title shows "should not work" if the
+          terminal says its operating level is below VT4xx.
+
+        + add menu-entries for DECOM/DECLRMM to vt420 rectangle menu.
+
+        + add menu-entries for DECOM/DECLRMM to vt420 cursor-movement menu.
+
+        + add menu-entries for DECOM/DECLRMM to vt420 editing-controls menu.
+
+        + add HPR and VPR test-screens.
+
+        + add vt520 cursor-movement menu; most of the vt520's new features were
+          based on ISO-6429 but allow for DECOM and DECLRMM interactions.
+
+        + implement DECSCPP and DECSLPP test-screens.
+
+        + add test-screen for DECNCSM.
+
+        + add "-s" command-line option to initialize the time-delay feature.
+
+        + add setup-menu feature to control whether a time delay is added in
+          selected repeated cursor-movement and scrolling operations to make
+          their behavior easier to see.
+
+        + correct scanning of DECCKSR response; result is hexadecimal not
+          decimal.
+
+        + modify menu functions to provide for multipage menus, e.g., in the
+          character set choices for vt420 and vt520 on a 24-line screen.
+
+        + modify tests related to left/right margins to allow color to be set,
+          as xterm-feature.
+
+        + add test-screen for index/reverse index with left/right margins.
+
+        + ensure that status-line is turned off when exiting status-line test.
+
+        + add test-screen for VT420 &amp; up for ASCII formatting controls with
+          margins.
+
+        + modify DECFI/DECBI tests to work with margins.
+
+        + add menu entries for setting/showing the top/bottom and left/right
+          margins, to modify the behavior of the DECIC/DECDC tests.
+
+        + add menu entries for setting/showing DECLRMM state, needed for
+          DECIC/DECDC tests.
+
+        + change mnemomic DECVSSM to DECLRMM to reflect the latter's usage in
+          vt420 and vt510 manuals.
+
+        + modify DECRQSS test for DECSCUSR to show if the response is as
+          expected.
+
+<a name="t20111210" href="#index-t20111210" id="t20111210">20111210</a>
+        + modify mouse menu's selection of coordinate mode to include xterm's
+          1006 and urxvt's 1015 controls.
+
+        + add menu entry to allow miscellaneous ECMA-48 such as SD/SU to
+          be tested with colors.
+
+<a name="t20110705" href="#index-t20110705" id="t20110705">20110705</a>
+        + fill in DEC mnemonics on some menus.
+
+<a name="t20110516" href="#index-t20110516" id="t20110516">20110516</a>
+        + fix inchar() function to work properly with big-endian machines
+          (patch by David Kutalek).
+
+<a name="t20110506" href="#index-t20110506" id="t20110506">20110506</a>
+        + add some VT520-level menus, e.g., for DSR, DECRQSS.
+
+        + add VT220 test for DSR Operating Status Report.
+
+<a name="t20100830" href="#index-t20100830" id="t20100830">20100830</a>
+        + modify mouse tests to show DECRPM results for the mouse modes, if
+          DECRQM is enabled, i.e., level is VT300 and up.
+
+        + modify mouse tests to work with xterm <a href="/xterm/xterm.log.html#xterm_262">#262</a>'s UTF-8 coordinates.
+
+        + add menu entries for xterm <a href="/xterm/xterm.log.html#xterm_224">#224</a>'s focus-event and xterm <a href="/xterm/xterm.log.html#xterm_262">#262</a>'s UTF-8
+          coordinates.
+
+        + add xterm-specific screen for DECRQM/DECRPM.
+
+        + modify configure script to support program name-transformation
+          options.
+
+        + drop mkdirs.sh, use "mkdir -p".
+
+        + add RPM and Debian package scripts, for testing.
+
+<a name="t20100528" href="#index-t20100528" id="t20100528">20100528</a>
+        + correct check of fflush return code, which interfered with demo of
+          xterm window-modification controls.
+
+        + fix most strict compiler warnings, e.g., writable strings.
+
+        + updated configure macros:
+
+          + quoting fixes
+
+          + improve portability for ctags
+
+          + improve check for gcc version
+
+          + simplify -D options in CF_XOPEN_SOURCE
+
+        + update config.guess, config.sub
+
+<a name="t20100101" href="#index-t20100101" id="t20100101">20100101</a>
+        + add screen for vt520 features, e.g., DECSCUSR.
+
+        + cosmetic for querying xterm-fonts.
+
+<a name="t20091231" href="#index-t20091231" id="t20091231">20091231</a>
+        + add test-screens for setting/querying xterm fonts.
+
+        + improve display for 94-item character set tests by assuming that
+          DEL would be ignored, and writing a blank after it rather than
+          allowing a ')' to be mapped in the selected character set.
+
+        + check whether terminal is vt220 or vt320 to decide which Latin-1
+          flavor to use for initializing the character set tests.
+
+        + miscellaneous fixes for configure script macros.
+
+        + updated config.guess, config.sub
+
+<a name="t20071216" href="#index-t20071216" id="t20071216">20071216</a>
+        + modify VT420 rectangle tests to provide ANSI/ISO colors and
+          line-drawing as test-options.
+
+        + miscellaneous updates to configure script macros.
+
+        + updated config.guess, config.sub
+
+<a name="t20070304" href="#index-t20070304" id="t20070304">20070304</a>
+        + build-fix for Darwin 8.8 or OS X 10.4.x, (report by David Blanchard).
+
+<a name="t20070107" href="#index-t20070107" id="t20070107">20070107</a>
+        + contacted Per Lindberg (2007/1/2), received permission to change his
+          copyright notice to a BSD-style license.
+
+<a name="t20061126" href="#index-t20061126" id="t20061126">20061126</a>
+        + add screen to DECCRA test to demonstrate if video attributes are
+          copied along with the window, or supplied from the current attributes.
+
+        + use CF_XOPEN_SOURCE in configure script to get prototype for usleep()
+          on Linux.
+
+        + updated config.guess, config.sub
+
+<a name="t20051020" href="#index-t20051020" id="t20051020">20051020</a>
+        + add suffix information to configure script to work with cygwin, etc.
+
+        + modify window-reporting operations to handle result strings that may be
+          longer than a single line.
+
+        + improve configure script checks for Intel compiler warning options.
+
+        + add "%u" format needed in va_out() to work with <a href="#t20050107">20050107</a> change
+          to mouse-highlight test.
+
+<a name="t20050107" href="#index-t20050107" id="t20050107">20050107</a>
+        + improve test for vt220 locking shifts, showing GL/GR side-by-side to
+          demonstrate which are modified.
+
+        + add logging for text which is part of test-screens
+
+<a name="t20041220" href="#index-t20041220" id="t20041220">20041220</a>
+        + modify configure script to work with Intel compiler.
+
+        + improved parameterization of scrolling test for screen sizes other
+          than 24x80.
+
+        + add initialization to disable tab/space conversion during menu items
+          1 and 2, e.g., when "stty tab3" is set (report by Pavel Cahyna).
+
+<a name="t20041205" href="#index-t20041205" id="t20041205">20041205</a>
+        + add the ability to redraw the screen for mouse-tests, since some can
+          produce lots of output, e.g., the any-event tracking.
+
+        + modify function which reads replies, e.g., from DA, to retry as long
+          as it has read data.  This is needed for connecting to real VTxxx
+          terminals vs emulators (report by Pavel Cahyna).
+
+<a name="t20041107" href="#index-t20041107" id="t20041107">20041107</a>
+        + modify lib$wait() call to work on IA64, which uses a different default
+          float format than VAX and Alpha.
+
+        + update vmsbuild.com and descrip.mms to build on IA64.
+
+        + fix typo in vmsbuild.com
+
+<a name="t20040804" href="#index-t20040804" id="t20040804">20040804</a>
+        + change parameter for ioctl(fd, FIONREAD, &amp;param) to an int.
+
+        + add a test screen for BCE color behavior with ECH, DCH and scrolling.
+
+        + add a demo of some of the VT100 autowrap behavior to menu 1.
+
+        + add xterm's control sequence to disable reverse wraparound to the
+          initialization (this would conflict with DECGPCS if that were tested,
+          but eliminates some user confusion in menu-1).
+
+        + add entries for VT520/VT525 DA2 responses.
+
+        + decode DA1 response for VT125.
+
+        + add note in REP test regarding undefined behavior from using two
+          REP controls in a row (report by Brian Pence).
+
+        + change SPA test to allow setting/unsetting ERM while running it
+          (request by Brian Pence).
+
+        + add VT420, VT520 entries to table for DECRPM test, and split that
+          into VT320- and VT420-only tests.
+
+        + add VT520 entries to character-set and keyboard dialect tables.
+
+        + correct cleanup from menu 3 (see <a href="#t990120">990120</a>), which left G1-G3 set to
+          tested character sets rather than resetting to ASCII.
+
+        + split-out vt320.c, modifying VT220- and VT420-menus to avoid
+          most duplication by pointing to lower-level terminals in the menu.
+
+        + correct message from check_rc() in xterm.c (report by Brian Pence).
+
+        + add --disable-echo option to configure script
+
+        + update configure script.
+
+<a name="t20030301" href="#index-t20030301" id="t20030301">20030301</a>
+        + add tek4014 test menu, for xterm.
+
+<a name="t20021208" href="#index-t20021208" id="t20021208">20021208</a>
+        + improved test for cursor-control sequences within escape sequences
+          (patch by Paul Williams).
+
+<a name="t20020422" href="#index-t20020422" id="t20020422">20020422</a>
+        + modify keyboard tests for cursor- and keypad-application modes to
+          reset the keyboard back to normal mode at the end of each test
+          (reported by Takashi SHIRAI &lt;shirai@nintendo.co.jp&gt;).
+
+        + modify test-screen for DEC locator events to add a function that checks
+          for the screensize, used for XFree86 xterm to scale the pixel reports.
+
+        + updates to configure script and makefile:  omit dependencies on
+          config.status and improve list of gcc warning options.
+
+<a name="t20011130" href="#index-t20011130" id="t20011130">20011130</a>
+        + add tests for xterm alternate screen
+
+        + split-out xterm mouse tests into mouse.c menu.
+
+<a name="t20000208" href="#index-t20000208" id="t20000208">20000208</a>
+        + change coding of wheel-mouse events, XFree86 xterm patch <a href="/xterm/xterm.log.html#xterm_126">#126</a>.
+
+<a name="t991228" href="#index-t991228" id="t991228">991228</a>
+        + modify to report wheel-mouse events for XFree86 xterm (patch <a href="/xterm/xterm.log.html#xterm_122">#122</a>).
+
+<a name="t991025" href="#index-t991025" id="t991025">991025</a>
+        + clarify top-level reports menu, which mixes tests that apply to various
+          models (VT100-VT420).
+
+        + show decoded modifiers for the xterm mouse tests
+
+<a name="t991014" href="#index-t991014" id="t991014">991014</a>
+        + modify position of cursor for printer tests, so autoprint tests work
+          as expected.
+
+        + correct escape sequence for mc_print_page().
+
+<a name="t991007" href="#index-t991007" id="t991007">991007</a>
+        + implement tests for Media Copy, e.g., transparent printing.
+
+        + add examples for DEC locator events and DSR responses.
+
+        + add DA responses for VT50 and VT55 (I'd forgotten that I once bought a
+          DECscope booklet).
+
+<a name="t990712" href="#index-t990712" id="t990712">990712</a>
+        + modify menu 3.12 (non-VT100 "Test Keyboard Layout with G0 Selection")
+          to show numeric codes as well as the actual character.
+
+        + remove spurious test for SD which indicated that ISO's coding differed
+          from DEC's.  The difference was a typographical error in ECMA-48
+          (reported by Paul Williams &lt;paul@celigne.co.uk&gt;).
+
+<a name="t990120" href="#index-t990120" id="t990120">990120</a>
+        + correct initialization of G0, for character-set shift-in/shift-out test.
+
+        + change keyboard layout screen so that, when invoked from the character
+          set menu, it will display NRC characters properly.
+
+        + correct logic of reset_charset() function, which used the wrong index
+          for do_scs() (reported by Jeffrey Altman).
+
+        + set/restore character set for keyboard layout test in character-set
+          menu.
+
+<a name="t990119" href="#index-t990119" id="t990119">990119</a>
+        + add menu entry for enabling NRC mode, and (for VT220 &amp; up) a menu
+          entry to allow testing keyboard layout with NRC mode enabled.
+
+        + remove logic that sets NRC mode from setup for character-set tests,
+          since that interferes with new menu entry.
+
+        + change delimiting characters for single-shift test screen from "{" and
+          "}" to "(" and ")" to avoid confusion (the DECterm program which I have
+          tested with maps the curly braces even in an unshifted state according
+          to the state of the NRC mode).
+
+        + reset character-set of G0 after tst_vt100_charsets
+
+        + restore terminal modes after answerback test.
+
+<a name="t980719" href="#index-t980719" id="t980719">980719</a>
+        + add tests to illustrate any-event and button-event tracking in XFree86
+          xterm.
+
+<a name="t980328" href="#index-t980328" id="t980328">980328</a>
+        + add logic to ensure we pick up the proper choice (e.g., in Norwegian)
+          where the choice depends on the terminal id (e.g., VT220 vs VT320).
+
+        + minor correction for VT220 vs VT320 logic in do_scs for Latin-1 vs
+          British character set.
+
+<a name="t980327" href="#index-t980327" id="t980327">980327</a>
+        + implement test for single-shift (SS2 and SS3).
+
+<a name="t980326" href="#index-t980326" id="t980326">980326</a>
+        + implement shift-in/shift-out character-set tests oriented toward VT220.
+
+        + several corrections to VT220 character-set tests, from reports by
+          Kenneth R. Robinette &lt;zkrr01@mailbox.neosoft.com&gt;:
+
+          + move SCS strings to immediately before/after the tests to
+            avoid conflict with menu selection, and to keep the tests
+            distinct.
+
+          + use 96-character control sequences only for character sets
+            (Latin 1), and 94-character control sequences for the
+            National Replacement Characters.
+
+          + add ISO Latin-1 as a font option
+
+          + add Swiss as a font option
+
+<a name="t980310" href="#index-t980310" id="t980310">980310</a>
+        + decode known values for secondary DA response.
+
+        + make mouse-highlight test a little clearer by putting '+' marks at the
+          corners of the highlight-region.
+
+<a name="t970524" href="#index-t970524" id="t970524">970524</a>
+        + eliminate 'gets()' calls, which can overflow buffer.
+
+<a name="t970520" href="#index-t970520" id="t970520">970520</a>
+        + implement CF_FCNTL_VS_IOCTL check to make this build on SCO 3.x and
+          CLIX, which are both non-POSIX systems.
+
+<a name="t970518" href="#index-t970518" id="t970518">970518</a>
+        + add CF_POSIX_VDISABLE test to work around gcc 2.6.2 bug.
+
+<a name="t970419" href="#index-t970419" id="t970419">970419</a>
+        + correct sign-extension in xterm mouse-position
+
+<a name="t961215" href="#index-t961215" id="t961215">961215</a>
+        + correct err introduced between d960905 and v2_5 that broke test for IRM
+          mode by using decsclm (reported by Jeffrey Altman).
+
+<a name="t961125" href="#index-t961125" id="t961125">961125</a>
+        + add VT220 character-set tests for locking-shifts
+
+VERSION 2.7
+
+<a name="t961113" href="#index-t961113" id="t961113">961113</a>
+        + corrected early return from test for DECRPM when badly-formatted
+          reply is received.
+
+        + add DA1 codes from VT500 manual (from Jeffrey Altman).
+
+        + refined test to restore ANSI mode based on VT420 testing.
+
+<a name="t961029" href="#index-t961029" id="t961029">961029</a>
+        + extend VT52 test to check operating level when restoring ANSI mode.
+
+<a name="t961028" href="#index-t961028" id="t961028">961028</a>
+        + implemented tests for VT220/VT420 function keys, editing keypad.
+
+<a name="t961027" href="#index-t961027" id="t961027">961027</a>
+        + set the terminal's default operating level to the maximum rather than
+          VT100; this is slightly incompatible with VTTEST 1.7 (suggested by
+          Jeffrey Altman)
+
+<a name="t960930" href="#index-t960930" id="t960930">960930</a>
+        + amended reset_colors() to do SGR 0 at the end.
+
+<a name="t960928" href="#index-t960928" id="t960928">960928</a>
+        + allow 8-bit input for keyboard (function keys, cursor keys) tests.
+
+        + correct I/O modes on timeout
+
+        + added padding, corrected some states on return from VT52 tests.
+
+        + increase buffer size for DECTSR.
+
+<a name="t960927" href="#index-t960927" id="t960927">960927</a>
+        + modified scan_chr (used in DECCIR test) to properly diagnose Pericom's
+          3.2 emulator.
+
+        + check in setup-menu for VT52.
+
+        + modify inputline to retain whitespace
+
+        + modify 'reset_colors()' to accommodate grossly-nonstandard emulators
+          that don't reset colors with SGR 0.
+
+        + added test for SGR 0
+
+<a name="t960921" href="#index-t960921" id="t960921">960921</a>
+        + implement REP test
+
+        + corrected highlighting refresh in function-key test
+
+        + use raw-mode for VT52 DECID test.
+
+VERSION 2.6
+
+<a name="t960911" href="#index-t960911" id="t960911">960911</a>
+        + corrected DECBI, DECFI (documentation from Jeffrey Altman), SRM (on
+          VT420) tests.
+
+<a name="t960908" href="#index-t960908" id="t960908">960908</a>
+        + implement DECDLD tests. Tested with fonts from "The VT200 TOOLKIT" by
+          Tabik &amp; DiGiantomasso, Professional Software (available via DECUS).
+
+<a name="t960905" href="#index-t960905" id="t960905">960905</a>
+        + implement DECCARA, DECRARA, DECSACE, DECSERA tests.
+
+<a name="t960901" href="#index-t960901" id="t960901">960901</a>
+        + implement DECBKM, DECCRA, DECERA, DECFRA, DECKBUM, DECKPM, DECNKM,
+          SRM tests
+
+<a name="t960830" href="#index-t960830" id="t960830">960830</a>
+        + implement 2nd, 3rd DA, DECFI, DECBI, DECSNLS, DECRQTSR tests.
+
+<a name="t960828" href="#index-t960828" id="t960828">960828</a>
+        + provide analysis of DECCIR
+
+        + implement tests for DECSASD, DECSSDT
+
+<a name="t960825" href="#index-t960825" id="t960825">960825</a>
+        + corrected error (I) introduced in tst_movements (main.c 1.6) that broke
+          test of cursor-control characters inside ESC sequences (reported by
+          Albert D. Cahalan).
+
+        + implement DECDC, DECIC tests.
+
+<a name="t960825_u0" href="#index-t960825_u0" id="t960825_u0">960825</a>
+        + added -l (logging) option.
+
+        + added -p (padding) option.
+
+        + port to VAX/VMS, for testing VT420
+
+<a name="t960821" href="#index-t960821" id="t960821">960821</a>
+        + Corrected test for DECUDK, omitted lock-parameter caused keys to be
+          locked, so that only the first key definition was used (reported by
+          Jeffrey Altman).
+
+        + Corrected test for DECRPM, missing '?' (reported by Jeffrey Altman
+          &lt;jaltman@watsun.cc.columbia.edu&gt;).
+
+VERSION 2.5
+
+<a name="t960818" href="#index-t960818" id="t960818">960818</a>
+        + implements most VT420 report-tests.
+
+        + make menu-skeleton for VT420 tests (some are needed for xterm tests),
+          marking the non-implemented entries with an '*'.
+
+<a name="t960817" href="#index-t960817" id="t960817">960817</a>
+        + add tests/examples for xterm mouse controls
+
+<a name="t960816" href="#index-t960816" id="t960816">960816</a>
+        + remove obsolete support for Sargasso C (TOPS-20)
+
+<a name="t960813" href="#index-t960813" id="t960813">960813</a>
+        + use usleep() if the system has it, to make responses faster.
+
+        + add menu-entry for toggling 7/8-bit input/output controls
+
+        + split-out keyboard.c, organized by a set of submenus.
+
+        + split-out reports.c, parameterized to allow testing 8-bit controls.
+          make submenu for individual reports.
+
+        + modified menu decoding to accept '*' to step through all submenus.
+
+VERSION 2.4
+
+<a name="t960807" href="#index-t960807" id="t960807">960807</a>
+        + Implement test for VT5xx C7C1T and S8C1T
+
+        + Remove check for scrolling-behavior in CPL and CNL (no one but kermit
+          seems to consider doing this).
+
+        + Modified tst_reports() to use raw mode (the original sgtty logic
+          doesn't do this) so that termios works.  Modified termios settings for
+          crmod so it doesn't touch INLCR and IGNCR, and for raw mode to leave
+          c_oflag alone - this works on Linux.
+
+        + corrected some typos in DECSCA test.
+
+<a name="t960806" href="#index-t960806" id="t960806">960806</a>
+        + Testing by Albert D. Cahalan &lt;acahalan@cs.uml.edu&gt; with VT510,
+          suggested initializing with the 80/132 mode enabled.  Says real
+          terminals need padding...
+
+<a name="t960804" href="#index-t960804" id="t960804">960804</a>
+        + Implement tests for: SL, SD, SU, SR
+
+        + Modified "Test of screen features with ISO 6429 SGR 22-27 codes"
+          to test concealed text.
+
+VERSION 2.3
+
+<a name="t960803" href="#index-t960803" id="t960803">960803</a>
+        + Implement tests for the following ISO 6429 controls:  CBT, CHA, CHT,
+          CNL, CPL, ECH, HPA, SL, SPA, SR, VPA.
+
+        + Implement tests for DEC VT220 controls:  DECSCA, DECTCEM
+
+<a name="t960802" href="#index-t960802" id="t960802">960802</a>
+        + Restructure non-VT100 menus, making them separate from the base VT100
+          tests.
+
+VERSION 2.2
+
+<a name="t960721" href="#index-t960721" id="t960721">960721</a>
+        + Initialize terminal with 80/132 switching enabled
+
+        + Casper Dik &lt;casper@holland.Sun.COM&gt; explained why tests fail on Solaris
+          2.5 (can workaround with lots of fflush calls ;-)
+
+<a name="t960716" href="#index-t960716" id="t960716">960716</a>
+        + Add tests for CDE-compatible xterm
+
+VERSION 2.1
+
+<a name="t960708" href="#index-t960708" id="t960708">960708</a>
+        + Change background color to blue for tests (some yellows and greens
+          are too close together).
+
+<a name="t960702" href="#index-t960702" id="t960702">960702</a>
+        + Added extended graphic-rendition tests (ISO 6429)
+
+VERSION 2.0
+
+<a name="t960624" href="#index-t960624" id="t960624">960624</a>
+        + Added color/graphic-rendition, and color-scrolling tests.
+
+<a name="t960623" href="#index-t960623" id="t960623">960623</a>
+        + Implemented color tests (test-pattern, bce-test, insert/delete lines)
+
+<a name="t960621" href="#index-t960621" id="t960621">960621</a>
+        + Implemented auto-config for termios (tested on SunOS 4.1.1, IRIX 5.2,
+          Solaris 5.4).
+
+<a name="t960618" href="#index-t960618" id="t960618">960618</a>
+        + Modified to support nonstandard screen geometry.  For example, you can
+          test Linux console (which has 25 lines) by typing 'vttest 25'.
+
+        + Implemented auto-config for termio (tested on SunOS 4.1.1).
+
+<a name="t960617" href="#index-t960617" id="t960617">960617</a>
+        + Corrected broken write-to-string-constant in tst_keyboard().
+
+        + Split-out logic for ttymodes.c
+
+        + Converted to ANSI C (it's a lot easier to avoid breaking code when all
+          of the interfaces are fully specified).
+
+        + Split-out sargasso.h from header.h, to avoid nested-comment syntax.  (I
+          don't think anyone will be using that again, anyway).
+
+        + from original version (I've found nothing more recent ;-), marked 1.7b
+          1985-04-19, begin making changes to support testing for ANSI color
+          features.
+
+</pre>
+
+<div class="nav">
+<ul>
+<li class="nav-top"><a href="CHANGES.html">(top)</a></li>
+
+<li><a name="index-t20241031" href="#t20241031" id="index-t20241031">2024/10/31</a></li>
+
+<li><a name="index-t20241024" href="#t20241024" id="index-t20241024">2024/10/24</a></li>
+
+<li><a name="index-t20241014" href="#t20241014" id="index-t20241014">2024/10/14</a></li>
+
+<li><a name="index-t20241010" href="#t20241010" id="index-t20241010">2024/10/10</a></li>
+
+<li><a name="index-t20240929" href="#t20240929" id="index-t20240929">2024/09/29</a></li>
+
+<li><a name="index-t20240708" href="#t20240708" id="index-t20240708">2024/07/08</a></li>
+
+<li><a name="index-t20240218" href="#t20240218" id="index-t20240218">2024/02/18</a></li>
+
+<li><a name="index-t20231230" href="#t20231230" id="index-t20231230">2023/12/30</a></li>
+
+<li><a name="index-t20230924" href="#t20230924" id="index-t20230924">2023/09/24</a></li>
+
+<li><a name="index-t20230201" href="#t20230201" id="index-t20230201">2023/02/01</a></li>
+
+<li><a name="index-t20221229" href="#t20221229" id="index-t20221229">2022/12/29</a></li>
+
+<li><a name="index-t20221111" href="#t20221111" id="index-t20221111">2022/11/11</a></li>
+
+<li><a name="index-t20220827" href="#t20220827" id="index-t20220827">2022/08/27</a></li>
+
+<li><a name="index-t20220227" href="#t20220227" id="index-t20220227">2022/02/27</a></li>
+
+<li><a name="index-t20220215" href="#t20220215" id="index-t20220215">2022/02/15</a></li>
+
+<li><a name="index-t20210210" href="#t20210210" id="index-t20210210">2021/02/10</a></li>
+
+<li><a name="index-t20201225" href="#t20201225" id="index-t20201225">2020/12/25</a></li>
+
+<li><a name="index-t20200920" href="#t20200920" id="index-t20200920">2020/09/20</a></li>
+
+<li><a name="index-t20200610" href="#t20200610" id="index-t20200610">2020/06/10</a></li>
+
+<li><a name="index-t20200420" href="#t20200420" id="index-t20200420">2020/04/20</a></li>
+
+<li><a name="index-t20200303" href="#t20200303" id="index-t20200303">2020/03/03</a></li>
+
+<li><a name="index-t20191231" href="#t20191231" id="index-t20191231">2019/12/31</a></li>
+
+<li><a name="index-t20190710" href="#t20190710" id="index-t20190710">2019/07/10</a></li>
+
+<li><a name="index-t20190105" href="#t20190105" id="index-t20190105">2019/01/05</a></li>
+
+<li><a name="index-t20181116" href="#t20181116" id="index-t20181116">2018/11/16</a></li>
+
+<li><a name="index-t20180911" href="#t20180911" id="index-t20180911">2018/09/11</a></li>
+
+<li><a name="index-t20180811" href="#t20180811" id="index-t20180811">2018/08/11</a></li>
+
+<li><a name="index-t20180728" href="#t20180728" id="index-t20180728">2018/07/28</a></li>
+
+<li><a name="index-t20180725" href="#t20180725" id="index-t20180725">2018/07/25</a></li>
+
+<li><a name="index-t20180702" href="#t20180702" id="index-t20180702">2018/07/02</a></li>
+
+<li><a name="index-t20150706" href="#t20150706" id="index-t20150706">2015/07/06</a></li>
+
+<li><a name="index-t20140305" href="#t20140305" id="index-t20140305">2014/03/05</a></li>
+
+<li><a name="index-t20140116" href="#t20140116" id="index-t20140116">2014/01/16</a></li>
+
+<li><a name="index-t20130915" href="#t20130915" id="index-t20130915">2013/09/15</a></li>
+
+<li><a name="index-t20130818" href="#t20130818" id="index-t20130818">2013/08/18</a></li>
+
+<li><a name="index-t20120603" href="#t20120603" id="index-t20120603">2012/06/03</a></li>
+
+<li><a name="index-t20120506" href="#t20120506" id="index-t20120506">2012/05/06</a></li>
+
+<li><a name="index-t20111210" href="#t20111210" id="index-t20111210">2011/12/10</a></li>
+
+<li><a name="index-t20110705" href="#t20110705" id="index-t20110705">2011/07/05</a></li>
+
+<li><a name="index-t20110516" href="#t20110516" id="index-t20110516">2011/05/16</a></li>
+
+<li><a name="index-t20110506" href="#t20110506" id="index-t20110506">2011/05/06</a></li>
+
+<li><a name="index-t20100830" href="#t20100830" id="index-t20100830">2010/08/30</a></li>
+
+<li><a name="index-t20100528" href="#t20100528" id="index-t20100528">2010/05/28</a></li>
+
+<li><a name="index-t20100101" href="#t20100101" id="index-t20100101">2010/01/01</a></li>
+
+<li><a name="index-t20091231" href="#t20091231" id="index-t20091231">2009/12/31</a></li>
+
+<li><a name="index-t20071216" href="#t20071216" id="index-t20071216">2007/12/16</a></li>
+
+<li><a name="index-t20070304" href="#t20070304" id="index-t20070304">2007/03/04</a></li>
+
+<li><a name="index-t20070107" href="#t20070107" id="index-t20070107">2007/01/07</a></li>
+
+<li><a name="index-t20061126" href="#t20061126" id="index-t20061126">2006/11/26</a></li>
+
+<li><a name="index-t20051020" href="#t20051020" id="index-t20051020">2005/10/20</a></li>
+
+<li><a name="index-t20050107" href="#t20050107" id="index-t20050107">2005/01/07</a></li>
+
+<li><a name="index-t20041220" href="#t20041220" id="index-t20041220">2004/12/20</a></li>
+
+<li><a name="index-t20041205" href="#t20041205" id="index-t20041205">2004/12/05</a></li>
+
+<li><a name="index-t20041107" href="#t20041107" id="index-t20041107">2004/11/07</a></li>
+
+<li><a name="index-t20040804" href="#t20040804" id="index-t20040804">2004/08/04</a></li>
+
+<li><a name="index-t20030301" href="#t20030301" id="index-t20030301">2003/03/01</a></li>
+
+<li><a name="index-t20021208" href="#t20021208" id="index-t20021208">2002/12/08</a></li>
+
+<li><a name="index-t20020422" href="#t20020422" id="index-t20020422">2002/04/22</a></li>
+
+<li><a name="index-t20011130" href="#t20011130" id="index-t20011130">2001/11/30</a></li>
+
+<li><a name="index-t20000208" href="#t20000208" id="index-t20000208">2000/02/08</a></li>
+
+<li><a name="index-t991228" href="#t991228" id="index-t991228">1999/12/28</a></li>
+
+<li><a name="index-t991025" href="#t991025" id="index-t991025">1999/10/25</a></li>
+
+<li><a name="index-t991014" href="#t991014" id="index-t991014">1999/10/14</a></li>
+
+<li><a name="index-t991007" href="#t991007" id="index-t991007">1999/10/07</a></li>
+
+<li><a name="index-t990712" href="#t990712" id="index-t990712">1999/07/12</a></li>
+
+<li><a name="index-t990120" href="#t990120" id="index-t990120">1999/01/20</a></li>
+
+<li><a name="index-t990119" href="#t990119" id="index-t990119">1999/01/19</a></li>
+
+<li><a name="index-t980719" href="#t980719" id="index-t980719">1998/07/19</a></li>
+
+<li><a name="index-t980328" href="#t980328" id="index-t980328">1998/03/28</a></li>
+
+<li><a name="index-t980327" href="#t980327" id="index-t980327">1998/03/27</a></li>
+
+<li><a name="index-t980326" href="#t980326" id="index-t980326">1998/03/26</a></li>
+
+<li><a name="index-t980310" href="#t980310" id="index-t980310">1998/03/10</a></li>
+
+<li><a name="index-t970524" href="#t970524" id="index-t970524">1997/05/24</a></li>
+
+<li><a name="index-t970520" href="#t970520" id="index-t970520">1997/05/20</a></li>
+
+<li><a name="index-t970518" href="#t970518" id="index-t970518">1997/05/18</a></li>
+
+<li><a name="index-t970419" href="#t970419" id="index-t970419">1997/04/19</a></li>
+
+<li><a name="index-t961215" href="#t961215" id="index-t961215">1996/12/15</a></li>
+
+<li><a name="index-t961125" href="#t961125" id="index-t961125">1996/11/25</a></li>
+
+<li><a name="index-t961113" href="#t961113" id="index-t961113">1996/11/13</a></li>
+
+<li><a name="index-t961029" href="#t961029" id="index-t961029">1996/10/29</a></li>
+
+<li><a name="index-t961028" href="#t961028" id="index-t961028">1996/10/28</a></li>
+
+<li><a name="index-t961027" href="#t961027" id="index-t961027">1996/10/27</a></li>
+
+<li><a name="index-t960930" href="#t960930" id="index-t960930">1996/09/30</a></li>
+
+<li><a name="index-t960928" href="#t960928" id="index-t960928">1996/09/28</a></li>
+
+<li><a name="index-t960927" href="#t960927" id="index-t960927">1996/09/27</a></li>
+
+<li><a name="index-t960921" href="#t960921" id="index-t960921">1996/09/21</a></li>
+
+<li><a name="index-t960911" href="#t960911" id="index-t960911">1996/09/11</a></li>
+
+<li><a name="index-t960908" href="#t960908" id="index-t960908">1996/09/08</a></li>
+
+<li><a name="index-t960905" href="#t960905" id="index-t960905">1996/09/05</a></li>
+
+<li><a name="index-t960901" href="#t960901" id="index-t960901">1996/09/01</a></li>
+
+<li><a name="index-t960830" href="#t960830" id="index-t960830">1996/08/30</a></li>
+
+<li><a name="index-t960828" href="#t960828" id="index-t960828">1996/08/28</a></li>
+
+<li><a name="index-t960825" href="#t960825" id="index-t960825">1996/08/25</a></li>
+
+<li><a name="index-t960825_u0" href="#t960825_u0" id="index-t960825_u0">1996/08/25</a></li>
+
+<li><a name="index-t960821" href="#t960821" id="index-t960821">1996/08/21</a></li>
+
+<li><a name="index-t960818" href="#t960818" id="index-t960818">1996/08/18</a></li>
+
+<li><a name="index-t960817" href="#t960817" id="index-t960817">1996/08/17</a></li>
+
+<li><a name="index-t960816" href="#t960816" id="index-t960816">1996/08/16</a></li>
+
+<li><a name="index-t960813" href="#t960813" id="index-t960813">1996/08/13</a></li>
+
+<li><a name="index-t960807" href="#t960807" id="index-t960807">1996/08/07</a></li>
+
+<li><a name="index-t960806" href="#t960806" id="index-t960806">1996/08/06</a></li>
+
+<li><a name="index-t960804" href="#t960804" id="index-t960804">1996/08/04</a></li>
+
+<li><a name="index-t960803" href="#t960803" id="index-t960803">1996/08/03</a></li>
+
+<li><a name="index-t960802" href="#t960802" id="index-t960802">1996/08/02</a></li>
+
+<li><a name="index-t960721" href="#t960721" id="index-t960721">1996/07/21</a></li>
+
+<li><a name="index-t960716" href="#t960716" id="index-t960716">1996/07/16</a></li>
+
+<li><a name="index-t960708" href="#t960708" id="index-t960708">1996/07/08</a></li>
+
+<li><a name="index-t960702" href="#t960702" id="index-t960702">1996/07/02</a></li>
+
+<li><a name="index-t960624" href="#t960624" id="index-t960624">1996/06/24</a></li>
+
+<li><a name="index-t960623" href="#t960623" id="index-t960623">1996/06/23</a></li>
+
+<li><a name="index-t960621" href="#t960621" id="index-t960621">1996/06/21</a></li>
+
+<li><a name="index-t960618" href="#t960618" id="index-t960618">1996/06/18</a></li>
+
+<li><a name="index-t960617" href="#t960617" id="index-t960617">1996/06/17</a></li>
+</ul>
+</div>
+<!-- vile:html
+  -->
+</body>
+</html>

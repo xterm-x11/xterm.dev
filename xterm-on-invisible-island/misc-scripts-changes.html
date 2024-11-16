@@ -1,0 +1,1880 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0">
+  <title>Change-Log for MISC-SCRIPTS</title>
+  <link rel="author" href="mailto:dickey@invisible-island.net">
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8">
+  <link rel="stylesheet" href="/css/simplestyle.css" type=
+  "text/css">
+  <link rel="SHORTCUT ICON" href="/img/icons/favicon.ico" type=
+  "image/x-icon">
+  <meta name="keywords" content="CHANGES,change-log">
+  <meta name="description" content="Change-Log for MISC-SCRIPTS">
+  <style type="text/css">
+  @import "/css/simplenavXX.css" all;
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <h1 class="no-header">Change-Log for MISC-SCRIPTS</h1>
+  <hr>
+  <a href="/">https://invisible-island.net/</a><a href=
+  "/scripts/">scripts/</a>
+  <hr>
+  <pre>
+<a name="t20230118" href="#index-t20230118" id=
+"t20230118">2023-01-18</a>
+
+        * manifest:
+        strip patch/version from basename to better match my use in Git-snapshots
+
+<a name="t20221105" href="#index-t20221105" id=
+"t20221105">2022-11-05</a>
+
+        * lessopen.sh: handle xz files
+
+<a name="t20221001" href="#index-t20221001" id=
+"t20221001">2022-10-01</a>
+
+        * indent-html: configurable fgrep
+
+<a name="t20220714" href="#index-t20220714" id=
+"t20220714">2022-07-14</a>
+
+        * check-manpage: add "b2" (man2html)
+
+        * check-manpage:
+        suppress unnecessary warnings for man2html's "Of" macro by adding a check
+        if a given macro parameter is optional.
+
+        * check-manpage:
+        add macros from man2html, and made the "expected" message on mismatches
+        easier to understand, to help with adding backslashes to the table.
+
+<a name="t20220514" href="#index-t20220514" id=
+"t20220514">2022-05-14</a>
+
+        * report-terminfo:
+        show "paired-keys" (keys which match a string used for the display, e.g.,
+        "kclr" vs "clear")
+
+<a name="t20220220" href="#index-t20220220" id=
+"t20220220">2022-02-20</a>
+
+        * rpm-deps: expand definitions in a %package line
+
+<a name="t20220212" href="#index-t20220212" id=
+"t20220212">2022-02-12</a>
+
+        * check-manpage: add -x option
+
+        * check-manpage: add check for dangling
+
+        * check-manpage:
+        show how to shorten font-specification, e.g., by merging \f's
+
+<a name="t20220120" href="#index-t20220120" id=
+"t20220120">2022-01-20</a>
+
+        * manifest: show a diff if -v option is given
+
+<a name="t20220114" href="#index-t20220114" id=
+"t20220114">2022-01-14</a>
+
+        * manifest: implement a "-n" (no-op) option
+        tidy-up error-exits
+
+<a name="t20211230" href="#index-t20211230" id=
+"t20211230">2021-12-30</a>
+
+        * manifest: no more MANIFEST.bak!
+
+<a name="t20211030" href="#index-t20211030" id=
+"t20211030">2021-10-30</a>
+
+        * noenv:
+        pass-through the CCACHE_DISABLE so that packages don't cache headers
+
+<a name="t20210826" href="#index-t20210826" id=
+"t20210826">2021-08-26</a>
+
+        * indent-html: add -U option, needed with "release-cdk"
+
+<a name="t20210330" href="#index-t20210330" id=
+"t20210330">2021-03-30</a>
+
+        * touch-dirs: skip directories where permissions prevent reading
+
+<a name="t20210319" href="#index-t20210319" id=
+"t20210319">2021-03-19</a>
+
+        * check-manpage: add macros which I wrote for Xcursor.man
+
+<a name="t20201107" href="#index-t20201107" id=
+"t20201107">2020-11-07</a>
+
+        * report-terminfo: add screen's extension
+
+<a name="t20201017" href="#index-t20201017" id=
+"t20201017">2020-10-17</a>
+
+        * report-terminfo:
+        sort the output from toe (to aid debugging), and filter-out repeats.
+
+        * report-terminfo: fix a missing %{ ... }
+
+<a name="t20200922" href="#index-t20200922" id=
+"t20200922">2020-09-22</a>
+
+        * check-manpage: add.1 uses "\*R" (registered trademark)
+
+<a name="t20200516" href="#index-t20200516" id=
+"t20200516">2020-05-16</a>
+
+        * find-xterm-fonts:
+        just in case a font came from ports, make this workable for pkgsrc
+
+        * find-xterm-fonts:
+        NetBSD pkgsrc puts xvile's menu in a separate "xvile" directory
+
+<a name="t20200515" href="#index-t20200515" id=
+"t20200515">2020-05-15</a>
+
+        * find-xterm-fonts: add -c, -m and -u options, to handle xvile's fonts
+
+<a name="t20200114" href="#index-t20200114" id=
+"t20200114">2020-01-14</a>
+
+        * indent-html: missed a chunk from debugging.
+
+        * indent-html:
+        tidy 5.6 is a little-more broken with respect to opening files.
+        It also (not fixed here) trims more blank lines.
+
+<a name="t20191231" href="#index-t20191231" id=
+"t20191231">2019-12-31</a>
+
+        * check-manpage: add "It" special case from cdk.
+
+<a name="t20191206" href="#index-t20191206" id=
+"t20191206">2019-12-06</a>
+
+        * check-manpage: add macros from ded.man
+
+<a name="t20190730" href="#index-t20190730" id=
+"t20190730">2019-07-30</a>
+
+        * check-manpage: exclude ".SH NAME" data from line-length warning
+
+        * check-manpage:
+        groff's man(7) documents up to 6 parameters on the RB, etc., "alternating"
+
+        * check-manpage: added Walter's adaptation of NS/NE
+
+        * check-manpage:
+        likewise, exclude comment-lines from longer-than checks, but (as in fake
+        quotes) allow the -v option to override
+
+        * check-manpage:
+        exclude comment-lines from embedded-sentence-ending check
+
+        * check-manpage: add workaround for literal use or lq/rq builtins
+
+<a name="t20190717" href="#index-t20190717" id=
+"t20190717">2019-07-17</a>
+
+        * indent-html: trim leading blank line from filtered output
+
+<a name="t20190708" href="#index-t20190708" id=
+"t20190708">2019-07-08</a>
+
+        * indent-html:
+        adjust to work with Debian9's gawk/original-awk as well as mawk-cut
+
+<a name="t20190707" href="#index-t20190707" id=
+"t20190707">2019-07-07</a>
+
+        * check-manpage: fix a typo
+
+<a name="t20190705" href="#index-t20190705" id=
+"t20190705">2019-07-05</a>
+
+        * indent-html:
+        improve the awk script, by making it join the split-up lines (works for
+        tidy 5.2.0 in Debian 9).
+
+        * indent-html:
+        tidy 5 changes the output format, by default removing all blank lines.
+        It has a config-file option vertical-space for adding blank lines,
+        but that adds too many, with lots of doubled blank lines.
+        Use the config option to get blank lines, and filter the result through
+        awk to reduce those to single blank lines.
+        Doing this makes the output closer to the original format, except that
+        it also insists on putting line-breaks between tags (not configurable).
+
+<a name="t20190704" href="#index-t20190704" id=
+"t20190704">2019-07-04</a>
+
+        * touch-dirs: don't die if this cannot open a directory
+        also, don't try to get timestamps from non-file/directory stuff
+
+<a name="t20190619" href="#index-t20190619" id=
+"t20190619">2019-06-19</a>
+
+        * check-manpage:
+        since starting this in 2009, groff has changed its -w option (update)
+
+<a name="t20190530" href="#index-t20190530" id=
+"t20190530">2019-05-30</a>
+
+        * check-manpage: discount real quotes when looking for fake quotes
+
+        * check-manpage: check for fake quotes
+
+<a name="t20190507" href="#index-t20190507" id=
+"t20190507">2019-05-07</a>
+
+        * check-manpage:
+        allow check for embedded sentence-endings if "na" (no-adjust) is in effect
+
+<a name="t20190411" href="#index-t20190411" id=
+"t20190411">2019-04-11</a>
+
+        * indent-html:
+        allow XML documents to be formatted as UTF-8, to work around tidy's limitations
+
+<a name="t20190410" href="#index-t20190410" id=
+"t20190410">2019-04-10</a>
+
+        * check-manpage: show the macro name in the warning message
+
+        * check-manpage:
+        improve parameter-checking a little, using the assumption in libXt's macros
+        that a trailing parameter embedded in the end of a line is optional.
+
+        * check-manpage:
+        estimate number of parameters for macros, to use in check_pcounts
+
+<a name="t20190406" href="#index-t20190406" id=
+"t20190406">2019-04-06</a>
+
+        * check-manpage: update comments
+
+<a name="t20190316" href="#index-t20190316" id=
+"t20190316">2019-03-16</a>
+
+        * check-manpage:
+        modify "Ds" macro for libXt to make it work as intended
+
+        * check-manpage:
+        trim down ".De" macro to avoid warnings for never-defined registers
+
+        * check-manpage:
+        add predefined macros for libX11 (which are mostly the same)
+
+        * RegressMan: RCS_BASE
+
+        * check-manpage: "D" symbol in ".Ds" is never defined
+
+        * check-manpage: ignore ".so" files
+
+        * check-manpage:
+        improve handling of libXt's macros by checking if the ".tk" macro is
+        defined to "X Toolkit", and in that case predefine the macros and also
+        ignore unused ".ds" commands.
+
+<a name="t20190315" href="#index-t20190315" id=
+"t20190315">2019-03-15</a>
+
+        * check-manpage: workaround for ".ny0" -&gt; ".ny 0"
+
+<a name="t20190313" href="#index-t20190313" id=
+"t20190313">2019-03-13</a>
+
+        * check-manpage: add macros from libXt manpages
+
+<a name="t20190223" href="#index-t20190223" id=
+"t20190223">2019-02-23</a>
+
+        * report-terminfo:
+        count tab support (none, soft, hard).  About a quarter of the descriptions
+        support hard tabs.
+
+<a name="t20190214" href="#index-t20190214" id=
+"t20190214">2019-02-14</a>
+
+        * check-manpage: add .XX macro for cdk
+
+        * check-manpage:
+        don't complain about embedded sentence-ending in verbatim text.
+
+        * check-manpage: add ".It" from cdk.3
+
+<a name="t20190120" href="#index-t20190120" id=
+"t20190120">2019-01-20</a>
+
+        * lessopen.sh: add ".deb" packages
+
+<a name="t20190112" href="#index-t20190112" id=
+"t20190112">2019-01-12</a>
+
+        * report-terminfo:
+        show the function-keys in chunks of 10% (otherwise that goes on for pages)
+
+        * report-terminfo: start on &amp;show_bucket_percent
+
+        * report-terminfo:
+        combine the miscellaneous extension flags into one table.
+
+        * report-terminfo: show statistics for function-keys
+
+        * report-terminfo: add statistics for the different mouse features
+
+        * report-terminfo: show counts for the number of colors.  8 wins!
+
+        * report-terminfo: add -x option
+
+        * report-terminfo:
+        fixes to make "report-terminfo -a" work with perl 5.20 on Debian8
+
+        * report-terminfo: correct option used to check ncurses tool version
+
+<a name="t20181223" href="#index-t20181223" id=
+"t20181223">2018-12-23</a>
+
+        * indent-html:
+        latest "tidy" package on Debian testing doesn't accept a filename any more.
+
+<a name="t20180831" href="#index-t20180831" id=
+"t20180831">2018-08-31</a>
+
+        * check-manpage:
+        make this a little smarter about ctlseqs.ms St/Ed macros
+
+<a name="t20180728" href="#index-t20180728" id=
+"t20180728">2018-07-28</a>
+
+        * check-manpage: reduce another set of false-positives for ". "
+
+        * check-manpage: filter out initials
+
+        * check-manpage: check for embedded ". "
+
+        * lessopen.sh: add tar.xz and tz cases
+
+<a name="t20180622" href="#index-t20180622" id=
+"t20180622">2018-06-22</a>
+
+        * check-manpage: corrected per xterm.man
+
+<a name="t20180519" href="#index-t20180519" id=
+"t20180519">2018-05-19</a>
+
+        * check-manpage: try to account for font-switching in long-lines
+
+<a name="t20180518" href="#index-t20180518" id=
+"t20180518">2018-05-18</a>
+
+        * check-manpage:
+        the expected number of parameters is only a minimum, since it's a repeat...
+
+<a name="t20180513" href="#index-t20180513" id=
+"t20180513">2018-05-13</a>
+
+        * check-manpage: the ".B" and ".I" can have 0 or more parameters.
+
+        * check-manpage: also flag long-lines (diffstat report)
+
+        * check-manpage: check parameter-counts, prompted by diffstat report
+
+<a name="t20180406" href="#index-t20180406" id=
+"t20180406">2018-04-06</a>
+
+        * check-manpage: it's okay for ".IP" to have no parameters
+
+<a name="t20180403" href="#index-t20180403" id=
+"t20180403">2018-04-03</a>
+
+        * check-manpage: .iP should do a break
+
+        * check-manpage: allow for plain "." between St/iP macros
+
+        * check-manpage: add checks for ".IP" usage in ctlseqs.ms
+
+<a name="t20180326" href="#index-t20180326" id=
+"t20180326">2018-03-26</a>
+
+        * find-xterm-fonts: workable config for Solaris10
+
+        * find-xterm-fonts:
+        checked OpenBSD, found it was not an improvement wrt packaging
+
+        * find-xterm-fonts:
+        configuration for NetBSD - but since xterm's in base, there's no info.
+
+        * find-xterm-fonts: add configuration for FreeBSD ports
+
+<a name="t20180324" href="#index-t20180324" id=
+"t20180324">2018-03-24</a>
+
+        * find-xterm-fonts: work with Arch pacman
+
+        * find-xterm-fonts: reduce scope of a wildcard match
+
+        * find-xterm-fonts:
+        Mageia6 has multiple choices for app-defaults directory, and a different
+        choice for font-directory
+
+        * find-xterm-fonts: CentOS6 has rpm in /bin, not /usr/bin
+
+        * find-xterm-fonts:
+        dlocate returns a ":"-separated list, while rpm does not
+
+        * find-xterm-fonts: add font-directory location for CentOS7
+
+        * find-xterm-fonts: add font-directory location for XQuartz
+
+<a name="t20180323" href="#index-t20180323" id=
+"t20180323">2018-03-23</a>
+
+        * find-xterm-fonts:
+        this is workable for my Debian 8 - will have to extend search-path for other
+        systems
+
+        * find-xterm-fonts: show the resource(s) mapped to the font-file
+
+        * find-xterm-fonts: show the pathnames of font-files which are used.
+
+        * find-xterm-fonts: report the missing fonts
+
+        * find-xterm-fonts: made a workable xlfd-matcher
+
+        * find-xterm-fonts:
+        start work on fonts-used: will need a function that does xlfd-matching
+
+        * find-xterm-fonts: read font directories and alias-lists
+
+        * find-xterm-fonts: fill in %app_defaults hash
+
+        * find-xterm-fonts: RCS_BASE
+
+<a name="t20180224" href="#index-t20180224" id=
+"t20180224">2018-02-24</a>
+
+        * indent-perl: override "file" for suffixes ".pl" and ".pm"
+
+<a name="t20180215" href="#index-t20180215" id=
+"t20180215">2018-02-15</a>
+
+        * check-manpage: add macros used in dialog's manpages
+
+<a name="t20180201" href="#index-t20180201" id=
+"t20180201">2018-02-01</a>
+
+        * compare-terminfo: generate a summary
+
+        * compare-terminfo:
+        make a state-machine to reduce the report to a marker and name
+
+<a name="t20180130" href="#index-t20180130" id=
+"t20180130">2018-01-30</a>
+
+        * compare-terminfo: RCS_BASE
+
+<a name="t20180104" href="#index-t20180104" id=
+"t20180104">2018-01-04</a>
+
+        * touch-dirs: with FreeBSD, perl is a port, not in /usr/bin
+
+<a name="t20171119" href="#index-t20171119" id=
+"t20171119">2017-11-19</a>
+
+        * check-manpage: add check for bad links; found 4 (had noticed one)
+
+        * check-manpage: add comments about predefined characters
+
+        * check-manpage: pass type to check_strings as parameter
+
+        * check-manpage: 1-character names omit the "(".
+        adjusted to handle those, too
+
+        * check-manpage:
+        start work on a check for defined-strings which are mis-punctuated, or unused
+        This works for the 2-character names in ctlseqs.ms
+
+        * check-manpage: a few tweaks for ctlseqs.ms
+
+<a name="t20171105" href="#index-t20171105" id=
+"t20171105">2017-11-05</a>
+
+        * check-manpage:
+        modify .bP and .NS to follow current xterm changes, and show the content
+        of macros with different number of lines, to help with updating them.
+
+        * check-manpage: fix escaping of AQ
+
+        * check-manpage:
+        add AQ macro from xterm, and improve warnings for missing/unexpected lines
+
+        * check-manpage: allow for different amount of whitespace
+
+        * check-manpage:
+        provide a simple check for equality - works for ncurses manpages
+
+        * check-manpage: add predefined macros in a table
+
+        * check-manpage: improve the way states are defined
+
+        * check-manpage:
+        start on "find_macros", by making states for the .de and .ds items
+
+<a name="t20171102" href="#index-t20171102" id=
+"t20171102">2017-11-02</a>
+
+        * check-manpage:
+        print the lines containing macro definitions and conditional stuff
+
+        * check-manpage:
+        change this to a perl script, to provide for additional checks
+
+<a name="t20170812" href="#index-t20170812" id=
+"t20170812">2017-08-12</a>
+
+        * indent-html, indent-perl, manifest:
+        use SIGQUIT(3) rather than SIGTRAP(5) in trap commands
+        This error dates back to 1997 (970802) in ncurses:
+                + many corrections to make progs/capconvert work, as well as make it
+                  reasonably portable and integrated with ncurses 4.1 (reported by Dave
+                  Furstenau &lt;df@ravine.binary.net&gt;).
+
+        but I see in my "nfilter" script I used it as far back as December 1993, on the
+        other hand in "externs" (August 1991) I had it corrrect.
+
+        But here are the first uses in ncurses:
+                capconvert      <a href=
+"/ncurses/NEWS.html#t970802">1997/08/02</a> 21:52:06    1.3
+                edit_cfg.sh     <a href=
+"/ncurses/NEWS.html#t971108">1997/11/08</a> 18:14:57    1.7
+                make_sed.sh     <a href=
+"/ncurses/NEWS.html#t971206">1997/12/06</a> 20:52:47       tom
+                MKterminfo.sh   <a href=
+"/ncurses/NEWS.html#t980905">1998/09/05</a> 23:53:51    1.4
+                MKtermsort.sh   <a href=
+"/ncurses/NEWS.html#t20010526">2001/05/26</a> 23:37:57    1.7
+                MKkey_defs.sh   <a href=
+"/ncurses/NEWS.html#t20010616">2001/06/16</a> 15:25:10       tom
+                MKkeys_list.sh  <a href=
+"/ncurses/NEWS.html#t20010616">2001/06/16</a> 16:47:39       tom
+                make-tar.sh     <a href=
+"/ncurses/NEWS.html#t20100220">2010/02/20</a> 22:46:57       tom
+
+<a name="t20170520" href="#index-t20170520" id=
+"t20170520">2017-05-20</a>
+
+        * check-manpage:
+        use a case-statement to filter out non-manpages (but special-case for ctlseqs.ms)
+
+<a name="t20170305" href="#index-t20170305" id=
+"t20170305">2017-03-05</a>
+
+        * count-nroff: ident
+
+<a name="t20170303" href="#index-t20170303" id=
+"t20170303">2017-03-03</a>
+
+        * count-nroff: allow tabs as "printable"
+
+        * count-nroff: ignore .git and .svn subdirectories and files in them
+
+<a name="t20170301" href="#index-t20170301" id=
+"t20170301">2017-03-01</a>
+
+        * count-nroff: add -d option
+
+        * count-nroff: RCS_BASE
+
+<a name="t20161126" href="#index-t20161126" id=
+"t20161126">2016-11-26</a>
+
+        * show-linux-consolefonts:
+        avoid exiting on setfont-error (just report it, and continue)
+
+<a name="t20161113" href="#index-t20161113" id=
+"t20161113">2016-11-13</a>
+
+        * show-dircolors: RCS_BASE
+
+<a name="t20161103" href="#index-t20161103" id=
+"t20161103">2016-11-03</a>
+
+        * show-linux-consolefonts: switch to/from SCS K
+
+        * show-linux-consolefonts:
+        make this a little easier to stop w/o using 'q' by adding a delay after printing
+
+        * show-linux-consolefonts:
+        Linux console sort-of recognizes 0x9b (8bit CSI), and doesn't advance the
+        cursor for that.  Work around by checking cursor position and filling in
+        with highlighted blank(s).
+
+        * show-linux-consolefonts: split-out decode_key()
+
+<a name="t20161102" href="#index-t20161102" id=
+"t20161102">2016-11-02</a>
+
+        * show-linux-consolefonts:
+        fix some inconsistencies in ReadMode calls which prevented stopping the script
+
+        * show-linux-consolefonts: add signal handler
+
+        * show-linux-consolefonts:
+        improve formatting a little, to avoid line-wrap for showconsolefont vs
+        the font pathname.
+
+        * show-linux-consolefonts:
+        made workable interaction using 's' and space (and 'q')
+
+        * show-linux-consolefonts:
+        force "-n" if not actually reading and writing on a terminal, used for
+        testing/development.
+
+        * show-linux-consolefonts: start work on logic to flesh out the looping
+
+        * show-linux-consolefonts: add -n option, to work on this offline
+
+<a name="t20161101" href="#index-t20161101" id=
+"t20161101">2016-11-01</a>
+
+        * show-linux-consolefonts:
+        refactor to use all files from font-directory which match an argumnet
+
+        * show-linux-consolefonts: start work on ReadKey
+
+<a name="t20161031" href="#index-t20161031" id=
+"t20161031">2016-10-31</a>
+
+        * show-linux-consolefonts: reset font
+
+        * show-linux-consolefonts: add notes for resetting font
+
+        * report-linux-consolefonts: improve parsing of codeset/size for Fedora
+
+        * show-linux-consolefonts: pass-in fontname for each display
+
+        * show-linux-consolefonts: add -u option
+
+        * show-linux-consolefonts: RCS_BASE
+
+<a name="t20161030" href="#index-t20161030" id=
+"t20161030">2016-10-30</a>
+
+        * report-linux-consolefonts:
+        work around overlap between line-drawing and iso-8859-1 which interfered
+        with seeing that encoding as "complete" in several fonts.
+
+        * report-linux-consolefonts:
+        in "-t", proved that Perl encoding matches my tables.
+
+        * report-linux-consolefonts:
+        start work to validate against Perl's encoding.
+
+        * report-linux-consolefonts: minor cleanup
+
+<a name="t20161027" href="#index-t20161027" id=
+"t20161027">2016-10-27</a>
+
+        * report-linux-consolefonts: add -m option
+
+        * report-linux-consolefonts: improve display of missing codes
+
+        * report-linux-consolefonts: show the missing codes
+
+        * report-linux-consolefonts: collect information for missing characters
+
+<a name="t20161026" href="#index-t20161026" id=
+"t20161026">2016-10-26</a>
+
+        * report-linux-consolefonts: show codeset sizes
+
+        * report-linux-consolefonts: report the codesets (none support Latin1)
+
+<a name="t20161025" href="#index-t20161025" id=
+"t20161025">2016-10-25</a>
+
+        * report-linux-consolefonts: remove a debugging statement
+
+        * report-linux-consolefonts:
+        collect data for table of sizes vs names (there are several cases where
+        the number of glyphs varies with size)
+
+<a name="t20161023" href="#index-t20161023" id=
+"t20161023">2016-10-23</a>
+
+        * report-linux-consolefonts:
+        simplified calls to report_coverage using long_name
+
+        * report-linux-consolefonts:
+        report missing vt100 line-drawing (most fonts work)
+
+        * report-linux-consolefonts:
+        in summary, show percentage of "other" Unicode values.
+
+        * report-linux-consolefonts: report the number of glyphs in each font
+
+        * report-linux-consolefonts:
+        eliminate 1-1 correspondence between ISO encoding number and array index.
+        Now the arrays simply record the encodings (and in principle code pages
+        could be added).
+
+<a name="t20161021" href="#index-t20161021" id=
+"t20161021">2016-10-21</a>
+
+        * report-linux-consolefonts:
+        recover more/less from Fedora's hodgepodge of fonts
+
+        * report-linux-consolefonts: make this work with Fedora
+
+<a name="t20161020" href="#index-t20161020" id=
+"t20161020">2016-10-20</a>
+
+        * report-linux-consolefonts:
+        extend coverage report to the iso encodings
+
+        * report-linux-consolefonts:
+        test coverage of ascii, fixing a couple of checks
+
+        * report-linux-consolefonts: show line-drawing coverage
+
+        * report-linux-consolefonts: start work on coverage tables
+
+        * report-linux-consolefonts: introduce $iso_8859_name[]
+
+        * report-linux-consolefonts: make $iso_8859_hashes{} work
+
+        * report-linux-consolefonts:
+        start getting rid of special cases for ascii and latin1
+
+        * report-linux-consolefonts: show line-drawing as iso "-1"
+
+<a name="t20161019" href="#index-t20161019" id=
+"t20161019">2016-10-19</a>
+
+        * report-linux-consolefonts:
+        first cut of showing which iso's are covered
+
+        * report-linux-consolefonts: show subtotals for coverage
+
+        * report-linux-consolefonts:
+        add -F option to demonstrate that the folds are harmless
+
+<a name="t20161017" href="#index-t20161017" id=
+"t20161017">2016-10-17</a>
+
+        * report-linux-consolefonts:
+        show the actual character for merges, to help guage mis-merged stuff
+
+        * report-linux-consolefonts:
+        make the hash result for encoding tables consistently show the Unicode
+
+        * report-linux-consolefonts: show mismatches.
+
+        * report-linux-consolefonts: completed the encode/decode parts of that
+
+        * report-linux-consolefonts:
+        start work on "-t" option, to validate the encoding hashes
+
+<a name="t20161015" href="#index-t20161015" id=
+"t20161015">2016-10-15</a>
+
+        * report-linux-consolefonts:
+        start counting "folded" stuff (glyphs with multiple ISO-8859-x codes assigned)
+
+<a name="t20161008" href="#index-t20161008" id=
+"t20161008">2016-10-08</a>
+
+        * report-linux-consolefonts:
+        have initial data, need to plan out next steps
+
+        * report-linux-consolefonts: count iso-8859-16
+
+        * report-linux-consolefonts: count iso-8859-15
+
+        * report-linux-consolefonts: count iso-8859-14
+
+        * report-linux-consolefonts: add iso-8859-13 (there was no -12)
+
+        * report-linux-consolefonts: add iso-8859-11
+
+        * report-linux-consolefonts: count iso-8859-9 and -10
+
+        * report-linux-consolefonts: count iso-8859-8
+
+        * report-linux-consolefonts: count iso-8859-7
+
+        * report-linux-consolefonts: count iso-8859-6
+
+        * report-linux-consolefonts: add iso-8859-5
+
+        * report-linux-consolefonts: count iso-8859-4
+
+        * report-linux-consolefonts: count iso-8859-3
+
+        * report-linux-consolefonts: count iso-8859-2
+
+        * report-linux-consolefonts: check for line-drawing characters
+
+        * report-linux-consolefonts: show summary information
+
+        * report-linux-consolefonts:
+        parse the Unicode values from each psf-file
+
+        * report-linux-consolefonts: RCS_BASE
+
+<a name="t20161002" href="#index-t20161002" id=
+"t20161002">2016-10-02</a>
+
+        * sort-sources: if reading from stdin, trim newline
+
+<a name="t20160925" href="#index-t20160925" id=
+"t20160925">2016-09-25</a>
+
+        * indent-html: tidy 5.20 trashes ASCII files... help it a little.
+
+<a name="t20160711" href="#index-t20160711" id=
+"t20160711">2016-07-11</a>
+
+        * report-terminfo:
+        report the number that start (or stay) with CSI vs SS3
+
+        * report-terminfo: show counts for types of cursor-keys
+
+        * report-terminfo: check for terminals with controls for cursor-keys
+
+        * report-terminfo: simplify that, a little
+
+        * report-terminfo:
+        start reorganizing the report to make the categories clearer
+
+        * report-terminfo: implement -u option
+
+        * report-terminfo: fill in -d option
+
+        * report-terminfo:
+        report category for ANSI terminals which switch modes.  Counting aliases,
+        this makes a slight majority for those.
+
+<a name="t20160710" href="#index-t20160710" id=
+"t20160710">2016-07-10</a>
+
+        * report-terminfo:
+        fix some broken references in the resolve-uses logic.
+
+        * report-terminfo: report count for those switching modes
+
+        * report-terminfo: first cut of identifying ANSI terminals
+
+        * report-terminfo: have workable use-resolving
+
+        * report-terminfo: working on resolve_uses
+
+        * report-terminfo: fill-in another case of parsing
+
+        * report-terminfo: fill-in parsing for name/value
+
+        * report-terminfo:
+        add logic to read file for -s option (need more work for parsing name/value)
+
+        * report-terminfo: RCS_BASE
+
+<a name="t20160703" href="#index-t20160703" id=
+"t20160703">2016-07-03</a>
+
+        * manifest: make this a little less verbose
+
+<a name="t20160628" href="#index-t20160628" id=
+"t20160628">2016-06-28</a>
+
+        * manifest: make this less verbose, for release2git
+
+<a name="t20160511" href="#index-t20160511" id=
+"t20160511">2016-05-11</a>
+
+        * indent-tty: copyright
+
+        * indent-tty: tweak to work around items in Solaris stty output:
+                csdata ?
+                eucw 1:0:0:0, scrw 1:0:0:0
+
+<a name="t20160402" href="#index-t20160402" id=
+"t20160402">2016-04-02</a>
+
+        * indent-tty: portable
+
+        * indent-tty: RCS_BASE
+
+<a name="t20160220" href="#index-t20160220" id=
+"t20160220">2016-02-20</a>
+
+        * rpm-deps: appease newer version of perl by escaping '{'
+
+<a name="t20160117" href="#index-t20160117" id=
+"t20160117">2016-01-17</a>
+
+        * diffstat2css: workable more or less
+
+        * diffstat2css:
+        simplify by creating the patch as a temporary file when two directories
+        are given.
+
+<a name="t20150913" href="#index-t20150913" id=
+"t20150913">2015-09-13</a>
+
+        * sort-sources:
+        my fix for lynx put the last number (dev.1, etc) before the phase, which
+        made it sort incorrectly across phases.
+
+        * sort-sources: indent
+
+<a name="t20150816" href="#index-t20150816" id=
+"t20150816">2015-08-16</a>
+
+        * with-locale: modify so this can be used to exec or source
+
+<a name="t20150728" href="#index-t20150728" id=
+"t20150728">2015-07-28</a>
+
+        * indent-html:
+        add -u option to simplify work on ncurses announce backpages
+
+<a name="t20150501" href="#index-t20150501" id=
+"t20150501">2015-05-01</a>
+
+        * touch-dirs: check for success of stat() on symlink
+
+<a name="t20150426" href="#index-t20150426" id=
+"t20150426">2015-04-26</a>
+
+        * touch-dirs:
+        if a directory contains nothing other than symbolic links, use the modification
+        time from the link-targets.  This helps with trees created by link2rcs.
+
+<a name="t20150204" href="#index-t20150204" id=
+"t20150204">2015-02-04</a>
+
+        * script2log, script2log.sed:
+        add a pattern to strip remaining escape followed by other than '['
+
+        * script2log:
+        check for and decompress ".gz" and ".bz2" files with gzip  and bzip2 respectively
+
+        * script2log, script2log.sed:
+        Solaris 10 BREs do not include "\?" -- use brace expression
+
+<a name="t20150203" href="#index-t20150203" id=
+"t20150203">2015-02-03</a>
+
+        * script2log.sed: RCS_BASE
+
+        * script2log:
+        if we can find the sed script as a file, prefer that for portability
+
+        * script2log: RCS_BASE
+
+<a name="t20141209" href="#index-t20141209" id=
+"t20141209">2014-12-09</a>
+
+        * sort-sources:
+        script was picking 2.8.8rel.2 in preference to 2.8.9dev.2 - fix
+
+<a name="t20140510" href="#index-t20140510" id=
+"t20140510">2014-05-10</a>
+
+        * noenv:
+        improve use for cygwin, where bash can define symbol "Program Files(x86)".
+
+<a name="t20140330" href="#index-t20140330" id=
+"t20140330">2014-03-30</a>
+
+        * indent-perl: stop indenting my html files!
+
+<a name="t20140201" href="#index-t20140201" id=
+"t20140201">2014-02-01</a>
+
+        * rpm-deps: xterm's spec-file relies upon variable-expansion (fix)
+
+<a name="t20140122" href="#index-t20140122" id=
+"t20140122">2014-01-22</a>
+
+        * rpm-deps: add -d debug option
+
+        * rpm-deps:
+        allow spec-file as parameter, so I can incorporate into builds
+
+        * rpm-deps: handle
+                foo = version
+
+        * rpm-deps: nit
+
+        * rpm-deps: got workable output
+
+<a name="t20140121" href="#index-t20140121" id=
+"t20140121">2014-01-21</a>
+
+        * rpm-deps: process info from "rpm -q --whatprovides"
+
+        * rpm-deps: RCS_BASE
+
+<a name="t20130714" href="#index-t20130714" id=
+"t20130714">2013-07-14</a>
+
+        * indent-html, indent-perl: use mktemp rather than tempfile program
+
+<a name="t20130622" href="#index-t20130622" id=
+"t20130622">2013-06-22</a>
+
+        * indent-html:
+        anything that links into a frame uses &lt;base target="contents"&gt; or something
+        like that - needs to be transitional as well.
+
+<a name="t20130519" href="#index-t20130519" id=
+"t20130519">2013-05-19</a>
+
+        * indent-html: add -w option
+
+<a name="t20130518" href="#index-t20130518" id=
+"t20130518">2013-05-18</a>
+
+        * indent-html:
+        switch to strict dtd except as needed for framesets and non-css font-colors
+
+<a name="t20130517" href="#index-t20130517" id=
+"t20130517">2013-05-17</a>
+
+        * diffstat2css: bump
+
+        * indent-html:
+        use strict dtd to eliminate "quirks-mode", which assumes that 4.0 transitional
+        has to be addressing IE or FF quirks.
+
+<a name="t20130405" href="#index-t20130405" id=
+"t20130405">2013-04-05</a>
+
+        * indent-html: I kept accidentally indenting perl-scripts - fix
+
+<a name="t20130331" href="#index-t20130331" id=
+"t20130331">2013-03-31</a>
+
+        * diffstat2css: implement -w
+
+        * diffstat2css: made this work with 2-dirs
+
+        * diffstat2css: add -o option
+
+<a name="t20130330" href="#index-t20130330" id=
+"t20130330">2013-03-30</a>
+
+        * diffstat2css: q/d conversion to html
+
+        * diffstat2css: RCS_BASE
+
+<a name="t20120828" href="#index-t20120828" id=
+"t20120828">2012-08-28</a>
+
+        * manifest: dash didn't like shift of empty args
+
+<a name="t20120718" href="#index-t20120718" id=
+"t20120718">2012-07-18</a>
+
+        * noenv: honor assignments for setup-rpmbuild
+
+<a name="t20120622" href="#index-t20120622" id=
+"t20120622">2012-06-22</a>
+
+        * lessopen.sh: fix for rpm's
+
+<a name="t20120603" href="#index-t20120603" id=
+"t20120603">2012-06-03</a>
+
+        * manifest: oops - fix LINE initialization.
+
+<a name="t20120318" href="#index-t20120318" id=
+"t20120318">2012-03-18</a>
+
+        * manifest:
+        add -p option for cdk-perl which needs manifest w/o directories since perl
+        insists
+
+<a name="t20120226" href="#index-t20120226" id=
+"t20120226">2012-02-26</a>
+
+        * manifest:
+        some macros in my-autoconf have pathnames longer than 32, which made the
+        description bump to column 64.  Change the expression for tabstop to check
+        the name-length.
+
+<a name="t20120211" href="#index-t20120211" id=
+"t20120211">2012-02-11</a>
+
+        * sort-sources:
+        fixes to handle lynx setup executables, now that I'm working on dev.10
+        and have dev.9 in the same folder
+
+<a name="t20120205" href="#index-t20120205" id=
+"t20120205">2012-02-05</a>
+
+        * sort-sources: implement pipe version.
+
+        * sort-sources: RCS_BASE
+
+<a name="t20120130" href="#index-t20120130" id=
+"t20120130">2012-01-30</a>
+
+        * no-local: make this work for Solaris
+
+<a name="t20111217" href="#index-t20111217" id=
+"t20111217">2011-12-17</a>
+
+        * grep-cast: pass the -n option for consistency
+
+<a name="t20111027" href="#index-t20111027" id=
+"t20111027">2011-10-27</a>
+
+        * with-locale: quoting
+
+<a name="t20111021" href="#index-t20111021" id=
+"t20111021">2011-10-21</a>
+
+        * with-locale: working with Solaris10
+
+<a name="t20110807" href="#index-t20110807" id=
+"t20110807">2011-08-07</a>
+
+        * touch-dirs:
+        perl 5.005003 on FreeBSD 4.9 didn't like storing a file-handle in a variable
+        (which I'd done in case it was needed for recursion), saying
+                Can't use an undefined value as a symbol reference
+        I didn't actually need to - and don't see how to make a variable of type
+        filehandle (just as well).
+
+<a name="t20110520" href="#index-t20110520" id=
+"t20110520">2011-05-20</a>
+
+        * indent-perl: RCS_BASE
+
+<a name="t20110327" href="#index-t20110327" id=
+"t20110327">2011-03-27</a>
+
+        * no-local: workaround so I can do 'no-local build-AdaCurses"
+
+<a name="t20110224" href="#index-t20110224" id=
+"t20110224">2011-02-24</a>
+
+        * indent-html: RCS_BASE
+
+<a name="t20100705" href="#index-t20100705" id=
+"t20100705">2010-07-05</a>
+
+        * manifest:
+        since I'm usually checking-in configure scripts now, it turns out that this
+        script always assumed they weren't, and generated an entry for it right after
+        configure.in - however, the checked-in script appears right before configure.in,
+        and is a duplicate (report by Jonathan Neider).
+
+<a name="t20100611" href="#index-t20100611" id=
+"t20100611">2010-06-11</a>
+
+        * touch-dirs: provide default param of "."
+
+        * touch-dirs: don't update if there are no files
+        add trace for -n option to show the timestamps
+
+        * touch-dirs: RCS_BASE
+
+<a name="t20100404" href="#index-t20100404" id=
+"t20100404">2010-04-04</a>
+
+        * no-local: add vile
+
+<a name="t20100328" href="#index-t20100328" id=
+"t20100328">2010-03-28</a>
+
+        * no-local: RCS_BASE
+
+<a name="t20091015" href="#index-t20091015" id=
+"t20091015">2009-10-15</a>
+
+        * noenv: RCS_BASE
+
+<a name="t20090919" href="#index-t20090919" id=
+"t20090919">2009-09-19</a>
+
+        * check-manpage: if doing more than one file, print the names
+
+<a name="t20081014" href="#index-t20081014" id=
+"t20081014">2008-10-14</a>
+
+        * grep-numbers: update for current sort program.
+
+<a name="t20080804" href="#index-t20080804" id=
+"t20080804">2008-08-04</a>
+
+        * Regress: fix for ncurses/tinfo/xxx stuff
+
+        * Regress: hack to allow me to run this in ncurses' tree
+
+<a name="t20080126" href="#index-t20080126" id=
+"t20080126">2008-01-26</a>
+
+        * nolocale: RCS_BASE
+
+<a name="t20071227" href="#index-t20071227" id=
+"t20071227">2007-12-27</a>
+
+        * manifest: use csort
+
+<a name="t20070709" href="#index-t20070709" id=
+"t20070709">2007-07-09</a>
+
+        * ldd-path: RCS_BASE
+
+<a name="t20070703" href="#index-t20070703" id=
+"t20070703">2007-07-03</a>
+
+        * noterm: add TERMPATH and TERMINFO_DIRS
+
+<a name="t20070409" href="#index-t20070409" id=
+"t20070409">2007-04-09</a>
+
+        * with-locale: cancel LESSCHARSET too
+
+<a name="t20061013" href="#index-t20061013" id=
+"t20061013">2006-10-13</a>
+
+        * with-locale:
+        hack for Fedora5 - set GDM_LANG so I can override the stuff in /etc used
+        to force shell-init.
+
+<a name="t20050419" href="#index-t20050419" id=
+"t20050419">2005-04-19</a>
+
+        * with-locale: export LANG too
+
+<a name="t20040930" href="#index-t20040930" id=
+"t20040930">2004-09-30</a>
+
+        * with-locale: RCS_BASE
+
+<a name="t20040504" href="#index-t20040504" id=
+"t20040504">2004-05-04</a>
+
+        * grep-knr: RCS_BASE
+
+<a name="t20030606" href="#index-t20030606" id=
+"t20030606">2003-06-06</a>
+
+        * Regress: add rules for .ppc.o and .pc.o
+
+<a name="t20030430" href="#index-t20030430" id=
+"t20030430">2003-04-30</a>
+
+        * manifest: allow more than one option, in any order
+
+<a name="t20021123" href="#index-t20021123" id=
+"t20021123">2002-11-23</a>
+
+        * manifest: a couple of programs (tin, bcpp) have config.h files
+
+<a name="t20021015" href="#index-t20021015" id=
+"t20021015">2002-10-15</a>
+
+        * nodot: RCS_BASE
+
+<a name="t20020728" href="#index-t20020728" id=
+"t20020728">2002-07-28</a>
+
+        * manifest:
+        add -d option, so I can suppress "subdirectory" lines which confuse Perl's
+        packaging
+
+<a name="t20020614" href="#index-t20020614" id=
+"t20020614">2002-06-14</a>
+
+        * Regress: pass options to remake
+
+<a name="t20020216" href="#index-t20020216" id=
+"t20020216">2002-02-16</a>
+
+        * check-manpage: RCS_BASE
+
+<a name="t20011108" href="#index-t20011108" id=
+"t20011108">2001-11-08</a>
+
+        * lessopen.sh: add bzip2 stuff
+
+<a name="t20010902" href="#index-t20010902" id=
+"t20010902">2001-09-02</a>
+
+        * lessopen.sh: much cleanup, making this simpler to test
+
+<a name="t20010722" href="#index-t20010722" id=
+"t20010722">2001-07-22</a>
+
+        * lessopen.sh: add *.tbz
+
+<a name="t20010510" href="#index-t20010510" id=
+"t20010510">2001-05-10</a>
+
+        * noterm: RCS_BASE
+
+<a name="t20010307" href="#index-t20010307" id=
+"t20010307">2001-03-07</a>
+
+        * lessopen.sh: turn on backspaces with lynx
+
+<a name="t20001231" href="#index-t20001231" id=
+"t20001231">2000-12-31</a>
+
+        * lessopen.sh: add jar files
+
+<a name="t20001027" href="#index-t20001027" id=
+"t20001027">2000-10-27</a>
+
+        * lessopen.sh: add *.cgi
+
+<a name="t20000926" href="#index-t20000926" id=
+"t20000926">2000-09-26</a>
+
+        * lessopen.sh: add bzip2 stuff and .a
+
+<a name="t20000223" href="#index-t20000223" id=
+"t20000223">2000-02-23</a>
+
+        * lessopen.sh: filter for gzip'd manpages
+
+<a name="t19991231" href="#index-t19991231" id=
+"t19991231">1999-12-31</a>
+
+        * manifest:
+        workaround defect in Redhat 6.1, which folds case on 'sort' command
+
+<a name="t19991128" href="#index-t19991128" id=
+"t19991128">1999-11-28</a>
+
+        * lessopen.sh: *.HTM too
+
+        * lessopen.sh: add html via lynx -dump
+
+<a name="t19990916" href="#index-t19990916" id=
+"t19990916">1999-09-16</a>
+
+        * lessopen.sh: add *.man
+
+<a name="t19990914" href="#index-t19990914" id=
+"t19990914">1999-09-14</a>
+
+        * lessopen.sh: add nroff stuff
+
+<a name="t19990815" href="#index-t19990815" id=
+"t19990815">1999-08-15</a>
+
+        * lessopen.sh: add *.tar
+
+<a name="t19990805" href="#index-t19990805" id=
+"t19990805">1999-08-05</a>
+
+        * lessopen.sh, lessclose.sh: RCS_BASE
+
+<a name="t19980921" href="#index-t19980921" id=
+"t19980921">1998-09-21</a>
+
+        * classpath: RCS_BASE
+
+<a name="t19980430" href="#index-t19980430" id=
+"t19980430">1998-04-30</a>
+
+        * grep-numbers: RCS_BASE
+
+<a name="t19980225" href="#index-t19980225" id=
+"t19980225">1998-02-25</a>
+
+        * grep-date: RCS_BASE
+
+<a name="t19980102" href="#index-t19980102" id=
+"t19980102">1998-01-02</a>
+
+        * grep-bad-ifdefs: RCS_BASE
+
+<a name="t19971208" href="#index-t19971208" id=
+"t19971208">1997-12-08</a>
+
+        * manifest: add special cases for config.guess and config.sub
+
+<a name="t19961028" href="#index-t19961028" id=
+"t19961028">1996-10-28</a>
+
+        * nm_cmp: RCS_BASE
+
+<a name="t19960825" href="#index-t19960825" id=
+"t19960825">1996-08-25</a>
+
+        * Regress: RCS_BASE
+
+<a name="t19960619" href="#index-t19960619" id=
+"t19960619">1996-06-19</a>
+
+        * grep-ifdefs: RCS_BASE
+
+        * grep-cast: allow underscores in numbers
+
+<a name="t19960223" href="#index-t19960223" id=
+"t19960223">1996-02-23</a>
+
+        * grep-cast: FROM_KEYS
+
+<a name="t19960204" href="#index-t19960204" id=
+"t19960204">1996-02-04</a>
+
+        * remake: RCS_BASE
+
+<a name="t19951203" href="#index-t19951203" id=
+"t19951203">1995-12-03</a>
+
+        * manifest: a couple of error-recovery nits
+
+<a name="t19950904" href="#index-t19950904" id=
+"t19950904">1995-09-04</a>
+
+        * manifest: redirect stderr
+
+<a name="t19950223" href="#index-t19950223" id=
+"t19950223">1995-02-23</a>
+
+        * libpath: syntax
+
+<a name="t19941015" href="#index-t19941015" id=
+"t19941015">1994-10-15</a>
+
+        * manifest:
+        make dummy-entries for directories, so cshar will do the right thing
+
+        * manifest:
+        added logic to let me append auto-generated files into the manifest
+
+        * manifest: rewrote so I don't need 'checkup'
+
+<a name="t19940903" href="#index-t19940903" id=
+"t19940903">1994-09-03</a>
+
+        * manifest:
+        strip off the "-r" from the revision so the generated file looks nicer
+
+<a name="t19940819" href="#index-t19940819" id=
+"t19940819">1994-08-19</a>
+
+        * manifest:
+        hack to make 'configure' appear after other files (for timestamps)
+
+<a name="t19940818" href="#index-t19940818" id=
+"t19940818">1994-08-18</a>
+
+        * manifest:
+        mods to sort subdirectories into separate clumps, for readability
+
+<a name="t19940816" href="#index-t19940816" id=
+"t19940816">1994-08-16</a>
+
+        * manifest: RCS_BASE
+
+<a name="t19940525" href="#index-t19940525" id=
+"t19940525">1994-05-25</a>
+
+        * libpath: RCS_BASE
+
+</pre>
+  <div class="nav">
+    <ul>
+      <li class="nav-top"><a href="CHANGES.html">(top)</a></li>
+      <li><a name="index-t20230118" href="#t20230118" id=
+      "index-t20230118">2023-01-18</a></li>
+      <li><a name="index-t20221105" href="#t20221105" id=
+      "index-t20221105">2022-11-05</a></li>
+      <li><a name="index-t20221001" href="#t20221001" id=
+      "index-t20221001">2022-10-01</a></li>
+      <li><a name="index-t20220714" href="#t20220714" id=
+      "index-t20220714">2022-07-14</a></li>
+      <li><a name="index-t20220514" href="#t20220514" id=
+      "index-t20220514">2022-05-14</a></li>
+      <li><a name="index-t20220220" href="#t20220220" id=
+      "index-t20220220">2022-02-20</a></li>
+      <li><a name="index-t20220212" href="#t20220212" id=
+      "index-t20220212">2022-02-12</a></li>
+      <li><a name="index-t20220120" href="#t20220120" id=
+      "index-t20220120">2022-01-20</a></li>
+      <li><a name="index-t20220114" href="#t20220114" id=
+      "index-t20220114">2022-01-14</a></li>
+      <li><a name="index-t20211230" href="#t20211230" id=
+      "index-t20211230">2021-12-30</a></li>
+      <li><a name="index-t20211030" href="#t20211030" id=
+      "index-t20211030">2021-10-30</a></li>
+      <li><a name="index-t20210826" href="#t20210826" id=
+      "index-t20210826">2021-08-26</a></li>
+      <li><a name="index-t20210330" href="#t20210330" id=
+      "index-t20210330">2021-03-30</a></li>
+      <li><a name="index-t20210319" href="#t20210319" id=
+      "index-t20210319">2021-03-19</a></li>
+      <li><a name="index-t20201107" href="#t20201107" id=
+      "index-t20201107">2020-11-07</a></li>
+      <li><a name="index-t20201017" href="#t20201017" id=
+      "index-t20201017">2020-10-17</a></li>
+      <li><a name="index-t20200922" href="#t20200922" id=
+      "index-t20200922">2020-09-22</a></li>
+      <li><a name="index-t20200516" href="#t20200516" id=
+      "index-t20200516">2020-05-16</a></li>
+      <li><a name="index-t20200515" href="#t20200515" id=
+      "index-t20200515">2020-05-15</a></li>
+      <li><a name="index-t20200114" href="#t20200114" id=
+      "index-t20200114">2020-01-14</a></li>
+      <li><a name="index-t20191231" href="#t20191231" id=
+      "index-t20191231">2019-12-31</a></li>
+      <li><a name="index-t20191206" href="#t20191206" id=
+      "index-t20191206">2019-12-06</a></li>
+      <li><a name="index-t20190730" href="#t20190730" id=
+      "index-t20190730">2019-07-30</a></li>
+      <li><a name="index-t20190717" href="#t20190717" id=
+      "index-t20190717">2019-07-17</a></li>
+      <li><a name="index-t20190708" href="#t20190708" id=
+      "index-t20190708">2019-07-08</a></li>
+      <li><a name="index-t20190707" href="#t20190707" id=
+      "index-t20190707">2019-07-07</a></li>
+      <li><a name="index-t20190705" href="#t20190705" id=
+      "index-t20190705">2019-07-05</a></li>
+      <li><a name="index-t20190704" href="#t20190704" id=
+      "index-t20190704">2019-07-04</a></li>
+      <li><a name="index-t20190619" href="#t20190619" id=
+      "index-t20190619">2019-06-19</a></li>
+      <li><a name="index-t20190530" href="#t20190530" id=
+      "index-t20190530">2019-05-30</a></li>
+      <li><a name="index-t20190507" href="#t20190507" id=
+      "index-t20190507">2019-05-07</a></li>
+      <li><a name="index-t20190411" href="#t20190411" id=
+      "index-t20190411">2019-04-11</a></li>
+      <li><a name="index-t20190410" href="#t20190410" id=
+      "index-t20190410">2019-04-10</a></li>
+      <li><a name="index-t20190406" href="#t20190406" id=
+      "index-t20190406">2019-04-06</a></li>
+      <li><a name="index-t20190316" href="#t20190316" id=
+      "index-t20190316">2019-03-16</a></li>
+      <li><a name="index-t20190315" href="#t20190315" id=
+      "index-t20190315">2019-03-15</a></li>
+      <li><a name="index-t20190313" href="#t20190313" id=
+      "index-t20190313">2019-03-13</a></li>
+      <li><a name="index-t20190223" href="#t20190223" id=
+      "index-t20190223">2019-02-23</a></li>
+      <li><a name="index-t20190214" href="#t20190214" id=
+      "index-t20190214">2019-02-14</a></li>
+      <li><a name="index-t20190120" href="#t20190120" id=
+      "index-t20190120">2019-01-20</a></li>
+      <li><a name="index-t20190112" href="#t20190112" id=
+      "index-t20190112">2019-01-12</a></li>
+      <li><a name="index-t20181223" href="#t20181223" id=
+      "index-t20181223">2018-12-23</a></li>
+      <li><a name="index-t20180831" href="#t20180831" id=
+      "index-t20180831">2018-08-31</a></li>
+      <li><a name="index-t20180728" href="#t20180728" id=
+      "index-t20180728">2018-07-28</a></li>
+      <li><a name="index-t20180622" href="#t20180622" id=
+      "index-t20180622">2018-06-22</a></li>
+      <li><a name="index-t20180519" href="#t20180519" id=
+      "index-t20180519">2018-05-19</a></li>
+      <li><a name="index-t20180518" href="#t20180518" id=
+      "index-t20180518">2018-05-18</a></li>
+      <li><a name="index-t20180513" href="#t20180513" id=
+      "index-t20180513">2018-05-13</a></li>
+      <li><a name="index-t20180406" href="#t20180406" id=
+      "index-t20180406">2018-04-06</a></li>
+      <li><a name="index-t20180403" href="#t20180403" id=
+      "index-t20180403">2018-04-03</a></li>
+      <li><a name="index-t20180326" href="#t20180326" id=
+      "index-t20180326">2018-03-26</a></li>
+      <li><a name="index-t20180324" href="#t20180324" id=
+      "index-t20180324">2018-03-24</a></li>
+      <li><a name="index-t20180323" href="#t20180323" id=
+      "index-t20180323">2018-03-23</a></li>
+      <li><a name="index-t20180224" href="#t20180224" id=
+      "index-t20180224">2018-02-24</a></li>
+      <li><a name="index-t20180215" href="#t20180215" id=
+      "index-t20180215">2018-02-15</a></li>
+      <li><a name="index-t20180201" href="#t20180201" id=
+      "index-t20180201">2018-02-01</a></li>
+      <li><a name="index-t20180130" href="#t20180130" id=
+      "index-t20180130">2018-01-30</a></li>
+      <li><a name="index-t20180104" href="#t20180104" id=
+      "index-t20180104">2018-01-04</a></li>
+      <li><a name="index-t20171119" href="#t20171119" id=
+      "index-t20171119">2017-11-19</a></li>
+      <li><a name="index-t20171105" href="#t20171105" id=
+      "index-t20171105">2017-11-05</a></li>
+      <li><a name="index-t20171102" href="#t20171102" id=
+      "index-t20171102">2017-11-02</a></li>
+      <li><a name="index-t20170812" href="#t20170812" id=
+      "index-t20170812">2017-08-12</a></li>
+      <li><a name="index-t20170520" href="#t20170520" id=
+      "index-t20170520">2017-05-20</a></li>
+      <li><a name="index-t20170305" href="#t20170305" id=
+      "index-t20170305">2017-03-05</a></li>
+      <li><a name="index-t20170303" href="#t20170303" id=
+      "index-t20170303">2017-03-03</a></li>
+      <li><a name="index-t20170301" href="#t20170301" id=
+      "index-t20170301">2017-03-01</a></li>
+      <li><a name="index-t20161126" href="#t20161126" id=
+      "index-t20161126">2016-11-26</a></li>
+      <li><a name="index-t20161113" href="#t20161113" id=
+      "index-t20161113">2016-11-13</a></li>
+      <li><a name="index-t20161103" href="#t20161103" id=
+      "index-t20161103">2016-11-03</a></li>
+      <li><a name="index-t20161102" href="#t20161102" id=
+      "index-t20161102">2016-11-02</a></li>
+      <li><a name="index-t20161101" href="#t20161101" id=
+      "index-t20161101">2016-11-01</a></li>
+      <li><a name="index-t20161031" href="#t20161031" id=
+      "index-t20161031">2016-10-31</a></li>
+      <li><a name="index-t20161030" href="#t20161030" id=
+      "index-t20161030">2016-10-30</a></li>
+      <li><a name="index-t20161027" href="#t20161027" id=
+      "index-t20161027">2016-10-27</a></li>
+      <li><a name="index-t20161026" href="#t20161026" id=
+      "index-t20161026">2016-10-26</a></li>
+      <li><a name="index-t20161025" href="#t20161025" id=
+      "index-t20161025">2016-10-25</a></li>
+      <li><a name="index-t20161023" href="#t20161023" id=
+      "index-t20161023">2016-10-23</a></li>
+      <li><a name="index-t20161021" href="#t20161021" id=
+      "index-t20161021">2016-10-21</a></li>
+      <li><a name="index-t20161020" href="#t20161020" id=
+      "index-t20161020">2016-10-20</a></li>
+      <li><a name="index-t20161019" href="#t20161019" id=
+      "index-t20161019">2016-10-19</a></li>
+      <li><a name="index-t20161017" href="#t20161017" id=
+      "index-t20161017">2016-10-17</a></li>
+      <li><a name="index-t20161015" href="#t20161015" id=
+      "index-t20161015">2016-10-15</a></li>
+      <li><a name="index-t20161008" href="#t20161008" id=
+      "index-t20161008">2016-10-08</a></li>
+      <li><a name="index-t20161002" href="#t20161002" id=
+      "index-t20161002">2016-10-02</a></li>
+      <li><a name="index-t20160925" href="#t20160925" id=
+      "index-t20160925">2016-09-25</a></li>
+      <li><a name="index-t20160711" href="#t20160711" id=
+      "index-t20160711">2016-07-11</a></li>
+      <li><a name="index-t20160710" href="#t20160710" id=
+      "index-t20160710">2016-07-10</a></li>
+      <li><a name="index-t20160703" href="#t20160703" id=
+      "index-t20160703">2016-07-03</a></li>
+      <li><a name="index-t20160628" href="#t20160628" id=
+      "index-t20160628">2016-06-28</a></li>
+      <li><a name="index-t20160511" href="#t20160511" id=
+      "index-t20160511">2016-05-11</a></li>
+      <li><a name="index-t20160402" href="#t20160402" id=
+      "index-t20160402">2016-04-02</a></li>
+      <li><a name="index-t20160220" href="#t20160220" id=
+      "index-t20160220">2016-02-20</a></li>
+      <li><a name="index-t20160117" href="#t20160117" id=
+      "index-t20160117">2016-01-17</a></li>
+      <li><a name="index-t20150913" href="#t20150913" id=
+      "index-t20150913">2015-09-13</a></li>
+      <li><a name="index-t20150816" href="#t20150816" id=
+      "index-t20150816">2015-08-16</a></li>
+      <li><a name="index-t20150728" href="#t20150728" id=
+      "index-t20150728">2015-07-28</a></li>
+      <li><a name="index-t20150501" href="#t20150501" id=
+      "index-t20150501">2015-05-01</a></li>
+      <li><a name="index-t20150426" href="#t20150426" id=
+      "index-t20150426">2015-04-26</a></li>
+      <li><a name="index-t20150204" href="#t20150204" id=
+      "index-t20150204">2015-02-04</a></li>
+      <li><a name="index-t20150203" href="#t20150203" id=
+      "index-t20150203">2015-02-03</a></li>
+      <li><a name="index-t20141209" href="#t20141209" id=
+      "index-t20141209">2014-12-09</a></li>
+      <li><a name="index-t20140510" href="#t20140510" id=
+      "index-t20140510">2014-05-10</a></li>
+      <li><a name="index-t20140330" href="#t20140330" id=
+      "index-t20140330">2014-03-30</a></li>
+      <li><a name="index-t20140201" href="#t20140201" id=
+      "index-t20140201">2014-02-01</a></li>
+      <li><a name="index-t20140122" href="#t20140122" id=
+      "index-t20140122">2014-01-22</a></li>
+      <li><a name="index-t20140121" href="#t20140121" id=
+      "index-t20140121">2014-01-21</a></li>
+      <li><a name="index-t20130714" href="#t20130714" id=
+      "index-t20130714">2013-07-14</a></li>
+      <li><a name="index-t20130622" href="#t20130622" id=
+      "index-t20130622">2013-06-22</a></li>
+      <li><a name="index-t20130519" href="#t20130519" id=
+      "index-t20130519">2013-05-19</a></li>
+      <li><a name="index-t20130518" href="#t20130518" id=
+      "index-t20130518">2013-05-18</a></li>
+      <li><a name="index-t20130517" href="#t20130517" id=
+      "index-t20130517">2013-05-17</a></li>
+      <li><a name="index-t20130405" href="#t20130405" id=
+      "index-t20130405">2013-04-05</a></li>
+      <li><a name="index-t20130331" href="#t20130331" id=
+      "index-t20130331">2013-03-31</a></li>
+      <li><a name="index-t20130330" href="#t20130330" id=
+      "index-t20130330">2013-03-30</a></li>
+      <li><a name="index-t20120828" href="#t20120828" id=
+      "index-t20120828">2012-08-28</a></li>
+      <li><a name="index-t20120718" href="#t20120718" id=
+      "index-t20120718">2012-07-18</a></li>
+      <li><a name="index-t20120622" href="#t20120622" id=
+      "index-t20120622">2012-06-22</a></li>
+      <li><a name="index-t20120603" href="#t20120603" id=
+      "index-t20120603">2012-06-03</a></li>
+      <li><a name="index-t20120318" href="#t20120318" id=
+      "index-t20120318">2012-03-18</a></li>
+      <li><a name="index-t20120226" href="#t20120226" id=
+      "index-t20120226">2012-02-26</a></li>
+      <li><a name="index-t20120211" href="#t20120211" id=
+      "index-t20120211">2012-02-11</a></li>
+      <li><a name="index-t20120205" href="#t20120205" id=
+      "index-t20120205">2012-02-05</a></li>
+      <li><a name="index-t20120130" href="#t20120130" id=
+      "index-t20120130">2012-01-30</a></li>
+      <li><a name="index-t20111217" href="#t20111217" id=
+      "index-t20111217">2011-12-17</a></li>
+      <li><a name="index-t20111027" href="#t20111027" id=
+      "index-t20111027">2011-10-27</a></li>
+      <li><a name="index-t20111021" href="#t20111021" id=
+      "index-t20111021">2011-10-21</a></li>
+      <li><a name="index-t20110807" href="#t20110807" id=
+      "index-t20110807">2011-08-07</a></li>
+      <li><a name="index-t20110520" href="#t20110520" id=
+      "index-t20110520">2011-05-20</a></li>
+      <li><a name="index-t20110327" href="#t20110327" id=
+      "index-t20110327">2011-03-27</a></li>
+      <li><a name="index-t20110224" href="#t20110224" id=
+      "index-t20110224">2011-02-24</a></li>
+      <li><a name="index-t20100705" href="#t20100705" id=
+      "index-t20100705">2010-07-05</a></li>
+      <li><a name="index-t20100611" href="#t20100611" id=
+      "index-t20100611">2010-06-11</a></li>
+      <li><a name="index-t20100404" href="#t20100404" id=
+      "index-t20100404">2010-04-04</a></li>
+      <li><a name="index-t20100328" href="#t20100328" id=
+      "index-t20100328">2010-03-28</a></li>
+      <li><a name="index-t20091015" href="#t20091015" id=
+      "index-t20091015">2009-10-15</a></li>
+      <li><a name="index-t20090919" href="#t20090919" id=
+      "index-t20090919">2009-09-19</a></li>
+      <li><a name="index-t20081014" href="#t20081014" id=
+      "index-t20081014">2008-10-14</a></li>
+      <li><a name="index-t20080804" href="#t20080804" id=
+      "index-t20080804">2008-08-04</a></li>
+      <li><a name="index-t20080126" href="#t20080126" id=
+      "index-t20080126">2008-01-26</a></li>
+      <li><a name="index-t20071227" href="#t20071227" id=
+      "index-t20071227">2007-12-27</a></li>
+      <li><a name="index-t20070709" href="#t20070709" id=
+      "index-t20070709">2007-07-09</a></li>
+      <li><a name="index-t20070703" href="#t20070703" id=
+      "index-t20070703">2007-07-03</a></li>
+      <li><a name="index-t20070409" href="#t20070409" id=
+      "index-t20070409">2007-04-09</a></li>
+      <li><a name="index-t20061013" href="#t20061013" id=
+      "index-t20061013">2006-10-13</a></li>
+      <li><a name="index-t20050419" href="#t20050419" id=
+      "index-t20050419">2005-04-19</a></li>
+      <li><a name="index-t20040930" href="#t20040930" id=
+      "index-t20040930">2004-09-30</a></li>
+      <li><a name="index-t20040504" href="#t20040504" id=
+      "index-t20040504">2004-05-04</a></li>
+      <li><a name="index-t20030606" href="#t20030606" id=
+      "index-t20030606">2003-06-06</a></li>
+      <li><a name="index-t20030430" href="#t20030430" id=
+      "index-t20030430">2003-04-30</a></li>
+      <li><a name="index-t20021123" href="#t20021123" id=
+      "index-t20021123">2002-11-23</a></li>
+      <li><a name="index-t20021015" href="#t20021015" id=
+      "index-t20021015">2002-10-15</a></li>
+      <li><a name="index-t20020728" href="#t20020728" id=
+      "index-t20020728">2002-07-28</a></li>
+      <li><a name="index-t20020614" href="#t20020614" id=
+      "index-t20020614">2002-06-14</a></li>
+      <li><a name="index-t20020216" href="#t20020216" id=
+      "index-t20020216">2002-02-16</a></li>
+      <li><a name="index-t20011108" href="#t20011108" id=
+      "index-t20011108">2001-11-08</a></li>
+      <li><a name="index-t20010902" href="#t20010902" id=
+      "index-t20010902">2001-09-02</a></li>
+      <li><a name="index-t20010722" href="#t20010722" id=
+      "index-t20010722">2001-07-22</a></li>
+      <li><a name="index-t20010510" href="#t20010510" id=
+      "index-t20010510">2001-05-10</a></li>
+      <li><a name="index-t20010307" href="#t20010307" id=
+      "index-t20010307">2001-03-07</a></li>
+      <li><a name="index-t20001231" href="#t20001231" id=
+      "index-t20001231">2000-12-31</a></li>
+      <li><a name="index-t20001027" href="#t20001027" id=
+      "index-t20001027">2000-10-27</a></li>
+      <li><a name="index-t20000926" href="#t20000926" id=
+      "index-t20000926">2000-09-26</a></li>
+      <li><a name="index-t20000223" href="#t20000223" id=
+      "index-t20000223">2000-02-23</a></li>
+      <li><a name="index-t19991231" href="#t19991231" id=
+      "index-t19991231">1999-12-31</a></li>
+      <li><a name="index-t19991128" href="#t19991128" id=
+      "index-t19991128">1999-11-28</a></li>
+      <li><a name="index-t19990916" href="#t19990916" id=
+      "index-t19990916">1999-09-16</a></li>
+      <li><a name="index-t19990914" href="#t19990914" id=
+      "index-t19990914">1999-09-14</a></li>
+      <li><a name="index-t19990815" href="#t19990815" id=
+      "index-t19990815">1999-08-15</a></li>
+      <li><a name="index-t19990805" href="#t19990805" id=
+      "index-t19990805">1999-08-05</a></li>
+      <li><a name="index-t19980921" href="#t19980921" id=
+      "index-t19980921">1998-09-21</a></li>
+      <li><a name="index-t19980430" href="#t19980430" id=
+      "index-t19980430">1998-04-30</a></li>
+      <li><a name="index-t19980225" href="#t19980225" id=
+      "index-t19980225">1998-02-25</a></li>
+      <li><a name="index-t19980102" href="#t19980102" id=
+      "index-t19980102">1998-01-02</a></li>
+      <li><a name="index-t19971208" href="#t19971208" id=
+      "index-t19971208">1997-12-08</a></li>
+      <li><a name="index-t19961028" href="#t19961028" id=
+      "index-t19961028">1996-10-28</a></li>
+      <li><a name="index-t19960825" href="#t19960825" id=
+      "index-t19960825">1996-08-25</a></li>
+      <li><a name="index-t19960619" href="#t19960619" id=
+      "index-t19960619">1996-06-19</a></li>
+      <li><a name="index-t19960223" href="#t19960223" id=
+      "index-t19960223">1996-02-23</a></li>
+      <li><a name="index-t19960204" href="#t19960204" id=
+      "index-t19960204">1996-02-04</a></li>
+      <li><a name="index-t19951203" href="#t19951203" id=
+      "index-t19951203">1995-12-03</a></li>
+      <li><a name="index-t19950904" href="#t19950904" id=
+      "index-t19950904">1995-09-04</a></li>
+      <li><a name="index-t19950223" href="#t19950223" id=
+      "index-t19950223">1995-02-23</a></li>
+      <li><a name="index-t19941015" href="#t19941015" id=
+      "index-t19941015">1994-10-15</a></li>
+      <li><a name="index-t19940903" href="#t19940903" id=
+      "index-t19940903">1994-09-03</a></li>
+      <li><a name="index-t19940819" href="#t19940819" id=
+      "index-t19940819">1994-08-19</a></li>
+      <li><a name="index-t19940818" href="#t19940818" id=
+      "index-t19940818">1994-08-18</a></li>
+      <li><a name="index-t19940816" href="#t19940816" id=
+      "index-t19940816">1994-08-16</a></li>
+      <li><a name="index-t19940525" href="#t19940525" id=
+      "index-t19940525">1994-05-25</a></li>
+    </ul>
+  </div><!-- vile:html
+  -->
+</body>
+</html>

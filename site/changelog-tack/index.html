@@ -1,0 +1,1789 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://xterm.org/changelog-tack/">
+      
+      <link rel="icon" href="../favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.2.5">
+    
+    
+      
+        <title>Changelog - XTerm</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2d9f7617.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#7e56c2">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="deep-purple" data-md-color-accent="lime">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tack-changelog" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="XTerm" class="md-header__button md-logo" aria-label="XTerm" data-md-component="logo">
+      
+  <img src="../logo-favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            XTerm
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Changelog
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/xterm-x11/docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="XTerm" class="md-nav__button md-logo" aria-label="XTerm" data-md-component="logo">
+      
+  <img src="../logo-favicon.png" alt="logo">
+
+    </a>
+    XTerm
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/xterm-x11/docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog-xterm/" class="md-nav__link">
+        Changelog (release notes)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../history/" class="md-nav__link">
+        History
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Install
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Install" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Install
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../package/" class="md-nav__link">
+        Package
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xterm.tar.gz/" class="md-nav__link">
+        xterm.tar.gz
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configure/" class="md-nav__link">
+        Configure
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" data-md-state="indeterminate" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Get started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Get started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Get started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../keyboard-shortcuts/" class="md-nav__link">
+        Keyboard shortcuts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../copy-and-paste/" class="md-nav__link">
+        Copy and paste
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tabs/" class="md-nav__link">
+        Tabs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../full-screen/" class="md-nav__link">
+        Full-screen
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scrolling/" class="md-nav__link">
+        Scrolling
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prompt/" class="md-nav__link">
+        Prompt
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" data-md-state="indeterminate" type="checkbox" id="__nav_7" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Customize
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Customize" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Customize
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sample/" class="md-nav__link">
+        Sample
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../themes/" class="md-nav__link">
+        Themes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fonts/" class="md-nav__link">
+        Fonts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template/" class="md-nav__link">
+        Template
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../icon/" class="md-nav__link">
+        Icon
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual-window-title/" class="md-nav__link">
+        Manual window title
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../static-window-title/" class="md-nav__link">
+        Static window title
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scrollbar/" class="md-nav__link">
+        Scrollbar
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../window-properties/" class="md-nav__link">
+        Window properties
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" data-md-state="indeterminate" type="checkbox" id="__nav_8" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Manpage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Manpage" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Manpage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manpage-xterm/" class="md-nav__link">
+        xterm
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manpage-uxterm/" class="md-nav__link">
+        uxterm
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manpage-koi8rxterm/" class="md-nav__link">
+        koi8rxterm
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manpage-resize/" class="md-nav__link">
+        resize
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" data-md-state="indeterminate" type="checkbox" id="__nav_9" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Control sequences
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Control sequences" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Control sequences
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started-with-ctlseqs/" class="md-nav__link">
+        Getting started with control sequences
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctlseqs-guide/" class="md-nav__link">
+        Guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctlseqs-list/" class="md-nav__link">
+        List
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" data-md-state="indeterminate" type="checkbox" id="__nav_10" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Libraries
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Libraries" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Libraries
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xtoolkit/" class="md-nav__link">
+        Xtoolkit
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manpage-xcursor/" class="md-nav__link">
+        Xcursor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manpage-xft/" class="md-nav__link">
+        Xft
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ncurses/" class="md-nav__link">
+        NCURSES
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Quality engineering
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Quality engineering" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Quality engineering
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_1" data-md-state="indeterminate" type="checkbox" id="__nav_11_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11_1">
+          VTtest
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="VTtest" data-md-level="2">
+        <label class="md-nav__title" for="__nav_11_1">
+          <span class="md-nav__icon md-icon"></span>
+          VTtest
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manpage-vttest/" class="md-nav__link">
+        Manpage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog-vttest/" class="md-nav__link">
+        Changelog
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about-vttest/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vttest.tar.gz/" class="md-nav__link">
+        vttest.tar.gz
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vttest-archives/" class="md-nav__link">
+        VTtest archives
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_2" data-md-state="indeterminate" type="checkbox" id="__nav_11_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11_2">
+          Luit
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Luit" data-md-level="2">
+        <label class="md-nav__title" for="__nav_11_2">
+          <span class="md-nav__icon md-icon"></span>
+          Luit
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manpage-luit/" class="md-nav__link">
+        Manpage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog-luit/" class="md-nav__link">
+        Changelog
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about-luit/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../luit.tar.gz/" class="md-nav__link">
+        luit.tar.gz
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../luit-archives/" class="md-nav__link">
+        Luit archives
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_3" type="checkbox" id="__nav_11_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11_3">
+          tack (ncurses)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="tack (ncurses)" data-md-level="2">
+        <label class="md-nav__title" for="__nav_11_3">
+          <span class="md-nav__icon md-icon"></span>
+          tack (ncurses)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manpage-tack/" class="md-nav__link">
+        Manpage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Changelog
+      </a>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about-tack/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_4" data-md-state="indeterminate" type="checkbox" id="__nav_11_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11_4">
+          tctest (ncurses)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="tctest (ncurses)" data-md-level="2">
+        <label class="md-nav__title" for="__nav_11_4">
+          <span class="md-nav__icon md-icon"></span>
+          tctest (ncurses)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manpage-tctest/" class="md-nav__link">
+        Manpage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog-tctest/" class="md-nav__link">
+        Changelog
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about-tctest/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_5" data-md-state="indeterminate" type="checkbox" id="__nav_11_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11_5">
+          ncurses-examples (ncurses)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ncurses-examples (ncurses)" data-md-level="2">
+        <label class="md-nav__title" for="__nav_11_5">
+          <span class="md-nav__icon md-icon"></span>
+          ncurses-examples (ncurses)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ncurses-examples-about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scripts/" class="md-nav__link">
+        Scripts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recommended-tools/" class="md-nav__link">
+        Recommended tools
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/xterm-x11/docs/edit/master/docs/changelog-tack.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+
+<!--- issue 89 --->
+
+<p><strong>TIP</strong> You can read this website in a terminal by installing and running <a href="https://lynx.browser.org/">Lynx</a>.</p>
+<h1 id="tack-changelog"><code>tack</code> changelog</h1>
+<div class="nav">
+<ul>
+
+<li><a name="index-t20240501" href="#t20240501" id="index-t20240501">2024-05-01</a></li>
+
+<li><a name="index-t20240430" href="#t20240430" id="index-t20240430">2024-04-30</a></li>
+
+<li><a name="index-t20240107" href="#t20240107" id="index-t20240107">2024-01-07</a></li>
+
+<li><a name="index-t20231227" href="#t20231227" id="index-t20231227">2023-12-27</a></li>
+
+<li><a name="index-t20231202" href="#t20231202" id="index-t20231202">2023-12-02</a></li>
+
+<li><a name="index-t20230201" href="#t20230201" id="index-t20230201">2023-02-01</a></li>
+
+<li><a name="index-t20221229" href="#t20221229" id="index-t20221229">2022-12-29</a></li>
+
+<li><a name="index-t20221202" href="#t20221202" id="index-t20221202">2022-12-02</a></li>
+
+<li><a name="index-t20220801" href="#t20220801" id="index-t20220801">2022-08-01</a></li>
+
+<li><a name="index-t20220528" href="#t20220528" id="index-t20220528">2022-05-28</a></li>
+
+<li><a name="index-t20220508" href="#t20220508" id="index-t20220508">2022-05-08</a></li>
+
+<li><a name="index-t20220109" href="#t20220109" id="index-t20220109">2022-01-09</a></li>
+
+<li><a name="index-t20220103" href="#t20220103" id="index-t20220103">2022-01-03</a></li>
+
+<li><a name="index-t20220101" href="#t20220101" id="index-t20220101">2022-01-01</a></li>
+
+<li><a name="index-t20211225" href="#t20211225" id="index-t20211225">2021-12-25</a></li>
+
+<li><a name="index-t20211224" href="#t20211224" id="index-t20211224">2021-12-24</a></li>
+
+<li><a name="index-t20211213" href="#t20211213" id="index-t20211213">2021-12-13</a></li>
+
+<li><a name="index-t20211130" href="#t20211130" id="index-t20211130">2021-11-30</a></li>
+
+<li><a name="index-t20211027" href="#t20211027" id="index-t20211027">2021-10-27</a></li>
+
+<li><a name="index-t20211018" href="#t20211018" id="index-t20211018">2021-10-18</a></li>
+
+<li><a name="index-t20210814" href="#t20210814" id="index-t20210814">2021-08-14</a></li>
+
+<li><a name="index-t20210804" href="#t20210804" id="index-t20210804">2021-08-04</a></li>
+
+<li><a name="index-t20210706" href="#t20210706" id="index-t20210706">2021-07-06</a></li>
+
+<li><a name="index-t20210703" href="#t20210703" id="index-t20210703">2021-07-03</a></li>
+
+<li><a name="index-t20210702" href="#t20210702" id="index-t20210702">2021-07-02</a></li>
+
+<li><a name="index-t20210619" href="#t20210619" id="index-t20210619">2021-06-19</a></li>
+
+<li><a name="index-t20210604" href="#t20210604" id="index-t20210604">2021-06-04</a></li>
+
+<li><a name="index-t20210526" href="#t20210526" id="index-t20210526">2021-05-26</a></li>
+
+<li><a name="index-t20210525" href="#t20210525" id="index-t20210525">2021-05-25</a></li>
+
+<li><a name="index-t20210524" href="#t20210524" id="index-t20210524">2021-05-24</a></li>
+
+<li><a name="index-t20210430" href="#t20210430" id="index-t20210430">2021-04-30</a></li>
+
+<li><a name="index-t20210429" href="#t20210429" id="index-t20210429">2021-04-29</a></li>
+
+<li><a name="index-t20210421" href="#t20210421" id="index-t20210421">2021-04-21</a></li>
+
+<li><a name="index-t20210416" href="#t20210416" id="index-t20210416">2021-04-16</a></li>
+
+<li><a name="index-t20210403" href="#t20210403" id="index-t20210403">2021-04-03</a></li>
+
+<li><a name="index-t20210324" href="#t20210324" id="index-t20210324">2021-03-24</a></li>
+
+<li><a name="index-t20210322" href="#t20210322" id="index-t20210322">2021-03-22</a></li>
+
+<li><a name="index-t20210310" href="#t20210310" id="index-t20210310">2021-03-10</a></li>
+
+<li><a name="index-t20210125" href="#t20210125" id="index-t20210125">2021-01-25</a></li>
+
+<li><a name="index-t20210119" href="#t20210119" id="index-t20210119">2021-01-19</a></li>
+
+<li><a name="index-t20210107" href="#t20210107" id="index-t20210107">2021-01-07</a></li>
+
+<li><a name="index-t20210106" href="#t20210106" id="index-t20210106">2021-01-06</a></li>
+
+<li><a name="index-t20210101" href="#t20210101" id="index-t20210101">2021-01-01</a></li>
+
+<li><a name="index-t20201231" href="#t20201231" id="index-t20201231">2020-12-31</a></li>
+
+<li><a name="index-t20201203" href="#t20201203" id="index-t20201203">2020-12-03</a></li>
+
+<li><a name="index-t20201201" href="#t20201201" id="index-t20201201">2020-12-01</a></li>
+
+<li><a name="index-t20201130" href="#t20201130" id="index-t20201130">2020-11-30</a></li>
+
+<li><a name="index-t20201128" href="#t20201128" id="index-t20201128">2020-11-28</a></li>
+
+<li><a name="index-t20201121" href="#t20201121" id="index-t20201121">2020-11-21</a></li>
+
+<li><a name="index-t20201119" href="#t20201119" id="index-t20201119">2020-11-19</a></li>
+
+<li><a name="index-t20201106" href="#t20201106" id="index-t20201106">2020-11-06</a></li>
+
+<li><a name="index-t20201021" href="#t20201021" id="index-t20201021">2020-10-21</a></li>
+
+<li><a name="index-t20201014" href="#t20201014" id="index-t20201014">2020-10-14</a></li>
+
+<li><a name="index-t20201013" href="#t20201013" id="index-t20201013">2020-10-13</a></li>
+
+<li><a name="index-t20200926" href="#t20200926" id="index-t20200926">2020-09-26</a></li>
+
+<li><a name="index-t20200920" href="#t20200920" id="index-t20200920">2020-09-20</a></li>
+
+<li><a name="index-t20200907" href="#t20200907" id="index-t20200907">2020-09-07</a></li>
+
+<li><a name="index-t20200816" href="#t20200816" id="index-t20200816">2020-08-16</a></li>
+
+<li><a name="index-t20200712" href="#t20200712" id="index-t20200712">2020-07-12</a></li>
+
+<li><a name="index-t20200710" href="#t20200710" id="index-t20200710">2020-07-10</a></li>
+
+<li><a name="index-t20200628" href="#t20200628" id="index-t20200628">2020-06-28</a></li>
+
+<li><a name="index-t20200614" href="#t20200614" id="index-t20200614">2020-06-14</a></li>
+
+<li><a name="index-t20200220" href="#t20200220" id="index-t20200220">2020-02-20</a></li>
+
+<li><a name="index-t20200217" href="#t20200217" id="index-t20200217">2020-02-17</a></li>
+
+<li><a name="index-t20200216" href="#t20200216" id="index-t20200216">2020-02-16</a></li>
+
+<li><a name="index-t20200214" href="#t20200214" id="index-t20200214">2020-02-14</a></li>
+
+<li><a name="index-t20200208" href="#t20200208" id="index-t20200208">2020-02-08</a></li>
+
+<li><a name="index-t20200207" href="#t20200207" id="index-t20200207">2020-02-07</a></li>
+
+<li><a name="index-t20200202" href="#t20200202" id="index-t20200202">2020-02-02</a></li>
+
+<li><a name="index-t20191220" href="#t20191220" id="index-t20191220">2019-12-20</a></li>
+
+<li><a name="index-t20190911" href="#t20190911" id="index-t20190911">2019-09-11</a></li>
+
+<li><a name="index-t20190721" href="#t20190721" id="index-t20190721">2019-07-21</a></li>
+
+<li><a name="index-t20190721_u0" href="#t20190721_u0" id="index-t20190721_u0">2019-07-21 Brad.Town</a></li>
+
+<li><a name="index-t20190721_u1" href="#t20190721_u1" id="index-t20190721_u1">2019-07-21</a></li>
+
+<li><a name="index-t20190630" href="#t20190630" id="index-t20190630">2019-06-30</a></li>
+
+<li><a name="index-t20190610" href="#t20190610" id="index-t20190610">2019-06-10</a></li>
+
+<li><a name="index-t20170818" href="#t20170818" id="index-t20170818">2017-08-18</a></li>
+
+<li><a name="index-t20170817" href="#t20170817" id="index-t20170817">2017-08-17</a></li>
+
+<li><a name="index-t20170816" href="#t20170816" id="index-t20170816">2017-08-16</a></li>
+
+<li><a name="index-t20170808" href="#t20170808" id="index-t20170808">2017-08-08</a></li>
+
+<li><a name="index-t20170728" href="#t20170728" id="index-t20170728">2017-07-28</a></li>
+
+<li><a name="index-t20170726" href="#t20170726" id="index-t20170726">2017-07-26</a></li>
+
+<li><a name="index-t20170725" href="#t20170725" id="index-t20170725">2017-07-25</a></li>
+
+<li><a name="index-t20170724" href="#t20170724" id="index-t20170724">2017-07-24</a></li>
+
+<li><a name="index-t20170723" href="#t20170723" id="index-t20170723">2017-07-23</a></li>
+
+<li><a name="index-t20170721" href="#t20170721" id="index-t20170721">2017-07-21</a></li>
+
+<li><a name="index-t20170720" href="#t20170720" id="index-t20170720">2017-07-20</a></li>
+
+<li><a name="index-t20170718" href="#t20170718" id="index-t20170718">2017-07-18</a></li>
+
+<li><a name="index-t20170429" href="#t20170429" id="index-t20170429">2017-04-29</a></li>
+
+<li><a name="index-t20170318" href="#t20170318" id="index-t20170318">2017-03-18</a></li>
+
+<li><a name="index-t20150706" href="#t20150706" id="index-t20150706">2015-07-06</a></li>
+
+<li><a name="index-t20150603" href="#t20150603" id="index-t20150603">2015-06-03</a></li>
+
+<li><a name="index-t20150602" href="#t20150602" id="index-t20150602">2015-06-02</a></li>
+
+<li><a name="index-t20150502" href="#t20150502" id="index-t20150502">2015-05-02</a></li>
+
+<li><a name="index-t20130713" href="#t20130713" id="index-t20130713">2013-07-13</a></li>
+
+<li><a name="index-t20130210" href="#t20130210" id="index-t20130210">2013-02-10</a></li>
+
+<li><a name="index-t20120916" href="#t20120916" id="index-t20120916">2012-09-16</a></li>
+
+<li><a name="index-t20120916_u0" href="#t20120916_u0" id="index-t20120916_u0">2012-09-16 Adrian.Bunk</a></li>
+
+<li><a name="index-t20120916_u1" href="#t20120916_u1" id="index-t20120916_u1">2012-09-16</a></li>
+
+<li><a name="index-t20120429" href="#t20120429" id="index-t20120429">2012-04-29</a></li>
+
+<li><a name="index-t20120428" href="#t20120428" id="index-t20120428">2012-04-28</a></li>
+
+<li><a name="index-t20120303" href="#t20120303" id="index-t20120303">2012-03-03</a></li>
+
+<li><a name="index-t20120302" href="#t20120302" id="index-t20120302">2012-03-02</a></li>
+
+<li><a name="index-t20120301" href="#t20120301" id="index-t20120301">2012-03-01</a></li>
+
+<li><a name="index-t20120229" href="#t20120229" id="index-t20120229">2012-02-29 Werner.Fink</a></li>
+
+<li><a name="index-t20120226" href="#t20120226" id="index-t20120226">2012-02-26</a></li>
+
+<li><a name="index-t20120225" href="#t20120225" id="index-t20120225">2012-02-25</a></li>
+
+<li><a name="index-t20110626" href="#t20110626" id="index-t20110626">2011-06-26</a></li>
+
+<li><a name="index-t20110626_u0" href="#t20110626_u0" id="index-t20110626_u0">2011-06-26 Daniel.Weaver</a></li>
+
+<li><a name="index-t20110501" href="#t20110501" id="index-t20110501">2011-05-01</a></li>
+
+<li><a name="index-t20110401" href="#t20110401" id="index-t20110401">2011-04-01</a></li>
+
+<li><a name="index-t20110202" href="#t20110202" id="index-t20110202">2011-02-02</a></li>
+
+<li><a name="index-t20100904" href="#t20100904" id="index-t20100904">2010-09-04</a></li>
+
+<li><a name="index-t20100903" href="#t20100903" id="index-t20100903">2010-09-03</a></li>
+
+<li><a name="index-t20100420" href="#t20100420" id="index-t20100420">2010-04-20</a></li>
+
+<li><a name="index-t20091226" href="#t20091226" id="index-t20091226">2009-12-26</a></li>
+
+<li><a name="index-t20091119" href="#t20091119" id="index-t20091119">2009-11-19</a></li>
+
+<li><a name="index-t20070812" href="#t20070812" id="index-t20070812">2007-08-12</a></li>
+
+<li><a name="index-t20070811" href="#t20070811" id="index-t20070811">2007-08-11</a></li>
+
+<li><a name="index-t20070429" href="#t20070429" id="index-t20070429">2007-04-29</a></li>
+
+<li><a name="index-t20070408" href="#t20070408" id="index-t20070408">2007-04-08</a></li>
+
+<li><a name="index-t20070407" href="#t20070407" id="index-t20070407">2007-04-07</a></li>
+
+<li><a name="index-t20070325" href="#t20070325" id="index-t20070325">2007-03-25</a></li>
+
+<li><a name="index-t20070128" href="#t20070128" id="index-t20070128">2007-01-28</a></li>
+
+<li><a name="index-t20070127" href="#t20070127" id="index-t20070127">2007-01-27</a></li>
+
+<li><a name="index-t20070113" href="#t20070113" id="index-t20070113">2007-01-13</a></li>
+
+<li><a name="index-t20061223" href="#t20061223" id="index-t20061223">2006-12-23</a></li>
+
+<li><a name="index-t20061222" href="#t20061222" id="index-t20061222">2006-12-22</a></li>
+
+<li><a name="index-t20061208" href="#t20061208" id="index-t20061208">2006-12-08</a></li>
+
+<li><a name="index-t20061125" href="#t20061125" id="index-t20061125">2006-11-25</a></li>
+
+<li><a name="index-t20060624" href="#t20060624" id="index-t20060624">2006-06-24</a></li>
+
+<li><a name="index-t20060506" href="#t20060506" id="index-t20060506">2006-05-06</a></li>
+
+<li><a name="index-t20060422" href="#t20060422" id="index-t20060422">2006-04-22</a></li>
+
+<li><a name="index-t20050917" href="#t20050917" id="index-t20050917">2005-09-17</a></li>
+
+<li><a name="index-t20031129" href="#t20031129" id="index-t20031129">2003-11-29</a></li>
+
+<li><a name="index-t20020629" href="#t20020629" id="index-t20020629">2002-06-29</a></li>
+
+<li><a name="index-t20010622" href="#t20010622" id="index-t20010622">2001-06-22</a></li>
+
+<li><a name="index-t19990207" href="#t19990207" id="index-t19990207">1999-02-07</a></li>
+
+<li><a name="index-t19980926" href="#t19980926" id="index-t19980926">1998-09-26</a></li>
+
+<li><a name="index-t19980328" href="#t19980328" id="index-t19980328">1998-03-28</a></li>
+
+<li><a name="index-t19980211" href="#t19980211" id="index-t19980211">1998-02-11</a></li>
+
+<li><a name="index-t19980109" href="#t19980109" id="index-t19980109">1998-01-09 Daniel.Weaver</a></li>
+
+<li><a name="index-t19980103" href="#t19980103" id="index-t19980103">1998-01-03</a></li>
+
+<li><a name="index-t19980102" href="#t19980102" id="index-t19980102">1998-01-02</a></li>
+
+<li><a name="index-t19971228" href="#t19971228" id="index-t19971228">1997-12-28</a></li>
+
+<li><a name="index-t19971227" href="#t19971227" id="index-t19971227">1997-12-27</a></li>
+
+<li><a name="index-t19971224" href="#t19971224" id="index-t19971224">1997-12-24 Daniel.Weaver</a></li>
+
+<li><a name="index-t19971222" href="#t19971222" id="index-t19971222">1997-12-22 Daniel.Weaver</a></li>
+
+<li><a name="index-t19971202" href="#t19971202" id="index-t19971202">1997-12-02 Daniel.Weaver</a></li>
+
+<li><a name="index-t19971130" href="#t19971130" id="index-t19971130">1997-11-30 Daniel.Weaver</a></li>
+
+<li><a name="index-t19971129" href="#t19971129" id="index-t19971129">1997-11-29 Daniel.Weaver</a></li>
+
+<li><a name="index-t19971107" href="#t19971107" id="index-t19971107">1997-11-07 Daniel.Weaver</a></li>
+
+<li><a name="index-t19971104" href="#t19971104" id="index-t19971104">1997-11-04 Daniel.Weaver</a></li>
+
+<li><a name="index-t19971103" href="#t19971103" id="index-t19971103">1997-11-03 Daniel.Weaver</a></li>
+
+<li><a name="index-t19971029" href="#t19971029" id="index-t19971029">1997-10-29 Daniel.Weaver</a></li>
+
+<li><a name="index-t19971026" href="#t19971026" id="index-t19971026">1997-10-26 Daniel.Weaver</a></li>
+
+<li><a name="index-t19971025" href="#t19971025" id="index-t19971025">1997-10-25 Daniel.Weaver</a></li>
+
+<li><a name="index-t19971019" href="#t19971019" id="index-t19971019">1997-10-19 Daniel.Weaver</a></li>
+
+<li><a name="index-t19971006" href="#t19971006" id="index-t19971006">1997-10-06 Daniel.Weaver</a></li>
+
+<li><a name="index-t19971004" href="#t19971004" id="index-t19971004">1997-10-04 Daniel.Weaver</a></li>
+
+<li><a name="index-t19971003" href="#t19971003" id="index-t19971003">1997-10-03 Daniel.Weaver</a></li>
+
+<li><a name="index-t19971002" href="#t19971002" id="index-t19971002">1997-10-02 Daniel.Weaver</a></li>
+
+<li><a name="index-t19970929" href="#t19970929" id="index-t19970929">1997-09-29 Daniel.Weaver</a></li>
+
+<li><a name="index-t19970928" href="#t19970928" id="index-t19970928">1997-09-28 Daniel.Weaver</a></li>
+
+<li><a name="index-t19970922" href="#t19970922" id="index-t19970922">1997-09-22 Daniel.Weaver</a></li>
+</ul>
+</div>
+<!-- vile:html
+  -->
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../manpage-tack/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Manpage" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Manpage
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../about-tack/" class="md-footer__link md-footer__link--next" aria-label="Next: About" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              About
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 1997-2024 by Thomas E. Dickey et al. <br/> No cookies are served on this website.
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.expand"], "search": "../assets/javascripts/workers/search.bd0b6b67.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.467223ff.min.js"></script>
+      
+    
+  </body>
+</html>

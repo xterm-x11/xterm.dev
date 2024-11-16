@@ -1,0 +1,305 @@
+<!--
+  $Id: lynx-develop.html,v 1.24 2024/05/15 20:32:33 tom Exp $
+  -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0">
+  <title>LYNX &ndash; Development and Releases</title>
+  <link rel="author" href="mailto:dickey@invisible-island.net">
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii">
+  <link rel="SHORTCUT ICON" href="/img/icons/lynx.ico" type=
+  "image/x-icon">
+  <meta name="keywords" content=
+  "lynx, browser, curses, ncurses, PRCS, installers, packages">
+  <meta name="description" content=
+  "Thomas Dickey is the maintainer/developer of the Lynx text-browser. This page gives some background and pointers to Lynx resources.">
+  <link rel="stylesheet" href="/css/simplestyle.css" type=
+  "text/css">
+  <link rel="stylesheet" href="/css/lynx-icons.css" type=
+  "text/css">
+  <style type="text/css">
+  @import "/css/simplenavXX.css" all;
+  </style>
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1">
+</head>
+<body>
+  <hr>
+
+  <p><a href="/">https://invisible-island.net/</a><a href=
+  "/lynx/lynx.html">lynx/</a><br>
+  Copyright &copy; 2015-2023,2024 by Thomas E. Dickey</p>
+
+  <hr>
+
+  <h1 class="no-header">LYNX &ndash; Development and Releases</h1>
+
+  <div class="nav">
+    <ul>
+      <li class="nav-top"><a href="/lynx/lynx.html">(home page)</a></li>
+
+      <li class="nav-top"><a href=
+      "/lynx/lynx-develop.html">(top)</a></li>
+
+      <li><a href="#history">History</a></li>
+
+      <li><a href="#changes">Changes</a></li>
+
+      <li><a href="#patches">Versioning</a></li>
+
+      <li><a href="#hosting">Hosting</a></li>
+    </ul>
+  </div>
+
+  <h2 id="history-h2"><a name="history" id="history">History</a></h2>
+
+  <p>I got involved with <strong>Lynx</strong> development by
+  working with Jim Spath on an <a href=
+  "/lynx/lynx-autoconf.html">auto-configure</a> script for
+  <strong>Lynx</strong>. I have also made <a href=
+  "/lynx/lynx-ncurses.html">changes</a> for <strong>Lynx</strong>
+  that allow you to build it using the color support in the ncurses
+  library. Since the release of <strong>Lynx</strong> 2.8 in early
+  1998, I have been acting as the patch coordinator for a group of
+  people (including myself) doing ongoing development on
+  <strong>Lynx</strong>. Besides ongoing support for the configure
+  script, etc., I have done work to make lynx more robust (e.g.,
+  <a href="/lynx/lynx-security.html">secure</a>).</p>
+
+  <h2 id="changes-h2"><a name="changes" id="changes">Changes</a></h2>
+
+  <p>See the changelog for details:</p>
+
+  <ul>
+    <li><a href=
+    "https://lynx.invisible-island.net/current/CHANGES">plain
+    text</a></li>
+
+    <li><a href=
+    "https://lynx.invisible-island.net/current/CHANGES.html">changes
+    with links...</a></li>
+  </ul>
+
+  <h2 id="patches-h2"><a name="patches" id="patches">Versioning</a></h2>
+
+  <p>Very early development of <strong>Lynx</strong> (during the
+  1990s) used no source control. You may find old tar/zip files,
+  e.g., on public servers:</p>
+
+  <blockquote>
+    <ul>
+      <li><a href=
+      "http://www.nic.funet.fi/index/WWW/lynx/">http://www.nic.funet.fi/index/WWW/lynx/</a></li>
+
+      <li><a href=
+      "https://ftp.uv.es/pub/unix/">https://ftp.uv.es/pub/unix/</a></li>
+
+      <li><a href=
+      "https://ftp.zx.net.nz/pub/archive/ftp.sunfreeware.com/pub/freeware/forsunsites/lists.html">
+      https://ftp.zx.net.nz/pub/archive/ftp.sunfreeware.com/pub/freeware/forsunsites/lists.html</a></li>
+    </ul>
+  </blockquote>
+
+  <p>Over most of its development, <strong>Lynx</strong>'s sources
+  were stored on isc.org in <a href=
+  "http://prcs.sourceforge.net">PRCS archives</a>. Klaus Weide set
+  up PRCS 1.1.1 in 1997 on a previous host (slcc.edu). Jim Spath
+  and I migrated this to <a href="http://isc.org">isc.org</a> in
+  1999 (using PRCS 1.2.15).</p>
+
+  <p>Each commit in PRCS became a patch-release for
+  <strong>Lynx</strong>.</p>
+
+  <p>Our version numbering for <strong>Lynx</strong> has confused
+  some people. PRCS provides for having a non-numeric portion of a
+  branch identifier. We used this for cycling through the
+  development, pre-release and release versions. The first patch
+  towards the <em>next</em> release would be marked with that
+  target release's version. Thus</p>
+
+  <ul>
+    <li>2.8.7 was (as of mid-2010) the most recent release.</li>
+
+    <li>2.8.8dev.5 was a development patch <em>before</em> the
+    2.8.8 release.</li>
+
+    <li>2.8.8pre.1 was projected to be a pre-release.</li>
+
+    <li>2.8.8rel.1 would be a release. Subsequent urgent fixes
+    would be 2.8.8rel.2, etc.</li>
+  </ul>
+
+  <p>Since starting work on Lynx in 1997, I have also maintained my
+  local archives in RCS. Originally, this recorded only the
+  patch-releases of <strong>Lynx</strong> in PRCS. There were a few
+  reasons for this:</p>
+
+  <ul>
+    <li>the numbering of the patch releases is simple (users can
+    tell which is next),</li>
+
+    <li>for the first few years of my involvement, there was more
+    than one person concurrently making commits (Foteos Macrides,
+    Klaus Weide and me). We each collected changes and committed a
+    combined set of changes for our commits.</li>
+
+    <li>the PRCS archive was the master repository for
+    <strong>Lynx</strong>. There was no point in having two.</li>
+  </ul>
+
+  <p>However, since early 2004, I committed most changes first to
+  RCS, then applied the current change-set to PRCS. The end result
+  is much the same; PRCS assigns the patch-version number in a few
+  files, while most are marked with the "LynxId" RCS-tag. It allows
+  me to keep closer track of individual changes.</p>
+
+  <p>Further (as of 2015), since we left isc.org, I make patches
+  and releases directly from my RCS archives, rather than using
+  PRCS as an intermediate step. I dropped PRCS because its
+  developer has not maintained it for several years, and the
+  published source does not build or work with current C++
+  compilers. A few others have worked to revive PRCS, but in the
+  process have lost compatibility with older versions of the
+  tool.</p>
+
+  <p>Currently (as of 2023), I am simplifying the versioning by
+  eliminating the PRCS-dependent <em>dev</em>, <em>pre</em> and
+  <em>rel</em> tags, because the user community views each phase of
+  Lynx's versions as stable (see mailing list <a href=
+  "https://lists.nongnu.org/archive/html/lynx-dev/2022-11/msg00005.html">
+  comment</a>).</p>
+
+  <hr>
+
+  <h2 id="hosting-h2"><a name="hosting" id="hosting">Hosting</a></h2>
+
+  <p>Initially of course Lynx was developed (and hosted) at the
+  University of Kansas.</p>
+
+  <p>It had moved to Salt Lake City College by the time I started
+  working on Lynx, early in 1997. Its unofficial sponsor was Scott
+  McGee, a systems administrator.</p>
+
+  <p>Paul Vixie offered support early in 1999, when asked by Jim
+  Spath. Quoting from Jim Spath's mail to the "list elves"
+  group:</p>
+
+  <blockquote>
+    <pre class="code-block">
+On Tue, Jan 19, 1999 at 06:01:32PM -0800, Paul A Vixie wrote: 
+&gt; we would LOVE to do this.  you want a web page as well or just ftp?  do 
+&gt; you have your own domain name or do you want to use ours and have us get 
+&gt; you one? 
+&gt;  
+&gt; no charge for any of this of course.  i use lynx every day and i love it. 
+&gt; 
+&gt; &gt; I help maintain the Lynx software distribution (a text-based web 
+&gt; &gt; browser). We are looking for a generous host who could provide space for 
+&gt; &gt; copies of the latest version. Right now, the tar.gz file is under 2MB, 
+&gt; &gt; and we have also build .zip, .bz2 and tar.Z copies. If you can make some 
+&gt; &gt; space available, plese write back. 
+&gt; &gt;  
+&gt; &gt; Thanks! 
+ 
+Terrific! 
+ 
+Some background in case you're not subscribed to the lynx-dev list. We 
+store our distribution at Salt Lake Community College as guest of the 
+system administrator (www.slcc.edu/lynx). Sometimes their bandwidth is 
+poor, and as guests we can't complain about their support.  We use PRCS 
+as software checkin repository. 
+ 
+One of our contributors (Rob Partington) has registered lynx.browser.org 
+as our "parent" domain. That basically hosts a vanilla page that points 
+to Lynx resources. Other contributors include patches on their own 
+sites. 
+ 
+Ideally, it would be great to use one of your servers as the central 
+Lynx repository, both web and FTP. Other sites could mirror from you (I 
+know you're well connected :-).  This would alleviate us out-staying our 
+welcome at SLCC.  Perhaps we could add to the browser.org domain with 
+something like ftp.lynx.browser.org?  
+ 
+If this is too much to ask, we could certainly use one of your servers 
+as a FTP mirror. 
+ 
+Again, thanks for your offer! 
+  
+</pre>
+  </blockquote>
+
+  <p>The support was good, though Lynx was not as large as some of
+  the projects which ISC hosted.</p>
+
+  <ul>
+    <li>
+      <p>Early on, Lynx was mentioned on ISC's home page (see
+      archive for <a href=
+      "https://web.archive.org/web/20000303022801/http://www.isc.org/services/public/sites-hosted.html">
+      March 3, 2000</a>).</p>
+    </li>
+
+    <li>
+      <p>Later, the list of supported projects was moved to a
+      separate page (see archive for <a href=
+      "https://web.archive.org/web/20030402142116/http://isc.org/services/public/sites-hosted.html">
+      April 2, 2003</a>).</p>
+    </li>
+
+    <li>Still (a little later), the list of supported projects was
+    mentioned only in a short history page, seen in <a href=
+    "https://web.archive.org/web/20040304175337/http://www.isc.org/">
+    April 2004</a>.<br>
+    At that point, Lynx was no longer directly linked from ISC's
+    pages.</li>
+
+    <li>
+      <p>Lynx was still mentioned in the history page from <a href=
+      "https://web.archive.org/web/20130507101801/https://www.isc.org/about/history">
+      May 7, 2013</a>.<br>
+      Paul Vixie was still with the ISC at that point (see <a href=
+      "https://web.archive.org/web/20130426152927/https://www.isc.org/isc-team">
+      archive</a>).</p>
+    </li>
+  </ul>
+
+  <p>However, things change. Paul Vixie left ISC in <a href=
+  "http://www.isc.org/blogs/isc-spins-off-its-security-business-unit/">
+  mid-2013</a> to form a new company. <a href=
+  "http://finance.yahoo.com/news/internet-systems-consortium-renews-commitment-130000421.html">
+  At the time</a>, that did not affect Lynx&mdash;from ISC's
+  standpoint Lynx was just a box in a rack of servers. For the last
+  four years of Lynx's stay at ISC, I did all of the software
+  maintenance for the project. Still, a box in a rack costs money
+  for electricity. Late in 2015, ISC shifted away from this style
+  of project support, to reduce costs. I expanded my website to
+  incorporate Lynx (roughly doubling the size of the site).</p>
+
+  <p>Old site:</p>
+
+  <blockquote>
+    <pre class="code-block">
+http://lynx.isc.org/
+ftp://lynx.isc.org/
+</pre>
+  </blockquote>
+
+  <p>New site:</p>
+
+  <blockquote>
+    <pre class="code-block">
+<a href=
+"https://lynx.invisible-island.net/">https://lynx.invisible-island.net/</a>
+<del>ftp://ftp.invisible-island.net</del> (ended May 2023)
+</pre>
+  </blockquote>
+
+  <p><img src="/img/anybrowser4b.png" alt=
+  "Viewable with any browser;" height="31" width="88"> <a href=
+  "http://validator.w3.org/check?uri=https%3A%2F%2Finvisible-island.net%2Flynx%2Flynx-develop.html">
+  valid HTML.</a></p>
+</body>
+</html>

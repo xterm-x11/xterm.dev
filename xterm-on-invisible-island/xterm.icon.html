@@ -1,0 +1,245 @@
+<!--
+ *****************************************************************************
+ * Copyright 2012-2013,2014 by Thomas E. Dickey                              *
+ * All Rights Reserved.                                                      *
+ *                                                                           *
+ * Permission to use, copy, modify, and distribute this software and its     *
+ * documentation for any purpose and without fee is hereby granted, provided *
+ * that the above copyright notice appear in all copies and that both that   *
+ * copyright notice and this permission notice appear in supporting          *
+ * documentation, and that the name of the above listed copyright holder(s)  *
+ * not be used in advertising or publicity pertaining to distribution of the *
+ * software without specific, written prior permission.                      *
+ *                                                                           *
+ * THE ABOVE LISTED COPYRIGHT HOLDER(S) DISCLAIM ALL WARRANTIES WITH REGARD  *
+ * TO THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND *
+ * FITNESS, IN NO EVENT SHALL THE ABOVE LISTED COPYRIGHT HOLDER(S) BE LIABLE *
+ * FOR ANY SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES         *
+ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     *
+ * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   *
+ * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            *
+ *****************************************************************************
+  $XTermId: xterm.icon.html,v 1.22 2019/04/20 15:25:46 tom Exp $
+  -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+
+  <title>XTerm &ndash; about the icon</title>
+  <link rel="author" href="mailto:dickey@invisible-island.net">
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii">
+  <link rel="SHORTCUT ICON" href="/img/icons/xterm.ico" type=
+  "image/x-icon">
+  <link rel="stylesheet" href="/css/simplestyle.css" type=
+  "text/css">
+  <link rel="stylesheet" href="/css/xterm-icons.css" type=
+  "text/css">
+  <style type="text/css">
+@import "/css/simplenavXX.css" all;
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <hr>
+
+  <p><a href="/">http://invisible-island.net/</a><a href=
+  "/xterm/">xterm/</a><br>
+  Copyright &copy; 2012-2013,2014 by Thomas E. Dickey</p>
+  <hr>
+
+  <p><a href=
+  "http://invisible-island.net/xterm/xterm.icon.html">Here</a> is
+  the latest version of this file.</p>
+
+  <div class="nav">
+    <ul>
+      <li class="nav-top"><a href=
+      "/xterm/xterm.icon.html">(top)</a></li>
+
+      <li><a href="#icon_origin">In the beginning</a></li>
+
+      <li><a href="#desktop_226">Adding a desktop-file</a></li>
+
+      <li><a href="#icon_svg_281">Redrawing the icons</a></li>
+
+      <li><a href="#icon_svg_282">Drawing a new icon</a></li>
+
+      <li><a href="#icon_summary">Summary of icons</a></li>
+    </ul>
+  </div>
+
+  <h2 id="icon_origin-toc"><a name="icon_origin" id=
+  "icon_origin">In the beginning</a></h2>
+
+  <p>There were X icons, but generally not closely associated with
+  specific applications (aside from name) and except for commercial
+  enterprises, not having a particular style.</p>
+
+  <p>Users would select icons that looked nice, and would (if so
+  inclined) spend time customizing their X environment.</p>
+
+  <p>Not all window managers do anything with icons. Fvwm can
+  display icons, but <strong>xterm</strong>'s active icon feature
+  is more useful than any of the predefined icons. Fvwm also is
+  efficient, unlike the desktop environments.</p>
+
+  <p>I used fvwm as my default window manager for quite a while
+  (until 2010, when it turned out that fvwm had no way to adjust to
+  the different display sizes in my current environment). Other
+  window managers (and desktops using them) were of interest only
+  to investigate bugs in their interaction with
+  <strong>xterm</strong>.</p>
+
+  <p>The pictures on this page show 48x48 icons (scaled to
+  144x144). At this time, those are still considered large icons.
+  Perhaps in another ten years that will be the smallest size.</p>
+
+  <h2 id="desktop_226-toc"><a name="desktop_226" id=
+  "desktop_226">Adding a desktop-file</a></h2>
+
+  <p>I noticed that Redhat's package for <strong>xterm</strong> had
+  added a desktop-file, but (from bug-reports) there was no icon
+  for it. So I added corresponding files in <a href=
+  "xterm.log.html#xterm_226">patch #226</a> (mid-2007).</p>
+
+  <p>Using one of the KDE or GNOME icons of course was out of the
+  question due to licensing and reuse issues. The X sources did
+  have an icon which was a good starting point:</p>
+
+  <blockquote>
+    <p><img src="/xterm/images/icons-terminal.png" alt=
+    "X terminal icon"></p>
+  </blockquote>
+
+  <p>It is easily recognizable, and in contrast to the other icons
+  is reasonably unambiguous. What it lacked was an explicit
+  association with <strong>xterm</strong>. So I modified that:</p>
+
+  <blockquote>
+    <p><img src="/xterm/images/icons-xterm_226.png" alt=
+    "XTerm icon"></p>
+  </blockquote>
+
+  <p>To complete the change, I added a colored icon:</p>
+
+  <blockquote>
+    <p><img src="/xterm/images/icons-xterm-color_226.png" alt=
+    "XTerm color-icon"></p>
+  </blockquote>
+
+  <p>I created 32x32 and 48x48 <em>xpm</em> (X pixmap) files using
+  gimp. At that time, the <em>xpm</em> files were sufficient. I
+  chose the background to work with Redhat's muted (read "mud")
+  backgrounds.</p>
+
+  <p>Given the large images which I provide here (scaled up from
+  48x48), you may be concerned about the low-resolution. But that
+  was not an issue when I made these changes in 2007. Referring to
+  a CentOS 4 system, I see that while I could add a small 16x16
+  icon to the GNOME panel, there was no provision for using the
+  48x48 icon on the desktop. That came later.</p>
+
+  <h2 id="icon_svg_281-toc"><a name="icon_svg_281" id=
+  "icon_svg_281">Redrawing the icons</a></h2>
+
+  <p>The large image of a terminal-icon at the top of this page
+  uses a non-transparent background. While it is suitable for the
+  webpage, it is not a good choice for the desktop icons. That is
+  because icons can be put onto the desktop, which can have a
+  background image. The smaller icons can also be put into places
+  where the filled background does not mesh with its
+  surroundings.</p>
+
+  <p>The images at the top of the page also are not jagged. That is
+  because I redrew the icons in <em>svg</em> format using inkscape
+  in <a href="/xterm/xterm.log.html#xterm_281">patch #281</a>
+  (mid-2012). Here are the monochrome:</p>
+
+  <blockquote>
+    <p><img src="/xterm/images/icons-xterm_281.png" alt=
+    "XTerm scalable monochome-icon"></p>
+  </blockquote>
+
+  <p>and colored icons:</p>
+
+  <blockquote>
+    <p><img src="/xterm/images/icons-xterm-color_281.png" alt=
+    "XTerm scalable color-icon"></p>
+  </blockquote>
+
+  <p>There is no automatic way to translate the <em>xpm</em> file
+  into <em>svg</em>. Or rather, there is&mdash;one can "always"
+  import bitmaps into the scalable icon image. The result is often
+  poor; although that did not stop some of the desktops from
+  delivering icons done that way.</p>
+
+  <p>I chose to redraw the icons rather than tweaking bitmaps.</p>
+
+  <p>Redrawing the icons was only part of the process. The new
+  icons are installed in different directories. Making the process
+  work on several different platforms (I've about 40 virtual
+  machines at hand) takes time.</p>
+
+  <h2 id="icon_svg_282-toc"><a name="icon_svg_282" id=
+  "icon_svg_282">Drawing a new icon</a></h2>
+
+  <p>After completing patch #281, I worked on <a href=
+  "/vile/vile.html">vile</a> for a while. I was reminded at this
+  point that I had neglected the window decoration icon of
+  <strong>xterm</strong>. That is the small icon which appears at
+  the upper left corner of the terminal window. Back in the day
+  when one could count on <em>all</em> of the icons from the X
+  distribution to be installed, one could also take for granted
+  that the <strong>X</strong> icon would be available for this
+  purpose.</p>
+
+  <p>Not so. Bring your own.</p>
+
+  <p>I found that scaling <strong>xterm</strong>'s icon down for
+  this size made it hard to distinguish. So I made a new icon,
+  which is distinct. That is the "T" superimposed on an "X" which
+  you see here:</p>
+
+  <blockquote>
+    <p><img src="/xterm/images/mini.xterm_256.png" alt=
+    "MiniXTerm icon"></p>
+  </blockquote>
+
+  <p>I refer to it as the "mini" icon, since it is analogous to the
+  <a href="/vile/vile-icons.html">mini-icon</a> provided in
+  vile.</p>
+
+  <p>I added images of xterm's new mini-icon, and an interim
+  version of the #281 icon (with the same background as the pixmap
+  icon) August 22, 2012 to my xterm pages after verifying that
+  there was no pre-existing use.</p>
+
+  <p>I made all of xterm's icons available with <a href=
+  "xterm.log.html#xterm_282">patch #282</a>. With this version,
+  either icon can be configured for the desktop use.</p>
+
+  <h2 id="icon_summary-toc"><a name="icon_summary" id=
+  "icon_summary">Summary</a></h2>
+
+  <p>Test your eyesight. From left to right, the icons described
+  here are repeated as 48x48 images:</p>
+
+  <blockquote>
+    <p><img src="/xterm/images/demo-terminal.png" alt=
+    "X terminal pixmap icon"> <img src=
+    "/xterm/images/demo-xterm_226.png" alt="XTerm pixmap icon">
+    <img src="images/demo-xterm-color_226.png" alt=
+    "XTerm pixmap color-icon"> <img src=
+    "/xterm/images/demo-xterm_281.png" alt="XTerm scalable icon">
+    <img src="images/demo-xterm-color_281.png" alt=
+    "XTerm scalable color-icon"> <img src=
+    "images/mini.xterm_48.png" alt=
+    "XTerm newer scalable color-icon"></p>
+  </blockquote>
+</body>
+</html>

@@ -1,0 +1,573 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+<title>Change-Log for OTHER-SCRIPTS</title>
+<link rel="author" href="mailto:dickey@invisible-island.net">
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<link rel="stylesheet" href="/css/simplestyle.css" type="text/css">
+<link rel="SHORTCUT ICON" href="/img/icons/favicon.ico" type="image/x-icon">
+<meta name="keywords" content="CHANGES,change-log">
+<meta name="description" content="Change-Log for OTHER-SCRIPTS">
+<style type="text/css">
+  @import "/css/simplenavXX.css" all;
+</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<h1 class="no-header">Change-Log for OTHER-SCRIPTS</h1>
+
+<hr>
+<a href="/">https://invisible-island.net/</a><a href="/scripts/">scripts/</a>
+
+<hr>
+
+<pre>
+<a name="t20221106" href="#index-t20221106" id="t20221106">2022-11-06</a>
+
+        * rcs2log: fix a case where ":" was split from the list of filenames
+
+<a name="t20221012" href="#index-t20221012" id="t20221012">2022-10-12</a>
+
+        * rcs2log: further refinement, merging trailing willfit vs pending
+
+        * rcs2log: fix a missing chunk in wrapped lines
+
+<a name="t20220712" href="#index-t20220712" id="t20220712">2022-07-12</a>
+
+        * man2html:
+        amend the hyphenation fix to account for href's pointing to a subdirectory.
+        improve handling of hyphenated link by adding an option "-leftside" for
+        the left-sides from hyphenated manpage names (with a short fallback for
+        "apt", "cvs", "git", "sccs' and "sysv").
+
+<a name="t20220709" href="#index-t20220709" id="t20220709">2022-07-09</a>
+
+        * man2html:
+        adapt Schilling's subsection change (suggested by Robert Clausecker)
+
+        * man2html: fix the error which Schilling's diff introduced
+
+<a name="t20220705" href="#index-t20220705" id="t20220705">2022-07-05</a>
+
+        * man2html: source-in Schily's change, to test it
+        the "lc" line produces a warning
+        no change seen with ncurses manpages
+
+<a name="t20220115" href="#index-t20220115" id="t20220115">2022-01-15</a>
+
+        * gnathtml:
+        revert the fix for sorting, because it does not take submenus into account
+
+        * gnathtml:
+        fix a few validation errors reported by tidy, and lowercase the html
+
+        * gnathtml: change the function-index logic to sort consistently
+
+<a name="t20220109" href="#index-t20220109" id="t20220109">2022-01-09</a>
+
+        * rcs2log:
+        fix a case in wrapping when the pending (unaccepted) word is long enough
+        that it should force a new line, while the willfit (accepted) is empty.
+
+        * rcs2log:
+        add "-w" option, to wrap the list of files, because bulk-changes to testcases
+        can make very long lines.
+
+        * rcs2log: account for relative-path in "-p" option
+
+        * rcs2log:
+        add "-p" option, to allow showing permit-files but by default ignoring them
+
+        * rcs2log:
+        fix the easy shellcheck warnings (most of the remainder are false-positives)
+
+<a name="t20220108" href="#index-t20220108" id="t20220108">2022-01-08</a>
+
+        * gnathtml: formatting cleanup
+
+        * gnathtml: merge from branch - gnat's not in CVS anymore :-)
+
+        * gnathtml:
+        change usage-message to a here-document, to simplify formatting
+
+        * gnathtml:
+        turn on "use warnings", fixing 3 places where uninitialized variables were used
+
+        * gnathtml: from gnathtml-8, filter out links for function parameters
+
+        * gnathtml: from gnathtml-8, filter out links to generic formals
+
+        * gnathtml:
+        from gnathtml-8, filter out links for discriminants and references to the
+        parent package (the latter affects one link in ncurses/Ada95)
+
+        * gnathtml: remember to add copyright on my work...
+
+        * gnathtml: fix an overlooked change for file-extension option
+
+        * gnathtml: copy absolute option from gnathtml-8
+
+        * gnathtml: copy file-extension option from gnathtml-8
+
+        * gnathtml:
+        indent with perl-tidy, and move use-strict to more conventional location
+
+<a name="t20210208" href="#index-t20210208" id="t20210208">2021-02-08</a>
+
+        * man2html:
+        trim unwanted quotes from -title parameter which came from shellcheck fixes
+
+<a name="t20201112" href="#index-t20201112" id="t20201112">2020-11-12</a>
+
+        * linklint: if I run
+                linklint /foo.html
+        it uses a different path, and breaks.  Repair by using a separate variable
+        for the file-handle passed to ParseMap and ParseHtml
+
+<a name="t20200819" href="#index-t20200819" id="t20200819">2020-08-19</a>
+
+        * man2html:
+        provide for a special case of subsections used in mawk-code.7, where some
+        are only two-characters.
+
+<a name="t20200125" href="#index-t20200125" id="t20200125">2020-01-25</a>
+
+        * rcs2log:
+        use $RCS_DIR as in cm_tools to allow changing the name of the rcs subdirectory.
+        This is needed to handle rcs-blame, since it has test-data including an
+        "RCS" directory.
+
+<a name="t20191014" href="#index-t20191014" id="t20191014">2019-10-14</a>
+
+        * linklint:
+        headers are a valid target for href's since they can have "id" tags.
+
+        * linklint: correct recent fix for undefined $url variable
+
+<a name="t20190818" href="#index-t20190818" id="t20190818">2019-08-18</a>
+
+        * linklint:
+        when requesting a link, make sure that spaces are URL-encoded, since a
+        previous step undid that.
+
+        * linklint: make output more repeatable by sorting hash-keys
+
+        * linklint:
+        running linklint showed more variables that were not imported - fixed.
+
+        * linklint:
+        with that (and enabling strict+warnings), there are a dozen warnings about
+        a variable used only once.  Perl's not able to see that "*foo" in the
+        incoming parameters from "$_" is the same as "%foo" used as "$foo{$bar}".
+        quiet that warning using "once" pragma.
+
+        * linklint:
+        use "our" for the remaining variables reported by "use strict", and fix a
+        reference to ASCII NUL
+
+        * linklint: more use-strict issues
+
+        * linklint:
+        strict check pointed to an error in checking result from stat()
+
+        * linklint: fix some use-strict issues
+
+        * linklint:
+        added "use diagnostics", which prompted quoting the "recursion" pragma
+
+        * linklint:
+        apply "use warnings", and fix references to undefined variables and ignore
+        warning about deep recursion
+
+<a name="t20190811" href="#index-t20190811" id="t20190811">2019-08-11</a>
+
+        * linklint: indent'd
+
+        * linklint: minor whitespace cleanup
+
+        * linklint: also allow id= in ul and blockquote tags
+
+        * linklint: allow id= in pre's
+
+<a name="t20190422" href="#index-t20190422" id="t20190422">2019-04-22</a>
+
+        * linklint: sort the list of files to make output more predictable
+
+<a name="t20180101" href="#index-t20180101" id="t20180101">2018-01-01</a>
+
+        * man2html: use https for website
+
+<a name="t20170812" href="#index-t20170812" id="t20170812">2017-08-12</a>
+
+        * rcs2log: use SIGQUIT(3) rather than SIGTRAP(5) in trap commands
+        This error dates back to 1997 (970802) in ncurses:
+                + many corrections to make progs/capconvert work, as well as make it
+                  reasonably portable and integrated with ncurses 4.1 (reported by Dave
+                  Furstenau &lt;df@ravine.binary.net&gt;).
+
+        but I see in my "nfilter" script I used it as far back as December 1993, on the
+        other hand in "externs" (August 1991) I had it corrrect.
+
+        But here are the first uses in ncurses:
+                capconvert      <a href="/ncurses/NEWS.html#t970802">1997/08/02</a> 21:52:06    1.3
+                edit_cfg.sh     <a href="/ncurses/NEWS.html#t971108">1997/11/08</a> 18:14:57    1.7
+                make_sed.sh     <a href="/ncurses/NEWS.html#t971206">1997/12/06</a> 20:52:47       tom
+                MKterminfo.sh   <a href="/ncurses/NEWS.html#t980905">1998/09/05</a> 23:53:51    1.4
+                MKtermsort.sh   <a href="/ncurses/NEWS.html#t20010526">2001/05/26</a> 23:37:57    1.7
+                MKkey_defs.sh   <a href="/ncurses/NEWS.html#t20010616">2001/06/16</a> 15:25:10       tom
+                MKkeys_list.sh  <a href="/ncurses/NEWS.html#t20010616">2001/06/16</a> 16:47:39       tom
+                make-tar.sh     <a href="/ncurses/NEWS.html#t20100220">2010/02/20</a> 22:46:57       tom
+
+<a name="t20170107" href="#index-t20170107" id="t20170107">2017-01-07</a>
+
+        * man2html:
+        better mapping for aliases by not modifying the displayed link-text.
+
+<a name="t20160702" href="#index-t20160702" id="t20160702">2016-07-02</a>
+
+        * rcs2log:
+        allow this to follow symbolic links to files as well as directories
+
+<a name="t20160130" href="#index-t20160130" id="t20160130">2016-01-30</a>
+
+        * man2html:
+        if "-compress", suppress extra newline at the end of PRE-sections which added
+        to whitespace on resulting page.
+
+<a name="t20150708" href="#index-t20150708" id="t20150708">2015-07-08</a>
+
+        * man2html: add "-toc" option, used in vile's documentation
+
+<a name="t20150215" href="#index-t20150215" id="t20150215">2015-02-15</a>
+
+        * man2html:
+        make -title less obnoxious by using css "no-header" and omitting the following
+        hr-tag from the h1-tag.
+
+<a name="t20150214" href="#index-t20150214" id="t20150214">2015-02-14</a>
+
+        * man2html: another fix for index-levels
+
+        * man2html: corrected logic for index levels
+
+<a name="t20150213" href="#index-t20150213" id="t20150213">2015-02-13</a>
+
+        * man2html:
+        add "-index" option, to move some functionality out of "fixup-man2html"
+
+        * man2html:
+        move the advert into the meta tag for "generator" as done with tidy.
+        (verified that reformatting with tidy will not remove this tag)
+
+        * man2html:
+        modify heuristic for section-titles to allow it to match subsection titles
+        (which differ only by their indent/margin value).
+
+        * man2html: bump version
+
+        * man2html:
+        improve the fix to ensure there is no extra leading/trailing whitespace
+
+<a name="t20150212" href="#index-t20150212" id="t20150212">2015-02-12</a>
+
+        * man2html:
+        fix special case seen in ctlseqs.ms where a partially bold line would be
+        treated as a header.  The fix ensures that any non-punctuation/non-space
+        character on the line is bold - the normal behavior for nroff.
+
+<a name="t20141220" href="#index-t20141220" id="t20141220">2014-12-20</a>
+
+        * man2html:
+        Hood's old website is long gone; the replacement on Savannah had no updates
+        (other than his change to use cvs).  Update the url to point to my site,
+        which is the version I use for ncurses.
+
+<a name="t20140106" href="#index-t20140106" id="t20140106">2014-01-06</a>
+
+        * linklint:
+        lynx has a valid id attached to "em" in a dl - add relevant tags
+
+<a name="t20140105" href="#index-t20140105" id="t20140105">2014-01-05</a>
+
+        * linklint:
+        accept either "name" or "id" (let the validators worry about which are legal)
+
+        * linklint: some obvious fixes:
+                a) flush stderr/stdout, so I can pipe result inside vile
+                b) change %20's back to spaces to check for actual files with spaces
+                c) a-tags are not the only things that can have id's or name's for href
+
+<a name="t20131221" href="#index-t20131221" id="t20131221">2013-12-21</a>
+
+        * man2html: sign my work.
+
+        * man2html: for consistency, warn as I did for -externs
+
+        * man2html: add "-aliases" option for ncurses
+
+        * man2html: add "-externs" option for ncurses
+
+        * man2html: stylistic - tell the number of params, for prototype
+
+        * man2html: spelling :-)
+
+        * man2html:
+        isolated cause for uninitialized $fix variable which would be reported by
+        "use diagnostics" or "use warnings" - ncurses output unchanged.
+
+        * man2html: indented (with perltidy)
+
+        * man2html: fix most of the warnings which come up with "use strict".
+        However, turning on "use strict" will break ncurses' manhtml usage.
+
+<a name="t20130518" href="#index-t20130518" id="t20130518">2013-05-18</a>
+
+        * gnathtml:
+        specify charset's throughout, to help validate strict/transitional documents
+
+        * gnathtml:
+        upgrade the regular pages (which used font-color) to use css with html 4.01 strict
+
+        * gnathtml:
+        revert the doctype change - this is using font-color, which is valid for
+        the transitional but not for the strict doctype.
+
+<a name="t20130517" href="#index-t20130517" id="t20130517">2013-05-17</a>
+
+        * gnathtml:
+        update doctype to use 4.01 strict, to fix quirks-mode warning from web developer tool
+
+<a name="t20100829" href="#index-t20100829" id="t20100829">2010-08-29</a>
+
+        * xcutselprint: RCS_BASE
+
+<a name="t20100828" href="#index-t20100828" id="t20100828">2010-08-28</a>
+
+        * altchars: 2010-05-02 version from ftp
+
+        * altchars: reapply my fixes for ncurses
+
+<a name="t20080123" href="#index-t20080123" id="t20080123">2008-01-23</a>
+
+        * linklint: RCS_BASE
+
+<a name="t20070901" href="#index-t20070901" id="t20070901">2007-09-01</a>
+
+        * gnathtml: spelling
+
+<a name="t20060917" href="#index-t20060917" id="t20060917">2006-09-17</a>
+
+        * altchars:
+        I modified this to reflect stuff in ncurses - except for "|", since that
+        doesn't seem to work as I'd like...
+
+<a name="t20060403" href="#index-t20060403" id="t20060403">2006-04-03</a>
+
+        * unrpm: RCS_BASE
+
+<a name="t20050514" href="#index-t20050514" id="t20050514">2005-05-14</a>
+
+        * gnathtml:
+        changed all of the logic that generates or uses line/column references to
+        use tag() function.  Once that was done (no problems noted), modified that
+        function to prefix the tags with "ref_" to make them legal html id's.
+
+        * gnathtml:
+        fix a kludge which was putting an empty symbol out in output_symbol() by
+        adding before_symbol() and after_symbol() to return strings that are used
+        to bracket the actual symbol (which wasn't written using output_symbol()
+        since it's already bracketed with a colored font and an href).
+
+        * gnathtml:
+        fix a place where the funcs.htm file was using a blank for the link (but
+        that was incorrect since none of the functions begin with a blank)
+
+        * gnathtml:
+        fix a couple of places where &lt;/UL&gt; was emitted when there was no &lt;UL&gt;
+
+        * gnathtml:
+        add doctype tag to each file (so I can run tidy and validate).
+        change the NOFRAME to NOFRAMES in the frameset stuff (noting that it has
+        a special doctype tag).
+
+        * gnathtml: use strict (so I can check the script better)
+
+        * gnathtml:
+        keep the quoting fixes from 1.18.1.2, but omit the place where I tried
+        to strip out references to empty symbols -- I think some of those references
+        really are used.  Also trim blanks
+
+        * gnathtml: add my 1.18.1.1 changes to 1.34
+
+<a name="t20040929" href="#index-t20040929" id="t20040929">2004-09-29</a>
+
+        * altchars: RCS_BASE
+
+<a name="t20040918" href="#index-t20040918" id="t20040918">2004-09-18</a>
+
+        * gnathtml: import from Debian
+
+<a name="t20030426" href="#index-t20030426" id="t20030426">2003-04-26</a>
+
+        * rcs2log: hmm - the -R did have a shift.  leave the other fixes.
+
+<a name="t20030425" href="#index-t20030425" id="t20030425">2003-04-25</a>
+
+        * rcs2log:
+        it's obvious that no one used this script to support RCS files for some time...
+
+        * rcs2log: RCS_BASE
+
+<a name="t20010728" href="#index-t20010728" id="t20010728">2001-07-28</a>
+
+        * man2html: keep the version # the same.
+
+        * man2html:
+        add a fix to detect if the text used for an HREF was hyphenated, and add
+        the missing chunk.
+
+<a name="t20000617" href="#index-t20000617" id="t20000617">2000-06-17</a>
+
+        * gnathtml:
+        oops: my comparison for $strips to an empty string was incorrect (matched
+        a lot of nonempty strings).
+
+<a name="t20000611" href="#index-t20000611" id="t20000611">2000-06-11</a>
+
+        * gnathtml:
+        fix most places (one occurrence) where a blank or empty string was made an anchor.
+        also, fix some quotes - wrong type
+
+        * gnathtml: apply my 1.18.1 changes to 1.22
+
+<a name="t20000610" href="#index-t20000610" id="t20000610">2000-06-10</a>
+
+        * gnathtml:
+        fix most of the easy bugs - this didn't quote HREF=x or TARGET=x,
+        was missing newlines at the ends of generated lines, and didn't even begin
+        with &lt;HTML&gt;.
+
+<a name="t19990924" href="#index-t19990924" id="t19990924">1999-09-24</a>
+
+        * gnathtml: FROM_KEYS
+
+<a name="t19981218" href="#index-t19981218" id="t19981218">1998-12-18</a>
+
+        * gnathtml: FROM_KEYS
+
+<a name="t19970812" href="#index-t19970812" id="t19970812">1997-08-12</a>
+
+        * man2html: RCS_BASE
+
+</pre>
+
+<div class="nav">
+<ul>
+<li class="nav-top"><a href="CHANGES.html">(top)</a></li>
+
+<li><a name="index-t20221106" href="#t20221106" id="index-t20221106">2022-11-06</a></li>
+
+<li><a name="index-t20221012" href="#t20221012" id="index-t20221012">2022-10-12</a></li>
+
+<li><a name="index-t20220712" href="#t20220712" id="index-t20220712">2022-07-12</a></li>
+
+<li><a name="index-t20220709" href="#t20220709" id="index-t20220709">2022-07-09</a></li>
+
+<li><a name="index-t20220705" href="#t20220705" id="index-t20220705">2022-07-05</a></li>
+
+<li><a name="index-t20220115" href="#t20220115" id="index-t20220115">2022-01-15</a></li>
+
+<li><a name="index-t20220109" href="#t20220109" id="index-t20220109">2022-01-09</a></li>
+
+<li><a name="index-t20220108" href="#t20220108" id="index-t20220108">2022-01-08</a></li>
+
+<li><a name="index-t20210208" href="#t20210208" id="index-t20210208">2021-02-08</a></li>
+
+<li><a name="index-t20201112" href="#t20201112" id="index-t20201112">2020-11-12</a></li>
+
+<li><a name="index-t20200819" href="#t20200819" id="index-t20200819">2020-08-19</a></li>
+
+<li><a name="index-t20200125" href="#t20200125" id="index-t20200125">2020-01-25</a></li>
+
+<li><a name="index-t20191014" href="#t20191014" id="index-t20191014">2019-10-14</a></li>
+
+<li><a name="index-t20190818" href="#t20190818" id="index-t20190818">2019-08-18</a></li>
+
+<li><a name="index-t20190811" href="#t20190811" id="index-t20190811">2019-08-11</a></li>
+
+<li><a name="index-t20190422" href="#t20190422" id="index-t20190422">2019-04-22</a></li>
+
+<li><a name="index-t20180101" href="#t20180101" id="index-t20180101">2018-01-01</a></li>
+
+<li><a name="index-t20170812" href="#t20170812" id="index-t20170812">2017-08-12</a></li>
+
+<li><a name="index-t20170107" href="#t20170107" id="index-t20170107">2017-01-07</a></li>
+
+<li><a name="index-t20160702" href="#t20160702" id="index-t20160702">2016-07-02</a></li>
+
+<li><a name="index-t20160130" href="#t20160130" id="index-t20160130">2016-01-30</a></li>
+
+<li><a name="index-t20150708" href="#t20150708" id="index-t20150708">2015-07-08</a></li>
+
+<li><a name="index-t20150215" href="#t20150215" id="index-t20150215">2015-02-15</a></li>
+
+<li><a name="index-t20150214" href="#t20150214" id="index-t20150214">2015-02-14</a></li>
+
+<li><a name="index-t20150213" href="#t20150213" id="index-t20150213">2015-02-13</a></li>
+
+<li><a name="index-t20150212" href="#t20150212" id="index-t20150212">2015-02-12</a></li>
+
+<li><a name="index-t20141220" href="#t20141220" id="index-t20141220">2014-12-20</a></li>
+
+<li><a name="index-t20140106" href="#t20140106" id="index-t20140106">2014-01-06</a></li>
+
+<li><a name="index-t20140105" href="#t20140105" id="index-t20140105">2014-01-05</a></li>
+
+<li><a name="index-t20131221" href="#t20131221" id="index-t20131221">2013-12-21</a></li>
+
+<li><a name="index-t20130518" href="#t20130518" id="index-t20130518">2013-05-18</a></li>
+
+<li><a name="index-t20130517" href="#t20130517" id="index-t20130517">2013-05-17</a></li>
+
+<li><a name="index-t20100829" href="#t20100829" id="index-t20100829">2010-08-29</a></li>
+
+<li><a name="index-t20100828" href="#t20100828" id="index-t20100828">2010-08-28</a></li>
+
+<li><a name="index-t20080123" href="#t20080123" id="index-t20080123">2008-01-23</a></li>
+
+<li><a name="index-t20070901" href="#t20070901" id="index-t20070901">2007-09-01</a></li>
+
+<li><a name="index-t20060917" href="#t20060917" id="index-t20060917">2006-09-17</a></li>
+
+<li><a name="index-t20060403" href="#t20060403" id="index-t20060403">2006-04-03</a></li>
+
+<li><a name="index-t20050514" href="#t20050514" id="index-t20050514">2005-05-14</a></li>
+
+<li><a name="index-t20040929" href="#t20040929" id="index-t20040929">2004-09-29</a></li>
+
+<li><a name="index-t20040918" href="#t20040918" id="index-t20040918">2004-09-18</a></li>
+
+<li><a name="index-t20030426" href="#t20030426" id="index-t20030426">2003-04-26</a></li>
+
+<li><a name="index-t20030425" href="#t20030425" id="index-t20030425">2003-04-25</a></li>
+
+<li><a name="index-t20010728" href="#t20010728" id="index-t20010728">2001-07-28</a></li>
+
+<li><a name="index-t20000617" href="#t20000617" id="index-t20000617">2000-06-17</a></li>
+
+<li><a name="index-t20000611" href="#t20000611" id="index-t20000611">2000-06-11</a></li>
+
+<li><a name="index-t20000610" href="#t20000610" id="index-t20000610">2000-06-10</a></li>
+
+<li><a name="index-t19990924" href="#t19990924" id="index-t19990924">1999-09-24</a></li>
+
+<li><a name="index-t19981218" href="#t19981218" id="index-t19981218">1998-12-18</a></li>
+
+<li><a name="index-t19970812" href="#t19970812" id="index-t19970812">1997-08-12</a></li>
+</ul>
+</div>
+<!-- vile:html
+  -->
+</body>
+</html>

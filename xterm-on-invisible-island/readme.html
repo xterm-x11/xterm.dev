@@ -1,0 +1,1629 @@
+<!--
+  $Id: readme.html,v 1.81 2022/10/02 23:04:59 tom Exp $
+  -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0">
+  <title>SCRIPTS &ndash; Building/Reporting Problems</title>
+  <link rel="author" href="mailto:dickey@invisible-island.net">
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii">
+  <link rel="SHORTCUT ICON" href="/img/icons/vile.ico" type=
+  "image/x-icon">
+  <link rel="stylesheet" href="/css/simplestyle.css" type=
+  "text/css">
+  <style type="text/css">
+  @import "/css/simplenavXX.css" all;
+  </style>
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1">
+</head>
+<body>
+  <hr>
+
+  <p><a href="/">http://invisible-island.net/</a><br>
+  Copyright &copy; 1997-2021,2022 by Thomas E. Dickey</p>
+
+  <hr>
+
+  <div class="nav">
+    <ul>
+      <li class="nav-top"><a href="/scripts/readme.html">(top)</a></li>
+
+      <li><a href="#synopsis">Synopsis</a></li>
+
+      <li>
+        <a href="#general_scripts">General-purpose</a>
+        <ul>
+          <li><a href="#item:archive"><code>archive</code></a></li>
+
+          <li><a href=
+          "#item:diff-patch"><code>diff-patch</code></a></li>
+
+          <li><a href="#item:exports"><code>exports</code></a></li>
+
+          <li><a href="#item:externs"><code>externs</code></a></li>
+
+          <li><a href="#item:make-out"><code>make-out</code></a></li>
+
+          <li><a href="#item:path"><code>path</code></a></li>
+
+          <li><a href="#item:run-out"><code>run-out</code></a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#build_scripts">Build-Scripts</a>
+        <ul>
+          <li>
+            <a href="#build_framework">Build-framework</a>
+            <ul>
+              <li><a href=
+              "#build-XXX"><code>build-<em>XXX</em></code></a></li>
+
+              <li><a href=
+              "#build-all-XXX"><code>build-all-<em>XXX</em></code></a></li>
+
+              <li><a href=
+              "#build-opt-XXX"><code>build-opt-<em>XXX</em></code></a></li>
+
+              <li><a href=
+              "#clean-XXX"><code>clean-<em>XXX</em></code></a></li>
+
+              <li><a href=
+              "#save-XXX"><code>save-<em>XXX</em></code></a></li>
+
+              <li><a href=
+              "#item:setup-build-all"><code>setup-build-all</code></a></li>
+
+              <li><a href=
+              "#item:setup-clean"><code>setup-clean</code></a></li>
+
+              <li><a href=
+              "#item:setup-savebuild"><code>setup-savebuild</code></a></li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="#compiler_wrappers">Compiler wrappers</a>
+            <ul>
+              <li><a href=
+              "#item:gcc-normal"><code>gcc-normal</code></a></li>
+
+              <li><a href=
+              "#item:gcc-normal-64"><code>gcc-normal-64</code></a></li>
+
+              <li><a href=
+              "#item:gcc-strict"><code>gcc-strict</code></a></li>
+
+              <li><a href=
+              "#item:gcc-stricter"><code>gcc-stricter</code></a></li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="#configure_scripts">Configuration scripts</a>
+            <ul>
+              <li><a href=
+              "#item:cfg-lynx"><code>cfg-lynx</code></a></li>
+
+              <li><a href=
+              "#item:cfg-ncurses"><code>cfg-ncurses</code></a></li>
+
+              <li><a href="#item:cfg-tin"><code>cfg-tin</code></a></li>
+
+              <li><a href=
+              "#item:cfg-vile"><code>cfg-vile</code></a></li>
+
+              <li><a href=
+              "#item:cfg-xterm"><code>cfg-xterm</code></a></li>
+
+              <li><a href=
+              "#item:choose-mingw32"><code>choose-mingw32</code></a></li>
+
+              <li><a href=
+              "#item:choose-mingw64"><code>choose-mingw64</code></a></li>
+
+              <li><a href=
+              "#item:run-makensis"><code>run-makensis</code></a></li>
+            </ul>
+          </li>
+
+          <li><a href="#reporting_bugs">Reporting Problems</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#special_scripts">Special-purpose</a>
+        <ul>
+          <li><a href="#item:Regress"><code>Regress</code></a></li>
+
+          <li><a href=
+          "#item:RegressMan"><code>RegressMan</code></a></li>
+
+          <li><a href=
+          "#item:check-manpage"><code>check-manpage</code></a></li>
+
+          <li><a href="#item:classpath"><code>classpath</code></a></li>
+
+          <li><a href=
+          "#item:compare-terminfo"><code>compare-terminfo</code></a></li>
+
+          <li><a href=
+          "#item:count-nroff"><code>count-nroff</code></a></li>
+
+          <li><a href=
+          "#item:diffstat2css"><code>diffstat2css</code></a></li>
+
+          <li><a href=
+          "#item:find-xterm-fonts"><code>find-xterm-fonts</code></a></li>
+
+          <li><a href=
+          "#item:grep-bad-ifdefs"><code>grep-bad-ifdefs</code></a></li>
+
+          <li><a href="#item:grep-cast"><code>grep-cast</code></a></li>
+
+          <li><a href="#item:grep-date"><code>grep-date</code></a></li>
+
+          <li><a href=
+          "#item:grep-ifdefs"><code>grep-ifdefs</code></a></li>
+
+          <li><a href="#item:grep-knr"><code>grep-knr</code></a></li>
+
+          <li><a href=
+          "#item:grep-numbers"><code>grep-numbers</code></a></li>
+
+          <li><a href=
+          "#item:indent-html"><code>indent-html</code></a></li>
+
+          <li><a href=
+          "#item:indent-perl"><code>indent-perl</code></a></li>
+
+          <li><a href=
+          "#item:indent-tty"><code>indent-tty</code></a></li>
+
+          <li><a href="#item:ldd-path"><code>ldd-path</code></a></li>
+
+          <li><a href=
+          "#item:lessclose.sh"><code>lessclose.sh</code></a></li>
+
+          <li><a href=
+          "#item:lessopen.sh"><code>lessopen.sh</code></a></li>
+
+          <li><a href="#item:libpath"><code>libpath</code></a></li>
+
+          <li><a href="#item:manifest"><code>manifest</code></a></li>
+
+          <li><a href="#item:nm_cmp"><code>nm_cmp</code></a></li>
+
+          <li><a href="#item:no-local"><code>no-local</code></a></li>
+
+          <li><a href="#item:nodot"><code>nodot</code></a></li>
+
+          <li><a href="#item:noenv"><code>noenv</code></a></li>
+
+          <li><a href="#item:nolocale"><code>nolocale</code></a></li>
+
+          <li><a href="#item:noterm"><code>noterm</code></a></li>
+
+          <li><a href="#item:remake"><code>remake</code></a></li>
+
+          <li><a href=
+          "#item:report-linux-consolefonts"><code>report-linux-consolefonts</code></a></li>
+
+          <li><a href=
+          "#item:report-terminfo"><code>report-terminfo</code></a></li>
+
+          <li><a href="#item:rpm-deps"><code>rpm-deps</code></a></li>
+
+          <li><a href=
+          "#item:script2log"><code>script2log</code></a></li>
+
+          <li><a href=
+          "#item:show-dircolors"><code>show-dircolors</code></a></li>
+
+          <li><a href=
+          "#item:show-linux-consolefonts"><code>show-linux-consolefonts</code></a></li>
+
+          <li><a href=
+          "#item:sort-sources"><code>sort-sources</code></a></li>
+
+          <li><a href=
+          "#item:touch-dirs"><code>touch-dirs</code></a></li>
+
+          <li><a href=
+          "#item:with-locale"><code>with-locale</code></a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#git_scripts">Git(hub) Scripts</a>
+        <ul>
+          <li><a href="#item:manifest"><code>manifest</code></a></li>
+
+          <li><a href=
+          "#item:bundle2github"><code>bundle2github</code></a></li>
+
+          <li><a href=
+          "#item:compare-manifests"><code>compare-manifests</code></a></li>
+
+          <li><a href="#item:gimme-git"><code>gimme-git</code></a></li>
+
+          <li><a href="#item:git-stats"><code>git-stats</code></a></li>
+
+          <li><a href=
+          "#item:git-utimes"><code>git-utimes</code></a></li>
+
+          <li><a href="#item:rcs2git"><code>rcs2git</code></a></li>
+
+          <li><a href=
+          "#item:release2git"><code>release2git</code></a></li>
+
+          <li><a href=
+          "#item:tag-cutoff"><code>tag-cutoff</code></a></li>
+
+          <li><a href=
+          "#item:resync-git"><code>resync-git</code></a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#mapsym_scripts">Symbol-versioning</a>
+        <ul>
+          <li><a href=
+          "#item:analyze-curses-symbols"><code>analyze-curses-symbols</code></a></li>
+
+          <li><a href=
+          "#item:compare-mapsyms"><code>compare-mapsyms</code></a></li>
+
+          <li><a href=
+          "#item:dlg-symbols"><code>dlg-symbols</code></a></li>
+
+          <li><a href=
+          "#item:needed-syms"><code>needed-syms</code></a></li>
+
+          <li><a href=
+          "#item:ncu-mapsyms"><code>ncu-mapsyms</code></a></li>
+
+          <li><a href=
+          "#item:ncu-symbols"><code>ncu-symbols</code></a></li>
+
+          <li><a href=
+          "#item:report-mapsyms"><code>report-mapsyms</code></a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#others_scripts">Other Scripts</a>
+        <ul>
+          <li><a href="#item:altchars"><code>altchars</code></a></li>
+
+          <li><a href="#item:gnathtml"><code>gnathtml</code></a></li>
+
+          <li><a href="#item:linklint"><code>linklint</code></a></li>
+
+          <li><a href="#item:man2html"><code>man2html</code></a></li>
+
+          <li><a href="#item:rcs2log"><code>rcs2log</code></a></li>
+
+          <li><a href="#item:unrpm"><code>unrpm</code></a></li>
+        </ul>
+      </li>
+
+      <li><a href="#changes">Changes</a></li>
+
+      <li><a href="#download">Download</a></li>
+    </ul>
+  </div>
+
+  <h2 id="synopsis-h2"><a name="synopsis" id=
+  "synopsis">Synopsis</a></h2>
+
+  <p>As of August 2014, I had nearly 2000 scripts in my
+  bin-directory, totalling more than 100,000 lines. The list
+  continues to grow (see <a href=
+  "scripts-screenshot.svg">screenshot</a>). As of May 2021, it has
+  grown to 2300 scripts, 140,000 lines. Most are POSIX shell, most
+  of the remainder are Perl. Those total about the same number of
+  lines:</p>
+
+  <blockquote>
+    <pre class="code-block">
+Metrics by language:
+                                Files    Lines    Chars    Notes
+bash                              130     3192    70802      495
+csh                                 3       27      766        6
+expectk                             3     2650    80820     1047
+gawk                                1     3575   131616     1449
+ksh                                 1        8       87        1
+mawk                                1       39     1032        2
+perl                              243    69001  1980511     6841
+python                              7      633    19592       24
+ruby                                2     1190    33235      121
+sh                               1952    60571  1451262     9011
+tcl                                 1       16      323        3
+unknown                            15       38     3990       11
+                             -------- -------- -------- --------
+Totals                           2359   140940  3774036    19011
+Average                                     60     1600        8
+ </pre>
+  </blockquote>
+
+  <p>Those scripts are distinct from scripts which I bundle with
+  various programs. A few are modified versions of scripts written
+  by others. Some of the scripts may be of interest to others.</p>
+
+  <h2 id="general_scripts-h2"><a name="general_scripts" id=
+  "general_scripts">General-purpose</a></h2>
+
+  <p>There are several general-purpose scripts:</p>
+
+  <blockquote>
+    <h3><a name="item:archive" id=
+    "item:archive"><code>archive</code></a></h3>
+
+    <p>Construct a gzip'd (or compress'd) tar file.<br>
+    Run as <code>unarchive</code>, it reverses the process.</p>
+
+    <p><code>archive</code> was originally written by <a href=
+    "http://www.megalextoria.com/usenet-archive/news115f1/b138/comp/sys/apollo/00003598.html">
+    Charles Van Gale</a>, a system administrator at the Software
+    Productivity Consortium in 1989 or 1990. I extended it to make
+    the resulting tarball have a timestamp matching the newest file
+    (using <a href="/misc_tools/index.html#item:cpd">cpd</a>), as
+    well as using gzip or bzip2 compression:</p>
+
+    <blockquote>
+      <p><a href="sample-scripts/archive.html">the script...</a></p>
+    </blockquote>
+
+    <h3><a name="item:diff-patch" id=
+    "item:diff-patch"><code>diff-patch</code></a></h3>
+
+    <p>A script that combines <a href=
+    "/diffstat/diffstat.html">diffstat</a> and <a href=
+    "#item:makepatch">makepatch</a>.</p>
+
+    <h3><a name="item:exports" id=
+    "item:exports"><code>exports</code></a></h3>
+
+    <p>script to show which symbols are exported from a collection
+    of object files</p>
+
+    <h3><a name="item:externs" id=
+    "item:externs"><code>externs</code></a></h3>
+
+    <p>display all external symbols used by a collection of object
+    files</p>
+
+    <h3><a name="item:make-out" id=
+    "item:make-out"><code>make-out</code></a></h3>
+
+    <p>run "make", redirecting output to <code>make.out</code>.<br>
+    If linked or renamed to <code>make-log</code>, it writes to
+    <code>make.log</code>.</p>
+
+    <h3><a name="item:makepatch" id=
+    "item:makepatch"><code>makepatch</code></a></h3>
+
+    <p>script (originally by Johan Vromans) used for making
+    patch-files.<br>
+    I have modified it to sort the old/new lists to avoid confusing
+    '/' with filename stuff.</p>
+
+    <h3><a name="item:path" id="item:path"><code>path</code></a></h3>
+
+    <p>like <code>which</code>, but provides the dual use of
+    showing the path and showing details about the arguments. The
+    <a href="/conflict/conflict.html">conflict</a> program is
+    related.</p>
+
+    <h3><a name="item:run-out" id=
+    "item:run-out"><code>run-out</code></a></h3>
+
+    <p>run a command, redirecting output to
+    <code>run.out</code>.<br>
+    If linked or renamed to <code>run-log</code>, it writes to
+    <code>run.log</code>.</p>
+  </blockquote>
+
+  <h2 id="build_scripts-h2"><a name="build_scripts" id=
+  "build_scripts">Build-Scripts</a></h2>
+
+  <p>The original intent of this page was to provide sample scripts
+  for building programs. Since then, I have written scripts for
+  routine builds of the programs which I develop, as well as for
+  managing releases and updating this website.</p>
+
+  <p>These are <em>some</em> of the scripts that I use in
+  configuring, building and saving the logfiles from building
+  programs on multiple platforms. A complete set of configure- and
+  make-logs is useful for bug reporting.</p>
+
+  <h3 id="build_framework-h3"><a name="build_framework" id=
+  "build_framework">Build-framework</a></h3>
+
+  <p>Each program has its own set of build-scripts. Sample scripts
+  for the larger programs are included in the download. I use
+  scripts named for the various programs (<code><em>XXX</em></code>
+  in the following sections).</p>
+
+  <p>Though the oldest of these scripts (for saving build-logs from
+  <a href="/dbmalloc/dbmalloc.html">dbmalloc</a>) dates back to
+  1995, they have evolved in stages. Initially, I would do
+  test-builds and, after verifying the results, possibly discard
+  the logs. However, for several years I have collected the logs,
+  adding them to my source repository to compare.</p>
+
+  <p>As of January 2016, I had 5488 log-files (with 383 marked to
+  denote systems where I could no longer build). My collection has
+  grown to 10,717 files as of May 2021, with 61% marked as
+  obsolete. Some builds produce multiple log-files, and I have
+  build-scripts for about 50 programs. There are also a lot of
+  machines to build with. The log files are checked into RCS, of
+  course, so that I can compare successive builds and fix
+  problems.</p>
+
+  <blockquote>
+    <h4><a name="build-XXX" id=
+    "build-XXX"><code>build-<em>XXX</em></code></a></h4>
+
+    <p>Build the program (within its working directory), with the
+    most common configuration(s). As part of the process, install
+    and uninstall the program (to a location in the
+    build-tree).</p>
+
+    <h4><a name="build-all-XXX" id=
+    "build-all-XXX"><code>build-all-<em>XXX</em></code></a></h4>
+
+    <p>Repeat the <code>build-<em>XXX</em></code> script for a
+    given program, using different compilers and/or warning levels.
+    Depending on the platform, this may execute other scripts to
+    build &ldquo;.deb&rdquo; (Debian), RPM packages, NSIS
+    installers or Solaris packages.</p>
+
+    <h4><a name="build-opt-XXX" id=
+    "build-opt-XXX"><code>build-opt-<em>XXX</em></code></a></h4>
+
+    <p>Build a given program, use the options from the
+    corresponding <code>all-opts-<em>XXX</em></code> script, one at
+    a time, to build the program.</p>
+
+    <h4><a name="clean-XXX" id=
+    "clean-XXX"><code>clean-<em>XXX</em></code></a></h4>
+
+    <p>These remove the files from a build within the given
+    program's working directory.</p>
+
+    <h4><a name="save-XXX" id=
+    "save-XXX"><code>save-<em>XXX</em></code></a></h4>
+
+    <p>I use these scripts to save logfiles after doing a build.
+    They all assume that there is a parallel directory of the same
+    name, e.g., <code>../save-vile</code>, next to the current
+    directory. The current directory is the top of the build
+    tree.</p>
+
+    <p>In particular (making them useful for bug-reports), they
+    save the results from the configure script, along with
+    log-files that are created using the
+    <code>cfg-<em>XXX</em></code> and
+    <code>build-<em>XXX</em></code> scripts for the corresponding
+    programs.</p>
+  </blockquote>
+
+  <p>Where possible, I parameterized these scripts to make a
+  reusable core. These scripts provide the reusable parts:</p>
+
+  <ul>
+    <li><a name="item:setup-build-all" id=
+    "item:setup-build-all"><code>setup-build-all</code></a></li>
+
+    <li><a name="item:setup-clean" id=
+    "item:setup-clean"><code>setup-clean</code></a></li>
+
+    <li><a name="item:setup-savebuild" id=
+    "item:setup-savebuild"><code>setup-savebuild</code></a></li>
+  </ul>
+
+  <p>Those build-scripts are part of a larger set, which
+  includes</p>
+
+  <ul>
+    <li><code>release-<em>XXX</em></code>, to prepare a tarball and
+    patch.</li>
+
+    <li><code>debbuild-<em>XXX</em></code>,
+    <code>rpmbuild-<em>XXX</em></code>,
+    <code>mkpkg-<em>XXX</em></code>, using the tarballs for package
+    builds.</li>
+
+    <li><code>tag-<em>XXX</em></code>, to label a program in
+    RCS</li>
+
+    <li><code>upload-<em>XXX</em></code>, to put the prepared
+    tarball and change history on my website.</li>
+  </ul>
+
+  <p>As of May 2021, here is a summary of these build-scripts:</p>
+
+  <blockquote>
+    <pre class="code-block">
+Metrics by phase:
+                                Files    Lines    Chars    Notes
+Bug report                         31      547    15582      155
+Build phase (PART)                397    20620   470933     1570
+Build support (HELP)              298    28061   752788     3305
+Configure                         201     3421    76007      479
+Connections                        99      474    13937      205
+Development                        83    14238   421288     1549
+Environment                       143     1776    39342      355
+File-movement                      54      731    14487       84
+Metrics                            19     3253    92463      349
+Miscellaneous                     498    31202   882008     5577
+Source-control                    112     7795   196881      905
+Testing                           424    28822   798320     4478
+                             -------- -------- -------- --------
+Totals                           2359   140940  3774036    19011
+Average                                     60     1600        8
+
+Metrics for build phases:
+                                Files    Lines    Chars    Notes
+PART: build-*                      48     3080    57744      131
+PART: build-all-*                  48      430     6268       96
+PART: build-my-*                    3      348     7367       15
+PART: bump-*                       36     7606   191397      153
+PART: clean-*                      48      725    13702      111
+PART: clobber-*                     9       46     1156       18
+PART: release-*                    54     3531    83176      414
+PART: release-*-docs               24     1265    27447      117
+PART: save-*                       50     1409    28472      329
+PART: tag-*                        30     1407    39696       82
+PART: upload-*                     38      582    11296       77
+PART: upload-*-docs                 9      191     3212       27
+                             -------- -------- -------- --------
+Totals                            397    20620   470933     1570
+Average                                     52     1186        4
+</pre>
+  </blockquote>
+
+  <p>The matrix of scripts is not completely filled in; that
+  depends on the program. Most are programs that I maintain. Some
+  (such as PDCurses) are built because I use those in programs
+  which I maintain, but have no reliable package provider:</p>
+
+  <blockquote>
+    <pre class="code-block">
+Build-phases:
+ build-*
+ ^  build-all-*
+ ---^  build-my-*
+ ------^  bump-*
+ ---------^  clean-*
+ ------------^  clobber-*
+ ---------------^  release-*
+ ------------------^  release-*-docs
+ ---------------------^  save-*
+ ------------------------^  tag-*
+ ---------------------------^  upload-*
+ ------------------------------^  upload-*-docs
+ ---------------------------------^  
+ *  *  -  -  *  -  *  -  *  -  -  -   AdaCurses
+ *  *  -  *  *  -  *  -  *  -  -  -   PDCurses
+ *  *  -  -  *  -  *  -  *  -  -  -   XawPlus
+ *  *  -  -  *  -  *  -  *  -  -  -   ac213
+ *  *  -  *  *  -  *  -  *  *  *  -   ac252
+ *  *  -  *  *  -  *  *  *  *  *  -   add
+ *  *  -  -  *  -  *  -  *  -  *  -   atac
+ *  *  -  *  *  -  *  -  *  *  *  -   bcpp
+ *  *  -  *  *  -  *  -  *  *  *  -   blame
+ -  -  -  -  -  -  *  -  -  -  *  -   buildscripts
+ *  *  -  *  *  *  *  *  *  *  *  *   byacc
+ *  *  -  *  *  -  *  *  *  -  *  -   c_count
+ *  *  -  *  *  -  *  *  *  *  *  *   cdk
+ *  *  -  *  *  -  *  -  *  *  *  -   cdk-perl
+ *  *  -  *  *  -  *  *  *  *  *  -   cm_tools
+ *  *  -  *  *  *  *  *  *  *  *  -   conflict
+ *  *  -  *  *  -  *  *  *  *  *  -   copyrite
+ *  *  -  *  *  *  *  *  *  -  *  -   cproto
+ -  -  -  -  -  -  -  -  *  -  -  -   dbmalloc
+ *  *  -  *  *  -  *  *  *  *  *  -   ded
+ *  *  -  *  *  *  *  *  *  *  *  *   dialog
+ *  *  -  *  *  -  *  *  *  -  *  *   diffstat
+ -  -  -  -  -  -  *  -  -  -  *  -   gpl-scripts
+ *  *  -  *  *  *  *  -  *  *  *  -   indent
+ *  *  -  -  *  -  *  -  *  -  -  -   libX11
+ *  *  -  *  *  -  *  -  *  -  -  -   libXaw
+ *  *  -  -  *  -  *  -  *  -  -  -   libXaw3d
+ *  *  -  *  *  -  *  *  *  -  -  -   libXcursor
+ *  *  -  *  *  -  *  -  *  -  -  -   libXft
+ *  *  -  *  *  -  *  -  *  -  -  -   libXpm
+ *  *  -  *  *  -  *  *  *  -  -  -   libXt
+ *  *  -  *  *  -  *  *  *  *  *  -   luit
+ *  *  *  *  *  *  *  *  *  *  *  *   lynx
+ -  -  -  -  -  -  *  -  -  -  *  -   mapsym-scripts
+ *  *  -  *  *  *  *  *  *  *  *  *   mawk
+ -  -  -  -  -  -  *  -  -  -  *  -   misc-scripts
+ *  *  -  *  *  -  *  -  *  *  *  -   misc_tools
+ -  -  -  -  -  -  *  -  -  *  *  -   my-autoconf
+ *  *  *  *  *  *  *  *  *  *  *  *   ncurses
+ *  *  -  -  *  -  *  -  *  -  -  -   ncurses-examples
+ *  *  -  *  *  -  *  -  *  -  *  -   neXtaw
+ *  *  -  -  *  -  *  -  *  -  -  -   prcs
+ *  *  -  *  *  -  *  -  *  *  *  -   rcshist
+ *  *  -  *  *  *  *  *  *  *  *  -   reflex
+ *  *  -  *  *  -  *  *  *  *  *  -   sccs_tools
+ *  *  -  *  *  -  *  *  *  *  *  -   tack
+ *  *  -  -  *  -  *  *  *  *  *  -   tctest
+ *  *  -  *  *  -  *  -  *  *  *  -   td_lib
+ -  -  -  -  -  -  -  -  *  -  -  -   tdlib
+ -  -  -  -  -  -  *  -  -  *  *  -   terminfo
+ *  *  -  -  *  -  *  -  *  -  -  -   tin
+ -  -  -  -  -  -  -  -  -  *  -  -   tin-beta
+ *  *  -  -  *  -  *  -  *  -  -  -   twm
+ *  *  *  *  *  -  *  *  *  *  *  *   vile
+ *  *  -  *  *  -  *  *  *  *  *  -   vttest
+ *  *  -  -  *  -  *  -  *  -  -  -   xfonts-encodings
+ *  *  -  *  *  -  *  *  *  *  *  *   xterm
+</pre>
+  </blockquote>
+
+  <p>My script which reports this information
+  (<code>report-build-scripts</code>) matches program names against
+  a pattern. That works well enough where the scripts are named
+  consistently. The support scripts are less regular: some follow a
+  pattern, while others do not. The script uses a table of
+  exceptions to help with its categorization of scripts.</p>
+
+  <h3><a name="compiler_wrappers" id="compiler_wrappers">Compiler
+  wrappers</a></h3>
+
+  <p>Along with the build-scripts, I use wrappers for
+  <code>gcc</code> to turn on <a href=
+  "/personal/lint-tools.html">compiler warnings</a>, as well as
+  scripts for other compilers. They are included in the
+  build-scripts, since that is where they are most used.</p>
+
+  <blockquote>
+    <h3><a name="item:gcc-normal" id=
+    "item:gcc-normal"><code>gcc-normal</code></a></h3>
+
+    <p>This provides what should be the <em>minimal</em> options
+    for <code>gcc</code> to ensure that C functions are prototyped.
+    I added it in 1995 at the same time that I added
+    <code>gcc-strict</code>. Before that, I was likely to just edit
+    the makefile, not thinking that it would be simpler to make a
+    wrapper script.</p>
+
+    <blockquote>
+      <p><a href="sample-scripts/gcc-normal.html">the script...</a></p>
+    </blockquote>
+
+    <h3><a name="item:gcc-normal-64" id=
+    "item:gcc-normal-64"><code>gcc-normal-64</code></a></h3>
+
+    <p>This script adds <code>gcc</code> options to compile for
+    64-bits. When I added it in 2009, it was still common to have
+    compilers on a nominally 64-bit platform such as Solaris
+    default to compiling 32-bit code.</p>
+
+    <h3><a name="item:gcc-strict" id=
+    "item:gcc-strict"><code>gcc-strict</code></a></h3>
+
+    <p>I made this script, incorporating some posting by Fergus
+    Henderson, e.g., this one to <a href=
+    "https://groups.google.com/forum/#!topic/gnu.gcc.help/0Auy2yUEEqo">
+    <em>gnu.gcc.help</em></a> from 1994.</p>
+
+    <blockquote>
+      <p><a href="sample-scripts/gcc-strict.html">the script...</a></p>
+    </blockquote>
+
+    <h3><a name="item:gcc-stricter" id=
+    "item:gcc-stricter"><code>gcc-stricter</code></a></h3>
+
+    <p>Later, I was told about the gcc "fortify" option. Rather
+    than modify the options in <code>gcc-strict</code>, I added
+    this script.</p>
+
+    <blockquote>
+      <p><a href="sample-scripts/gcc-stricter.html">the
+      script...</a></p>
+    </blockquote>
+  </blockquote>
+
+  <h3><a name="configure_scripts" id=
+  "configure_scripts">Configuration scripts</a></h3>
+
+  <p>Configure script wrappers containing configure options for
+  specific programs are (usually) named for those programs,
+  e.g.,</p>
+
+  <blockquote>
+    <ul>
+      <li><a name="item:cfg-lynx" id=
+      "item:cfg-lynx"><code>cfg-lynx</code></a></li>
+
+      <li><a name="item:cfg-ncurses" id=
+      "item:cfg-ncurses"><code>cfg-ncurses</code></a></li>
+
+      <li><a name="item:cfg-tin" id=
+      "item:cfg-tin"><code>cfg-tin</code></a></li>
+
+      <li><a name="item:cfg-vile" id=
+      "item:cfg-vile"><code>cfg-vile</code></a></li>
+
+      <li><a name="item:cfg-xterm" id=
+      "item:cfg-xterm"><code>cfg-xterm</code></a></li>
+    </ul>
+  </blockquote>
+
+  <p>I am able to cross-compile to MinGW on several machines. There
+  is no consensus on what directories those cross-compilers use.
+  These scripts help:</p>
+
+  <blockquote>
+    <ul>
+      <li><a name="item:choose-mingw32" id=
+      "item:choose-mingw32"><code>choose-mingw32</code></a></li>
+
+      <li><a name="item:choose-mingw64" id=
+      "item:choose-mingw64"><code>choose-mingw64</code></a></li>
+
+      <li><a name="item:run-makensis" id=
+      "item:run-makensis"><code>run-makensis</code></a></li>
+    </ul>
+  </blockquote>
+
+  <h3 id="reporting_bugs-h2"><a name="reporting_bugs" id=
+  "reporting_bugs">Reporting Problems</a></h3>
+
+  <p>If you have a machine that I've not ported to, and have
+  problems building one of the programs that I maintain, I will
+  require the relevant information:</p>
+
+  <ul>
+    <li>log from running <code>configure</code>, with options<br>
+    I recommend that you use <a href="#item:run-out">run-out</a> to
+    capture this.</li>
+
+    <li><code>config.cache</code> (if available&mdash;"new"
+    versions of autoconf suppress this, but for example <a href=
+    "/lynx/lynx.html">lynx</a> preserves this file).</li>
+
+    <li><code>config.log</code>
+    </li>
+
+    <li><code>config.status</code>
+    </li>
+
+    <li>the generated headers (e.g., <code>config.h</code>)</li>
+
+    <li>log from running <code>make</code>, with options<br>
+    I recommend that you use <a href="#item:make-out">make-out</a>
+    to capture this.</li>
+  </ul>
+
+  <p>A uuencoded or mime'd gzip'd/tar file is preferred, because
+  the logfiles can be awkward to email. Mailing uncompressed
+  log-files also has the drawback that they may be rejected on
+  mailing lists.</p>
+
+  <h2><a name="special_scripts" id=
+  "special_scripts">Special-Purpose</a></h2>
+
+  <p>These scripts are for more specialized uses.</p>
+
+  <blockquote>
+    <h3><a name="item:Regress" id=
+    "item:Regress"><code>Regress</code></a></h3>
+
+    <p><a href="#item:remake">remake</a> an object file, reporting
+    differences. The reference (first compile) is saved in the
+    <code>OBJ</code> subdirectory.</p>
+
+    <p>I use this script when making structural changes to a C
+    program that &ldquo;should not&rdquo; change its content, e.g.,
+    <a href="/ansification/ansification.html">converting from
+    K&amp;R C</a> or changing comments/formatting.</p>
+
+    <h3><a name="item:RegressMan" id=
+    "item:RegressMan"><code>RegressMan</code></a></h3>
+
+    <p>Like <a href="#item:Regress">Regress</a>, I use this for
+    checking changes to manual page formatting.</p>
+
+    <h3><a name="item:check-manpage" id=
+    "item:check-manpage"><code>check-manpage</code></a></h3>
+
+    <p>Scan a directory tree, looking for nroff (man/ms) files, to
+    check their syntax as well as verify that their macros are
+    consistent.</p>
+
+    <p>If <a href=
+    "https://docs.oracle.com/cd/E19683-01/816-0210/6m6nb7m5p/index.html">
+    <code>checknr</code></a> were portable and handled manpages, it
+    would be useful. This started as a wrapper for
+    <code>groff</code>'s checks, but has grown a lot.</p>
+
+    <h3><a name="item:classpath" id=
+    "item:classpath"><code>classpath</code></a></h3>
+
+    <p>Like <a href="#item:path">path</a>, show information about
+    the user's <code>CLASSPATH</code> environment variable (which
+    controls linking and loading of Java classes.</p>
+
+    <p>If no arguments given, this script displays the names of the
+    directories in the class-path. If argument is given, it is
+    assumed to be either a class name (e.g., "String"), or a
+    jar-file.</p>
+
+    <p>All matching names are displayed; the first is the one that
+    will be loaded.</p>
+
+    <p>Options (arguments beginning with "-") are passed to
+    'ls'.</p>
+
+    <h3><a name="item:compare-terminfo" id=
+    "item:compare-terminfo"><code>compare-terminfo</code></a></h3>
+
+    <p>Use ncurses' infocmp to compare two terminfo files. Its
+    output is close, but is not sorted in a predictable manner that
+    would allow <em><code>diff</code></em>'ing output from
+    different comparisons.</p>
+
+    <h3><a name="item:count-nroff" id=
+    "item:count-nroff"><code>count-nroff</code></a></h3>
+
+    <p>Scan directory-tree or file(s) counting nroff files,
+    adjusting for comments.</p>
+
+    <h3><a name="item:diffstat2css" id=
+    "item:diffstat2css"><code>diffstat2css</code></a></h3>
+
+    <p>Process one or more patch files, using <a href=
+    "/diffstat/diffstat.html">diffstat</a>'s -C (color) option to
+    markup the files (with SGR). We want to modify those so they
+    all use reverse-video (since colored text is too hard to read),
+    and produce html. To make the result a little more flexible,
+    use the <code>diffstat.css</code> stylesheet.</p>
+
+    <p>The script expects one of two parameter conventions:</p>
+
+    <ol>
+      <li>
+        <p>patch-file, simply process with
+        <code>diffstat</code></p>
+      </li>
+
+      <li>
+        <p>two directories as parameters, to pass those to
+        <code>diffstat</code> using -S/-D</p>
+      </li>
+    </ol>
+
+    <h3><a name="item:grep-bad-ifdefs" id=
+    "item:grep-bad-ifdefs"><code>grep-bad-ifdefs</code></a></h3>
+
+    <p>Search for patterns that (might be) broken defines</p>
+
+    <h3><a name="item:find-xterm-fonts" id=
+    "item:find-xterm-fonts"><code>find-xterm-fonts</code></a></h3>
+
+    <p>Find the X bitmap font-files which are used in xterm/uxterm
+    app-defaults files, and for some systems (where the packaging
+    system is useful) followup with the packages containing those
+    files.</p>
+
+    <p>See <a href=
+    "https://unix.stackexchange.com/questions/407710/xterm-can-not-load-font-misc-fixed-medium-r-semicondensed-13-120-75-75-c-60-i/433325#433325">
+    my answer</a> using this script.</p>
+
+    <h3><a name="item:grep-cast" id=
+    "item:grep-cast"><code>grep-cast</code></a></h3>
+
+    <p>Search for patterns that (might be) casts.</p>
+
+    <h3><a name="item:grep-date" id=
+    "item:grep-date"><code>grep-date</code></a></h3>
+
+    <p>Search for patterns that might be dates.</p>
+
+    <h3><a name="item:grep-ifdefs" id=
+    "item:grep-ifdefs"><code>grep-ifdefs</code></a></h3>
+
+    <p>Search for patterns that (might be) ifdefs.</p>
+
+    <h3><a name="item:grep-knr" id=
+    "item:grep-knr"><code>grep-knr</code></a></h3>
+
+    <p>Search for patterns that (might be) K&amp;R function
+    declarations.</p>
+
+    <h3><a name="item:grep-numbers" id=
+    "item:grep-numbers"><code>grep-numbers</code></a></h3>
+
+    <p>Search for patterns that (might be) numbers.</p>
+
+    <h3><a name="item:indent-html" id=
+    "item:indent-html"><code>indent-html</code></a></h3>
+
+    <p>Run <code>tidy</code> to indent one or more HTML files,
+    optionally showing the differences made (<code>-v</code>) and
+    with dry-run (<code>-n</code>) feature.</p>
+
+    <h3><a name="item:indent-perl" id=
+    "item:indent-perl"><code>indent-perl</code></a></h3>
+
+    <p>Run <code>perltidy</code> to indent one or more Perl files,
+    optionally showing the differences made (<code>-v</code>) and
+    with dry-run (<code>-n</code>) feature.</p>
+
+    <h3><a name="item:indent-tty" id=
+    "item:indent-tty"><code>indent-tty</code></a></h3>
+
+    <p>Format the output of <code>stty -a</code> into a single
+    column, allowing <code>diff</code> to show just the single
+    feature(s) which may change.</p>
+
+    <h3><a name="item:ldd-path" id=
+    "item:ldd-path"><code>ldd-path</code></a></h3>
+
+    <p>Edit the output of <code>ldd</code> for the given
+    parameters, yielding only the absolute pathnames.</p>
+
+    <h3><a name="item:lessclose.sh" id=
+    "item:lessclose.sh"><code>lessclose.sh</code></a></h3>
+
+    <p>I use this script with <a href=
+    "http://www.greenwoodsoftware.com/less/">less</a> to remove
+    temporary files.</p>
+
+    <h3><a name="item:lessopen.sh" id=
+    "item:lessopen.sh"><code>lessopen.sh</code></a></h3>
+
+    <p>I use this script with <a href=
+    "http://www.greenwoodsoftware.com/less/">less</a> to open
+    special files.</p>
+
+    <h3><a name="item:libpath" id=
+    "item:libpath"><code>libpath</code></a></h3>
+
+    <p>Displays information about the user's
+    <code>LD_LIBRARY_PATH</code> environment variable (which
+    controls linking and loading of dynamic libraries.</p>
+
+    <p>If no arguments given, this script displays the names of the
+    directories in the library-path. If argument is given, it is
+    assumed to be a library name (e.g., "c" for -lc). All matching
+    names are displayed; the first is the one that will be
+    loaded.</p>
+
+    <p>Options (arguments beginning with "-") are passed to
+    'ls'.</p>
+
+    <h3><a name="item:manifest" id=
+    "item:manifest"><code>manifest</code></a></h3>
+
+    <p>Construct a manifest from the RCS description lines for the
+    selected (symbolic) version. The script assumes that the
+    following files are automatically generated from scripts:</p>
+
+    <blockquote>
+      <p>MANIFEST &ndash; from this script<br>
+      configure &ndash; from autoconf (configure.in,
+      aclocal.m4)<br>
+      config.h &ndash; from configure</p>
+    </blockquote>
+
+    <p>Other files are all managed via RCS, and are present in a
+    release only if they have had symbolic revisions added for that
+    release.</p>
+
+    <h3><a name="item:nm_cmp" id=
+    "item:nm_cmp"><code>nm_cmp</code></a></h3>
+
+    <p>Compares the elements of an archive file, showing which are
+    different or missing from one archive.</p>
+
+    <h3><a name="item:no-local" id=
+    "item:no-local"><code>no-local</code></a></h3>
+
+    <p>Run command without <code>/usr/local</code> in
+    environment.</p>
+
+    <h3><a name="item:nodot" id="item:nodot"><code>nodot</code></a></h3>
+
+    <p>Strip leading "." from PATH to execute a command.</p>
+
+    <h3><a name="item:noenv" id="item:noenv"><code>noenv</code></a></h3>
+
+    <p>Strip environment, e.g., as if running in <code>cron</code>,
+    and run a command.</p>
+
+    <h3><a name="item:nolocale" id=
+    "item:nolocale"><code>nolocale</code></a></h3>
+
+    <p>Strip locale environment-variables, i.e., leaving only
+    POSIX, and run a command.</p>
+
+    <h3><a name="item:noterm" id=
+    "item:noterm"><code>noterm</code></a></h3>
+
+    <p>Strip all terminfo/termcap variables from environment, run
+    command.</p>
+
+    <h3><a name="item:remake" id=
+    "item:remake"><code>remake</code></a></h3>
+
+    <p>Remove makefile target (e.g., an object file) and run
+    <code>make</code> to recreate it.</p>
+
+    <h3><a name="item:report-linux-consolefonts" id=
+    "item:report-linux-consolefonts"><code>report-linux-consolefonts</code></a></h3>
+
+    <p>For each "psf" font listed in /usr/share/consolefonts, make
+    a report showing which ISO-8859-x variants are covered, as well
+    as the line-drawing used by ncurses.</p>
+
+    <h3><a name="item:report-terminfo" id=
+    "item:report-terminfo"><code>report-terminfo</code></a></h3>
+
+    <p>Analyze one or more terminfo descriptions to get some useful
+    statistics. This assumes that you have tic, toe and
+    infocmp.</p>
+
+    <h3><a name="item:rpm-deps" id=
+    "item:rpm-deps"><code>rpm-deps</code></a></h3>
+
+    <p>For a given package, ask the question: what packages satisfy
+    its dependencies, and is there a
+    <em>&ldquo;provides&rdquo;</em> which can be used as an alias
+    for those.</p>
+
+    <h3><a name="item:script2log" id=
+    "item:script2log"><code>script2log</code></a></h3>
+
+    <p>Strips ANSI escape sequences and reduces
+    backspace/overstrikes.<br>
+    The script uses POSIX <a href=
+    "http://pubs.opengroup.org/onlinepubs/9699919799/utilities/sed.html">
+    sed</a>, which means that only <a href=
+    "http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap09.html#tag_09_03">
+    BREs</a> (Basic Regular Expressions) are permitted.<br>
+    I have tested this with FreeBSD 10, OpenBSD 5.3, Solaris 10 as
+    well as Debian 6 and later:</p>
+
+    <ul>
+      <li><a href="sample-scripts/script2log.html">command-line
+      utility</a></li>
+
+      <li><a href="sample-scripts/script2log.sed.html">sed-script
+      only</a></li>
+    </ul>
+
+    <p>Here are two examples, using "cat -v" to make the
+    nonprinting characters visible:</p>
+
+    <ul>
+      <li>
+        <p>manpage, using both SGR sequences for bold text, as well
+        as two variations on backspace/overstruck text<br>
+        <a href="sample-input/man-typescript.txt">input</a>
+        versus<br>
+        <a href="sample-output/man-typescript.txt">output</a>.</p>
+      </li>
+
+      <li>
+        <p>typescript using yum, which includes overstruck lines
+        using carriage returns (<code>^M</code>)<br>
+        <a href="sample-input/f21-typescript.txt">input</a>
+        versus<br>
+        <a href="sample-output/f21-typescript.txt">output</a>.</p>
+      </li>
+    </ul>
+
+    <h3><a name="item:show-dircolors" id=
+    "item:show-dircolors"><code>show-dircolors</code></a></h3>
+
+    <p>Read the database printed by &ldquo;dircolors -p&rdquo; and
+    show the different patterns with the indicated color by (as
+    done by GNU ls) using hardcoded SGR sequences.</p>
+
+    <p>The output can be viewed with &ldquo;less -R&rdquo;.</p>
+
+    <p>See <a href=
+    "https://stackoverflow.com/questions/40574819/how-to-remove-dir-background-in-ls-color-output/40575734#40575734">
+    my answer</a> using this script.</p>
+
+    <p>See <a href=
+    "http://askubuntu.com/questions/17299/what-do-the-different-colors-mean-in-the-terminal">
+    these alternatives</a> which use the <code>LS_COLORS</code>
+    variable.</p>
+
+    <h3><a name="item:show-linux-consolefonts" id=
+    "item:show-linux-consolefonts"><code>show-linux-consolefonts</code></a></h3>
+
+    <p>Successively load and display console fonts using either
+    showconsolefonts or a grid for the different ISO-8859-x locale
+    settings. Like the ncurses test-programs, provide for reading a
+    key for single-stepping or proceeding with a time-delay. It
+    does not use the perl Curses module, since that would interfere
+    with sending raw bytes to the screen.</p>
+
+    <h3><a name="item:sort-sources" id=
+    "item:sort-sources"><code>sort-sources</code></a></h3>
+
+    <p>Sort the list of parameters as if they are filenames
+    containing a version. I use this to sort the names of tar-balls
+    for my programs in builds as well as website maintenance.</p>
+
+    <p>By the way, I noticed a comment in <a href=
+    "http://unix.stackexchange.com/questions/185193/remove-the-low-version-number-of-file">
+    <em>remove the low version number of file</em></a> indicating
+    that GNU <code>ls</code> has a similar feature. However, the
+    rules for parsing the version are a little different, and in my
+    script the version number follows the program name.</p>
+
+    <h3><a name="item:touch-dirs" id=
+    "item:touch-dirs"><code>touch-dirs</code></a></h3>
+
+    <p>Recursively <a href=
+    "http://pubs.opengroup.org/onlinepubs/9699919799/utilities/touch.html">
+    touch</a> (change timestamps) on directories to reflect the
+    newest file inside the directory. I use this for tidying up
+    source-trees, e.g., as in the &ldquo;<code>-t</code>&rdquo;
+    option of <a href="#item:archive">archive</a> (which uses
+    <a href="/misc_tools/index.html#item:cpd">cpd</a>).</p>
+
+    <blockquote>
+      <p><a href="sample-scripts/touch-dirs.html">the script...</a></p>
+    </blockquote>
+
+    <p>Here are a few links which I found when looking for
+    comparable scripts or programs:</p>
+
+    <ul>
+      <li>
+        <p><a href=
+        "https://github.com/vaeth/mv_perl/blob/master/bin/touchdirs">
+        touchdirs</a>, also in Perl.</p>
+      </li>
+
+      <li>
+        <p><a href=
+        "http://www.autohotkey.com/board/topic/10601-touchdirs-update-modified-timestamps-of-a-direc/">
+        TouchDirs.ahk</a></p>
+      </li>
+    </ul>
+
+    <p>Oddly, most applications in this area simply update the
+    directories (and files) to the current date.</p>
+
+    <ul>
+      <li>
+        <p><a href=
+        "https://github.com/nickolasnikolic/PHPhoto/blob/master/portfolio/touchDirs.sh">
+        touchDirs.sh</a></p>
+      </li>
+
+      <li>
+        <p><a href=
+        "https://wush.net/svn/mindprod/com/mindprod/filetimes/TouchDirs.java">
+        TouchDirs.java</a></p>
+      </li>
+    </ul>
+
+    <h3><a name="item:with-locale" id=
+    "item:with-locale"><code>with-locale</code></a></h3>
+
+    <p>Run a command with the given locale. The first parameter is
+    the locale to use. The remaining parameters are the command to
+    run.</p>
+  </blockquote>
+
+  <h2><a name="git_scripts" id="git_scripts">Git(hub) Scripts</a></h2>
+
+  <p>I wrote these scripts to provide a way to export information
+  from my RCS archives to Git, starting in July 2016 (see <a href=
+  "/personal/git-exports.html">Git exports</a>):</p>
+
+  <blockquote>
+    <h3><a name="item:bundle2github" id=
+    "item:bundle2github"><code>bundle2github</code></a></h3>
+
+    <p>Upload a Git bundle to <a href=
+    "https://github.com/ThomasDickey/"><strong>github</strong></a>
+    in my <em>"testing"</em> repository. That can be renamed, to
+    provide a <em>"readonly"</em> snapshot.</p>
+
+    <h3><a name="item:compare-manifests" id=
+    "item:compare-manifests"><code>compare-manifests</code></a></h3>
+
+    <p>For a given project, use <a href=
+    "#item:release2git"><code>release2git -R</code></a> to find its
+    labeled releases, and generate a <a href=
+    "#item:manifest">manifest-file</a> for each of these. Discount
+    the first line, and compare successive files to identify
+    changes from one release to the next.</p>
+
+    <h3><a name="item:gimme-git" id=
+    "item:gimme-git"><code>gimme-git</code></a></h3>
+
+    <p>For the given directories, fetch current Git. The script
+    also calls <a href=
+    "#item:git-utimes"><code>git-utimes</code></a> to set file
+    timestamps to correspond to their last commit-date.</p>
+
+    <p>Although Git is &ldquo;distributed&rdquo; that ignores
+    performance. For useful results, you need a copy of each
+    repository on a local machine (just like RCS!). I use this
+    script with about 200 repositories that are related to my
+    work.</p>
+
+    <h3><a name="item:git-stats" id=
+    "item:git-stats"><code>git-stats</code></a></h3>
+
+    <p>Make a summary report for files stored in Git, showing the
+    number of commits, and amount of change for each committer.</p>
+
+    <p>This script uses the Perl module <a href=
+    "https://metacpan.org/pod/Text::CharWidth">Text::CharWidth</a>,
+    because author names in Git are in UTF-8 (not US-ASCII).
+    Interestingly enough, Perl does not appear to have an
+    equivalent to <tt>wcwidth</tt> in its main distribution.</p>
+
+    <p>Here is part of the script's output (20 of 513 lines) for
+    the gnome-settings-daemon:</p>
+
+    <blockquote>
+      <pre>
+Author                              Files  Commits  Inserts  Deletes
+A S Alam                                1       22    10784     7787
+Aaron Plattner                          2        2      205       10
+Abderrahim Kitouni                      1        1        2        1
+Abduxukur Abdurixit                     1        2     3074     2333
+Adam Dingle                             1        1        0        1
+Adam Jackson                            1        1       18        0
+Adam Matou&scaron;ek                           1        1     1341     1657
+Adel Gadllah                            2        1       22        7
+...
+vasudeven                               1        2      225      141
+&#381;ygimantas Beru&#269;ka                      1        2     2268     1837
+&Gamma;&iota;&#940;&nu;&nu;&eta;&sigmaf; &Kappa;&omicron;&upsilon;&tau;&sigma;&omicron;&#973;&kappa;&omicron;&sigmaf;                      1        1      652      741
+&Gamma;&iota;&#974;&rho;&gamma;&omicron;&sigmaf; &Sigma;&tau;&epsilon;&phi;&alpha;&nu;&#940;&nu;&eta;&sigmaf;                      1        1      620      188
+&#1052;&#1072;&#1088;&#1082;&#1086; &#1050;&#1086;&#1089;&#1090;&#1080;&#1115;                            1        4      769      859
+&#1052;&#1080;&#1083;&#1086;&#1096; &#1055;&#1086;&#1087;&#1086;&#1074;&#1080;&#1115;                           2        4     1814     1489
+&#1052;&#1080;&#1088;&#1086;&#1089;&#1083;&#1072;&#1074; &#1053;&#1080;&#1082;&#1086;&#1083;&#1080;&#1115;                        2       22    27259    23656
+&#1056;&#1086;&#1084;&#1072;&#1085; &#1044;&#1086;&#1085;&#1095;&#1077;&#1085;&#1082;&#1086;                          2        3       16       15
+&#2751;&#2751;&#2742;&#2750;&#2738; &#2733;&#2738;&#2750;&#2723;&#2752;                             1        1      623      788
+&#29976;&#38706;(Gan  Lu)                           1        1      918     1035
+TOTAL                                 990     6507  1550730  1162857
+</pre>
+    </blockquote>
+
+    <p>Your browser probably does not render this properly (expect
+    problems with fixed-pitch Unicode), but it displays correctly
+    in xterm:</p>
+
+    <blockquote>
+      <p><a href="/scripts/git-stats.png"><img width="700" src=
+      "/scripts/git-stats.png" alt=
+      "git-stats &ndash; screenshot in xterm"></a></p>
+    </blockquote>
+
+    <h3><a name="item:git-utimes" id=
+    "item:git-utimes"><code>git-utimes</code></a></h3>
+
+    <p>Update file timestamps to their last commit date/time. This
+    is modified from the version written by <a href=
+    "https://stackoverflow.com/a/39192796/4518274">Tom
+    Christiansen</a>: the initial import of some Git's doesn't fit
+    pattern.</p>
+
+    <h3><a name="item:rcs2git" id=
+    "item:rcs2git"><code>rcs2git</code></a></h3>
+
+    <p>Initial script, using my modifications to <a href=
+    "https://github.com/Oblomov/rcs-fast-export"><code>rcs-fast-export</code></a>
+    to export snapshots of <a href="/mawk/mawk.html">mawk</a>.</p>
+
+    <h3><a name="item:release2git" id=
+    "item:release2git"><code>release2git</code></a></h3>
+
+    <p>Rather than attempt to export an RCS archive to Git using
+    <code>rcs-fast-export.rb</code> (and have to do this
+    repeatedly), analyze an RCS archive and apply release snapshots
+    to a Git-ball incrementally. That loses most metadata (such as
+    the individual file timestamps, comments, etc), but should work
+    even with my larger archives.</p>
+
+    <h3><a name="item:resync-git" id=
+    "item:resync-git"><code>resync-git</code></a></h3>
+
+    <p>I use this for merging changes from a separate
+    <em>upstream</em> repository, into my repository's
+    <em>master</em> branch.</p>
+
+    <h3><a name="item:tag-cutoff" id=
+    "item:tag-cutoff"><code>tag-cutoff</code></a></h3>
+
+    <p>Use <a href="#item:release2git"><code>release2git</code></a>
+    to obtain a list of versions and files for a given cutoff date,
+    and apply a label to that based on the cutoff date.</p>
+  </blockquote>
+
+  <h2><a name="mapsym_scripts" id=
+  "mapsym_scripts">Symbol-versioning</a></h2>
+
+  <p>I wrote these scripts to support generating map- and sym-files
+  for ncurses6 symbol versioning:</p>
+
+  <blockquote>
+    <h3><a name="item:analyze-curses-symbols" id=
+    "item:analyze-curses-symbols"><code>analyze-curses-symbols</code></a></h3>
+
+    <p>Count symbol usage for the given executables, and summarize
+    their usage with categories for these types:</p>
+
+    <ul>
+      <li>ncurses (if using ncurses extension)</li>
+
+      <li>curses (if not using ncurses extension)</li>
+
+      <li>wide(curses/ncurses)</li>
+
+      <li>termcap</li>
+
+      <li>terminfo</li>
+
+      <li>slang</li>
+    </ul>
+
+    <h3><a name="item:compare-mapsyms" id=
+    "item:compare-mapsyms"><code>compare-mapsyms</code></a></h3>
+
+    <p>Compare two &ldquo;.map&rdquo; files, generate a report
+    showing the number of symbols added, deleted or renamed. A
+    &ldquo;renamed&rdquo; symbol is one whose scope differs or is
+    in a different version (the numeric plus &ldquo;.&rdquo; part
+    on the end of the label).</p>
+
+    <p>Optionally show only the number of symbols changed.</p>
+
+    <h3><a name="item:dlg-symbols" id=
+    "item:dlg-symbols"><code>dlg-symbols</code></a></h3>
+
+    <p>Extract symbols from a given patch-date for <a href=
+    "/dialog/dialog.html">dialog</a>.</p>
+
+    <h3><a name="item:needed-syms" id=
+    "item:needed-syms"><code>needed-syms</code></a></h3>
+
+    <p>Inspect the given (build-)tree for libraries and programs,
+    determining which symbols exported by the libraries are needed
+    by other libraries or the found programs. Print a list showing
+    the symbols, where they are declared, and their needed status
+    (global or local).</p>
+
+    <h3><a name="item:ncu-mapsyms" id=
+    "item:ncu-mapsyms"><code>ncu-mapsyms</code></a></h3>
+
+    <p>Using <a href=
+    "#item:needed-syms"><code>needed-syms</code></a>, construct
+    &ldquo;.map&rdquo; and &ldquo;.sym&rdquo; files for the current
+    build-tree's configuration of ncurses.</p>
+
+    <p>The &ldquo;.sym&rdquo; files are trivial &ndash; a comment
+    header telling what options were used to generate the
+    configuration, and a sorted list of symbols.</p>
+
+    <p>The &ldquo;.map&rdquo; files require special effort, because
+    they are constructed as a series of version-nodes. So... to
+    generate a new one requires us to read the existing
+    &ldquo;.map&rdquo; file to relate the symbols' version and
+    scope to the previous version.</p>
+
+    <p>To allow for symbols being in termlib/ticlib/ncurses, always
+    generate the names as if they were in the separate library.
+    Doing this allows splitting the map-file into parts and
+    (possibly) making it work with Solaris, which does not accept a
+    map-file declaring a symbol not in the library.</p>
+
+    <h3><a name="item:ncu-symbols" id=
+    "item:ncu-symbols"><code>ncu-symbols</code></a></h3>
+
+    <p>Successively build ncurses for release-dates with several
+    combinations of configure options and merge the result to
+    generate usable map- and sym-files.</p>
+
+    <h3><a name="item:report-mapsyms" id=
+    "item:report-mapsyms"><code>report-mapsyms</code></a></h3>
+
+    <p>Read one or more &ldquo;.map&rdquo; files, generate a report
+    showing</p>
+
+    <ul>
+      <li>scope (global or local)</li>
+
+      <li>symbol</li>
+
+      <li>node-label</li>
+    </ul>
+
+    <p>Optionally show only the number of symbols in each
+    scope.</p>
+  </blockquote>
+
+  <h2><a name="others_scripts" id="others_scripts">Other
+  Scripts</a></h2>
+
+  <p>Here are some scripts written by others which I have
+  modified.<br>
+  In particular, those using a restrictive license (e.g., GPL) are
+  not bundled with the others:</p>
+
+  <blockquote>
+    <h3><a name="item:altchars" id=
+    "item:altchars"><code>altchars</code></a></h3>
+
+    <p>This is a slightly-modified copy of <code>altchars</code> by
+    John H. Dubois III (from <a href=
+    "http://www.armory.com/~ftp/">here</a>). The original script
+    carries forward a documentation error from AT&amp;T, for the
+    <em>lantern</em> pseudo-graphics character which was fixed in
+    ncurses in <a href="/ncurses/NEWS.html#t971004">1997</a> as a
+    result of work on <a href="/lynx/lynx.html">lynx</a>.</p>
+
+    <h3><a name="item:gnathtml" id=
+    "item:gnathtml"><code>gnathtml</code></a></h3>
+
+    <p>Starting in <a href="/ncurses/NEWS.html#t20000610">2000</a>
+    (for ncurses Ada95 binding), I have modified this script to
+    make the generated HTML <em>validate</em>, as well as to use
+    CSS. (The script is originally from <a href=
+    "https://docs.adacore.com/gnat_ugn-docs/html/gnat_ugn/gnat_ugn/gnat_utility_programs.html">
+    gnat</a>, but unmaintained).</p>
+
+    <h3><a name="item:linklint" id=
+    "item:linklint"><code>linklint</code></a></h3>
+
+    <p>I use <code>linklint</code>, but (see <a href=
+    "http://www.linklint.org/">this</a>) it has been unmaintained
+    since around 2001. For example, see the Debian <a href=
+    "https://bugs.debian.org/cgi-bin/pkgreport.cgi?package=linklint;dist=unstable">
+    bug-reporting system</a>. As of early 2016, I have fixed most
+    of the problems which affect me:</p>
+
+    <ul>
+      <li>flush stderr/stdout, so I can pipe result inside <a href=
+      "/vile/vile.html">vile</a></li>
+
+      <li>change <code>%20</code>'s back to spaces to check for
+      actual files with spaces</li>
+
+      <li>&lt;a&gt;-tags are not the only things that can have
+      <code>id</code>'s or <code>name</code>'s for
+      <code>href</code></li>
+    </ul>
+
+    <h3><a name="item:man2html" id=
+    "item:man2html"><code>man2html</code></a></h3>
+
+    <p>This is an improved version of Earl Hood's
+    <code>man2html</code> Perl script (see <a href=
+    "/scripts/man2html.html">my expanded page on the
+    topic</a>).</p>
+
+    <h3><a name="item:rcs2log" id=
+    "item:rcs2log"><code>rcs2log</code></a></h3>
+
+    <p>I modified this script in 2003 (it was originally from
+    emacs, but unmaintained):</p>
+
+    <ul>
+      <li>to allow for symbolic links to RCS directories, e.g., for
+      <a href=
+      "/ded/manpage/link2rcs.html"><code>link2rcs</code></a>.</li>
+
+      <li>to avoid using bogus hostname for authors</li>
+    </ul>
+
+    <h3><a name="item:unrpm" id="item:unrpm"><code>unrpm</code></a></h3>
+
+    <p>This is a wrapper for <a href=
+    "http://www.rpm.org/max-rpm/s1-rpm-miscellania-rpm2cpio.html"><code>
+    rpm2cpio</code></a> which makes it easier to use. There
+    actually is more than one script named
+    &ldquo;<code>unrpm</code>&rdquo; &mdash; this is the
+    best-known, and was seen in a posting to the
+    <em>fedora-legacy</em> mailing list in <a href=
+    "http://www.redhat.com/archives/fedora-legacy-list/2004-February/msg00132.html">
+    2004</a>, stating that it came from the
+    <code>fedora-rpmdevtools</code> package. According to the
+    package's <a href=
+    "http://www.rpm-find.net/linux/RPM/archive.fedoraproject.org/fedora/linux/extras/3/i386/fedora-rpmdevtools-1.4-1.fc3.noarch.html">
+    changelog</a>, it was removed in 2005.</p>
+
+    <h3><a name="item:xcutselprint" id=
+    "item:xcutselprint">xcutselprint</a></h3>
+
+    <p>This is useful for <a href="/xterm/xterm.html">xterm</a>
+    testing, found in Debian <a href=
+    "https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=588785">#588785</a>
+    (from <code>http://lindi.iki.fi/lindi/xcutselprint</code>).</p>
+  </blockquote>
+
+  <h2 id="changes-h2"><a name="changes" id="changes">Changes</a></h2>
+
+  <p>The scripts on this page are a small subset of my collection.
+  I use (predictably) another script to put together the tarballs
+  as well as creating the changelogs on this page (with the help of
+  <a href="#item:rcs2log">rcs2log</a>).</p>
+
+  <ul>
+    <li><a href=
+    "/scripts/buildscripts/CHANGES.html">Build/general</a> <a href=
+    "/scripts/buildscripts/CHANGES">(plain)</a></li>
+
+    <li><a href=
+    "/scripts/misc-scripts/CHANGES.html">Special-purpose</a>
+    <a href="/scripts/misc-scripts/CHANGES">(plain)</a></li>
+
+    <li><a href="/scripts/github-scripts/CHANGES.html">Git(hub)</a>
+    <a href="/scripts/github-scripts/CHANGES">(plain)</a></li>
+
+    <li><a href=
+    "/scripts/mapsym-scripts/CHANGES.html">Map/Symbol</a> <a href=
+    "/scripts/mapsym-scripts/CHANGES">(plain)</a></li>
+
+    <li><a href="/scripts/other-scripts/CHANGES.html">Other
+    scripts</a> <a href=
+    "/scripts/other-scripts/CHANGES">(plain)</a></li>
+  </ul>
+
+  <p>The "RCS_BASE" comment denotes the initial check-in using my
+  <a href="/ded/cm_tools.html">RCS wrappers</a>. Those preserve the
+  modification time of the file, which in some cases predates the
+  system where I keep these files.</p>
+
+  <p>In a few cases (such as <a href="#item:path">path</a>), I had
+  created the script several years before. However, when I left the
+  Software Productivity Consortium, I did not make a copy of the
+  RCS archive for my general-purpose scripts (unlike <a href=
+  "/ded/ded.html">ded</a> and its friends). When moving to
+  different projects, <a href="#item:path">path</a> is something
+  that I need immediately; the source-controlled version tends to
+  lag.</p>
+
+  <h2 id="download-h2"><a name="download" id=
+  "download">Download</a></h2>
+
+  <h3 id="current-h3"><a name="download-current" id=
+  "download-current">Current</a></h3>
+
+  <ul>
+    <li>Build/general <a href=
+    "/datafiles/release/buildscripts.tar.gz">buildscripts.tar.gz</a></li>
+
+    <li>Special-purpose <a href=
+    "/datafiles/release/misc-scripts.tar.gz">misc-scripts.tar.gz</a></li>
+
+    <li>Git(hub) <a href=
+    "/datafiles/release/github-scripts.tar.gz">github-scripts.tar.gz</a></li>
+
+    <li>Map/Symbol <a href=
+    "/datafiles/release/mapsym-scripts.tar.gz">mapsym-scripts.tar.gz</a></li>
+
+    <li>Other scripts <a href=
+    "/datafiles/release/other-scripts.tar.gz">other-scripts.tar.gz</a></li>
+  </ul>
+
+  <h3 id="archives-h3"><a name="download-archives" id=
+  "download-archives">Archives</a></h3>
+
+  <p>Older versions <a href="/archives/scripts/">(archives)</a></p>
+</body>
+</html>

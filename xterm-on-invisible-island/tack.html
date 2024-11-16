@@ -1,0 +1,646 @@
+<!--
+  @Id: tack.html,v 1.42 2017/08/08 20:44:30 tom Exp @
+  -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0">
+  <title>TACK &mdash; terminfo action checker</title>
+  <link rel="author" href="mailto:dickey@invisible-island.net">
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii">
+  <link rel="SHORTCUT ICON" href="/img/icons/vile.ico" type=
+  "image/x-icon">
+  <link rel="stylesheet" href="/css/simplestyle.css" type=
+  "text/css">
+  <style type="text/css">
+  @import "/css/simplenavXX.css" all;
+  </style>
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1">
+</head>
+<body>
+  <hr>
+
+  <p><a href="/">http://invisible-island.net/</a><a href=
+  "/ncurses/">ncurses/</a><br>
+  Copyright &copy; 2011-2018,2022 by Thomas E. Dickey</p>
+
+  <hr>
+
+  <div class="nav">
+    <ul>
+      <li class="nav-top"><a href="/ncurses/tack.html">(top)</a></li>
+
+      <li><a href="#synopsis">Synopsis</a></li>
+
+      <li><a href="#history">History</a></li>
+
+      <li><a href="#license">License versus Packaging</a></li>
+
+      <li><a href="#portable">Portability Issues</a></li>
+
+      <li><a href="#bugreports">Bug Reports</a></li>
+
+      <li><a href="#documentation">Documentation</a></li>
+
+      <li><a href="#download">Download</a></li>
+
+      <li>
+        <a href="#related">Related Links</a>
+        <ul>
+          <li><a href="#related_prgs">Terminal Testing</a></li>
+
+          <li><a href="#related_pkgs">Packages</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2 id="synopsis-toc"><a name="synopsis" id=
+  "synopsis">Synopsis</a></h2>
+
+  <p><strong>Tack</strong> is a program that can be used to verify
+  or refine a terminfo (terminal information) description of a
+  terminal.</p>
+
+  <h2 id="history-toc"><a name="history" id="history">History</a></h2>
+
+  <p>The program's early history is summarized in the HISTORY file
+  in the sources:</p>
+
+  <ul>
+    <li>Daniel Weaver had started the program in 1991 (posted to
+    <a href=
+    "http://ftp.fi.netbsd.org/pub/misc/archive/comp.sources.misc/volume25/ted/">
+    volume 25</a> of comp.sources.misc),</li>
+
+    <li>briefly collaborated with Eric Raymond in 1995 (who wrote
+    more than half of the manpage, as well as making the initial
+    conversion from K&amp;R&nbsp;C to ANSI), and then</li>
+
+    <li>revised/rewrote the program in 1997, using private
+    functions from the <strong>ncurses</strong> library such as
+    those used by <strong>infocmp</strong> to format strings for
+    display.</li>
+  </ul>
+
+  <p>Daniel Weaver sent me email in <a href=
+  "/ncurses/ncurses-license.html#October_1997">October 1997</a>,
+  suggesting that it might be incorporated into the
+  <strong>ncurses</strong> project. We discussed this over the next
+  few months, with an unexpected conclusion: RMS persuaded Daniel
+  Weaver to GPL-license <strong>tack</strong>.</p>
+
+  <p>Based on Daniel's initial request, I agreed to make some minor
+  changes to <strong>ncurses</strong> to allow
+  <strong>tack</strong> to use some of the undocumented entrypoints
+  and symbols in the <strong>ncurses</strong> library.</p>
+
+  <h2 id="license-toc"><a name="license" id="license">License
+  versus Packaging</a></h2>
+
+  <p>Given suitable disclaimers, RMS saw no problem in distributing
+  <strong>tack</strong> along with <strong>ncurses</strong>. So I
+  agreed to do this.</p>
+
+  <p>I added <strong>tack</strong> to the <strong>ncurses</strong>
+  snapshots starting in <a href="/ncurses/NEWS.html#t990417">April
+  1999</a>, noting in the NEWS file that it is not part of
+  <strong>ncurses</strong>.</p>
+
+  <p>I designed the <strong>ncurses</strong> configure script so
+  that it would check for the existence of the tack subdirectory
+  before deciding whether to build it. Thus, <strong>tack</strong>
+  was simply bundled into the same tar ball, and since it was
+  clearly marked as not being part of <strong>ncurses</strong>, it
+  was not a problem for <strong>ncurses</strong> for some time.</p>
+
+  <p>Due to its license difference versus <strong>ncurses</strong>,
+  I made relatively few changes to <strong>tack</strong> for some
+  time (932 insertions, 653 deletions, less than 10% of the
+  program). Like the <a href="/ncurses/ncurses-Ada95.html">Ada95
+  binding</a> and terminfo database, <strong>tack</strong> resides
+  in a separate source archive. However, there is a break in its
+  change-log, since it was maintained for some time within the
+  <strong>ncurses</strong> source repository.</p>
+
+  <p>However, early in 2007 I happened to notice more than one of
+  my programs marked with an incorrect license, e.g., <a href=
+  "/diffstat/diffstat.html">diffstat</a> and <a href=
+  "/xterm/xterm.html">xterm</a> both as "GPL". That prompted me to
+  look for more cases, and I found several. One was
+  <strong>tack</strong> (more than one instance).</p>
+
+  <p>I discussed this with the package maintainers, pointing out
+  that</p>
+
+  <ul>
+    <li><strong>ncurses</strong> did not have any technical
+    dependencies upon <strong>tack</strong>; it does not borrow
+    code from <strong>tack</strong>, will build without
+    <strong>tack</strong>, etc.</li>
+
+    <li>in one case (OpenSUSE), <strong>tack</strong> was not even
+    mentioned in the package description. For instance, <a href=
+    "http://www.novell.com/products/linuxpackages/suselinux/ncurses.html">
+    this link</a> (as of March 2012) still points to openSUSE
+    10.3's ncurses-5.6-41 package, which does not list the program.
+    But the <strong>ncurses</strong> package was labeled "GPL". I
+    was told that the reason for this was that
+    <strong>tack</strong> was included in the <a href=
+    "http://www.novell.com/products/linuxpackages/suselinux/ncurses-devel.html">
+    ncurses-devel</a> package</li>
+  </ul>
+
+  <p>During the discussion I noted that <strong>tack</strong>
+  relied on being built within the <strong>ncurses</strong> source
+  tree. For one packager, it was enough to provide a way to build
+  it outside the tree (done <a href=
+  "/ncurses/NEWS.html#t20070113">January 2007</a>. That did not
+  work for openSUSE, so I removed <strong>tack</strong> from the
+  <strong>ncurses</strong> tree <a href=
+  "/ncurses/NEWS.html#t20070203">a few weeks later</a>.</p>
+
+  <p>After further discussion, openSUSE moved <strong>tack</strong>
+  to its own package, as shown <a href=
+  "http://www.novell.com/products/linuxpackages/suselinux/tack.html">
+  here</a>.</p>
+
+  <p>As the maintainer for <strong>tack</strong>, I cannot simply
+  remove it from <strong>ncurses</strong> without providing for
+  keeping it working. I wrote a configure script. Early on, Daniel
+  Weaver had proposed writing one, but that never happened, since
+  we integrated it directly as a subdirectory of the
+  <strong>ncurses</strong> tree. To make <strong>tack</strong>
+  build outside the <strong>ncurses</strong> tree (and also address
+  the concerns of packagers such as openSUSE who did not want to
+  revise their packages), there were several things to
+  consider:</p>
+
+  <ul>
+    <li>The sources for <strong>tack</strong> should work as a
+    subdirectory.</li>
+
+    <li>The sources for <strong>tack</strong> should work
+    stand-alone. Well, not entirely, since <strong>tack</strong>
+    uses private functions from <strong>ncurses</strong>.</li>
+
+    <li>Those private functions are undocumented (intentionally),
+    and their prototypes were not listed in any header file
+    installed by the <strong>ncurses</strong> makefiles.</li>
+
+    <li>At the time, I was working on the beginning of the threaded
+    code support for <strong>ncurses</strong>, and had realized
+    that a good way to organize the result would be to allow
+    configuring three libraries:
+      <dl>
+        <dt>libtic</dt>
+
+        <dd>no reason to be thread-safe.</dd>
+
+        <dt>libncurses</dt>
+
+        <dd>the focus of thread-safe changes</dd>
+
+        <dt>libtinfo</dt>
+
+        <dd>internals which would be hidden by mutex's'.</dd>
+      </dl>
+    </li>
+
+    <li>Even without the threaded code support, splitting off
+    libtic into its own package makes sense, because only a few
+    programs use that. <strong>Tack</strong> would be one of those,
+    and could use the same header files that <strong>tic</strong>
+    and <strong>infocmp</strong> use.</li>
+
+    <li>I preferred to not suddenly introduce several new header
+    files to those that the <strong>ncurses</strong> package
+    installs. The extra header files are installed only when libtic
+    is configured.</li>
+  </ul>
+
+  <p>Depending on the system and configuration,
+  <strong>tack</strong> may use several private symbols from the
+  <strong>ncurses</strong> library:</p>
+
+  <table summary="Private Entrypoints Used By TACK" border="1">
+    <tr>
+      <th>Symbol</th>
+      <th>First used</th>
+      <th>Optional library</th>
+    </tr>
+
+    <tr>
+      <td>_nc_copy_termtype</td>
+      <td>2006/06/24</td>
+      <td>ncurses, tinfo</td>
+    </tr>
+
+    <tr>
+      <td>_nc_fallback</td>
+      <td>2007/01/28</td>
+      <td>ncurses, tinfo</td>
+    </tr>
+
+    <tr>
+      <td>_nc_find_entry</td>
+      <td>1.00 (1997)</td>
+      <td>ncurses, tinfo</td>
+    </tr>
+
+    <tr>
+      <td>_nc_free_termtype</td>
+      <td>2007/04/08</td>
+      <td>ncurses, tinfo</td>
+    </tr>
+
+    <tr>
+      <td>_nc_free_tic</td>
+      <td>2007/04/08</td>
+      <td>ncurses, tic</td>
+    </tr>
+
+    <tr>
+      <td>cur_term or _nc_get_curterm</td>
+      <td>1.00 (1997)</td>
+      <td>ncurses, tinfo</td>
+    </tr>
+
+    <tr>
+      <td>_nc_get_hash_table</td>
+      <td>1.00 (1997)</td>
+      <td>ncurses, tinfo</td>
+    </tr>
+
+    <tr>
+      <td>_nc_get_tty_mode</td>
+      <td>1999/02/07</td>
+      <td>ncurses, tinfo</td>
+    </tr>
+
+    <tr>
+      <td>_nc_init_acs</td>
+      <td>2006/11/25</td>
+      <td>ncurses, tinfo</td>
+    </tr>
+
+    <tr>
+      <td>_nc_read_entry</td>
+      <td>1.00 (1997)</td>
+      <td>ncurses, tinfo</td>
+    </tr>
+
+    <tr>
+      <td>_nc_reset_input</td>
+      <td>1.00 (1997)</td>
+      <td>ncurses, tic</td>
+    </tr>
+
+    <tr>
+      <td>_nc_strstr</td>
+      <td>2007/01/28</td>
+      <td>ncurses, tinfo</td>
+    </tr>
+
+    <tr>
+      <td>_nc_tic_expand</td>
+      <td>1.00 (1997)</td>
+      <td>ncurses, tic</td>
+    </tr>
+
+    <tr>
+      <td>_nc_trans_string</td>
+      <td>1.00 (1997)</td>
+      <td>ncurses, tic</td>
+    </tr>
+  </table>
+
+  <p>That is, the list doubled in size since the first release of
+  <strong>tack</strong>. I added a third of the entrypoints to this
+  list after moving <strong>tack</strong> from the
+  <strong>ncurses</strong> snapshots to a separate tarball.</p>
+
+  <hr>
+
+  <p>Packaging does not stop with a configure script. Starting in
+  early 2010, I began creating package scripts (RPM and Debian) for
+  most of the programs that I maintain. Those use a more restricted
+  build environment than the other test-builds, and help me see
+  dependency issues from the packager's perspective. I added that
+  to <strong>tack</strong> in September 2010. But right before
+  that, I spent some time on code-cleanup, and reformatted it
+  throughout with the same <a href=
+  "/cindent/cindent.html">indentation</a> as that which I use in
+  other programs.</p>
+
+  <h2><a name="portable" id="portable">Portability Issues</a></h2>
+
+  <p>I revisited the problems raised by <strong>tack</strong>'s use
+  of <strong>ncurses</strong>'s internal interfaces while preparing
+  the release for ncurses 6.1 in mid-2017. In that release, I
+  extended the <code>TERMINAL</code> data structure, adding a new
+  <code>TERMTYPE2</code> to hold &ldquo;extended numbers&rdquo;
+  (larger than 32768). That changed the size of
+  <code>TERMINAL</code>, which would not be a problem for
+  applications that used the documented API. To discourage
+  developers from using the details (including the size) of this
+  structure, I made it <em>opaque</em>. <strong>Tack</strong> was
+  using <code>TERMINAL</code> directly to modify the terminal I/O
+  modes. There is an API for that; modifying <strong>tack</strong>
+  was simple.</p>
+
+  <p>Reconsidering it, eliminating the use of
+  <strong>ncurses</strong> internals would be an improvement.
+  Daniel Weaver had indicated that he used these functions mainly
+  for convenience. In practice, that was partly true:</p>
+
+  <ul>
+    <li>
+      <p>Initially, <strong>tack</strong> no longer used
+      <code>_nc_get_tty_mode</code> or <code>_nc_strstr</code>. I
+      eliminated the former when making <code>TERMINAL</code>
+      opaque, and had discarded the latter in 2013.</p>
+
+      <p>The call to <code>_nc_get_curterm</code> went away in
+      1997, replaced by <code>_nc_get_tty_mode</code>.</p>
+    </li>
+
+    <li>
+      <p>Likewise, it had no valid need for
+      <code>_nc_init_acs</code>. According to Weaver's comment that
+      was done to ensure that the <code>acs_map[]</code> array was
+      initialized (so that its use of <em>curses</em> definitions
+      for line-drawing will work). I made <strong>tack</strong>
+      initialize the array itself.</p>
+    </li>
+
+    <li>
+      <p>Weaver used <code>_nc_read_entry</code> and
+      <code>_nc_fallback</code> to attempt to force the program to
+      ignore ncurses' termcap support. I discarded that; termcap
+      support is not common, and in any case there is no reason why
+      <strong>tack</strong> should not be able to use a valid
+      terminal description from ncurses's database.</p>
+
+      <p>Along with this, the program used ncurses's
+      <code>TERMTYPE</code> data structure to obtain the filename
+      from which the terminal description was read. I replaced that
+      with data from <a href=
+      "/ncurses/man/infocmp.1m.html">infocmp</a>, which provides
+      that information in a comment.</p>
+    </li>
+
+    <li>
+      <p><strong>Tack</strong> used <code>_nc_tic_expand</code> and
+      <code>_nc_trans_string</code> (along with
+      <code>_nc_reset_input</code>) to format and decode terminfo
+      capability strings. In our discussion, these had seemed the
+      basis of his comment about <em>convenience</em>. Those were
+      easily replaced by adapting (paring down to just terminfo)
+      the functions from ncurses.</p>
+    </li>
+  </ul>
+
+  <p>The calls to <code>_nc_free_termtype</code> and
+  <code>_nc_free_tic</code> would go away away easily once the
+  other functions were addressed. However, the remaining
+  functions:</p>
+
+  <blockquote>
+    <p><code>_nc_copy_termtype</code>, <code>_nc_find_entry</code>,
+    and <code>_nc_get_hash_table</code></p>
+  </blockquote>
+
+  <p>required some effort. Those were used to allow a user of
+  <strong>tack</strong> to modify a terminal capability in memory,
+  test the change and write the altered terminal description to a
+  file on exit. You can do this with ncurses, but not with other
+  implementations:</p>
+
+  <ul>
+    <li>X/Open Curses does not define an interface which would
+    allow you to modify the in-memory terminal description, nor did
+    SVr4 curses, etc.</li>
+
+    <li>There is more than one way with ncurses: the internal
+    <code>_nc_find_entry</code> function (used by <a href=
+    "/ncurses/man/tic.1m.html">tic</a>) and the arrays which
+    ncurses' <code>term.h</code> defines for the boolean, numeric
+    and string capabilities. Neither is a <em>defined</em>
+    interface, but they happen to work.</li>
+  </ul>
+
+  <p>Actually <code>term.h</code> is defined, but X/Open Curses
+  does not go into enough detail to ensure that different
+  implementations are compatible. Quoting from <em>Issue 7</em>,
+  X/Open Curses says</p>
+
+  <blockquote>
+    <pre class="code-block100">
+<strong>DESCRIPTION</strong>
+   The following data type is defined through <strong>typedef</strong>:
+
+   <strong>TERMINAL</strong> An opaque representation of the capabilities for a single terminal from the
+            <strong>terminfo</strong> database.
+
+   The <strong>&lt;term.h&gt;</strong> header provides a declaration for the following object: <em>cur_term</em>. It represents the
+   current terminal record from the <strong>terminfo</strong> database that the application has selected by calling
+   <em>set_curterm()</em>.
+
+   The <strong>&lt;term.h&gt;</strong> header defines the variable names listed in the <strong>Variable</strong> column in the table in
+   Section 7.1.3 (on page 342).
+</pre>
+  </blockquote>
+
+  <p>The table referred to is too long to quote here. It is the
+  basis for a large part of the <a href=
+  "/ncurses/man/terminfo.5.html">terminfo(5)</a> manual page, i.e.,
+  <a href=
+  "/ncurses/man/terminfo.5.html#h3-Predefined-Capabilities"><em>Predefined
+  Capabilities</em></a>. The manner in which the &ldquo;variable
+  names&rdquo; are related to <em>cur_term</em> (which happens to
+  point to a <em class="small-caps"><strong>TERMINAL</strong></em>
+  object) is left for the implementor. Oddly enough, the Unix
+  implementations that the writers had in mind all did it the same
+  way (either directly based on the AT&amp;T sources, or imitating
+  it). They could have been more specific. But ncurses and NetBSD
+  curses do it in two different ways. Both Unix and NetBSD have
+  (different) problems:</p>
+
+  <ul>
+    <li>
+      <p>Unix curses and ncurses <em>variable names</em> in
+      <code>term.h</code> are generated using a table with the
+      <em>long-name</em> (the variables), the <em>short-name</em>
+      (the usual terminfo name) and a <em>description</em>.</p>
+
+      <p>The table used in ncurses has additional columns for the
+      termcap names, and additional rows for capabilities observed
+      in Unix implementations which are not mentioned in X/Open
+      Curses.</p>
+    </li>
+
+    <li>
+      <p>While ncurses uses <em>arrays</em> for the boolean,
+      numeric and string-values, Unix curses uses structures that
+      cannot be indexed.</p>
+
+      <p>For example, Solaris' header file has definitions for
+      SVr2, to which are added SVr4 definitions. Those are more
+      descriptive, but not an array:</p>
+
+      <blockquote>
+        <pre class="code-block">
+#define key_c1                          CUR _Vr2_Bstrs._s143
+#define key_c3                          CUR _Vr2_Bstrs._s144
+#define prtr_non                        CUR _Vr2_Bstrs._s145
+#define char_padding                    CURS strs2._char_padding
+#define acs_chars                       CURS strs2._acs_chars
+#define plab_norm                       CURS strs2._plab_norm
+</pre>
+      </blockquote>
+
+      <p>The same set of definitions in ncurses uses array
+      entries:</p>
+
+      <blockquote>
+        <pre class="code-block">
+#define key_c1                         CUR Strings[142]
+#define key_c3                         CUR Strings[143]
+#define prtr_non                       CUR Strings[144]
+#define char_padding                   CUR Strings[145]
+#define acs_chars                      CUR Strings[146]
+#define plab_norm                      CUR Strings[147]
+</pre>
+      </blockquote>
+    </li>
+
+    <li>
+      <p>The definitions are useful for accessing
+      <em>individual</em> capabilities. A program which manipulates
+      <em>lists</em> of capabilities is far simpler if it can use
+      arrays.</p>
+
+      <p>SVr4 curses provided arrays of the capability names which
+      are used internally by the low-level <em><a href=
+      "/ncurses/man/curs_terminfo.3x.html#h3-Terminal-Capability-Functions">
+      terminal capability functions</a></em>. While the Unix
+      systems still have these arrays, X/Open Curses does not
+      mention them. To comply with that, HPUX dropped the
+      definitions from the header-files.</p>
+    </li>
+  </ul>
+
+  <p>Complying to a standard by eliminating features is not very
+  productive. The feature is supported in ncurses; the array
+  indexes for the names match the indexes used for the variables
+  defined in <code>term.h</code>.</p>
+
+  <p>Without arrays, <strong>tack</strong> cannot edit the terminfo
+  data unless someone builds a large table to relate the structures
+  to the capability names.</p>
+
+  <p>The problem with NetBSD is similar: it has arrays of
+  capabilities, but no arrays of names. Editing the terminfo data
+  as done in <strong>tack</strong> with NetBSD is not possible,
+  since the developer declared all of the terminfo
+  <em>variables</em> as <code>const</code> (i.e., <em style=
+  "text-decoration:underline">symbols</em> rather than <em style=
+  "text-decoration:underline">variables</em>).</p>
+
+  <p>Working within these limitations, I</p>
+
+  <ul>
+    <li>
+      <p>replaced the <code>_nc_find_entry</code> and and
+      <code>_nc_get_hash_table</code> functions with new functions
+      using a similar table generated at compile-time using the
+      Unix and ncurses arrays of names, and</p>
+    </li>
+
+    <li>
+      <p>wrote a replacement for <code>_nc_copy_termtype</code>,
+      without using any details of ncurses except for the (visible)
+      <code>TERMTYPE</code> structure.</p>
+    </li>
+  </ul>
+
+  <p>NetBSD has no array of names. I constructed a workable table
+  at runtime using the output of <code>infocmp</code>. This is
+  necessarily more limited than that built with Unix curses, since
+  <strong>tack</strong> would not be able to determine the datatype
+  for cancelled capabilities.</p>
+
+  <p>For a fully functional <strong>tack</strong>, you will need
+  the ncurses version, since neither Unix nor NetBSD provide the
+  ability to modify terminal capabilities readily at runtime.
+  Likewise, the test-screens for padding rely on the ability to
+  modify the terminal capabilities.</p>
+
+  <h2><a id="bugreports" name="bugreports">Bug Reports</a></h2>
+
+  <p>You should report bugs either to <a href=
+  "mailto:dickey@invisible-island.net">me</a>. or to the ncurses
+  mailing list <a href=
+  "mailto:bug-ncurses@gnu.org">bug-ncurses@gnu.org</a>.</p>
+
+  <p>See the <a href=
+  "/ncurses/ncurses.faq.html#report_bugs">ncurses FAQ</a></p>
+
+  <h2 id="documentation-toc"><a name="documentation" id=
+  "documentation">Documentation</a></h2>
+
+  <ul>
+    <li>changes: <a href="/ncurses/tack/CHANGES.html">html</a>
+    (<a href="/ncurses/tack/CHANGES">plain text</a>)</li>
+
+    <li>manual: <a href="/ncurses/tack/tack.html">html</a>
+    (<a href="/ncurses/tack/tack.pdf">pdf</a>) (<a href=
+    "/ncurses/tack/tack.ps">postscript</a>) (<a href=
+    "/ncurses/tack/tack.txt">plain text</a>)</li>
+  </ul>
+
+  <hr>
+
+  <h2 id="download-toc"><a name="download" id=
+  "download">Download</a></h2>
+
+  <ul>
+    <li><a href="/datafiles/release/tack.tar.gz">The release
+    <strong>tack</strong> source</a></li>
+
+    <li><a href="/datafiles/current/tack.tar.gz">The development
+    <strong>tack</strong> source</a></li>
+  </ul>
+
+  <h2 id="related-toc"><a name="related" id="related">Related
+  Links</a></h2>
+
+  <h3 id="related_prgs-toc"><a name="related_prgs" id=
+  "related_prgs">Terminal Testing</a></h3>
+
+  <ul>
+    <li><a href="/ncurses/tctest.html">tctest</a> (termcap
+    testing)</li>
+
+    <li><a href="/vttest/vttest.html">vttest</a> (VT100/XTerm
+    terminal testing)</li>
+  </ul>
+
+  <h3 id="related_pkgs-toc"><a name="related_pkgs" id=
+  "related_pkgs">Packages</a></h3>
+
+  <ul>
+    <li><a href=
+    "http://packages.debian.org/search?searchon=names&amp;keywords=tack">
+    Debian</a></li>
+
+    <li><a href=
+    "http://rpmfind.net/linux/rpm2html/search.php?query=%2Fusr%2Fbin%2Ftack">
+    RPMs</a></li>
+  </ul>
+</body>
+</html>

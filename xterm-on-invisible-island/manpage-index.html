@@ -1,0 +1,349 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+  <title>X Toolkit - manual pages</title>
+  <link rel="author" href="mailto:dickey@invisible-island.net">
+  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+  <meta name="keywords" content="xterm, toolkit">
+  <meta name="description" content=
+  "This is a list of the manual pages for the X Toolkit">
+  <link rel="SHORTCUT ICON" href="/img/icons/xterm.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/css/man2html.css" type="text/css">
+  <style type="text/css">
+@import "/css/simplenav15.css" all;
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<hr>
+<p><a href="/">https://invisible-island.net/</a><a href="/xterm/">xterm/</a><a href="/xterm/xtoolkit/">xtoolkit/</a></p>
+<hr>
+<ul>
+<li><a href="XtAddActions.3.html">XtAddActions</a> &mdash; register an action table</li>
+<li><a href="XtAddCallback.3.html">XtAddCallback</a>, XtAddCallbacks, XtRemoveCallback, XtRemoveCallbacks, XtRemoveAllCallbacks &mdash; add and remove callback procedures</li>
+<li><a href="XtAddEventHandler.3.html">XtAddEventHandler</a>, XtAddRawEventHandler, XtRemoveEventHandler, XtRemoveRawEventHandler, XtInsertEventHandler, XtInsertRawEventHandler &mdash; add and remove event handlers</li>
+<li><a href="XtAddExposureToRegion.3.html">XtAddExposureToRegion</a> &mdash; merge exposure events into a region</li>
+<li><a href="XtAddGrab.3.html">XtAddGrab</a>, XtRemoveGrab &mdash; redirect user input to a modal widget</li>
+<li><a href="XtAddInput.3.html">XtAddInput</a>, XtAddTimeOut, XtAddWorkProc &mdash; register input, timeout, and workprocs</li>
+<li><a href="XtAllocateGC.3.html">XtAllocateGC</a> &mdash; obtain a sharable GC with modifiable fields</li>
+<li><a href="XtAppAddActionHook.3.html">XtAppAddActionHook</a>, XtRemoveActionHook &mdash; register an action hook procedure</li>
+<li><a href="XtAppAddActions.3.html">XtAppAddActions</a> &mdash; register an action table</li>
+<li><a href="XtAppAddBlockHook.3.html">XtAppAddBlockHook</a>, XtRemoveBlockHook &mdash; register a block hook procedure</li>
+<li><a href="XtAppAddConverter.3.html">XtAppAddConverter</a>, XtAddConverter &mdash; register resource converter</li>
+<li><a href="XtAppAddInput.3.html">XtAppAddInput</a>, XtRemoveInput &mdash; register and remove an input source</li>
+<li><a href="XtAppAddSignal.3.html">XtAppAddSignal</a>, XtRemoveSignal, XtNoticeSignal &mdash; register and remove a signal source</li>
+<li><a href="XtAppAddTimeOut.3.html">XtAppAddTimeOut</a>, XtRemoveTimeOut &mdash; register and remove timeouts</li>
+<li><a href="XtAppAddWorkProc.3.html">XtAppAddWorkProc</a>, XtRemoveWorkProc &mdash; Add and remove background processing procedures</li>
+<li><a href="XtAppCreateShell.3.html">XtAppCreateShell</a>, XtVaAppCreateShell &mdash; create top-level widget instance</li>
+<li><a href="XtAppError.3.html">XtAppError</a>, XtAppSetErrorHandler, XtAppSetWarningHandler, XtAppWarning &mdash; low-level error handlers</li>
+<li><a href="XtAppErrorMsg.3.html">XtAppErrorMsg</a>, XtAppSetErrorMsgHandler, XtAppSetWarningMsgHandler, XtAppWarningMsg &mdash; high-level error handlers</li>
+<li><a href="XtAppGetErrorDatabase.3.html">XtAppGetErrorDatabase</a>, XtAppGetErrorDatabaseText &mdash; obtain error database</li>
+<li><a href="XtAppGetSelectionTimeout.3.html">XtAppGetSelectionTimeout</a>, XtAppSetSelectionTimeout &mdash; set and obtain selection timeout values</li>
+<li><a href="XtAppInitialize.3.html">XtAppInitialize</a>, XtVaAppInitialize &mdash; initialize, open, or close a display</li>
+<li><a href="XtAppLock.3.html">XtAppLock</a>, XtAppUnlock &mdash; lock and unlock application context</li>
+<li><a href="XtAppNextEvent.3.html">XtAppNextEvent</a>, XtAppPending, XtAppPeekEvent, XtAppProcessEvent, XtDispatchEvent, XtAppMainLoop &mdash; query and process events and input</li>
+<li><a href="XtAppReleaseCacheRefs.3.html">XtAppReleaseCacheRefs</a> &mdash; decrement reference counts for resources</li>
+<li><a href="XtAppSetExitFlag.3.html">XtAppSetExitFlag</a>, XtAppGetExitFlag &mdash; thread support functions</li>
+<li><a href="XtAppSetFallbackResources.3.html">XtAppSetFallbackResources</a> &mdash; set fallback resources</li>
+<li><a href="XtAppSetTypeConverter.3.html">XtAppSetTypeConverter</a>, XtSetTypeConverter &mdash; register resource converter</li>
+<li><a href="XtBuildEventMask.3.html">XtBuildEventMask</a> &mdash; retrieve a widget's event mask</li>
+<li><a href="XtCallAcceptFocus.3.html">XtCallAcceptFocus</a> &mdash; calla widget's accept_focus procedure</li>
+<li><a href="XtCallActionProc.3.html">XtCallActionProc</a> &mdash; invoke an action procedure directly</li>
+<li><a href="XtCallCallbacks.3.html">XtCallCallbacks</a>, XtCallCallbackList, XtHasCallbacks &mdash; process callbacks</li>
+<li><a href="XtClass.3.html">XtClass</a>, XtSuperclass, XtIsSubclass, XtCheckSubclass, XtIsObject, XtIsRectObj, XtIsWidget, XtIsComposite, XtIsConstraint, XtIsShell, XtIsOverrideShell, XtIsWMShell, XtIsVendorShell, XtIsTransientShell, XtIsTopLevelShell, XtIsApplicationShell, XtIsSessionShell &mdash; obtain and verify a widget's class</li>
+<li><a href="XtConfigureWidget.3.html">XtConfigureWidget</a>, XtMoveWidget, XtResizeWidget &mdash; move and resize widgets</li>
+<li><a href="XtConvert.3.html">XtConvert</a>, XtDirectConvert &mdash; invoke resource converters</li>
+<li><a href="XtConvertAndStore.3.html">XtConvertAndStore</a>, XtCallConverter &mdash; invoke resource converters</li>
+<li><a href="XtCreateApplicationContext.3.html">XtCreateApplicationContext</a>, XtDestroyApplicationContext, XtWidgetToApplicationContext, XtToolkitInitialize &mdash; create, destroy, and obtain an application context</li>
+<li><a href="XtCreateApplicationShell.3.html">XtCreateApplicationShell</a> &mdash; create top-level widget instance</li>
+<li><a href="XtCreatePopupShell.3.html">XtCreatePopupShell</a>, XtVaCreatePopupShell &mdash; create a popup shell</li>
+<li><a href="XtCreateSelectionRequest.3.html">XtCreateSelectionRequest</a>, XtSendSelectionRequest, XtCancelSelectionRequest &mdash; bundle multiple selection conversion requests into a single request using MULTIPLE target</li>
+<li><a href="XtCreateWidget.3.html">XtCreateWidget</a>, XtVaCreateWidget, XtCreateManagedWidget, XtVaCreateManagedWidget, XtDestroyWidget &mdash; create and destroy widgets</li>
+<li><a href="XtCreateWindow.3.html">XtCreateWindow</a> &mdash; window creation convenience function</li>
+<li><a href="XtDisplay.3.html">XtDisplay</a>, XtDisplayOfObject, XtScreen, XtScreenOfObject, XtWindow, XtWindowOfObject &mdash; obtain window information about a widget</li>
+<li><a href="XtDisplayInitialize.3.html">XtDisplayInitialize</a>, XtOpenDisplay, XtDatabase, XtScreenDatabase, XtCloseDisplay &mdash; initialize, open, or close a display</li>
+<li><a href="XtDisplayStringConversionWarning.3.html">XtDisplayStringConversionWarning</a> &mdash; issue a conversion warning message</li>
+<li><a href="XtDisplayToApplicationContext.3.html">XtDisplayToApplicationContext</a> &mdash; obtain an application context</li>
+<li><a href="XtError.3.html">XtError</a>, XtSetErrorHandler, XtSetWarningHandler, XtWarning &mdash; low-level error handlers</li>
+<li><a href="XtErrorMsg.3.html">XtErrorMsg</a>, XtSetErrorMsgHandler, XtWarningMsg, XtSetWarningMsgHandler &mdash; high-level error handlers</li>
+<li><a href="XtFindFile.3.html">XtFindFile</a> &mdash; search for a file using substitutions in the path list</li>
+<li><a href="XtGetActionKeysym.3.html">XtGetActionKeysym</a> &mdash; obtain corresponding keysym</li>
+<li><a href="XtGetActionList.3.html">XtGetActionList</a> &mdash; obtain class action list</li>
+<li><a href="XtGetApplicationNameAndClass.3.html">XtGetApplicationNameAndClass</a> &mdash; retrieve application name and class</li>
+<li><a href="XtGetApplicationResources.3.html">XtGetApplicationResources</a>, XtVaGetApplicationResources &mdash; obtain application resources</li>
+<li><a href="XtGetClassExtension.3.html">XtGetClassExtension</a> &mdash; locate a class extension record</li>
+<li><a href="XtGetDisplays.3.html">XtGetDisplays</a> &mdash; retrieve a list of displays associated with an application context</li>
+<li><a href="XtGetErrorDatabase.3.html">XtGetErrorDatabase</a>, XtGetErrorDatabaseText &mdash; obtain error database</li>
+<li><a href="XtGetGC.3.html">XtGetGC</a>, XtReleaseGC &mdash; obtain and destroy a sharable GC</li>
+<li><a href="XtGetKeyboardFocusWidget.3.html">XtGetKeyboardFocusWidget</a> &mdash; extension event handling</li>
+<li><a href="XtGetKeysymTable.3.html">XtGetKeysymTable</a>, XtKeysymToKeycodeList &mdash; query keysyms and keycodes</li>
+<li><a href="XtGetResourceList.3.html">XtGetResourceList</a>, XtGetConstraintResourceList &mdash; obtain resource list</li>
+<li><a href="XtGetSelectionParameters.3.html">XtGetSelectionParameters</a> &mdash; retrieve target parameters for a selection request with a single target</li>
+<li><a href="XtGetSelectionRequest.3.html">XtGetSelectionRequest</a> &mdash; retrieve the event that triggered the XtConvertSelectionProc</li>
+<li><a href="XtGetSelectionTimeout.3.html">XtGetSelectionTimeout</a>, XtSetSelectionTimeout &mdash; set and obtain selection timeout values</li>
+<li><a href="XtGetSelectionValue.3.html">XtGetSelectionValue</a>, XtGetSelectionValues &mdash; obtain selection values</li>
+<li><a href="XtGetSelectionValueIncremental.3.html">XtGetSelectionValueIncremental</a>, XtGetSelectionValuesIncremental &mdash; obtain selection values</li>
+<li><a href="XtGetSubresources.3.html">XtGetSubresources</a>, XtVaGetSubresources &mdash; obtain subresources</li>
+<li><a href="XtGrabKey.3.html">XtGrabKey</a>, XtUngrabKey, XtGrabKeyboard, XtUngrabKeyboard, XtGrabButton, XtUngrabButton, XtGrabPointer, XtUngrabPointer &mdash; manage grabs</li>
+<li><a href="XtHooksOfDisplay.3.html">XtHooksOfDisplay</a> &mdash; external agent access points</li>
+<li><a href="XtInitialize.3.html">XtInitialize</a> &mdash; initialize</li>
+<li><a href="XtInitializeWidgetClass.3.html">XtInitializeWidgetClass</a> &mdash; initialize a widget class</li>
+<li><a href="XtInsertEventTypeHandler.3.html">XtInsertEventTypeHandler</a>, XtRemoveEventTypeHandler,XtRegisterExtensionSelector, XtSetEventDispatcher, XtDispatchEventToWidget &mdash; extension event handling</li>
+<li><a href="XtLastEventProcessed.3.html">XtLastEventProcessed</a>, XtLastTimestampProcessed &mdash; last event, last timestamp processed</li>
+<li><a href="XtMakeGeometryRequest.3.html">XtMakeGeometryRequest</a>, XtMakeResizeRequest &mdash; make geometry manager request</li>
+<li><a href="XtMalloc.3.html">XtMalloc</a>, XtCalloc, XtRealloc, XtFree, XtNew, XtNewString &mdash; memory management functions</li>
+<li><a href="XtManageChildren.3.html">XtManageChildren</a>, XtManageChild, XtUnmanageChildren, XtUnmanageChild, XtChangeManagedSet, XtIsManaged &mdash; manage and unmanage children</li>
+<li><a href="XtMapWidget.3.html">XtMapWidget</a>, XtSetMappedWhenManaged, XtUnmapWidget &mdash; map and unmap widgets</li>
+<li><a href="XtName.3.html">XtName</a> &mdash; obtain widget's name</li>
+<li><a href="XtNameToWidget.3.html">XtNameToWidget</a>, XtWindowToWidget &mdash; translating strings to widgets or widgets to windows</li>
+<li><a href="XtNextEvent.3.html">XtNextEvent</a>, XtPending, XtPeekEvent, XtProcessEvent, XtMainLoop &mdash; query and process events and input</li>
+<li><a href="XtOffset.3.html">XtOffset</a>, XtOffsetOf, XtNumber &mdash; determine the byte offset or number of array elements</li>
+<li><a href="XtOpenApplication.3.html">XtOpenApplication</a>, XtVaOpenApplication &mdash; initialize, open, or close a display</li>
+<li><a href="XtOwnSelection.3.html">XtOwnSelection</a>, XtOwnSelectionIncremental, XtDisownSelection &mdash; set selection owner</li>
+<li><a href="XtParent.3.html">XtParent</a> &mdash; obtain widget's parent widget id</li>
+<li><a href="XtParseAcceleratorTable.3.html">XtParseAcceleratorTable</a>, XtInstallAccelerators, XtInstallAllAccelerators &mdash; managing accelerator tables</li>
+<li><a href="XtParseTranslationTable.3.html">XtParseTranslationTable</a>, XtAugmentTranslations, XtOverrideTranslations, XtUninstallTranslations &mdash; manage translation tables</li>
+<li><a href="XtPopdown.3.html">XtPopdown</a>, XtCallbackPopdown &mdash; unmap a pop-up</li>
+<li><a href="XtPopup.3.html">XtPopup</a>, XtPopupSpringLoaded, XtCallbackNone, XtCallbackNonexclusive, XtCallbackExclusive &mdash; map a pop-up</li>
+<li><a href="XtProcessLock.3.html">XtProcessLock</a>, XtProcessUnlock &mdash; lock and unlock process</li>
+<li><a href="XtQueryGeometry.3.html">XtQueryGeometry</a> &mdash; query the preferred geometry of a child widget</li>
+<li><a href="XtRealizeWidget.3.html">XtRealizeWidget</a>, XtIsRealized, XtUnrealizeWidget &mdash; realize and unrealize widgets</li>
+<li><a href="XtRegisterDrawable.3.html">XtRegisterDrawable</a> &mdash; register a drawable with the Intrinsics event dispatcher</li>
+<li><a href="XtRegisterGrabAction.3.html">XtRegisterGrabAction</a> &mdash; register button and key grabs</li>
+<li><a href="XtReservePropertyAtom.3.html">XtReservePropertyAtom</a>, XtReleasePropertyAtom &mdash; maintain a cache of property atoms</li>
+<li><a href="XtResolvePathname.3.html">XtResolvePathname</a> &mdash; search for a file using standard substitution</li>
+<li><a href="XtSessionGetToken.3.html">XtSessionGetToken</a>, XtSessionReturnToken &mdash; token management for checkpointing</li>
+<li><a href="XtSetArg.3.html">XtSetArg</a>, XtMergeArgLists &mdash; set and merge ArgLists</li>
+<li><a href="XtSetKeyTranslator.3.html">XtSetKeyTranslator</a>, XtTranslateKeycode, XtRegisterCaseConverter, XtConvertCase &mdash; convert KeySym to KeyCodes</li>
+<li><a href="XtSetKeyboardFocus.3.html">XtSetKeyboardFocus</a> &mdash; focus events on a child widget</li>
+<li><a href="XtSetLanguageProc.3.html">XtSetLanguageProc</a> &mdash; set the language procedure</li>
+<li><a href="XtSetMultiClickTime.3.html">XtSetMultiClickTime</a>, XtGetMultiClickTime &mdash; set and get multi-click times</li>
+<li><a href="XtSetSelectionParameters.3.html">XtSetSelectionParameters</a> &mdash; specify target parameters for a selection request with a single target</li>
+<li><a href="XtSetSensitive.3.html">XtSetSensitive</a>, XtIsSensitive &mdash; set and check a widget's sensitivity state</li>
+<li><a href="XtSetValues.3.html">XtSetValues</a>, XtVaSetValues, XtSetSubvalues, XtVaSetSubvalues, XtGetValues, XtVaGetValues, XtGetSubvalues, XtVaGetSubvalues &mdash; obtain and set widget resources</li>
+<li><a href="XtSetWMColormapWindows.3.html">XtSetWMColormapWindows</a> &mdash; Set the value of the WM_COLORMAP_WINDOWS property</li>
+<li><a href="XtStringConversionWarning.3.html">XtStringConversionWarning</a> &mdash; issue a conversion warning message</li>
+<li><a href="XtToolkitThreadInitialize.3.html">XtToolkitThreadInitialize</a> &mdash; initialize the toolkit for multiple threads</li>
+<li><a href="XtTranslateCoords.3.html">XtTranslateCoords</a> &mdash; translate widget coordinates</li>
+<li><a href="XtVaCreateArgsList.3.html">XtVaCreateArgsList</a> &mdash; dynamically allocate a varargs list</li>
+</ul>
+<div class="nav">
+<ul>
+<li><a href="/xterm/xtoolkit/manpage-index.html" class="nav-top">(top)</a><br>
+<li><a href="XtAddActions.3.html">XtAddActions</a></li>
+
+<li><a href="XtAddCallback.3.html">XtAddCallback</a></li>
+
+<li><a href="XtAddEventHandler.3.html">XtAddEventHandler</a></li>
+
+<li><a href="XtAddExposureToRegion.3.html">XtAddExposureToRegion</a></li>
+
+<li><a href="XtAddGrab.3.html">XtAddGrab</a></li>
+
+<li><a href="XtAddInput.3.html">XtAddInput</a></li>
+
+<li><a href="XtAllocateGC.3.html">XtAllocateGC</a></li>
+
+<li><a href="XtAppAddActionHook.3.html">XtAppAddActionHook</a></li>
+
+<li><a href="XtAppAddActions.3.html">XtAppAddActions</a></li>
+
+<li><a href="XtAppAddBlockHook.3.html">XtAppAddBlockHook</a></li>
+
+<li><a href="XtAppAddConverter.3.html">XtAppAddConverter</a></li>
+
+<li><a href="XtAppAddInput.3.html">XtAppAddInput</a></li>
+
+<li><a href="XtAppAddSignal.3.html">XtAppAddSignal</a></li>
+
+<li><a href="XtAppAddTimeOut.3.html">XtAppAddTimeOut</a></li>
+
+<li><a href="XtAppAddWorkProc.3.html">XtAppAddWorkProc</a></li>
+
+<li><a href="XtAppCreateShell.3.html">XtAppCreateShell</a></li>
+
+<li><a href="XtAppError.3.html">XtAppError</a></li>
+
+<li><a href="XtAppErrorMsg.3.html">XtAppErrorMsg</a></li>
+
+<li><a href="XtAppGetErrorDatabase.3.html">XtAppGetErrorDatabase</a></li>
+
+<li><a href="XtAppGetSelectionTimeout.3.html">XtAppGetSelectionTimeout</a></li>
+
+<li><a href="XtAppInitialize.3.html">XtAppInitialize</a></li>
+
+<li><a href="XtAppLock.3.html">XtAppLock</a></li>
+
+<li><a href="XtAppNextEvent.3.html">XtAppNextEvent</a></li>
+
+<li><a href="XtAppReleaseCacheRefs.3.html">XtAppReleaseCacheRefs</a></li>
+
+<li><a href="XtAppSetExitFlag.3.html">XtAppSetExitFlag</a></li>
+
+<li><a href="XtAppSetFallbackResources.3.html">XtAppSetFallbackResources</a></li>
+
+<li><a href="XtAppSetTypeConverter.3.html">XtAppSetTypeConverter</a></li>
+
+<li><a href="XtBuildEventMask.3.html">XtBuildEventMask</a></li>
+
+<li><a href="XtCallAcceptFocus.3.html">XtCallAcceptFocus</a></li>
+
+<li><a href="XtCallActionProc.3.html">XtCallActionProc</a></li>
+
+<li><a href="XtCallCallbacks.3.html">XtCallCallbacks</a></li>
+
+<li><a href="XtClass.3.html">XtClass</a></li>
+
+<li><a href="XtConfigureWidget.3.html">XtConfigureWidget</a></li>
+
+<li><a href="XtConvert.3.html">XtConvert</a></li>
+
+<li><a href="XtConvertAndStore.3.html">XtConvertAndStore</a></li>
+
+<li><a href="XtCreateApplicationContext.3.html">XtCreateApplicationContext</a></li>
+
+<li><a href="XtCreateApplicationShell.3.html">XtCreateApplicationShell</a></li>
+
+<li><a href="XtCreatePopupShell.3.html">XtCreatePopupShell</a></li>
+
+<li><a href="XtCreateSelectionRequest.3.html">XtCreateSelectionRequest</a></li>
+
+<li><a href="XtCreateWidget.3.html">XtCreateWidget</a></li>
+
+<li><a href="XtCreateWindow.3.html">XtCreateWindow</a></li>
+
+<li><a href="XtDisplay.3.html">XtDisplay</a></li>
+
+<li><a href="XtDisplayInitialize.3.html">XtDisplayInitialize</a></li>
+
+<li><a href="XtDisplayStringConversionWarning.3.html">XtDisplayStringConversionWarning</a></li>
+
+<li><a href="XtDisplayToApplicationContext.3.html">XtDisplayToApplicationContext</a></li>
+
+<li><a href="XtError.3.html">XtError</a></li>
+
+<li><a href="XtErrorMsg.3.html">XtErrorMsg</a></li>
+
+<li><a href="XtFindFile.3.html">XtFindFile</a></li>
+
+<li><a href="XtGetActionKeysym.3.html">XtGetActionKeysym</a></li>
+
+<li><a href="XtGetActionList.3.html">XtGetActionList</a></li>
+
+<li><a href="XtGetApplicationNameAndClass.3.html">XtGetApplicationNameAndClass</a></li>
+
+<li><a href="XtGetApplicationResources.3.html">XtGetApplicationResources</a></li>
+
+<li><a href="XtGetClassExtension.3.html">XtGetClassExtension</a></li>
+
+<li><a href="XtGetDisplays.3.html">XtGetDisplays</a></li>
+
+<li><a href="XtGetErrorDatabase.3.html">XtGetErrorDatabase</a></li>
+
+<li><a href="XtGetGC.3.html">XtGetGC</a></li>
+
+<li><a href="XtGetKeyboardFocusWidget.3.html">XtGetKeyboardFocusWidget</a></li>
+
+<li><a href="XtGetKeysymTable.3.html">XtGetKeysymTable</a></li>
+
+<li><a href="XtGetResourceList.3.html">XtGetResourceList</a></li>
+
+<li><a href="XtGetSelectionParameters.3.html">XtGetSelectionParameters</a></li>
+
+<li><a href="XtGetSelectionRequest.3.html">XtGetSelectionRequest</a></li>
+
+<li><a href="XtGetSelectionTimeout.3.html">XtGetSelectionTimeout</a></li>
+
+<li><a href="XtGetSelectionValue.3.html">XtGetSelectionValue</a></li>
+
+<li><a href="XtGetSelectionValueIncremental.3.html">XtGetSelectionValueIncremental</a></li>
+
+<li><a href="XtGetSubresources.3.html">XtGetSubresources</a></li>
+
+<li><a href="XtGrabKey.3.html">XtGrabKey</a></li>
+
+<li><a href="XtHooksOfDisplay.3.html">XtHooksOfDisplay</a></li>
+
+<li><a href="XtInitialize.3.html">XtInitialize</a></li>
+
+<li><a href="XtInitializeWidgetClass.3.html">XtInitializeWidgetClass</a></li>
+
+<li><a href="XtInsertEventTypeHandler.3.html">XtInsertEventTypeHandler</a></li>
+
+<li><a href="XtLastEventProcessed.3.html">XtLastEventProcessed</a></li>
+
+<li><a href="XtMakeGeometryRequest.3.html">XtMakeGeometryRequest</a></li>
+
+<li><a href="XtMalloc.3.html">XtMalloc</a></li>
+
+<li><a href="XtManageChildren.3.html">XtManageChildren</a></li>
+
+<li><a href="XtMapWidget.3.html">XtMapWidget</a></li>
+
+<li><a href="XtName.3.html">XtName</a></li>
+
+<li><a href="XtNameToWidget.3.html">XtNameToWidget</a></li>
+
+<li><a href="XtNextEvent.3.html">XtNextEvent</a></li>
+
+<li><a href="XtOffset.3.html">XtOffset</a></li>
+
+<li><a href="XtOpenApplication.3.html">XtOpenApplication</a></li>
+
+<li><a href="XtOwnSelection.3.html">XtOwnSelection</a></li>
+
+<li><a href="XtParent.3.html">XtParent</a></li>
+
+<li><a href="XtParseAcceleratorTable.3.html">XtParseAcceleratorTable</a></li>
+
+<li><a href="XtParseTranslationTable.3.html">XtParseTranslationTable</a></li>
+
+<li><a href="XtPopdown.3.html">XtPopdown</a></li>
+
+<li><a href="XtPopup.3.html">XtPopup</a></li>
+
+<li><a href="XtProcessLock.3.html">XtProcessLock</a></li>
+
+<li><a href="XtQueryGeometry.3.html">XtQueryGeometry</a></li>
+
+<li><a href="XtRealizeWidget.3.html">XtRealizeWidget</a></li>
+
+<li><a href="XtRegisterDrawable.3.html">XtRegisterDrawable</a></li>
+
+<li><a href="XtRegisterGrabAction.3.html">XtRegisterGrabAction</a></li>
+
+<li><a href="XtReservePropertyAtom.3.html">XtReservePropertyAtom</a></li>
+
+<li><a href="XtResolvePathname.3.html">XtResolvePathname</a></li>
+
+<li><a href="XtSessionGetToken.3.html">XtSessionGetToken</a></li>
+
+<li><a href="XtSetArg.3.html">XtSetArg</a></li>
+
+<li><a href="XtSetKeyTranslator.3.html">XtSetKeyTranslator</a></li>
+
+<li><a href="XtSetKeyboardFocus.3.html">XtSetKeyboardFocus</a></li>
+
+<li><a href="XtSetLanguageProc.3.html">XtSetLanguageProc</a></li>
+
+<li><a href="XtSetMultiClickTime.3.html">XtSetMultiClickTime</a></li>
+
+<li><a href="XtSetSelectionParameters.3.html">XtSetSelectionParameters</a></li>
+
+<li><a href="XtSetSensitive.3.html">XtSetSensitive</a></li>
+
+<li><a href="XtSetValues.3.html">XtSetValues</a></li>
+
+<li><a href="XtSetWMColormapWindows.3.html">XtSetWMColormapWindows</a></li>
+
+<li><a href="XtStringConversionWarning.3.html">XtStringConversionWarning</a></li>
+
+<li><a href="XtToolkitThreadInitialize.3.html">XtToolkitThreadInitialize</a></li>
+
+<li><a href="XtTranslateCoords.3.html">XtTranslateCoords</a></li>
+
+<li><a href="XtVaCreateArgsList.3.html">XtVaCreateArgsList</a></li>
+
+<ul>
+</body>
+</html>

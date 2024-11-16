@@ -1,0 +1,2551 @@
+2023-02-18  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gcc-stricter: extend case to gcc > 9.9
+
+	* archive: switch from getopt to getopts, to use with MinGW
+
+	* archive: fix some shellcheck warnings
+
+2023-02-12  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-xterm: change default for readline-mouse
+
+2023-01-28  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncursesw:
+	use specific pkg-config-libdir to reduce package-conflicts
+
+2023-01-24  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-mingw32, cfg-mingw64: add fedoracur (rawhide)
+
+2023-01-23  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-mingw32, cfg-mingw64:
+	add workaround for Fedora package use of hardening flags
+
+2023-01-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-normal: fix shellcheck warnings
+
+2023-01-08  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* openbsd-egcc:
+	provide for adding the X11 tree to LD_LIBRARY_PATH, needed for building xterm
+
+	* setup-build-all: workaround for OpenBSD's buggy-packages
+
+2023-01-07  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-opt-lynx: shellcheck warnings
+
+2023-01-05  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-opt-lynx: fix typo in make-command
+
+2022-12-13  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-savebuild: fix delimiters on sed command, and quote it.
+
+2022-10-10  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-savebuild: add config.h, by default
+
+	* setup-savebuild:
+	provide for passing custom/extra files into list, e.g., xtermcfg.h
+
+	* save-xterm: use setup-savebuild
+
+2022-10-09  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-savebuild: fixes for Solaris 10
+
+2022-10-02  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* save-lynx, save-xterm: reconfigurable-egrep
+
+	* save-xterm: configurable egrep
+
+2022-10-01  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* externs: configurable egrep
+	shellcheck quoting
+
+	* setup-build-all: configurable fgrep
+
+	* save-ncurses, setup-savebuild: make $EGREP configurable
+
+2022-09-11  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-xterm: add --disable-exec-selection
+
+2022-05-01  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-opt-ncurses: fix for re-running
+
+2022-04-16  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* diff-patch: identify patch in https archive
+
+2022-04-09  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gcc-stricter: fix redefinition of _FORTIFY_SOURCE with Debian
+
+	* cfg-ncurses6: provide for doing "CC=gcc-stricter3 cfg-ncurses6"
+
+2022-02-13  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-xterm: tidy
+
+	* all-opts-xterm: changed defaults
+
+2022-02-11  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-xterm: add status-line
+
+2022-01-24  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* clean-vile: split-out clobber-vile for consistency
+
+2021-12-05  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gcc-stricter: do optimization, needed for the "hardening" flag
+
+2021-11-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncursesw, cfg-ncurses6:
+	deprecate RPATH_LIST, which interferes with Fedora rpm's
+
+2021-11-25  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-vile: also fix prefix for "vile"
+
+2021-11-23  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-vile: build x11vile and xftvile
+
+	* build-vile: build xftvile routinely
+
+2021-11-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-thread: move to /usr/local/ncurses/
+
+2021-10-16  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6: disable pc-files for cygwin
+
+2021-10-14  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-libtool-ncurses: ensure that $TERMINFO_DIRS is unset
+
+2021-09-24  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-ncurses: disallow versioned symbols for Solaris
+
+2021-08-22  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-xterm, build-xterm: deprecated --disable-fifo-lines
+
+2021-07-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-normal: add lynx to solaris special-cases
+
+2021-07-10  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* clean-tin: remove the gmo files too
+
+	* build-tin: show SUCCESS/FAILURE on completion
+
+2021-07-05  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-libtool-ncurses: pass parameters into run.log file
+
+2021-06-30  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-lynx: promoted cjk, japanese-utf8 options
+	added chinese-utf8 option
+	sorted list
+
+2021-06-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6: exercise the --disable-root-* options
+
+2021-06-22  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: pgi is now nvidia
+
+2021-06-13  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-ncurses:
+	for now, ignore Ada with OpenBSD, since their packages don't work
+
+	* setup-build-all:
+	always pass command-line parameters of build_all to build-$PROG
+
+	* build-all-ncurses: pass command-line parameters to build_all
+
+	* build-clang-ncurses, build-libtool-ncurses:
+	pass command-line parameters to build-configure
+
+2021-06-12  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-ncurses: show failures in logfile
+
+	* openbsd-egcc:
+	for the 32-bit platform, I made a script for gcc (to fix the -L bug),
+	but still need the LD_LIBRARY_PATH workaround in OpenBSD 6.9
+
+	* build-libtool-ncurses: show failures in logfile
+
+	* openbsd-lld-noleaks: add a warning, for the logfile
+
+	* build-clang-ncurses: show failures in logfile
+
+	* build-clang-ncurses: report errors
+
+	* build-ncurses: set tab-stops
+
+	* build-libtool-ncurses, build-ncurses: report failures
+
+2021-06-11  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-ncurses, build-libtool-ncurses, build-clang-ncurses, cfg-thread:
+	OpenBSD workaround for lld vs --disable-leaks (which allows "-g")
+
+	* openbsd-lld-noleaks: RCS_BASE
+
+2021-05-31  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-libtool-ncurses: split-out openbsd-egcc
+
+	* openbsd-egcc: RCS_BASE
+
+	* build-libtool-ncurses: workaround for OpenBSD
+
+2021-05-29  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: check for egcc, OpenBSD's name for gcc from "ports"
+
+2021-05-01  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-libtool-ncurses: show what's in the lib-directory
+
+2021-04-18  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-opt-ncurses:
+	reverse the check on options/* to allow better restart of this script
+
+	* build-opt-ncurses:
+	updating list of options, make special-cases extensible
+
+	* all-opts-ncurses: updated (actually cross-compiling is neglected)
+
+2021-03-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cppcheck-lint: ignore system-includes
+
+2021-03-23  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6: use new feature
+
+2021-03-14  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* with-cppcheck: run-cppcheck already does "--enable=all"
+
+	* with-cppcheck: change use of this from prefix-command to sourced
+
+	* cfg-ncurses6: work around problem in Debian's use of -Wdate-time
+
+	* cppcheck-lint: RCS_BASE
+
+2021-02-28  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-opt-lynx: honor $MAKE
+
+	* build-lynx: honor $MAKE variable
+
+2021-02-22  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-tin: honor $MAKE
+
+	* build-vile: allow for pmake
+
+2021-02-08  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-xterm: check Xaw3dxft
+
+2021-02-06  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-normal:
+	also need PKG_CONFIG_PATH to prevent linking to older "pcre"
+
+	* cfg-normal:
+	fix environment so that I can build xterm on Solaris using my self-built
+	pcre2 package.
+
+2021-02-02  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* save-xterm:
+	filter out some of the clang alias duplicates, adapted from setup-savebuild
+
+2021-01-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-xterm: exercise the pcre2 option
+
+	* build-xterm: quoting per shellcheck
+
+2021-01-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-xterm: use $MAKE if it is set
+
+2021-01-07  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: add slackware packages
+
+2021-01-03  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-tin:
+	top-level "makefile" is not generated, and on macOS may be "Makefile"
+
+	* cfg-tin:
+	limit that workaround to Solaris, since macOS needs to find its own compiler
+
+	* cfg-tin:
+	my Solaris 10 has no "cc", just "gcc", and that broke build-lib-tin.
+	make a workaround for that, as well as the $SHELL hack from cfg-normal
+
+2020-12-04  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: add cygwin packages
+
+2020-11-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-savebuild: filter out some false-positives for macOS
+
+2020-11-21  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* archive:
+	work around spurious carriage-returns when reading output of getopt in
+	the msys2 environment on Windows 8 and 10
+
+2020-10-03  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gcc-stricter: OpenBSD doesn't have ubsan library
+
+2020-09-23  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all:
+	before checking if rpm is present, limit that to Linux since some other
+	platforms may have non-working rpm tools.
+
+2020-09-22  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gcc-stricter: https://reviews.freebsd.org/D26505?download=true
+	leads to
+	https://clang.llvm.org/docs/UndefinedBehaviorSanitizer.html
+	and
+	https://packages.debian.org/jessie/libx32ubsan0
+
+2020-09-07  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* clean-ncurses: make this work with clobber-ncurses
+
+2020-08-22  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-ncurses: incorporate BUILD_TYPE into the log filename
+
+2020-07-31  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: for Solaris 10 VM, provide c89/c99 scripts using gcc
+
+2020-07-25  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-xterm: sixels are enabled by default
+
+2020-07-06  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-opt-xterm: do a make-check when building
+
+2020-04-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* clean-xterm:
+	when building out-of-tree, xterm.h may not be visible -but xtermcfg.h would
+
+	* build-xterm: add a "make check" to the xterm-wide configuration
+
+	* build-opt-xterm: provide a way to run this out-of-tree, e.g.,
+		mkdir build
+		cd build
+		script -c "build-opt-xterm --srcdir .."
+
+2020-03-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: updated tweak for Arch Linux packages
+
+2020-03-07  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* make-log:
+	appease shellcheck, and allow override of "make" using $MAKE
+
+2020-03-05  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-libtool-ncurses: always cleanup!
+
+	* build-libtool-ncurses: build with $MAKE
+
+	* build-libtool-ncurses: RCS_BASE
+
+2020-01-09  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-tin: ensure configure worked
+
+2020-01-07  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-tin: pass command-line parameter to conf-tin
+
+	* all-opts-tin: add cancel-locks
+
+2020-01-05  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-vile:
+	toggle RCS-links off/on during build to avoid inadvertant fetch of install-sh
+
+2019-12-31  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-tin: use clean-tin (the inline function did the same thing...),
+	save/restore RCS-links
+	drop special-case of CONFIG_SHELL for solaris10
+
+2019-12-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncursesw: limit the OpenBSD extra-suffix workaround to gcc
+
+2019-12-22  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-clang-ncurses:
+	revised options, making this more relevant to cfg-ncurses6
+
+	* build-clang-ncurses: add string-hacks on the BSDs
+
+2019-12-21  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gcc-normal-64: allow "any" solaris/sunos to use the 64-bit option
+
+2019-12-06  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* run-log: show what's being run
+
+2019-10-12  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-ncurses: log changes for pc/config
+
+	* build-clang-ncurses: add check for pc/config stuff
+
+2019-10-05  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-ncu-pconfig: add check for ncurses directory
+
+	* check-ncu-pconfig: RCS_BASE
+
+2019-10-01  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: add magpie
+
+2019-07-28  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-ncurses: don't try to build the Ada binding with clang
+
+2019-07-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6: test-build with gpm
+
+2019-07-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncursesw: build-fix for OpenBSD 6.5
+
+2019-06-30  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-ncurses: split up the gcc logs
+
+2019-05-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-xterm: remove bogus terminfo.cdb created by NetBSD tic
+
+2019-05-12  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6:
+	workaround for cygwin - if I add extra-suffix, that makes an extra "6"
+	since the program-suffix is already applied to DLLs
+
+2019-03-12  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-savebuild: trim debugging code
+
+	* setup-savebuild: handle case of autoconf 2.69 with libxt
+
+2019-02-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: exclude Slackware from RPM builds
+
+2019-02-15  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* makepatch: ignore "git.log", anyway
+
+	* makepatch: modified to ignore RCS/CVS/SVN/GIT subdirectories.
+
+2019-01-21  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6: enable string-hacks for the BSDs
+
+2019-01-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* RCS-toggle: revert to form which runs with Solaris10
+
+2019-01-17  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* no-rcs:
+	sourcing this will not start the action, since that limits the ways it can be used
+
+	* no-rcs: RCS_BASE
+
+2019-01-14  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: fix for solaris10
+
+2019-01-13  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-xterm:
+	FreeBSD package uses options not supported by c89/c99 (clang)
+
+2019-01-05  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: integrate mkpkg-arch
+
+2018-12-28  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-lynx: new option
+
+2018-12-09  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-xterm:
+	force "clean" after each build, in case one fails and leaves object files
+
+	* cfg-normal:
+	for Solaris10, assume we have only gcc 3.4.3, which has a bug in optimization
+	seen in xterm #338's charproc.c - in this case use "-O" rather than "-O2"
+
+2018-10-31  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-vile: avoid naming conflict with clean-rule
+
+2018-10-30  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-vile:
+	override the directories used for xvile such as app-defaults to allow a
+	more/less self-contained build
+
+	* build-vile: start rewrite to exercise install rule
+
+2018-08-12  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gcc-normal: treat /usr/X11*/include as system headers
+
+2018-08-11  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gcc-strict, gcc-stricter:
+	OpenBSD's gcc version has trailing whitespace - trim
+
+	* gcc-stricter: check for empty version number
+	also, extend the format options through version 9
+
+	* gcc-strict: check for empty version number
+
+	* setup-clean: for some BSDs, remove "*.core"
+
+	* gcc-strict, gcc-stricter:
+	redirect errors from (possibly missing) gcc to /dev/null
+
+2018-07-28  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* archive:
+	add -x option and default suffixes for xz-compressed tar-files
+
+2018-06-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-clean: luit's distclean didn't remove tags/TAGS - do this
+
+2018-05-05  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-ncurses: select proper build-cc
+
+2018-04-07  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-xterm:
+	build min- and narrow-versions routinely now that wide-version is default
+
+2018-03-25  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gcc-strict:
+	an early gcc 5.x changed the meaning of "-ansi" from "-std=gnu90" to "-std=gnu11",
+	which breaks use of va_copy(), e.g., with Mageia 6 using gcc 5.5.0
+	Add a check for gcc's version to decide whether to use "-ansi" or not.
+
+2018-03-24  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-clang-ncurses: ensure it's using clang...
+
+	* build-clang-ncurses: RCS_BASE
+
+2018-02-15  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6: turn on opaque also
+
+2018-02-10  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6: add xmc-glitch to testing
+
+2018-01-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* RCS-toggle: simplify quoting
+
+2018-01-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6: debian5 has no dpkg-buildflags
+
+2018-01-04  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* run-makensis: FreeBSD "find" requires directory parameter
+
+	* cfg-mingw64, cfg-mingw32:
+	don't set build-cc: the configure script should do this
+
+2018-01-03  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-mingw, cfg-mingw32, cfg-mingw64: updated:choose-mingw
+
+2017-12-31  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: add alternate pattern for Parallels machines
+
+2017-12-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-normal: c89 doesn't do "-O2", it does "-O"
+
+2017-12-25  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-xterm: change default
+
+	* all-opts-xterm: change defaults
+
+2017-11-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncursesw: most Debian's should build both tic- and term-libs
+
+2017-11-08  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-xterm: add direct-color
+
+2017-10-11  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6: let a wrapper script override $CFLAGS
+
+2017-09-28  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gcc-normal: tweak for Solaris #ident pragma
+
+2017-08-08  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* diff-patch: ftp-site
+
+2017-07-13  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6:
+	also (Debian/Ubuntu) build c++ shared library, to help with hardening checks
+
+	* cfg-ncurses6: add CXXFLAGS too
+
+	* cfg-ncurses6:
+	use dpkg-buildflags with Debian/Ubuntu, to match the ".deb"
+
+2017-07-10  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-lynx: drop xen-*, add vbx-* and par-*
+
+2017-06-08  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* makepatch: don't rely on path of perl
+
+2017-04-30  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: build with "standard" compilers
+
+	* cfg-normal:
+	c99 (e.g., on OSX) does not accept a plain "-O", so use "-O2" to work around
+
+2017-04-11  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6:
+	disable the EXP_XTERM_1005 when making termlib, since that uses pieces in
+	both ncurses and tinfo
+
+2017-02-25  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: add pgi, intel compilers
+
+2016-08-16  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-tin: no special case needed for FreeBSD anymore
+
+	* build-tin:
+	workaround for FreeBSD's weak symbols, which defeat CF_FIND_LINKAGE
+
+	* build-tin: fixes for FreeBSD with clang
+
+	* build-tin: don't export CC, since my build-scripts need to override
+
+	* build-tin: fixes for solaris
+
+2016-05-28  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* with-cppcheck: add "--enable=all" to LINT_OPTS
+
+	* all-opts-xterm: add without-xinerama
+
+2016-05-15  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* with-cppcheck: RCS_BASE
+
+2016-04-08  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* path: check for empty strings, use "."
+
+2016-02-11  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* clean-xterm:
+	also remove new screen-dump files xterm.*.svg xterm.*.xhtml
+
+2016-01-29  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-xterm: add screen-dumps
+
+2016-01-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gcc-stricter: don't use --posix option
+
+2016-01-25  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gcc-stricter: add options noticed (in debbuild...) in gcc 5.x
+
+2016-01-01  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gcc-normal:
+	apply a similar workaround for Solaris's /usr/openwin/include directory
+
+2015-12-31  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gcc-normal:
+	workaround for OSX, where the gcc port does not know that /usr/X11/include
+	contains system-headers.
+
+	* gcc-strict: reuse gcc-normal, adding the stricter options
+
+2015-12-12  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-lynx: appease Solaris10
+
+2015-10-08  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-lynx: add a case for Debian to build lynx-debian
+
+2015-09-12  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6:
+	install programs to match more/less what's done for debian/redhat in packages
+
+2015-08-17  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* diff-patch: fix hardcoded 5.9, using new ncurses-patches script
+
+2015-08-16  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* with-locale: modify so this can be used to exec or source
+
+2015-08-05  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-normal: when on Solaris, use the POSIX shell
+
+	* cfg-ncurses6: build-fix for Solaris' non-POSIX shell
+
+2015-06-04  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-mingw64, cfg-mingw32, cfg-mingw: check-prefix
+
+2015-05-31  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-thread, cfg-ncursesw: be definite
+
+2015-05-02  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6: add wgetch-events, per ABI
+
+2015-04-12  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-xterm: added enable-pty-erase
+
+2015-04-04  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6: add new extension --enable-ext-putwin
+
+2015-02-14  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6, cfg-thread:
+	add OpenBSD to platforms tested using --with-versioned-syms
+
+2015-02-10  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-xterm: another
+
+2015-01-31  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-thread, cfg-ncurses6: add netbsd to versioned-symbols
+
+2015-01-10  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-thread: use versioned symbols
+
+2015-01-03  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6:
+	add testcase for versioned-symbols, starting with my Linux and FreeBSD machines
+
+2014-10-10  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6: turn on the experimental #define for EXP_XTERM_1005
+
+2014-09-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-mingw32:
+	incorporate --prefix if I can - fixes for instance Debian6's g++ configure in ncurses.
+
+	* cfg-mingw: split-out choose-mingw32
+	add --prefix, needed at least for cross-compiling with Debian
+
+	* cfg-mingw64:
+	add --prefix, needed at least for cross-compiling with Debian
+
+2014-08-02  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-all-ncurses: RCS_BASE
+
+2014-07-01  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: mods to recognize MacPorts gcc over clang.
+	OSX links "gcc" to "clang".
+
+2014-06-17  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: stop trying to build RPMs with Debian.
+
+2014-05-08  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-xterm: add --disable-wide-attrs
+
+2014-04-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-xterm: add --enable-regis-graphics 
+
+	* dutree: that led to another special case
+
+	* dutree:
+	additional fix for command-line arguments with embedded blanks
+
+	* dutree:
+	make this work (at least one case) where the directory tree contains names with embedded blanks.
+
+2014-04-08  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-clean: cleanup lcov stuff
+
+2014-03-22  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6: force chtype to 32-bits using uint32_t
+
+2014-03-01  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all:
+	mods to make my gcc-normal and gcc-stricter scripts work with FreeBSD 9/10's
+	ports of gcc, since clang is "cc" now.
+
+	* gcc-strict, gcc-normal: allow "gcc" to be overridden
+
+	* setup-build-all: better
+
+	* setup-build-all:
+	FreeBSD10 doesn't put gcc into subdirectory of /usr/local/bin
+
+2014-02-19  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: my solaris vm's have only gcc, no "cc"
+
+2014-01-19  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-xterm: workaround for broken xfmk on my freebsd90-32
+
+2014-01-09  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-lynx:
+	build-fix report for --disable-prettysrc got me to review the whole list,
+	and saw that my changes to defaults a couple of years ago did not get here.
+
+2013-12-14  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* run-makensis: nits
+
+	* run-makensis: improvements for c_count
+
+2013-10-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-mingw32: remove some debugging logs
+
+2013-10-19  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-mingw32: typo
+
+	* cfg-mingw32: update CFLAGS and LDFLAGS
+
+2013-10-17  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* run-makensis: cleanup
+
+2013-10-09  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* run-makensis:
+	successfully built 32-bit and 64-bit lynx installers from same tree
+
+2013-10-08  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all:
+	remove the BUILD-W32 and BUILD-64 directories if not possible to build
+
+	* setup-build-all: add nsis to routine builds
+
+	* run-makensis:
+	add comment showing where makensis documentation is found
+
+	* run-makensis: document this script
+
+	* run-makensis:
+	provide for building 32-bit and 64-bit programs in separate directory trees
+
+	* run-makensis: RCS_BASE
+
+2013-10-06  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-mingw64: replace path-search with choose-mingw64
+
+	* cfg-mingw32: use choose-mingw32
+
+	* cfg-mingw32: update list of possible architectures
+
+	* cfg-mingw32: introduce search-list for possible architectures
+
+	* cfg-mingw64: add architecture amd64-mingw32msvc 
+
+	* setup-build-all: if rpm/dpkg can be built, do that too.
+
+2013-10-04  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-savebuild: modify to support PDCurses
+
+2013-09-01  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-clean: workaround for cdk
+
+2013-08-04  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-xterm: add --disable-wide-chars 
+
+2013-07-06  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* externs:
+	fix one bug: the first sed expression should have made the "0x" optional.
+	given that, the second line to remove leading digits was redundant.
+	change each expression to use character classes (not strictly necessary)
+	and combined the sed's into one call, making it a little more efficient.
+	Also provide $NM_PROG so I can easily reuse this for mingw
+
+2013-06-23  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-xterm: new option
+
+	* setup-clean: tidy
+
+	* clean-xterm: use setup-clean
+
+2013-06-18  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* clean-vile: simplify
+
+2013-06-17  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-clean: RCS_BASE
+
+2013-05-24  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* run-log, make-log, build-opt-xterm, build-opt-vile, build-opt-tin,
+	  build-opt-ncurses, build-opt-lynx:
+	fix-bashisms
+
+2013-04-17  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-xterm: add --disable-openpty 
+
+2013-04-13  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* clean-ncurses: cleanup clang --analyze
+
+2013-01-01  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-xterm:
+	phase out imake builds - Xorg hackers use it as a playground
+
+2012-11-18  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* clean-lynx: recover from missing xcurses
+
+2012-11-09  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-lynx:
+	ensure that the makefile exists in case the configure-script failed
+
+2012-10-15  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* archive:
+	workaround for files in ~dickey/html.vcs which contain embedded blanks.
+	This pre-quotes the names which I pass to the "ls -1t" command to find
+	the newest file.
+
+2012-09-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-xterm: new option
+
+2012-09-23  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-xterm: gnu sed is too flexible
+
+2012-09-10  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: add michener
+
+2012-09-02  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: icc12 on VMware
+
+2012-08-24  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-xterm: cancel XTermId in log, from diff's on desktop file
+
+2012-08-16  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: add vmware machines
+
+2012-08-04  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-normal: don't mess with CFLAGS anymore
+
+2012-07-28  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* clean-ncurses:
+	don't remove the BUILD-W* since that would interfere with retaining the
+	mingw build-products until I do "release-all-ncurses"
+
+2012-07-18  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* run-log: quoting
+
+2012-07-07  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* makepatch: newgetopt.pl is going away - dispense with it.
+	also, use strict (of course)
+
+2012-06-30  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-thread: add interop.
+
+2012-06-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-xterm: pass command-line options from this down to builds.
+	add check for --srcdir, allowing testbuilds using that option.
+
+2012-06-24  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-xterm: updated for icondir
+
+2012-06-16  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-mingw64, cfg-mingw:
+	prevent script "with-clang" from confusing this
+
+2012-05-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: fix redirection of stderr
+
+	* setup-build-all: q/d hack to provide Solaris package with each build
+
+2012-05-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* RCS-toggle: make this work on Solaris
+
+2012-02-25  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* clean-ncurses: remove the mingw stuff
+
+2012-02-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-tin: add --enable-heapsort
+
+2012-02-18  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-mingw: add case for Debian 6.0 64-bit
+
+	* cfg-mingw: add ming64 stuff
+
+2012-02-17  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* clean-vile: cleaner
+
+	* setup-build-all: working to integrate mingw64
+
+2012-02-15  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-mingw64: RCS_BASE
+
+2012-01-10  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-vile: do clean _before_ build
+
+2012-01-07  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncursesw: kfreebsd fix
+
+2012-01-02  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6: fix for kfreebsd
+
+	* cfg-thread: kfreebsd fix
+
+2011-12-22  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-xterm: add --disable-selection-ops
+
+2011-11-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: renamed machine
+
+2011-11-24  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-vile: use cp
+
+2011-11-11  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-tin: remove obsolete configurations
+
+	* build-ncurses:
+	override pkgconfig's library directory since this uses temporary build-dir
+
+2011-10-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* with-locale: quoting
+
+2011-10-21  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gcc-normal-64: working with par-solaris10
+
+	* with-locale: working with Solaris10
+
+2011-10-10  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: add an icc9 configuration
+
+2011-08-30  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-xterm: add without-freetype-config
+
+2011-08-13  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-thread: partial fix for pthread on FreeBSD 4.9
+
+2011-07-30  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-normal: tweak to simplify turning on -g option in cfg-normal
+
+	* cfg-thread, cfg-ncurses6, cfg-ncursesw: fix for tic incompats
+
+2011-07-17  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: clang lives in /usr/pkg/bin on DragonFlyBSD
+
+	* build-vile: add dragonfly
+
+2011-07-14  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* clean-xterm: remove build-tree
+
+2011-07-03  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all:
+	ichigo's compiler doesn't error on "--version", but warns that the option
+	is ignored.
+
+2011-06-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: add icc12
+
+	* setup-build-all: add compiler
+
+2011-04-30  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-savebuild:
+	not all scripts (autoconf 2.13 for example) use host_os, but all use bindir
+
+2011-04-13  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-tin: must provide name for executables
+
+	* build-tin: working on install/uninstall
+
+	* build-tin: RCS_BASE
+
+	* build-all-tin: convert to new build-all scheme
+
+2011-04-07  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-opt-vile: rename output-file for consistency
+
+2011-04-02  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* diff-patch: bump ncurses
+
+2011-03-29  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: handle bsd ports
+
+2011-03-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-normal: fixes for sudo vs partition
+
+	* run-log: allow $ME to override partition return-value
+
+	* setup-build-all: just in case partition is missing
+
+2011-03-07  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* diff-patch: bump
+
+2011-02-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: special-case cygwin64 (on my windows7)
+
+2011-02-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: add a case for icc
+
+2011-02-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-mingw:
+	modify to look for different cross-compilers that I have...
+
+2011-02-19  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-xterm: add imake build
+
+2011-02-16  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: renamed debian50-32
+
+2011-02-09  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: use sun studio
+
+2011-02-01  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: FreeBSD ports puts clang in /usr/local/bin
+
+2011-01-30  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: parallels builds are capable.
+
+2011-01-23  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: for archon
+
+2011-01-08  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: build with gcc-stricter on marshall
+
+2010-12-29  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-vile:
+	special-case cygwin, since I'm explicitly making "xvile", while the target
+	there actually has ".exe" suffix.
+
+2010-09-28  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-savebuild: build-ac252 doesn't set $CC; fix
+
+2010-09-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-savebuild:
+	host_os isn't required for autoconf-252, use host_alias which appears to be
+	"always" present.
+
+	* setup-savebuild: allow $BUILD_DIR to override $PROG, for save-ac252
+
+2010-09-25  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: typo
+
+	* setup-build-all: try to quiet with-gcc hack
+
+	* setup-build-all: try clang, e.g., on Fedora and even Ubuntu
+
+2010-09-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-lynx: add preinstall
+
+2010-09-05  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* save-vile: use setup-save
+
+2010-08-30  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: add bell to help screen show me that build is done
+
+2010-08-29  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: add callisto to strict checking
+
+2010-08-13  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-normal:
+	use -h for testing symlinks rather than -L (works for FreeBSD 3.0)
+
+2010-08-08  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-all-vile: pass param to build_all
+
+	* build-lynx: typo
+
+	* build-lynx: RCS_BASE
+
+	* build-all-lynx: standardize build-all-XXX's
+
+2010-08-07  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-mingw: start working with fedora12 for ncurses cross-compiles
+
+2010-07-14  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* clean-vile: get rid of revlist.bak
+
+2010-07-13  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncursesw:
+	move these shared libraries into /usr/local/ncurses, so that they'll only
+	be used by programs that use the rpath setting in ncursesw5-config.
+	The reason for doing that is because Linux distributions add /usr/local/lib
+	to the ldconfig path (often...), which makes binary packages that I build
+	happen to use those at runtime.  The /usr/lib binaries can differ, especially
+	if I'm using 64-bits, since some (such as OpenSuSE) use the older lp64 setting.
+
+2010-07-11  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all:
+	build-cproto makes a more complex build-log name, and requires some
+	extra work to rename the icc9 logfiles
+
+2010-07-10  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* clean-ncurses: ident
+
+2010-07-09  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncursesw: make this match system's ABI on SuSE
+
+2010-07-08  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: default for opensolaris is 32-bits
+
+2010-07-06  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-all-vile: split-out build-vile
+
+2010-07-03  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: move logging into setup-debbuild
+
+2010-06-29  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: cm_tools and sccs_tools have source in bin-directory
+
+	* setup-savebuild: RCS_BASE
+
+2010-06-28  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-xterm: split-out build-all-xterm
+
+	* build-all-xterm: build with all compilers
+
+2010-06-25  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: overlooked default for $CC64
+
+	* setup-build-all:
+	merge some of the tww-bin changes from build-all-mawk
+
+	* setup-build-all: need gcc-normal on tww
+
+2010-06-23  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: RCS_BASE
+
+2010-06-14  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* exports: need POSIX locale here, just like externs
+
+2010-06-13  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncursesw: adding ubuntu10
+
+2010-06-10  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-all-vile: fix for icc9 on testing-9
+
+	* build-all-vile: preserve --with-symlink
+
+2010-05-22  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6: start introducing new options to test
+
+	* cfg-thread: start introducing new options for testing
+
+2010-05-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-all-vile: for truth
+
+2010-05-13  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-vile: split-out build-all-vile
+
+2010-05-12  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-all-vile: testing-9 has icc9
+
+2010-04-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-normal: just use -O, since c89 may fail to compile with a level
+
+2010-04-25  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncursesw: ticlib's
+
+2010-04-21  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-xterm: new option
+
+2010-04-16  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-xterm: bump
+
+2010-03-28  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gcc-normal-64: for xen-solaris
+
+2010-03-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-mingw: RCS_BASE
+
+2010-03-22  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-normal: use /bin/sh rather than bash
+
+2010-03-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-all-vile: always try rpm build
+
+	* build-all-vile: tweak
+
+	* build-all-vile: use intel compiler where I have it
+
+	* build-all-vile: start merging dev/tww variants
+
+2010-03-14  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-normal: remove obsolete gcc option -Wid-clash-31 
+
+2010-02-16  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* dutree: http://docstore.mik.ua/orelly/perl/cookbook/ch05_17.htm
+	(older version dies on my home directory in testing-9)
+
+2010-02-10  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-vile: use prefix in preference to DESTDIR
+
+	* build-vile:
+	tweak so that I can run executables from the bin-directory
+
+2010-01-28  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-all-vile:
+	move to build-opt-vile, making this invoke build-vile as on tww
+
+2010-01-10  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-all-tin, build-opt-tin: update
+
+2009-12-31  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* clean-tin: RCS_BASE
+
+2009-12-06  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gcc-stricter: add comment about _Xconst versus _CONST_X_STRING
+
+	* gcc-stricter: fussing with String
+
+	* gcc-stricter: stricter...
+
+2009-11-21  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* clean-lynx: remove the bin-directory even if there's no makefile
+
+2009-10-07  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gcc-stricter: RCS_BASE
+
+2009-10-05  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* clean-vile:
+	add check for estruct.h, since tcap.c may appear in other programs
+
+	* build-vile: clean before each build
+
+2009-08-06  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-xterm: fix recursion, putting gcc-normal in its own logfile
+
+	* build-xterm: add case-statement to fix my icc8/icc9 logs
+
+	* all-opts-xterm: add disable-fifo-lines
+
+	* build-xterm: split by compiler-version
+
+	* build-xterm: resync with tww-bin
+
+2009-08-05  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-xterm: change sense of fifo-lines
+
+2009-07-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gcc-strict: move two to obsolete...
+
+2009-07-19  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-xterm: add 16bits flavor
+
+	* all-opts-xterm: add --enable-16bit-chars
+
+2009-06-06  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-vile: RCS_BASE
+
+2009-05-03  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* diff-patch: unreleased xterm patches end with a letter
+
+2009-05-02  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* diff-patch: fix path for ncurses patch
+
+2009-05-01  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* diff-patch:
+	Paul Van Tilburg requested that I put a url on diffstat's for vile, so
+	I scripted it here for the cases that I often generate patches for.
+
+2009-02-14  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6: test SP-api in ABI6
+
+2009-02-01  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-lynx: add ascii-ctypes
+
+2009-01-25  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gcc-normal-64: RCS_BASE
+
+2009-01-17  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* externs: OpenBSD uses a "?" where most other systems provide a "U".
+
+	* exports, externs: fixes to work with IRIX64, HPUX-11 and Solaris
+
+2009-01-03  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6, cfg-ncursesw: add --enable-pc-files
+
+	* cfg-thread: add pc-files to the build
+
+2008-12-24  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-normal: tweak to make the --srcdir option work
+
+2008-10-04  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-ncurses: disable big-strings with OSF1 5.1 and HPUX 11.00
+
+2008-09-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-ncurses:
+	fix - ncurses checks if --with-terminfo-dirs is legal paths
+
+2008-08-30  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-ncurses: add threading build
+
+2008-08-25  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-normal: quote params
+
+2008-08-21  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-opt-vile: RCS_BASE
+
+	* build-all-vile: ncursesw is different.
+
+2008-07-21  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-normal: latest Debian gcc package puts "Debian" in the parens
+
+2008-07-12  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-ncurses: build-fixes for c++ and big-strings
+
+2008-07-05  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-ncurses: disable big-strings for AIX 5.1
+	fix an oops that made me lose the cc-builds if there was no error.
+
+2008-05-03  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-thread: tweak for FreeBSD
+	add wgetch-events
+
+2008-03-29  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-thread: now have --with-pthread option
+
+2008-03-23  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* save-xterm: make this work with 2.60/2.61
+
+2008-02-23  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-thread: add LIBS
+
+2007-12-31  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-xterm: don't use relative path for desktop utils
+
+2007-09-29  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ext-color: disable leaks here, so I can check dialog
+
+2007-09-01  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-thread: predefine USE_PTHREADS
+
+	* cfg-thread: RCS_BASE
+
+2007-08-12  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-xterm: filter out version numbers
+
+2007-07-08  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-xterm: add icondir
+	filter out pathname of srcdir
+
+2007-06-23  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-ncurses: working on build-ncurses (incomplete)
+
+2007-06-17  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-xterm: don't need to remove category anymore
+
+	* save-xterm: don't save "*.log", save config.log
+
+2007-06-16  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-xterm: workaround for desktop Categories
+
+	* build-xterm: add DESKTOP_FLAGS
+
+	* build-xterm: suppress app-defaults too
+
+2007-05-13  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* clean-lynx: RCS_BASE
+
+2007-04-09  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* with-locale: cancel LESSCHARSET too
+
+2007-03-19  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-xterm: first cut of rewrite to support TWW
+
+2007-03-18  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-xterm: added --enable-tcap-fkeys
+
+2007-03-17  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6: add ext-mouse
+
+2007-01-28  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-ncurses: add --with-ticlib
+
+2006-12-24  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6: install into /usr/local/bin
+
+	* cfg-ncursesw: install into /usr/local/bin/
+
+2006-12-23  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* diff-patch:
+	sign all patches - motivated by various packager's plagiarism of one of
+	my patches for lynx.
+
+2006-12-19  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-ncurses: for 5.6 testing
+
+2006-12-18  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-ncurses: RCS_BASE
+
+	* save-ncurses: version from tww
+
+2006-12-17  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* clean-ncurses: RCS_BASE
+
+2006-12-16  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6, cfg-ncursesw: add --with-develop
+
+2006-10-21  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6, cfg-ncursesw: build BSD's with hashed-db
+
+2006-10-15  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6: better
+
+	* cfg-ncurses6: fix the terminfo-dir
+
+	* cfg-ncurses6: RCS_BASE
+
+	* cfg-ncursesw: use rpath
+
+2006-10-13  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* with-locale:
+	hack for Fedora5 - set GDM_LANG so I can override the stuff in /etc used
+	to force shell-init.
+
+2006-09-16  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-tin: partial update
+
+2006-07-15  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-xterm: fill in some options that I seem to have overlooked
+
+2006-06-03  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-lynx: To      : Philip Webb <purslow@sympatico.ca>
+	Cc      : lynx-dev listserv <lynx-dev@nongnu.org>
+	Attchmnt:
+	Subject : Re: [Lynx-dev] dev 18 : compile error
+	----- Message Text -----
+	On Sat, 3 Jun 2006, Philip Webb wrote:
+
+	> This is on Gentoo Linux, GCC 3.4.5 , Glibc 2.3.6 , Ncurses 5.4 .
+	> Configure options are :
+	>
+	>  ./configure --with-screen=ncurses --disable-menu-options --enable-default-co$
+
+	validate_x_display() is inside an ifdef disabled by --disable-menu-options
+
+	(I did a recent build with "all" options but see that one isn't in the
+	script).
+
+2006-05-21  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* clean-vile: RCS_BASE
+
+2006-02-21  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncursesw: disable-leaks
+
+2006-02-12  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-xterm: add regex stuff
+
+2006-01-21  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncursesw: add xmc-glitch
+
+2006-01-08  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-lynx:
+	I don't have a link to the socks stuff - just use the /usr/local/test directory
+
+2005-11-13  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-xterm: RCS_BASE
+
+2005-09-18  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* clean-xterm: RCS_BASE
+
+2005-06-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-xterm: add enable-paste64
+
+2005-06-08  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-all-vile: add nofilters
+
+2005-04-23  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-normal: allow for gcc 4.0
+
+2005-04-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* csort: use with-locale
+
+2005-04-19  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* with-locale: export LANG too
+
+2005-03-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-ncurses: updated
+
+2005-02-04  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* save-xterm: add logic to check for imake
+
+	* save-xterm: modified to work with autoconf 2.52
+
+2005-01-29  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ext-color: disable macros too, for testing
+
+2005-01-01  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ext-color: RCS_BASE
+
+2004-09-30  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* with-locale: RCS_BASE
+
+2004-09-23  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-normal:
+	make this so I can test --srcdir stuff easily - it will apply the argument
+	of --srcdir to the path for configure
+
+2004-05-11  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* diff-patch: keep from showing utf-8 crap on Fedora
+
+2004-04-24  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-mingw32: RCS_BASE
+
+2004-02-21  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* externs:
+	unset $LANG, $LANGUAGE and $LC_CTYPE since those can also pollute the script
+
+2004-01-03  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-opt-lynx, build-all-lynx:
+	only make-distclean if there's a makefile
+
+2003-11-02  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-all-vile: add a check for loadable filters
+
+2003-08-09  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-normal: use "sh", just in case permissions aren't executable
+
+2003-07-30  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* archive:
+	use "v", not "-v" for $verbose, since that's packed into a tar option.
+	it happens to work for Solaris and GNU tar, but not IRIX64
+
+2003-06-16  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-normal:
+	gcc 2.95.4 (debian 3.0) doesn't like the -Wid-clash-31 either
+
+2003-06-05  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-all-tin: add nls variations
+
+2003-05-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-all-xterm:
+	modify to be like the other build-all-XXX scripts, letting me detach this
+	from the parent directory.  Don't pretend to build with Motif.  Try to
+	build the toolbar version.
+
+	* all-opts-xterm: add with-XawPlus
+
+2003-04-22  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* exports: use sort -u
+
+2003-04-18  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-opt-lynx:
+	change to put build-opt- as prefix rather than build-, for consistency
+
+2003-04-15  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-lynx: add with-gnutls
+
+2003-03-22  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-xterm: add enable-pty-handshake
+
+2003-03-04  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-xterm: add disable-c1-print
+
+2003-03-02  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gcc-normal: gotta look at the different-width stuff sometimes
+
+2002-11-15  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gcc-normal: try removing junk messages
+
+2002-11-10  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-all-tin: added pdcurses
+
+2002-10-04  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-xterm: add disable-session-mgt
+
+2002-09-07  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* save-ncurses: make this work with autoconf 2.5x
+
+	* cfg-ncursesw: RCS_BASE
+
+2002-09-01  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-opt-ncurses: tweak to allow testing w/o database
+
+2002-08-31  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* csort: RCS_BASE
+
+2002-08-16  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-xterm: add enable-luit
+
+2002-06-29  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-normal: idiots dropped -Wid-clash-XXX
+
+2002-04-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-tin: disable nls (to make testing work)
+
+2002-04-19  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-normal: note the partition
+
+2002-04-17  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* save-tin: adapt to autoconf 2.52
+
+2002-02-16  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-opt-xterm: put build-opt- at the beginning of the logfile name
+
+	* build-opt-lynx: put build- at the beginning of the logfile name
+
+	* build-all-lynx: put "build-all" at the beginning of the logfile name
+
+	* build-opt-tin: put build-opt- at the beginning of the logfile name
+
+	* build-all-tin: renamed things to make them sort nicer
+
+	* build-all-vile: change name convention for log-file
+
+	* build-opt-ncurses: consistent log-file naming
+
+2002-01-12  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-all-vile: show resulting file
+
+2001-12-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* save-lynx: adapt to autoconf 2.52 vs 2.13
+
+2001-12-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-all-vile: oops - fix a redefinition of $SCREEN
+
+	* save-vile: also ignore -fXXXX options
+
+	* save-vile:
+	modified to work with autoconf 2.52 as well as autoconf 2.13
+
+2001-12-07  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* path:
+	mods to accommodate directory names with embedded blanks, e.g., cygwin
+
+2001-11-08  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-all-tin: add ncursesw
+
+2001-10-07  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* run-log: add host and user ids
+
+2001-10-03  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-ncurses:
+	oops - some of the optione didn't cite the right strings
+
+2001-09-02  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* archive: hmm - not quite there (fixes for unarchive)
+
+	* archive:
+	if parent directory is not writable, don't try to move the archive first.
+
+	* archive:
+	partial rewrite: I got tired of not being able to use less to view an
+	archive when I was not in the right directory.  So I added checks if the
+	parameter is an archive filename.  Also fixed the help-message (which used
+	to work in an earlier shell, probably SunOS 4.x).  Quoted more places, but
+	the debug trace gets in the way of complete quoting.
+
+2001-07-21  Thomas E. Dickey  <dickey@clark.net>
+
+	* all-opts-tin: add with-shell
+
+2001-07-08  Thomas E. Dickey  <dickey@clark.net>
+
+	* build-all-lynx: added pdcurses
+
+2001-05-07  Thomas E. Dickey  <dickey@clark.net>
+
+	* build-opt-tin: run from parent-directory
+
+	* build-all-tin: run from parent directory
+
+2001-03-29  Thomas E. Dickey  <dickey@clark.net>
+
+	* build-opt-xterm:
+	make this more restartable by testing for touched file vs linked
+
+2001-03-15  Thomas E. Dickey  <dickey@clark.net>
+
+	* all-opts-lynx: add vertrace
+
+2001-03-12  Thomas E. Dickey  <dickey@clark.net>
+
+	* cfg-tin: add local news-directory in /users/knews/news
+
+2001-02-23  Thomas E. Dickey  <dickey@clark.net>
+
+	* all-opts-lynx: add disable-trace
+
+2001-01-13  Thomas E. Dickey  <dickey@clark.net>
+
+	* make-log: show partition
+
+2001-01-01  Thomas E. Dickey  <dickey@clark.net>
+
+	* build-opt-lynx: derive $TARGET, which fixes embedded '=' in options
+
+	* all-opts-lynx: specifies socks directories, adds ssl
+
+2000-12-31  Thomas E. Dickey  <dickey@clark.net>
+
+	* all-opts-tin: specify the socks directories
+
+2000-11-11  Thomas E. Dickey  <dickey@clark.net>
+
+	* cfg-normal:
+	don't set disable-overwrite (it should be automatic on Linux)
+
+2000-10-26  Thomas E. Dickey  <dickey@clark.net>
+
+	* build-all-vile:
+	make this work from a subdirectory of vile, and add 'filters' test case
+
+	* save-vile:
+	allow this to run from a subdirectory of vile, to test "configure --srcdir=.."
+
+2000-10-25  Thomas E. Dickey  <dickey@clark.net>
+
+	* build-all-vile:
+	provide for starting this from 'make-dstdir' directory
+
+2000-10-21  Thomas E. Dickey  <dickey@clark.net>
+
+	* all-opts-ncurses: add new options for 5.2
+
+2000-10-01  Thomas E. Dickey  <dickey@clark.net>
+
+	* archive: add -b, -B options for bzip2 compression
+
+2000-09-28  Thomas E. Dickey  <dickey@clark.net>
+
+	* build-all-tin:
+	override $LIBS so it doesn't get confused by cfg-tin's assumptions
+
+2000-09-25  Thomas E. Dickey  <dickey@clark.net>
+
+	* all-opts-tin: updated (got everything to build)
+
+2000-09-01  Thomas E. Dickey  <dickey@clark.net>
+
+	* build-all-lynx: fix for -ltermcap
+
+2000-07-08  Thomas E. Dickey  <dickey@clark.net>
+
+	* build-opt-ncurses: split-out all-opt-ncurses
+
+	* all-opts-ncurses: RCS_BASE
+
+2000-05-28  Thomas E. Dickey  <dickey@clark.net>
+
+	* build-opt-xterm: force a logfile
+
+2000-04-15  Thomas E. Dickey  <dickey@clark.net>
+
+	* build-opt-tin: typo(?)
+
+2000-04-08  Thomas E. Dickey  <dickey@clark.net>
+
+	* all-opts-lynx: add charsets
+
+2000-03-29  Thomas E. Dickey  <dickey@clark.net>
+
+	* diff-patch: use -c option of diffstat to eliminate the sed script
+
+2000-03-25  Thomas E. Dickey  <dickey@clark.net>
+
+	* build-opt-lynx: add "-opt-" to log name
+
+	* build-all-lynx: log param
+
+2000-03-18  Thomas E. Dickey  <dickey@clark.net>
+
+	* build-all-vile: log if given a directory param
+
+2000-02-24  Thomas E. Dickey  <dickey@clark.net>
+
+	* all-opts-lynx: sorted (had kanji, but dropped that)
+
+2000-02-14  Thomas E. Dickey  <dickey@clark.net>
+
+	* build-opt-lynx: log if given a directory name
+
+2000-01-22  Thomas E. Dickey  <dickey@clark.net>
+
+	* all-opts-xterm: add with-utempter
+
+2000-01-20  Thomas E. Dickey  <dickey@clark.net>
+
+	* build-all-tin: autoskip
+
+	* all-opts-tin: fixes for a couple of options that need parameters
+
+	* build-opt-tin: reverse the names so I can so them
+
+	* all-opts-tin: only need one nls
+
+	* all-opts-tin: sorted, added --enable-nls
+
+2000-01-14  Thomas E. Dickey  <dickey@clark.net>
+
+	* cfg-tin: td-install is a problem due to non-absolute path
+
+	* build-opt-tin, all-opts-tin: RCS_BASE
+
+2000-01-02  Thomas E. Dickey  <dickey@clark.net>
+
+	* externs: cancel LC_ALL to workaround defect in Redhat 6.1's sort
+
+2000-01-01  Thomas E. Dickey  <dickey@clark.net>
+
+	* pd: RCS_BASE
+
+1999-12-20  Thomas E. Dickey  <dickey@clark.net>
+
+	* makepatch:
+	sort the old/new lists to avoid confusing '/' with filename stuff
+
+1999-12-05  Thomas E. Dickey  <dickey@clark.net>
+
+	* all-opts-lynx: misc updates
+
+1999-12-03  Thomas E. Dickey  <dickey@clark.net>
+
+	* exports: RCS_BASE
+
+1999-09-25  Thomas E. Dickey  <dickey@clark.net>
+
+	* all-opts-xterm: add enable-dec-locator
+
+1999-09-18  Thomas E. Dickey  <dickey@clark.net>
+
+	* build-opt-ncurses: closer
+
+1999-09-17  Thomas E. Dickey  <dickey@clark.net>
+
+	* all-opts-xterm: add 88-color
+
+1999-08-27  Thomas E. Dickey  <dickey@clark.net>
+
+	* build-opt-xterm: move options list to all-opts-xterm
+
+	* all-opts-xterm: RCS_BASE
+
+	* build-opt-lynx: move options to separate script
+
+	* all-opts-lynx: RCS_BASE
+
+1999-08-15  Thomas E. Dickey  <dickey@clark.net>
+
+	* build-opt-xterm: add -enable-toolbar
+
+1999-07-17  Thomas E. Dickey  <dickey@clark.net>
+
+	* build-all-lynx:
+	modify so I can automatically build against whatever I've got in /usr/local/test
+
+1999-07-10  Thomas E. Dickey  <dickey@clark.net>
+
+	* build-opt-xterm: RCS_BASE
+
+1999-06-17  Thomas E. Dickey  <dickey@clark.net>
+
+	* build-opt-lynx: RCS_BASE
+
+1999-06-15  Thomas E. Dickey  <dickey@clark.net>
+
+	* build-opt-ncurses: RCS_BASE
+
+1999-04-23  Thomas E. Dickey  <dickey@clark.net>
+
+	* build-all-vile: don't build the filters!
+
+1998-09-21  Thomas E. Dickey  <dickey@clark.net>
+
+	* build-all-lynx: add slang9
+
+1998-09-12  Thomas E. Dickey  <dickey@clark.net>
+
+	* cfg-normal: add special case for *.cfg*
+
+1998-09-08  Thomas E. Dickey  <dickey@clark.net>
+
+	* build-all-vile: flesh-out with some variants
+
+1998-07-26  Thomas E. Dickey  <dickey@clark.net>
+
+	* save-vile: -W options can contain numbers
+
+	* build-all-vile: RCS_BASE
+
+1998-07-25  Thomas E. Dickey  <dickey@clark.net>
+
+	* cfg-tin: change option for mail-handling.
+
+1998-07-23  Thomas E. Dickey  <dickey@clark.net>
+
+	* build-all-xterm: RCS_BASE
+
+1998-05-21  jv
+
+	* makepatch: 1.10 - original author
+
+1998-03-20  Thomas E. Dickey  <dickey@clark.net>
+
+	* diff-patch: put '#' comment markers
+
+1998-02-19  Thomas E. Dickey  <dickey@clark.net>
+
+	* diff-patch: $LANG
+
+1998-01-24  Thomas E. Dickey  <dickey@clark.net>
+
+	* diff-patch: generate an md5 sum file for each patch
+
+1997-12-17  Thomas E. Dickey  <dickey@clark.net>
+
+	* save-lynx: modify so we recognize ncurses done via $CFLAGS/$LIBS
+
+1997-12-02  Thomas E. Dickey  <dickey@clark.net>
+
+	* cfg-ncurses: --with-screen=ncurses, for lynx
+
+1997-10-22  Thomas E. Dickey  <dickey@clark.net>
+
+	* build-all-tin: RCS_BASE
+
+1997-10-04  Thomas E. Dickey  <dickey@clark.net>
+
+	* save-vile: add Xaw clones
+
+1997-09-25  Thomas E. Dickey  <dickey@clark.net>
+
+	* save-tin: FROM_KEYS
+
+1997-09-16  Thomas E. Dickey  <dickey@clark.net>
+
+	* build-all-lynx: RCS_BASE
+
+1997-09-15  Thomas E. Dickey  <dickey@clark.net>
+
+	* save-xterm: FROM_KEYS
+
+1997-09-11  Thomas E. Dickey  <dickey@clark.net>
+
+	* save-ncurses: FROM_KEYS
+
+1997-09-06  Thomas E. Dickey  <dickey@clark.net>
+
+	* save-vile: add Xaw case
+
+1997-09-04  Thomas E. Dickey  <dickey@clark.net>
+
+	* save-lynx: style isn't cached any more
+
+1997-08-15  Thomas E. Dickey  <dickey@clark.net>
+
+	* save-vile: RCS_BASE
+
+1997-07-12  Thomas E. Dickey  <dickey@clark.net>
+
+	* cfg-normal: add log-header
+	use hard-tabs
+
+1997-07-11  Thomas E. Dickey  <dickey@clark.net>
+
+	* save-lynx: RCS_BASE
+
+1997-06-13  Thomas E. Dickey  <dickey@clark.net>
+
+	* save-xterm: RCS_BASE
+
+1997-04-28  Thomas E. Dickey  <dickey@clark.net>
+
+	* cfg-x11: set CPPFLAGS too
+
+1997-01-07  Thomas E. Dickey  <dickey@clark.net>
+
+	* gcc-strict: drop some options which are only C++, and
+	mark -Wenum-clash, -Wid-clash-31 and -Wredundant-decls as too "noisy"
+
+1996-07-09  Thomas E. Dickey  <dickey@clark.net>
+
+	* cfg-tin: turn off debugging
+
+	* save-tin: RCS_BASE
+
+1996-05-31  Thomas E. Dickey  <dickey@clark.net>
+
+	* cfg-tin: resync
+
+1996-05-28  Thomas E. Dickey  <dickey@clark.net>
+
+	* save-ncurses: RCS_BASE
+
+1996-05-26  Thomas E. Dickey  <dickey@clark.net>
+
+	* cfg-tin: resync with urs
+
+1996-05-23  Thomas E. Dickey  <dickey@clark.net>
+
+	* cfg-tin: workable (almost) on clarknet
+
+1996-05-22  Thomas E. Dickey  <dickey@clark.net>
+
+	* cfg-tin: got this to build 960521 w/o changes.
+
+	* cfg-tin: setup $LIBS
+
+	* cfg-tin:
+	first cut of common script for configuring tin (all platforms)
+
+1996-05-19  Thomas E. Dickey  <dickey@clark.net>
+
+	* cfg-tin: mods to use knewsd
+
+1996-05-16  Thomas E. Dickey  <dickey@clark.net>
+
+	* RCS-toggle: RCS_BASE
+
+1996-04-30  Thomas E. Dickey  <dickey@clark.net>
+
+	* cfg-normal: hacks for ncurses & --srcdir
+
+1996-04-26  Thomas E. Dickey  <dickey@clark.net>
+
+	* makepatch:
+	corrected handling of radically-different directories (null entries)
+
+1996-01-27  Thomas E. Dickey  <dickey@clark.net>
+
+	* cfg-x11: don't need a.out anymore
+
+1996-01-25  Thomas E. Dickey  <dickey@clark.net>
+
+	* run-log: RCS_BASE
+
+1995-12-03  Thomas E. Dickey  <dickey@clark.net>
+
+	* archive: force directory to be writable
+
+1995-12-02  Thomas E. Dickey  <dickey@clark.net>
+
+	* cfg-shared: use cfg-normal
+
+1995-11-09  Thomas E. Dickey  <dickey@clark.net>
+
+	* path: fixes for leading/trailing .
+
+1995-09-19  Thomas E. Dickey  <dickey@clark.net>
+
+	* cfg-x11: RCS_BASE
+
+1995-09-12  Thomas E. Dickey  <dickey@clark.net>
+
+	* cfg-ncurses: disable echo of command-details
+
+1995-09-10  Thomas E. Dickey  <dickey@clark.net>
+
+	* cfg-shared: RCS_BASE
+
+1995-09-05  Thomas E. Dickey  <dickey@clark.net>
+
+	* archive: mod to allow archiving a subtree
+
+1995-08-01  Thomas E. Dickey  <dickey@clark.net>
+
+	* cfg-tin: RCS_BASE
+
+1995-07-30  Thomas E. Dickey  <dickey@clark.net>
+
+	* cfg-ncurses, cfg-normal: don't try to autoconf
+
+1995-07-04  Thomas E. Dickey  <dickey@clark.net>
+
+	* dutree: RCS_BASE
+
+1995-04-07  Thomas E. Dickey  <dickey@clark.net>
+
+	* gcc-normal: RCS_BASE
+
+1995-04-06  Thomas E. Dickey  <dickey@clark.net>
+
+	* gcc-strict: RCS_BASE
+
+1995-02-23  Thomas E. Dickey  <dickey@clark.net>
+
+	* path: flag to prevent showing a directory twice
+
+1995-01-28  Thomas E. Dickey  <dickey@clark.net>
+
+	* cfg-ncurses: RCS_BASE
+
+1995-01-05  Thomas E. Dickey  <dickey@clark.net>
+
+	* cfg-normal: using autoconf 1.1
+
+1994-11-13  Thomas E. Dickey  <dickey@clark.net>
+
+	* diff-patch: use 'makepatch'.
+	change width of histogram to 78 columns
+
+1994-09-01  Thomas E. Dickey  <dickey@clark.net>
+
+	* cfg-normal: test for Makefile.in also
+
+1994-08-08  Thomas E. Dickey  <dickey@clark.net>
+
+	* cfg-normal: remove config.status to avoid confusion!
+
+1994-07-30  Thomas E. Dickey  <dickey@clark.net>
+
+	* cfg-normal: pass-thru arguments to configure if needed
+
+1994-07-23  Thomas E. Dickey  <dickey@clark.net>
+
+	* cfg-normal:
+	test to see if we've got a makefile to re-gen the configure script
+
+1994-06-18  Thomas E. Dickey  <dickey@clark.net>
+
+	* cfg-normal: RCS_BASE
+
+1994-06-11  Thomas E. Dickey  <dickey@clark.net>
+
+	* make-log: RCS_BASE
+
+1994-06-06  Thomas E. Dickey  <dickey@clark.net>
+
+	* makepatch: RCS_BASE
+
+1994-05-26  Thomas E. Dickey  <dickey@clark.net>
+
+	* path: RCS_BASE
+
+1994-05-03  Thomas E. Dickey  <dickey@clark.net>
+
+	* archive: RCS_BASE
+
+1993-08-19  dickey@software.org
+
+	* diff-patch: RCS_BASE
+
+1991-08-20  dickey@software.org
+
+	* externs: RCS_BASE
+

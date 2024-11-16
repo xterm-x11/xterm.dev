@@ -1,0 +1,605 @@
+2023-08-19  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* analyze-curses-symbols:
+	in debug-trace, show the symbol categories for each symbol
+
+	* analyze-curses-symbols:
+	add ncurses 6 extensions tparm_s and tscan_s, in the terminfo section, and
+	move comparable terminfo features from the ncurses categories into the
+	terminfo category as t5 or t6.
+
+	* analyze-curses-symbols:
+	sort the keys in merge_syms so that the debug-trace is easier to read
+
+2023-08-18  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* analyze-curses-symbols:
+	With Debian 11, nm returns the "@" annotation for versioned symbols.  strip that.
+
+2021-04-03  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* analyze-curses-symbols: the BSDs require -D option too
+
+2021-03-05  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* analyze-curses-symbols: BSS and Common symbols count, too.
+
+	* analyze-curses-symbols: don't try ldd unless the file is readable.
+
+	* analyze-curses-symbols:
+	ignore scripts as well as non-executable files
+
+	* analyze-curses-symbols: Solaris needs the -D option of nm
+
+2021-02-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* analyze-curses-symbols:
+	add check for extended ncurses symbols in sym_is_terminal
+
+	* analyze-curses-symbols:
+	-d option shows relevant symbols as they are found
+
+2021-02-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* analyze-curses-symbols:
+	reset state in output from otool on each "Load command"
+	look for symbols in a REEXPORT DYLIB
+
+	* analyze-curses-symbols: make the other use of "-D" platform-dependent
+
+	* analyze-curses-symbols:
+	for MacOS (darwin), use "otool -l" rather than "ldd", as well as omitting
+	the "-D" option for nm, and trimming a leading "_" from symbols.
+
+2020-01-18  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* analyze-curses-symbols: set_term isn't in SVr3
+
+	* analyze-curses-symbols: tgetflag was SVr3
+
+	* analyze-curses-symbols:
+	the manual page's introductory section lists parameter-names mixed with
+	global-variable names.  I picked out several from the latter, noted here.
+
+	* analyze-curses-symbols: note the SVr3 functions per documentation
+
+	* analyze-curses-symbols: note the symbols from SVr2 documentation
+
+2019-12-09  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-mapsyms: fix typo
+
+2019-08-07  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* analyze-curses-symbols:
+	handle the special case of "tgoto" where termcap/terminfo functions overlap
+	by knowing that termcap applications must call tgetent
+
+	* analyze-curses-symbols:
+	a little cryptic, but compact: show the highest curses level in the
+	summary block for each file.
+
+	* analyze-curses-symbols:
+	split up the duplicated curses lists into bsd, sys5 and xopen
+
+	* analyze-curses-symbols: indent
+
+	* analyze-curses-symbols:
+	add SVr4 curses (there's overlap, which I'll address later)
+
+	* analyze-curses-symbols: add 4.2BSD tabcol and 4.3BSD symbols
+
+	* analyze-curses-symbols: 4.1BSD added 3 symbols
+
+	* analyze-curses-symbols: add symbols for 4.0BSD "b0"
+
+	* analyze-curses-symbols: add symbols for antique terminfo
+
+2019-07-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* analyze-curses-symbols:
+	workarounds to allow running with AIX and HPUX.  The latter is more successful,
+	the former's stripped executables contain no symbols at all
+
+	* analyze-curses-symbols: use env rather than perl-path
+
+2019-07-21  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* analyze-curses-symbols: bump
+
+	* analyze-curses-symbols: add ncurses-6 symbols
+
+2019-05-04  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-map-vs-sym: fix typo, remove overly-verbose message
+
+	* check-map-vs-sym: RCS_BASE
+
+2016-10-29  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-symbols: copyright
+
+	* ncu-symbols: wide symbols start with 2002/10/12
+
+2016-01-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* dlg-symbols: add a release
+
+2015-07-11  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-mapsyms:
+	since I cutoff before 6.0, there is no "current" date, but only dates for
+	the most recent change to the ncurses ABI.  Fix using the most recent date.
+
+	* ncu-mapsyms:
+	fix a debug-statement, which was showing a hash code rather than the collectin of strings
+
+	* ncu-symbols:
+	in the final step to associate "_*" pattern, the ".sym" files have already
+	been moved to package/SAVE, so the wildcard does not refer to a valid file.
+
+2015-06-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-mapsyms: add deprecated symbols for Debian #788610
+
+2015-06-13  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-mapsyms:
+	fix -- needs retesting -- when I regenerated map-files, the "-s" option
+	left some of the symbols out, as well as putting them in the wrong dates.
+	At least part of the problem is that I was testing the old label (pre-merge)
+	when I should have tested the new label.  This change improves the merge,
+	but there seems to be an unwanted suffix in some cases.
+
+	* ncu-symbols: fix typo from 2015/02/14
+
+	* ncu-symbols: explain the last change
+
+	* ncu-symbols: generate symbols for the _last_ 5.9 patch
+
+2015-02-25  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-mapsyms:
+	the --without-libtool option does not (really) affect ABI, though we may
+	use different library versioning.
+
+	* dlg-symbols: for now, do not use "-s" and "-p" options
+
+	* dlg-symbols:
+	my versioning scheme for dialog differs from ncurses: in ncurses, everything
+	is "vM_M_MMMMMMMM", with occasional "vM_M", while dialog uses "tMMMMMMMM"
+	with occasional "vM_M"
+
+	* ncu-mapsyms: eliminate an unnecessary verbose-message
+
+	* dlg-symbols: s/dist.mk/VERSION/ for rlog lookup
+
+	* dlg-symbols:
+	initially I had only libtool -- use that unless I find case where it fails
+
+2015-02-24  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* dlg-symbols: RCS_BASE
+
+	* ncu-mapsyms:
+	fix for my dpkg builds which are in a temporary directory named "cdialog"
+
+	* ncu-mapsyms:
+	generalize ncurses' "initscr" a little - probably need better solution
+
+	* ncu-mapsyms: show the number of symbols read from needed-syms
+
+	* ncu-mapsyms:
+	start generalizing, to check in VERSION file if no dist.mk found
+
+2015-02-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* analyze-curses-symbols: fill in check for ncurses-extensions
+
+	* analyze-curses-symbols: handle read from stdin
+
+	* analyze-curses-symbols: typo
+
+	* analyze-curses-symbols:
+	handle programs such as aptitude which depend on library which depends on curses.
+
+2015-02-19  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* analyze-curses-symbols: documentation fixes
+
+	* analyze-curses-symbols:
+	ignore symbolic link to directory in traversal
+
+	* analyze-curses-symbols: add -q, -r and -s options
+
+2015-02-18  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* analyze-curses-symbols: show counts of symbol usage
+
+	* analyze-curses-symbols: accumulate counts for each symbol vs program
+
+	* analyze-curses-symbols:
+	add functions for reading the dynamic symbols from both libraries and application
+
+	* analyze-curses-symbols: q/d integration of "ldd"
+
+	* analyze-curses-symbols: RCS_BASE
+
+2015-02-14  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-symbols:
+	fix an inconsistency in the way I checked for weak-symbols
+
+2015-02-10  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-symbols:
+	move the "-v" into $MAP_OPTS, and echo that (for the log)
+
+2015-02-09  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-mapsyms:
+	add new "-t" option to get better control over the library renaming done
+	when --enable-weak-symbols is used.
+
+	* ncu-symbols:
+	try a different tack, with new option "-t" to ncu-mapsyms
+
+	* ncu-mapsyms:
+	after the last fix, I found that the data returned from read_config() did
+	not match the expected hash referencing.  This reworks a chunk in that - seems
+	to fix the immediate problem.
+
+2015-02-08  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-mapsyms:
+	when I revised the comment-header with options, I overlooked get_config_params,
+	which assumed the old layout.  When using "ncu-mapsyms -s", that caused all
+	of the options to be emitted on a single line.
+
+2015-02-07  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-symbols: add header for log to show "current"
+
+	* ncu-symbols:
+	fix typo that introduced termlib option values into header
+
+	* ncu-symbols:
+	looks like adding weak symbols only adds to thread - simple...
+
+	* ncu-symbols:
+	override tinfo/tic library names to force weak-symbol stuff into "right" file
+
+2015-01-31  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-symbols: turn on verbose
+
+	* ncu-mapsyms: overlooked filling in long headers for ".sym" file
+
+	* ncu-symbols: make output a little easier to find the ncu-mapsyms call
+
+	* compare-mapsyms: typo
+
+	* ncu-mapsyms:
+	when first creating a ".map" file, check (since it is being created with a
+	different name) if the original ".map" file exists, and if so, what configure
+	options its header might list.
+
+	* ncu-mapsyms:
+	the reason I had no options was that for autoconf 2.13, the "--version"
+	option does not tell about the configure options.  added a fallback to
+	read the comment-header, which has that information.
+
+	* ncu-mapsyms:
+	better show at least "(none)" to indicate the build-date, even if there were
+	no options.
+
+	* ncu-mapsyms:
+	original build of 5.0 has no options to add, so a hash was empty - add check
+
+2015-01-24  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-mapsyms:
+	first cut of revised configure-options logic, ready to test in ncu-symbols
+
+	* ncu-mapsyms: first cut at writing hashes for options
+
+	* ncu-mapsyms:
+	split-out add_config, so that all of the logic for configure-options is
+	in functions shared between map/sym functions
+
+	* ncu-mapsyms:
+	split-out read_options function.  Drop the get_merge_count feature, since
+	that doesn't fit into a function scenario - and I'll be revising the format
+	of the options anyway.
+
+	* ncu-mapsyms: split-out write_options function
+
+	* ncu-mapsyms: trim uninteresting configure options
+
+2015-01-17  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-symbols: comment-out debug option
+
+	* ncu-mapsyms:
+	add a special case to work around --weak-symbols option which Werner seems to
+	have persuaded me to make the library suffix "t" omitted.
+
+	* ncu-symbols:
+	In response to Werner's comment, I tried combining --enable-weak-symbols,
+	but had forgotten that suppresses the "t" part of the suffix (and added a
+	lot of pthread stuff to ncursesw.map).  Take that out, and write a note in
+	INSTALL to explain better about renaming map-files in the configure options.
+
+	* ncu-symbols:
+	first cut of changes to detect when map/sym files do/do not change
+
+	* compare-mapsyms: RCS_BASE
+
+	* report-mapsyms: make the "-v" message go to stderr
+
+	* report-mapsyms: RCS_BASE
+
+2015-01-12  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-symbols: Werner reported a problem with hashed-db vs ticlib
+
+2015-01-10  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-mapsyms:
+	q/d implementation of "-p" assumes that I've marked the final state as "current"
+
+	* ncu-mapsyms: start work on -p option
+
+	* ncu-symbols: correct spelling of "broken_linker"
+	add hashed-db to list
+
+2015-01-03  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-symbols: date
+
+	* ncu-symbols: tried - didn't help
+
+	* ncu-mapsyms: date
+
+	* ncu-mapsyms: _nc_freeall is used in Ada95 binding
+
+2014-12-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-symbols: when doing "-a", finish by resyncing symbols
+
+2014-12-13  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-mapsyms: reported in
+		http://lists.gnu.org/archive/html/bug-ncurses/2014-12/msg00007.html
+	I had moved comp_captab and comp_hash from libtic to libtinfo after 5.7,
+	and without marking them specially, they were "still" in libtic.
+
+2014-12-06  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-mapsyms: ensure ".sym" files are the same scope
+
+	* ncu-mapsyms:
+	have to ripple-up scope when synchronizing, to ensure that if one library
+	makes something global, everyone gets it.
+
+	* ncu-mapsyms: implemented the synchronization part of "-s" option
+
+	* ncu-mapsyms:
+	ok - before transforming with "-s", the input/output files are identical
+
+	* ncu-mapsyms: for "-s", make comment-header identical to input
+
+	* ncu-mapsyms: for "-s" option, preserve the merge-count in the header
+
+	* ncu-mapsyms:
+	a little more - reading/writing (but I see unexplained differences - debug)
+
+	* ncu-mapsyms:
+	start work on "-s" option by moving globals into functions - so I can reuse
+	the parts for reading/writing ".map" files
+
+	* ncu-mapsyms:
+	add two entrypoints for ABI stability per notes in INSTALL
+
+2014-11-29  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-symbols:
+	tweaks to make it simpler to see in the logs the merge-process.
+
+	* ncu-mapsyms:
+	if previously global, it seems we have to keep it global -- otherwise successive
+	builds for a given date do not merge properly.
+
+	* ncu-mapsyms: implement merge-options comments for .map files
+
+	* ncu-mapsyms:
+	fix a case where tack-symbols did not percolate as globals
+
+	* ncu-symbols:
+	when doing "all" versions, infer "current" from the last label in dist.mk
+
+	* ncu-symbols: add copyright notice
+
+2014-11-28  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-symbols: go for broke
+
+	* ncu-symbols: first cut
+
+	* ncu-symbols: start restructuring to allow adding command-line options
+
+	* ncu-mapsyms: fixes for new/old scope
+
+2014-11-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-mapsyms: map "glue" into "global"
+
+	* ncu-symbols: build-fix for 5.7
+
+	* ncu-symbols:
+	workaround for building 5.5 (glibc started #define'ing _XOPEN_SOURCE_EXTENDED,
+	which breaks my build since I ifdef'd wint_t inside that).
+
+	* ncu-symbols:
+	got 5.4 to build - though it seems to be missing something.
+
+	* ncu-symbols: trap isn't doing what I wanted - use explicit checks.
+
+	* ncu-symbols: better error-exit
+
+	* ncu-symbols: that last omitted _nc_read_termcap - fix
+
+	* ncu-symbols: refine that a little (still testing v5_0)
+
+	* ncu-symbols:
+	I may revise this, but for now, ignore the c++ binding since old 5.0 does not compile.
+
+	* ncu-symbols: handle a special case in 2004 for --enable-widec switch
+
+2014-11-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-symbols:
+	make it possible to merge releases one-by-one by not zapping the .map/.sym files
+
+2014-11-24  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-mapsyms: fix another merge problem
+
+2014-11-23  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-mapsyms:
+	fix one of the tic/tinfo merge problems - %tack_symbols has to say which to use
+
+	* ncu-mapsyms:
+	make parsing a little easier to follow by showing the _original_ line in the debugging trace
+
+	* ncu-mapsyms:
+	add comment at top of .map / .sym explaining what it is for
+
+	* ncu-mapsyms:
+	start showing config values in .map header (no merge done yet)
+
+2014-11-22  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-mapsyms: working to preserve ncurses_tic aka "tic"
+
+	* ncu-mapsyms: add -v option
+
+	* ncu-mapsyms: add verbose check for opening files
+
+	* ncu-mapsyms:
+	fixes for -m option (finding that the tic-nodes get lost early on)
+
+	* ncu-mapsyms: add -m option
+
+	* ncu-mapsyms: add -d option
+	fix a merge problem, where older ncurses library containing tinfo overrode newer tinfo library
+
+	* ncu-symbols:
+	can't really use "fast" build, since the needed-syms works on the executables as well
+
+	* ncu-mapsyms: filter out "_*" token
+
+	* ncu-mapsyms: fix glitch in "prior", when nothing changes in a release
+
+	* ncu-mapsyms:
+	initializing a hash requires two values - fix tack_symbols
+
+	* ncu-mapsyms: tack-symbols seem to work.
+
+	* ncu-mapsyms: split-out sub generic_libname
+	start working to make tack's special symbols global
+
+	* ncu-mapsyms:
+	merge old ".map" into new ".map" when the latter is missing data
+
+	* ncu-mapsyms:
+	map library names into the ones I should use for versioned-symbols.
+
+	* ncu-mapsyms: write the data in %new_symbols to mapfile
+	more work to prepare that hash is needed...
+
+	* ncu-mapsyms:
+	to write the map-file, have to loop over all of the libraries...
+
+	* ncu-mapsyms: start building indexes needed for writing map-file
+
+	* ncu-mapsyms: q/d check_map()
+
+	* ncu-mapsyms:
+	start working to merge the existing ".map" data into new data
+
+	* ncu-mapsyms: build a hash for each node from .map file
+
+	* ncu-mapsyms: parse ".map" file
+
+2014-11-21  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-mapsyms: split-out this_lib and output_file functions
+
+2014-11-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-symbols: cannot build ticlib and termcap support at the same time
+
+	* ncu-symbols: --disable-root-environ
+
+2014-11-19  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-mapsyms: merge the options-comments too
+
+	* ncu-symbols: two more quirks
+
+	* ncu-mapsyms:
+	merge contents of ".sym" files, allowing ncu-symbols to make overlapping
+	builds to get workable list for several combinations.
+
+	* ncu-symbols:
+	tweak to provide overlapping sets of symbols for sp-funcs vs reentrant options
+
+	* ncu-mapsyms: ncurses' private symbols include _traceXXX
+
+	* needed-syms: copyright
+
+	* ncu-mapsyms:
+	show the options used for generating the libraries used for symbols...
+
+	* ncu-symbols: proposed changes to factor into ncu-getsyms
+
+	* ncu-mapsyms:
+	needed-syms can (for instance libtic) return C runtime symbols.
+	filter those out.
+
+2014-11-18  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-mapsyms: show progress
+
+	* ncu-symbols: use ncu-mapsyms
+
+	* ncu-mapsyms: write a ".sym" file
+
+	* ncu-mapsyms: read data via "needed-syms"
+
+	* needed-syms: mark the "glue" symbols as such
+
+	* ncu-mapsyms: RCS_BASE
+
+	* needed-syms: make data for "local:" the library name, for consistency
+
+	* needed-syms: simplify output a little
+
+	* needed-syms:
+	first cut - gather all info, some work needed to get parsable results
+
+	* needed-syms: RCS_BASE
+
+2014-11-17  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-symbols: need testing...
+
+2014-11-08  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ncu-symbols:
+	once successfully configured for shared-libraries, make the libraries
+
+	* ncu-symbols: RCS_BASE
+

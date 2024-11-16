@@ -1,0 +1,437 @@
+2022-11-06  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* rcs2log: fix a case where ":" was split from the list of filenames
+
+2022-10-12  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* rcs2log: further refinement, merging trailing willfit vs pending
+
+	* rcs2log: fix a missing chunk in wrapped lines
+
+2022-07-12  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* man2html:
+	amend the hyphenation fix to account for href's pointing to a subdirectory.
+	improve handling of hyphenated link by adding an option "-leftside" for
+	the left-sides from hyphenated manpage names (with a short fallback for
+	"apt", "cvs", "git", "sccs' and "sysv").
+
+2022-07-09  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* man2html:
+	adapt Schilling's subsection change (suggested by Robert Clausecker)
+
+	* man2html: fix the error which Schilling's diff introduced
+
+2022-07-05  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* man2html: source-in Schily's change, to test it
+	the "lc" line produces a warning
+	no change seen with ncurses manpages
+
+2022-01-15  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gnathtml:
+	revert the fix for sorting, because it does not take submenus into account
+
+	* gnathtml:
+	fix a few validation errors reported by tidy, and lowercase the html
+
+	* gnathtml: change the function-index logic to sort consistently
+
+2022-01-09  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* rcs2log:
+	fix a case in wrapping when the pending (unaccepted) word is long enough
+	that it should force a new line, while the willfit (accepted) is empty.
+
+	* rcs2log:
+	add "-w" option, to wrap the list of files, because bulk-changes to testcases
+	can make very long lines.
+
+	* rcs2log: account for relative-path in "-p" option
+
+	* rcs2log:
+	add "-p" option, to allow showing permit-files but by default ignoring them
+
+	* rcs2log:
+	fix the easy shellcheck warnings (most of the remainder are false-positives)
+
+2022-01-08  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gnathtml: formatting cleanup
+
+	* gnathtml: merge from branch - gnat's not in CVS anymore :-)
+
+	* gnathtml:
+	change usage-message to a here-document, to simplify formatting
+
+	* gnathtml:
+	turn on "use warnings", fixing 3 places where uninitialized variables were used
+
+	* gnathtml: from gnathtml-8, filter out links for function parameters
+
+	* gnathtml: from gnathtml-8, filter out links to generic formals
+
+	* gnathtml:
+	from gnathtml-8, filter out links for discriminants and references to the
+	parent package (the latter affects one link in ncurses/Ada95)
+
+	* gnathtml: remember to add copyright on my work...
+
+	* gnathtml: fix an overlooked change for file-extension option
+
+	* gnathtml: copy absolute option from gnathtml-8
+
+	* gnathtml: copy file-extension option from gnathtml-8
+
+	* gnathtml:
+	indent with perl-tidy, and move use-strict to more conventional location
+
+2021-02-08  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* man2html:
+	trim unwanted quotes from -title parameter which came from shellcheck fixes
+
+2020-11-12  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* linklint: if I run
+		linklint /foo.html
+	it uses a different path, and breaks.  Repair by using a separate variable
+	for the file-handle passed to ParseMap and ParseHtml
+
+2020-08-19  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* man2html:
+	provide for a special case of subsections used in mawk-code.7, where some
+	are only two-characters.
+
+2020-01-25  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* rcs2log:
+	use $RCS_DIR as in cm_tools to allow changing the name of the rcs subdirectory.
+	This is needed to handle rcs-blame, since it has test-data including an
+	"RCS" directory.
+
+2019-10-14  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* linklint:
+	headers are a valid target for href's since they can have "id" tags.
+
+	* linklint: correct recent fix for undefined $url variable
+
+2019-08-18  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* linklint:
+	when requesting a link, make sure that spaces are URL-encoded, since a
+	previous step undid that.
+
+	* linklint: make output more repeatable by sorting hash-keys
+
+	* linklint:
+	running linklint showed more variables that were not imported - fixed.
+
+	* linklint:
+	with that (and enabling strict+warnings), there are a dozen warnings about
+	a variable used only once.  Perl's not able to see that "*foo" in the
+	incoming parameters from "$_" is the same as "%foo" used as "$foo{$bar}".
+	quiet that warning using "once" pragma.
+
+	* linklint:
+	use "our" for the remaining variables reported by "use strict", and fix a
+	reference to ASCII NUL
+
+	* linklint: more use-strict issues
+
+	* linklint:
+	strict check pointed to an error in checking result from stat()
+
+	* linklint: fix some use-strict issues
+
+	* linklint:
+	added "use diagnostics", which prompted quoting the "recursion" pragma
+
+	* linklint:
+	apply "use warnings", and fix references to undefined variables and ignore
+	warning about deep recursion
+
+2019-08-11  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* linklint: indent'd
+
+	* linklint: minor whitespace cleanup
+
+	* linklint: also allow id= in ul and blockquote tags
+
+	* linklint: allow id= in pre's
+
+2019-04-22  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* linklint: sort the list of files to make output more predictable
+
+2018-01-01  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* man2html: use https for website
+
+2017-08-12  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* rcs2log: use SIGQUIT(3) rather than SIGTRAP(5) in trap commands
+	This error dates back to 1997 (970802) in ncurses:
+		+ many corrections to make progs/capconvert work, as well as make it
+		  reasonably portable and integrated with ncurses 4.1 (reported by Dave
+		  Furstenau <df@ravine.binary.net>).
+
+	but I see in my "nfilter" script I used it as far back as December 1993, on the
+	other hand in "externs" (August 1991) I had it corrrect.
+
+	But here are the first uses in ncurses:
+		capconvert	1997/08/02 21:52:06	1.3
+		edit_cfg.sh	1997/11/08 18:14:57	1.7
+		make_sed.sh     1997/12/06 20:52:47       tom
+		MKterminfo.sh	1998/09/05 23:53:51	1.4
+		MKtermsort.sh	2001/05/26 23:37:57	1.7
+		MKkey_defs.sh   2001/06/16 15:25:10       tom
+		MKkeys_list.sh  2001/06/16 16:47:39       tom
+		make-tar.sh     2010/02/20 22:46:57       tom
+
+2017-01-07  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* man2html:
+	better mapping for aliases by not modifying the displayed link-text.
+
+2016-07-02  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* rcs2log:
+	allow this to follow symbolic links to files as well as directories
+
+2016-01-30  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* man2html:
+	if "-compress", suppress extra newline at the end of PRE-sections which added
+	to whitespace on resulting page.
+
+2015-07-08  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* man2html: add "-toc" option, used in vile's documentation
+
+2015-02-15  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* man2html:
+	make -title less obnoxious by using css "no-header" and omitting the following
+	hr-tag from the h1-tag.
+
+2015-02-14  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* man2html: another fix for index-levels
+
+	* man2html: corrected logic for index levels
+
+2015-02-13  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* man2html:
+	add "-index" option, to move some functionality out of "fixup-man2html"
+
+	* man2html:
+	move the advert into the meta tag for "generator" as done with tidy.
+	(verified that reformatting with tidy will not remove this tag)
+
+	* man2html:
+	modify heuristic for section-titles to allow it to match subsection titles
+	(which differ only by their indent/margin value).
+
+	* man2html: bump version
+
+	* man2html:
+	improve the fix to ensure there is no extra leading/trailing whitespace
+
+2015-02-12  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* man2html:
+	fix special case seen in ctlseqs.ms where a partially bold line would be
+	treated as a header.  The fix ensures that any non-punctuation/non-space
+	character on the line is bold - the normal behavior for nroff.
+
+2014-12-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* man2html:
+	Hood's old website is long gone; the replacement on Savannah had no updates
+	(other than his change to use cvs).  Update the url to point to my site,
+	which is the version I use for ncurses.
+
+2014-01-06  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* linklint:
+	lynx has a valid id attached to "em" in a dl - add relevant tags
+
+2014-01-05  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* linklint:
+	accept either "name" or "id" (let the validators worry about which are legal)
+
+	* linklint: some obvious fixes:
+		a) flush stderr/stdout, so I can pipe result inside vile
+		b) change %20's back to spaces to check for actual files with spaces
+		c) a-tags are not the only things that can have id's or name's for href
+
+2013-12-21  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* man2html: sign my work.
+
+	* man2html: for consistency, warn as I did for -externs
+
+	* man2html: add "-aliases" option for ncurses
+
+	* man2html: add "-externs" option for ncurses
+
+	* man2html: stylistic - tell the number of params, for prototype
+
+	* man2html: spelling :-)
+
+	* man2html:
+	isolated cause for uninitialized $fix variable which would be reported by
+	"use diagnostics" or "use warnings" - ncurses output unchanged.
+
+	* man2html: indented (with perltidy)
+
+	* man2html: fix most of the warnings which come up with "use strict".
+	However, turning on "use strict" will break ncurses' manhtml usage.
+
+2013-05-18  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gnathtml:
+	specify charset's throughout, to help validate strict/transitional documents
+
+	* gnathtml:
+	upgrade the regular pages (which used font-color) to use css with html 4.01 strict
+
+	* gnathtml:
+	revert the doctype change - this is using font-color, which is valid for
+	the transitional but not for the strict doctype.
+
+2013-05-17  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gnathtml:
+	update doctype to use 4.01 strict, to fix quirks-mode warning from web developer tool
+
+2010-08-29  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* xcutselprint: RCS_BASE
+
+2010-08-28  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* altchars: 2010-05-02 version from ftp
+
+	* altchars: reapply my fixes for ncurses
+
+2008-01-23  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* linklint: RCS_BASE
+
+2007-09-01  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gnathtml: spelling
+
+2006-09-17  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* altchars:
+	I modified this to reflect stuff in ncurses - except for "|", since that
+	doesn't seem to work as I'd like...
+
+2006-04-03  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* unrpm: RCS_BASE
+
+2005-05-14  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gnathtml:
+	changed all of the logic that generates or uses line/column references to
+	use tag() function.  Once that was done (no problems noted), modified that
+	function to prefix the tags with "ref_" to make them legal html id's.
+
+	* gnathtml:
+	fix a kludge which was putting an empty symbol out in output_symbol() by
+	adding before_symbol() and after_symbol() to return strings that are used
+	to bracket the actual symbol (which wasn't written using output_symbol()
+	since it's already bracketed with a colored font and an href).
+
+	* gnathtml:
+	fix a place where the funcs.htm file was using a blank for the link (but
+	that was incorrect since none of the functions begin with a blank)
+
+	* gnathtml:
+	fix a couple of places where </UL> was emitted when there was no <UL>
+
+	* gnathtml:
+	add doctype tag to each file (so I can run tidy and validate).
+	change the NOFRAME to NOFRAMES in the frameset stuff (noting that it has
+	a special doctype tag).
+
+	* gnathtml: use strict (so I can check the script better)
+
+	* gnathtml:
+	keep the quoting fixes from 1.18.1.2, but omit the place where I tried
+	to strip out references to empty symbols -- I think some of those references
+	really are used.  Also trim blanks
+
+	* gnathtml: add my 1.18.1.1 changes to 1.34
+
+2004-09-29  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* altchars: RCS_BASE
+
+2004-09-18  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gnathtml: import from Debian
+
+2003-04-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* rcs2log: hmm - the -R did have a shift.  leave the other fixes.
+
+2003-04-25  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* rcs2log:
+	it's obvious that no one used this script to support RCS files for some time...
+
+	* rcs2log: RCS_BASE
+
+2001-07-28  Thomas E. Dickey  <dickey@clark.net>
+
+	* man2html: keep the version # the same.
+
+	* man2html:
+	add a fix to detect if the text used for an HREF was hyphenated, and add
+	the missing chunk.
+
+2000-06-17  Thomas E. Dickey  <dickey@clark.net>
+
+	* gnathtml:
+	oops: my comparison for $strips to an empty string was incorrect (matched
+	a lot of nonempty strings).
+
+2000-06-11  Thomas E. Dickey  <dickey@clark.net>
+
+	* gnathtml:
+	fix most places (one occurrence) where a blank or empty string was made an anchor.
+	also, fix some quotes - wrong type
+
+	* gnathtml: apply my 1.18.1 changes to 1.22
+
+2000-06-10  Thomas E. Dickey  <dickey@clark.net>
+
+	* gnathtml:
+	fix most of the easy bugs - this didn't quote HREF=x or TARGET=x,
+	was missing newlines at the ends of generated lines, and didn't even begin
+	with <HTML>.
+
+1999-09-24  Thomas E. Dickey  <dickey@clark.net>
+
+	* gnathtml: FROM_KEYS
+
+1998-12-18  Thomas E. Dickey  <dickey@clark.net>
+
+	* gnathtml: FROM_KEYS
+
+1997-08-12  Thomas E. Dickey  <dickey@clark.net>
+
+	* man2html: RCS_BASE
+

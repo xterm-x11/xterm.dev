@@ -1,0 +1,418 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+  <title>Git-exports &ndash; comments</title>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0">
+  <link rel="author" href="mailto:dickey@invisible-island.net">
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii">
+  <link rel="SHORTCUT ICON" href="/img/icons/vile.ico" type=
+  "image/x-icon">
+  <link rel="stylesheet" href="/css/simplestyle.css" type=
+  "text/css">
+  <style type="text/css">
+  @import "/css/simplenavXX.css" all;
+  </style>
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1">
+</head>
+<body>
+  <hr>
+
+  <p><a href="/">http://invisible-island.net/</a><a href=
+  "/personal/resume.html">personal/</a><br>
+  Copyright &copy; 2016-2020,2022 by Thomas E. Dickey</p>
+
+  <h1 class="no-header">Git-exports &ndash; comments</h1>
+
+  <div class="nav">
+    <ul>
+      <li class="nav-top"><a href=
+      "/personal/git-exports.html">(top)</a></li>
+
+      <li><a href="#background">Background</a></li>
+
+      <li><a href="#problems">Problems</a></li>
+
+      <li><a href="#solution">Solution</a></li>
+
+      <li><a href="#process">Process</a></li>
+
+      <li><a href="#others">Other stuff</a></li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <h2><a name="background" id="background">Background</a></h2>
+
+  <p>I have been tracking my projects <a href=
+  "/ded/cm_tools.html">using RCS</a> since the late 1980s. I
+  <a href="/ded/sccs_tools.html">used SCCS</a> for a few years
+  before then. Developers who use my programs are accustomed to
+  using patches and tarballs to track changes to these files, using
+  their own procedures.</p>
+
+  <p>On the other hand, there are other people who would like to
+  casually browse the source history. Not all of them are
+  developers.</p>
+
+  <p>While I was working with XFree86, occasionally someone would
+  ask where they could find a source-history for <a href=
+  "/xterm/xterm.html">xterm</a> and I would point to XFree86's CVS.
+  I stopped committing to that in mid-2006. That finally became
+  defunct in 2016 (ten years later).</p>
+
+  <p>Providing my own CVS (or whatever) web-accessible respository
+  would take away development time and be expensive. On rare
+  occasions, someone else would offer to do some part of this:</p>
+
+  <ul>
+    <li>in 2009, <a href=
+    "https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=554167">Jonathan
+    Nieder</a> set up a git repository for <a href=
+    "/mawk/mawk.html">mawk</a> on <a href=
+    "http://git.debian.org/?p=collab-maint/mawk.git">Debian's
+    server</a>, and discussed with me the possibility of getting my
+    changes for mawk into git.</li>
+
+    <li>in 2010, <a href=
+    "https://lists.gnu.org/archive/html/bug-ncurses/2010-07/msg00021.html">
+    Alejandro R. Sede&ntilde;o</a> set up a cron job which would
+    collect my weekly ncurses patches, checking those into a git
+    repository.</li>
+  </ul>
+
+  <p>Git is a little more flexible than tar-balls:</p>
+
+  <ul>
+    <li>given a git-ball, it is relatively simple (compared to CVS)
+    to make a web-accessible project, for browsing purposes.</li>
+
+    <li>the same interface provides the ability to get a tar
+    ball.</li>
+  </ul>
+
+  <h2><a name="problems" id="problems">Problems</a></h2>
+
+  <p>Those were helpful, but did not complete the task. In the case
+  of ncurses, those made web-accessible my weekly patches for
+  ncurses starting with 5.6 (in 2006). During a given week, I make
+  several changes, and the result is the weekly patch. Since most
+  of the information would be omitted, I disregarded that.</p>
+
+  <p>Mawk seemed more promising. However, I ran into a few
+  problems:</p>
+
+  <ul>
+    <li>
+      <p>Initially, I thought that I could replay my changes onto
+      Neider's <a href=
+      "https://anonscm.debian.org/gitweb/?p=users/jrnieder-guest/mawk-historical.git">
+      initial git repository</a>. That effort used a few weeks
+      finding that git's merge capability was not flexible enough
+      to make a reliable/scriptable procedure.</p>
+    </li>
+
+    <li>
+      <p>Nieder had suggested <a href=
+      "https://github.com/Oblomov/rcs-fast-export"><em><code>rcs-fast-export</code></em></a>
+      as a tool.</p>
+    </li>
+
+    <li>
+      <p>That script did not provide a complete solution, as I
+      noted in <em>vile</em> <a href=
+      "https://savannah.nongnu.org/bugs/?28487">#28487</a>.</p>
+    </li>
+
+    <li>
+      <p>My RCS wrappers (like CVS) can be used for <em>lazy
+      commits</em>, i.e., no lock is needed for a file. Unlike CVS,
+      I use the file's actual modification time for the
+      identifiers. On checkout, the wrappers <em>construct</em> the
+      identifiers.</p>
+    </li>
+
+    <li>
+      <p><em><code>rcs-fast-export.rb</code></em> (a Ruby script)
+      knows nothing about lazy commits. I modified the script to
+      call my RCS wrappers to do the actual checkouts (which slows
+      things down). If I were to replace those wrappers with
+      additional scripting, another month or so would be needed to
+      get the same resulting identifiers.</p>
+
+      <p>In case someone questions why I want the identifiers,
+      remind them that git uses its own identifiers, and if
+      <em>those</em> were removed, git would not be useful.</p>
+    </li>
+
+    <li>
+      <p>The Ruby script uses a lot of memory, and was written for
+      Ruby 1.9. Using it with Ruby 2.0 did not work well.</p>
+    </li>
+
+    <li>
+      <p>Different versions of git did not interoperate. Really.
+      That's a step backward from RCS, where I can work with my
+      archives on machines across a wide range of operating systems
+      and versions.</p>
+    </li>
+
+    <li>
+      <p>The Ruby script writes directly to git's internal data
+      structures. Those are undocumented.</p>
+    </li>
+
+    <li>
+      <p>The Ruby script handles only RCS archives with no
+      branches. I use RCS branches in several of my projects.</p>
+    </li>
+
+    <li>
+      <p>Each export of my RCS archive using the script generates a
+      new set of hash codes, making it impossible to transfer
+      updates to an older export of the same archive.</p>
+    </li>
+  </ul>
+
+  <p>Because of these problems, the Ruby script (while interesting)
+  was not useful. I could not use it on the larger projects, even
+  for one-shot uses such as I did for mawk:</p>
+
+  <ul>
+    <li><a href=
+    "https://github.com/ThomasDickey/mawk-20101210b">mawk-20101210b</a></li>
+
+    <li><a href=
+    "https://github.com/ThomasDickey/mawk-20120627">mawk-20120627</a></li>
+
+    <li><a href=
+    "https://github.com/ThomasDickey/mawk-20121129">mawk-20121129</a></li>
+
+    <li><a href=
+    "https://github.com/ThomasDickey/mawk-20140914">mawk-20140914</a></li>
+  </ul>
+
+  <h2><a name="solution" id="solution">Solution</a></h2>
+
+  <p>In May 2016, <a href=
+  "https://launchpad.net/~zosrothko">someone</a> commented that
+  there were several forks from my <a href=
+  "/byacc/byacc.html">byacc</a> tar-balls on github, and that was a
+  problem. Actually, since none of the &ldquo;forks&rdquo; had been
+  improved, there was little to discuss since there were no
+  potential changes to merge back. In any case, I would merge into
+  my RCS archives.</p>
+
+  <p>But that prompted me to think about just (as in ncurses)
+  constructing a git-ball with the <em>labeled</em> revisions from
+  my RCS archives. As of mid-November 2016, I had (using <a href=
+  "/scripts/readme.html#item:rcs2log">rcs2log</a>):</p>
+
+  <ul>
+    <li>18997 commits for ncurses on</li>
+
+    <li>2805 days, with</li>
+
+    <li>1145 labeled revisions</li>
+  </ul>
+
+  <p>Sede&ntilde;o's git repository has about half of those labeled
+  revisions: 48% in mid-November 2016.</p>
+
+  <p>I label things when I reach a milestone, whether or not that
+  is when I decide to release a set of changes. By exporting the
+  labeled revisions (rather than a complete archive), the result
+  would still be useful, as well as being practical. But keep in
+  mind that the number of labels is far smaller than the actual
+  number of changes.</p>
+
+  <p>In my revised approach, it is possible to do <em>incremental
+  exports</em> from the archive onto a git-ball. Exporting all of
+  the labels in the ncurses archive takes hours; exporting the
+  latest revision takes a minute or so.</p>
+
+  <h2><a name="process" id="process">Process</a></h2>
+
+  <p>I wrote a script <a href=
+  "/scripts/readme.html#item:release2git"><code>release2git</code></a>
+  to do most of the work, and run that from a script
+  <code>r2g</code> which knows how to manage the git-balls which I
+  create and update. In some projects (such as <a href=
+  "/xterm/xterm.html">xterm</a>, the <code>MANIFEST</code> file is
+  generated using the <a href=
+  "/scripts/readme.html#item:manifest">manifest</a> script. That
+  and other special cases are handled by
+  <code>release2git</code>.</p>
+
+  <p>Not all of my projects had labels. I wrote another script
+  <a href=
+  "/scripts/readme.html#item:tag-cutoff"><code>tag-cutoff</code></a>
+  to label some of those using a cutoff-date. That worked for most,
+  but not for the <a href=
+  "https://github.com/ThomasDickey/pgf-vile-snapshots">older
+  vi-like-emacs</a> archives which I received from Paul Fox in
+  1996. I labeled that by writing a custom script (like
+  <code>tag-cutoff</code>) and used that to label those files.</p>
+
+  <p>I have generated git-balls for all of the projects which I
+  share with others (as well as a few which I do not). You can see
+  the result here:</p>
+
+  <blockquote>
+    <p><a href=
+    "https://github.com/ThomasDickey">https://github.com/ThomasDickey</a></p>
+  </blockquote>
+
+  <p>While doing this, I realized that
+  <em><code>rcs-fast-export.rb</code></em> would not be suitable,
+  since using its approach none of the exported revisions would be
+  signed. See the <a href=
+  "https://github.com/ThomasDickey/pgf-vile-snapshots">pgf-vile-snapshots</a>
+  repository versus the corresponding <a href="/archives/GIT/">fast
+  export</a> for an example of this.</p>
+
+  <p>Scripts are a different matter. Those all live in common
+  directories, from which I generate the tar-balls that you can
+  download from my <a href="/scripts/readme.html">scripts page</a>.
+  I suppose that I could generate git-balls for those as well.</p>
+
+  <p>When I release changes to one of my projects, I do this:</p>
+
+  <ul>
+    <li>label it in RCS,</li>
+
+    <li>run <code>r2g</code> to generate an updated git-ball (the
+    old one is renamed, keeping a backup copy), and</li>
+
+    <li>run <code>push2github</code> to update Github's copy of my
+    git-ball.</li>
+  </ul>
+
+  <p>The two steps use different keys, just in case.</p>
+
+  <p>Just as a reminder: these are <a href=
+  "http://searchdatabackup.techtarget.com/definition/storage-snapshot">
+  <em><strong>snapshots</strong></em></a>. If someone wants to make
+  a change, that will be done the same way as other projects, by
+  first integrating into the RCS archives, and then exporting,
+  updating the snapshots.</p>
+
+  <h2><a name="others" id="others">Other stuff</a></h2>
+
+  <p>In a few instances, I work on programs which are only in
+  Git:</p>
+
+  <ul>
+    <li>
+      <p><a href=
+      "https://github.com/ThomasDickey/esctest2">esctest</a>. This
+      was written by George Nachman, originally bundled with
+      iTerm2. He created a separate repository after incorporating
+      my changes in <a href=
+      "https://github.com/ThomasDickey/esctest2/commit/cbf6b88e95a70d3e304f365cec64174314841270">
+      April 2018</a>. Nachman's version has been largely neglected
+      after he switched from <a href=
+      "https://github.com/gnachman/esctest">Github</a> to <a href=
+      "https://gitlab.freedesktop.org/terminal-wg/esctest">GitLab</a>).</p>
+
+      <p>Neither GitHub nor GitLab provides a way to maintain
+      clones or forks from other sites. Some other developers
+      mirror to both sites (as I could, since the repository that I
+      actually use resides on my machines).</p>
+
+      <p>Nachman chose not to do that, removing most of the files
+      from the original. I renamed my repository to
+      &ldquo;esctest<strong>2</strong>&rdquo; to avoid damage from
+      an unintended pull from the original.</p>
+    </li>
+
+    <li>
+      <p>Xorg (freedesktop.org):</p>
+
+      <ul>
+        <li>
+          <p>Xorg libraries which are used by <a href=
+          "/xterm/xterm.html">xterm</a>:</p>
+
+          <ul>
+            <li><a href=
+            "https://gitlab.freedesktop.org/dickey/libx11">libX11</a></li>
+
+            <li><a href=
+            "https://gitlab.freedesktop.org/dickey/libxaw">libXaw</a></li>
+
+            <li><a href=
+            "https://gitlab.freedesktop.org/dickey/libxaw3d">libXaw3d</a></li>
+
+            <li><a href=
+            "https://gitlab.freedesktop.org/dickey/libxft">libXft</a></li>
+
+            <li><a href=
+            "https://gitlab.freedesktop.org/dickey/libxt">libXt</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <p>Xorg applications which are related to those
+          libraries:</p>
+
+          <ul>
+            <li><a href=
+            "https://gitlab.freedesktop.org/dickey/twm">twm</a></li>
+
+            <li><a href=
+            "https://gitlab.freedesktop.org/dickey/xorgproto">xorgproto</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <p>The Xorg files started from a copy of XFree86 in November
+      2003 (and were updated more than once during 2004 with
+      additional copying from XFree86). All of those revisions were
+      stored in CVS. The Xorg CVS was in turn imported into Git
+      during <a href="https://www.x.org/wiki/CvsPage/">2013</a>.
+      Initially, that was hosted on <a href=
+      "https://www.x.org/wiki/Development/Documentation/git/">freedesktop.org</a>,
+      where the CVS repository was. As <a href=
+      "https://www.freedesktop.org/wiki/Infrastructure/git/">summarized</a>
+      in the wiki, the Xorg developers moved that activity to
+      GitLab in 2018 (but also provide a mirror on GitHub).</p>
+
+      <p>Some of my changes, e.g., <a href=
+      "/xterm/xtoolkit/xtoolkit.html">converting Xt to ANSI C</a>,
+      had been incorporated, while others had not (such as my fixes
+      for <a href=
+      "/scripts/man2html.html#xfree86-rman"><em>rman</em></a>).
+      While <em>rman</em> was no longer relevant (Xorg started
+      using docbook in 2010), the work on the X libraries was not
+      completed. I made improvements for that starting early in
+      2019. In a sense, <em>rman</em> was still relevant, since the
+      work by others to convert documentation to <em>docbook</em>
+      was not completed, either.</p>
+
+      <p>I cloned the Xorg libxt, and made changes to address both
+      aspects</p>
+
+      <ul>
+        <li>modified libXt to work properly with
+        <em><code>const</code></em> (making the FAQ <a href=
+        "/xterm/xterm.faq.html#building_it"><em>How do I build
+        XTerm?</em></a> obsolete), and</li>
+
+        <li>updated the documentation (fixing numerous errors
+        introduced by the docbook conversion). You can see the
+        result <a href=
+        "/xterm/xtoolkit/intrinsics.html">here</a>.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <p>In practice, updating a clone (using Git pull, merge, resolve,
+  push) and applying changes back to the original repository (via a
+  pull request) is just as much work as the process of exporting
+  RCS to Git.</p>
+</body>
+</html>

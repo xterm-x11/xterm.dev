@@ -1,0 +1,3601 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+<title>Change-Log for BUILDSCRIPTS</title>
+<link rel="author" href="mailto:dickey@invisible-island.net">
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<link rel="stylesheet" href="/css/simplestyle.css" type="text/css">
+<link rel="SHORTCUT ICON" href="/img/icons/favicon.ico" type="image/x-icon">
+<meta name="keywords" content="CHANGES,change-log">
+<meta name="description" content="Change-Log for BUILDSCRIPTS">
+<style type="text/css">
+  @import "/css/simplenavXX.css" all;
+</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<h1 class="no-header">Change-Log for BUILDSCRIPTS</h1>
+
+<hr>
+<a href="/">https://invisible-island.net/</a><a href="/scripts/">scripts/</a>
+
+<hr>
+
+<pre>
+<a name="t20230218" href="#index-t20230218" id="t20230218">2023-02-18</a>
+
+        * gcc-stricter: extend case to gcc &gt; 9.9
+
+        * archive: switch from getopt to getopts, to use with MinGW
+
+        * archive: fix some shellcheck warnings
+
+<a name="t20230212" href="#index-t20230212" id="t20230212">2023-02-12</a>
+
+        * all-opts-xterm: change default for readline-mouse
+
+<a name="t20230128" href="#index-t20230128" id="t20230128">2023-01-28</a>
+
+        * cfg-ncursesw:
+        use specific pkg-config-libdir to reduce package-conflicts
+
+<a name="t20230124" href="#index-t20230124" id="t20230124">2023-01-24</a>
+
+        * cfg-mingw32, cfg-mingw64: add fedoracur (rawhide)
+
+<a name="t20230123" href="#index-t20230123" id="t20230123">2023-01-23</a>
+
+        * cfg-mingw32, cfg-mingw64:
+        add workaround for Fedora package use of hardening flags
+
+<a name="t20230120" href="#index-t20230120" id="t20230120">2023-01-20</a>
+
+        * cfg-normal: fix shellcheck warnings
+
+<a name="t20230108" href="#index-t20230108" id="t20230108">2023-01-08</a>
+
+        * openbsd-egcc:
+        provide for adding the X11 tree to LD_LIBRARY_PATH, needed for building xterm
+
+        * setup-build-all: workaround for OpenBSD's buggy-packages
+
+<a name="t20230107" href="#index-t20230107" id="t20230107">2023-01-07</a>
+
+        * build-opt-lynx: shellcheck warnings
+
+<a name="t20230105" href="#index-t20230105" id="t20230105">2023-01-05</a>
+
+        * build-opt-lynx: fix typo in make-command
+
+<a name="t20221213" href="#index-t20221213" id="t20221213">2022-12-13</a>
+
+        * setup-savebuild: fix delimiters on sed command, and quote it.
+
+<a name="t20221010" href="#index-t20221010" id="t20221010">2022-10-10</a>
+
+        * setup-savebuild: add config.h, by default
+
+        * setup-savebuild:
+        provide for passing custom/extra files into list, e.g., xtermcfg.h
+
+        * save-xterm: use setup-savebuild
+
+<a name="t20221009" href="#index-t20221009" id="t20221009">2022-10-09</a>
+
+        * setup-savebuild: fixes for Solaris 10
+
+<a name="t20221002" href="#index-t20221002" id="t20221002">2022-10-02</a>
+
+        * save-lynx, save-xterm: reconfigurable-egrep
+
+        * save-xterm: configurable egrep
+
+<a name="t20221001" href="#index-t20221001" id="t20221001">2022-10-01</a>
+
+        * externs: configurable egrep
+        shellcheck quoting
+
+        * setup-build-all: configurable fgrep
+
+        * save-ncurses, setup-savebuild: make $EGREP configurable
+
+<a name="t20220911" href="#index-t20220911" id="t20220911">2022-09-11</a>
+
+        * all-opts-xterm: add --disable-exec-selection
+
+<a name="t20220501" href="#index-t20220501" id="t20220501">2022-05-01</a>
+
+        * build-opt-ncurses: fix for re-running
+
+<a name="t20220416" href="#index-t20220416" id="t20220416">2022-04-16</a>
+
+        * diff-patch: identify patch in https archive
+
+<a name="t20220409" href="#index-t20220409" id="t20220409">2022-04-09</a>
+
+        * gcc-stricter: fix redefinition of _FORTIFY_SOURCE with Debian
+
+        * cfg-ncurses6: provide for doing "CC=gcc-stricter3 cfg-ncurses6"
+
+<a name="t20220213" href="#index-t20220213" id="t20220213">2022-02-13</a>
+
+        * all-opts-xterm: tidy
+
+        * all-opts-xterm: changed defaults
+
+<a name="t20220211" href="#index-t20220211" id="t20220211">2022-02-11</a>
+
+        * all-opts-xterm: add status-line
+
+<a name="t20220124" href="#index-t20220124" id="t20220124">2022-01-24</a>
+
+        * clean-vile: split-out clobber-vile for consistency
+
+<a name="t20211205" href="#index-t20211205" id="t20211205">2021-12-05</a>
+
+        * gcc-stricter: do optimization, needed for the "hardening" flag
+
+<a name="t20211127" href="#index-t20211127" id="t20211127">2021-11-27</a>
+
+        * cfg-ncursesw, cfg-ncurses6:
+        deprecate RPATH_LIST, which interferes with Fedora rpm's
+
+<a name="t20211125" href="#index-t20211125" id="t20211125">2021-11-25</a>
+
+        * build-vile: also fix prefix for "vile"
+
+<a name="t20211123" href="#index-t20211123" id="t20211123">2021-11-23</a>
+
+        * build-vile: build x11vile and xftvile
+
+        * build-vile: build xftvile routinely
+
+<a name="t20211120" href="#index-t20211120" id="t20211120">2021-11-20</a>
+
+        * cfg-thread: move to /usr/local/ncurses/
+
+<a name="t20211016" href="#index-t20211016" id="t20211016">2021-10-16</a>
+
+        * cfg-ncurses6: disable pc-files for cygwin
+
+<a name="t20211014" href="#index-t20211014" id="t20211014">2021-10-14</a>
+
+        * build-libtool-ncurses: ensure that $TERMINFO_DIRS is unset
+
+<a name="t20210924" href="#index-t20210924" id="t20210924">2021-09-24</a>
+
+        * build-ncurses: disallow versioned symbols for Solaris
+
+<a name="t20210822" href="#index-t20210822" id="t20210822">2021-08-22</a>
+
+        * all-opts-xterm, build-xterm: deprecated --disable-fifo-lines
+
+<a name="t20210727" href="#index-t20210727" id="t20210727">2021-07-27</a>
+
+        * cfg-normal: add lynx to solaris special-cases
+
+<a name="t20210710" href="#index-t20210710" id="t20210710">2021-07-10</a>
+
+        * clean-tin: remove the gmo files too
+
+        * build-tin: show SUCCESS/FAILURE on completion
+
+<a name="t20210705" href="#index-t20210705" id="t20210705">2021-07-05</a>
+
+        * build-libtool-ncurses: pass parameters into run.log file
+
+<a name="t20210630" href="#index-t20210630" id="t20210630">2021-06-30</a>
+
+        * all-opts-lynx: promoted cjk, japanese-utf8 options
+        added chinese-utf8 option
+        sorted list
+
+<a name="t20210626" href="#index-t20210626" id="t20210626">2021-06-26</a>
+
+        * cfg-ncurses6: exercise the --disable-root-* options
+
+<a name="t20210622" href="#index-t20210622" id="t20210622">2021-06-22</a>
+
+        * setup-build-all: pgi is now nvidia
+
+<a name="t20210613" href="#index-t20210613" id="t20210613">2021-06-13</a>
+
+        * build-ncurses:
+        for now, ignore Ada with OpenBSD, since their packages don't work
+
+        * setup-build-all:
+        always pass command-line parameters of build_all to build-$PROG
+
+        * build-all-ncurses: pass command-line parameters to build_all
+
+        * build-clang-ncurses, build-libtool-ncurses:
+        pass command-line parameters to build-configure
+
+<a name="t20210612" href="#index-t20210612" id="t20210612">2021-06-12</a>
+
+        * build-ncurses: show failures in logfile
+
+        * openbsd-egcc:
+        for the 32-bit platform, I made a script for gcc (to fix the -L bug),
+        but still need the LD_LIBRARY_PATH workaround in OpenBSD 6.9
+
+        * build-libtool-ncurses: show failures in logfile
+
+        * openbsd-lld-noleaks: add a warning, for the logfile
+
+        * build-clang-ncurses: show failures in logfile
+
+        * build-clang-ncurses: report errors
+
+        * build-ncurses: set tab-stops
+
+        * build-libtool-ncurses, build-ncurses: report failures
+
+<a name="t20210611" href="#index-t20210611" id="t20210611">2021-06-11</a>
+
+        * build-ncurses, build-libtool-ncurses, build-clang-ncurses, cfg-thread:
+        OpenBSD workaround for lld vs --disable-leaks (which allows "-g")
+
+        * openbsd-lld-noleaks: RCS_BASE
+
+<a name="t20210531" href="#index-t20210531" id="t20210531">2021-05-31</a>
+
+        * build-libtool-ncurses: split-out openbsd-egcc
+
+        * openbsd-egcc: RCS_BASE
+
+        * build-libtool-ncurses: workaround for OpenBSD
+
+<a name="t20210529" href="#index-t20210529" id="t20210529">2021-05-29</a>
+
+        * setup-build-all: check for egcc, OpenBSD's name for gcc from "ports"
+
+<a name="t20210501" href="#index-t20210501" id="t20210501">2021-05-01</a>
+
+        * build-libtool-ncurses: show what's in the lib-directory
+
+<a name="t20210418" href="#index-t20210418" id="t20210418">2021-04-18</a>
+
+        * build-opt-ncurses:
+        reverse the check on options/* to allow better restart of this script
+
+        * build-opt-ncurses:
+        updating list of options, make special-cases extensible
+
+        * all-opts-ncurses: updated (actually cross-compiling is neglected)
+
+<a name="t20210327" href="#index-t20210327" id="t20210327">2021-03-27</a>
+
+        * cppcheck-lint: ignore system-includes
+
+<a name="t20210323" href="#index-t20210323" id="t20210323">2021-03-23</a>
+
+        * cfg-ncurses6: use new feature
+
+<a name="t20210314" href="#index-t20210314" id="t20210314">2021-03-14</a>
+
+        * with-cppcheck: run-cppcheck already does "--enable=all"
+
+        * with-cppcheck: change use of this from prefix-command to sourced
+
+        * cfg-ncurses6: work around problem in Debian's use of -Wdate-time
+
+        * cppcheck-lint: RCS_BASE
+
+<a name="t20210228" href="#index-t20210228" id="t20210228">2021-02-28</a>
+
+        * build-opt-lynx: honor $MAKE
+
+        * build-lynx: honor $MAKE variable
+
+<a name="t20210222" href="#index-t20210222" id="t20210222">2021-02-22</a>
+
+        * build-tin: honor $MAKE
+
+        * build-vile: allow for pmake
+
+<a name="t20210208" href="#index-t20210208" id="t20210208">2021-02-08</a>
+
+        * all-opts-xterm: check Xaw3dxft
+
+<a name="t20210206" href="#index-t20210206" id="t20210206">2021-02-06</a>
+
+        * cfg-normal:
+        also need PKG_CONFIG_PATH to prevent linking to older "pcre"
+
+        * cfg-normal:
+        fix environment so that I can build xterm on Solaris using my self-built
+        pcre2 package.
+
+<a name="t20210202" href="#index-t20210202" id="t20210202">2021-02-02</a>
+
+        * save-xterm:
+        filter out some of the clang alias duplicates, adapted from setup-savebuild
+
+<a name="t20210127" href="#index-t20210127" id="t20210127">2021-01-27</a>
+
+        * build-xterm: exercise the pcre2 option
+
+        * build-xterm: quoting per shellcheck
+
+<a name="t20210126" href="#index-t20210126" id="t20210126">2021-01-26</a>
+
+        * build-xterm: use $MAKE if it is set
+
+<a name="t20210107" href="#index-t20210107" id="t20210107">2021-01-07</a>
+
+        * setup-build-all: add slackware packages
+
+<a name="t20210103" href="#index-t20210103" id="t20210103">2021-01-03</a>
+
+        * cfg-tin:
+        top-level "makefile" is not generated, and on macOS may be "Makefile"
+
+        * cfg-tin:
+        limit that workaround to Solaris, since macOS needs to find its own compiler
+
+        * cfg-tin:
+        my Solaris 10 has no "cc", just "gcc", and that broke build-lib-tin.
+        make a workaround for that, as well as the $SHELL hack from cfg-normal
+
+<a name="t20201204" href="#index-t20201204" id="t20201204">2020-12-04</a>
+
+        * setup-build-all: add cygwin packages
+
+<a name="t20201126" href="#index-t20201126" id="t20201126">2020-11-26</a>
+
+        * setup-savebuild: filter out some false-positives for macOS
+
+<a name="t20201121" href="#index-t20201121" id="t20201121">2020-11-21</a>
+
+        * archive:
+        work around spurious carriage-returns when reading output of getopt in
+        the msys2 environment on Windows 8 and 10
+
+<a name="t20201003" href="#index-t20201003" id="t20201003">2020-10-03</a>
+
+        * gcc-stricter: OpenBSD doesn't have ubsan library
+
+<a name="t20200923" href="#index-t20200923" id="t20200923">2020-09-23</a>
+
+        * setup-build-all:
+        before checking if rpm is present, limit that to Linux since some other
+        platforms may have non-working rpm tools.
+
+<a name="t20200922" href="#index-t20200922" id="t20200922">2020-09-22</a>
+
+        * gcc-stricter: https://reviews.freebsd.org/D26505?download=true
+        leads to
+        https://clang.llvm.org/docs/UndefinedBehaviorSanitizer.html
+        and
+        https://packages.debian.org/jessie/libx32ubsan0
+
+<a name="t20200907" href="#index-t20200907" id="t20200907">2020-09-07</a>
+
+        * clean-ncurses: make this work with clobber-ncurses
+
+<a name="t20200822" href="#index-t20200822" id="t20200822">2020-08-22</a>
+
+        * build-ncurses: incorporate BUILD_TYPE into the log filename
+
+<a name="t20200731" href="#index-t20200731" id="t20200731">2020-07-31</a>
+
+        * setup-build-all: for Solaris 10 VM, provide c89/c99 scripts using gcc
+
+<a name="t20200725" href="#index-t20200725" id="t20200725">2020-07-25</a>
+
+        * all-opts-xterm: sixels are enabled by default
+
+<a name="t20200706" href="#index-t20200706" id="t20200706">2020-07-06</a>
+
+        * build-opt-xterm: do a make-check when building
+
+<a name="t20200427" href="#index-t20200427" id="t20200427">2020-04-27</a>
+
+        * clean-xterm:
+        when building out-of-tree, xterm.h may not be visible -but xtermcfg.h would
+
+        * build-xterm: add a "make check" to the xterm-wide configuration
+
+        * build-opt-xterm: provide a way to run this out-of-tree, e.g.,
+                mkdir build
+                cd build
+                script -c "build-opt-xterm --srcdir .."
+
+<a name="t20200327" href="#index-t20200327" id="t20200327">2020-03-27</a>
+
+        * setup-build-all: updated tweak for Arch Linux packages
+
+<a name="t20200307" href="#index-t20200307" id="t20200307">2020-03-07</a>
+
+        * make-log:
+        appease shellcheck, and allow override of "make" using $MAKE
+
+<a name="t20200305" href="#index-t20200305" id="t20200305">2020-03-05</a>
+
+        * build-libtool-ncurses: always cleanup!
+
+        * build-libtool-ncurses: build with $MAKE
+
+        * build-libtool-ncurses: RCS_BASE
+
+<a name="t20200109" href="#index-t20200109" id="t20200109">2020-01-09</a>
+
+        * build-tin: ensure configure worked
+
+<a name="t20200107" href="#index-t20200107" id="t20200107">2020-01-07</a>
+
+        * build-tin: pass command-line parameter to conf-tin
+
+        * all-opts-tin: add cancel-locks
+
+<a name="t20200105" href="#index-t20200105" id="t20200105">2020-01-05</a>
+
+        * build-vile:
+        toggle RCS-links off/on during build to avoid inadvertant fetch of install-sh
+
+<a name="t20191231" href="#index-t20191231" id="t20191231">2019-12-31</a>
+
+        * build-tin: use clean-tin (the inline function did the same thing...),
+        save/restore RCS-links
+        drop special-case of CONFIG_SHELL for solaris10
+
+<a name="t20191226" href="#index-t20191226" id="t20191226">2019-12-26</a>
+
+        * cfg-ncursesw: limit the OpenBSD extra-suffix workaround to gcc
+
+<a name="t20191222" href="#index-t20191222" id="t20191222">2019-12-22</a>
+
+        * build-clang-ncurses:
+        revised options, making this more relevant to cfg-ncurses6
+
+        * build-clang-ncurses: add string-hacks on the BSDs
+
+<a name="t20191221" href="#index-t20191221" id="t20191221">2019-12-21</a>
+
+        * gcc-normal-64: allow "any" solaris/sunos to use the 64-bit option
+
+<a name="t20191206" href="#index-t20191206" id="t20191206">2019-12-06</a>
+
+        * run-log: show what's being run
+
+<a name="t20191012" href="#index-t20191012" id="t20191012">2019-10-12</a>
+
+        * build-ncurses: log changes for pc/config
+
+        * build-clang-ncurses: add check for pc/config stuff
+
+<a name="t20191005" href="#index-t20191005" id="t20191005">2019-10-05</a>
+
+        * check-ncu-pconfig: add check for ncurses directory
+
+        * check-ncu-pconfig: RCS_BASE
+
+<a name="t20191001" href="#index-t20191001" id="t20191001">2019-10-01</a>
+
+        * setup-build-all: add magpie
+
+<a name="t20190728" href="#index-t20190728" id="t20190728">2019-07-28</a>
+
+        * build-ncurses: don't try to build the Ada binding with clang
+
+<a name="t20190727" href="#index-t20190727" id="t20190727">2019-07-27</a>
+
+        * cfg-ncurses6: test-build with gpm
+
+<a name="t20190720" href="#index-t20190720" id="t20190720">2019-07-20</a>
+
+        * cfg-ncursesw: build-fix for OpenBSD 6.5
+
+<a name="t20190630" href="#index-t20190630" id="t20190630">2019-06-30</a>
+
+        * build-ncurses: split up the gcc logs
+
+<a name="t20190527" href="#index-t20190527" id="t20190527">2019-05-27</a>
+
+        * build-xterm: remove bogus terminfo.cdb created by NetBSD tic
+
+<a name="t20190512" href="#index-t20190512" id="t20190512">2019-05-12</a>
+
+        * cfg-ncurses6:
+        workaround for cygwin - if I add extra-suffix, that makes an extra "6"
+        since the program-suffix is already applied to DLLs
+
+<a name="t20190312" href="#index-t20190312" id="t20190312">2019-03-12</a>
+
+        * setup-savebuild: trim debugging code
+
+        * setup-savebuild: handle case of autoconf 2.69 with libxt
+
+<a name="t20190226" href="#index-t20190226" id="t20190226">2019-02-26</a>
+
+        * setup-build-all: exclude Slackware from RPM builds
+
+<a name="t20190215" href="#index-t20190215" id="t20190215">2019-02-15</a>
+
+        * makepatch: ignore "git.log", anyway
+
+        * makepatch: modified to ignore RCS/CVS/SVN/GIT subdirectories.
+
+<a name="t20190121" href="#index-t20190121" id="t20190121">2019-01-21</a>
+
+        * cfg-ncurses6: enable string-hacks for the BSDs
+
+<a name="t20190120" href="#index-t20190120" id="t20190120">2019-01-20</a>
+
+        * RCS-toggle: revert to form which runs with Solaris10
+
+<a name="t20190117" href="#index-t20190117" id="t20190117">2019-01-17</a>
+
+        * no-rcs:
+        sourcing this will not start the action, since that limits the ways it can be used
+
+        * no-rcs: RCS_BASE
+
+<a name="t20190114" href="#index-t20190114" id="t20190114">2019-01-14</a>
+
+        * setup-build-all: fix for solaris10
+
+<a name="t20190113" href="#index-t20190113" id="t20190113">2019-01-13</a>
+
+        * build-xterm:
+        FreeBSD package uses options not supported by c89/c99 (clang)
+
+<a name="t20190105" href="#index-t20190105" id="t20190105">2019-01-05</a>
+
+        * setup-build-all: integrate mkpkg-arch
+
+<a name="t20181228" href="#index-t20181228" id="t20181228">2018-12-28</a>
+
+        * all-opts-lynx: new option
+
+<a name="t20181209" href="#index-t20181209" id="t20181209">2018-12-09</a>
+
+        * build-xterm:
+        force "clean" after each build, in case one fails and leaves object files
+
+        * cfg-normal:
+        for Solaris10, assume we have only gcc 3.4.3, which has a bug in optimization
+        seen in xterm <a href="/xterm/xterm.log.html#xterm_338">#338</a>'s charproc.c - in this case use "-O" rather than "-O2"
+
+<a name="t20181031" href="#index-t20181031" id="t20181031">2018-10-31</a>
+
+        * build-vile: avoid naming conflict with clean-rule
+
+<a name="t20181030" href="#index-t20181030" id="t20181030">2018-10-30</a>
+
+        * build-vile:
+        override the directories used for xvile such as app-defaults to allow a
+        more/less self-contained build
+
+        * build-vile: start rewrite to exercise install rule
+
+<a name="t20180812" href="#index-t20180812" id="t20180812">2018-08-12</a>
+
+        * gcc-normal: treat /usr/X11*/include as system headers
+
+<a name="t20180811" href="#index-t20180811" id="t20180811">2018-08-11</a>
+
+        * gcc-strict, gcc-stricter:
+        OpenBSD's gcc version has trailing whitespace - trim
+
+        * gcc-stricter: check for empty version number
+        also, extend the format options through version 9
+
+        * gcc-strict: check for empty version number
+
+        * setup-clean: for some BSDs, remove "*.core"
+
+        * gcc-strict, gcc-stricter:
+        redirect errors from (possibly missing) gcc to /dev/null
+
+<a name="t20180728" href="#index-t20180728" id="t20180728">2018-07-28</a>
+
+        * archive:
+        add -x option and default suffixes for xz-compressed tar-files
+
+<a name="t20180627" href="#index-t20180627" id="t20180627">2018-06-27</a>
+
+        * setup-clean: luit's distclean didn't remove tags/TAGS - do this
+
+<a name="t20180505" href="#index-t20180505" id="t20180505">2018-05-05</a>
+
+        * build-ncurses: select proper build-cc
+
+<a name="t20180407" href="#index-t20180407" id="t20180407">2018-04-07</a>
+
+        * build-xterm:
+        build min- and narrow-versions routinely now that wide-version is default
+
+<a name="t20180325" href="#index-t20180325" id="t20180325">2018-03-25</a>
+
+        * gcc-strict:
+        an early gcc 5.x changed the meaning of "-ansi" from "-std=gnu90" to "-std=gnu11",
+        which breaks use of va_copy(), e.g., with Mageia 6 using gcc 5.5.0
+        Add a check for gcc's version to decide whether to use "-ansi" or not.
+
+<a name="t20180324" href="#index-t20180324" id="t20180324">2018-03-24</a>
+
+        * build-clang-ncurses: ensure it's using clang...
+
+        * build-clang-ncurses: RCS_BASE
+
+<a name="t20180215" href="#index-t20180215" id="t20180215">2018-02-15</a>
+
+        * cfg-ncurses6: turn on opaque also
+
+<a name="t20180210" href="#index-t20180210" id="t20180210">2018-02-10</a>
+
+        * cfg-ncurses6: add xmc-glitch to testing
+
+<a name="t20180127" href="#index-t20180127" id="t20180127">2018-01-27</a>
+
+        * RCS-toggle: simplify quoting
+
+<a name="t20180120" href="#index-t20180120" id="t20180120">2018-01-20</a>
+
+        * cfg-ncurses6: debian5 has no dpkg-buildflags
+
+<a name="t20180104" href="#index-t20180104" id="t20180104">2018-01-04</a>
+
+        * run-makensis: FreeBSD "find" requires directory parameter
+
+        * cfg-mingw64, cfg-mingw32:
+        don't set build-cc: the configure script should do this
+
+<a name="t20180103" href="#index-t20180103" id="t20180103">2018-01-03</a>
+
+        * cfg-mingw, cfg-mingw32, cfg-mingw64: updated:choose-mingw
+
+<a name="t20171231" href="#index-t20171231" id="t20171231">2017-12-31</a>
+
+        * setup-build-all: add alternate pattern for Parallels machines
+
+<a name="t20171227" href="#index-t20171227" id="t20171227">2017-12-27</a>
+
+        * cfg-normal: c89 doesn't do "-O2", it does "-O"
+
+<a name="t20171225" href="#index-t20171225" id="t20171225">2017-12-25</a>
+
+        * all-opts-xterm: change default
+
+        * all-opts-xterm: change defaults
+
+<a name="t20171126" href="#index-t20171126" id="t20171126">2017-11-26</a>
+
+        * cfg-ncursesw: most Debian's should build both tic- and term-libs
+
+<a name="t20171108" href="#index-t20171108" id="t20171108">2017-11-08</a>
+
+        * all-opts-xterm: add direct-color
+
+<a name="t20171011" href="#index-t20171011" id="t20171011">2017-10-11</a>
+
+        * cfg-ncurses6: let a wrapper script override $CFLAGS
+
+<a name="t20170928" href="#index-t20170928" id="t20170928">2017-09-28</a>
+
+        * gcc-normal: tweak for Solaris #ident pragma
+
+<a name="t20170808" href="#index-t20170808" id="t20170808">2017-08-08</a>
+
+        * diff-patch: ftp-site
+
+<a name="t20170713" href="#index-t20170713" id="t20170713">2017-07-13</a>
+
+        * cfg-ncurses6:
+        also (Debian/Ubuntu) build c++ shared library, to help with hardening checks
+
+        * cfg-ncurses6: add CXXFLAGS too
+
+        * cfg-ncurses6:
+        use dpkg-buildflags with Debian/Ubuntu, to match the ".deb"
+
+<a name="t20170710" href="#index-t20170710" id="t20170710">2017-07-10</a>
+
+        * build-lynx: drop xen-*, add vbx-* and par-*
+
+<a name="t20170608" href="#index-t20170608" id="t20170608">2017-06-08</a>
+
+        * makepatch: don't rely on path of perl
+
+<a name="t20170430" href="#index-t20170430" id="t20170430">2017-04-30</a>
+
+        * setup-build-all: build with "standard" compilers
+
+        * cfg-normal:
+        c99 (e.g., on OSX) does not accept a plain "-O", so use "-O2" to work around
+
+<a name="t20170411" href="#index-t20170411" id="t20170411">2017-04-11</a>
+
+        * cfg-ncurses6:
+        disable the EXP_XTERM_1005 when making termlib, since that uses pieces in
+        both ncurses and tinfo
+
+<a name="t20170225" href="#index-t20170225" id="t20170225">2017-02-25</a>
+
+        * setup-build-all: add pgi, intel compilers
+
+<a name="t20160816" href="#index-t20160816" id="t20160816">2016-08-16</a>
+
+        * build-tin: no special case needed for FreeBSD anymore
+
+        * build-tin:
+        workaround for FreeBSD's weak symbols, which defeat CF_FIND_LINKAGE
+
+        * build-tin: fixes for FreeBSD with clang
+
+        * build-tin: don't export CC, since my build-scripts need to override
+
+        * build-tin: fixes for solaris
+
+<a name="t20160528" href="#index-t20160528" id="t20160528">2016-05-28</a>
+
+        * with-cppcheck: add "--enable=all" to LINT_OPTS
+
+        * all-opts-xterm: add without-xinerama
+
+<a name="t20160515" href="#index-t20160515" id="t20160515">2016-05-15</a>
+
+        * with-cppcheck: RCS_BASE
+
+<a name="t20160408" href="#index-t20160408" id="t20160408">2016-04-08</a>
+
+        * path: check for empty strings, use "."
+
+<a name="t20160211" href="#index-t20160211" id="t20160211">2016-02-11</a>
+
+        * clean-xterm:
+        also remove new screen-dump files xterm.*.svg xterm.*.xhtml
+
+<a name="t20160129" href="#index-t20160129" id="t20160129">2016-01-29</a>
+
+        * all-opts-xterm: add screen-dumps
+
+<a name="t20160126" href="#index-t20160126" id="t20160126">2016-01-26</a>
+
+        * gcc-stricter: don't use --posix option
+
+<a name="t20160125" href="#index-t20160125" id="t20160125">2016-01-25</a>
+
+        * gcc-stricter: add options noticed (in debbuild...) in gcc 5.x
+
+<a name="t20160101" href="#index-t20160101" id="t20160101">2016-01-01</a>
+
+        * gcc-normal:
+        apply a similar workaround for Solaris's /usr/openwin/include directory
+
+<a name="t20151231" href="#index-t20151231" id="t20151231">2015-12-31</a>
+
+        * gcc-normal:
+        workaround for OSX, where the gcc port does not know that /usr/X11/include
+        contains system-headers.
+
+        * gcc-strict: reuse gcc-normal, adding the stricter options
+
+<a name="t20151212" href="#index-t20151212" id="t20151212">2015-12-12</a>
+
+        * build-lynx: appease Solaris10
+
+<a name="t20151008" href="#index-t20151008" id="t20151008">2015-10-08</a>
+
+        * build-lynx: add a case for Debian to build lynx-debian
+
+<a name="t20150912" href="#index-t20150912" id="t20150912">2015-09-12</a>
+
+        * cfg-ncurses6:
+        install programs to match more/less what's done for debian/redhat in packages
+
+<a name="t20150817" href="#index-t20150817" id="t20150817">2015-08-17</a>
+
+        * diff-patch: fix hardcoded 5.9, using new ncurses-patches script
+
+<a name="t20150816" href="#index-t20150816" id="t20150816">2015-08-16</a>
+
+        * with-locale: modify so this can be used to exec or source
+
+<a name="t20150805" href="#index-t20150805" id="t20150805">2015-08-05</a>
+
+        * cfg-normal: when on Solaris, use the POSIX shell
+
+        * cfg-ncurses6: build-fix for Solaris' non-POSIX shell
+
+<a name="t20150604" href="#index-t20150604" id="t20150604">2015-06-04</a>
+
+        * cfg-mingw64, cfg-mingw32, cfg-mingw: check-prefix
+
+<a name="t20150531" href="#index-t20150531" id="t20150531">2015-05-31</a>
+
+        * cfg-thread, cfg-ncursesw: be definite
+
+<a name="t20150502" href="#index-t20150502" id="t20150502">2015-05-02</a>
+
+        * cfg-ncurses6: add wgetch-events, per ABI
+
+<a name="t20150412" href="#index-t20150412" id="t20150412">2015-04-12</a>
+
+        * all-opts-xterm: added enable-pty-erase
+
+<a name="t20150404" href="#index-t20150404" id="t20150404">2015-04-04</a>
+
+        * cfg-ncurses6: add new extension --enable-ext-putwin
+
+<a name="t20150214" href="#index-t20150214" id="t20150214">2015-02-14</a>
+
+        * cfg-ncurses6, cfg-thread:
+        add OpenBSD to platforms tested using --with-versioned-syms
+
+<a name="t20150210" href="#index-t20150210" id="t20150210">2015-02-10</a>
+
+        * all-opts-xterm: another
+
+<a name="t20150131" href="#index-t20150131" id="t20150131">2015-01-31</a>
+
+        * cfg-thread, cfg-ncurses6: add netbsd to versioned-symbols
+
+<a name="t20150110" href="#index-t20150110" id="t20150110">2015-01-10</a>
+
+        * cfg-thread: use versioned symbols
+
+<a name="t20150103" href="#index-t20150103" id="t20150103">2015-01-03</a>
+
+        * cfg-ncurses6:
+        add testcase for versioned-symbols, starting with my Linux and FreeBSD machines
+
+<a name="t20141010" href="#index-t20141010" id="t20141010">2014-10-10</a>
+
+        * cfg-ncurses6: turn on the experimental #define for EXP_XTERM_1005
+
+<a name="t20140920" href="#index-t20140920" id="t20140920">2014-09-20</a>
+
+        * cfg-mingw32:
+        incorporate --prefix if I can - fixes for instance Debian6's g++ configure in ncurses.
+
+        * cfg-mingw: split-out choose-mingw32
+        add --prefix, needed at least for cross-compiling with Debian
+
+        * cfg-mingw64:
+        add --prefix, needed at least for cross-compiling with Debian
+
+<a name="t20140802" href="#index-t20140802" id="t20140802">2014-08-02</a>
+
+        * build-all-ncurses: RCS_BASE
+
+<a name="t20140701" href="#index-t20140701" id="t20140701">2014-07-01</a>
+
+        * setup-build-all: mods to recognize MacPorts gcc over clang.
+        OSX links "gcc" to "clang".
+
+<a name="t20140617" href="#index-t20140617" id="t20140617">2014-06-17</a>
+
+        * setup-build-all: stop trying to build RPMs with Debian.
+
+<a name="t20140508" href="#index-t20140508" id="t20140508">2014-05-08</a>
+
+        * all-opts-xterm: add --disable-wide-attrs
+
+<a name="t20140426" href="#index-t20140426" id="t20140426">2014-04-26</a>
+
+        * all-opts-xterm: add --enable-regis-graphics 
+
+        * dutree: that led to another special case
+
+        * dutree:
+        additional fix for command-line arguments with embedded blanks
+
+        * dutree:
+        make this work (at least one case) where the directory tree contains names with embedded blanks.
+
+<a name="t20140408" href="#index-t20140408" id="t20140408">2014-04-08</a>
+
+        * setup-clean: cleanup lcov stuff
+
+<a name="t20140322" href="#index-t20140322" id="t20140322">2014-03-22</a>
+
+        * cfg-ncurses6: force chtype to 32-bits using uint32_t
+
+<a name="t20140301" href="#index-t20140301" id="t20140301">2014-03-01</a>
+
+        * setup-build-all:
+        mods to make my gcc-normal and gcc-stricter scripts work with FreeBSD 9/10's
+        ports of gcc, since clang is "cc" now.
+
+        * gcc-strict, gcc-normal: allow "gcc" to be overridden
+
+        * setup-build-all: better
+
+        * setup-build-all:
+        FreeBSD10 doesn't put gcc into subdirectory of /usr/local/bin
+
+<a name="t20140219" href="#index-t20140219" id="t20140219">2014-02-19</a>
+
+        * setup-build-all: my solaris vm's have only gcc, no "cc"
+
+<a name="t20140119" href="#index-t20140119" id="t20140119">2014-01-19</a>
+
+        * build-xterm: workaround for broken xfmk on my freebsd90-32
+
+<a name="t20140109" href="#index-t20140109" id="t20140109">2014-01-09</a>
+
+        * all-opts-lynx:
+        build-fix report for --disable-prettysrc got me to review the whole list,
+        and saw that my changes to defaults a couple of years ago did not get here.
+
+<a name="t20131214" href="#index-t20131214" id="t20131214">2013-12-14</a>
+
+        * run-makensis: nits
+
+        * run-makensis: improvements for c_count
+
+<a name="t20131020" href="#index-t20131020" id="t20131020">2013-10-20</a>
+
+        * cfg-mingw32: remove some debugging logs
+
+<a name="t20131019" href="#index-t20131019" id="t20131019">2013-10-19</a>
+
+        * cfg-mingw32: typo
+
+        * cfg-mingw32: update CFLAGS and LDFLAGS
+
+<a name="t20131017" href="#index-t20131017" id="t20131017">2013-10-17</a>
+
+        * run-makensis: cleanup
+
+<a name="t20131009" href="#index-t20131009" id="t20131009">2013-10-09</a>
+
+        * run-makensis:
+        successfully built 32-bit and 64-bit lynx installers from same tree
+
+<a name="t20131008" href="#index-t20131008" id="t20131008">2013-10-08</a>
+
+        * setup-build-all:
+        remove the BUILD-W32 and BUILD-64 directories if not possible to build
+
+        * setup-build-all: add nsis to routine builds
+
+        * run-makensis:
+        add comment showing where makensis documentation is found
+
+        * run-makensis: document this script
+
+        * run-makensis:
+        provide for building 32-bit and 64-bit programs in separate directory trees
+
+        * run-makensis: RCS_BASE
+
+<a name="t20131006" href="#index-t20131006" id="t20131006">2013-10-06</a>
+
+        * cfg-mingw64: replace path-search with choose-mingw64
+
+        * cfg-mingw32: use choose-mingw32
+
+        * cfg-mingw32: update list of possible architectures
+
+        * cfg-mingw32: introduce search-list for possible architectures
+
+        * cfg-mingw64: add architecture amd64-mingw32msvc 
+
+        * setup-build-all: if rpm/dpkg can be built, do that too.
+
+<a name="t20131004" href="#index-t20131004" id="t20131004">2013-10-04</a>
+
+        * setup-savebuild: modify to support PDCurses
+
+<a name="t20130901" href="#index-t20130901" id="t20130901">2013-09-01</a>
+
+        * setup-clean: workaround for cdk
+
+<a name="t20130804" href="#index-t20130804" id="t20130804">2013-08-04</a>
+
+        * all-opts-xterm: add --disable-wide-chars 
+
+<a name="t20130706" href="#index-t20130706" id="t20130706">2013-07-06</a>
+
+        * externs:
+        fix one bug: the first sed expression should have made the "0x" optional.
+        given that, the second line to remove leading digits was redundant.
+        change each expression to use character classes (not strictly necessary)
+        and combined the sed's into one call, making it a little more efficient.
+        Also provide $NM_PROG so I can easily reuse this for mingw
+
+<a name="t20130623" href="#index-t20130623" id="t20130623">2013-06-23</a>
+
+        * all-opts-xterm: new option
+
+        * setup-clean: tidy
+
+        * clean-xterm: use setup-clean
+
+<a name="t20130618" href="#index-t20130618" id="t20130618">2013-06-18</a>
+
+        * clean-vile: simplify
+
+<a name="t20130617" href="#index-t20130617" id="t20130617">2013-06-17</a>
+
+        * setup-clean: RCS_BASE
+
+<a name="t20130524" href="#index-t20130524" id="t20130524">2013-05-24</a>
+
+        * run-log, make-log, build-opt-xterm, build-opt-vile, build-opt-tin,
+          build-opt-ncurses, build-opt-lynx:
+        fix-bashisms
+
+<a name="t20130417" href="#index-t20130417" id="t20130417">2013-04-17</a>
+
+        * all-opts-xterm: add --disable-openpty 
+
+<a name="t20130413" href="#index-t20130413" id="t20130413">2013-04-13</a>
+
+        * clean-ncurses: cleanup clang --analyze
+
+<a name="t20130101" href="#index-t20130101" id="t20130101">2013-01-01</a>
+
+        * build-xterm:
+        phase out imake builds - Xorg hackers use it as a playground
+
+<a name="t20121118" href="#index-t20121118" id="t20121118">2012-11-18</a>
+
+        * clean-lynx: recover from missing xcurses
+
+<a name="t20121109" href="#index-t20121109" id="t20121109">2012-11-09</a>
+
+        * build-lynx:
+        ensure that the makefile exists in case the configure-script failed
+
+<a name="t20121015" href="#index-t20121015" id="t20121015">2012-10-15</a>
+
+        * archive:
+        workaround for files in ~dickey/html.vcs which contain embedded blanks.
+        This pre-quotes the names which I pass to the "ls -1t" command to find
+        the newest file.
+
+<a name="t20120926" href="#index-t20120926" id="t20120926">2012-09-26</a>
+
+        * all-opts-xterm: new option
+
+<a name="t20120923" href="#index-t20120923" id="t20120923">2012-09-23</a>
+
+        * build-xterm: gnu sed is too flexible
+
+<a name="t20120910" href="#index-t20120910" id="t20120910">2012-09-10</a>
+
+        * setup-build-all: add michener
+
+<a name="t20120902" href="#index-t20120902" id="t20120902">2012-09-02</a>
+
+        * setup-build-all: icc12 on VMware
+
+<a name="t20120824" href="#index-t20120824" id="t20120824">2012-08-24</a>
+
+        * build-xterm: cancel XTermId in log, from diff's on desktop file
+
+<a name="t20120816" href="#index-t20120816" id="t20120816">2012-08-16</a>
+
+        * setup-build-all: add vmware machines
+
+<a name="t20120804" href="#index-t20120804" id="t20120804">2012-08-04</a>
+
+        * cfg-normal: don't mess with CFLAGS anymore
+
+<a name="t20120728" href="#index-t20120728" id="t20120728">2012-07-28</a>
+
+        * clean-ncurses:
+        don't remove the BUILD-W* since that would interfere with retaining the
+        mingw build-products until I do "release-all-ncurses"
+
+<a name="t20120718" href="#index-t20120718" id="t20120718">2012-07-18</a>
+
+        * run-log: quoting
+
+<a name="t20120707" href="#index-t20120707" id="t20120707">2012-07-07</a>
+
+        * makepatch: newgetopt.pl is going away - dispense with it.
+        also, use strict (of course)
+
+<a name="t20120630" href="#index-t20120630" id="t20120630">2012-06-30</a>
+
+        * cfg-thread: add interop.
+
+<a name="t20120626" href="#index-t20120626" id="t20120626">2012-06-26</a>
+
+        * build-xterm: pass command-line options from this down to builds.
+        add check for --srcdir, allowing testbuilds using that option.
+
+<a name="t20120624" href="#index-t20120624" id="t20120624">2012-06-24</a>
+
+        * build-xterm: updated for icondir
+
+<a name="t20120616" href="#index-t20120616" id="t20120616">2012-06-16</a>
+
+        * cfg-mingw64, cfg-mingw:
+        prevent script "with-clang" from confusing this
+
+<a name="t20120527" href="#index-t20120527" id="t20120527">2012-05-27</a>
+
+        * setup-build-all: fix redirection of stderr
+
+        * setup-build-all: q/d hack to provide Solaris package with each build
+
+<a name="t20120526" href="#index-t20120526" id="t20120526">2012-05-26</a>
+
+        * RCS-toggle: make this work on Solaris
+
+<a name="t20120225" href="#index-t20120225" id="t20120225">2012-02-25</a>
+
+        * clean-ncurses: remove the mingw stuff
+
+<a name="t20120220" href="#index-t20120220" id="t20120220">2012-02-20</a>
+
+        * build-tin: add --enable-heapsort
+
+<a name="t20120218" href="#index-t20120218" id="t20120218">2012-02-18</a>
+
+        * cfg-mingw: add case for Debian 6.0 64-bit
+
+        * cfg-mingw: add ming64 stuff
+
+<a name="t20120217" href="#index-t20120217" id="t20120217">2012-02-17</a>
+
+        * clean-vile: cleaner
+
+        * setup-build-all: working to integrate mingw64
+
+<a name="t20120215" href="#index-t20120215" id="t20120215">2012-02-15</a>
+
+        * cfg-mingw64: RCS_BASE
+
+<a name="t20120110" href="#index-t20120110" id="t20120110">2012-01-10</a>
+
+        * build-vile: do clean _before_ build
+
+<a name="t20120107" href="#index-t20120107" id="t20120107">2012-01-07</a>
+
+        * cfg-ncursesw: kfreebsd fix
+
+<a name="t20120102" href="#index-t20120102" id="t20120102">2012-01-02</a>
+
+        * cfg-ncurses6: fix for kfreebsd
+
+        * cfg-thread: kfreebsd fix
+
+<a name="t20111222" href="#index-t20111222" id="t20111222">2011-12-22</a>
+
+        * all-opts-xterm: add --disable-selection-ops
+
+<a name="t20111127" href="#index-t20111127" id="t20111127">2011-11-27</a>
+
+        * setup-build-all: renamed machine
+
+<a name="t20111124" href="#index-t20111124" id="t20111124">2011-11-24</a>
+
+        * build-vile: use cp
+
+<a name="t20111111" href="#index-t20111111" id="t20111111">2011-11-11</a>
+
+        * cfg-tin: remove obsolete configurations
+
+        * build-ncurses:
+        override pkgconfig's library directory since this uses temporary build-dir
+
+<a name="t20111027" href="#index-t20111027" id="t20111027">2011-10-27</a>
+
+        * with-locale: quoting
+
+<a name="t20111021" href="#index-t20111021" id="t20111021">2011-10-21</a>
+
+        * gcc-normal-64: working with par-solaris10
+
+        * with-locale: working with Solaris10
+
+<a name="t20111010" href="#index-t20111010" id="t20111010">2011-10-10</a>
+
+        * setup-build-all: add an icc9 configuration
+
+<a name="t20110830" href="#index-t20110830" id="t20110830">2011-08-30</a>
+
+        * all-opts-xterm: add without-freetype-config
+
+<a name="t20110813" href="#index-t20110813" id="t20110813">2011-08-13</a>
+
+        * cfg-thread: partial fix for pthread on FreeBSD 4.9
+
+<a name="t20110730" href="#index-t20110730" id="t20110730">2011-07-30</a>
+
+        * cfg-normal: tweak to simplify turning on -g option in cfg-normal
+
+        * cfg-thread, cfg-ncurses6, cfg-ncursesw: fix for tic incompats
+
+<a name="t20110717" href="#index-t20110717" id="t20110717">2011-07-17</a>
+
+        * setup-build-all: clang lives in /usr/pkg/bin on DragonFlyBSD
+
+        * build-vile: add dragonfly
+
+<a name="t20110714" href="#index-t20110714" id="t20110714">2011-07-14</a>
+
+        * clean-xterm: remove build-tree
+
+<a name="t20110703" href="#index-t20110703" id="t20110703">2011-07-03</a>
+
+        * setup-build-all:
+        ichigo's compiler doesn't error on "--version", but warns that the option
+        is ignored.
+
+<a name="t20110626" href="#index-t20110626" id="t20110626">2011-06-26</a>
+
+        * setup-build-all: add icc12
+
+        * setup-build-all: add compiler
+
+<a name="t20110430" href="#index-t20110430" id="t20110430">2011-04-30</a>
+
+        * setup-savebuild:
+        not all scripts (autoconf 2.13 for example) use host_os, but all use bindir
+
+<a name="t20110413" href="#index-t20110413" id="t20110413">2011-04-13</a>
+
+        * build-tin: must provide name for executables
+
+        * build-tin: working on install/uninstall
+
+        * build-tin: RCS_BASE
+
+        * build-all-tin: convert to new build-all scheme
+
+<a name="t20110407" href="#index-t20110407" id="t20110407">2011-04-07</a>
+
+        * build-opt-vile: rename output-file for consistency
+
+<a name="t20110402" href="#index-t20110402" id="t20110402">2011-04-02</a>
+
+        * diff-patch: bump ncurses
+
+<a name="t20110329" href="#index-t20110329" id="t20110329">2011-03-29</a>
+
+        * setup-build-all: handle bsd ports
+
+<a name="t20110327" href="#index-t20110327" id="t20110327">2011-03-27</a>
+
+        * cfg-normal: fixes for sudo vs partition
+
+        * run-log: allow $ME to override partition return-value
+
+        * setup-build-all: just in case partition is missing
+
+<a name="t20110307" href="#index-t20110307" id="t20110307">2011-03-07</a>
+
+        * diff-patch: bump
+
+<a name="t20110227" href="#index-t20110227" id="t20110227">2011-02-27</a>
+
+        * setup-build-all: special-case cygwin64 (on my windows7)
+
+<a name="t20110226" href="#index-t20110226" id="t20110226">2011-02-26</a>
+
+        * setup-build-all: add a case for icc
+
+<a name="t20110220" href="#index-t20110220" id="t20110220">2011-02-20</a>
+
+        * cfg-mingw:
+        modify to look for different cross-compilers that I have...
+
+<a name="t20110219" href="#index-t20110219" id="t20110219">2011-02-19</a>
+
+        * build-xterm: add imake build
+
+<a name="t20110216" href="#index-t20110216" id="t20110216">2011-02-16</a>
+
+        * setup-build-all: renamed debian50-32
+
+<a name="t20110209" href="#index-t20110209" id="t20110209">2011-02-09</a>
+
+        * setup-build-all: use sun studio
+
+<a name="t20110201" href="#index-t20110201" id="t20110201">2011-02-01</a>
+
+        * setup-build-all: FreeBSD ports puts clang in /usr/local/bin
+
+<a name="t20110130" href="#index-t20110130" id="t20110130">2011-01-30</a>
+
+        * setup-build-all: parallels builds are capable.
+
+<a name="t20110123" href="#index-t20110123" id="t20110123">2011-01-23</a>
+
+        * setup-build-all: for archon
+
+<a name="t20110108" href="#index-t20110108" id="t20110108">2011-01-08</a>
+
+        * setup-build-all: build with gcc-stricter on marshall
+
+<a name="t20101229" href="#index-t20101229" id="t20101229">2010-12-29</a>
+
+        * build-vile:
+        special-case cygwin, since I'm explicitly making "xvile", while the target
+        there actually has ".exe" suffix.
+
+<a name="t20100928" href="#index-t20100928" id="t20100928">2010-09-28</a>
+
+        * setup-savebuild: build-ac252 doesn't set $CC; fix
+
+<a name="t20100927" href="#index-t20100927" id="t20100927">2010-09-27</a>
+
+        * setup-savebuild:
+        host_os isn't required for autoconf-252, use host_alias which appears to be
+        "always" present.
+
+        * setup-savebuild: allow $BUILD_DIR to override $PROG, for save-ac252
+
+<a name="t20100925" href="#index-t20100925" id="t20100925">2010-09-25</a>
+
+        * setup-build-all: typo
+
+        * setup-build-all: try to quiet with-gcc hack
+
+        * setup-build-all: try clang, e.g., on Fedora and even Ubuntu
+
+<a name="t20100920" href="#index-t20100920" id="t20100920">2010-09-20</a>
+
+        * build-lynx: add preinstall
+
+<a name="t20100905" href="#index-t20100905" id="t20100905">2010-09-05</a>
+
+        * save-vile: use setup-save
+
+<a name="t20100830" href="#index-t20100830" id="t20100830">2010-08-30</a>
+
+        * setup-build-all: add bell to help screen show me that build is done
+
+<a name="t20100829" href="#index-t20100829" id="t20100829">2010-08-29</a>
+
+        * setup-build-all: add callisto to strict checking
+
+<a name="t20100813" href="#index-t20100813" id="t20100813">2010-08-13</a>
+
+        * cfg-normal:
+        use -h for testing symlinks rather than -L (works for FreeBSD 3.0)
+
+<a name="t20100808" href="#index-t20100808" id="t20100808">2010-08-08</a>
+
+        * build-all-vile: pass param to build_all
+
+        * build-lynx: typo
+
+        * build-lynx: RCS_BASE
+
+        * build-all-lynx: standardize build-all-XXX's
+
+<a name="t20100807" href="#index-t20100807" id="t20100807">2010-08-07</a>
+
+        * cfg-mingw: start working with fedora12 for ncurses cross-compiles
+
+<a name="t20100714" href="#index-t20100714" id="t20100714">2010-07-14</a>
+
+        * clean-vile: get rid of revlist.bak
+
+<a name="t20100713" href="#index-t20100713" id="t20100713">2010-07-13</a>
+
+        * cfg-ncursesw:
+        move these shared libraries into /usr/local/ncurses, so that they'll only
+        be used by programs that use the rpath setting in ncursesw5-config.
+        The reason for doing that is because Linux distributions add /usr/local/lib
+        to the ldconfig path (often...), which makes binary packages that I build
+        happen to use those at runtime.  The /usr/lib binaries can differ, especially
+        if I'm using 64-bits, since some (such as OpenSuSE) use the older lp64 setting.
+
+<a name="t20100711" href="#index-t20100711" id="t20100711">2010-07-11</a>
+
+        * setup-build-all:
+        build-cproto makes a more complex build-log name, and requires some
+        extra work to rename the icc9 logfiles
+
+<a name="t20100710" href="#index-t20100710" id="t20100710">2010-07-10</a>
+
+        * clean-ncurses: ident
+
+<a name="t20100709" href="#index-t20100709" id="t20100709">2010-07-09</a>
+
+        * cfg-ncursesw: make this match system's ABI on SuSE
+
+<a name="t20100708" href="#index-t20100708" id="t20100708">2010-07-08</a>
+
+        * setup-build-all: default for opensolaris is 32-bits
+
+<a name="t20100706" href="#index-t20100706" id="t20100706">2010-07-06</a>
+
+        * build-all-vile: split-out build-vile
+
+<a name="t20100703" href="#index-t20100703" id="t20100703">2010-07-03</a>
+
+        * setup-build-all: move logging into setup-debbuild
+
+<a name="t20100629" href="#index-t20100629" id="t20100629">2010-06-29</a>
+
+        * setup-build-all: cm_tools and sccs_tools have source in bin-directory
+
+        * setup-savebuild: RCS_BASE
+
+<a name="t20100628" href="#index-t20100628" id="t20100628">2010-06-28</a>
+
+        * build-xterm: split-out build-all-xterm
+
+        * build-all-xterm: build with all compilers
+
+<a name="t20100625" href="#index-t20100625" id="t20100625">2010-06-25</a>
+
+        * setup-build-all: overlooked default for $CC64
+
+        * setup-build-all:
+        merge some of the tww-bin changes from build-all-mawk
+
+        * setup-build-all: need gcc-normal on tww
+
+<a name="t20100623" href="#index-t20100623" id="t20100623">2010-06-23</a>
+
+        * setup-build-all: RCS_BASE
+
+<a name="t20100614" href="#index-t20100614" id="t20100614">2010-06-14</a>
+
+        * exports: need POSIX locale here, just like externs
+
+<a name="t20100613" href="#index-t20100613" id="t20100613">2010-06-13</a>
+
+        * cfg-ncursesw: adding ubuntu10
+
+<a name="t20100610" href="#index-t20100610" id="t20100610">2010-06-10</a>
+
+        * build-all-vile: fix for icc9 on testing-9
+
+        * build-all-vile: preserve --with-symlink
+
+<a name="t20100522" href="#index-t20100522" id="t20100522">2010-05-22</a>
+
+        * cfg-ncurses6: start introducing new options to test
+
+        * cfg-thread: start introducing new options for testing
+
+<a name="t20100520" href="#index-t20100520" id="t20100520">2010-05-20</a>
+
+        * build-all-vile: for truth
+
+<a name="t20100513" href="#index-t20100513" id="t20100513">2010-05-13</a>
+
+        * build-vile: split-out build-all-vile
+
+<a name="t20100512" href="#index-t20100512" id="t20100512">2010-05-12</a>
+
+        * build-all-vile: testing-9 has icc9
+
+<a name="t20100426" href="#index-t20100426" id="t20100426">2010-04-26</a>
+
+        * cfg-normal: just use -O, since c89 may fail to compile with a level
+
+<a name="t20100425" href="#index-t20100425" id="t20100425">2010-04-25</a>
+
+        * cfg-ncursesw: ticlib's
+
+<a name="t20100421" href="#index-t20100421" id="t20100421">2010-04-21</a>
+
+        * all-opts-xterm: new option
+
+<a name="t20100416" href="#index-t20100416" id="t20100416">2010-04-16</a>
+
+        * build-xterm: bump
+
+<a name="t20100328" href="#index-t20100328" id="t20100328">2010-03-28</a>
+
+        * gcc-normal-64: for xen-solaris
+
+<a name="t20100327" href="#index-t20100327" id="t20100327">2010-03-27</a>
+
+        * cfg-mingw: RCS_BASE
+
+<a name="t20100322" href="#index-t20100322" id="t20100322">2010-03-22</a>
+
+        * cfg-normal: use /bin/sh rather than bash
+
+<a name="t20100320" href="#index-t20100320" id="t20100320">2010-03-20</a>
+
+        * build-all-vile: always try rpm build
+
+        * build-all-vile: tweak
+
+        * build-all-vile: use intel compiler where I have it
+
+        * build-all-vile: start merging dev/tww variants
+
+<a name="t20100314" href="#index-t20100314" id="t20100314">2010-03-14</a>
+
+        * cfg-normal: remove obsolete gcc option -Wid-clash-31 
+
+<a name="t20100216" href="#index-t20100216" id="t20100216">2010-02-16</a>
+
+        * dutree: http://docstore.mik.ua/orelly/perl/cookbook/ch05_17.htm
+        (older version dies on my home directory in testing-9)
+
+<a name="t20100210" href="#index-t20100210" id="t20100210">2010-02-10</a>
+
+        * build-vile: use prefix in preference to DESTDIR
+
+        * build-vile:
+        tweak so that I can run executables from the bin-directory
+
+<a name="t20100128" href="#index-t20100128" id="t20100128">2010-01-28</a>
+
+        * build-all-vile:
+        move to build-opt-vile, making this invoke build-vile as on tww
+
+<a name="t20100110" href="#index-t20100110" id="t20100110">2010-01-10</a>
+
+        * build-all-tin, build-opt-tin: update
+
+<a name="t20091231" href="#index-t20091231" id="t20091231">2009-12-31</a>
+
+        * clean-tin: RCS_BASE
+
+<a name="t20091206" href="#index-t20091206" id="t20091206">2009-12-06</a>
+
+        * gcc-stricter: add comment about _Xconst versus _CONST_X_STRING
+
+        * gcc-stricter: fussing with String
+
+        * gcc-stricter: stricter...
+
+<a name="t20091121" href="#index-t20091121" id="t20091121">2009-11-21</a>
+
+        * clean-lynx: remove the bin-directory even if there's no makefile
+
+<a name="t20091007" href="#index-t20091007" id="t20091007">2009-10-07</a>
+
+        * gcc-stricter: RCS_BASE
+
+<a name="t20091005" href="#index-t20091005" id="t20091005">2009-10-05</a>
+
+        * clean-vile:
+        add check for estruct.h, since tcap.c may appear in other programs
+
+        * build-vile: clean before each build
+
+<a name="t20090806" href="#index-t20090806" id="t20090806">2009-08-06</a>
+
+        * build-xterm: fix recursion, putting gcc-normal in its own logfile
+
+        * build-xterm: add case-statement to fix my icc8/icc9 logs
+
+        * all-opts-xterm: add disable-fifo-lines
+
+        * build-xterm: split by compiler-version
+
+        * build-xterm: resync with tww-bin
+
+<a name="t20090805" href="#index-t20090805" id="t20090805">2009-08-05</a>
+
+        * build-xterm: change sense of fifo-lines
+
+<a name="t20090727" href="#index-t20090727" id="t20090727">2009-07-27</a>
+
+        * gcc-strict: move two to obsolete...
+
+<a name="t20090719" href="#index-t20090719" id="t20090719">2009-07-19</a>
+
+        * build-xterm: add 16bits flavor
+
+        * all-opts-xterm: add --enable-16bit-chars
+
+<a name="t20090606" href="#index-t20090606" id="t20090606">2009-06-06</a>
+
+        * build-vile: RCS_BASE
+
+<a name="t20090503" href="#index-t20090503" id="t20090503">2009-05-03</a>
+
+        * diff-patch: unreleased xterm patches end with a letter
+
+<a name="t20090502" href="#index-t20090502" id="t20090502">2009-05-02</a>
+
+        * diff-patch: fix path for ncurses patch
+
+<a name="t20090501" href="#index-t20090501" id="t20090501">2009-05-01</a>
+
+        * diff-patch:
+        Paul Van Tilburg requested that I put a url on diffstat's for vile, so
+        I scripted it here for the cases that I often generate patches for.
+
+<a name="t20090214" href="#index-t20090214" id="t20090214">2009-02-14</a>
+
+        * cfg-ncurses6: test SP-api in ABI6
+
+<a name="t20090201" href="#index-t20090201" id="t20090201">2009-02-01</a>
+
+        * all-opts-lynx: add ascii-ctypes
+
+<a name="t20090125" href="#index-t20090125" id="t20090125">2009-01-25</a>
+
+        * gcc-normal-64: RCS_BASE
+
+<a name="t20090117" href="#index-t20090117" id="t20090117">2009-01-17</a>
+
+        * externs: OpenBSD uses a "?" where most other systems provide a "U".
+
+        * exports, externs: fixes to work with IRIX64, HPUX-11 and Solaris
+
+<a name="t20090103" href="#index-t20090103" id="t20090103">2009-01-03</a>
+
+        * cfg-ncurses6, cfg-ncursesw: add --enable-pc-files
+
+        * cfg-thread: add pc-files to the build
+
+<a name="t20081224" href="#index-t20081224" id="t20081224">2008-12-24</a>
+
+        * cfg-normal: tweak to make the --srcdir option work
+
+<a name="t20081004" href="#index-t20081004" id="t20081004">2008-10-04</a>
+
+        * build-ncurses: disable big-strings with OSF1 5.1 and HPUX 11.00
+
+<a name="t20080927" href="#index-t20080927" id="t20080927">2008-09-27</a>
+
+        * all-opts-ncurses:
+        fix - ncurses checks if --with-terminfo-dirs is legal paths
+
+<a name="t20080830" href="#index-t20080830" id="t20080830">2008-08-30</a>
+
+        * build-ncurses: add threading build
+
+<a name="t20080825" href="#index-t20080825" id="t20080825">2008-08-25</a>
+
+        * cfg-normal: quote params
+
+<a name="t20080821" href="#index-t20080821" id="t20080821">2008-08-21</a>
+
+        * build-opt-vile: RCS_BASE
+
+        * build-all-vile: ncursesw is different.
+
+<a name="t20080721" href="#index-t20080721" id="t20080721">2008-07-21</a>
+
+        * cfg-normal: latest Debian gcc package puts "Debian" in the parens
+
+<a name="t20080712" href="#index-t20080712" id="t20080712">2008-07-12</a>
+
+        * build-ncurses: build-fixes for c++ and big-strings
+
+<a name="t20080705" href="#index-t20080705" id="t20080705">2008-07-05</a>
+
+        * build-ncurses: disable big-strings for AIX 5.1
+        fix an oops that made me lose the cc-builds if there was no error.
+
+<a name="t20080503" href="#index-t20080503" id="t20080503">2008-05-03</a>
+
+        * cfg-thread: tweak for FreeBSD
+        add wgetch-events
+
+<a name="t20080329" href="#index-t20080329" id="t20080329">2008-03-29</a>
+
+        * cfg-thread: now have --with-pthread option
+
+<a name="t20080323" href="#index-t20080323" id="t20080323">2008-03-23</a>
+
+        * save-xterm: make this work with 2.60/2.61
+
+<a name="t20080223" href="#index-t20080223" id="t20080223">2008-02-23</a>
+
+        * cfg-thread: add LIBS
+
+<a name="t20071231" href="#index-t20071231" id="t20071231">2007-12-31</a>
+
+        * build-xterm: don't use relative path for desktop utils
+
+<a name="t20070929" href="#index-t20070929" id="t20070929">2007-09-29</a>
+
+        * cfg-ext-color: disable leaks here, so I can check dialog
+
+<a name="t20070901" href="#index-t20070901" id="t20070901">2007-09-01</a>
+
+        * cfg-thread: predefine USE_PTHREADS
+
+        * cfg-thread: RCS_BASE
+
+<a name="t20070812" href="#index-t20070812" id="t20070812">2007-08-12</a>
+
+        * build-xterm: filter out version numbers
+
+<a name="t20070708" href="#index-t20070708" id="t20070708">2007-07-08</a>
+
+        * build-xterm: add icondir
+        filter out pathname of srcdir
+
+<a name="t20070623" href="#index-t20070623" id="t20070623">2007-06-23</a>
+
+        * build-ncurses: working on build-ncurses (incomplete)
+
+<a name="t20070617" href="#index-t20070617" id="t20070617">2007-06-17</a>
+
+        * build-xterm: don't need to remove category anymore
+
+        * save-xterm: don't save "*.log", save config.log
+
+<a name="t20070616" href="#index-t20070616" id="t20070616">2007-06-16</a>
+
+        * build-xterm: workaround for desktop Categories
+
+        * build-xterm: add DESKTOP_FLAGS
+
+        * build-xterm: suppress app-defaults too
+
+<a name="t20070513" href="#index-t20070513" id="t20070513">2007-05-13</a>
+
+        * clean-lynx: RCS_BASE
+
+<a name="t20070409" href="#index-t20070409" id="t20070409">2007-04-09</a>
+
+        * with-locale: cancel LESSCHARSET too
+
+<a name="t20070319" href="#index-t20070319" id="t20070319">2007-03-19</a>
+
+        * build-xterm: first cut of rewrite to support TWW
+
+<a name="t20070318" href="#index-t20070318" id="t20070318">2007-03-18</a>
+
+        * all-opts-xterm: added --enable-tcap-fkeys
+
+<a name="t20070317" href="#index-t20070317" id="t20070317">2007-03-17</a>
+
+        * cfg-ncurses6: add ext-mouse
+
+<a name="t20070128" href="#index-t20070128" id="t20070128">2007-01-28</a>
+
+        * all-opts-ncurses: add --with-ticlib
+
+<a name="t20061224" href="#index-t20061224" id="t20061224">2006-12-24</a>
+
+        * cfg-ncurses6: install into /usr/local/bin
+
+        * cfg-ncursesw: install into /usr/local/bin/
+
+<a name="t20061223" href="#index-t20061223" id="t20061223">2006-12-23</a>
+
+        * diff-patch:
+        sign all patches - motivated by various packager's plagiarism of one of
+        my patches for lynx.
+
+<a name="t20061219" href="#index-t20061219" id="t20061219">2006-12-19</a>
+
+        * all-opts-ncurses: for 5.6 testing
+
+<a name="t20061218" href="#index-t20061218" id="t20061218">2006-12-18</a>
+
+        * build-ncurses: RCS_BASE
+
+        * save-ncurses: version from tww
+
+<a name="t20061217" href="#index-t20061217" id="t20061217">2006-12-17</a>
+
+        * clean-ncurses: RCS_BASE
+
+<a name="t20061216" href="#index-t20061216" id="t20061216">2006-12-16</a>
+
+        * cfg-ncurses6, cfg-ncursesw: add --with-develop
+
+<a name="t20061021" href="#index-t20061021" id="t20061021">2006-10-21</a>
+
+        * cfg-ncurses6, cfg-ncursesw: build BSD's with hashed-db
+
+<a name="t20061015" href="#index-t20061015" id="t20061015">2006-10-15</a>
+
+        * cfg-ncurses6: better
+
+        * cfg-ncurses6: fix the terminfo-dir
+
+        * cfg-ncurses6: RCS_BASE
+
+        * cfg-ncursesw: use rpath
+
+<a name="t20061013" href="#index-t20061013" id="t20061013">2006-10-13</a>
+
+        * with-locale:
+        hack for Fedora5 - set GDM_LANG so I can override the stuff in /etc used
+        to force shell-init.
+
+<a name="t20060916" href="#index-t20060916" id="t20060916">2006-09-16</a>
+
+        * all-opts-tin: partial update
+
+<a name="t20060715" href="#index-t20060715" id="t20060715">2006-07-15</a>
+
+        * all-opts-xterm: fill in some options that I seem to have overlooked
+
+<a name="t20060603" href="#index-t20060603" id="t20060603">2006-06-03</a>
+
+        * all-opts-lynx: To      : Philip Webb &lt;purslow@sympatico.ca&gt;
+        Cc      : lynx-dev listserv &lt;lynx-dev@nongnu.org&gt;
+        Attchmnt:
+        Subject : Re: [Lynx-dev] dev 18 : compile error
+        ----- Message Text -----
+        On Sat, 3 Jun 2006, Philip Webb wrote:
+
+        &gt; This is on Gentoo Linux, GCC 3.4.5 , Glibc 2.3.6 , Ncurses 5.4 .
+        &gt; Configure options are :
+        &gt;
+        &gt;  ./configure --with-screen=ncurses --disable-menu-options --enable-default-co$
+
+        validate_x_display() is inside an ifdef disabled by --disable-menu-options
+
+        (I did a recent build with "all" options but see that one isn't in the
+        script).
+
+<a name="t20060521" href="#index-t20060521" id="t20060521">2006-05-21</a>
+
+        * clean-vile: RCS_BASE
+
+<a name="t20060221" href="#index-t20060221" id="t20060221">2006-02-21</a>
+
+        * cfg-ncursesw: disable-leaks
+
+<a name="t20060212" href="#index-t20060212" id="t20060212">2006-02-12</a>
+
+        * all-opts-xterm: add regex stuff
+
+<a name="t20060121" href="#index-t20060121" id="t20060121">2006-01-21</a>
+
+        * cfg-ncursesw: add xmc-glitch
+
+<a name="t20060108" href="#index-t20060108" id="t20060108">2006-01-08</a>
+
+        * all-opts-lynx:
+        I don't have a link to the socks stuff - just use the /usr/local/test directory
+
+<a name="t20051113" href="#index-t20051113" id="t20051113">2005-11-13</a>
+
+        * build-xterm: RCS_BASE
+
+<a name="t20050918" href="#index-t20050918" id="t20050918">2005-09-18</a>
+
+        * clean-xterm: RCS_BASE
+
+<a name="t20050620" href="#index-t20050620" id="t20050620">2005-06-20</a>
+
+        * all-opts-xterm: add enable-paste64
+
+<a name="t20050608" href="#index-t20050608" id="t20050608">2005-06-08</a>
+
+        * build-all-vile: add nofilters
+
+<a name="t20050423" href="#index-t20050423" id="t20050423">2005-04-23</a>
+
+        * cfg-normal: allow for gcc 4.0
+
+<a name="t20050420" href="#index-t20050420" id="t20050420">2005-04-20</a>
+
+        * csort: use with-locale
+
+<a name="t20050419" href="#index-t20050419" id="t20050419">2005-04-19</a>
+
+        * with-locale: export LANG too
+
+<a name="t20050327" href="#index-t20050327" id="t20050327">2005-03-27</a>
+
+        * all-opts-ncurses: updated
+
+<a name="t20050204" href="#index-t20050204" id="t20050204">2005-02-04</a>
+
+        * save-xterm: add logic to check for imake
+
+        * save-xterm: modified to work with autoconf 2.52
+
+<a name="t20050129" href="#index-t20050129" id="t20050129">2005-01-29</a>
+
+        * cfg-ext-color: disable macros too, for testing
+
+<a name="t20050101" href="#index-t20050101" id="t20050101">2005-01-01</a>
+
+        * cfg-ext-color: RCS_BASE
+
+<a name="t20040930" href="#index-t20040930" id="t20040930">2004-09-30</a>
+
+        * with-locale: RCS_BASE
+
+<a name="t20040923" href="#index-t20040923" id="t20040923">2004-09-23</a>
+
+        * cfg-normal:
+        make this so I can test --srcdir stuff easily - it will apply the argument
+        of --srcdir to the path for configure
+
+<a name="t20040511" href="#index-t20040511" id="t20040511">2004-05-11</a>
+
+        * diff-patch: keep from showing utf-8 crap on Fedora
+
+<a name="t20040424" href="#index-t20040424" id="t20040424">2004-04-24</a>
+
+        * cfg-mingw32: RCS_BASE
+
+<a name="t20040221" href="#index-t20040221" id="t20040221">2004-02-21</a>
+
+        * externs:
+        unset $LANG, $LANGUAGE and $LC_CTYPE since those can also pollute the script
+
+<a name="t20040103" href="#index-t20040103" id="t20040103">2004-01-03</a>
+
+        * build-opt-lynx, build-all-lynx:
+        only make-distclean if there's a makefile
+
+<a name="t20031102" href="#index-t20031102" id="t20031102">2003-11-02</a>
+
+        * build-all-vile: add a check for loadable filters
+
+<a name="t20030809" href="#index-t20030809" id="t20030809">2003-08-09</a>
+
+        * cfg-normal: use "sh", just in case permissions aren't executable
+
+<a name="t20030730" href="#index-t20030730" id="t20030730">2003-07-30</a>
+
+        * archive:
+        use "v", not "-v" for $verbose, since that's packed into a tar option.
+        it happens to work for Solaris and GNU tar, but not IRIX64
+
+<a name="t20030616" href="#index-t20030616" id="t20030616">2003-06-16</a>
+
+        * cfg-normal:
+        gcc 2.95.4 (debian 3.0) doesn't like the -Wid-clash-31 either
+
+<a name="t20030605" href="#index-t20030605" id="t20030605">2003-06-05</a>
+
+        * build-all-tin: add nls variations
+
+<a name="t20030520" href="#index-t20030520" id="t20030520">2003-05-20</a>
+
+        * build-all-xterm:
+        modify to be like the other build-all-XXX scripts, letting me detach this
+        from the parent directory.  Don't pretend to build with Motif.  Try to
+        build the toolbar version.
+
+        * all-opts-xterm: add with-XawPlus
+
+<a name="t20030422" href="#index-t20030422" id="t20030422">2003-04-22</a>
+
+        * exports: use sort -u
+
+<a name="t20030418" href="#index-t20030418" id="t20030418">2003-04-18</a>
+
+        * build-opt-lynx:
+        change to put build-opt- as prefix rather than build-, for consistency
+
+<a name="t20030415" href="#index-t20030415" id="t20030415">2003-04-15</a>
+
+        * all-opts-lynx: add with-gnutls
+
+<a name="t20030322" href="#index-t20030322" id="t20030322">2003-03-22</a>
+
+        * all-opts-xterm: add enable-pty-handshake
+
+<a name="t20030304" href="#index-t20030304" id="t20030304">2003-03-04</a>
+
+        * all-opts-xterm: add disable-c1-print
+
+<a name="t20030302" href="#index-t20030302" id="t20030302">2003-03-02</a>
+
+        * gcc-normal: gotta look at the different-width stuff sometimes
+
+<a name="t20021115" href="#index-t20021115" id="t20021115">2002-11-15</a>
+
+        * gcc-normal: try removing junk messages
+
+<a name="t20021110" href="#index-t20021110" id="t20021110">2002-11-10</a>
+
+        * build-all-tin: added pdcurses
+
+<a name="t20021004" href="#index-t20021004" id="t20021004">2002-10-04</a>
+
+        * all-opts-xterm: add disable-session-mgt
+
+<a name="t20020907" href="#index-t20020907" id="t20020907">2002-09-07</a>
+
+        * save-ncurses: make this work with autoconf 2.5x
+
+        * cfg-ncursesw: RCS_BASE
+
+<a name="t20020901" href="#index-t20020901" id="t20020901">2002-09-01</a>
+
+        * build-opt-ncurses: tweak to allow testing w/o database
+
+<a name="t20020831" href="#index-t20020831" id="t20020831">2002-08-31</a>
+
+        * csort: RCS_BASE
+
+<a name="t20020816" href="#index-t20020816" id="t20020816">2002-08-16</a>
+
+        * all-opts-xterm: add enable-luit
+
+<a name="t20020629" href="#index-t20020629" id="t20020629">2002-06-29</a>
+
+        * cfg-normal: idiots dropped -Wid-clash-XXX
+
+<a name="t20020420" href="#index-t20020420" id="t20020420">2002-04-20</a>
+
+        * cfg-tin: disable nls (to make testing work)
+
+<a name="t20020419" href="#index-t20020419" id="t20020419">2002-04-19</a>
+
+        * cfg-normal: note the partition
+
+<a name="t20020417" href="#index-t20020417" id="t20020417">2002-04-17</a>
+
+        * save-tin: adapt to autoconf 2.52
+
+<a name="t20020216" href="#index-t20020216" id="t20020216">2002-02-16</a>
+
+        * build-opt-xterm: put build-opt- at the beginning of the logfile name
+
+        * build-opt-lynx: put build- at the beginning of the logfile name
+
+        * build-all-lynx: put "build-all" at the beginning of the logfile name
+
+        * build-opt-tin: put build-opt- at the beginning of the logfile name
+
+        * build-all-tin: renamed things to make them sort nicer
+
+        * build-all-vile: change name convention for log-file
+
+        * build-opt-ncurses: consistent log-file naming
+
+<a name="t20020112" href="#index-t20020112" id="t20020112">2002-01-12</a>
+
+        * build-all-vile: show resulting file
+
+<a name="t20011227" href="#index-t20011227" id="t20011227">2001-12-27</a>
+
+        * save-lynx: adapt to autoconf 2.52 vs 2.13
+
+<a name="t20011226" href="#index-t20011226" id="t20011226">2001-12-26</a>
+
+        * build-all-vile: oops - fix a redefinition of $SCREEN
+
+        * save-vile: also ignore -fXXXX options
+
+        * save-vile:
+        modified to work with autoconf 2.52 as well as autoconf 2.13
+
+<a name="t20011207" href="#index-t20011207" id="t20011207">2001-12-07</a>
+
+        * path:
+        mods to accommodate directory names with embedded blanks, e.g., cygwin
+
+<a name="t20011108" href="#index-t20011108" id="t20011108">2001-11-08</a>
+
+        * build-all-tin: add ncursesw
+
+<a name="t20011007" href="#index-t20011007" id="t20011007">2001-10-07</a>
+
+        * run-log: add host and user ids
+
+<a name="t20011003" href="#index-t20011003" id="t20011003">2001-10-03</a>
+
+        * all-opts-ncurses:
+        oops - some of the optione didn't cite the right strings
+
+<a name="t20010902" href="#index-t20010902" id="t20010902">2001-09-02</a>
+
+        * archive: hmm - not quite there (fixes for unarchive)
+
+        * archive:
+        if parent directory is not writable, don't try to move the archive first.
+
+        * archive:
+        partial rewrite: I got tired of not being able to use less to view an
+        archive when I was not in the right directory.  So I added checks if the
+        parameter is an archive filename.  Also fixed the help-message (which used
+        to work in an earlier shell, probably SunOS 4.x).  Quoted more places, but
+        the debug trace gets in the way of complete quoting.
+
+<a name="t20010721" href="#index-t20010721" id="t20010721">2001-07-21</a>
+
+        * all-opts-tin: add with-shell
+
+<a name="t20010708" href="#index-t20010708" id="t20010708">2001-07-08</a>
+
+        * build-all-lynx: added pdcurses
+
+<a name="t20010507" href="#index-t20010507" id="t20010507">2001-05-07</a>
+
+        * build-opt-tin: run from parent-directory
+
+        * build-all-tin: run from parent directory
+
+<a name="t20010329" href="#index-t20010329" id="t20010329">2001-03-29</a>
+
+        * build-opt-xterm:
+        make this more restartable by testing for touched file vs linked
+
+<a name="t20010315" href="#index-t20010315" id="t20010315">2001-03-15</a>
+
+        * all-opts-lynx: add vertrace
+
+<a name="t20010312" href="#index-t20010312" id="t20010312">2001-03-12</a>
+
+        * cfg-tin: add local news-directory in /users/knews/news
+
+<a name="t20010223" href="#index-t20010223" id="t20010223">2001-02-23</a>
+
+        * all-opts-lynx: add disable-trace
+
+<a name="t20010113" href="#index-t20010113" id="t20010113">2001-01-13</a>
+
+        * make-log: show partition
+
+<a name="t20010101" href="#index-t20010101" id="t20010101">2001-01-01</a>
+
+        * build-opt-lynx: derive $TARGET, which fixes embedded '=' in options
+
+        * all-opts-lynx: specifies socks directories, adds ssl
+
+<a name="t20001231" href="#index-t20001231" id="t20001231">2000-12-31</a>
+
+        * all-opts-tin: specify the socks directories
+
+<a name="t20001111" href="#index-t20001111" id="t20001111">2000-11-11</a>
+
+        * cfg-normal:
+        don't set disable-overwrite (it should be automatic on Linux)
+
+<a name="t20001026" href="#index-t20001026" id="t20001026">2000-10-26</a>
+
+        * build-all-vile:
+        make this work from a subdirectory of vile, and add 'filters' test case
+
+        * save-vile:
+        allow this to run from a subdirectory of vile, to test "configure --srcdir=.."
+
+<a name="t20001025" href="#index-t20001025" id="t20001025">2000-10-25</a>
+
+        * build-all-vile:
+        provide for starting this from 'make-dstdir' directory
+
+<a name="t20001021" href="#index-t20001021" id="t20001021">2000-10-21</a>
+
+        * all-opts-ncurses: add new options for 5.2
+
+<a name="t20001001" href="#index-t20001001" id="t20001001">2000-10-01</a>
+
+        * archive: add -b, -B options for bzip2 compression
+
+<a name="t20000928" href="#index-t20000928" id="t20000928">2000-09-28</a>
+
+        * build-all-tin:
+        override $LIBS so it doesn't get confused by cfg-tin's assumptions
+
+<a name="t20000925" href="#index-t20000925" id="t20000925">2000-09-25</a>
+
+        * all-opts-tin: updated (got everything to build)
+
+<a name="t20000901" href="#index-t20000901" id="t20000901">2000-09-01</a>
+
+        * build-all-lynx: fix for -ltermcap
+
+<a name="t20000708" href="#index-t20000708" id="t20000708">2000-07-08</a>
+
+        * build-opt-ncurses: split-out all-opt-ncurses
+
+        * all-opts-ncurses: RCS_BASE
+
+<a name="t20000528" href="#index-t20000528" id="t20000528">2000-05-28</a>
+
+        * build-opt-xterm: force a logfile
+
+<a name="t20000415" href="#index-t20000415" id="t20000415">2000-04-15</a>
+
+        * build-opt-tin: typo(?)
+
+<a name="t20000408" href="#index-t20000408" id="t20000408">2000-04-08</a>
+
+        * all-opts-lynx: add charsets
+
+<a name="t20000329" href="#index-t20000329" id="t20000329">2000-03-29</a>
+
+        * diff-patch: use -c option of diffstat to eliminate the sed script
+
+<a name="t20000325" href="#index-t20000325" id="t20000325">2000-03-25</a>
+
+        * build-opt-lynx: add "-opt-" to log name
+
+        * build-all-lynx: log param
+
+<a name="t20000318" href="#index-t20000318" id="t20000318">2000-03-18</a>
+
+        * build-all-vile: log if given a directory param
+
+<a name="t20000224" href="#index-t20000224" id="t20000224">2000-02-24</a>
+
+        * all-opts-lynx: sorted (had kanji, but dropped that)
+
+<a name="t20000214" href="#index-t20000214" id="t20000214">2000-02-14</a>
+
+        * build-opt-lynx: log if given a directory name
+
+<a name="t20000122" href="#index-t20000122" id="t20000122">2000-01-22</a>
+
+        * all-opts-xterm: add with-utempter
+
+<a name="t20000120" href="#index-t20000120" id="t20000120">2000-01-20</a>
+
+        * build-all-tin: autoskip
+
+        * all-opts-tin: fixes for a couple of options that need parameters
+
+        * build-opt-tin: reverse the names so I can so them
+
+        * all-opts-tin: only need one nls
+
+        * all-opts-tin: sorted, added --enable-nls
+
+<a name="t20000114" href="#index-t20000114" id="t20000114">2000-01-14</a>
+
+        * cfg-tin: td-install is a problem due to non-absolute path
+
+        * build-opt-tin, all-opts-tin: RCS_BASE
+
+<a name="t20000102" href="#index-t20000102" id="t20000102">2000-01-02</a>
+
+        * externs: cancel LC_ALL to workaround defect in Redhat 6.1's sort
+
+<a name="t20000101" href="#index-t20000101" id="t20000101">2000-01-01</a>
+
+        * pd: RCS_BASE
+
+<a name="t19991220" href="#index-t19991220" id="t19991220">1999-12-20</a>
+
+        * makepatch:
+        sort the old/new lists to avoid confusing '/' with filename stuff
+
+<a name="t19991205" href="#index-t19991205" id="t19991205">1999-12-05</a>
+
+        * all-opts-lynx: misc updates
+
+<a name="t19991203" href="#index-t19991203" id="t19991203">1999-12-03</a>
+
+        * exports: RCS_BASE
+
+<a name="t19990925" href="#index-t19990925" id="t19990925">1999-09-25</a>
+
+        * all-opts-xterm: add enable-dec-locator
+
+<a name="t19990918" href="#index-t19990918" id="t19990918">1999-09-18</a>
+
+        * build-opt-ncurses: closer
+
+<a name="t19990917" href="#index-t19990917" id="t19990917">1999-09-17</a>
+
+        * all-opts-xterm: add 88-color
+
+<a name="t19990827" href="#index-t19990827" id="t19990827">1999-08-27</a>
+
+        * build-opt-xterm: move options list to all-opts-xterm
+
+        * all-opts-xterm: RCS_BASE
+
+        * build-opt-lynx: move options to separate script
+
+        * all-opts-lynx: RCS_BASE
+
+<a name="t19990815" href="#index-t19990815" id="t19990815">1999-08-15</a>
+
+        * build-opt-xterm: add -enable-toolbar
+
+<a name="t19990717" href="#index-t19990717" id="t19990717">1999-07-17</a>
+
+        * build-all-lynx:
+        modify so I can automatically build against whatever I've got in /usr/local/test
+
+<a name="t19990710" href="#index-t19990710" id="t19990710">1999-07-10</a>
+
+        * build-opt-xterm: RCS_BASE
+
+<a name="t19990617" href="#index-t19990617" id="t19990617">1999-06-17</a>
+
+        * build-opt-lynx: RCS_BASE
+
+<a name="t19990615" href="#index-t19990615" id="t19990615">1999-06-15</a>
+
+        * build-opt-ncurses: RCS_BASE
+
+<a name="t19990423" href="#index-t19990423" id="t19990423">1999-04-23</a>
+
+        * build-all-vile: don't build the filters!
+
+<a name="t19980921" href="#index-t19980921" id="t19980921">1998-09-21</a>
+
+        * build-all-lynx: add slang9
+
+<a name="t19980912" href="#index-t19980912" id="t19980912">1998-09-12</a>
+
+        * cfg-normal: add special case for *.cfg*
+
+<a name="t19980908" href="#index-t19980908" id="t19980908">1998-09-08</a>
+
+        * build-all-vile: flesh-out with some variants
+
+<a name="t19980726" href="#index-t19980726" id="t19980726">1998-07-26</a>
+
+        * save-vile: -W options can contain numbers
+
+        * build-all-vile: RCS_BASE
+
+<a name="t19980725" href="#index-t19980725" id="t19980725">1998-07-25</a>
+
+        * cfg-tin: change option for mail-handling.
+
+<a name="t19980723" href="#index-t19980723" id="t19980723">1998-07-23</a>
+
+        * build-all-xterm: RCS_BASE
+
+<a name="t19980521" href="#index-t19980521" id="t19980521">1998-05-21  jv</a>
+
+        * makepatch: 1.10 - original author
+
+<a name="t19980320" href="#index-t19980320" id="t19980320">1998-03-20</a>
+
+        * diff-patch: put '#' comment markers
+
+<a name="t19980219" href="#index-t19980219" id="t19980219">1998-02-19</a>
+
+        * diff-patch: $LANG
+
+<a name="t19980124" href="#index-t19980124" id="t19980124">1998-01-24</a>
+
+        * diff-patch: generate an md5 sum file for each patch
+
+<a name="t19971217" href="#index-t19971217" id="t19971217">1997-12-17</a>
+
+        * save-lynx: modify so we recognize ncurses done via $CFLAGS/$LIBS
+
+<a name="t19971202" href="#index-t19971202" id="t19971202">1997-12-02</a>
+
+        * cfg-ncurses: --with-screen=ncurses, for lynx
+
+<a name="t19971022" href="#index-t19971022" id="t19971022">1997-10-22</a>
+
+        * build-all-tin: RCS_BASE
+
+<a name="t19971004" href="#index-t19971004" id="t19971004">1997-10-04</a>
+
+        * save-vile: add Xaw clones
+
+<a name="t19970925" href="#index-t19970925" id="t19970925">1997-09-25</a>
+
+        * save-tin: FROM_KEYS
+
+<a name="t19970916" href="#index-t19970916" id="t19970916">1997-09-16</a>
+
+        * build-all-lynx: RCS_BASE
+
+<a name="t19970915" href="#index-t19970915" id="t19970915">1997-09-15</a>
+
+        * save-xterm: FROM_KEYS
+
+<a name="t19970911" href="#index-t19970911" id="t19970911">1997-09-11</a>
+
+        * save-ncurses: FROM_KEYS
+
+<a name="t19970906" href="#index-t19970906" id="t19970906">1997-09-06</a>
+
+        * save-vile: add Xaw case
+
+<a name="t19970904" href="#index-t19970904" id="t19970904">1997-09-04</a>
+
+        * save-lynx: style isn't cached any more
+
+<a name="t19970815" href="#index-t19970815" id="t19970815">1997-08-15</a>
+
+        * save-vile: RCS_BASE
+
+<a name="t19970712" href="#index-t19970712" id="t19970712">1997-07-12</a>
+
+        * cfg-normal: add log-header
+        use hard-tabs
+
+<a name="t19970711" href="#index-t19970711" id="t19970711">1997-07-11</a>
+
+        * save-lynx: RCS_BASE
+
+<a name="t19970613" href="#index-t19970613" id="t19970613">1997-06-13</a>
+
+        * save-xterm: RCS_BASE
+
+<a name="t19970428" href="#index-t19970428" id="t19970428">1997-04-28</a>
+
+        * cfg-x11: set CPPFLAGS too
+
+<a name="t19970107" href="#index-t19970107" id="t19970107">1997-01-07</a>
+
+        * gcc-strict: drop some options which are only C++, and
+        mark -Wenum-clash, -Wid-clash-31 and -Wredundant-decls as too "noisy"
+
+<a name="t19960709" href="#index-t19960709" id="t19960709">1996-07-09</a>
+
+        * cfg-tin: turn off debugging
+
+        * save-tin: RCS_BASE
+
+<a name="t19960531" href="#index-t19960531" id="t19960531">1996-05-31</a>
+
+        * cfg-tin: resync
+
+<a name="t19960528" href="#index-t19960528" id="t19960528">1996-05-28</a>
+
+        * save-ncurses: RCS_BASE
+
+<a name="t19960526" href="#index-t19960526" id="t19960526">1996-05-26</a>
+
+        * cfg-tin: resync with urs
+
+<a name="t19960523" href="#index-t19960523" id="t19960523">1996-05-23</a>
+
+        * cfg-tin: workable (almost) on clarknet
+
+<a name="t19960522" href="#index-t19960522" id="t19960522">1996-05-22</a>
+
+        * cfg-tin: got this to build 960521 w/o changes.
+
+        * cfg-tin: setup $LIBS
+
+        * cfg-tin:
+        first cut of common script for configuring tin (all platforms)
+
+<a name="t19960519" href="#index-t19960519" id="t19960519">1996-05-19</a>
+
+        * cfg-tin: mods to use knewsd
+
+<a name="t19960516" href="#index-t19960516" id="t19960516">1996-05-16</a>
+
+        * RCS-toggle: RCS_BASE
+
+<a name="t19960430" href="#index-t19960430" id="t19960430">1996-04-30</a>
+
+        * cfg-normal: hacks for ncurses &amp; --srcdir
+
+<a name="t19960426" href="#index-t19960426" id="t19960426">1996-04-26</a>
+
+        * makepatch:
+        corrected handling of radically-different directories (null entries)
+
+<a name="t19960127" href="#index-t19960127" id="t19960127">1996-01-27</a>
+
+        * cfg-x11: don't need a.out anymore
+
+<a name="t19960125" href="#index-t19960125" id="t19960125">1996-01-25</a>
+
+        * run-log: RCS_BASE
+
+<a name="t19951203" href="#index-t19951203" id="t19951203">1995-12-03</a>
+
+        * archive: force directory to be writable
+
+<a name="t19951202" href="#index-t19951202" id="t19951202">1995-12-02</a>
+
+        * cfg-shared: use cfg-normal
+
+<a name="t19951109" href="#index-t19951109" id="t19951109">1995-11-09</a>
+
+        * path: fixes for leading/trailing .
+
+<a name="t19950919" href="#index-t19950919" id="t19950919">1995-09-19</a>
+
+        * cfg-x11: RCS_BASE
+
+<a name="t19950912" href="#index-t19950912" id="t19950912">1995-09-12</a>
+
+        * cfg-ncurses: disable echo of command-details
+
+<a name="t19950910" href="#index-t19950910" id="t19950910">1995-09-10</a>
+
+        * cfg-shared: RCS_BASE
+
+<a name="t19950905" href="#index-t19950905" id="t19950905">1995-09-05</a>
+
+        * archive: mod to allow archiving a subtree
+
+<a name="t19950801" href="#index-t19950801" id="t19950801">1995-08-01</a>
+
+        * cfg-tin: RCS_BASE
+
+<a name="t19950730" href="#index-t19950730" id="t19950730">1995-07-30</a>
+
+        * cfg-ncurses, cfg-normal: don't try to autoconf
+
+<a name="t19950704" href="#index-t19950704" id="t19950704">1995-07-04</a>
+
+        * dutree: RCS_BASE
+
+<a name="t19950407" href="#index-t19950407" id="t19950407">1995-04-07</a>
+
+        * gcc-normal: RCS_BASE
+
+<a name="t19950406" href="#index-t19950406" id="t19950406">1995-04-06</a>
+
+        * gcc-strict: RCS_BASE
+
+<a name="t19950223" href="#index-t19950223" id="t19950223">1995-02-23</a>
+
+        * path: flag to prevent showing a directory twice
+
+<a name="t19950128" href="#index-t19950128" id="t19950128">1995-01-28</a>
+
+        * cfg-ncurses: RCS_BASE
+
+<a name="t19950105" href="#index-t19950105" id="t19950105">1995-01-05</a>
+
+        * cfg-normal: using autoconf 1.1
+
+<a name="t19941113" href="#index-t19941113" id="t19941113">1994-11-13</a>
+
+        * diff-patch: use 'makepatch'.
+        change width of histogram to 78 columns
+
+<a name="t19940901" href="#index-t19940901" id="t19940901">1994-09-01</a>
+
+        * cfg-normal: test for Makefile.in also
+
+<a name="t19940808" href="#index-t19940808" id="t19940808">1994-08-08</a>
+
+        * cfg-normal: remove config.status to avoid confusion!
+
+<a name="t19940730" href="#index-t19940730" id="t19940730">1994-07-30</a>
+
+        * cfg-normal: pass-thru arguments to configure if needed
+
+<a name="t19940723" href="#index-t19940723" id="t19940723">1994-07-23</a>
+
+        * cfg-normal:
+        test to see if we've got a makefile to re-gen the configure script
+
+<a name="t19940618" href="#index-t19940618" id="t19940618">1994-06-18</a>
+
+        * cfg-normal: RCS_BASE
+
+<a name="t19940611" href="#index-t19940611" id="t19940611">1994-06-11</a>
+
+        * make-log: RCS_BASE
+
+<a name="t19940606" href="#index-t19940606" id="t19940606">1994-06-06</a>
+
+        * makepatch: RCS_BASE
+
+<a name="t19940526" href="#index-t19940526" id="t19940526">1994-05-26</a>
+
+        * path: RCS_BASE
+
+<a name="t19940503" href="#index-t19940503" id="t19940503">1994-05-03</a>
+
+        * archive: RCS_BASE
+
+<a name="t19930819" href="#index-t19930819" id="t19930819">1993-08-19  dickey@software.org</a>
+
+        * diff-patch: RCS_BASE
+
+<a name="t19910820" href="#index-t19910820" id="t19910820">1991-08-20  dickey@software.org</a>
+
+        * externs: RCS_BASE
+
+</pre>
+
+<div class="nav">
+<ul>
+<li class="nav-top"><a href="CHANGES.html">(top)</a></li>
+
+<li><a name="index-t20230218" href="#t20230218" id="index-t20230218">2023-02-18</a></li>
+
+<li><a name="index-t20230212" href="#t20230212" id="index-t20230212">2023-02-12</a></li>
+
+<li><a name="index-t20230128" href="#t20230128" id="index-t20230128">2023-01-28</a></li>
+
+<li><a name="index-t20230124" href="#t20230124" id="index-t20230124">2023-01-24</a></li>
+
+<li><a name="index-t20230123" href="#t20230123" id="index-t20230123">2023-01-23</a></li>
+
+<li><a name="index-t20230120" href="#t20230120" id="index-t20230120">2023-01-20</a></li>
+
+<li><a name="index-t20230108" href="#t20230108" id="index-t20230108">2023-01-08</a></li>
+
+<li><a name="index-t20230107" href="#t20230107" id="index-t20230107">2023-01-07</a></li>
+
+<li><a name="index-t20230105" href="#t20230105" id="index-t20230105">2023-01-05</a></li>
+
+<li><a name="index-t20221213" href="#t20221213" id="index-t20221213">2022-12-13</a></li>
+
+<li><a name="index-t20221010" href="#t20221010" id="index-t20221010">2022-10-10</a></li>
+
+<li><a name="index-t20221009" href="#t20221009" id="index-t20221009">2022-10-09</a></li>
+
+<li><a name="index-t20221002" href="#t20221002" id="index-t20221002">2022-10-02</a></li>
+
+<li><a name="index-t20221001" href="#t20221001" id="index-t20221001">2022-10-01</a></li>
+
+<li><a name="index-t20220911" href="#t20220911" id="index-t20220911">2022-09-11</a></li>
+
+<li><a name="index-t20220501" href="#t20220501" id="index-t20220501">2022-05-01</a></li>
+
+<li><a name="index-t20220416" href="#t20220416" id="index-t20220416">2022-04-16</a></li>
+
+<li><a name="index-t20220409" href="#t20220409" id="index-t20220409">2022-04-09</a></li>
+
+<li><a name="index-t20220213" href="#t20220213" id="index-t20220213">2022-02-13</a></li>
+
+<li><a name="index-t20220211" href="#t20220211" id="index-t20220211">2022-02-11</a></li>
+
+<li><a name="index-t20220124" href="#t20220124" id="index-t20220124">2022-01-24</a></li>
+
+<li><a name="index-t20211205" href="#t20211205" id="index-t20211205">2021-12-05</a></li>
+
+<li><a name="index-t20211127" href="#t20211127" id="index-t20211127">2021-11-27</a></li>
+
+<li><a name="index-t20211125" href="#t20211125" id="index-t20211125">2021-11-25</a></li>
+
+<li><a name="index-t20211123" href="#t20211123" id="index-t20211123">2021-11-23</a></li>
+
+<li><a name="index-t20211120" href="#t20211120" id="index-t20211120">2021-11-20</a></li>
+
+<li><a name="index-t20211016" href="#t20211016" id="index-t20211016">2021-10-16</a></li>
+
+<li><a name="index-t20211014" href="#t20211014" id="index-t20211014">2021-10-14</a></li>
+
+<li><a name="index-t20210924" href="#t20210924" id="index-t20210924">2021-09-24</a></li>
+
+<li><a name="index-t20210822" href="#t20210822" id="index-t20210822">2021-08-22</a></li>
+
+<li><a name="index-t20210727" href="#t20210727" id="index-t20210727">2021-07-27</a></li>
+
+<li><a name="index-t20210710" href="#t20210710" id="index-t20210710">2021-07-10</a></li>
+
+<li><a name="index-t20210705" href="#t20210705" id="index-t20210705">2021-07-05</a></li>
+
+<li><a name="index-t20210630" href="#t20210630" id="index-t20210630">2021-06-30</a></li>
+
+<li><a name="index-t20210626" href="#t20210626" id="index-t20210626">2021-06-26</a></li>
+
+<li><a name="index-t20210622" href="#t20210622" id="index-t20210622">2021-06-22</a></li>
+
+<li><a name="index-t20210613" href="#t20210613" id="index-t20210613">2021-06-13</a></li>
+
+<li><a name="index-t20210612" href="#t20210612" id="index-t20210612">2021-06-12</a></li>
+
+<li><a name="index-t20210611" href="#t20210611" id="index-t20210611">2021-06-11</a></li>
+
+<li><a name="index-t20210531" href="#t20210531" id="index-t20210531">2021-05-31</a></li>
+
+<li><a name="index-t20210529" href="#t20210529" id="index-t20210529">2021-05-29</a></li>
+
+<li><a name="index-t20210501" href="#t20210501" id="index-t20210501">2021-05-01</a></li>
+
+<li><a name="index-t20210418" href="#t20210418" id="index-t20210418">2021-04-18</a></li>
+
+<li><a name="index-t20210327" href="#t20210327" id="index-t20210327">2021-03-27</a></li>
+
+<li><a name="index-t20210323" href="#t20210323" id="index-t20210323">2021-03-23</a></li>
+
+<li><a name="index-t20210314" href="#t20210314" id="index-t20210314">2021-03-14</a></li>
+
+<li><a name="index-t20210228" href="#t20210228" id="index-t20210228">2021-02-28</a></li>
+
+<li><a name="index-t20210222" href="#t20210222" id="index-t20210222">2021-02-22</a></li>
+
+<li><a name="index-t20210208" href="#t20210208" id="index-t20210208">2021-02-08</a></li>
+
+<li><a name="index-t20210206" href="#t20210206" id="index-t20210206">2021-02-06</a></li>
+
+<li><a name="index-t20210202" href="#t20210202" id="index-t20210202">2021-02-02</a></li>
+
+<li><a name="index-t20210127" href="#t20210127" id="index-t20210127">2021-01-27</a></li>
+
+<li><a name="index-t20210126" href="#t20210126" id="index-t20210126">2021-01-26</a></li>
+
+<li><a name="index-t20210107" href="#t20210107" id="index-t20210107">2021-01-07</a></li>
+
+<li><a name="index-t20210103" href="#t20210103" id="index-t20210103">2021-01-03</a></li>
+
+<li><a name="index-t20201204" href="#t20201204" id="index-t20201204">2020-12-04</a></li>
+
+<li><a name="index-t20201126" href="#t20201126" id="index-t20201126">2020-11-26</a></li>
+
+<li><a name="index-t20201121" href="#t20201121" id="index-t20201121">2020-11-21</a></li>
+
+<li><a name="index-t20201003" href="#t20201003" id="index-t20201003">2020-10-03</a></li>
+
+<li><a name="index-t20200923" href="#t20200923" id="index-t20200923">2020-09-23</a></li>
+
+<li><a name="index-t20200922" href="#t20200922" id="index-t20200922">2020-09-22</a></li>
+
+<li><a name="index-t20200907" href="#t20200907" id="index-t20200907">2020-09-07</a></li>
+
+<li><a name="index-t20200822" href="#t20200822" id="index-t20200822">2020-08-22</a></li>
+
+<li><a name="index-t20200731" href="#t20200731" id="index-t20200731">2020-07-31</a></li>
+
+<li><a name="index-t20200725" href="#t20200725" id="index-t20200725">2020-07-25</a></li>
+
+<li><a name="index-t20200706" href="#t20200706" id="index-t20200706">2020-07-06</a></li>
+
+<li><a name="index-t20200427" href="#t20200427" id="index-t20200427">2020-04-27</a></li>
+
+<li><a name="index-t20200327" href="#t20200327" id="index-t20200327">2020-03-27</a></li>
+
+<li><a name="index-t20200307" href="#t20200307" id="index-t20200307">2020-03-07</a></li>
+
+<li><a name="index-t20200305" href="#t20200305" id="index-t20200305">2020-03-05</a></li>
+
+<li><a name="index-t20200109" href="#t20200109" id="index-t20200109">2020-01-09</a></li>
+
+<li><a name="index-t20200107" href="#t20200107" id="index-t20200107">2020-01-07</a></li>
+
+<li><a name="index-t20200105" href="#t20200105" id="index-t20200105">2020-01-05</a></li>
+
+<li><a name="index-t20191231" href="#t20191231" id="index-t20191231">2019-12-31</a></li>
+
+<li><a name="index-t20191226" href="#t20191226" id="index-t20191226">2019-12-26</a></li>
+
+<li><a name="index-t20191222" href="#t20191222" id="index-t20191222">2019-12-22</a></li>
+
+<li><a name="index-t20191221" href="#t20191221" id="index-t20191221">2019-12-21</a></li>
+
+<li><a name="index-t20191206" href="#t20191206" id="index-t20191206">2019-12-06</a></li>
+
+<li><a name="index-t20191012" href="#t20191012" id="index-t20191012">2019-10-12</a></li>
+
+<li><a name="index-t20191005" href="#t20191005" id="index-t20191005">2019-10-05</a></li>
+
+<li><a name="index-t20191001" href="#t20191001" id="index-t20191001">2019-10-01</a></li>
+
+<li><a name="index-t20190728" href="#t20190728" id="index-t20190728">2019-07-28</a></li>
+
+<li><a name="index-t20190727" href="#t20190727" id="index-t20190727">2019-07-27</a></li>
+
+<li><a name="index-t20190720" href="#t20190720" id="index-t20190720">2019-07-20</a></li>
+
+<li><a name="index-t20190630" href="#t20190630" id="index-t20190630">2019-06-30</a></li>
+
+<li><a name="index-t20190527" href="#t20190527" id="index-t20190527">2019-05-27</a></li>
+
+<li><a name="index-t20190512" href="#t20190512" id="index-t20190512">2019-05-12</a></li>
+
+<li><a name="index-t20190312" href="#t20190312" id="index-t20190312">2019-03-12</a></li>
+
+<li><a name="index-t20190226" href="#t20190226" id="index-t20190226">2019-02-26</a></li>
+
+<li><a name="index-t20190215" href="#t20190215" id="index-t20190215">2019-02-15</a></li>
+
+<li><a name="index-t20190121" href="#t20190121" id="index-t20190121">2019-01-21</a></li>
+
+<li><a name="index-t20190120" href="#t20190120" id="index-t20190120">2019-01-20</a></li>
+
+<li><a name="index-t20190117" href="#t20190117" id="index-t20190117">2019-01-17</a></li>
+
+<li><a name="index-t20190114" href="#t20190114" id="index-t20190114">2019-01-14</a></li>
+
+<li><a name="index-t20190113" href="#t20190113" id="index-t20190113">2019-01-13</a></li>
+
+<li><a name="index-t20190105" href="#t20190105" id="index-t20190105">2019-01-05</a></li>
+
+<li><a name="index-t20181228" href="#t20181228" id="index-t20181228">2018-12-28</a></li>
+
+<li><a name="index-t20181209" href="#t20181209" id="index-t20181209">2018-12-09</a></li>
+
+<li><a name="index-t20181031" href="#t20181031" id="index-t20181031">2018-10-31</a></li>
+
+<li><a name="index-t20181030" href="#t20181030" id="index-t20181030">2018-10-30</a></li>
+
+<li><a name="index-t20180812" href="#t20180812" id="index-t20180812">2018-08-12</a></li>
+
+<li><a name="index-t20180811" href="#t20180811" id="index-t20180811">2018-08-11</a></li>
+
+<li><a name="index-t20180728" href="#t20180728" id="index-t20180728">2018-07-28</a></li>
+
+<li><a name="index-t20180627" href="#t20180627" id="index-t20180627">2018-06-27</a></li>
+
+<li><a name="index-t20180505" href="#t20180505" id="index-t20180505">2018-05-05</a></li>
+
+<li><a name="index-t20180407" href="#t20180407" id="index-t20180407">2018-04-07</a></li>
+
+<li><a name="index-t20180325" href="#t20180325" id="index-t20180325">2018-03-25</a></li>
+
+<li><a name="index-t20180324" href="#t20180324" id="index-t20180324">2018-03-24</a></li>
+
+<li><a name="index-t20180215" href="#t20180215" id="index-t20180215">2018-02-15</a></li>
+
+<li><a name="index-t20180210" href="#t20180210" id="index-t20180210">2018-02-10</a></li>
+
+<li><a name="index-t20180127" href="#t20180127" id="index-t20180127">2018-01-27</a></li>
+
+<li><a name="index-t20180120" href="#t20180120" id="index-t20180120">2018-01-20</a></li>
+
+<li><a name="index-t20180104" href="#t20180104" id="index-t20180104">2018-01-04</a></li>
+
+<li><a name="index-t20180103" href="#t20180103" id="index-t20180103">2018-01-03</a></li>
+
+<li><a name="index-t20171231" href="#t20171231" id="index-t20171231">2017-12-31</a></li>
+
+<li><a name="index-t20171227" href="#t20171227" id="index-t20171227">2017-12-27</a></li>
+
+<li><a name="index-t20171225" href="#t20171225" id="index-t20171225">2017-12-25</a></li>
+
+<li><a name="index-t20171126" href="#t20171126" id="index-t20171126">2017-11-26</a></li>
+
+<li><a name="index-t20171108" href="#t20171108" id="index-t20171108">2017-11-08</a></li>
+
+<li><a name="index-t20171011" href="#t20171011" id="index-t20171011">2017-10-11</a></li>
+
+<li><a name="index-t20170928" href="#t20170928" id="index-t20170928">2017-09-28</a></li>
+
+<li><a name="index-t20170808" href="#t20170808" id="index-t20170808">2017-08-08</a></li>
+
+<li><a name="index-t20170713" href="#t20170713" id="index-t20170713">2017-07-13</a></li>
+
+<li><a name="index-t20170710" href="#t20170710" id="index-t20170710">2017-07-10</a></li>
+
+<li><a name="index-t20170608" href="#t20170608" id="index-t20170608">2017-06-08</a></li>
+
+<li><a name="index-t20170430" href="#t20170430" id="index-t20170430">2017-04-30</a></li>
+
+<li><a name="index-t20170411" href="#t20170411" id="index-t20170411">2017-04-11</a></li>
+
+<li><a name="index-t20170225" href="#t20170225" id="index-t20170225">2017-02-25</a></li>
+
+<li><a name="index-t20160816" href="#t20160816" id="index-t20160816">2016-08-16</a></li>
+
+<li><a name="index-t20160528" href="#t20160528" id="index-t20160528">2016-05-28</a></li>
+
+<li><a name="index-t20160515" href="#t20160515" id="index-t20160515">2016-05-15</a></li>
+
+<li><a name="index-t20160408" href="#t20160408" id="index-t20160408">2016-04-08</a></li>
+
+<li><a name="index-t20160211" href="#t20160211" id="index-t20160211">2016-02-11</a></li>
+
+<li><a name="index-t20160129" href="#t20160129" id="index-t20160129">2016-01-29</a></li>
+
+<li><a name="index-t20160126" href="#t20160126" id="index-t20160126">2016-01-26</a></li>
+
+<li><a name="index-t20160125" href="#t20160125" id="index-t20160125">2016-01-25</a></li>
+
+<li><a name="index-t20160101" href="#t20160101" id="index-t20160101">2016-01-01</a></li>
+
+<li><a name="index-t20151231" href="#t20151231" id="index-t20151231">2015-12-31</a></li>
+
+<li><a name="index-t20151212" href="#t20151212" id="index-t20151212">2015-12-12</a></li>
+
+<li><a name="index-t20151008" href="#t20151008" id="index-t20151008">2015-10-08</a></li>
+
+<li><a name="index-t20150912" href="#t20150912" id="index-t20150912">2015-09-12</a></li>
+
+<li><a name="index-t20150817" href="#t20150817" id="index-t20150817">2015-08-17</a></li>
+
+<li><a name="index-t20150816" href="#t20150816" id="index-t20150816">2015-08-16</a></li>
+
+<li><a name="index-t20150805" href="#t20150805" id="index-t20150805">2015-08-05</a></li>
+
+<li><a name="index-t20150604" href="#t20150604" id="index-t20150604">2015-06-04</a></li>
+
+<li><a name="index-t20150531" href="#t20150531" id="index-t20150531">2015-05-31</a></li>
+
+<li><a name="index-t20150502" href="#t20150502" id="index-t20150502">2015-05-02</a></li>
+
+<li><a name="index-t20150412" href="#t20150412" id="index-t20150412">2015-04-12</a></li>
+
+<li><a name="index-t20150404" href="#t20150404" id="index-t20150404">2015-04-04</a></li>
+
+<li><a name="index-t20150214" href="#t20150214" id="index-t20150214">2015-02-14</a></li>
+
+<li><a name="index-t20150210" href="#t20150210" id="index-t20150210">2015-02-10</a></li>
+
+<li><a name="index-t20150131" href="#t20150131" id="index-t20150131">2015-01-31</a></li>
+
+<li><a name="index-t20150110" href="#t20150110" id="index-t20150110">2015-01-10</a></li>
+
+<li><a name="index-t20150103" href="#t20150103" id="index-t20150103">2015-01-03</a></li>
+
+<li><a name="index-t20141010" href="#t20141010" id="index-t20141010">2014-10-10</a></li>
+
+<li><a name="index-t20140920" href="#t20140920" id="index-t20140920">2014-09-20</a></li>
+
+<li><a name="index-t20140802" href="#t20140802" id="index-t20140802">2014-08-02</a></li>
+
+<li><a name="index-t20140701" href="#t20140701" id="index-t20140701">2014-07-01</a></li>
+
+<li><a name="index-t20140617" href="#t20140617" id="index-t20140617">2014-06-17</a></li>
+
+<li><a name="index-t20140508" href="#t20140508" id="index-t20140508">2014-05-08</a></li>
+
+<li><a name="index-t20140426" href="#t20140426" id="index-t20140426">2014-04-26</a></li>
+
+<li><a name="index-t20140408" href="#t20140408" id="index-t20140408">2014-04-08</a></li>
+
+<li><a name="index-t20140322" href="#t20140322" id="index-t20140322">2014-03-22</a></li>
+
+<li><a name="index-t20140301" href="#t20140301" id="index-t20140301">2014-03-01</a></li>
+
+<li><a name="index-t20140219" href="#t20140219" id="index-t20140219">2014-02-19</a></li>
+
+<li><a name="index-t20140119" href="#t20140119" id="index-t20140119">2014-01-19</a></li>
+
+<li><a name="index-t20140109" href="#t20140109" id="index-t20140109">2014-01-09</a></li>
+
+<li><a name="index-t20131214" href="#t20131214" id="index-t20131214">2013-12-14</a></li>
+
+<li><a name="index-t20131020" href="#t20131020" id="index-t20131020">2013-10-20</a></li>
+
+<li><a name="index-t20131019" href="#t20131019" id="index-t20131019">2013-10-19</a></li>
+
+<li><a name="index-t20131017" href="#t20131017" id="index-t20131017">2013-10-17</a></li>
+
+<li><a name="index-t20131009" href="#t20131009" id="index-t20131009">2013-10-09</a></li>
+
+<li><a name="index-t20131008" href="#t20131008" id="index-t20131008">2013-10-08</a></li>
+
+<li><a name="index-t20131006" href="#t20131006" id="index-t20131006">2013-10-06</a></li>
+
+<li><a name="index-t20131004" href="#t20131004" id="index-t20131004">2013-10-04</a></li>
+
+<li><a name="index-t20130901" href="#t20130901" id="index-t20130901">2013-09-01</a></li>
+
+<li><a name="index-t20130804" href="#t20130804" id="index-t20130804">2013-08-04</a></li>
+
+<li><a name="index-t20130706" href="#t20130706" id="index-t20130706">2013-07-06</a></li>
+
+<li><a name="index-t20130623" href="#t20130623" id="index-t20130623">2013-06-23</a></li>
+
+<li><a name="index-t20130618" href="#t20130618" id="index-t20130618">2013-06-18</a></li>
+
+<li><a name="index-t20130617" href="#t20130617" id="index-t20130617">2013-06-17</a></li>
+
+<li><a name="index-t20130524" href="#t20130524" id="index-t20130524">2013-05-24</a></li>
+
+<li><a name="index-t20130417" href="#t20130417" id="index-t20130417">2013-04-17</a></li>
+
+<li><a name="index-t20130413" href="#t20130413" id="index-t20130413">2013-04-13</a></li>
+
+<li><a name="index-t20130101" href="#t20130101" id="index-t20130101">2013-01-01</a></li>
+
+<li><a name="index-t20121118" href="#t20121118" id="index-t20121118">2012-11-18</a></li>
+
+<li><a name="index-t20121109" href="#t20121109" id="index-t20121109">2012-11-09</a></li>
+
+<li><a name="index-t20121015" href="#t20121015" id="index-t20121015">2012-10-15</a></li>
+
+<li><a name="index-t20120926" href="#t20120926" id="index-t20120926">2012-09-26</a></li>
+
+<li><a name="index-t20120923" href="#t20120923" id="index-t20120923">2012-09-23</a></li>
+
+<li><a name="index-t20120910" href="#t20120910" id="index-t20120910">2012-09-10</a></li>
+
+<li><a name="index-t20120902" href="#t20120902" id="index-t20120902">2012-09-02</a></li>
+
+<li><a name="index-t20120824" href="#t20120824" id="index-t20120824">2012-08-24</a></li>
+
+<li><a name="index-t20120816" href="#t20120816" id="index-t20120816">2012-08-16</a></li>
+
+<li><a name="index-t20120804" href="#t20120804" id="index-t20120804">2012-08-04</a></li>
+
+<li><a name="index-t20120728" href="#t20120728" id="index-t20120728">2012-07-28</a></li>
+
+<li><a name="index-t20120718" href="#t20120718" id="index-t20120718">2012-07-18</a></li>
+
+<li><a name="index-t20120707" href="#t20120707" id="index-t20120707">2012-07-07</a></li>
+
+<li><a name="index-t20120630" href="#t20120630" id="index-t20120630">2012-06-30</a></li>
+
+<li><a name="index-t20120626" href="#t20120626" id="index-t20120626">2012-06-26</a></li>
+
+<li><a name="index-t20120624" href="#t20120624" id="index-t20120624">2012-06-24</a></li>
+
+<li><a name="index-t20120616" href="#t20120616" id="index-t20120616">2012-06-16</a></li>
+
+<li><a name="index-t20120527" href="#t20120527" id="index-t20120527">2012-05-27</a></li>
+
+<li><a name="index-t20120526" href="#t20120526" id="index-t20120526">2012-05-26</a></li>
+
+<li><a name="index-t20120225" href="#t20120225" id="index-t20120225">2012-02-25</a></li>
+
+<li><a name="index-t20120220" href="#t20120220" id="index-t20120220">2012-02-20</a></li>
+
+<li><a name="index-t20120218" href="#t20120218" id="index-t20120218">2012-02-18</a></li>
+
+<li><a name="index-t20120217" href="#t20120217" id="index-t20120217">2012-02-17</a></li>
+
+<li><a name="index-t20120215" href="#t20120215" id="index-t20120215">2012-02-15</a></li>
+
+<li><a name="index-t20120110" href="#t20120110" id="index-t20120110">2012-01-10</a></li>
+
+<li><a name="index-t20120107" href="#t20120107" id="index-t20120107">2012-01-07</a></li>
+
+<li><a name="index-t20120102" href="#t20120102" id="index-t20120102">2012-01-02</a></li>
+
+<li><a name="index-t20111222" href="#t20111222" id="index-t20111222">2011-12-22</a></li>
+
+<li><a name="index-t20111127" href="#t20111127" id="index-t20111127">2011-11-27</a></li>
+
+<li><a name="index-t20111124" href="#t20111124" id="index-t20111124">2011-11-24</a></li>
+
+<li><a name="index-t20111111" href="#t20111111" id="index-t20111111">2011-11-11</a></li>
+
+<li><a name="index-t20111027" href="#t20111027" id="index-t20111027">2011-10-27</a></li>
+
+<li><a name="index-t20111021" href="#t20111021" id="index-t20111021">2011-10-21</a></li>
+
+<li><a name="index-t20111010" href="#t20111010" id="index-t20111010">2011-10-10</a></li>
+
+<li><a name="index-t20110830" href="#t20110830" id="index-t20110830">2011-08-30</a></li>
+
+<li><a name="index-t20110813" href="#t20110813" id="index-t20110813">2011-08-13</a></li>
+
+<li><a name="index-t20110730" href="#t20110730" id="index-t20110730">2011-07-30</a></li>
+
+<li><a name="index-t20110717" href="#t20110717" id="index-t20110717">2011-07-17</a></li>
+
+<li><a name="index-t20110714" href="#t20110714" id="index-t20110714">2011-07-14</a></li>
+
+<li><a name="index-t20110703" href="#t20110703" id="index-t20110703">2011-07-03</a></li>
+
+<li><a name="index-t20110626" href="#t20110626" id="index-t20110626">2011-06-26</a></li>
+
+<li><a name="index-t20110430" href="#t20110430" id="index-t20110430">2011-04-30</a></li>
+
+<li><a name="index-t20110413" href="#t20110413" id="index-t20110413">2011-04-13</a></li>
+
+<li><a name="index-t20110407" href="#t20110407" id="index-t20110407">2011-04-07</a></li>
+
+<li><a name="index-t20110402" href="#t20110402" id="index-t20110402">2011-04-02</a></li>
+
+<li><a name="index-t20110329" href="#t20110329" id="index-t20110329">2011-03-29</a></li>
+
+<li><a name="index-t20110327" href="#t20110327" id="index-t20110327">2011-03-27</a></li>
+
+<li><a name="index-t20110307" href="#t20110307" id="index-t20110307">2011-03-07</a></li>
+
+<li><a name="index-t20110227" href="#t20110227" id="index-t20110227">2011-02-27</a></li>
+
+<li><a name="index-t20110226" href="#t20110226" id="index-t20110226">2011-02-26</a></li>
+
+<li><a name="index-t20110220" href="#t20110220" id="index-t20110220">2011-02-20</a></li>
+
+<li><a name="index-t20110219" href="#t20110219" id="index-t20110219">2011-02-19</a></li>
+
+<li><a name="index-t20110216" href="#t20110216" id="index-t20110216">2011-02-16</a></li>
+
+<li><a name="index-t20110209" href="#t20110209" id="index-t20110209">2011-02-09</a></li>
+
+<li><a name="index-t20110201" href="#t20110201" id="index-t20110201">2011-02-01</a></li>
+
+<li><a name="index-t20110130" href="#t20110130" id="index-t20110130">2011-01-30</a></li>
+
+<li><a name="index-t20110123" href="#t20110123" id="index-t20110123">2011-01-23</a></li>
+
+<li><a name="index-t20110108" href="#t20110108" id="index-t20110108">2011-01-08</a></li>
+
+<li><a name="index-t20101229" href="#t20101229" id="index-t20101229">2010-12-29</a></li>
+
+<li><a name="index-t20100928" href="#t20100928" id="index-t20100928">2010-09-28</a></li>
+
+<li><a name="index-t20100927" href="#t20100927" id="index-t20100927">2010-09-27</a></li>
+
+<li><a name="index-t20100925" href="#t20100925" id="index-t20100925">2010-09-25</a></li>
+
+<li><a name="index-t20100920" href="#t20100920" id="index-t20100920">2010-09-20</a></li>
+
+<li><a name="index-t20100905" href="#t20100905" id="index-t20100905">2010-09-05</a></li>
+
+<li><a name="index-t20100830" href="#t20100830" id="index-t20100830">2010-08-30</a></li>
+
+<li><a name="index-t20100829" href="#t20100829" id="index-t20100829">2010-08-29</a></li>
+
+<li><a name="index-t20100813" href="#t20100813" id="index-t20100813">2010-08-13</a></li>
+
+<li><a name="index-t20100808" href="#t20100808" id="index-t20100808">2010-08-08</a></li>
+
+<li><a name="index-t20100807" href="#t20100807" id="index-t20100807">2010-08-07</a></li>
+
+<li><a name="index-t20100714" href="#t20100714" id="index-t20100714">2010-07-14</a></li>
+
+<li><a name="index-t20100713" href="#t20100713" id="index-t20100713">2010-07-13</a></li>
+
+<li><a name="index-t20100711" href="#t20100711" id="index-t20100711">2010-07-11</a></li>
+
+<li><a name="index-t20100710" href="#t20100710" id="index-t20100710">2010-07-10</a></li>
+
+<li><a name="index-t20100709" href="#t20100709" id="index-t20100709">2010-07-09</a></li>
+
+<li><a name="index-t20100708" href="#t20100708" id="index-t20100708">2010-07-08</a></li>
+
+<li><a name="index-t20100706" href="#t20100706" id="index-t20100706">2010-07-06</a></li>
+
+<li><a name="index-t20100703" href="#t20100703" id="index-t20100703">2010-07-03</a></li>
+
+<li><a name="index-t20100629" href="#t20100629" id="index-t20100629">2010-06-29</a></li>
+
+<li><a name="index-t20100628" href="#t20100628" id="index-t20100628">2010-06-28</a></li>
+
+<li><a name="index-t20100625" href="#t20100625" id="index-t20100625">2010-06-25</a></li>
+
+<li><a name="index-t20100623" href="#t20100623" id="index-t20100623">2010-06-23</a></li>
+
+<li><a name="index-t20100614" href="#t20100614" id="index-t20100614">2010-06-14</a></li>
+
+<li><a name="index-t20100613" href="#t20100613" id="index-t20100613">2010-06-13</a></li>
+
+<li><a name="index-t20100610" href="#t20100610" id="index-t20100610">2010-06-10</a></li>
+
+<li><a name="index-t20100522" href="#t20100522" id="index-t20100522">2010-05-22</a></li>
+
+<li><a name="index-t20100520" href="#t20100520" id="index-t20100520">2010-05-20</a></li>
+
+<li><a name="index-t20100513" href="#t20100513" id="index-t20100513">2010-05-13</a></li>
+
+<li><a name="index-t20100512" href="#t20100512" id="index-t20100512">2010-05-12</a></li>
+
+<li><a name="index-t20100426" href="#t20100426" id="index-t20100426">2010-04-26</a></li>
+
+<li><a name="index-t20100425" href="#t20100425" id="index-t20100425">2010-04-25</a></li>
+
+<li><a name="index-t20100421" href="#t20100421" id="index-t20100421">2010-04-21</a></li>
+
+<li><a name="index-t20100416" href="#t20100416" id="index-t20100416">2010-04-16</a></li>
+
+<li><a name="index-t20100328" href="#t20100328" id="index-t20100328">2010-03-28</a></li>
+
+<li><a name="index-t20100327" href="#t20100327" id="index-t20100327">2010-03-27</a></li>
+
+<li><a name="index-t20100322" href="#t20100322" id="index-t20100322">2010-03-22</a></li>
+
+<li><a name="index-t20100320" href="#t20100320" id="index-t20100320">2010-03-20</a></li>
+
+<li><a name="index-t20100314" href="#t20100314" id="index-t20100314">2010-03-14</a></li>
+
+<li><a name="index-t20100216" href="#t20100216" id="index-t20100216">2010-02-16</a></li>
+
+<li><a name="index-t20100210" href="#t20100210" id="index-t20100210">2010-02-10</a></li>
+
+<li><a name="index-t20100128" href="#t20100128" id="index-t20100128">2010-01-28</a></li>
+
+<li><a name="index-t20100110" href="#t20100110" id="index-t20100110">2010-01-10</a></li>
+
+<li><a name="index-t20091231" href="#t20091231" id="index-t20091231">2009-12-31</a></li>
+
+<li><a name="index-t20091206" href="#t20091206" id="index-t20091206">2009-12-06</a></li>
+
+<li><a name="index-t20091121" href="#t20091121" id="index-t20091121">2009-11-21</a></li>
+
+<li><a name="index-t20091007" href="#t20091007" id="index-t20091007">2009-10-07</a></li>
+
+<li><a name="index-t20091005" href="#t20091005" id="index-t20091005">2009-10-05</a></li>
+
+<li><a name="index-t20090806" href="#t20090806" id="index-t20090806">2009-08-06</a></li>
+
+<li><a name="index-t20090805" href="#t20090805" id="index-t20090805">2009-08-05</a></li>
+
+<li><a name="index-t20090727" href="#t20090727" id="index-t20090727">2009-07-27</a></li>
+
+<li><a name="index-t20090719" href="#t20090719" id="index-t20090719">2009-07-19</a></li>
+
+<li><a name="index-t20090606" href="#t20090606" id="index-t20090606">2009-06-06</a></li>
+
+<li><a name="index-t20090503" href="#t20090503" id="index-t20090503">2009-05-03</a></li>
+
+<li><a name="index-t20090502" href="#t20090502" id="index-t20090502">2009-05-02</a></li>
+
+<li><a name="index-t20090501" href="#t20090501" id="index-t20090501">2009-05-01</a></li>
+
+<li><a name="index-t20090214" href="#t20090214" id="index-t20090214">2009-02-14</a></li>
+
+<li><a name="index-t20090201" href="#t20090201" id="index-t20090201">2009-02-01</a></li>
+
+<li><a name="index-t20090125" href="#t20090125" id="index-t20090125">2009-01-25</a></li>
+
+<li><a name="index-t20090117" href="#t20090117" id="index-t20090117">2009-01-17</a></li>
+
+<li><a name="index-t20090103" href="#t20090103" id="index-t20090103">2009-01-03</a></li>
+
+<li><a name="index-t20081224" href="#t20081224" id="index-t20081224">2008-12-24</a></li>
+
+<li><a name="index-t20081004" href="#t20081004" id="index-t20081004">2008-10-04</a></li>
+
+<li><a name="index-t20080927" href="#t20080927" id="index-t20080927">2008-09-27</a></li>
+
+<li><a name="index-t20080830" href="#t20080830" id="index-t20080830">2008-08-30</a></li>
+
+<li><a name="index-t20080825" href="#t20080825" id="index-t20080825">2008-08-25</a></li>
+
+<li><a name="index-t20080821" href="#t20080821" id="index-t20080821">2008-08-21</a></li>
+
+<li><a name="index-t20080721" href="#t20080721" id="index-t20080721">2008-07-21</a></li>
+
+<li><a name="index-t20080712" href="#t20080712" id="index-t20080712">2008-07-12</a></li>
+
+<li><a name="index-t20080705" href="#t20080705" id="index-t20080705">2008-07-05</a></li>
+
+<li><a name="index-t20080503" href="#t20080503" id="index-t20080503">2008-05-03</a></li>
+
+<li><a name="index-t20080329" href="#t20080329" id="index-t20080329">2008-03-29</a></li>
+
+<li><a name="index-t20080323" href="#t20080323" id="index-t20080323">2008-03-23</a></li>
+
+<li><a name="index-t20080223" href="#t20080223" id="index-t20080223">2008-02-23</a></li>
+
+<li><a name="index-t20071231" href="#t20071231" id="index-t20071231">2007-12-31</a></li>
+
+<li><a name="index-t20070929" href="#t20070929" id="index-t20070929">2007-09-29</a></li>
+
+<li><a name="index-t20070901" href="#t20070901" id="index-t20070901">2007-09-01</a></li>
+
+<li><a name="index-t20070812" href="#t20070812" id="index-t20070812">2007-08-12</a></li>
+
+<li><a name="index-t20070708" href="#t20070708" id="index-t20070708">2007-07-08</a></li>
+
+<li><a name="index-t20070623" href="#t20070623" id="index-t20070623">2007-06-23</a></li>
+
+<li><a name="index-t20070617" href="#t20070617" id="index-t20070617">2007-06-17</a></li>
+
+<li><a name="index-t20070616" href="#t20070616" id="index-t20070616">2007-06-16</a></li>
+
+<li><a name="index-t20070513" href="#t20070513" id="index-t20070513">2007-05-13</a></li>
+
+<li><a name="index-t20070409" href="#t20070409" id="index-t20070409">2007-04-09</a></li>
+
+<li><a name="index-t20070319" href="#t20070319" id="index-t20070319">2007-03-19</a></li>
+
+<li><a name="index-t20070318" href="#t20070318" id="index-t20070318">2007-03-18</a></li>
+
+<li><a name="index-t20070317" href="#t20070317" id="index-t20070317">2007-03-17</a></li>
+
+<li><a name="index-t20070128" href="#t20070128" id="index-t20070128">2007-01-28</a></li>
+
+<li><a name="index-t20061224" href="#t20061224" id="index-t20061224">2006-12-24</a></li>
+
+<li><a name="index-t20061223" href="#t20061223" id="index-t20061223">2006-12-23</a></li>
+
+<li><a name="index-t20061219" href="#t20061219" id="index-t20061219">2006-12-19</a></li>
+
+<li><a name="index-t20061218" href="#t20061218" id="index-t20061218">2006-12-18</a></li>
+
+<li><a name="index-t20061217" href="#t20061217" id="index-t20061217">2006-12-17</a></li>
+
+<li><a name="index-t20061216" href="#t20061216" id="index-t20061216">2006-12-16</a></li>
+
+<li><a name="index-t20061021" href="#t20061021" id="index-t20061021">2006-10-21</a></li>
+
+<li><a name="index-t20061015" href="#t20061015" id="index-t20061015">2006-10-15</a></li>
+
+<li><a name="index-t20061013" href="#t20061013" id="index-t20061013">2006-10-13</a></li>
+
+<li><a name="index-t20060916" href="#t20060916" id="index-t20060916">2006-09-16</a></li>
+
+<li><a name="index-t20060715" href="/ncurses/NEWS.html#t20060715" id="index-t20060715">2006-07-15</a></li>
+
+<li><a name="index-t20060603" href="#t20060603" id="index-t20060603">2006-06-03</a></li>
+
+<li><a name="index-t20060521" href="#t20060521" id="index-t20060521">2006-05-21</a></li>
+
+<li><a name="index-t20060221" href="#t20060221" id="index-t20060221">2006-02-21</a></li>
+
+<li><a name="index-t20060212" href="#t20060212" id="index-t20060212">2006-02-12</a></li>
+
+<li><a name="index-t20060121" href="#t20060121" id="index-t20060121">2006-01-21</a></li>
+
+<li><a name="index-t20060108" href="#t20060108" id="index-t20060108">2006-01-08</a></li>
+
+<li><a name="index-t20051113" href="#t20051113" id="index-t20051113">2005-11-13</a></li>
+
+<li><a name="index-t20050918" href="#t20050918" id="index-t20050918">2005-09-18</a></li>
+
+<li><a name="index-t20050620" href="#t20050620" id="index-t20050620">2005-06-20</a></li>
+
+<li><a name="index-t20050608" href="#t20050608" id="index-t20050608">2005-06-08</a></li>
+
+<li><a name="index-t20050423" href="#t20050423" id="index-t20050423">2005-04-23</a></li>
+
+<li><a name="index-t20050420" href="#t20050420" id="index-t20050420">2005-04-20</a></li>
+
+<li><a name="index-t20050419" href="#t20050419" id="index-t20050419">2005-04-19</a></li>
+
+<li><a name="index-t20050327" href="#t20050327" id="index-t20050327">2005-03-27</a></li>
+
+<li><a name="index-t20050204" href="#t20050204" id="index-t20050204">2005-02-04</a></li>
+
+<li><a name="index-t20050129" href="#t20050129" id="index-t20050129">2005-01-29</a></li>
+
+<li><a name="index-t20050101" href="#t20050101" id="index-t20050101">2005-01-01</a></li>
+
+<li><a name="index-t20040930" href="#t20040930" id="index-t20040930">2004-09-30</a></li>
+
+<li><a name="index-t20040923" href="#t20040923" id="index-t20040923">2004-09-23</a></li>
+
+<li><a name="index-t20040511" href="#t20040511" id="index-t20040511">2004-05-11</a></li>
+
+<li><a name="index-t20040424" href="#t20040424" id="index-t20040424">2004-04-24</a></li>
+
+<li><a name="index-t20040221" href="#t20040221" id="index-t20040221">2004-02-21</a></li>
+
+<li><a name="index-t20040103" href="#t20040103" id="index-t20040103">2004-01-03</a></li>
+
+<li><a name="index-t20031102" href="#t20031102" id="index-t20031102">2003-11-02</a></li>
+
+<li><a name="index-t20030809" href="#t20030809" id="index-t20030809">2003-08-09</a></li>
+
+<li><a name="index-t20030730" href="#t20030730" id="index-t20030730">2003-07-30</a></li>
+
+<li><a name="index-t20030616" href="#t20030616" id="index-t20030616">2003-06-16</a></li>
+
+<li><a name="index-t20030605" href="#t20030605" id="index-t20030605">2003-06-05</a></li>
+
+<li><a name="index-t20030520" href="#t20030520" id="index-t20030520">2003-05-20</a></li>
+
+<li><a name="index-t20030422" href="#t20030422" id="index-t20030422">2003-04-22</a></li>
+
+<li><a name="index-t20030418" href="#t20030418" id="index-t20030418">2003-04-18</a></li>
+
+<li><a name="index-t20030415" href="#t20030415" id="index-t20030415">2003-04-15</a></li>
+
+<li><a name="index-t20030322" href="#t20030322" id="index-t20030322">2003-03-22</a></li>
+
+<li><a name="index-t20030304" href="#t20030304" id="index-t20030304">2003-03-04</a></li>
+
+<li><a name="index-t20030302" href="#t20030302" id="index-t20030302">2003-03-02</a></li>
+
+<li><a name="index-t20021115" href="#t20021115" id="index-t20021115">2002-11-15</a></li>
+
+<li><a name="index-t20021110" href="#t20021110" id="index-t20021110">2002-11-10</a></li>
+
+<li><a name="index-t20021004" href="#t20021004" id="index-t20021004">2002-10-04</a></li>
+
+<li><a name="index-t20020907" href="#t20020907" id="index-t20020907">2002-09-07</a></li>
+
+<li><a name="index-t20020901" href="#t20020901" id="index-t20020901">2002-09-01</a></li>
+
+<li><a name="index-t20020831" href="#t20020831" id="index-t20020831">2002-08-31</a></li>
+
+<li><a name="index-t20020816" href="#t20020816" id="index-t20020816">2002-08-16</a></li>
+
+<li><a name="index-t20020629" href="#t20020629" id="index-t20020629">2002-06-29</a></li>
+
+<li><a name="index-t20020420" href="#t20020420" id="index-t20020420">2002-04-20</a></li>
+
+<li><a name="index-t20020419" href="#t20020419" id="index-t20020419">2002-04-19</a></li>
+
+<li><a name="index-t20020417" href="#t20020417" id="index-t20020417">2002-04-17</a></li>
+
+<li><a name="index-t20020216" href="#t20020216" id="index-t20020216">2002-02-16</a></li>
+
+<li><a name="index-t20020112" href="#t20020112" id="index-t20020112">2002-01-12</a></li>
+
+<li><a name="index-t20011227" href="#t20011227" id="index-t20011227">2001-12-27</a></li>
+
+<li><a name="index-t20011226" href="#t20011226" id="index-t20011226">2001-12-26</a></li>
+
+<li><a name="index-t20011207" href="#t20011207" id="index-t20011207">2001-12-07</a></li>
+
+<li><a name="index-t20011108" href="#t20011108" id="index-t20011108">2001-11-08</a></li>
+
+<li><a name="index-t20011007" href="#t20011007" id="index-t20011007">2001-10-07</a></li>
+
+<li><a name="index-t20011003" href="#t20011003" id="index-t20011003">2001-10-03</a></li>
+
+<li><a name="index-t20010902" href="#t20010902" id="index-t20010902">2001-09-02</a></li>
+
+<li><a name="index-t20010721" href="#t20010721" id="index-t20010721">2001-07-21</a></li>
+
+<li><a name="index-t20010708" href="#t20010708" id="index-t20010708">2001-07-08</a></li>
+
+<li><a name="index-t20010507" href="#t20010507" id="index-t20010507">2001-05-07</a></li>
+
+<li><a name="index-t20010329" href="#t20010329" id="index-t20010329">2001-03-29</a></li>
+
+<li><a name="index-t20010315" href="#t20010315" id="index-t20010315">2001-03-15</a></li>
+
+<li><a name="index-t20010312" href="#t20010312" id="index-t20010312">2001-03-12</a></li>
+
+<li><a name="index-t20010223" href="#t20010223" id="index-t20010223">2001-02-23</a></li>
+
+<li><a name="index-t20010113" href="#t20010113" id="index-t20010113">2001-01-13</a></li>
+
+<li><a name="index-t20010101" href="#t20010101" id="index-t20010101">2001-01-01</a></li>
+
+<li><a name="index-t20001231" href="#t20001231" id="index-t20001231">2000-12-31</a></li>
+
+<li><a name="index-t20001111" href="#t20001111" id="index-t20001111">2000-11-11</a></li>
+
+<li><a name="index-t20001026" href="#t20001026" id="index-t20001026">2000-10-26</a></li>
+
+<li><a name="index-t20001025" href="#t20001025" id="index-t20001025">2000-10-25</a></li>
+
+<li><a name="index-t20001021" href="#t20001021" id="index-t20001021">2000-10-21</a></li>
+
+<li><a name="index-t20001001" href="#t20001001" id="index-t20001001">2000-10-01</a></li>
+
+<li><a name="index-t20000928" href="#t20000928" id="index-t20000928">2000-09-28</a></li>
+
+<li><a name="index-t20000925" href="#t20000925" id="index-t20000925">2000-09-25</a></li>
+
+<li><a name="index-t20000901" href="#t20000901" id="index-t20000901">2000-09-01</a></li>
+
+<li><a name="index-t20000708" href="#t20000708" id="index-t20000708">2000-07-08</a></li>
+
+<li><a name="index-t20000528" href="#t20000528" id="index-t20000528">2000-05-28</a></li>
+
+<li><a name="index-t20000415" href="#t20000415" id="index-t20000415">2000-04-15</a></li>
+
+<li><a name="index-t20000408" href="#t20000408" id="index-t20000408">2000-04-08</a></li>
+
+<li><a name="index-t20000329" href="#t20000329" id="index-t20000329">2000-03-29</a></li>
+
+<li><a name="index-t20000325" href="#t20000325" id="index-t20000325">2000-03-25</a></li>
+
+<li><a name="index-t20000318" href="#t20000318" id="index-t20000318">2000-03-18</a></li>
+
+<li><a name="index-t20000224" href="#t20000224" id="index-t20000224">2000-02-24</a></li>
+
+<li><a name="index-t20000214" href="#t20000214" id="index-t20000214">2000-02-14</a></li>
+
+<li><a name="index-t20000122" href="#t20000122" id="index-t20000122">2000-01-22</a></li>
+
+<li><a name="index-t20000120" href="#t20000120" id="index-t20000120">2000-01-20</a></li>
+
+<li><a name="index-t20000114" href="#t20000114" id="index-t20000114">2000-01-14</a></li>
+
+<li><a name="index-t20000102" href="#t20000102" id="index-t20000102">2000-01-02</a></li>
+
+<li><a name="index-t20000101" href="#t20000101" id="index-t20000101">2000-01-01</a></li>
+
+<li><a name="index-t19991220" href="#t19991220" id="index-t19991220">1999-12-20</a></li>
+
+<li><a name="index-t19991205" href="#t19991205" id="index-t19991205">1999-12-05</a></li>
+
+<li><a name="index-t19991203" href="#t19991203" id="index-t19991203">1999-12-03</a></li>
+
+<li><a name="index-t19990925" href="#t19990925" id="index-t19990925">1999-09-25</a></li>
+
+<li><a name="index-t19990918" href="#t19990918" id="index-t19990918">1999-09-18</a></li>
+
+<li><a name="index-t19990917" href="#t19990917" id="index-t19990917">1999-09-17</a></li>
+
+<li><a name="index-t19990827" href="#t19990827" id="index-t19990827">1999-08-27</a></li>
+
+<li><a name="index-t19990815" href="#t19990815" id="index-t19990815">1999-08-15</a></li>
+
+<li><a name="index-t19990717" href="#t19990717" id="index-t19990717">1999-07-17</a></li>
+
+<li><a name="index-t19990710" href="#t19990710" id="index-t19990710">1999-07-10</a></li>
+
+<li><a name="index-t19990617" href="#t19990617" id="index-t19990617">1999-06-17</a></li>
+
+<li><a name="index-t19990615" href="#t19990615" id="index-t19990615">1999-06-15</a></li>
+
+<li><a name="index-t19990423" href="#t19990423" id="index-t19990423">1999-04-23</a></li>
+
+<li><a name="index-t19980921" href="#t19980921" id="index-t19980921">1998-09-21</a></li>
+
+<li><a name="index-t19980912" href="/ncurses/NEWS.html#t980912" id="index-t19980912">1998-09-12</a></li>
+
+<li><a name="index-t19980908" href="#t19980908" id="index-t19980908">1998-09-08</a></li>
+
+<li><a name="index-t19980726" href="#t19980726" id="index-t19980726">1998-07-26</a></li>
+
+<li><a name="index-t19980725" href="#t19980725" id="index-t19980725">1998-07-25</a></li>
+
+<li><a name="index-t19980723" href="#t19980723" id="index-t19980723">1998-07-23</a></li>
+
+<li><a name="index-t19980521" href="#t19980521" id="index-t19980521">1998-05-21 jv</a></li>
+
+<li><a name="index-t19980320" href="#t19980320" id="index-t19980320">1998-03-20</a></li>
+
+<li><a name="index-t19980219" href="#t19980219" id="index-t19980219">1998-02-19</a></li>
+
+<li><a name="index-t19980124" href="#t19980124" id="index-t19980124">1998-01-24</a></li>
+
+<li><a name="index-t19971217" href="#t19971217" id="index-t19971217">1997-12-17</a></li>
+
+<li><a name="index-t19971202" href="#t19971202" id="index-t19971202">1997-12-02</a></li>
+
+<li><a name="index-t19971022" href="#t19971022" id="index-t19971022">1997-10-22</a></li>
+
+<li><a name="index-t19971004" href="#t19971004" id="index-t19971004">1997-10-04</a></li>
+
+<li><a name="index-t19970925" href="#t19970925" id="index-t19970925">1997-09-25</a></li>
+
+<li><a name="index-t19970916" href="#t19970916" id="index-t19970916">1997-09-16</a></li>
+
+<li><a name="index-t19970915" href="#t19970915" id="index-t19970915">1997-09-15</a></li>
+
+<li><a name="index-t19970911" href="#t19970911" id="index-t19970911">1997-09-11</a></li>
+
+<li><a name="index-t19970906" href="#t19970906" id="index-t19970906">1997-09-06</a></li>
+
+<li><a name="index-t19970904" href="#t19970904" id="index-t19970904">1997-09-04</a></li>
+
+<li><a name="index-t19970815" href="#t19970815" id="index-t19970815">1997-08-15</a></li>
+
+<li><a name="index-t19970712" href="#t19970712" id="index-t19970712">1997-07-12</a></li>
+
+<li><a name="index-t19970711" href="#t19970711" id="index-t19970711">1997-07-11</a></li>
+
+<li><a name="index-t19970613" href="#t19970613" id="index-t19970613">1997-06-13</a></li>
+
+<li><a name="index-t19970428" href="#t19970428" id="index-t19970428">1997-04-28</a></li>
+
+<li><a name="index-t19970107" href="#t19970107" id="index-t19970107">1997-01-07</a></li>
+
+<li><a name="index-t19960709" href="#t19960709" id="index-t19960709">1996-07-09</a></li>
+
+<li><a name="index-t19960531" href="#t19960531" id="index-t19960531">1996-05-31</a></li>
+
+<li><a name="index-t19960528" href="#t19960528" id="index-t19960528">1996-05-28</a></li>
+
+<li><a name="index-t19960526" href="#t19960526" id="index-t19960526">1996-05-26</a></li>
+
+<li><a name="index-t19960523" href="#t19960523" id="index-t19960523">1996-05-23</a></li>
+
+<li><a name="index-t19960522" href="#t19960522" id="index-t19960522">1996-05-22</a></li>
+
+<li><a name="index-t19960519" href="#t19960519" id="index-t19960519">1996-05-19</a></li>
+
+<li><a name="index-t19960516" href="#t19960516" id="index-t19960516">1996-05-16</a></li>
+
+<li><a name="index-t19960430" href="#t19960430" id="index-t19960430">1996-04-30</a></li>
+
+<li><a name="index-t19960426" href="#t19960426" id="index-t19960426">1996-04-26</a></li>
+
+<li><a name="index-t19960127" href="#t19960127" id="index-t19960127">1996-01-27</a></li>
+
+<li><a name="index-t19960125" href="#t19960125" id="index-t19960125">1996-01-25</a></li>
+
+<li><a name="index-t19951203" href="#t19951203" id="index-t19951203">1995-12-03</a></li>
+
+<li><a name="index-t19951202" href="#t19951202" id="index-t19951202">1995-12-02</a></li>
+
+<li><a name="index-t19951109" href="#t19951109" id="index-t19951109">1995-11-09</a></li>
+
+<li><a name="index-t19950919" href="#t19950919" id="index-t19950919">1995-09-19</a></li>
+
+<li><a name="index-t19950912" href="#t19950912" id="index-t19950912">1995-09-12</a></li>
+
+<li><a name="index-t19950910" href="#t19950910" id="index-t19950910">1995-09-10</a></li>
+
+<li><a name="index-t19950905" href="#t19950905" id="index-t19950905">1995-09-05</a></li>
+
+<li><a name="index-t19950801" href="#t19950801" id="index-t19950801">1995-08-01</a></li>
+
+<li><a name="index-t19950730" href="#t19950730" id="index-t19950730">1995-07-30</a></li>
+
+<li><a name="index-t19950704" href="#t19950704" id="index-t19950704">1995-07-04</a></li>
+
+<li><a name="index-t19950407" href="#t19950407" id="index-t19950407">1995-04-07</a></li>
+
+<li><a name="index-t19950406" href="#t19950406" id="index-t19950406">1995-04-06</a></li>
+
+<li><a name="index-t19950223" href="#t19950223" id="index-t19950223">1995-02-23</a></li>
+
+<li><a name="index-t19950128" href="#t19950128" id="index-t19950128">1995-01-28</a></li>
+
+<li><a name="index-t19950105" href="#t19950105" id="index-t19950105">1995-01-05</a></li>
+
+<li><a name="index-t19941113" href="#t19941113" id="index-t19941113">1994-11-13</a></li>
+
+<li><a name="index-t19940901" href="#t19940901" id="index-t19940901">1994-09-01</a></li>
+
+<li><a name="index-t19940808" href="#t19940808" id="index-t19940808">1994-08-08</a></li>
+
+<li><a name="index-t19940730" href="#t19940730" id="index-t19940730">1994-07-30</a></li>
+
+<li><a name="index-t19940723" href="#t19940723" id="index-t19940723">1994-07-23</a></li>
+
+<li><a name="index-t19940618" href="#t19940618" id="index-t19940618">1994-06-18</a></li>
+
+<li><a name="index-t19940611" href="#t19940611" id="index-t19940611">1994-06-11</a></li>
+
+<li><a name="index-t19940606" href="#t19940606" id="index-t19940606">1994-06-06</a></li>
+
+<li><a name="index-t19940526" href="#t19940526" id="index-t19940526">1994-05-26</a></li>
+
+<li><a name="index-t19940503" href="#t19940503" id="index-t19940503">1994-05-03</a></li>
+
+<li><a name="index-t19930819" href="#t19930819" id="index-t19930819">1993-08-19 dickey@software.org</a></li>
+
+<li><a name="index-t19910820" href="#t19910820" id="index-t19910820">1991-08-20 dickey@software.org</a></li>
+</ul>
+</div>
+<!-- vile:html
+  -->
+</body>
+</html>

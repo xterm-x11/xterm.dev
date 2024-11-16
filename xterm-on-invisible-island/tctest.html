@@ -1,0 +1,3336 @@
+<!--
+  $Id: tctest.html,v 1.170 2022/04/10 22:08:13 tom Exp $
+  -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0">
+  <title>TCTEST &ndash; A Termcap Test Utility</title>
+  <link rel="author" href="mailto:dickey@invisible-island.net">
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii">
+  <link rel="SHORTCUT ICON" href="/img/icons/vile.ico" type=
+  "image/x-icon">
+  <link rel="stylesheet" href="/css/simplestyle.css" type=
+  "text/css">
+  <style type="text/css">
+  @import "/css/simplenav19.css" all;
+  </style>
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1">
+</head>
+<body>
+  <hr>
+
+  <p><a href="/">http://invisible-island.net/</a><a href=
+  "/ncurses/">ncurses/</a><br>
+  Copyright &copy; 2011&ndash;2021,2022 by Thomas E. Dickey</p>
+
+  <hr>
+
+  <div class="nav">
+    <ul>
+      <li class="nav-top"><a href="/ncurses/tctest.html">(top)</a></li>
+
+      <li><a href="#synopsis">Synopsis</a></li>
+
+      <li>
+        <a href="#history">History</a>
+        <ul>
+          <li>
+            <a href="#history_bsd">BSD Termcap</a>
+            <ul>
+              <li><a href="#history_3bsd">3BSD (code dated December
+              1979)</a></li>
+
+              <li><a href="#history_bsd42">BSD&nbsp;4.2 (code dated
+              July 1983)</a></li>
+
+              <li><a href="#history_bsd43">BSD&nbsp;4.3 (code dated
+              July 1990)</a></li>
+
+              <li><a href="#history_bsd44">BSD&nbsp;4.4 (code dated
+              April 1994)</a></li>
+            </ul>
+          </li>
+
+          <li><a href="#history_terminfo">Terminfo support for
+          Termcap</a></li>
+
+          <li>
+            <a href="#history_bsds">FreeBSD and its Kindred</a>
+            <ul>
+              <li><a href="#history_freebsd">FreeBSD</a></li>
+
+              <li><a href="#history_netbsd">NetBSD</a></li>
+
+              <li><a href="#history_openbsd">OpenBSD</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="#history_legacy">Legacy Users of BSD 4.2
+            Termcap</a>
+            <ul>
+              <li><a href="#legacy_ingres">Ingres Database Terminal
+              Library</a></li>
+
+              <li><a href="#legacy_solaris">OpenSolaris UCB
+              Library</a></li>
+
+              <li><a href="#legacy_schily">Schilling's "Extended"
+              Termcap Library</a></li>
+            </ul>
+          </li>
+
+          <li><a href="#history_gnu">GNU Termcap</a></li>
+
+          <li><a href="#history_ncurses">NCurses</a></li>
+
+          <li><a href="#history_myself">My Involvement...</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#syntax_original">Issues with the Original BSD
+        Termcap</a>
+        <ul>
+          <li><a href="#original_memuse">Memory Usage</a></li>
+
+          <li><a href="#original_checking">Error Checking</a></li>
+
+          <li><a href="#original_reporting">Error Reporting</a></li>
+
+          <li><a href="#original_includes">Inheritance</a></li>
+
+          <li><a href="#original_escaping">Escaping Rules</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#syntax_extended">Termcap Extensions</a>
+        <ul>
+          <li><a href="#extensions_ncurses">NCurses</a></li>
+
+          <li><a href="#extensions_netbsd">NetBSD</a></li>
+
+          <li><a href="#extensions_gnu">GNU Termcap</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#testing_performance">Performance</a>
+        <ul>
+          <li><a href="#perform_timing">CPU Time</a></li>
+
+          <li><a href="#perform_memory">Memory Use</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#changes">Changes</a></li>
+
+      <li><a href="#documentation">Documentation</a></li>
+
+      <li><a href="#download">Download</a></li>
+    </ul>
+  </div>
+
+  <h2 id="synopsis-toc"><a name="synopsis" id=
+  "synopsis">Synopsis</a></h2>
+
+  <p><strong>tctest</strong> is a tool which helps analyze termcap
+  implementations, i.e., the runtime library. It uses the termcap
+  runtime library to retrieve terminal descriptions, which it
+  reports in a standard format. The termcap library may alter or
+  lose information from the original textual terminal descriptions.
+  To understand what <strong>tctest</strong> is reporting, you need
+  more information than is provided by other sources of
+  information.</p>
+
+  <h2 id="history-toc"><a name="history" id="history">History</a></h2>
+
+  <p>Outside of manual pages, the O'Reilly book <em>termcap &amp;
+  terminfo</em> by Strang et al (1986) is the usual reference for
+  this material. However, it does not present differences among
+  implementations, and covers only the very beginning of the story.
+  I have provided more information.</p>
+
+  <p>Termcap evolved in stages:</p>
+
+  <ul>
+    <li><a href="#history_bsd">initial implementation (2BSD)</a></li>
+
+    <li><a href="#history_bsd42">syntax (BSD 4.2)</a></li>
+
+    <li><a href="#history_bsd43">vocabulary (BSD 4.3)</a></li>
+
+    <li><a href="#history_bsd44">performance (BSD 4.4)</a></li>
+  </ul>
+
+  <h3 id="history_bsd-toc"><a name="history_bsd" id=
+  "history_bsd">BSD Termcap</a></h3>
+
+  <p>While termcap is said to have been created in 1978, the oldest
+  sources that are still available are part of the BSD releases
+  beginning a year later (with 3BSD, files dated November 1979 to
+  January 1980). This, and several later releases, can be
+  downloaded from the <a href=
+  "http://www.tuhs.org/archive_sites.html">Unix Archive</a>.</p>
+
+  <h4><a name="history_3bsd" id="history_3bsd">3BSD (code dated
+  December 1979)</a></h4>
+
+  <p>The initial release of the termcap library uses syntax which
+  would (mostly) work with current implementations. The
+  <code>tgoto</code> function was later revised for these
+  changes:</p>
+
+  <ul>
+    <li>replaced the function <code>%&lt;<em>xy</em></code> by
+    "%&gt;<em>xy</em></li>
+
+    <li>added functions <code>%B</code> and <code>%D</code></li>
+
+    <li>radically changed the <code>%.</code> function, adding a
+    workaround for newlines versus tabs</li>
+
+    <li>modified the computations for <code>%n</code> and
+    <code>%r</code></li>
+  </ul>
+
+  <p>The 3BSD tarball includes manpages <code>termlib.3</code>
+  (termcap library) and termcap.5 (termcap format), which describes
+  most of the syntax.</p>
+
+  <h4><a name="history_bsd42" id="history_bsd42">BSD&nbsp;4.2 (code
+  dated July 1983)</a></h4>
+
+  <p>This is the reference version for termcap syntax (noting that
+  features such as the <code>TERMCAP</code> environment variable
+  are not syntax, but configurability).</p>
+
+  <p>Terminal data is read from a text file (or from the
+  <code>TERMCAP</code> environment variable) using the
+  <code>tgetent</code> function. It has two parameters:</p>
+
+  <dl>
+    <dt>buffer</dt>
+
+    <dd>this is a user-supplied buffer able to hold at least 1024
+    bytes (1023 bytes of data plus a terminating null byte). The
+    terminal description will be returned in this buffer.</dd>
+
+    <dt>name</dt>
+
+    <dd>this is the name of the terminal entry to find. In the
+    BSD&nbsp;4.2 implementation, the name point to a nonempty
+    string.</dd>
+  </dl>
+
+  <p id="load_bsd42">Loading the terminal data is subject to both
+  the parameters and environment variables:</p>
+
+  <ul>
+    <li>if the <code>TERMCAP</code> variable is set, and nonempty
+      <ul>
+        <li>if the <code>TERMCAP</code> variable begins with a
+        &ldquo;/&rdquo;, then that is used as the filename from
+        which to read terminal descriptions.</li>
+
+        <li>otherwise
+          <ul>
+            <li>if the <code>TERM</code> variable is set,
+            <em>and</em> if it matches the <code>name</code>
+            parameter then the content of the <code>TERMCAP</code>
+            variable is used.</li>
+
+            <li>otherwise the default termcap text file is
+            used</li>
+          </ul>
+        </li>
+
+        <li>if the <code>TERMCAP</code> variable is not set to a
+        nonempty string then the default termcap text file
+        (/etc/termcap) is used.</li>
+      </ul>
+    </li>
+
+    <li>otherwise, or if the filename indicated by the
+    <code>TERMCAP</code> variable could not be opened, then the
+    default termcap text file is used.</li>
+  </ul>
+
+  <p id="quirk_bsd42">One interesting quirk of the termcap library
+  is that <code>tgetent</code> can be called recursively to include
+  a parent description marked at the end of any description. On
+  each recursion, the <code>name</code> parameter is set to the
+  parent's name, which in turn is matched against
+  <code>TERM</code>. In this way, the <code>TERMCAP</code> variable
+  could be used (instead of providing the entry to match the
+  caller's given <code>name</code>) to override any single entry in
+  the chain of recursion.</p>
+
+  <p><a name="bsd42-syntax" id="bsd42-syntax">The basic syntax is
+  as follows:</a></p>
+
+  <ul>
+    <li>
+      <p>Each entry begins in the first column.</p>
+    </li>
+
+    <li>
+      <p>An entry may have continuation lines, indicated by a
+      &ldquo;\&rdquo; at the end of the preceding line.</p>
+    </li>
+
+    <li>
+      <p>Continuation lines should begin with whitespace, usually a
+      tab.</p>
+    </li>
+
+    <li>
+      <p>One or more names begin the entry. Names are separated by
+      vertical bar &ldquo;|&rdquo;.</p>
+    </li>
+
+    <li>
+      <p>An optional description follows the last vertical bar and
+      extends to the next colon.</p>
+    </li>
+
+    <li>
+      <p>Capabilities (data) are separated by colons
+      &ldquo;:&rdquo;.</p>
+    </li>
+
+    <li>
+      <p>Each capability has a two-character name which cannot
+      include whitespace or any of the special punctuation
+      (vertical bar &ldquo;|&rdquo;, colon &ldquo;:&rdquo;,
+      backslash &ldquo;\\&rdquo;, caret &ldquo;^&rdquo;).</p>
+    </li>
+
+    <li>
+      <p>There are three types of capabilities:</p>
+
+      <dl>
+        <dt><a name="bsd42-boolean-caps" id=
+        "bsd42-boolean-caps">boolean</a>
+        </dt>
+
+        <dd>only the name is used.</dd>
+
+        <dt><a name="bsd42-numeric-caps" id=
+        "bsd42-numeric-caps">number</a>
+        </dt>
+
+        <dd>a &ldquo;#&rdquo; follows the name, then its value,
+        i.e., an unsigned integer. If the value begins with
+        &ldquo;0&rdquo; (zero) then the value is represented in
+        octal, otherwise it is decimal. No check is made to ensure
+        that the digits are all octal, nor is there a check for
+        numeric overflow.</dd>
+
+        <dt><a name="bsd42-string-caps" id=
+        "bsd42-string-caps">string</a>
+        </dt>
+
+        <dd>
+          a &ldquo;=&rdquo; follows the name, then its value.
+          <p>Strings can contain special characters, denoted with
+          &ldquo;\&rdquo; or &ldquo;^&rdquo;.</p>
+
+          <p>Strings can contain functions, denoted with
+          &ldquo;%&rdquo;.</p>
+
+          <p>One string capability, <em>tc</em> is special. Its
+          value is the name of another terminal description which
+          is included (after removing its name and description) at
+          runtime. This must be the last capability in the entry,
+          since there is no provision for inserting into the
+          resulting buffer.</p>
+        </dd>
+      </dl>
+    </li>
+
+    <li id="bsd42-cancel-caps">
+      <p>As a special case, if a capability name is followed by by
+      &ldquo;@&rdquo;, then the capability is <em>cancelled</em>,
+      which is different from being empty or missing. An empty
+      boolean capability is false, an empty number is -1, and an
+      empty string is a null pointer. The library functions that
+      return values cannot tell which type a cancelled capability
+      &ldquo;really&rdquo; is.</p>
+    </li>
+
+    <li id="bsd42-exactly-two">
+      <p>The two-character name is matched without requiring a
+      trailing <code>NUL</code> byte in the caller's parameter. The
+      comparison by the library stops if it sees a <code>NUL</code>
+      in the termcap text, which leads to an interesting quirk: a
+      boolean capability at the <em>end</em> of the buffer will
+      match a single-character name (without checking if the
+      caller's parameter has a corresponding <code>NUL</code>.
+      Numeric and string capabilities do not fall into this special
+      case because their names must be followed with a value.</p>
+    </li>
+
+    <li id="bsd42-functions">
+      <p>The termcap library has these functions for retrieving
+      data and using it:</p>
+
+      <dl>
+        <dt>tgetent</dt>
+
+        <dd>
+          reads a termcap entry from the database into a
+          user-provided buffer.
+          <p>The termcap entry along with any "<code>tc=</code>"
+          resolution must be no longer than 1023 bytes. After
+          including a terminal description, the buffer is rechecked
+          for a trailing "<code>tc=</code>", recurring up to 32
+          times.</p>
+
+          <p>The termcap library checks the 1023-byte limit, but
+          various implementations are buggy and will dump core on
+          too-long entries.</p>
+        </dd>
+
+        <dt>tgetflag</dt>
+
+        <dd>returns the value for a boolean capability</dd>
+
+        <dt>tgetnum</dt>
+
+        <dd>returns the value for a numeric capability</dd>
+
+        <dt>tgetstr</dt>
+
+        <dd>returns the value for a string capability</dd>
+
+        <dt>tgoto</dt>
+
+        <dd>substitutes two numbers into a string expression,
+        returns the resulting string</dd>
+
+        <dt>tputs</dt>
+
+        <dd>sends each character to a user-provided function,
+        adding null-bytes to control the speed, i.e.,
+        "padding"</dd>
+      </dl>
+    </li>
+  </ul>
+
+  <p id="bsd42-escapes">To allow entering special characters, the
+  termcap library recognizes a limited set of escapes (character
+  sequences beginning with &ldquo;\&rdquo; backslash which are
+  substituted at runtime in <code>tgetstr</code>:</p>
+
+  <blockquote>
+    <table id="bsd42_escapes" border="1" summary=
+    "BSD 4.2 termcap escapes">
+      <tr>
+        <th>Source</th>
+        <th>Result</th>
+      </tr>
+
+      <tr>
+        <td>\E</td>
+        <td>escape</td>
+      </tr>
+
+      <tr>
+        <td>\\</td>
+        <td>backslash</td>
+      </tr>
+
+      <tr>
+        <td>\b</td>
+        <td>backspace</td>
+      </tr>
+
+      <tr>
+        <td>\f</td>
+        <td>form-feed</td>
+      </tr>
+
+      <tr>
+        <td>\n</td>
+        <td>newline</td>
+      </tr>
+
+      <tr>
+        <td>\r</td>
+        <td>return</td>
+      </tr>
+
+      <tr>
+        <td>\t</td>
+        <td>tab</td>
+      </tr>
+    </table>
+  </blockquote>
+
+  <p>The termcap library also recognizes special characters encoded
+  as octal numbers, again using backslash to denote an escape. For
+  example, the ASCII escape character can be represented in a
+  termcap as &ldquo;\E&rdquo; or "\033". Oddly, the BSD&nbsp;4.2
+  library accepts \8 and \9 (any decimal digit), though the
+  computation assumes the base is 8.</p>
+
+  <p>Escaped characters not in the table are passed through as the
+  character itself. An escaped colon requires special handling to
+  work around a design defect in the <code>tskip</code> function
+  that splits up the runtime data returned by <code>tgetstr</code>:
+  it ignores the backslash character.</p>
+
+  <p>There are also control character substitutions using
+  &ldquo;^&rdquo;. Those mask (logical AND) the value of the next
+  character to 5 bits, making the result in the range 0-31.</p>
+
+  <p>Conventionally, &ldquo;^&rdquo; markers use the uppercase
+  alphabetic characters plus the punctuation characters in the same
+  range (of 32) which map to controls by stripping all but the low
+  5 bits, i.e., &ldquo;@&rdquo;, &ldquo;[&rdquo;, &ldquo;\&rdquo;,
+  &ldquo;]&rdquo;, &ldquo;^&rdquo; and &ldquo;_&rdquo;. For
+  instance, there are 41 occurrences of &ldquo;^_&rdquo; in the
+  BSD&nbsp;4.2 termcap.</p>
+
+  <p id="bsd42-ctl-question">One pitfall when comparing termcap and
+  terminfo is that <code>DEL</code> (127, represented in terminfo
+  by &ldquo;^?&rdquo;) is not treated specially by termcap; it must
+  be given as "\177". A &ldquo;^?&rdquo; seen by a BSD&nbsp;4.2
+  termcap library gives the same result as &ldquo;^_&rdquo;, i.e.,.
+  31.</p>
+
+  <p>The termcap library handles more than just special characters.
+  It provides support for cursor-addressing via the
+  <code>tgoto</code> function. Given two numbers and a string,
+  <code>tgoto</code> checks for functions (marked with
+  &ldquo;%&rdquo;), and performs those functions using the two
+  numbers. In the BSD&nbsp;4.2 tarball, a list of these functions
+  is found in comments in the source code:</p>
+
+  <blockquote>
+    <pre class="code-block">
+ * The following escapes are defined for substituting row/column:
+ *
+ *      %d      as in printf
+ *      %2      like %2d
+ *      %3      like %3d
+ *      %.      gives %c hacking special case characters
+ *      %+x     like %c but adding x first
+ *
+ *      The codes below affect the state but don't use up a value.
+ *
+ *      %&gt;xy    if value &gt; x add y
+ *      %r      reverses row/column
+ *      %i      increments row/column (for one origin indexing)
+ *      %%      gives %
+ *      %B      BCD (2 decimal digits encoded in one byte)
+ *      %D      Delta Data (backwards bcd)
+ *
+ * all other characters are ``self-inserting''.
+</pre>
+  </blockquote>
+
+  <p>The comments do not mention &ldquo;%n&rdquo;, though it is
+  documented in the BSD&nbsp;4.2 manpage. Strang did mention it,
+  but made an error, stating that the value is exclusive-OR'd with
+  (octal) <em>01400</em>. The code uses <em>0140</em>, a
+  single-byte value, and the operation is performed on both
+  row/column values.</p>
+
+  <p>Given an unrecognized &ldquo;%&rdquo; function,
+  <code>tgoto</code> returns "OOPS".</p>
+
+  <p>The same functions could be used for other capabilities than
+  <code>cm</code> (cursor-movement). The BSD&nbsp;4.2 termcap file
+  uses <code>tgoto</code> functions for several other capabilities
+  (shown with their more familiar terminfo names):</p>
+
+  <blockquote>
+    <table border="1" summary=
+    "Terminal features requiring tgoto in BSD4.2">
+      <tr>
+        <th>Long terminfo name</th>
+        <th>Short name</th>
+        <th>Termcap</th>
+        <th>Description</th>
+      </tr>
+
+      <tr>
+        <td>parm_insert_line</td>
+        <td>il</td>
+        <td>AL</td>
+        <td>insert #1 lines (P*)</td>
+      </tr>
+
+      <tr>
+        <td>parm_dch</td>
+        <td>dch</td>
+        <td>DC</td>
+        <td>delete #1 characters (P*)</td>
+      </tr>
+
+      <tr>
+        <td>parm_delete_line</td>
+        <td>dl</td>
+        <td>DL</td>
+        <td>delete #1 lines (P*)</td>
+      </tr>
+
+      <tr>
+        <td>parm_ich</td>
+        <td>ich</td>
+        <td>IC</td>
+        <td>insert #1 characters (P*)</td>
+      </tr>
+
+      <tr>
+        <td>parm_left_cursor</td>
+        <td>cub</td>
+        <td>LE</td>
+        <td>move #1 characters to the left (P)</td>
+      </tr>
+
+      <tr>
+        <td>parm_right_cursor</td>
+        <td>cuf</td>
+        <td>RI</td>
+        <td>move #1 characters to the right (P*)</td>
+      </tr>
+
+      <tr>
+        <td>parm_up_cursor</td>
+        <td>cuu</td>
+        <td>UP</td>
+        <td>up #1 lines (P*)</td>
+      </tr>
+
+      <tr>
+        <td>column_address</td>
+        <td>hpa</td>
+        <td>ch</td>
+        <td>horizontal position #1, absolute (P)</td>
+      </tr>
+
+      <tr>
+        <td>cursor_address</td>
+        <td>cup</td>
+        <td>cm</td>
+        <td>move to row #1 columns #2</td>
+      </tr>
+
+      <tr>
+        <td>change_scroll_region</td>
+        <td>csr</td>
+        <td>cs</td>
+        <td>change region to line #1 to line #2 (P)</td>
+      </tr>
+
+      <tr>
+        <td>row_address</td>
+        <td>vpa</td>
+        <td>cv</td>
+        <td>vertical position #1 absolute (P)</td>
+      </tr>
+
+      <tr>
+        <td>to_status_line</td>
+        <td>tsl</td>
+        <td>ts</td>
+        <td>move to status line, column #1</td>
+      </tr>
+    </table>
+  </blockquote>
+
+  <h4><a name="history_bsd43" id="history_bsd43">BSD&nbsp;4.3
+  (1986)</a></h4>
+
+  <p>This made no change to the syntax of termcap.</p>
+
+  <p>In Tahoe, the section 3 "termcap" manpage (dated September
+  1987) provided more ways to find the termcap file.</p>
+
+  <p id="load_bsd43">The handling of the <code>TERMCAP</code>
+  environment variable was modified to take into account a new
+  <code>TERMPATH</code> environment variable:</p>
+
+  <ul>
+    <li>The BSD&nbsp;4.2 code opens the termcap file as soon as it
+    is identified by the content of the <code>TERMCAP</code>
+    environment variable.</li>
+
+    <li>If BSD&nbsp;4.2 termcap is unable to open the file
+    indicated by <code>TERMCAP</code>, it reverts to opening the
+    system default termcap file.</li>
+
+    <li>BSD&nbsp;4.3 on the other hand opens the file after
+    checking these environment variables:
+      <ul>
+        <li>If <code>TERMCAP</code> does not contain a value
+        beginning with &ldquo;/&rdquo;
+          <ul>
+            <li>If <code>TERMPATH</code> is set to a nonempty
+            value, the library saves that as a list to search.</li>
+
+            <li>Otherwise it looks for <code>.termcap</code> as the
+            first item in a list:
+              <ul>
+                <li>if the <code>HOME</code> environment variable
+                is set, it looks for
+                <code>$HOME/.termcap</code></li>
+
+                <li>otherwise, it looks for <code>.termcap</code>
+                in the current directory.</li>
+              </ul>
+
+              <p>It then appends
+              <code>/usr/share/misc/termcap</code> to the list.</p>
+            </li>
+          </ul>
+        </li>
+
+        <li>It saves <code>TERMCAP</code> as a list to search.</li>
+
+        <li>If either <code>TERMCAP</code> or <code>TERMPATH</code>
+        are set, the library will not search the default termcap
+        database. Therefore, the <a href="#quirk_bsd42">quirk</a>
+        mentioned for BSD&nbsp;4.2 is not possible with the
+        BSD&nbsp;4.3 library.</li>
+      </ul>
+    </li>
+
+    <li>The list constructed above is separated by either spaces or
+    colons.</li>
+
+    <li>The list is copied into a fixed-size buffer, which means
+    that there is a possibility of truncating the pathname(s)
+    stored there and causing the search to look in unexpected
+    places.</li>
+
+    <li>Neither version reports a warning in any case where they
+    are unable to open a file.</li>
+
+    <li>As in BSD&nbsp;4.2, the documentation is incomplete. For
+    instance, the check for <code>.termcap</code> in the current
+    directory is not mentioned.</li>
+  </ul>
+
+  <p>The section 5 "termcap" manpage (dated November 1985)
+  notes</p>
+
+  <blockquote>
+    <p><em>termcap</em> was replaced by <em>terminfo</em> in UNIX
+    System V Release 2.0. The transition will be relatively
+    painless if capabilities flagged as "obsolete" are avoided.</p>
+  </blockquote>
+
+  <p>That is, termcap capabilities were from that point derived
+  from terminfo, and those that had no counterpart in terminfo were
+  deemed obsolete.</p>
+
+  <p>The manpage listed 179 capabilities, marking 25 obsolete. One
+  ("<code>ma</code>") is still a termcap name, but used for a
+  different purpose. The others are gone (except as recognized by
+  ncurses).</p>
+
+  <p>Generally, releases of termcap databases increase with time,
+  but the number of obsolete entries did not decrease immediately
+  just because it was documented in the manpage:</p>
+
+  <blockquote>
+    <table id="database_growth" border="1" summary=
+    "Terminal Database Growth and Obsolescence">
+      <colgroup>
+        <col width="15%">
+        <col width="15%">
+        <col width="15%">
+        <col width="15%">
+        <col width="15%">
+        <col width="15%">
+      </colgroup>
+
+      <tr>
+        <th>Release</th>
+        <th>Entries</th>
+        <th colspan="2">Total Capabilities</th>
+        <th colspan="2">Distinct Capabilities</th>
+      </tr>
+
+      <tr>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+        <th>Total</th>
+        <th>Obsolete</th>
+        <th>Total</th>
+        <th>Obsolete</th>
+      </tr>
+
+      <tr>
+        <td><a href="#history_bsd">3BSD</a>
+        </td>
+        <td align="right">81</td>
+        <td align="right">1289</td>
+        <td align="right">137</td>
+        <td align="right">99</td>
+        <td align="right">8</td>
+      </tr>
+
+      <tr>
+        <td><a href="#history_bsd42">BSD4.2</a>
+        </td>
+        <td align="right">328</td>
+        <td align="right">10957</td>
+        <td align="right">954</td>
+        <td align="right">140</td>
+        <td align="right">14</td>
+      </tr>
+
+      <tr>
+        <td><a href="#legacy_solaris">Solaris 10</a>
+        </td>
+        <td align="right">470</td>
+        <td align="right">15838</td>
+        <td align="right">1051</td>
+        <td align="right">195</td>
+        <td align="right">17</td>
+      </tr>
+
+      <tr>
+        <td><a href="#history_bsd43">BSD4.3</a>
+        </td>
+        <td align="right">539</td>
+        <td align="right">19404</td>
+        <td align="right">1224</td>
+        <td align="right">248</td>
+        <td align="right">17</td>
+      </tr>
+
+      <tr>
+        <td><a href="#history_bsd44">BSD4.4</a>
+        </td>
+        <td align="right">552</td>
+        <td align="right">20152</td>
+        <td align="right">1256</td>
+        <td align="right">268</td>
+        <td align="right">18</td>
+      </tr>
+
+      <tr>
+        <td><a href="#history_gnu">termcap 2.0.8</a>
+        </td>
+        <td align="right">900</td>
+        <td align="right">49407</td>
+        <td align="right">521</td>
+        <td align="right">352</td>
+        <td align="right">9</td>
+      </tr>
+
+      <tr>
+        <td><a href="#history_gnu">termcap 1.3.1</a>
+        </td>
+        <td align="right">1274</td>
+        <td align="right">88103</td>
+        <td align="right">861</td>
+        <td align="right">374</td>
+        <td align="right">13</td>
+      </tr>
+
+      <tr>
+        <td><a href="#history_ncurses">ncurses</a>
+        </td>
+        <td align="right">1583</td>
+        <td align="right">95961</td>
+        <td align="right">1011</td>
+        <td align="right">399</td>
+        <td align="right">13</td>
+      </tr>
+    </table>
+  </blockquote>
+
+  <p>Considering the size, Solaris 10's termcap is likely based on
+  one of the earlier BSD&nbsp;4.3 releases, with minor updates. It
+  is not directly related to Solaris' terminfo database, which
+  dates from the mid-1990s.</p>
+
+  <h4><a name="history_bsd44" id="history_bsd44">BSD&nbsp;4.4 (code
+  dated April 1994)</a></h4>
+
+  <p>To improve performance, the developers changed storage from a
+  flat text-file to hashed databases. This was new work done by
+  <a href="http://www.netbsd.org/people/CSRG-contrib.html">Casey
+  Leedom</a>, called "getcap". Incidentally, the rewrite got rid of
+  most of the problems from BSD&nbsp;4.2's buffer limit-checks.</p>
+
+  <p>The use of <code>TERMCAP</code> and <code>TERMPATH</code>
+  environment variables was unchanged from <a href=
+  "#load_bsd43">BSD&nbsp;4.3</a>.</p>
+
+  <p>More important for portability, BSD&nbsp;4.4 termcap supports
+  multiple "<code>tc=</code>" capabilities in an entry (like
+  terminfo). Unlike terminfo, this termcap implementation does no
+  merging of the capabilities. It simply does a depth-first
+  traversal of the entry, replacing each "<code>tc=</code>"
+  capability with the text from the corresponding entry.</p>
+
+  <p>None of the entries in the BSD&nbsp;4.4 termcap file use this
+  feature, however.</p>
+
+  <p>It also extended the syntax of termcap, adding some redundant
+  escapes:</p>
+
+  <blockquote>
+    <table border="1" summary="BSD 4.4 termcap additional escapes">
+      <tr>
+        <th>Source</th>
+        <th>Result</th>
+      </tr>
+
+      <tr>
+        <td>\B</td>
+        <td>backspace</td>
+      </tr>
+
+      <tr>
+        <td>\C</td>
+        <td>colon</td>
+      </tr>
+
+      <tr>
+        <td>\F</td>
+        <td>form-feed</td>
+      </tr>
+
+      <tr>
+        <td>\N</td>
+        <td>newline</td>
+      </tr>
+
+      <tr>
+        <td>\R</td>
+        <td>return</td>
+      </tr>
+
+      <tr>
+        <td>\T</td>
+        <td>tab</td>
+      </tr>
+
+      <tr>
+        <td>\c</td>
+        <td>colon</td>
+      </tr>
+
+      <tr>
+        <td>\e</td>
+        <td>escape</td>
+      </tr>
+    </table>
+  </blockquote>
+
+  <p>Only one entry in the BSD&nbsp;4.4 termcap file uses any of
+  those (two instances of &ldquo;\L&rdquo; in <code>tek4113</code>,
+  which happens to match the BSD&nbsp;4.3 entry in that
+  instance).</p>
+
+  <p>It also allows numbers to be hexadecimal or octal, using
+  C-style &ldquo;0x&rdquo; or &ldquo;0&rdquo; prefixes
+  respectively. Likewise, hexadecimal values are unused in the
+  BSD&nbsp;4.4 termcap.</p>
+
+  <p>BSD&nbsp;4.4 termcap eliminates a quirk of preceding releases.
+  Octal escapes are different, i.e., <code>cgetstr</code> ignores
+  &ldquo;\8&rdquo; and &ldquo;\9&rdquo;, passing through
+  &ldquo;8&rdquo; and &ldquo;9&rdquo; respectively.</p>
+
+  <p>BSD&nbsp;4.4 termcap discards a &ldquo;^&rdquo; control
+  sequence which is followed by a colon or by the end of the
+  entry.</p>
+
+  <p>BSD&nbsp;4.4 termcap also treats &ldquo;\:&rdquo; as the end
+  of a capability, making it consistent with BSD&nbsp;4.2's termcap
+  library (the design defect noted previously). Six entries in
+  BSD&nbsp;4.4's termcap file used &ldquo;\:&rdquo; as data:</p>
+
+  <ul>
+    <li><code>ibm3163</code>, to disable the status line,</li>
+
+    <li><code>dg460-ansi</code> for the F9 function key, and</li>
+
+    <li><code>wy60</code>, <code>wy60-25</code>,
+    <code>wy60-42</code>, <code>wy60-43</code> in variations of the
+    reset-string.</li>
+  </ul>
+
+  <p>One (<code>f100</code>) used it in the sense that
+  <code>cgetstr</code> assumed: it was leftover from a stray edit
+  which deleted a newline, e.g., to save bytes.</p>
+
+  <p>Which is correct? That is hard to determine. Neither IBM nor
+  ncurses show status-line features for the <code>ibm3163</code>
+  entry. The Wyse-60 entries in ncurses are from a different
+  source, and do not use the particular initialization string which
+  was modified. The <code>dg460-ansi</code> entry differs, using
+  <code>kf9=\E[010z</code> versus BSD&nbsp;4.4's
+  <code>kf9=\E[00\:z</code>. That was due to one of Raymond's
+  changes (likely a guess):</p>
+
+  <blockquote>
+    <pre class="code-block">
+# fixed garbled ":k9=\E[00\:z:" capability -- esr)
+</pre>
+  </blockquote>
+
+  <p>VT100.net has a <a href="http://vt100.net/dg/d410-um/">user
+  manual</a> for the terminal, but while the manual promises that
+  the user function keys are documented in Appendix C, the
+  information is not there, either. On the other hand, it has a
+  manual for the <a href="http://vt100.net/dg/d411-um/">411/461
+  models</a> which documents &ldquo;\072&rdquo; for that key.</p>
+
+  <p>Finally, BSD&nbsp;4.4 extends the way capabilities can be
+  cancelled. Termcap capability names are not (except for special
+  cases such as <code>tc</code>) predefined. That opens up the
+  possibility of having the same name for a boolean capability, as
+  well as a number and a string. BSD&nbsp;4.4 takes note of this,
+  providing a way to cancel just a numeric capability or a string
+  capability without affecting the (hypothetical) alternate values.
+  The library does this based on whether a &ldquo;#&rdquo; or
+  &ldquo;=&rdquo; character precedes &ldquo;@&rdquo;.</p>
+
+  <h3 id="history_terminfo-toc"><a name="history_terminfo" id=
+  "history_terminfo">Terminfo support for Termcap</a></h3>
+
+  <p>According to Strang (1986), the termcap functions were
+  available via the (terminfo-based) curses library. Aside from
+  that, there are few sources which tell when those were added (or
+  whether they were present in the first version of terminfo).</p>
+
+  <p>Strang states that Bill Joy wrote the first version of the
+  termcap library, and that Mark Horton wrote the terminfo library.
+  The latter was announced at <a href=
+  "http://www.usenix.org/publications/bibliography/byDate.html">USENIX</a>
+  (Summer 1982).</p>
+
+  <p>There are no copies of the paper online; no useful
+  documentation on this before Strang. The only surviving documents
+  describing this are Horton's Usenet postings. According to
+  Horton:</p>
+
+  <blockquote>
+    <p class="code-block">the version of curses/terminfo in System
+    V Release 2 was frozen in April 1983</p>
+  </blockquote>
+
+  <p>Pavel Curtis' reimplementation of terminfo (first mentioned
+  <a href=
+  "https://groups.google.com/forum/#!search/%22Mark$20Horton%22$20terminfo/net.general/uTF1BQ9e3jw/6yKQNgfD9ysJ">
+  July 1982</a>) did not mention whether it provided a termcap
+  interface (i.e., the function-calls to match the existing termcap
+  library). In his posting to <em>net.general</em>, Pavel described
+  Horton's implementation</p>
+
+  <blockquote>
+    <p class="code-block">At this past week's USENIX meeting, Mark
+    Horton announced the completion of a replacement
+    database/interface for the Berkeley 'termcap' setup. The new
+    version is called 'terminfo' and has several advantages over
+    termcap:</p>
+  </blockquote>
+
+  <p>and</p>
+
+  <blockquote>
+    <p class="code-block">Conversion of existing programs from
+    termcap to terminfo is very easy and usually consists mostly of
+    throwing out all of the garbage needed to read and store a
+    termcap entry.</p>
+  </blockquote>
+
+  <p>Lacking something more concrete, it is uncertain whether the
+  initial release of Horton's terminfo library provided this
+  either.</p>
+
+  <p>Later, in <a href=
+  "https://www.linux.co.cr/unix-source-code/review/1982/0711.html">October
+  1982</a>, Pavel Curtis stated that his reimplementation was ready
+  for testing, and</p>
+
+  <blockquote class="code-block">
+    <p>Compatibility with Mark's package is, obviously, fairly
+    difficult to guarantee, considering that he and I have an ocean
+    of lawyers betwixt us. However, the paper given out at the
+    conference really contained a great amount of information,
+    yielding a pretty coherent picture of what kinds of extensions
+    had been made. At the very least, my package jibes with the
+    info in that paper and with the old package.</p>
+
+    <p>The final release of the public-domain package will be timed
+    to coincide with the final 'freeze' on code to appear in the
+    4.2BSD release, at which time I will make a grand and wonderful
+    announcement on USENET and Unix-Wizards. Before that, though, I
+    would be happy to send tapes to anyone who is willing to run
+    it.</p>
+  </blockquote>
+
+  <p>Still later, in <a href=
+  "https://groups.google.com/forum/#!search/%22Mark$20Horton%22$20terminfo/net.unix-wizards/li5GNe-v7oU/nRSdWgTsXxEJ">
+  mid-1984</a>, Mark Horton commented on <em>net.unix-wizards</em>
+  that the SVr2 version provided <a href=
+  "/ncurses/man/curs_termcap.3x.html#h3-Initialization"><code>tgetent</code></a>
+  (the &ldquo;garbage&rdquo; referred to by Pavel Curtis):</p>
+
+  <blockquote class="code-block">
+    <pre>
+The version of curses/terminfo I have here (and the one distributed
+with System V Release 2) is upward compatible with termcap at the
+termlib level.  That is, if you have a program that calls tgetent,
+tgetflag, tgoto, tputs, and so forth, instead of
+ cc foo.c -ltermcap
+you can type
+ cc foo.c -lcurses
+and the program will work, using the terminfo database.
+</pre>
+  </blockquote>
+
+  <p>In mid-1986, Mark Horton stated on <a href=
+  "https://web.archive.org/web/20150202224801/http://www.informatica.co.cr/unix-source-code/research/1986/0429.html">
+  Usenet</a> that he had written the version of terminfo used in
+  SVr2, and that SVr3 "had input" from him. In other words, other
+  people (such as Tony Hansen, author of infocmp) were doing the
+  work from that point. Horton also commented</p>
+
+  <blockquote>
+    <p class="code-block">The SVr2 tic was just a modified version
+    of the termcap file reading code, which also doesn't notice
+    syntax errors. The SVr3 tic is completely redone (it's based on
+    Pavel Curtis's tic) and is fairly fussy about syntax errors.
+    It's also more complete, uses the existing binary database, and
+    is much faster.</p>
+  </blockquote>
+  and
+  <blockquote>
+    <p class="code-block">(For those who are not impressed with
+    tic's error messages, the SVr2 tic, which was frozen for SVr2
+    in April 1983 along with the rest of curses, is essentially the
+    termcap parser. The SVr3 tic is completely redone, by Pavel
+    Curtis, and it's as fussy as pcc.)</p>
+  </blockquote>
+
+  <p>OpenSolaris has sources for <a href=
+  "https://web.archive.org/web/20061112134844/http://src.opensolaris.org/source/xref/onnv/onnv-gate/usr/src/cmd/captoinfo/">
+  captoinfo</a> and <a href=
+  "https://web.archive.org/web/20061112134844/http://src.opensolaris.org/source/xref/onnv/onnv-gate/usr/src/cmd/infocmp/">
+  infocmp</a>, which give 1984 as the date of creation. Likewise,
+  it has sources for <a href=
+  "https://web.archive.org/web/20061112134844/http://src.opensolaris.org/source/xref/onnv/onnv-gate/usr/src/cmd/tic/">
+  tic</a>, citing Pavel Curtis in 1982.</p>
+
+  <p>Interesting enough, InfoWorld in <a href=
+  "http://books.google.com/books?id=czAEAAAAMBAJ&amp;pg=PT43&amp;lpg=PT43&amp;dq=terminfo&amp;source=bl&amp;ots=xP_zaOBeLf&amp;sig=_xoxhVpJfhr4UdAE_MkuT-g42LU&amp;hl=en&amp;sa=X&amp;ei=koZKVIz0A4vgaI2pgOAC&amp;ved=0CCMQ6AEwATiCAQ#v=onepage&amp;q=terminfo&amp;f=false">
+  December 1989</a> had an article by Martin Marshall, entitled
+  <em>Termcaps, Terminfo Frustrate Managers</em>. Marshall (in the
+  context of a discussion with Neal Nelson), wrote</p>
+
+  <blockquote>
+    <p class="code-block">After Termcap files were developed, they
+    were extended differently by nearly every commercial
+    applications developer. The extensions were inconsistent, with
+    the same function being implemented by different key codes on
+    different Termcaps, and the same key code being used to mean
+    two different things by two different programs.<br>
+    AT&amp;T stepped into the picture three years ago,
+    commissioning the University of California, Berkeley to develop
+    Terminfo, thinking that everyone could standardize upon it.</p>
+  </blockquote>
+
+  <p>Strang does not mention color (none of the listed capabilities
+  do color). I may conclude that SVr2 did not support color in
+  spite of subsequent commentary which claims that it supported all
+  of the advanced features such as color, line-drawing, multiple
+  video attributes. Indeed, the InfoWorld article says:</p>
+
+  <blockquote>
+    <p class="code-block">Sam Shteingart, a member of the technical
+    staff at AT&amp;T's Bell Labs responded by listing some of the
+    improvements to Terminfo that have been added with successive
+    releases of Unix System V. Release 3.1, for example, boosted
+    the number of function keys allowed up to 64, while Release 3.2
+    added the capability to use color in character-based terminals
+    like the Tektronix 4100/4200 families and the HP 2397A. Release
+    3.2 also added printer support definitions to Terminfo, which
+    involved a substantial rewrite of the LP subsystem.</p>
+  </blockquote>
+
+  <p>Strang's focus throughout is on termcap, discussing terminfo
+  as an alternative. For instance, he comments (chapter 15) that
+  BSD&nbsp;4.3 termcap requires that the "<code>tc=</code>"
+  capability be last in a description, noting that it implies that
+  there will be only one, there is no complementary discussion of
+  &ldquo;<code>use=</code>&rdquo; (terminfo) with any limitations
+  on position and number.</p>
+
+  <p>The terminfo implementations at hand (the SVR4's such as
+  Solaris) all have the same approach to supporting termcap:</p>
+
+  <ul>
+    <li><a href="/ncurses/man/curs_termcap.3x.html">tgetent</a> is
+    essentially a wrapper for <a href=
+    "/ncurses/man/curs_terminfo.3x.html">setupterm</a>. It does not
+    load termcap source. The buffer parameter of
+    <code>tgetent</code> is not modified. The actual terminal
+    description is stored somewhere else.</li>
+
+    <li>the string returned by <code>tgetstr</code> is really a
+    terminfo string.</li>
+
+    <li>the string passed to <code>tgoto</code> is really a
+    terminfo string.</li>
+
+    <li>the number returned by <code>tgetnum</code> is subject to
+    the limits of a compiled terminfo entry, i.e., positive values
+    in a signed 16-bit integer which allows 0 to 32767.</li>
+  </ul>
+
+  <h3 id="history_bsds-toc"><a name="history_bsds" id=
+  "history_bsds">FreeBSD and its Kindred</a></h3>
+
+  <p>Although BSD&nbsp;4.2 is the reference for <em>syntax</em>,
+  most termcap users rely on the later BSD&nbsp;4.4
+  <em>libraries</em>. In turn, those have evolved to either use
+  ncurses directly, or have added features for compatibility with
+  it.</p>
+
+  <h4><a name="history_freebsd" id="history_freebsd">FreeBSD</a></h4>
+
+  <p>FreeBSD's CVS history started in May 1994 (some information
+  was lost in converting to SVN).<br>
+  These sections are of interest:</p>
+
+  <dl>
+    <dt><a href=
+    "http://www.freebsd.org/cgi/cvsweb.cgi/src/share/termcap/">CVS
+    for src/share/termcap</a>
+    </dt>
+
+    <dd>This is the termcap database.<br>
+    It has evolved from the BSD&nbsp;4.4 termcap file,
+    adding/changing items, and is not directly derived from
+    ncurses.</dd>
+
+    <dt><a href=
+    "http://www.freebsd.org/cgi/cvsweb.cgi/src/lib/libc/gen/">CVS
+    for src/lib/libc/gen</a>
+    </dt>
+
+    <dd>The getcap <a href=
+    "http://www.freebsd.org/cgi/cvsweb.cgi/src/lib/libc/gen/getcap.c">
+    source code</a> and <a href=
+    "http://www.freebsd.org/cgi/cvsweb.cgi/src/lib/libc/gen/getcap.3">
+    documentation</a> live here.</dd>
+
+    <dt><a href=
+    "http://www.freebsd.org/cgi/cvsweb.cgi/src/contrib/ncurses/">CVS
+    for src/contrib/ncurses</a>
+    </dt>
+
+    <dd>As of mid-2011, this is the current source for FreeBSD's
+    termcap library interface. Like src/lib/libncurses, it is
+    modified to use getcap.</dd>
+
+    <dt><a href=
+    "http://svnweb.freebsd.org/base/head/lib/libncurses/?pathrev=50623">
+    src/lib/libncurses</a> <a href=
+    "http://svnweb.freebsd.org/base/head/lib/libncurses/?pathrev=50624">
+    (dropped)</a></dt>
+
+    <dd>Peter Wemm marked this obsolete in August 1999, in favor of
+    src/contrib/ncurses (at that point, a pre-release of ncurses
+    5.0).<br>
+    However, that work was not completed until April 2007.<br>
+    Rong-En Fan consulted with me, and finished it using ncurses
+    5.6 (which supported hashed databases).<br>
+    Andrey A Chernov moved it from the FreeBSD ports to the base
+    system in October 1994.<br>
+    For the next five years, it evolved as a FreeBSD-oriented
+    fork.</dd>
+
+    <dt><a href=
+    "http://svnweb.freebsd.org/base/head/lib/?pathrev=53711">src/lib/libtermcap</a>
+    <a href=
+    "http://svnweb.freebsd.org/base/head/?pathrev=53712">(dropped)</a></dt>
+
+    <dd>obsolete since November 1999, in favor of
+    src/lib/libncurses.<br>
+    This used <code>tparm</code> from mytinfo (import in December
+    1994).</dd>
+
+    <dt><a href=
+    "http://svnweb.freebsd.org/base/head/lib/?pathrev=53665">src/lib/libmytinfo</a>
+    <a href=
+    "http://svnweb.freebsd.org/base/head/?pathrev=53666">(dropped)</a></dt>
+
+    <dd>obsolete since November 1999, in favor of
+    src/lib/libncurses.<br>
+    This was Ross Ridge's <em>mytinfo</em>, which provided termcap
+    and terminfo support.<br>
+    Andrey A Chernov moved it from the FreeBSD ports to the base
+    system in October 1994.<br>
+    There were some subsequent changes, but more work was done with
+    src/lib/libncurses.</dd>
+
+    <dt><a href=
+    "http://svnweb.freebsd.org/base/head/lib/libterm/?pathrev=27368">
+    src/lib/libterm</a> <a href=
+    "http://svnweb.freebsd.org/base/head/?pathrev=27369">(dropped)</a></dt>
+
+    <dd>obsolete since July 1997, in favor of
+    src/lib/libtermcap.<br>
+    This was the "BSD 4.4 Lite Lib" source, imported in May
+    1994.<br>
+    It uses getcap to retrieve capability information.</dd>
+  </dl>
+
+  <p id="freebsd-ctl-question">FreeBSD getcap was modified to
+  support &ldquo;^?&rdquo; as alias for <code>DEL</code> in May
+  1995.<br>
+  Its buffer-size is still 1024 (1023 bytes of data plus a
+  terminating null).</p>
+
+  <p>The base system ncurses is configured to support only termcap;
+  a port supports terminfo.</p>
+
+  <h4><a name="history_netbsd" id="history_netbsd">NetBSD</a></h4>
+
+  <p>NetBSD's CVS history starts in March 1993. These sections are
+  of interest:</p>
+
+  <dl>
+    <dt><a href=
+    "http://cvsweb.netbsd.org/bsdweb.cgi/src/share/terminfo/?only_wit_tag=MAIN">
+    CVS for src/share/terminfo</a>
+    </dt>
+
+    <dd>This is the terminfo from ncurses.</dd>
+
+    <dt><a href=
+    "http://cvsweb.netbsd.org/bsdweb.cgi/src/share/termcap/Attic/?only_wit_tag=MAIN">
+    CVS for src/share/termcap</a>
+    </dt>
+
+    <dd>obsolete since January 2011 in favor of
+    src/share/terminfo.<br>
+    Like FreeBSD's termcap, this started from BSD&nbsp;4.4's
+    termcap file.<br>
+    But from 1995 to 1997, there were a half-dozen imports from
+    Eric Raymond's version.<br>
+    All told, the NetBSD CVS reflects about 2/3 as many commits as
+    FreeBSD.<br>
+    I reviewed this late in 2003 using ncurses' tic, sent a
+    (170-line) patch to improve it.</dd>
+
+    <dt><a href=
+    "http://cvsweb.netbsd.org/bsdweb.cgi/src/lib/libc/gen/?only_wit_tag=MAIN">
+    CVS for src/lib/libc/gen</a>
+    </dt>
+
+    <dd>The getcap <a href=
+    "http://cvsweb.netbsd.org/bsdweb.cgi/src/lib/libc/gen/getcap.c">
+    source code</a> and <a href=
+    "http://cvsweb.netbsd.org/bsdweb.cgi/src/lib/libc/gen/Attic/getcap.3">
+    documentation</a> live here.<br>
+    There are no changes to BSD&nbsp;4.4 syntax, apparently only
+    performance and portability fixes.</dd>
+
+    <dt><a href=
+    "http://cvsweb.netbsd.org/bsdweb.cgi/src/lib/libterminfo/">CVS
+    for src/lib/libterminfo</a>
+    </dt>
+
+    <dd>This is a new implementation of terminfo by Roy Marples,
+    starting February 2010.<br>
+    Like other terminfo implementations, it provides a termcap
+    interface.<br>
+    Also (like libterm which it replaced), it reads from a hashed
+    database.</dd>
+
+    <dt><a href=
+    "http://cvsweb.netbsd.org/bsdweb.cgi/src/lib/libterm/Attic/?only_wit_tag=MAIN">
+    CVS for src/lib/libterm</a>
+    </dt>
+
+    <dd>
+      obsolete since February 2010 in favor of
+      src/lib/libterminfo.<br>
+      Again, this uses getcap to retrieve capability
+      information.<br>
+      This provided some extensions versus BSD&nbsp;4.4 libterm:
+      <ul>
+        <li>the <code>ZZ</code> capability points to a buffer
+        containing the full text of the terminal entry,
+        unconstrained by the 1023-byte limit. The capability is
+        only used for entries which would exceed 1023-bytes because
+        it reduces the available space in the 1023-byte buffer
+        which would be seen by ordinary applications such as
+        xterm.</li>
+
+        <li>the library provides an alternate calling interface
+        which is not subject to the 1023-byte limit. It was used by
+        a half-dozen applications according to a comment in
+        2001.</li>
+      </ul>
+    </dd>
+  </dl>
+
+  <h4><a name="history_openbsd" id="history_openbsd">OpenBSD</a></h4>
+
+  <p>OpenBSD moved away from BSD termcap early, using terminfo to
+  provide similar functionality.</p>
+
+  <dl>
+    <dt><a href=
+    "http://www.openbsd.org/cgi-bin/cvsweb/src/share/termcap/Attic/termcap.src">
+    CVS for src/share/termcap/termcap.src</a>
+    </dt>
+
+    <dd>This was originally 9.8.3 from Eric Raymond in 1995.<br>
+    It was made obsolete by termtypes.master in December 1998.</dd>
+
+    <dt><a href=
+    "http://www.openbsd.org/cgi-bin/cvsweb/src/share/terminfo/Attic/terminfo.src">
+    CVS for src/share/terminfo/terminfo.src</a>
+    </dt>
+
+    <dd>This was originally a slightly modified copy of 9.13.8 from
+    Eric Raymond in July 1996.<br>
+    It was made obsolete by termtypes.master in December 1998.</dd>
+
+    <dt><a href=
+    "http://www.openbsd.org/cgi-bin/cvsweb/src/share/termtypes/termtypes.master">
+    CVS for src/share/termtypes/termtypes.master</a>
+    </dt>
+
+    <dd>This was originally an import of termtypes.master from Eric
+    Raymond's site in December 1999.<br>
+    It has been imported periodically from ncurses since January
+    2000.</dd>
+
+    <dt><a href=
+    "http://www.openbsd.org/cgi-bin/cvsweb/src/lib/libcurses/">CVS
+    for src/lib/libcurses/</a>
+    </dt>
+
+    <dd>This is ncurses 5.7, which provides a termcap calling
+    interface to a terminfo database.</dd>
+
+    <dd>Todd C Miller and other OpenBSD developers added a feature
+    for reading terminfo data from a hashed database similar to the
+    way termcap information is stored in BSD&nbsp;4.4 termcap. This
+    is in the <a href=
+    "http://www.openbsd.org/cgi-bin/cvsweb/src/lib/libcurses/tinfo/read_bsd_terminfo.c">
+    read_bsd_terminfo.c</a> file. The termcap implementation itself
+    is much the same, aside from using OpenBSD-specific functions
+    for guarding against setuid abuse, etc.</dd>
+
+    <dt><a href=
+    "http://www.openbsd.org/cgi-bin/cvsweb/src/lib/libocurses/">CVS
+    for src/lib/libocurses/</a>
+    </dt>
+
+    <dd>The &ldquo;old&rdquo; curses library is derived from
+    BSD&nbsp;4.4.<br>
+    The src/lib/libterm termcap interface was merged with it in
+    October 1999.<br>
+    The OpenBSD developers made further improvements to safeguard
+    against environment variable problems with <code>TERMCAP</code>
+    and <code>HOME</code>.<br>
+    These affect its behavior, but usually not in a noticeable
+    way.</dd>
+
+    <dt><a href=
+    "http://www.openbsd.org/cgi-bin/cvsweb/src/lib/libterm/Attic/">CVS
+    for src/lib/libterm/</a>
+    </dt>
+
+    <dd>This is the BSD&nbsp;4.4 libterm, imported from NetBSD in
+    October 1995.<br>
+    Lockert modified <code>tgetent</code> to accept a null pointer
+    for the buffer parameter.<br>
+    Other than that, the OpenBSD developers made no changes to the
+    behavior other than fixing possible buffer overflows.<br>
+    It was merged with src/lib/libocurses in October 1998.</dd>
+
+    <dt><a href=
+    "http://www.openbsd.org/cgi-bin/cvsweb/src/lib/libtermlib/Attic/">
+    CVS for src/lib/libtermlib/</a>
+    </dt>
+
+    <dd>Begun in mid-1996 by Thorsten Lockert, this library read
+    terminfo data from a hashed database, and provided both
+    terminfo and termcap calling interfaces.<br>
+    It was moved to the Attic in December 2000.</dd>
+  </dl>
+
+  <h3 id="history_legacy-toc"><a name="history_legacy" id=
+  "history_legacy">Legacy Users of BSD 4.2/4.3 Termcap</a></h3>
+
+  <p>The mainstream of development left BSD 4.2/4.3 behind around
+  1990. There are still some legacy users of the old version, just
+  as there are still developers in 2011 using K&amp;R&nbsp;C or the
+  related "legacy C". This section describes a few examples, all
+  derived from 4.2 or 4.3 code.</p>
+
+  <h4><a name="legacy_ingres" id="legacy_ingres">Ingres Database
+  Terminal Library</a></h4>
+
+  <p>The Ingres terminal library is derived from BSD&nbsp;4.2 code.
+  Comments in the source code indicate that changes started in June
+  1985, by renaming the termcap file.</p>
+
+  <p>While the entrypoints have been renamed, most of the original
+  comments are present without change, even when obsolete. For
+  example</p>
+
+  <blockquote>
+    <pre class="code-block">
+**  Essentially all the work here is scanning and decoding escapes
+**  in string capabilities.  We don't use stdio because the editor
+**  doesn't, and because living w/o it is not hard.
+</pre>
+  </blockquote>
+
+  <p>while the Ingres version uses <code>stdio</code> for reporting
+  errors. Most features (such as escaping) are unchanged. It
+  provides a few extensions:</p>
+
+  <ul>
+    <li>the buffer size is increased to 2047, working around the
+    plethora of size-related bugs which are unimproved from the
+    original code.</li>
+
+    <li>an alternative to the <code>tdskip</code> function is used
+    to access the terminal data as an array of strings, i.e., when
+    used from the curses library.</li>
+
+    <li>names/aliases are matched ignoring case.</li>
+
+    <li>
+      <code>tgoto</code> recognizes some new operators:
+      <dl>
+        <dt><code>%s</code>
+        </dt>
+
+        <dd>subtracts one from the line-count. It is used in one
+        Ann Arbor terminal description.</dd>
+
+        <dt><code>%*</code>
+        </dt>
+
+        <dd>is a multiply-operation. It is used by Ingres in the
+        <code>cm</code> (cursor-movement) capability in an
+        experimental entry for using vt340 in regis mode to access
+        16 colors.</dd>
+
+        <dt><code>%O</code>
+        </dt>
+
+        <dd>splits eight bits of the parameter into two parts, and
+        adding ASCII &ldquo;@&rdquo; to each. This is used for the
+        <a href="/ncurses/terminfo.src.html#tic-omron">Omron
+        8025AG</a> description.</dd>
+      </dl>
+    </li>
+
+    <li>However, <code>tgoto</code>'s new operators fall far short
+    of terminfo's repertoire. In particular, expressions such as
+    would be needed for <code>sgr</code> are not supported.
+    Instead, Ingres' terminal database uses extra string
+    capabilities which correspond to the 16 combinations of
+    reverse, blink, bold and underscore. (It uses a different
+    capability <code>ea</code> for resetting all four of these than
+    normal termcap would do, sidestepping the problem of the
+    confusion between termcap's <code>me</code> capability and
+    terminfo's <code>sgr0</code>.</li>
+  </ul>
+
+  <p>There are a few odd differences in <code>tgoto</code>; the
+  <code>%i</code> and <code>%2</code> cases have been moved (an
+  unnecessary change).</p>
+
+  <h4><a name="legacy_solaris" id="legacy_solaris">OpenSolaris UCB
+  Library</a></h4>
+
+  <p>Unlike the other Unix vendors (reduced to HP and IBM), Sun
+  (now Oracle) has long provided a compatibility library based on
+  BSD source. This is from BSD&nbsp;4.3 rather than the more common
+  BSD&nbsp;4.4 version. Because it is provided for compatibility
+  and is not actually a supported product, there is no
+  documentation.</p>
+
+  <p>OpenSolaris has a few legacy uses of termcap (UCB curses of
+  course), as well as programs in ucbcmd such as
+  <code>tset</code>:</p>
+
+  <dl>
+    <dt><a href=
+    "https://web.archive.org/web/20061112134844/http://src.opensolaris.org/source/xref/onnv/onnv-gate/usr/src/cmd/captoinfo/">
+    Sources /usr/src/cmd/captoinfo/</a>
+    </dt>
+
+    <dd>
+      This has a <a href=
+      "https://web.archive.org/web/20061112134844/http://src.opensolaris.org/source/xref/onnv/onnv-gate/usr/src/cmd/captoinfo/otermcap.c">
+      customized copy</a> of the <a href=
+      "https://web.archive.org/web/20061112134844/http://src.opensolaris.org/source/xref/onnv/onnv-gate/usr/src/ucblib/libtermcap/termcap.c">
+      UCB termcap.c</a> file, The comment at the <a href=
+      "https://web.archive.org/web/20061112134844/http://src.opensolaris.org/source/xref/onnv/onnv-gate/usr/src/cmd/captoinfo/otermcap.c#32">
+      top</a> gives the reason (working around buffer size):
+      <blockquote>
+        <pre class="code-block">
+/* Copyright (c) 1979 Regents of the University of California   */
+/* Modified to:                                                 */
+/* 1) remember the name of the first tc= parameter              */
+/*      encountered during parsing.                             */
+/* 2) handle multiple invocations of tgetent().                 */
+/* 3) tskip() is now available outside of the library.          */
+/* 4) remember $TERM name for error messages.                   */
+/* 5) have a larger buffer.                                     */
+/* 6) really fix the bug that 5) got around. This fix by        */
+/*              Marion Hakanson, orstcs!hakanson                */
+</pre>
+      </blockquote>
+
+      <p>Note also that <a href=
+      "https://web.archive.org/web/20061112134844/http://src.opensolaris.org/source/xref/onnv/onnv-gate/usr/src/cmd/captoinfo/otermcap.c#281">
+      tskip</a> is made available (for use in the main captoinfo
+      program). It does not improve on the original BSD&nbsp;4.1
+      implementation, which lacks a check for the buffer size.
+      Fixing <code>tskip</code> by itself would not make the
+      termcap code safe from buffer overflows; the logic used
+      "<code>tc=</code>" resolution also has multiple issues. But
+      exporting <code>tskip</code> without providing for
+      buffer-limit checks compounds the problem.</p>
+    </dd>
+
+    <dt><a href=
+    "https://web.archive.org/web/20061112134844/http://src.opensolaris.org/source/xref/onnv/onnv-gate/usr/src/ucbcmd/tset/">
+    Sources /usr/src/ucbcmd/tset/</a>
+    </dt>
+
+    <dd>This is an example of a program using termcap.</dd>
+
+    <dt><a href=
+    "https://web.archive.org/web/20061112134844/http://src.opensolaris.org/source/xref/onnv/onnv-gate/usr/src/ucblib/libtermcap/">
+    Sources /usr/src/ucblib/libtermcap/</a>
+    </dt>
+
+    <dd>This is Solaris' version of BSD&nbsp;4.3 termcap. It adds
+    one feature: the <code>tgetent</code> function asks the
+    operating system for the terminal's current size, and sets the
+    <code>li</code> (lines) and <code>co</code> (columns)
+    capabilities in the returned data. Linux termcap 2.0.8 by the
+    way does the same thing (but OpenSolaris has no history before
+    2005, making it impossible to gauge which implementation had an
+    effect on the other).</dd>
+  </dl>
+
+  <h4><a name="legacy_schily" id="legacy_schily">Schilling's
+  "Extended" Termcap Library</a></h4>
+
+  <p>This library was first published in December 2007. Some files
+  have older modification times, none older than 2001.</p>
+
+  <p>J&ouml;rg Schilling uses BSD&nbsp;4.3 termcap with some minor
+  enhancements (see <a href=
+  "http://sourceforge.net/projects/schilytools/">current
+  site</a>&mdash;<a href="ftp://ftp.berlios.de/pub/schily/">ftp</a>
+  site is defunct). It provides support for <code>TERMPATH</code>
+  which was introduced in <a href=
+  "#history_bsd43">BSD&nbsp;4.3</a>, but the implementation is
+  slightly different, to avoid using BSD-specific names.</p>
+
+  <p>The extensions (there is no documentation other than the C
+  source) include:</p>
+
+  <ul>
+    <li><code>malloc</code>'ing a copy of the <code>TERMCAP</code>
+    value when using it as a terminal description.</li>
+
+    <li>partial fixes to <code>realloc</code> the working copy of
+    the terminal description, to allow it to grow temporarily,
+    e.g., when expanding a "<code>tc=</code>" capability. The
+    resulting description still is decoded subject to a limit-check
+    against 1023 however.</li>
+
+    <li>like <a href="#history_bsd44">BSD&nbsp;4.4</a>,
+    <code>tgetent</code> expands multiple "<code>tc=</code>"
+    includes, not limited to one at the end of the buffer.</li>
+
+    <li>like Solaris, <code>tgetent</code> adds the terminal's size
+    to the returned data.</li>
+
+    <li>
+      <code>tgoto</code> is modified slightly:
+      <ul>
+        <li><code>%C</code> (cited from GNU) emits parameter/96,
+        parameter%96.</li>
+
+        <li><code>%m</code> (cited from GNU) XOR's both parameters
+        with 0177.</li>
+      </ul>
+    </li>
+
+    <li>capabilities are limited to 80 characters.</li>
+
+    <li>one new function <code>tcsetflags</code> is provided, which
+    allows an application to control whether
+      <ul>
+        <li>"<code>tc=</code>" includes are processed</li>
+
+        <li>the library asks the operating system for the
+        terminal's size</li>
+
+        <li>unnecessary whitespace is stripped</li>
+      </ul>
+    </li>
+
+    <li>some existing parsing functions are made external, such as
+    <code>tskip</code>, but without providing buffer-limit
+    checks.</li>
+  </ul>
+
+  <p>Like all variants before BSD&nbsp;4.4, it has bugs in the
+  checks for buffer-overflow (including the longstanding problem
+  with <code>tskip</code>). I made these changes for example to
+  eliminate core-dumps from the library while investigating it with
+  <strong>tctest</strong>:</p>
+
+  <blockquote>
+    <!--{{atr2html-->
+
+    <p style="font-family: monospace; font-size: 10pt;" class=
+    "code-block"><strong><font color=
+    "#008080">---</font></strong><font color=
+    "#008080">&nbsp;tgetent.c.orig&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2010-10-12&nbsp;18:10:20.000000000&nbsp;-0400<br>
+    </font> <strong><font color=
+    "#008080">+++</font></strong><font color=
+    "#008080">&nbsp;tgetent.c&nbsp;&nbsp;&nbsp;2011-08-04&nbsp;20:57:40.000000000&nbsp;-0400<br>
+    </font> <strong><font color=
+    "#008080">@@</font></strong><font color=
+    "#008080">&nbsp;-91,6&nbsp;+91,7&nbsp;@@<br></font>&nbsp;EXPORT&nbsp;BOOL&nbsp;&nbsp;&nbsp;&nbsp;tgetflag&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__PR((char&nbsp;*ent));<br>
+
+    &nbsp;EXPORT&nbsp;char&nbsp;&nbsp;&nbsp;&nbsp;*tgetstr&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__PR((char&nbsp;*ent,&nbsp;char&nbsp;**array));<br>
+
+    &nbsp;EXPORT&nbsp;char&nbsp;&nbsp;&nbsp;&nbsp;*tdecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__PR((char&nbsp;*ep,&nbsp;char&nbsp;**array));<br>
+
+    +<font color=
+    "#008000">LOCAL&nbsp;&nbsp;char&nbsp;&nbsp;&nbsp;&nbsp;*mytdecode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__PR((char&nbsp;*base,&nbsp;char&nbsp;*ep,&nbsp;char&nbsp;**array));<br>
+    </font>
+    &nbsp;#if&nbsp;&nbsp;&nbsp;&nbsp;defined(TIOCGSIZE)&nbsp;||&nbsp;defined(TIOCGWINSZ)<br>
+
+    &nbsp;LOCAL&nbsp;&nbsp;void&nbsp;&nbsp;&nbsp;&nbsp;tgetsize&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__PR((void));<br>
+
+    &nbsp;LOCAL&nbsp;&nbsp;void&nbsp;&nbsp;&nbsp;&nbsp;tdeldup&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__PR((char&nbsp;*ent));<br>
+
+    <strong><font color="#008080">@@</font></strong><font color=
+    "#008080">&nbsp;-351,6&nbsp;+352,7&nbsp;@@<br></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BOOL&nbsp;&nbsp;&nbsp;&nbsp;needfree;<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char&nbsp;&nbsp;&nbsp;&nbsp;*xtbuf;<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ret;<br>
+
+    +<font color=
+    "#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tst;<br>
+    </font> &nbsp;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(tbuf&nbsp;==&nbsp;NULL)<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;(0);<br>
+
+    <strong><font color="#008080">@@</font></strong><font color=
+    "#008080">&nbsp;-404,7&nbsp;+406,8&nbsp;@@<br></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Add&nbsp;nullbyte&nbsp;and&nbsp;14&nbsp;bytes&nbsp;for&nbsp;the&nbsp;space&nbsp;needed&nbsp;by&nbsp;tgetsize()<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/<br>
+
+    -<font color=
+    "#800000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ret&nbsp;=&nbsp;ep&nbsp;-&nbsp;otbuf&nbsp;+&nbsp;strlen(np)&nbsp;+&nbsp;1&nbsp;+&nbsp;TSIZE_SPACE;<br>
+    </font> +<font color=
+    "#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tst&nbsp;=&nbsp;strlen(np);<br>
+    </font> +<font color=
+    "#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ret&nbsp;=&nbsp;ep&nbsp;-&nbsp;otbuf&nbsp;+&nbsp;tst&nbsp;+&nbsp;1&nbsp;+&nbsp;TSIZE_SPACE;<br>
+    </font>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(ret&nbsp;&gt;=&nbsp;(unsigned)(tbufsize-1))&nbsp;{<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(tbufmalloc)&nbsp;{<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tbufsize&nbsp;=&nbsp;ret;<br>
+
+    <strong><font color="#008080">@@</font></strong><font color=
+    "#008080">&nbsp;-422,7&nbsp;+425,8&nbsp;@@<br></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ret&nbsp;=&nbsp;tbufsize&nbsp;-&nbsp;1&nbsp;-&nbsp;(ep&nbsp;-&nbsp;otbuf);<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(ret&nbsp;&lt;&nbsp;0)<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ret&nbsp;=&nbsp;0;<br>
+
+    -<font color=
+    "#800000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;np[ret]&nbsp;=&nbsp;'\0';<br>
+    </font> +<font color=
+    "#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(ret&nbsp;&lt;&nbsp;tst)<br>
+    </font> +<font color=
+    "#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;np[ret]&nbsp;=&nbsp;'\0';<br>
+    </font>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strcpy(ep,&nbsp;np);<br>
+
+    <strong><font color="#008080">@@</font></strong><font color=
+    "#008080">&nbsp;-600,7&nbsp;+604,7&nbsp;@@<br></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!ep&nbsp;||&nbsp;*ep&nbsp;==&nbsp;'@')<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;((char&nbsp;*)&nbsp;NULL);<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(*ep&nbsp;==&nbsp;'=')&nbsp;{<br>
+
+    -<font color=
+    "#800000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ep&nbsp;=&nbsp;tdecode(++ep,&nbsp;array);<br>
+    </font> +<font color=
+    "#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ep&nbsp;=&nbsp;mytdecode(tbuf,&nbsp;++ep,&nbsp;array);<br>
+    </font>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(ep&nbsp;==&nbsp;buf)&nbsp;{<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ep&nbsp;=&nbsp;tmalloc(strlen(ep)+1);<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(ep&nbsp;!=&nbsp;NULL)<br>
+
+    <strong><font color="#008080">@@</font></strong><font color=
+    "#008080">&nbsp;-620,10&nbsp;+624,11&nbsp;@@<br></font>&nbsp;&nbsp;*&nbsp;Note&nbsp;that&nbsp;old&nbsp;'vi'&nbsp;implementations&nbsp;limit&nbsp;the&nbsp;total&nbsp;space&nbsp;for<br>
+
+    &nbsp;&nbsp;*&nbsp;all&nbsp;decoded&nbsp;strings&nbsp;to&nbsp;256&nbsp;bytes.<br>
+
+    &nbsp;&nbsp;*/<br>
+    -<font color=
+    "#800000">EXPORT&nbsp;char&nbsp;*<br></font>-<font color=
+    "#800000">tdecode(pp,&nbsp;array)<br></font>-<font color=
+    "#800000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char&nbsp;&nbsp;&nbsp;&nbsp;*pp;<br>
+    </font> -<font color=
+    "#800000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char&nbsp;&nbsp;&nbsp;&nbsp;*array[];<br>
+    </font> +<font color=
+    "#008000">LOCAL&nbsp;char&nbsp;*<br></font>+<font color=
+    "#008000">mytdecode(<br></font>+<font color=
+    "#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char&nbsp;&nbsp;&nbsp;&nbsp;*base,<br>
+    </font> +<font color=
+    "#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char&nbsp;&nbsp;&nbsp;&nbsp;*pp,<br>
+    </font> +<font color=
+    "#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char&nbsp;&nbsp;&nbsp;&nbsp;*array[])<br>
+    </font> &nbsp;{<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i;<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;register&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Uchar&nbsp;&nbsp;&nbsp;c;<br>
+
+    <strong><font color="#008080">@@</font></strong><font color=
+    "#008080">&nbsp;-633,7&nbsp;+638,7&nbsp;@@<br></font>&nbsp;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bp&nbsp;=&nbsp;(Uchar&nbsp;*)array[0];<br>
+
+    &nbsp;<br>
+    -<font color=
+    "#800000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(;&nbsp;(c&nbsp;=&nbsp;*ep++)&nbsp;&amp;&amp;&nbsp;c&nbsp;!=&nbsp;':';&nbsp;*bp++&nbsp;=&nbsp;c)&nbsp;{<br>
+    </font> +<font color=
+    "#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(;&nbsp;((ep&nbsp;-&nbsp;(Uchar&nbsp;*)base)&nbsp;&lt;=&nbsp;1023)&nbsp;&amp;&amp;&nbsp;(c&nbsp;=&nbsp;*ep++)&nbsp;&amp;&amp;&nbsp;c&nbsp;!=&nbsp;':';&nbsp;*bp++&nbsp;=&nbsp;c)&nbsp;{<br>
+    </font>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(c&nbsp;==&nbsp;'^')&nbsp;{<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c&nbsp;=&nbsp;*ep++&nbsp;&amp;&nbsp;0x1f;<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;if&nbsp;(c&nbsp;==&nbsp;'\\')&nbsp;{<br>
+
+    <strong><font color="#008080">@@</font></strong><font color=
+    "#008080">&nbsp;-662,6&nbsp;+667,17&nbsp;@@<br></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;((char&nbsp;*)ep);<br>
+
+    &nbsp;}<br>
+    &nbsp;<br>
+    +<font color="#008000">/*<br></font>+<font color=
+    "#008000">&nbsp;*&nbsp;Workaround&nbsp;to&nbsp;let&nbsp;the&nbsp;various&nbsp;callers&nbsp;work&nbsp;no&nbsp;worse&nbsp;than&nbsp;before...<br>
+    </font> +<font color="#008000">&nbsp;*/<br></font>+<font color=
+    "#008000">EXPORT&nbsp;char&nbsp;*<br></font>+<font color=
+    "#008000">tdecode(<br></font>+<font color=
+    "#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char&nbsp;&nbsp;&nbsp;&nbsp;*pp,<br>
+    </font> +<font color=
+    "#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;char&nbsp;&nbsp;&nbsp;&nbsp;*array[])<br>
+    </font> +<font color="#008000">{<br></font>+<font color=
+    "#008000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;mytdecode(pp,&nbsp;pp,&nbsp;array);<br>
+    </font> +<font color="#008000">}<br></font>+<font color=
+    "#008000"><br></font>&nbsp;#if&nbsp;&nbsp;&nbsp;&nbsp;defined(TIOCGSIZE)&nbsp;||&nbsp;defined(TIOCGWINSZ)<br>
+
+    &nbsp;<br>
+    &nbsp;/*<br>
+    <!--atr2html}}--></p>
+  </blockquote>
+
+  <p>Incidentally, I noticed <a href=
+  "ftp://ftp.berlios.de/pub/schily/AN-2012-05-06">this comment</a>
+  by Schilling while researching the two-character termcap quirk
+  (present here as well) for <a href=
+  "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=698299">Debian
+  #698299</a>:</p>
+
+  <blockquote>
+    <pre class="code-block">
+        At the same time, hundreds of bugs in the Dickey termcap file
+        have been fixed. It seems that Mr. Dickey now uses our termcap
+        program to verify the content of the file for correctness.
+</pre>
+  </blockquote>
+
+  <p>However, I did not incorporate any aspect of Schilling's
+  test-program into <strong>tctest</strong>. It was not useful.</p>
+
+  <p>On the other hand, Schilling used ncurses in his test program.
+  It consists of two files (<code>cap.c</code> and
+  <code>caplist.c</code>).<br>
+  Schilling copied the latter from <a href=
+  "/ncurses/announce-5.2.html">ncurses 5.2</a> source code:
+  <code>include/Caps</code>:</p>
+
+  <ul>
+    <li>He reformatted that file (dropping the columns for data
+    type and version, moving the termcap column first).</li>
+
+    <li>He also removed the copyright notice from the file, and
+    omitted any mention of ncurses from the resulting program.</li>
+
+    <li>Aside from his copyright notice, all of the comments in
+    that file as well as the descriptive material are copied from
+    ncurses,<br>
+    amounting to about 480 lines.</li>
+
+    <li>The material (excluding tabulated names) copied from
+    ncurses is about a quarter of the program.</li>
+
+    <li>There are a few minor changes to wording, resulting in some
+    technical errors toward the end of the file.</li>
+  </ul>
+
+  <p>I noticed and commented on this when Schilling first announced
+  the program in early 2008 on <a href=
+  "http://freecode.com/projects/schily/comments">FreshMeat</a>:</p>
+
+  <blockquote>
+    <p class="code-block">termcap program<br>
+    What's a "compiled" termcap? (By the way, Solaris termcap -
+    which I would have thought this would use - uses a few
+    different names than ncurses, and the comments in
+    schily-2008-01-10/termcap/caplist.c are from ncurses ;-).</p>
+  </blockquote>
+
+  <p>Comparing with Solaris documentation:</p>
+
+  <ul>
+    <li>the descriptive material for each capability differs in 90%
+    of the lines</li>
+
+    <li>ncurses tabulates 17% more capabilities</li>
+
+    <li>the <em>order</em> in ncurses corresponds to the
+    <code>include/Caps</code> file,<br>
+    which in turn is the order in the compiled terminfo files.<br>
+    Solaris lists those (mostly) alphabetically within data type
+    (with a few exceptions such as
+    <code>max_attributes</code>).<br>
+    Schilling's copy retains the order used in ncurses.</li>
+
+    <li>several of the capability names differ between Solaris and
+    ncurses, e.g.,<br>
+    Solaris documents the termcap equivalent of
+    <code>back_color_erase</code> as <code>be</code>.<br>
+    ncurses (like X/Open) uses <code>ut</code>.</li>
+  </ul>
+
+  <h3 id="history_gnu-toc"><a name="history_gnu" id=
+  "history_gnu">GNU Termcap</a></h3>
+
+  <p>In discussing GNU termcap, I am considering three
+  versions:</p>
+
+  <ul>
+    <li>Linux <a href=
+    "http://www.ibiblio.org/pub/historic-linux/ftp-archives/sunsite.unc.edu/Sep-29-1996/GCC/">
+    termcap 2.0.8</a> (April 1996) is based on GNU termcap 1.2.4,
+    forked in April 1993</li>
+
+    <li>
+      <a href="http://ftp.gnu.org/gnu/termcap/">GNU termcap</a>:
+      <ul>
+        <li>termcap 1.3 (August 1995)</li>
+
+        <li>termcap 1.3.1 (March 2002)</li>
+      </ul>
+    </li>
+  </ul>
+
+  <p>The 2.0.8 and 1.3.1 versions competed for at least ten years.
+  Your system may have either, depending on the packager's
+  preferences and ambition.</p>
+
+  <p>The former provides both shared and static libraries for
+  Linux; the latter only provides a static library. The 2.0.8
+  version also (like Solaris) returns the terminal's size in the
+  data from <code>tgetent</code>, while the 1.3.1 version only
+  mentions in its documentation that an applicaton ought to do
+  this.</p>
+
+  <p>The 1.3.1 and 1.3 versions are very similar (aside from
+  updating the termcap file). The <a href=
+  "http://www.gnu.org/software/termutils/manual/termcap-1.3/html_mono/termcap.html">
+  documentation</a> describes 1.3; this discussion focuses on the
+  extensions.</p>
+
+  <p>GNU termcap</p>
+
+  <ul>
+    <li>adds a function <code>tparam</code> which is
+    <code>tgoto</code> prototyped with a variable argument list and
+    the ability to specify the buffer into which formatted text is
+    stored. The variable argument list support does not use
+    <code>&lt;stdarg.h&gt;</code> and is not portable. Rather, the
+    function assumes four integer parameters.</li>
+
+    <li><code>tgetent</code> accepts a null buffer parameter, will
+    then allocate 2048 bytes.</li>
+
+    <li>some packages include a patch allowing <code>tgetent</code>
+    to accept multiple "<code>tc=</code>" capabilities. For
+    example, the SuSE package for 2.0.8 does this.</li>
+
+    <li>
+      <code>tgoto</code> adds several extensions:
+      <ul>
+        <li><code>%C</code> emits parameter/96, parameter%96.</li>
+
+        <li><code>%f</code> tells <code>tgoto</code> to ignore the
+        next parameter.</li>
+
+        <li><code>%b</code> tells <code>tgoto</code> to reuse the
+        previous parameter.</li>
+
+        <li><code>%a</code> provides arithmetic operations, like
+        terminfo.</li>
+
+        <li><code>%m</code> XOR's both parameters with 0177.</li>
+      </ul>
+    </li>
+
+    <li>the <code>tgetstr</code> and related functions which
+    retrieve capability values use a slightly different comparison
+    which assumes that the names are always two characters (no
+    special quirk for a single-character name). However, there is a
+    corresponding quirk in the match for boolean names: it is
+    possible to retrieve a single-character boolean value if the
+    caller passes &ldquo;:&rdquo; as the second character of the
+    name, and if the termcap has a double-colon at that point.</li>
+  </ul>
+
+  <p>At one point, ncurses had a <code>tparam</code> function (from
+  changes by Eric Raymond in January 1996). But this symbol
+  conflicted with emacs, and Eric <a href=
+  "/ncurses/NEWS.html#t960511">removed it</a>.</p>
+
+  <h3 id="history_ncurses-toc"><a name="history_ncurses" id=
+  "history_ncurses">NCurses</a></h3>
+
+  <p>ncurses reads either termcap or terminfo source files,
+  compiling those to terminfo format. It has been more forgiving of
+  differences from BSD&nbsp;4.3 syntax than some other
+  implementations. For example, I added fixes early in 1998 to fill
+  in missing parts of the terminfo syntax (the <code>\a</code> and
+  <code>^0</code> items noted <a href=
+  "/ncurses/NEWS.html#t980103">here</a>. Those also affected the
+  termcap parsing. Much later, I added a <a href=
+  "/ncurses/NEWS.html#t20110730">strict option</a> to
+  <code>tic</code> which suppresses those translations.</p>
+
+  <p>As terminfo supports multiple "use=" capabilities (the same as
+  "<code>tc=</code>") capabilities), ncurses also supports multiple
+  "<code>tc=</code>" capabilities.</p>
+
+  <p>ncurses recognizes the GNU termcap <code>%m</code>, but none
+  of the other extensions for the simple reason that no substantial
+  termcap source was ever written using the GNU extensions. GNU
+  termcap has always distributed either Eric Raymond's (mostly
+  generated) termcap source, or one wholly or partly derived from
+  ncurses.</p>
+
+  <h3 id="history_myself-toc"><a name="history_myself" id=
+  "history_myself">My Involvement...</a></h3>
+
+  <p>I have used termcap since 1983. At the time, I was more
+  interested in curses than termcap, since curses (poorly
+  documented) was the visible interface used for dired. However, in
+  my lab, I had a <a href=
+  "/personal/oldprogs.html#bitgraph">BitGraph terminal</a>, and at
+  home an <a href="http://vt100.net/annarbor/aaa-ug/">Ann Arbor
+  Ambassador</a> terminal. Both had some VT100-compatibility, but
+  both had interesting extensions that could be used by customizing
+  a termcap entry. Initially, this was for simple things, such as
+  setting the screen size. I was interested in using termcap to
+  support the graphics work that I did with the BitGraph terminal,
+  but on asking advice, was told "termcap doesn't do that sort of
+  thing".</p>
+
+  <p>Shortly after, I moved to a different project. I was allowed
+  to retain the Ann Arbor terminal but most of my work was using
+  Apollo workstations, with some tie-ins to VAX/VMS and PrimeOS.
+  None of that involved termcap.</p>
+
+  <p>Later (in 1986), I used <a href=
+  "/personal/oldprogs.html#wyse50">Wyse-50 terminals</a> in
+  development on an SVr2 system. At the time, I knew only about
+  termcap. The SVr2 system supported terminfo, but I did not modify
+  it. The terminal database's entry for the Wyse50 (probably
+  "wy50") was good enough for vi. It did not mention that the
+  terminal has programmable function keys (and labels). So I wrote
+  a special-purpose (C) program to set up the terminal.</p>
+
+  <p>It was not until the mid-1990s that I really got involved in
+  the <em>development</em> of termcap, rather than being a user.
+  That was with <a href="/ncurses/ncurses.html">ncurses</a>, of
+  course. Even still, until mid-1996 I refrained from doing much
+  with the tools (<a href="/ncurses/man/tic.1m.html">tic</a>,
+  <a href="/ncurses/man/infocmp.1m.html">infocmp</a>) which
+  manipulated terminfo and termcap. At that point, I realized that
+  making ncurses successful required improving all parts of the
+  system.</p>
+
+  <p>It helped that I got useful feedback&mdash;mostly from various
+  BSD developers. My email shows these for instance:</p>
+
+  <ul>
+    <li>Peter Wemm (1996)</li>
+
+    <li>Dan Nelson (1997)</li>
+
+    <li>Peter Edwards (1999)</li>
+
+    <li>Todd C Miller (2000)</li>
+
+    <li>Andrey A Chernov (2001)</li>
+  </ul>
+
+  <p>I have improved ncurses' support for termcap in three
+  areas:</p>
+
+  <dl>
+    <dt id="my-extensible-terminfo">extensible terminfo</dt>
+
+    <dd>
+      Until <a href="/ncurses/NEWS.html#t19991023">ncurses 5.0</a>
+      in 1999, people used to (with some justification) claim that
+      termcap was better than terminfo because one could add
+      whatever capabilities they might want to an entry, without
+      regard to whether it was a standard capability.
+      <p>I addressed this by making ncurses able to define new
+      capabilities using the terminal description. Standard
+      capabilities are unaffected; new capabilities are
+      optional.</p>
+
+      <p>Quoting from my email to Florian La Rouche
+      (1999/2/21):</p>
+
+      <blockquote>
+        <pre class="code-block">
+&gt; &gt; I have a couple of minor changes also (I overlooked one item in define_key,
+&gt; &gt; and am considering adding a small change to allow us to extend the terminfo
+&gt; &gt; format later without causing the existing applications to refuse to recognize
+&gt; &gt; the new format).
+&gt;
+&gt; That sounds like a very good feature to add before a release.
+(as long as it doesn't break old programs ;-)
+
+I am considering adding a 5th table to the file format and making the
+terminfo reader smart enough to &ldquo;see&rdquo; it in what would be unused space
+after the existing tables.  Several people have complained that terminfo
+cannot be extended; allowing it to store extended capabilities would
+alleviate that.
+</pre>
+      </blockquote>
+
+      <p>This made the <code>TERMTYPE</code> structure
+      binary-incompatible. It is implicitly used by any low-level
+      application that includes <code>&lt;term.h&gt;</code>. This
+      feature, together with some interface corrections to match
+      the X/Open Curses specification were the reason why the
+      ncurses release numbering jumped from 4.2 to 5.0 (the release
+      numbering is determined by binary compatibility).</p>
+
+      <p>The reason why this change improves ncurses' support for
+      termcap is that there is only one source for terminal
+      descriptions in ncurses. Eric Raymond had three sources,
+      relying on manual fix-ups to get usable termcaps:</p>
+
+      <dl>
+        <dt>master</dt>
+
+        <dd>Some conventional termcap capabilities have no
+        counterpart in terminfo.</dd>
+
+        <dt>terminfo</dt>
+
+        <dd>This was generated from the "master" file using
+        <code>tic</code>. Essentially, <code>tic</code> would omit
+        capabilities not part of standard terminfo.</dd>
+
+        <dt>termcap</dt>
+
+        <dd>Raymond used ncurses' <code>tic</code> program, then
+        followed up with shell scripts and manual edits.</dd>
+      </dl>
+    </dd>
+
+    <dt id="my-better-translation">better translation between
+    terminfo and termcap formats</dt>
+
+    <dd>
+      Translating from termcap to terminfo is much simpler than
+      translating from terminfo to termcap, because termcap is much
+      less capable. The main issue is runtime expressions stored in
+      strings. Termcap has a limited repertoire of special
+      functions which can be reimplemented as terminfo expressions.
+      Compatibility of capability names is almost a negligible
+      concern, since termcap names are defined for each terminfo
+      name.
+      <p>Raymond reused code from Ross Ridge's public domain
+      <code>mytinfo</code> package (comp.sources.unix, volume 26,
+      issue 77, December 1992) for these features:</p>
+
+      <ul>
+        <li>converting from termcap to terminfo</li>
+
+        <li>filling in missing data for terminfo entries</li>
+      </ul>
+
+      <p>However mytinfo did not convert from terminfo to termcap
+      format. This was an area that Raymond started, which I have
+      continued, making mechanically generated termcaps usable in
+      most instances.</p>
+
+      <p>The changelog in the termcap 1.3.1 package states that it
+      uses termcap.src regenerated from (Raymond's) <a href=
+      "/ncurses/ncurses.faq.html#which_terminfo">11.0.1 master
+      file</a>. The "regenerated" part was done using ncurses'
+      <code>tic</code> program, to resolve the "<code>tc=</code>"
+      references. The translation also relies on the improvements
+      that I made to <code>tic</code> up to that point (early
+      2002).</p>
+    </dd>
+
+    <dt id="my-hashed-db">made hashed-databases a portable
+    option</dt>
+
+    <dd>
+      The BSD's implemented hashed-databases for termcap starting
+      with BSD&nbsp;4.4 (in 1994). This stores a copy of each
+      termcap entry's <em>text</em> in the database. At runtime,
+      the termcap library puts the terminal description together,
+      resolving "<code>tc=</code>" capabilities (includes).
+      <p>OpenBSD added hashed database for their system version of
+      ncurses in <a href=
+      "http://www.openbsd.org/cgi-bin/cvsweb/src/lib/libcurses/tinfo/read_bsd_terminfo.c">
+      1999</a>. Again, this stores text &mdash; this time for
+      terminfo. It means that the library must contain most of the
+      <code>tic</code> terminfo compiler. One of the features of
+      terminfo in comparison to termcap is that terminfo is
+      <em>compiled</em> and loads into a usable form with less
+      work. Also, in contrast to ncurses, the OpenBSD design uses
+      <code>cap_mkdb</code> to load the entire database at one time
+      rather than providing from incremental loading from various
+      sources.</p>
+
+      <p>I added support for hashed databases in 2006. Like other
+      features of ncurses it is reasonably portable (in this case
+      relying upon Berkeley Database), and stores terminal entries
+      in compiled form. Berkeley Database allows records longer
+      than 1024 bytes (unlike <a href=
+      "http://pubs.opengroup.org/onlinepubs/009695399/basedefs/ndbm.h.html">
+      ndbm</a> on Solaris for instance). Equally important, its
+      licensing is non-restrictive, unlike <code>ndbm</code> and
+      <code>gdbm</code>.</p>
+    </dd>
+  </dl>
+
+  <h2 id="syntax_original-toc"><a name="syntax_original" id=
+  "syntax_original">Issues with the Original BSD Termcap</a></h2>
+
+  <p>The original implementation (of BSD&nbsp;4.3) termcap has
+  several problems:</p>
+
+  <ul>
+    <li><a href="#original_memuse">inefficient use of memory</a></li>
+
+    <li><a href="#original_checking">inadequate checks for buffer
+    overflows</a></li>
+
+    <li><a href="#original_reporting">poor error reporting</a></li>
+
+    <li><a href="#original_includes">limited use of inheritance</a></li>
+
+    <li><a href="#original_escaping">inconsistent escaping
+    rules</a></li>
+  </ul>
+
+  <h3 id="original_memuse-toc"><a name="original_memuse" id=
+  "original_memuse">Memory Usage</a></h3>
+
+  <p>The design of termcap assumed that the calling application
+  would be more efficient by providing a fixed-size buffer to
+  return the data than by using malloc. Recalling that 1023 bytes
+  seemed "big enough" in that era, it has proven too cramped for
+  terminals with multiple function keys. In particular, the
+  widespread PC keyboard with 12 function keys, multiple modifiers
+  and more sophisticated applications has made 1023 seem too
+  small.</p>
+
+  <p>But in 1979, a 1023-byte buffer was also fairly large on the
+  small machines that Unix ran on. That may explain why wasted
+  space within that buffer was overlooked. When BSD&nbsp;4.3
+  termcap reads data into the buffer, it reads <em>everything</em>.
+  It does not discard the whitespace and extra colons which are not
+  actually part of the terminal description. Reduce that 1023-bytes
+  by 3%.</p>
+
+  <p>Some applications such as <a href=
+  "/xterm/xterm.html">xterm</a> (depending on the system) and
+  <a href="http://www.gnu.org/s/screen/">screen</a> may set the
+  <code>TERMCAP</code> environment variable to exploit another
+  feature of the termcap library: if it is set to something that
+  looks like a termcap description, <em>that</em> is used as the
+  terminal description. If you happen to be using a system which
+  does this, you might have noticed that it is formatted as several
+  lines. For <code>xterm</code>, that would happen with a
+  BSD&nbsp;4.3 termcap (<code>screen</code> is perverse and does
+  this all the time).</p>
+
+  <p>Mark Horton <a href=
+  "https://web.archive.org/web/20150202224801/http://www.informatica.co.cr/unix-source-code/research/1986/0429.html">
+  argued against</a> the use of environment variables:</p>
+
+  <blockquote>
+    <pre id="horton_1986" class="code-block">
+&gt;A termcap database sorted approximately in
+&gt;decreasing order of frequency of use should be at least as fast as the
+&gt;repeated directory lookups required to descend the terminfo tree -- and
+&gt;termcap format is *trivial* to parse.
+&gt;
+&gt;If speed is what you want, sort /etc/termcap in decreasing order of
+&gt;frequency of use. If that's not good enough for you, cram your termcap
+&gt;definition in the environment variable TERMCAP and leave terminfo behind
+&gt;entirely, when it comes to speed.
+
+I used to think this too.  I was at Berkeley when we decided how to sort
+termcap files and put them into the environment.  It helped a lot.
+
+But it turns out that even if you put a termcap in your environment,
+it's still too slow.  The termcap algorithm for reading the entry
+into a set of capabilities is QUADRATIC on the size of the entry.
+This is the nature of the beast - because of tc=, you have to start
+from the left for each capability search.  As termcap descriptions got
+longer, starting up vi grew slower and slower.  It was taking 1/4 second
+of CPU time on a VAX 750 to parse the termcap entry, even when it came
+out of the environment.
+
+This was when I decided to move to a compiled format.  Things get much
+simpler for the typical user - no need for the whole entry in the
+environment anymore, or the hair of tset -s in the .profile/.login.
+The ps command was breaking from the huge environment entries that
+took the arguments off the top page of memory.  Forks were expensive.
+And it took too long to start up vi.  All these problems went away
+when terminfo was compiled.
+</pre>
+  </blockquote>
+
+  <p>Besides wasting process space, a multi-line
+  <code>TERMCAP</code> variable complicates shell scripts. In
+  contrast, BSD&nbsp;4.4 discards the unnecessary characters,
+  resulting in a single-line value.</p>
+
+  <p>Different implementations use additional workarounds to
+  increase the effective buffer size for a terminal description; no
+  particular scheme is used for all of these.</p>
+
+  <h3 id="original_checking-toc"><a name="original_checking" id=
+  "original_checking">Error Checking</a></h3>
+
+  <p>With some care, it is possible to fit usable terminal
+  descriptions into the 1023-byte limit. The termcap library does
+  some simple checks to keep from writing past its caller's buffer.
+  However, the "<code>tc=</code>" (includes) are a little more
+  complicated than the program can handle, making it possible to
+  chop a capability at the end of the buffer, giving odd results.
+  The termcap library's handling of buffer overflows has other
+  bugs, allowing it to write past the end of the buffer anyway.</p>
+
+  <h3 id="original_reporting-toc"><a name="original_reporting" id=
+  "original_reporting">Error Reporting</a></h3>
+
+  <p>When reporting problems in a termcap entry, the library uses
+  only simple messages, calling <code>write</code> rather than
+  <code>printf</code>. According to comments in the code, the
+  library did not use <code>&lt;stdio.h&gt;</code> because the
+  editor (<em>vi</em>) did not. As a result, termcap error messages
+  do not provide names of too-long entries.</p>
+
+  <h3 id="original_includes-toc"><a name="original_includes" id=
+  "original_includes">Inheritance</a></h3>
+
+  <p>The termcap library implements inheritance by replacing the
+  "<code>tc=</code>" capability at the end of the termcap entry
+  with the included text. (It does discard the name and description
+  of the included entry, but rather than being for efficiency, that
+  is done because of syntax restrictions). A capability could
+  appear in both the original and included entry. The text for both
+  is stored in the same 1023-byte buffer, and the library has to
+  search for the first occurrence. Because of the duplication, the
+  effective buffer size is again reduced, and searches for the
+  first occurrence of a capability are longer than necessary.</p>
+
+  <p>Fortunately, termcap buffer sizes are small; the performance
+  issues are not as noticeable as they were in older machines.</p>
+
+  <p>Later implementations, e.g., BSD&nbsp;4.4, support multiple
+  "<code>tc=</code>" capabilities. Again, the inheritance is purely
+  textual. To get efficient storage, a scheme such as that used by
+  terminfo is needed. With terminfo, the capabilities are merged
+  into an array, which eliminates the need for juggling and
+  recopying the entry as "<code>tc=</code>" includes are
+  processed.</p>
+
+  <h3 id="original_escaping-toc"><a name="original_escaping" id=
+  "original_escaping">Escaping Rules</a></h3>
+
+  <p>Rather than being designed, it appears that termcap "just
+  grew". The handling of escapes in particular is uneven (see
+  <a href="#bsd42_escapes">table of escapes</a>). For instance:</p>
+
+  <ul>
+    <li>No attempt was made to document the permitted escapes.</li>
+
+    <li>The <code>tskip</code> function (used to skip forward
+    through an entry) does not pay any attention to escaping. This
+    requires that colons used as data must be given as octal
+    "<code>\072</code>" and handled in a later part of the
+    parsing.</li>
+
+    <li>The "later part" attempts to handle colon along with other
+    known escaped characters. If <code>tskip</code> had paid
+    attention to escapes, the check for colon would succeed at that
+    point.</li>
+
+    <li>However, handling of "<code>tc=</code>" is done with a
+    mixture of forward- and backward-scanning. As with the
+    forward-scanning (<code>tskip</code>) the backward-scanning
+    does not pay attention to escapes, ensuring that an embedded
+    "<code>tc=</code>" in a capability's value will be
+    misinterpreted.</li>
+
+    <li>The parsing of escaped newlines is also done in comments,
+    so that a dangling &ldquo;\&rdquo; at the end of a comment line
+    will cause the following line to be ignored.</li>
+
+    <li>Conventionally, entries begin in column one with
+    continuation lines prefixed with a tab. The parser does not
+    check or warn for violations such as this example from
+    BSD&nbsp;4.2 which caused an unexpected dangling
+    &ldquo;\&rdquo; to make the following entry ignored:
+      <blockquote>
+        <!--{{atr2html-->
+
+        <p style="font-family: monospace; font-size: 10pt;" class=
+        "code-block"><font color=
+        "#800000">#&nbsp;set&nbsp;to&nbsp;page&nbsp;1&nbsp;when&nbsp;entering&nbsp;ex&nbsp;(\E-17&nbsp;)</font><br>
+
+        <font color=
+        "#800000">#&nbsp;reset&nbsp;to&nbsp;page&nbsp;0&nbsp;when&nbsp;exiting&nbsp;ex&nbsp;(\E-07&nbsp;)</font><br>
+
+        v4<font color="#800080">|</font>tvi912-2p<font color=
+        "#800080">|</font>tvi920-2p<font color=
+        "#800080">|</font>912-2p<font color=
+        "#800080">|</font>920-2p<font color=
+        "#800080">|</font>tvi-2p<font color=
+        "#800080">|</font><font color=
+        "#800000">televideo&nbsp;w/2&nbsp;pages</font>:\<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<strong><font color="#000080">ti</font></strong>=<font color="#800080">\E-17&nbsp;</font>:<strong><font color="#000080">te</font></strong>=<font color="#800080">\E-07&nbsp;</font>:<strong><font color="#000080">tc</font></strong>=tvi912:\<br>
+
+        v5<font color="#800080">|</font>tvi950-ap<font color=
+        "#800080">|</font><font color=
+        "#800000">tvi&nbsp;950&nbsp;w/alt&nbsp;pages</font>:\<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<strong><font color="#000080">is</font></strong>=<font color="#800080">\E\\1</font>:<strong><font color="#000080">ti</font></strong>=<font color="#800080">\E-06&nbsp;</font>:<strong><font color="#000080">te</font></strong>=<font color="#800080">\E-16&nbsp;</font>:<strong><font color="#000080">tc</font></strong>=tvi950:<br>
+
+        <!--atr2html}}--></p>
+      </blockquote>
+    </li>
+  </ul>
+
+  <p>Later implementations of the termcap parser resolved some of
+  its problems by first splitting the termcap entry into an array
+  of strings to use consistent boundaries. That helps with
+  "<code>tc=</code>" parsing. However the original misdesign of
+  <code>tskip</code> is carried forward. Legacy implementations
+  (such as Solaris) are unimproved.</p>
+
+  <p>Using <strong>tctest</strong>, I found that the parsing for
+  escaped colons is incomplete and inconsistent.</p>
+
+  <p>For instance, this example:</p>
+
+  <blockquote>
+    <!--{{atr2html-->
+
+    <p style="font-family: monospace; font-size: 10pt;" class=
+    "code-block">O0<font color="#800080">|</font>Octals<font color=
+    "#800080">|</font><font color=
+    "#800000">test&nbsp;octal-escapes</font>:\<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<strong><font color="#000080">F9</font></strong>=<font color="#800080">a\472</font>:\<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<strong><font color="#000080">FA</font></strong>=<font color="#800080">a\472FB=\333</font>:\<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<strong><font color="#000080">FB</font></strong>=<font color="#800080">a\134</font>:\<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<strong><font color="#000080">FC</font></strong>=<font color="#800080">a\:</font>:\<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<strong><font color="#000080">FD</font></strong>=<font color="#800080">a\:FE=\333</font>:\<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<strong><font color="#000080">FE</font></strong>=<font color="#800080">a\134</font>:\<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<strong><font color="#000080">FF</font></strong>=<font color="#800080">a\072</font>:\<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<strong><font color="#000080">FG</font></strong>=<font color="#800080">a\072FH=\333</font>:\<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<strong><font color="#000080">FH</font></strong>=<font color="#800080">a\134</font>:\<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<strong><font color="#000080">is</font></strong>=<font color="#800080">\EZ</font>:<br>
+
+    <!--atr2html}}--></p>
+  </blockquote>
+  is translated to this:
+  <blockquote>
+    <!--{{atr2html-->
+
+    <p style="font-family: monospace; font-size: 10pt;" class=
+    "code-block"><font color=
+    "#800000">#&nbsp;alias&nbsp;E0</font><br>
+    Octals:\<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<strong><font color="#000080">F9</font></strong>=<font color="#800080">a\072</font>:\<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<strong><font color="#000080">FA</font></strong>=<font color="#800080">a\072FB=\333</font>:\<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<strong><font color="#000080">FB</font></strong>=<font color="#800080">a\\</font>:\<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<strong><font color="#000080">FC</font></strong>=<font color="#800080">a\072</font>:\<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<strong><font color="#000080">FD</font></strong>=<font color="#800080">a\072FE=\333</font>:\<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<strong><font color="#000080">FE</font></strong>=<font color="#800080">\333</font>:\<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<strong><font color="#000080">FF</font></strong>=<font color="#800080">a\072</font>:\<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<strong><font color="#000080">FG</font></strong>=<font color="#800080">a\072FH=\333</font>:\<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<strong><font color="#000080">FH</font></strong>=<font color="#800080">a\\</font>:\<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<strong><font color="#000080">is</font></strong>=<font color="#800080">\EZ</font>:<br>
+
+    <!--atr2html}}--></p>
+  </blockquote>
+
+  <p>The "<code>\:</code>" in the definition for <code>FD</code> is
+  translated to an actual colon, and the value returned includes
+  the shadowed <code>FE</code>, contrary to the termcap manpage
+  which says that literal colons must be given as
+  "<code>\072</code>". That is because escapes are checked in
+  forward-scanning, but not in backward scanning.</p>
+
+  <p>The mapping of "<code>\472</code>" to "<code>\072</code>" is
+  expected, and it happens to match the treatment of
+  "<code>\:</code>".</p>
+
+  <p>The sequence "<code>\0</code>" also is mishandled by
+  BSD&nbsp;4.3 termcap. If one uses that in an entry, it loses
+  track of the actual character position (due to the inconsistent
+  scanning) and acts as if the characters following the misencoded
+  null are part of the capability. If the first of those happens to
+  be the delimiting colon of the capability, <em>it</em> becomes
+  part of the value. In some cases, a garbage character is added
+  for completeness. Not only that capability value is misparsed,
+  but others which follow it in the entry. The
+  <code>escapes.tc</code> test case shows this behavior, in the
+  <code>Octals</code> entry.</p>
+
+  <p>Oddly enough, the equivalent "<code>^@</code>" is handled as
+  one might expect from the documentation, and thrown away.</p>
+
+  <h2 id="syntax_extended-toc"><a name="syntax_extended" id=
+  "syntax_extended">Termcap Extensions</a></h2>
+
+  <p>Modern (since 1990) implementations of termcap provide
+  extensions.</p>
+
+  <p>Rather than rely on documentation (which can be interesting),
+  I have set up test-cases with <strong>tctest</strong> to verify
+  whether a given implementation reads a particular syntax feature,
+  and how it is returned to a calling application.</p>
+
+  <h3 id="extensions_ncurses-toc"><a name="extensions_ncurses" id=
+  "extensions_ncurses">NCurses</a></h3>
+
+  <p>Because ncurses can read termcap source files, it is
+  technically a termcap implementation. It stores the terminal
+  entries in terminfo format, but at the same time it provides
+  better support for termcap applications than other terminfo-based
+  implementations. Much of that is because of reports from
+  <code>screen</code>'s developer Michael Schroeder. For
+  instance</p>
+
+  <ul>
+    <li>NCurses <a href=
+    "/ncurses/NEWS.html#t20010908">customizes</a> the string
+    returned by <code>tgetstr</code> for the "<code>me</code>"
+    parameter.<br>
+    The <a href="/ncurses/man/terminfo.5.html">terminfo
+    documentation</a> states that "<code>me</code>" and
+    "<code>sgr0</code>" are equivalent. However, Michael Schroeder
+    pointed out that termcap applications do not expect to have
+    this capability modify the state of the alternate character
+    set.</li>
+
+    <li>NCurses also supports the termcap global variables <a href=
+    "/ncurses/NEWS.html#t990102">ospeed</a> and <a href=
+    "/ncurses/NEWS.html#t990109">PC</a>.</li>
+  </ul>
+
+  <h3 id="extensions_netbsd-toc"><a name="extensions_netbsd" id=
+  "extensions_netbsd">NetBSD</a></h3>
+
+  <p>NetBSD termcap (deprecated in 2010 in favor of a native
+  terminfo implementation) provides the BSD&nbsp;4.4 extensions.
+  They are actually not <em>in</em> the termcap library, but rather
+  are provided by <code>cgetstr</code> (originally May 1993), which
+  is in <a href=
+  "http://cvsweb.netbsd.org/bsdweb.cgi/src/lib/libc/gen/getcap.c">src/lib/libc/gen</a>:</p>
+
+  <blockquote>
+    <table border="1" summary="NetBSD termcap extensions">
+      <tr>
+        <th>Source</th>
+        <th>Result</th>
+      </tr>
+
+      <tr>
+        <td>\B</td>
+        <td>backspace</td>
+      </tr>
+
+      <tr>
+        <td>\C</td>
+        <td>colon</td>
+      </tr>
+
+      <tr>
+        <td>\F</td>
+        <td>form-feed</td>
+      </tr>
+
+      <tr>
+        <td>\N</td>
+        <td>newline</td>
+      </tr>
+
+      <tr>
+        <td>\R</td>
+        <td>return</td>
+      </tr>
+
+      <tr>
+        <td>\T</td>
+        <td>tab</td>
+      </tr>
+
+      <tr>
+        <td>\c</td>
+        <td>colon</td>
+      </tr>
+
+      <tr>
+        <td>\e</td>
+        <td>escape</td>
+      </tr>
+    </table>
+  </blockquote>
+
+  <p>However there is some breakage, making it incompatible with
+  BSD&nbsp;4.2 termcap (testing NetBSD 5.1):</p>
+
+  <blockquote>
+    <table border="1" summary="NetBSD termcap breakage">
+      <tr>
+        <th>Source</th>
+        <th>Result</th>
+      </tr>
+
+      <tr>
+        <td>\b</td>
+        <td>is eaten</td>
+      </tr>
+
+      <tr>
+        <td>\t</td>
+        <td>is eaten</td>
+      </tr>
+
+      <tr>
+        <td>\072</td>
+        <td>is eaten</td>
+      </tr>
+    </table>
+  </blockquote>
+
+  <h3 id="extensions_gnu-toc"><a name="extensions_gnu" id=
+  "extensions_gnu">GNU Termcap</a></h3>
+
+  <p>Neither flavor (2.0.8 or 1.3.1) documents the features that
+  are of interest.</p>
+
+  <p>Termcap 2.0.8 ignores the termcap entry's lines and columns
+  values, replacing those by the actual screensize in
+  <code>tgetent</code>.</p>
+
+  <p>It does not honor the <code>\072</code> escape. Both
+  <code>\072</code> and <code>\:</code> are interpeted as a
+  separator.</p>
+
+  <p>Like the BSD termcap implementations, it dumps core when
+  processing too-large entries.</p>
+
+  <p>Termcap 1.3.1, on the other hand, does not dump core for the
+  examples in <strong>tctest</strong>.</p>
+
+  <p>Termcap 1.3.1's handling of escapes is loosely based on BSD
+  4.4's extensions:</p>
+
+  <blockquote>
+    <table border="1" summary="GNU termcap 1.3.1 extensions">
+      <tr>
+        <th>Source</th>
+        <th>Result</th>
+      </tr>
+
+      <tr>
+        <td>\A</td>
+        <td>^G</td>
+      </tr>
+
+      <tr>
+        <td>\B</td>
+        <td>\b</td>
+      </tr>
+
+      <tr>
+        <td>\F</td>
+        <td>\f</td>
+      </tr>
+
+      <tr>
+        <td>\N</td>
+        <td>\n</td>
+      </tr>
+
+      <tr>
+        <td>\T</td>
+        <td>\t</td>
+      </tr>
+
+      <tr>
+        <td>\V</td>
+        <td>^K</td>
+      </tr>
+
+      <tr>
+        <td>\a</td>
+        <td>^G</td>
+      </tr>
+
+      <tr>
+        <td>\e</td>
+        <td>\E</td>
+      </tr>
+
+      <tr>
+        <td>\v</td>
+        <td>^K</td>
+      </tr>
+
+      <tr>
+        <td>\08</td>
+        <td>(eaten)</td>
+      </tr>
+
+      <tr>
+        <td>\09</td>
+        <td>\t</td>
+      </tr>
+
+      <tr>
+        <td>\134</td>
+        <td>(garbage)</td>
+      </tr>
+
+      <tr>
+        <td>\8</td>
+        <td>\b</td>
+      </tr>
+
+      <tr>
+        <td>\9</td>
+        <td>\t</td>
+      </tr>
+    </table>
+  </blockquote>
+
+  <h2 id="testing_performance-toc"><a name="testing_performance"
+  id="testing_performance">Performance</a></h2>
+
+  <p>In addition to using <strong>tctest</strong> to check for
+  syntax issues with different termcap implementations, it is
+  useful (simply because it retrieves all of the terminal
+  descriptions from a source) for comparing performance.</p>
+
+  <p>Using different command-line options, <strong>tctest</strong>
+  can be told to</p>
+
+  <ul>
+    <li>repeatedly call <code>tgetent</code></li>
+
+    <li>call <code>tgetstr</code> (and <code>tgetnum</code>,
+    <code>tgetflag</code>) for all possible capability names,</li>
+
+    <li>call those functions for just the "standard" names.</li>
+  </ul>
+
+  <p>The measurements reported here are from
+  <strong>tctest</strong>'s "make check", "make check-cap" or "make
+  check-tic" rules. The "check-cap" and "check-tic" makefile rules
+  tell the test script to store each termcap file as a database,
+  either hashed (for the BSD's) and/or file-system (for ncurses).
+  The tests are designed to work on a large terminal database,
+  getting data from a variety of terminal entries. Other types of
+  tests are possible, but not currently of interest in this
+  discussion.</p>
+
+  <p>There are several configuration choices for ncurses. It can
+  read a flat file, but that is the least efficient. The comparison
+  with BSD&nbsp;4.4 hashed databases is the most interesting; data
+  from the older flat file implementations are shown for
+  comparison. To configure ncurses with support for termcap, I used
+  these options:</p>
+
+  <blockquote>
+    <pre class="code-block">
+        --enable-getcap --enable-termcap --enable-bsdpad
+</pre>
+  </blockquote>
+
+  <p>Mark Horton's <a href="#horton_1986">1986 comment</a> on
+  Usenet says he found parsing $TERMCAP to be slower than reading
+  binary terminfo from a file, simply because of the cost of
+  parsing it, irregardless of the storage mechanism. That might be
+  interesting in another discussion; however distinguishing file
+  access times from disk-caching complicates it.</p>
+
+  <h3 id="perform_timing-toc"><a name="perform_timing" id=
+  "perform_timing">CPU Time</a></h3>
+
+  <p>I have five systems that I can get interesting timing figures
+  for:</p>
+
+  <ul>
+    <li>Debian 5.0 (BSD 4.2, BSD 4.3, schily, termcap 2.0.8,
+    termcap 1.31 and ncurses)</li>
+
+    <li>FreeBSD 4.9 and 8.1 (termcap, ncurses)</li>
+
+    <li>NetBSD 5.1 (termcap, curses, ncurses)</li>
+
+    <li>OpenBSD 4.9 (otermcap, ncurses)</li>
+
+    <li>Solaris 10 (ucb, default, ncurses)</li>
+  </ul>
+
+  <p>Actually I have other systems, but those would duplicate
+  things without adding information. Here are some issues that are
+  relevant to the comparison:</p>
+
+  <ul>
+    <li>The ncurses version used for each system (5.9.20111001) is
+    current at this time. It reflects fixes/improvements which I
+    have made while developing <strong>tctest</strong>.</li>
+
+    <li>The Debian 5.0 and FreeBSD 4.9 systems are 32-bit; the
+    others are 64-bit.</li>
+
+    <li>I used two versions of FreeBSD, initially intending to get
+    data for a rather old version of FreeBSD in an attempt to get a
+    non-ncurses version (but it turned out I would have to go even
+    older than that).</li>
+
+    <li>My copy of OpenSolaris (11) does not have the UCB headers,
+    implying it is intended only for runtime legacy uses (nor did I
+    see it as a possible update).</li>
+
+    <li>All but NetBSD are running on the same server, as virtual
+    machines. NetBSD refuses to install with Parallels; it works
+    with Xen.</li>
+
+    <li>To provide uniform comparison, I compiled Berkeley Database
+    3.3 on the Solaris machine.</li>
+  </ul>
+
+  <p>Of course, ncurses is available on each platform, while the
+  others (except for the four variants which I compiled for Debian)
+  are available only on specific platforms. The timing figures are
+  subject to the usual caveats:</p>
+
+  <ul>
+    <li>the times measured here are too small to be of concern to
+    interactive users</li>
+
+    <li>they are not intended to show that one platform is faster
+    than another</li>
+
+    <li>the performance of the library may vary according to the
+    size of the database</li>
+
+    <li>the test program has its own overhead, which is not
+    measured separately</li>
+
+    <li>there is no such thing as a "quiescent" computer
+    system</li>
+
+    <li>results will vary from one run to the next, due to
+    disk-caching and other details</li>
+  </ul>
+
+  <p>All times are in seconds (real time), and are for one of the
+  test-files (the BSD&nbsp;4.3 termcap file, which is about 167Kb).
+  The test file was chosen because it was the largest one having no
+  multiple "<code>tc=</code>" includes. Also, no entries are too
+  large. That makes the test work with the older termcap
+  implementations.</p>
+
+  <ul>
+    <li>the file has 538 entries with 19224 capabilities</li>
+
+    <li>the "tgetent*10" test processes the file 10 times, only
+    calling <code>tgetent</code>.</li>
+
+    <li>the "standard caps" test processes the file once, asking
+    for 263,620 (538*490) capabilities.</li>
+
+    <li>the "all possible caps" test processes the file once,
+    asking for 4,455,178 (538*91*91) capabilities.</li>
+  </ul>
+
+  <blockquote>
+    <table border="1" summary=
+    "Timing Comparison of Termcap Libraries">
+      <colgroup>
+        <col width="12%">
+        <col width="12%">
+        <col width="12%">
+        <col width="12%">
+        <col width="12%">
+        <col width="12%">
+      </colgroup>
+
+      <tr>
+        <th>System</th>
+        <th>Library</th>
+        <th>Database</th>
+        <th>Test tgetent*10</th>
+        <th>Test standard caps</th>
+        <th>Test all possible caps</th>
+      </tr>
+
+      <tr>
+        <td>Debian 5.0</td>
+        <td>ncurses</td>
+        <td>filesystem</td>
+        <td align="right">0.72</td>
+        <td align="right">1.42</td>
+        <td align="right">19.29</td>
+      </tr>
+
+      <tr>
+        <td>Debian 5.0</td>
+        <td>ncurses</td>
+        <td>hashed-db</td>
+        <td align="right">0.32</td>
+        <td align="right">1.40</td>
+        <td align="right">19.75</td>
+      </tr>
+
+      <tr>
+        <td>Debian 5.0</td>
+        <td>BSD 4.2</td>
+        <td>flat file</td>
+        <td align="right">18.16</td>
+        <td align="right">7.80</td>
+        <td align="right">106.47</td>
+      </tr>
+
+      <tr>
+        <td>Debian 5.0</td>
+        <td>BSD 4.3</td>
+        <td>flat file</td>
+        <td align="right">12.54</td>
+        <td align="right">4.15</td>
+        <td align="right">50.13</td>
+      </tr>
+
+      <tr>
+        <td>Debian 5.0</td>
+        <td>schily-2011-06-22</td>
+        <td>flat file</td>
+        <td align="right">14.94</td>
+        <td align="right">5.20</td>
+        <td align="right">54.59</td>
+      </tr>
+
+      <tr>
+        <td>Debian 5.0</td>
+        <td>termcap 2.0.8</td>
+        <td>flat file</td>
+        <td align="right">11.42</td>
+        <td align="right">3.90</td>
+        <td align="right">47.48</td>
+      </tr>
+
+      <tr>
+        <td>Debian 5.0</td>
+        <td>termcap 1.31</td>
+        <td>flat file</td>
+        <td align="right">13.86</td>
+        <td align="right">6.20</td>
+        <td align="right">85.68</td>
+      </tr>
+
+      <tr>
+        <td>FreeBSD 4.9</td>
+        <td>ncurses</td>
+        <td>filesystem</td>
+        <td align="right">0.63</td>
+        <td align="right">2.00</td>
+        <td align="right">29.91</td>
+      </tr>
+
+      <tr>
+        <td>FreeBSD 4.9</td>
+        <td>ncurses</td>
+        <td>hashed-db</td>
+        <td align="right">0.49</td>
+        <td align="right">1.98</td>
+        <td align="right">29.50</td>
+      </tr>
+
+      <tr>
+        <td>FreeBSD 4.9</td>
+        <td>termcap</td>
+        <td>hashed-db</td>
+        <td align="right">2.11</td>
+        <td align="right">2.43</td>
+        <td align="right">44.71</td>
+      </tr>
+
+      <tr>
+        <td>FreeBSD 8.1</td>
+        <td>ncurses</td>
+        <td>filesystem</td>
+        <td align="right">6.20</td>
+        <td align="right">2.30</td>
+        <td align="right">27.80</td>
+      </tr>
+
+      <tr>
+        <td>FreeBSD 8.1</td>
+        <td>ncurses</td>
+        <td>hashed-db</td>
+        <td align="right">0.37</td>
+        <td align="right">1.79</td>
+        <td align="right">26.38</td>
+      </tr>
+
+      <tr>
+        <td>FreeBSD 8.1</td>
+        <td>termcap</td>
+        <td>hashed-db</td>
+        <td align="right">5.03</td>
+        <td align="right">3.43</td>
+        <td align="right">57.19</td>
+      </tr>
+
+      <tr>
+        <td>NetBSD 5.1</td>
+        <td>ncurses</td>
+        <td>filesystem</td>
+        <td align="right">0.78</td>
+        <td align="right">1.31</td>
+        <td align="right">17.60</td>
+      </tr>
+
+      <tr>
+        <td>NetBSD 5.1</td>
+        <td>ncurses</td>
+        <td>hashed-db</td>
+        <td align="right">0.50</td>
+        <td align="right">1.29</td>
+        <td align="right">17.33</td>
+      </tr>
+
+      <tr>
+        <td>NetBSD 5.1</td>
+        <td>termcap</td>
+        <td>hashed-db</td>
+        <td align="right">0.65</td>
+        <td align="right">3.43</td>
+        <td align="right">52.01</td>
+      </tr>
+
+      <tr>
+        <td>NetBSD 5.1</td>
+        <td>curses</td>
+        <td>hashed-db</td>
+        <td align="right">0.65</td>
+        <td align="right">3.11</td>
+        <td align="right">51.31</td>
+      </tr>
+
+      <tr>
+        <td>OpenBSD 4.9</td>
+        <td>ncurses</td>
+        <td>filesystem</td>
+        <td align="right">5.90</td>
+        <td align="right">1.70</td>
+        <td align="right">64.50</td>
+      </tr>
+
+      <tr>
+        <td>OpenBSD 4.9</td>
+        <td>ncurses</td>
+        <td>hashed-db</td>
+        <td align="right">0.53</td>
+        <td align="right">1.22</td>
+        <td align="right">63.70</td>
+      </tr>
+
+      <tr>
+        <td>OpenBSD 4.9</td>
+        <td>otermcap</td>
+        <td>hashed-db</td>
+        <td align="right">3.84</td>
+        <td align="right">2.81</td>
+        <td align="right">160.26</td>
+      </tr>
+
+      <tr>
+        <td>OpenBSD 4.9</td>
+        <td>curses</td>
+        <td>hashed-db</td>
+        <td align="right">3.84</td>
+        <td align="right">2.81</td>
+        <td align="right">160.24</td>
+      </tr>
+
+      <tr>
+        <td>Solaris 10</td>
+        <td>ncurses</td>
+        <td>filesystem</td>
+        <td align="right">4.11</td>
+        <td align="right">2.49</td>
+        <td align="right">31.01</td>
+      </tr>
+
+      <tr>
+        <td>Solaris 10</td>
+        <td>ncurses</td>
+        <td>hashed-db</td>
+        <td align="right">0.54</td>
+        <td align="right">2.07</td>
+        <td align="right">30.18</td>
+      </tr>
+
+      <tr>
+        <td>Solaris 10</td>
+        <td>ucblib</td>
+        <td>flat file</td>
+        <td align="right">14.53</td>
+        <td align="right">5.51</td>
+        <td align="right">67.87</td>
+      </tr>
+    </table>
+  </blockquote>
+
+  <p>The table illustrates some of the performance differences
+  within a given platform, showing that hashed databases are more
+  effective on some platforms. Similarly, there are differences
+  between different termcap implementations; some use more
+  efficient methods for retrieving capability information.</p>
+
+  <h3 id="perform_memory-toc"><a name="perform_memory" id=
+  "perform_memory">Memory Use</a></h3>
+
+  <p>The BSD&nbsp;4.3 termcap library wastes space by not
+  discarding the unnecessary whitespace used to make it simple to
+  edit. Generally this is about 3% of the text returned by
+  <code>tgetent</code>, as illustrated:</p>
+
+  <blockquote>
+    <img width="800" src="/ncurses/images/tctest-waste-size.png"
+    alt="Wasted space versus size (BSD 4.3 termcap)">
+  </blockquote>
+
+  <p>The output from <strong>tctest</strong> would then waste even
+  more space (if used as a termcap datafile) simply because it uses
+  a separate line for each capability. BSD&nbsp;4.4 and ncurses are
+  unaffected by the extra whitespace, discarding it as they read
+  the datafile.</p>
+
+  <p>Peter Wemm pointed this out to me early on, saying that
+  BSD&nbsp;4.3 had many known bugs and was slow, and that
+  BSD&nbsp;4.4 had fixed most of those problems. Keeping that in
+  mind, the memory limitations of BSD&nbsp;4.3 are not generally an
+  issue, and that problems due to "large" termcap entries are
+  mainly a concern to secondary users of ncurses' terminal
+  database.</p>
+
+  <p>For instance, I provide a link to a generated termcap source
+  on my <a href="/ncurses/ncurses.html">ncurses</a> page. The
+  generated termcap matches the general structure of the terminfo
+  source from which it is generated:</p>
+
+  <ul>
+    <li>each terminfo entry name is found in the termcap,</li>
+
+    <li>each <code>use</code> capability in the terminfo is a
+    <code>tc</code> in the termcap,</li>
+
+    <li>individual entries are limited to 1023 bytes, but</li>
+
+    <li>combining entries via "<code>tc=</code>" will often exceed
+    1023 bytes.</li>
+  </ul>
+
+  <p>Primary users are those who are using ncurses or some other
+  termcap library (such as NetBSD) which can handle that generated
+  termcap file.</p>
+
+  <p>Secondary users on the other hand are developers using a
+  different termcap library.</p>
+
+  <p>The developers of GNU termcap 1.3.1 used different options of
+  <code>tic</code> to resolve multiple "<code>tc=</code>"
+  capabilities, and to relax the limit on entry size. They noted
+  that entry size is not a problem with their library, and that
+  users who need the data from <code>tgetent</code> should allocate
+  a buffer at least 2500 bytes.</p>
+
+  <p>Other developers may wish to experiment with BSD&nbsp;4.3 (or
+  equivalent). Using ncurses' tic, it is simple to generate a
+  termcap source which is trimmed down enough for that , e.g.,</p>
+
+  <blockquote>
+    <pre class="code-block">
+  tic -Cr0 terminfo.src &gt;termcap-file
+</pre>
+  </blockquote>
+
+  <p>The "<code>-r</code>" option has been part of ncurses for
+  quite a while. I added the "<code>-0</code>" option to
+  <code>tic</code> in <a href=
+  "/ncurses/NEWS.html#t20110807">2011</a>, while developing this
+  program.</p>
+
+  <p>Of course, working within the 1023-byte limit ensures that
+  some functionality is lost. It was a noticeable problem even with
+  the BSD&nbsp;4.3 terminal database. The plot below (using
+  <a href="http://www.gnuplot.info">gnuplot</a>) shows that the
+  distribution of entry-sizes is bimodal:</p>
+
+  <ul>
+    <li>there are a number of small entries, which forms a high
+    point, with some bumps</li>
+
+    <li>there is a second peak out around 900 bytes (safely away
+    from the core dumps associated with the 1023-byte limit).</li>
+  </ul>
+
+  <blockquote>
+    <img width="800" src="/ncurses/images/tctest-entry-size.png"
+    alt="Number of entries versus size (BSD 4.3 termcap)">
+  </blockquote>
+
+  <p>The second peak includes terminals such as the Ann Arbor
+  Ambassador and the Concept terminals&ndash;widely used
+  improvements over VT100's.</p>
+
+  <p>Since BSD&nbsp;4.3, the terminal database has <a href=
+  "#database_growth">grown</a>, both in number of entries and the
+  size of the entries.</p>
+
+  <p>For example, here is the same BSD&nbsp;4.3 plot with a line
+  showing the termcap 1.3.1 data.</p>
+
+  <blockquote>
+    <img width="800" src="/ncurses/images/tctest-entry-size2.png"
+    alt="Number of entries versus size (BSD 4.3 termcap)">
+  </blockquote>
+
+  <p>It is easy to see that the entry-size distribution has shifted
+  off to the right, and that newer terminals simply have too many
+  features to use effectively within the old limit. Redrawing the
+  same chart with ncurses would be less interesting, since the
+  BSD&nbsp;4.3 data is still smaller in relation to the current
+  database.</p>
+
+  <hr>
+
+  <h2 id="changes-toc"><a name="changes" id="changes">Changes</a></h2>
+
+  <ul>
+    <li><a href="/ncurses/tctest/CHANGES">plain text</a></li>
+
+    <li><a href="/ncurses/tctest/CHANGES.html">changes with
+    links...</a></li>
+  </ul>
+
+  <h2 id="documentation-toc"><a name="documentation" id=
+  "documentation">Documentation</a></h2>
+
+  <p><a href="/ncurses/tctest/tctest.html">tctest</a> (<a href=
+  "/ncurses/tctest/tctest.pdf">pdf</a>) (<a href=
+  "/ncurses/tctest/tctest.ps">postscript</a>) (<a href=
+  "/ncurses/tctest/tctest.txt">plain text</a>)</p>
+
+  <hr>
+
+  <h2 id="download-toc"><a name="download" id=
+  "download">Download</a></h2>
+
+  <ul>
+    <li><a href="/datafiles/release/tctest.tar.gz">source</a></li>
+
+    <li><a href="/archives/tctest/">archives</a></li>
+  </ul>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!--
+  $Id: lynx-security.html,v 1.21 2019/04/14 17:39:58 tom Exp $
+  -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+
+  <title>LYNX &ndash; SECURITY FEATURES</title>
+  <link rel="author" href="mailto:dickey@invisible-island.net">
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii">
+  <link rel="SHORTCUT ICON" href="/img/icons/lynx.ico" type=
+  "image/x-icon">
+  <link rel="stylesheet" href="/css/simplestyle.css" type=
+  "text/css">
+  <link rel="stylesheet" href="/css/lynx-icons.css" type=
+  "text/css">
+  <style type="text/css">
+@import "/css/simplenavXX.css" all;
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <hr>
+
+  <p><a href="/">http://invisible-island.net/</a><a href=
+  "/lynx/">lynx/</a><br>
+  Copyright &copy; 2001-2013,2014 by Thomas E. Dickey</p>
+  <hr>
+
+  <div class="nav">
+    <ul>
+      <li class="nav-top"><a href=
+      "lynx-security.html">(top)</a></li>
+
+      <li><a href="#synopsis">Synopsis</a></li>
+
+      <li><a href="#highlights">Highlights</a></li>
+
+      <li><a href="#discussion">Discussion</a></li>
+
+      <li><a href="#issues">Issues</a></li>
+    </ul>
+  </div>
+
+  <h2><a name="synopsis" id="synopsis">Synopsis</a></h2>
+
+  <p><code>lynx</code> is designed to be run either as a
+  single-user application, or as a server, e.g., as a web portal
+  accessed via telnet.</p>
+
+  <h2><a name="highlights" id="highlights">Highlights</a></h2>
+
+  <p>To allow it to be used as a server, it has configurable
+  restrictions on the types of operations which can be performed by
+  a user. In theory, <code>lynx</code> is secure.</p>
+
+  <p>In practice, <code>lynx</code> suffers from its age: it was
+  implemented largely in the mid 90's, by programmers who were not
+  acquainted with modular/portable design. Repairing this is an
+  interesting problem in maintainability (interesting to me at any
+  rate). Since <code>lynx</code> does build and run on a wide
+  variety of platforms, it cannot simply use two of the panaceas
+  advocated by people who are familiar with the jargon of secure
+  programming: <code>mkstemp</code> and <code>snprintf</code>:</p>
+
+  <ul>
+    <li>The first (<code>mkstemp</code>) is a BSD extension which
+    is not for example present on Solaris. In some configurations,
+    it is known to be insecure. The problem it solves (securely
+    creating temporary files) is addressed a different way in
+    <code>lynx</code>, i.e., creating temporary files within a
+    secured directory.</li>
+
+    <li>The other (<code>snprintf</code>) falls into a similar
+    category: it is used to avoid buffer overflows arising from
+    printf-like formatting. <code>Lynx</code> has its own
+    <code>snprintf</code>-like code (actually two flavors: one
+    appends to a buffer, which is not addressed by
+    <code>snprintf</code> or the related asprintf). Like
+    <code>mkstemp</code>, some implementations of
+    <code>snprintf</code> and asprintf are known to be corrupt, so
+    we do not use them.</li>
+  </ul>
+
+  <p>Not all buffer manipulations fall readily into these
+  categories; we review use of fixed-size buffers to ensure that
+  they are being handled properly.</p>
+
+  <h2><a name="discussion" id="discussion">Discussion</a></h2>
+
+  <p>One problem with work in this area is that few people know
+  much, but there is a lot of second-hand information. Second-hand
+  information is frequently inaccurate.</p>
+
+  <p>Many of the posters of exploits to BugTraq, for instance, are
+  more concerned with being first to post than with the accuracy of
+  their postings. Much of the traffic relating to
+  <code>lynx</code>, in particular is ultimately due to a system
+  administrator (in this case, read "computer operator") who
+  apparently favors FreeBSD over Linux, and has made numerous (a
+  few are accurate) disparaging remarks relating to security on
+  Linux. We have addressed the items that are based on facts, but
+  it appears that the main reason there are no current reports is
+  that this loose cannon has evolved into a "security
+  consultant".</p>
+
+  <p>When preparing for <code>lynx</code> 2.8.3 (April 2000), I
+  noted (after inspecting the related source code) that
+  <code>lynx</code>'s competitors (<code>w3m</code> and
+  <code>links</code>) suffered from the same sort of issues. See
+  for example <a href=
+  "http://archives.indenial.com/hypermail/bugtraq/2001/June2001/0282.html">
+  w3m</a>. For some reason, <code>links</code> appears to be
+  ignored by BugTraq, though it is not unusual for that application
+  to dump core.</p>
+
+  <p>In late 2001, I noted that while there there had been no
+  security reports more recent than before lynx 2.8.3, common
+  gossip continued that lynx is subject to multiple buffer
+  overflows. (From 2009, that comment still holds; there are
+  occasional issues to resolve, but "multiple buffer overflows" is
+  nonfactual). It is in fact easier to fix the code than to stop
+  the gossip. Report bugs if you find them. However, asserting in a
+  BugTraq-style posting that one "could" cause a failure in a
+  program is different from actually doing so.</p>
+
+  <h2><a name="issues" id="issues">Issues</a></h2>
+
+  <p>It used to be the case that security teams would notify the
+  developer of flaws and get them involved. Perhaps some still do,
+  but for others, the goal appears to be guided by the intent to
+  publish the flaw first. Since they're generally unfamiliar with
+  internals of larger programs, the published fixes tend to fall
+  short of solving the problem.</p>
+
+  <p><a href="http://www.debian.org/security/2006/dsa-1085">This
+  advisory</a> states "several vulnerabilities", though two are
+  reported. Further, the patch (mostly code-cleanup) was one that I
+  wrote, as inprogress development. However two organizations
+  misattributed it to OpenBSD. Rather than checking with me to help
+  with a minimal patch, they simply published it.</p>
+
+  <p>In an <a href=
+  "http://www.debian.org/security/2005/dsa-876">earlier
+  advisory</a>, I had responded to the report, and <a href=
+  "http://lists.gnu.org/archive/html/lynx-dev/2005-10/threads.html">
+  constructed a patch</a>. The security team issued a different
+  patch, which did not actually solve the problem, as I noted
+  <a href=
+  "http://lists.debian.org/debian-devel/2005/11/msg00922.html">here</a>.</p>
+</body>
+</html>

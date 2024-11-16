@@ -1,0 +1,1785 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://xterm.org/manpage-luit/">
+      
+      <link rel="icon" href="../favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.2.5">
+    
+    
+      
+        <title>Manpage - XTerm</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2d9f7617.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#7e56c2">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="deep-purple" data-md-color-accent="lime">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#luit-manpage" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="XTerm" class="md-header__button md-logo" aria-label="XTerm" data-md-component="logo">
+      
+  <img src="../logo-favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            XTerm
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Manpage
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/xterm-x11/docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="XTerm" class="md-nav__button md-logo" aria-label="XTerm" data-md-component="logo">
+      
+  <img src="../logo-favicon.png" alt="logo">
+
+    </a>
+    XTerm
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/xterm-x11/docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog-xterm/" class="md-nav__link">
+        Changelog (release notes)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../history/" class="md-nav__link">
+        History
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Install
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Install" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Install
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../package/" class="md-nav__link">
+        Package
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xterm.tar.gz/" class="md-nav__link">
+        xterm.tar.gz
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configure/" class="md-nav__link">
+        Configure
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" data-md-state="indeterminate" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Get started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Get started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Get started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../keyboard-shortcuts/" class="md-nav__link">
+        Keyboard shortcuts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../copy-and-paste/" class="md-nav__link">
+        Copy and paste
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tabs/" class="md-nav__link">
+        Tabs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../full-screen/" class="md-nav__link">
+        Full-screen
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scrolling/" class="md-nav__link">
+        Scrolling
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prompt/" class="md-nav__link">
+        Prompt
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" data-md-state="indeterminate" type="checkbox" id="__nav_7" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Customize
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Customize" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Customize
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sample/" class="md-nav__link">
+        Sample
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../themes/" class="md-nav__link">
+        Themes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fonts/" class="md-nav__link">
+        Fonts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template/" class="md-nav__link">
+        Template
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../icon/" class="md-nav__link">
+        Icon
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual-window-title/" class="md-nav__link">
+        Manual window title
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../static-window-title/" class="md-nav__link">
+        Static window title
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scrollbar/" class="md-nav__link">
+        Scrollbar
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../window-properties/" class="md-nav__link">
+        Window properties
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" data-md-state="indeterminate" type="checkbox" id="__nav_8" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8">
+          Manpage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Manpage" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Manpage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manpage-xterm/" class="md-nav__link">
+        xterm
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manpage-uxterm/" class="md-nav__link">
+        uxterm
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manpage-koi8rxterm/" class="md-nav__link">
+        koi8rxterm
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manpage-resize/" class="md-nav__link">
+        resize
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" data-md-state="indeterminate" type="checkbox" id="__nav_9" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9">
+          Control sequences
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Control sequences" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Control sequences
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started-with-ctlseqs/" class="md-nav__link">
+        Getting started with control sequences
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctlseqs-guide/" class="md-nav__link">
+        Guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ctlseqs-list/" class="md-nav__link">
+        List
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" data-md-state="indeterminate" type="checkbox" id="__nav_10" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10">
+          Libraries
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Libraries" data-md-level="1">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Libraries
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xtoolkit/" class="md-nav__link">
+        Xtoolkit
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manpage-xcursor/" class="md-nav__link">
+        Xcursor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manpage-xft/" class="md-nav__link">
+        Xft
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ncurses/" class="md-nav__link">
+        NCURSES
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11">
+          Quality engineering
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Quality engineering" data-md-level="1">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          Quality engineering
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_1" data-md-state="indeterminate" type="checkbox" id="__nav_11_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11_1">
+          VTtest
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="VTtest" data-md-level="2">
+        <label class="md-nav__title" for="__nav_11_1">
+          <span class="md-nav__icon md-icon"></span>
+          VTtest
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manpage-vttest/" class="md-nav__link">
+        Manpage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog-vttest/" class="md-nav__link">
+        Changelog
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about-vttest/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vttest.tar.gz/" class="md-nav__link">
+        vttest.tar.gz
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vttest-archives/" class="md-nav__link">
+        VTtest archives
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_2" type="checkbox" id="__nav_11_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11_2">
+          Luit
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Luit" data-md-level="2">
+        <label class="md-nav__title" for="__nav_11_2">
+          <span class="md-nav__icon md-icon"></span>
+          Luit
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Manpage
+      </a>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog-luit/" class="md-nav__link">
+        Changelog
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about-luit/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../luit.tar.gz/" class="md-nav__link">
+        luit.tar.gz
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../luit-archives/" class="md-nav__link">
+        Luit archives
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_3" data-md-state="indeterminate" type="checkbox" id="__nav_11_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11_3">
+          tack (ncurses)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="tack (ncurses)" data-md-level="2">
+        <label class="md-nav__title" for="__nav_11_3">
+          <span class="md-nav__icon md-icon"></span>
+          tack (ncurses)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manpage-tack/" class="md-nav__link">
+        Manpage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog-tack/" class="md-nav__link">
+        Changelog
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about-tack/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_4" data-md-state="indeterminate" type="checkbox" id="__nav_11_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11_4">
+          tctest (ncurses)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="tctest (ncurses)" data-md-level="2">
+        <label class="md-nav__title" for="__nav_11_4">
+          <span class="md-nav__icon md-icon"></span>
+          tctest (ncurses)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manpage-tctest/" class="md-nav__link">
+        Manpage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog-tctest/" class="md-nav__link">
+        Changelog
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about-tctest/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_5" data-md-state="indeterminate" type="checkbox" id="__nav_11_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11_5">
+          ncurses-examples (ncurses)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ncurses-examples (ncurses)" data-md-level="2">
+        <label class="md-nav__title" for="__nav_11_5">
+          <span class="md-nav__icon md-icon"></span>
+          ncurses-examples (ncurses)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ncurses-examples-about/" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scripts/" class="md-nav__link">
+        Scripts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recommended-tools/" class="md-nav__link">
+        Recommended tools
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/xterm-x11/docs/edit/master/docs/manpage-luit.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+
+<h1 id="luit-manpage"><code>luit</code> manpage</h1>
+<h2><a name="h2-NAME" id="h2-NAME">NAME</a></h2>
+<pre>       luit - Locale and ISO 2022 support for Unicode terminals
+
+</pre>
+<h2><a name="h2-SYNOPSIS" id="h2-SYNOPSIS">SYNOPSIS</a></h2>
+<pre>       <b>luit</b> [ <i>options</i> ] [ <b>--</b> ] [ <i>program</i> [ <i>args</i> ] ]
+
+</pre>
+<h2><a name="h2-DESCRIPTION" id="h2-DESCRIPTION">DESCRIPTION</a></h2>
+<pre>       <b>Luit</b> is a filter that can be run between an arbitrary application and a
+       UTF-8 terminal emulator.  It will convert application output  from  the
+       locale's  encoding  into  UTF-8,  and convert terminal input from UTF-8
+       into the locale's encoding.
+
+       <b>Luit</b> reads its input from  the  child  process,  i.e.,  an  application
+       running  in the terminal.  <b>Luit</b> writes its output to the terminal.  The
+       two (input and output) can have different encodings.
+
+       An application  may  also  request  switching  to  a  different  output
+       encoding  using  ISO 2022  and  ISO 6429 escape sequences.  Use of this
+       feature is discouraged: multilingual applications should be modified to
+       directly generate UTF-8 instead.
+
+       <b>Luit</b>  is  usually  invoked transparently by the terminal emulator.  For
+       information about running <b>luit</b> from  the  command  line,  see  EXAMPLES
+       below.
+
+</pre>
+<h2><a name="h2-OPTIONS" id="h2-OPTIONS">OPTIONS</a></h2>
+<pre>       <b>-V</b>     Print <b>luit</b>'s version and quit.
+
+       <b>-alias</b> <i>filename</i>
+              the locale alias file
+              (default: ).
+
+       <b>-argv0</b> <i>name</i>
+              Set the child's name (as passed in argv[0]).
+
+       <b>-c</b>     Function  as  a simple converter from standard input to standard
+              output.
+
+       <b>-encoding</b> <i>encoding</i>
+              Set up <b>luit</b> to use <i>encoding</i> rather  than  the  current  locale's
+              encoding.
+
+       <b>-g0</b> <i>charset</i>
+              Set  the  output  charset initially selected in G0.  The default
+              depends on the locale, but is usually <b>ASCII</b>.
+
+       <b>-g1</b> <i>charset</i>
+              Set the output charset initially selected in  G1.   The  default
+              depends on the locale.
+
+       <b>-g2</b> <i>charset</i>
+              Set  the  output  charset initially selected in G2.  The default
+              depends on the locale.
+
+       <b>-g3</b> <i>charset</i>
+              Set the output charset initially selected in  G3.   The  default
+              depends on the locale.
+
+       <b>-gl</b> <i>gn</i> Set  the  initial  assignment of GL in the output.  The argument
+              should be one of <b>g0</b>, <b>g1</b>, <b>g2</b> or <b>g3</b>.  The default depends  on  the
+              locale, but is usually <b>g0</b>.
+
+       <b>-gr</b> <i>gk</i> Set  the  initial  assignment  of GR in the output.  The default
+              depends on the locale, and is usually <b>g2</b> except for EUC locales,
+              where it is <b>g1</b>.
+
+       <b>-h</b>     Display  a  usage and options message on the standard output and
+              quit.
+
+       <b>-ilog</b> <i>filename</i>
+              Log into <i>filename</i> all the bytes received from the child.
+
+       <b>-k7</b>    Generate seven-bit characters for keyboard input.
+
+       <b>-kg0</b> <i>charset</i>
+              Set the input charset initially selected  in  G0.   The  default
+              depends on the locale, but is usually <b>ASCII</b>.
+
+       <b>-kg1</b> <i>charset</i>
+              Set  the  input  charset  initially selected in G1.  The default
+              depends on the locale.
+
+       <b>-kg2</b> <i>charset</i>
+              Set the input charset initially selected  in  G2.   The  default
+              depends on the locale.
+
+       <b>-kg3</b> <i>charset</i>
+              Set  the  input  charset  initially selected in G3.  The default
+              depends on the locale.
+
+       <b>-kgl</b> <i>gn</i>
+              Set the initial assignment of GL in  the  input.   The  argument
+              should  be  one of <b>g0</b>, <b>g1</b>, <b>g2</b> or <b>g3</b>.  The default depends on the
+              locale, but is usually <b>g0</b>.
+
+       <b>-kgr</b> <i>gk</i>
+              Set the initial assignment of GR  in  the  input.   The  default
+              depends on the locale, and is usually <b>g2</b> except for EUC locales,
+              where it is <b>g1</b>.
+
+       <b>-kls</b>   Generate locking shifts (SO/SI) for keyboard input.
+
+       <b>+kss</b>   Disable generation of single-shifts for keyboard input.
+
+       <b>+kssgr</b> Use GL codes after  a  single  shift  for  keyboard  input.   By
+              default,  GR  codes  are  generated  after  a  single shift when
+              generating eight-bit keyboard input.
+
+       <b>-list</b>  List the supported charsets and encodings, then quit.  <b>Luit</b> uses
+              its  internal  tables  for  this, which are based on the <i>fontenc</i>
+              library.
+
+       <b>-list-builtin</b>
+              List the built-in encodings used as a fallback  when  data  from
+              <i>iconv</i> or <i>fontenc</i> is missing.
+
+              This  option relies on <b>luit</b> being configured to use <i>iconv</i>, since
+              the  <i>fontenc</i>  library  does  not  supply  a  list  of   built-in
+              encodings.
+
+       <b>-list-fontenc</b>
+              List   the   encodings   provided  by  ".enc"  files  originally
+              distributed with the <i>fontenc</i> library.
+
+       <b>-list-iconv</b>
+              List the encodings and locales supported by the  <i>iconv</i>  library.
+              <b>Luit</b>  adapts  its  internal  tables  of  <i>fontenc</i>  names to <i>iconv</i>
+              encodings.
+
+              To make scripting simpler, <b>luit</b> ignores spaces, underscores  and
+              ASCII  minus-signs  (dash)  embedded  in  the  names.  <b>Luit</b> also
+              ignores case when matching charset and encoding names.
+
+              This option lists only the encodings which are  associated  with
+              the  locales  supported  on  the  current operating system.  The
+              portable <i>iconv</i> application provides  a  list  of  its  supported
+              encodings with the <b>-l</b> option.  Other implementations may provide
+              similar functionality.  There is no  portable  library  call  by
+              which an application can obtain the same information.
+
+       <b>-olog</b> <i>filename</i>
+              Log into <i>filename</i> all the bytes sent to the terminal emulator.
+
+       <b>+ols</b>   Disable interpretation of locking shifts in application output.
+
+       <b>+osl</b>   Disable  interpretation  of character set selection sequences in
+              application output.
+
+       <b>+oss</b>   Disable interpretation of single shifts in application output.
+
+       <b>+ot</b>    Disable interpretation of all sequences and pass  all  sequences
+              in  application output to the terminal unchanged.  This may lead
+              to interesting results.
+
+       <b>-p</b>     In startup, establish  a  handshake  between  parent  and  child
+              processes.   This  is  needed  for  some older systems, e.g., to
+              successfully copy the terminal settings to the pseudo-terminal.
+
+       <b>-prefer</b> <i>list</i>
+              Set the lookup-order preference for character  set  information.
+              The  parameter  is  a  comma-separated  list  of  keywords.  The
+              default order (listing all keywords) is
+
+                     fontenc,builtin,iconv,posix
+
+              The default order uses <b>fontenc</b> first because this allows <b>luit</b> to
+              start  more  rapidly  (about  0.1  seconds) than using <b>iconv</b> for
+              complex encodings such as eucJP.  However, you may find that the
+              iconv  implementation  is  more  accurate  or complete.  In that
+              case, you can use the <b>-show-iconv</b> option to obtain a  text  file
+              which can be used as an encoding with the <b>fontenc</b> configuration.
+
+              This  option relies on <b>luit</b> being configured to use <i>iconv</i>, since
+              the <i>fontenc</i> library does not provide this choice.
+
+       <b>-show-builtin</b> <i>encoding</i>
+              Show a built-in encoding, e.g., from a  ".enc"  file  using  the
+              ".enc" format.
+
+              This  option relies on <b>luit</b> being configured to use <i>iconv</i>, since
+              the  <i>fontenc</i>  library  does  not  supply  a  list  of   built-in
+              encodings.
+
+       <b>-show-fontenc</b> <i>encoding</i>
+              Show a given encoding, e.g., from a ".enc" file using the ".enc"
+              format.  If <b>luit</b> is configured to use the  <i>fontenc</i>  library,  it
+              obtains  the  information  using  that  library.  Otherwise <b>luit</b>
+              reads the file directly.
+
+              Some of <i>fontenc</i>'s encodings are built  into  the  library.   The
+              <i>fontenc</i>  library  uses  those in preference to an external file.
+              Use the <b>-show-builtin</b> option to provide similar information when
+              <b>luit</b> is configured to use <i>iconv</i>.
+
+       <b>-show-iconv</b> <i>encoding</i>
+              Show  a  given  encoding,  using  the ".enc" format.  If <b>luit</b> is
+              configured to use <i>iconv</i>, it obtains the information  using  that
+              interface.  If <i>iconv</i> cannot supply the information, <b>luit</b> may use
+              a built-in table.
+
+       <b>-t</b>     Initialize <b>luit</b> using the locale and command-line  options,  but
+              do  not  open a pty connection.  This option is used for testing
+              <b>luit</b>'s configuration.  It will exit with success  if  no  errors
+              were  detected.   Repeat the <b>-t</b> option to cause warning messages
+              to be treated as errors.
+
+       <b>-v</b>     Be verbose.  Repeating the option, e.g., "<b>-v</b> <b>-v</b>" makes  it  more
+              verbose.  <b>Luit</b> does not use <i>getopt</i>, so "<b>-vv</b>" does not work.
+
+       <b>-x</b>     Exit  as  soon  as  the child dies.  This may cause <b>luit</b> to lose
+              data at the end of the child's output.
+
+       <b>--</b>     End of options.
+
+</pre>
+<h2><a name="h2-ENVIRONMENT" id="h2-ENVIRONMENT">ENVIRONMENT</a></h2>
+<pre>       <b>Luit</b> uses these environment variables:
+
+       FONT_ENCODINGS_DIRECTORY
+              overrides the location of the "encodings.dir" file, which  lists
+              encodings in external ".enc" files.
+
+       LC_ALL
+
+       LC_CTYPE
+
+       LANG   During  initialization,  <b>luit</b>  calls  <b>setlocale</b>  to check if the
+              user's  locale  is  supported  by  the  operating  system.    If
+              <b>setlocale</b>  returns  a  failure,  <b>luit</b>  looks  instead  at  these
+              variables in succession to obtain  any  clues  from  the  user's
+              environment for locale preference.
+
+       NCURSES_NO_UTF8_ACS
+              <b>Luit</b>  sets  this  to  tell  ncurses to not rely upon VT100 SI/SO
+              controls for line-drawing.
+
+       SHELL  This is normally set by shells other than the Bourne shell, as a
+              convention.   <b>Luit</b>  will  use this value (rather than the user's
+              entry in /etc/passwd) to decide  which  shell  to  execute.   If
+              SHELL is not set, <b>luit</b> executes /bin/sh.
+
+</pre>
+<h2><a name="h2-FILES" id="h2-FILES">FILES</a></h2>
+<pre>       <b>The</b> <b>file</b> <b>mapping</b> <b>locales</b> <b>to</b> <b>locale</b> <b>encodings.</b>
+
+</pre>
+<h2><a name="h2-BUGS" id="h2-BUGS">BUGS</a></h2>
+<h3><a name="h3-Limitations" id="h3-Limitations">Limitations</a></h3>
+<pre>       None   of   this  complexity  should  be  necessary.   Stateless  UTF-8
+       throughout the system is the way to go.
+
+       Charsets with a non-trivial intermediary byte are not yet supported.
+
+       Selecting alternate sets of control characters  is  not  supported  and
+       will never be.
+
+</pre>
+<h3><a name="h3-Security" id="h3-Security">Security</a></h3>
+<pre>       On  systems  with  SVR4  ("Unix-98") ptys (Linux version 2.2 and later,
+       SVR4), <b>luit</b> should be run as the invoking user.
+
+       On systems  without  SVR4  ("Unix-98")  ptys  (notably  BSD  variants),
+       running  <b>luit</b>  as  an  ordinary user will leave the tty world-writable;
+       this is a security hole, and <b>luit</b> will generate a  warning  (but  still
+       accept  to  run).   A possible solution is to make <b>luit</b> suid root; <b>luit</b>
+       should drop privileges sufficiently early to make this safe.   However,
+       the  startup  code  has  not  been exhaustively audited, and the author
+       takes no responsibility for any resulting security issues.
+
+       <b>Luit</b> will refuse to run if it is installed  setuid  and  cannot  safely
+       drop privileges.
+
+</pre>
+<h2><a name="h2-EXAMPLES" id="h2-EXAMPLES">EXAMPLES</a></h2>
+<pre>       The  most  typical  use of <b>luit</b> is to adapt an instance of <b>XTerm</b> to the
+       locale's encoding.  Current versions of <b>XTerm</b> invoke <b>luit</b> automatically
+       when  it  is  needed.  If you are using an older release of <b>XTerm</b>, or a
+       different terminal emulator, you may invoke <b>luit</b> manually:
+
+              $ xterm -u8 -e luit
+
+       If you are running in a UTF-8  locale  but  need  to  access  a  remote
+       machine that doesn't support UTF-8, <b>luit</b> can adapt the remote output to
+       your terminal:
+
+              $ LC_ALL=fr_FR luit ssh legacy-machine
+
+       <b>Luit</b> is also useful with applications that hard-wire an  encoding  that
+       is  different  from  the one normally used on the system or want to use
+       legacy  escape  sequences  for  multilingual  output.   In  particular,
+       versions  of  <b>Emacs</b>  that  do  not  speak  UTF-8  well can use <b>luit</b> for
+       multilingual output:
+
+              $ luit -encoding 'ISO 8859-1' emacs -nw
+
+       And then, in <b>Emacs</b>,
+
+              M-x set-terminal-coding-system RET iso-2022-8bit-ss2 RET
+
+</pre>
+<h2><a name="h2-AUTHORS" id="h2-AUTHORS">AUTHORS</a></h2>
+<pre>       Luit was written by Juliusz  Chroboczek  &lt;jch@pps.jussieu.fr&gt;  for  the
+       XFree86 project.
+
+       Thomas E. Dickey has maintained <b>luit</b> for use by <b>xterm</b> since 2006.
+
+</pre>
+<h2><a name="h2-SEE-ALSO" id="h2-SEE-ALSO">SEE ALSO</a></h2>
+<pre>       These are portable:
+
+       <b>o</b>   <a href="/xterm/manpage/xterm.html"><b>xterm(1)</b></a>,
+
+       <b>o</b>   <a href="/ncurses/man/ncurses.3x.html"><b>ncurses(3X)</b></a>.
+
+       These are Linux-specific:
+
+       <b>o</b>   <a href="https://man7.org/linux/man-pages/man7/unicode.7.html"><b>unicode(7)</b></a>,
+
+       <b>o</b>   <a href="https://man7.org/linux/man-pages/man7/utf-8.7.html"><b>utf-8(7)</b></a>,
+
+       <b>o</b>   <a href="https://man7.org/linux/man-pages/man7/charsets.7.html"><b>charsets(7)</b></a>.
+
+       These are particularly useful:
+
+       <b>o</b>   <i>Character Code Structure and Extension Techniques (ISO 2022, <a href="https://www.ecma-international.org/publications-and-standards/standards//ecma-35/"><b>ECMA-35</b></a>)</i>
+
+       <b>o</b>   <i>Control Functions for Coded Character Sets (ISO 6429, <a href="https://www.ecma-international.org/publications-and-standards/standards//ecma-48/"><b>ECMA-48</b></a>)</i>
+
+       <b>o</b>   <a href="https://czyborra.com/charsets/">https://czyborra.com/charsets/</a>
+
+                                X Window System                        <b>LUIT(1)</b>
+</pre>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../vttest-archives/" class="md-footer__link md-footer__link--prev" aria-label="Previous: VTtest archives" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              VTtest archives
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../changelog-luit/" class="md-footer__link md-footer__link--next" aria-label="Next: Changelog" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Changelog
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 1997-2024 by Thomas E. Dickey et al. <br/> No cookies are served on this website.
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.expand"], "search": "../assets/javascripts/workers/search.bd0b6b67.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.467223ff.min.js"></script>
+      
+    
+  </body>
+</html>

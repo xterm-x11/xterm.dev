@@ -1,0 +1,1272 @@
+2023-01-18  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* manifest:
+	strip patch/version from basename to better match my use in Git-snapshots
+
+2022-11-05  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* lessopen.sh: handle xz files
+
+2022-10-01  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* indent-html: configurable fgrep
+
+2022-07-14  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage: add "b2" (man2html)
+
+	* check-manpage:
+	suppress unnecessary warnings for man2html's "Of" macro by adding a check
+	if a given macro parameter is optional.
+
+	* check-manpage:
+	add macros from man2html, and made the "expected" message on mismatches
+	easier to understand, to help with adding backslashes to the table.
+
+2022-05-14  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* report-terminfo:
+	show "paired-keys" (keys which match a string used for the display, e.g.,
+	"kclr" vs "clear")
+
+2022-02-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* rpm-deps: expand definitions in a %package line
+
+2022-02-12  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage: add -x option
+
+	* check-manpage: add check for dangling
+
+	* check-manpage:
+	show how to shorten font-specification, e.g., by merging \f's
+
+2022-01-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* manifest: show a diff if -v option is given
+
+2022-01-14  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* manifest: implement a "-n" (no-op) option
+	tidy-up error-exits
+
+2021-12-30  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* manifest: no more MANIFEST.bak!
+
+2021-10-30  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* noenv:
+	pass-through the CCACHE_DISABLE so that packages don't cache headers
+
+2021-08-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* indent-html: add -U option, needed with "release-cdk"
+
+2021-03-30  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* touch-dirs: skip directories where permissions prevent reading
+
+2021-03-19  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage: add macros which I wrote for Xcursor.man
+
+2020-11-07  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* report-terminfo: add screen's extension
+
+2020-10-17  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* report-terminfo:
+	sort the output from toe (to aid debugging), and filter-out repeats.
+
+	* report-terminfo: fix a missing %{ ... }
+
+2020-09-22  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage: add.1 uses "\*R" (registered trademark)
+
+2020-05-16  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* find-xterm-fonts:
+	just in case a font came from ports, make this workable for pkgsrc
+
+	* find-xterm-fonts:
+	NetBSD pkgsrc puts xvile's menu in a separate "xvile" directory
+
+2020-05-15  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* find-xterm-fonts: add -c, -m and -u options, to handle xvile's fonts
+
+2020-01-14  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* indent-html: missed a chunk from debugging.
+
+	* indent-html:
+	tidy 5.6 is a little-more broken with respect to opening files.
+	It also (not fixed here) trims more blank lines.
+
+2019-12-31  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage: add "It" special case from cdk.
+
+2019-12-06  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage: add macros from ded.man
+
+2019-07-30  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage: exclude ".SH NAME" data from line-length warning
+
+	* check-manpage:
+	groff's man(7) documents up to 6 parameters on the RB, etc., "alternating"
+
+	* check-manpage: added Walter's adaptation of NS/NE
+
+	* check-manpage:
+	likewise, exclude comment-lines from longer-than checks, but (as in fake
+	quotes) allow the -v option to override
+
+	* check-manpage:
+	exclude comment-lines from embedded-sentence-ending check
+
+	* check-manpage: add workaround for literal use or lq/rq builtins
+
+2019-07-17  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* indent-html: trim leading blank line from filtered output
+
+2019-07-08  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* indent-html:
+	adjust to work with Debian9's gawk/original-awk as well as mawk-cut
+
+2019-07-07  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage: fix a typo
+
+2019-07-05  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* indent-html:
+	improve the awk script, by making it join the split-up lines (works for
+	tidy 5.2.0 in Debian 9).
+
+	* indent-html:
+	tidy 5 changes the output format, by default removing all blank lines.
+	It has a config-file option vertical-space for adding blank lines,
+	but that adds too many, with lots of doubled blank lines.
+	Use the config option to get blank lines, and filter the result through
+	awk to reduce those to single blank lines.
+	Doing this makes the output closer to the original format, except that
+	it also insists on putting line-breaks between tags (not configurable).
+
+2019-07-04  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* touch-dirs: don't die if this cannot open a directory
+	also, don't try to get timestamps from non-file/directory stuff
+
+2019-06-19  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage:
+	since starting this in 2009, groff has changed its -w option (update)
+
+2019-05-30  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage: discount real quotes when looking for fake quotes
+
+	* check-manpage: check for fake quotes
+
+2019-05-07  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage:
+	allow check for embedded sentence-endings if "na" (no-adjust) is in effect
+
+2019-04-11  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* indent-html:
+	allow XML documents to be formatted as UTF-8, to work around tidy's limitations
+
+2019-04-10  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage: show the macro name in the warning message
+
+	* check-manpage:
+	improve parameter-checking a little, using the assumption in libXt's macros
+	that a trailing parameter embedded in the end of a line is optional.
+
+	* check-manpage:
+	estimate number of parameters for macros, to use in check_pcounts
+
+2019-04-06  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage: update comments
+
+2019-03-16  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage:
+	modify "Ds" macro for libXt to make it work as intended
+
+	* check-manpage:
+	trim down ".De" macro to avoid warnings for never-defined registers
+
+	* check-manpage:
+	add predefined macros for libX11 (which are mostly the same)
+
+	* RegressMan: RCS_BASE
+
+	* check-manpage: "D" symbol in ".Ds" is never defined
+
+	* check-manpage: ignore ".so" files
+
+	* check-manpage:
+	improve handling of libXt's macros by checking if the ".tk" macro is
+	defined to "X Toolkit", and in that case predefine the macros and also
+	ignore unused ".ds" commands.
+
+2019-03-15  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage: workaround for ".ny0" -> ".ny 0"
+
+2019-03-13  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage: add macros from libXt manpages
+
+2019-02-23  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* report-terminfo:
+	count tab support (none, soft, hard).  About a quarter of the descriptions
+	support hard tabs.
+
+2019-02-14  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage: add .XX macro for cdk
+
+	* check-manpage:
+	don't complain about embedded sentence-ending in verbatim text.
+
+	* check-manpage: add ".It" from cdk.3
+
+2019-01-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* lessopen.sh: add ".deb" packages
+
+2019-01-12  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* report-terminfo:
+	show the function-keys in chunks of 10% (otherwise that goes on for pages)
+
+	* report-terminfo: start on &show_bucket_percent
+
+	* report-terminfo:
+	combine the miscellaneous extension flags into one table.
+
+	* report-terminfo: show statistics for function-keys
+
+	* report-terminfo: add statistics for the different mouse features
+
+	* report-terminfo: show counts for the number of colors.  8 wins!
+
+	* report-terminfo: add -x option
+
+	* report-terminfo:
+	fixes to make "report-terminfo -a" work with perl 5.20 on Debian8
+
+	* report-terminfo: correct option used to check ncurses tool version
+
+2018-12-23  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* indent-html:
+	latest "tidy" package on Debian testing doesn't accept a filename any more.
+
+2018-08-31  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage:
+	make this a little smarter about ctlseqs.ms St/Ed macros
+
+2018-07-28  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage: reduce another set of false-positives for ". "
+
+	* check-manpage: filter out initials
+
+	* check-manpage: check for embedded ". "
+
+	* lessopen.sh: add tar.xz and tz cases
+
+2018-06-22  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage: corrected per xterm.man
+
+2018-05-19  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage: try to account for font-switching in long-lines
+
+2018-05-18  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage:
+	the expected number of parameters is only a minimum, since it's a repeat...
+
+2018-05-13  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage: the ".B" and ".I" can have 0 or more parameters.
+
+	* check-manpage: also flag long-lines (diffstat report)
+
+	* check-manpage: check parameter-counts, prompted by diffstat report
+
+2018-04-06  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage: it's okay for ".IP" to have no parameters
+
+2018-04-03  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage: .iP should do a break
+
+	* check-manpage: allow for plain "." between St/iP macros
+
+	* check-manpage: add checks for ".IP" usage in ctlseqs.ms
+
+2018-03-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* find-xterm-fonts: workable config for Solaris10
+
+	* find-xterm-fonts:
+	checked OpenBSD, found it was not an improvement wrt packaging
+
+	* find-xterm-fonts:
+	configuration for NetBSD - but since xterm's in base, there's no info.
+
+	* find-xterm-fonts: add configuration for FreeBSD ports
+
+2018-03-24  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* find-xterm-fonts: work with Arch pacman
+
+	* find-xterm-fonts: reduce scope of a wildcard match
+
+	* find-xterm-fonts:
+	Mageia6 has multiple choices for app-defaults directory, and a different
+	choice for font-directory
+
+	* find-xterm-fonts: CentOS6 has rpm in /bin, not /usr/bin
+
+	* find-xterm-fonts:
+	dlocate returns a ":"-separated list, while rpm does not
+
+	* find-xterm-fonts: add font-directory location for CentOS7
+
+	* find-xterm-fonts: add font-directory location for XQuartz
+
+2018-03-23  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* find-xterm-fonts:
+	this is workable for my Debian 8 - will have to extend search-path for other
+	systems
+
+	* find-xterm-fonts: show the resource(s) mapped to the font-file
+
+	* find-xterm-fonts: show the pathnames of font-files which are used.
+
+	* find-xterm-fonts: report the missing fonts
+
+	* find-xterm-fonts: made a workable xlfd-matcher
+
+	* find-xterm-fonts:
+	start work on fonts-used: will need a function that does xlfd-matching
+
+	* find-xterm-fonts: read font directories and alias-lists
+
+	* find-xterm-fonts: fill in %app_defaults hash
+
+	* find-xterm-fonts: RCS_BASE
+
+2018-02-24  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* indent-perl: override "file" for suffixes ".pl" and ".pm"
+
+2018-02-15  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage: add macros used in dialog's manpages
+
+2018-02-01  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* compare-terminfo: generate a summary
+
+	* compare-terminfo:
+	make a state-machine to reduce the report to a marker and name
+
+2018-01-30  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* compare-terminfo: RCS_BASE
+
+2018-01-04  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* touch-dirs: with FreeBSD, perl is a port, not in /usr/bin
+
+2017-11-19  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage: add check for bad links; found 4 (had noticed one)
+
+	* check-manpage: add comments about predefined characters
+
+	* check-manpage: pass type to check_strings as parameter
+
+	* check-manpage: 1-character names omit the "(".
+	adjusted to handle those, too
+
+	* check-manpage:
+	start work on a check for defined-strings which are mis-punctuated, or unused
+	This works for the 2-character names in ctlseqs.ms
+
+	* check-manpage: a few tweaks for ctlseqs.ms
+
+2017-11-05  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage:
+	modify .bP and .NS to follow current xterm changes, and show the content
+	of macros with different number of lines, to help with updating them.
+
+	* check-manpage: fix escaping of AQ
+
+	* check-manpage:
+	add AQ macro from xterm, and improve warnings for missing/unexpected lines
+
+	* check-manpage: allow for different amount of whitespace
+
+	* check-manpage:
+	provide a simple check for equality - works for ncurses manpages
+
+	* check-manpage: add predefined macros in a table
+
+	* check-manpage: improve the way states are defined
+
+	* check-manpage:
+	start on "find_macros", by making states for the .de and .ds items
+
+2017-11-02  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage:
+	print the lines containing macro definitions and conditional stuff
+
+	* check-manpage:
+	change this to a perl script, to provide for additional checks
+
+2017-08-12  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* indent-html, indent-perl, manifest:
+	use SIGQUIT(3) rather than SIGTRAP(5) in trap commands
+	This error dates back to 1997 (970802) in ncurses:
+		+ many corrections to make progs/capconvert work, as well as make it
+		  reasonably portable and integrated with ncurses 4.1 (reported by Dave
+		  Furstenau <df@ravine.binary.net>).
+
+	but I see in my "nfilter" script I used it as far back as December 1993, on the
+	other hand in "externs" (August 1991) I had it corrrect.
+
+	But here are the first uses in ncurses:
+		capconvert	1997/08/02 21:52:06	1.3
+		edit_cfg.sh	1997/11/08 18:14:57	1.7
+		make_sed.sh     1997/12/06 20:52:47       tom
+		MKterminfo.sh	1998/09/05 23:53:51	1.4
+		MKtermsort.sh	2001/05/26 23:37:57	1.7
+		MKkey_defs.sh   2001/06/16 15:25:10       tom
+		MKkeys_list.sh  2001/06/16 16:47:39       tom
+		make-tar.sh     2010/02/20 22:46:57       tom
+
+2017-05-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage:
+	use a case-statement to filter out non-manpages (but special-case for ctlseqs.ms)
+
+2017-03-05  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* count-nroff: ident
+
+2017-03-03  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* count-nroff: allow tabs as "printable"
+
+	* count-nroff: ignore .git and .svn subdirectories and files in them
+
+2017-03-01  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* count-nroff: add -d option
+
+	* count-nroff: RCS_BASE
+
+2016-11-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* show-linux-consolefonts:
+	avoid exiting on setfont-error (just report it, and continue)
+
+2016-11-13  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* show-dircolors: RCS_BASE
+
+2016-11-03  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* show-linux-consolefonts: switch to/from SCS K
+
+	* show-linux-consolefonts:
+	make this a little easier to stop w/o using 'q' by adding a delay after printing
+
+	* show-linux-consolefonts:
+	Linux console sort-of recognizes 0x9b (8bit CSI), and doesn't advance the
+	cursor for that.  Work around by checking cursor position and filling in
+	with highlighted blank(s).
+
+	* show-linux-consolefonts: split-out decode_key()
+
+2016-11-02  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* show-linux-consolefonts:
+	fix some inconsistencies in ReadMode calls which prevented stopping the script
+
+	* show-linux-consolefonts: add signal handler
+
+	* show-linux-consolefonts:
+	improve formatting a little, to avoid line-wrap for showconsolefont vs
+	the font pathname.
+
+	* show-linux-consolefonts:
+	made workable interaction using 's' and space (and 'q')
+
+	* show-linux-consolefonts:
+	force "-n" if not actually reading and writing on a terminal, used for
+	testing/development.
+
+	* show-linux-consolefonts: start work on logic to flesh out the looping
+
+	* show-linux-consolefonts: add -n option, to work on this offline
+
+2016-11-01  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* show-linux-consolefonts:
+	refactor to use all files from font-directory which match an argumnet
+
+	* show-linux-consolefonts: start work on ReadKey
+
+2016-10-31  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* show-linux-consolefonts: reset font
+
+	* show-linux-consolefonts: add notes for resetting font
+
+	* report-linux-consolefonts: improve parsing of codeset/size for Fedora
+
+	* show-linux-consolefonts: pass-in fontname for each display
+
+	* show-linux-consolefonts: add -u option
+
+	* show-linux-consolefonts: RCS_BASE
+
+2016-10-30  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* report-linux-consolefonts:
+	work around overlap between line-drawing and iso-8859-1 which interfered
+	with seeing that encoding as "complete" in several fonts.
+
+	* report-linux-consolefonts:
+	in "-t", proved that Perl encoding matches my tables.
+
+	* report-linux-consolefonts:
+	start work to validate against Perl's encoding.
+
+	* report-linux-consolefonts: minor cleanup
+
+2016-10-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* report-linux-consolefonts: add -m option
+
+	* report-linux-consolefonts: improve display of missing codes
+
+	* report-linux-consolefonts: show the missing codes
+
+	* report-linux-consolefonts: collect information for missing characters
+
+2016-10-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* report-linux-consolefonts: show codeset sizes
+
+	* report-linux-consolefonts: report the codesets (none support Latin1)
+
+2016-10-25  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* report-linux-consolefonts: remove a debugging statement
+
+	* report-linux-consolefonts:
+	collect data for table of sizes vs names (there are several cases where
+	the number of glyphs varies with size)
+
+2016-10-23  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* report-linux-consolefonts:
+	simplified calls to report_coverage using long_name
+
+	* report-linux-consolefonts:
+	report missing vt100 line-drawing (most fonts work)
+
+	* report-linux-consolefonts:
+	in summary, show percentage of "other" Unicode values.
+
+	* report-linux-consolefonts: report the number of glyphs in each font
+
+	* report-linux-consolefonts:
+	eliminate 1-1 correspondence between ISO encoding number and array index.
+	Now the arrays simply record the encodings (and in principle code pages
+	could be added).
+
+2016-10-21  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* report-linux-consolefonts:
+	recover more/less from Fedora's hodgepodge of fonts
+
+	* report-linux-consolefonts: make this work with Fedora
+
+2016-10-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* report-linux-consolefonts:
+	extend coverage report to the iso encodings
+
+	* report-linux-consolefonts:
+	test coverage of ascii, fixing a couple of checks
+
+	* report-linux-consolefonts: show line-drawing coverage
+
+	* report-linux-consolefonts: start work on coverage tables
+
+	* report-linux-consolefonts: introduce $iso_8859_name[]
+
+	* report-linux-consolefonts: make $iso_8859_hashes{} work
+
+	* report-linux-consolefonts:
+	start getting rid of special cases for ascii and latin1
+
+	* report-linux-consolefonts: show line-drawing as iso "-1"
+
+2016-10-19  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* report-linux-consolefonts:
+	first cut of showing which iso's are covered
+
+	* report-linux-consolefonts: show subtotals for coverage
+
+	* report-linux-consolefonts:
+	add -F option to demonstrate that the folds are harmless
+
+2016-10-17  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* report-linux-consolefonts:
+	show the actual character for merges, to help guage mis-merged stuff
+
+	* report-linux-consolefonts:
+	make the hash result for encoding tables consistently show the Unicode
+
+	* report-linux-consolefonts: show mismatches.
+
+	* report-linux-consolefonts: completed the encode/decode parts of that
+
+	* report-linux-consolefonts:
+	start work on "-t" option, to validate the encoding hashes
+
+2016-10-15  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* report-linux-consolefonts:
+	start counting "folded" stuff (glyphs with multiple ISO-8859-x codes assigned)
+
+2016-10-08  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* report-linux-consolefonts:
+	have initial data, need to plan out next steps
+
+	* report-linux-consolefonts: count iso-8859-16
+
+	* report-linux-consolefonts: count iso-8859-15
+
+	* report-linux-consolefonts: count iso-8859-14
+
+	* report-linux-consolefonts: add iso-8859-13 (there was no -12)
+
+	* report-linux-consolefonts: add iso-8859-11
+
+	* report-linux-consolefonts: count iso-8859-9 and -10
+
+	* report-linux-consolefonts: count iso-8859-8
+
+	* report-linux-consolefonts: count iso-8859-7
+
+	* report-linux-consolefonts: count iso-8859-6
+
+	* report-linux-consolefonts: add iso-8859-5
+
+	* report-linux-consolefonts: count iso-8859-4
+
+	* report-linux-consolefonts: count iso-8859-3
+
+	* report-linux-consolefonts: count iso-8859-2
+
+	* report-linux-consolefonts: check for line-drawing characters
+
+	* report-linux-consolefonts: show summary information
+
+	* report-linux-consolefonts:
+	parse the Unicode values from each psf-file
+
+	* report-linux-consolefonts: RCS_BASE
+
+2016-10-02  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* sort-sources: if reading from stdin, trim newline
+
+2016-09-25  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* indent-html: tidy 5.20 trashes ASCII files... help it a little.
+
+2016-07-11  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* report-terminfo:
+	report the number that start (or stay) with CSI vs SS3
+
+	* report-terminfo: show counts for types of cursor-keys
+
+	* report-terminfo: check for terminals with controls for cursor-keys
+
+	* report-terminfo: simplify that, a little
+
+	* report-terminfo:
+	start reorganizing the report to make the categories clearer
+
+	* report-terminfo: implement -u option
+
+	* report-terminfo: fill in -d option
+
+	* report-terminfo:
+	report category for ANSI terminals which switch modes.  Counting aliases,
+	this makes a slight majority for those.
+
+2016-07-10  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* report-terminfo:
+	fix some broken references in the resolve-uses logic.
+
+	* report-terminfo: report count for those switching modes
+
+	* report-terminfo: first cut of identifying ANSI terminals
+
+	* report-terminfo: have workable use-resolving
+
+	* report-terminfo: working on resolve_uses
+
+	* report-terminfo: fill-in another case of parsing
+
+	* report-terminfo: fill-in parsing for name/value
+
+	* report-terminfo:
+	add logic to read file for -s option (need more work for parsing name/value)
+
+	* report-terminfo: RCS_BASE
+
+2016-07-03  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* manifest: make this a little less verbose
+
+2016-06-28  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* manifest: make this less verbose, for release2git
+
+2016-05-11  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* indent-tty: copyright
+
+	* indent-tty: tweak to work around items in Solaris stty output:
+		csdata ?
+		eucw 1:0:0:0, scrw 1:0:0:0
+
+2016-04-02  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* indent-tty: portable
+
+	* indent-tty: RCS_BASE
+
+2016-02-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* rpm-deps: appease newer version of perl by escaping '{'
+
+2016-01-17  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* diffstat2css: workable more or less
+
+	* diffstat2css:
+	simplify by creating the patch as a temporary file when two directories
+	are given.
+
+2015-09-13  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* sort-sources:
+	my fix for lynx put the last number (dev.1, etc) before the phase, which
+	made it sort incorrectly across phases.
+
+	* sort-sources: indent
+
+2015-08-16  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* with-locale: modify so this can be used to exec or source
+
+2015-07-28  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* indent-html:
+	add -u option to simplify work on ncurses announce backpages
+
+2015-05-01  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* touch-dirs: check for success of stat() on symlink
+
+2015-04-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* touch-dirs:
+	if a directory contains nothing other than symbolic links, use the modification
+	time from the link-targets.  This helps with trees created by link2rcs.
+
+2015-02-04  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* script2log, script2log.sed:
+	add a pattern to strip remaining escape followed by other than '['
+
+	* script2log:
+	check for and decompress ".gz" and ".bz2" files with gzip  and bzip2 respectively
+
+	* script2log, script2log.sed:
+	Solaris 10 BREs do not include "\?" -- use brace expression
+
+2015-02-03  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* script2log.sed: RCS_BASE
+
+	* script2log:
+	if we can find the sed script as a file, prefer that for portability
+
+	* script2log: RCS_BASE
+
+2014-12-09  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* sort-sources:
+	script was picking 2.8.8rel.2 in preference to 2.8.9dev.2 - fix
+
+2014-05-10  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* noenv:
+	improve use for cygwin, where bash can define symbol "Program Files(x86)".
+
+2014-03-30  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* indent-perl: stop indenting my html files!
+
+2014-02-01  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* rpm-deps: xterm's spec-file relies upon variable-expansion (fix)
+
+2014-01-22  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* rpm-deps: add -d debug option
+
+	* rpm-deps:
+	allow spec-file as parameter, so I can incorporate into builds
+
+	* rpm-deps: handle
+		foo = version
+
+	* rpm-deps: nit
+
+	* rpm-deps: got workable output
+
+2014-01-21  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* rpm-deps: process info from "rpm -q --whatprovides"
+
+	* rpm-deps: RCS_BASE
+
+2013-07-14  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* indent-html, indent-perl: use mktemp rather than tempfile program
+
+2013-06-22  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* indent-html:
+	anything that links into a frame uses <base target="contents"> or something
+	like that - needs to be transitional as well.
+
+2013-05-19  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* indent-html: add -w option
+
+2013-05-18  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* indent-html:
+	switch to strict dtd except as needed for framesets and non-css font-colors
+
+2013-05-17  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* diffstat2css: bump
+
+	* indent-html:
+	use strict dtd to eliminate "quirks-mode", which assumes that 4.0 transitional
+	has to be addressing IE or FF quirks.
+
+2013-04-05  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* indent-html: I kept accidentally indenting perl-scripts - fix
+
+2013-03-31  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* diffstat2css: implement -w
+
+	* diffstat2css: made this work with 2-dirs
+
+	* diffstat2css: add -o option
+
+2013-03-30  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* diffstat2css: q/d conversion to html
+
+	* diffstat2css: RCS_BASE
+
+2012-08-28  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* manifest: dash didn't like shift of empty args
+
+2012-07-18  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* noenv: honor assignments for setup-rpmbuild
+
+2012-06-22  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* lessopen.sh: fix for rpm's
+
+2012-06-03  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* manifest: oops - fix LINE initialization.
+
+2012-03-18  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* manifest:
+	add -p option for cdk-perl which needs manifest w/o directories since perl
+	insists
+
+2012-02-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* manifest:
+	some macros in my-autoconf have pathnames longer than 32, which made the
+	description bump to column 64.  Change the expression for tabstop to check
+	the name-length.
+
+2012-02-11  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* sort-sources:
+	fixes to handle lynx setup executables, now that I'm working on dev.10
+	and have dev.9 in the same folder
+
+2012-02-05  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* sort-sources: implement pipe version.
+
+	* sort-sources: RCS_BASE
+
+2012-01-30  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* no-local: make this work for Solaris
+
+2011-12-17  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* grep-cast: pass the -n option for consistency
+
+2011-10-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* with-locale: quoting
+
+2011-10-21  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* with-locale: working with Solaris10
+
+2011-08-07  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* touch-dirs:
+	perl 5.005003 on FreeBSD 4.9 didn't like storing a file-handle in a variable
+	(which I'd done in case it was needed for recursion), saying
+		Can't use an undefined value as a symbol reference
+	I didn't actually need to - and don't see how to make a variable of type
+	filehandle (just as well).
+
+2011-05-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* indent-perl: RCS_BASE
+
+2011-03-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* no-local: workaround so I can do 'no-local build-AdaCurses"
+
+2011-02-24  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* indent-html: RCS_BASE
+
+2010-07-05  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* manifest:
+	since I'm usually checking-in configure scripts now, it turns out that this
+	script always assumed they weren't, and generated an entry for it right after
+	configure.in - however, the checked-in script appears right before configure.in,
+	and is a duplicate (report by Jonathan Neider).
+
+2010-06-11  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* touch-dirs: provide default param of "."
+
+	* touch-dirs: don't update if there are no files
+	add trace for -n option to show the timestamps
+
+	* touch-dirs: RCS_BASE
+
+2010-04-04  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* no-local: add vile
+
+2010-03-28  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* no-local: RCS_BASE
+
+2009-10-15  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* noenv: RCS_BASE
+
+2009-09-19  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage: if doing more than one file, print the names
+
+2008-10-14  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* grep-numbers: update for current sort program.
+
+2008-08-04  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* Regress: fix for ncurses/tinfo/xxx stuff
+
+	* Regress: hack to allow me to run this in ncurses' tree
+
+2008-01-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* nolocale: RCS_BASE
+
+2007-12-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* manifest: use csort
+
+2007-07-09  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* ldd-path: RCS_BASE
+
+2007-07-03  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* noterm: add TERMPATH and TERMINFO_DIRS
+
+2007-04-09  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* with-locale: cancel LESSCHARSET too
+
+2006-10-13  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* with-locale:
+	hack for Fedora5 - set GDM_LANG so I can override the stuff in /etc used
+	to force shell-init.
+
+2005-04-19  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* with-locale: export LANG too
+
+2004-09-30  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* with-locale: RCS_BASE
+
+2004-05-04  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* grep-knr: RCS_BASE
+
+2003-06-06  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* Regress: add rules for .ppc.o and .pc.o
+
+2003-04-30  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* manifest: allow more than one option, in any order
+
+2002-11-23  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* manifest: a couple of programs (tin, bcpp) have config.h files
+
+2002-10-15  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* nodot: RCS_BASE
+
+2002-07-28  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* manifest:
+	add -d option, so I can suppress "subdirectory" lines which confuse Perl's
+	packaging
+
+2002-06-14  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* Regress: pass options to remake
+
+2002-02-16  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-manpage: RCS_BASE
+
+2001-11-08  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* lessopen.sh: add bzip2 stuff
+
+2001-09-02  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* lessopen.sh: much cleanup, making this simpler to test
+
+2001-07-22  Thomas E. Dickey  <dickey@clark.net>
+
+	* lessopen.sh: add *.tbz
+
+2001-05-10  Thomas E. Dickey  <dickey@clark.net>
+
+	* noterm: RCS_BASE
+
+2001-03-07  Thomas E. Dickey  <dickey@clark.net>
+
+	* lessopen.sh: turn on backspaces with lynx
+
+2000-12-31  Thomas E. Dickey  <dickey@clark.net>
+
+	* lessopen.sh: add jar files
+
+2000-10-27  Thomas E. Dickey  <dickey@clark.net>
+
+	* lessopen.sh: add *.cgi
+
+2000-09-26  Thomas E. Dickey  <dickey@clark.net>
+
+	* lessopen.sh: add bzip2 stuff and .a
+
+2000-02-23  Thomas E. Dickey  <dickey@clark.net>
+
+	* lessopen.sh: filter for gzip'd manpages
+
+1999-12-31  Thomas E. Dickey  <dickey@clark.net>
+
+	* manifest:
+	workaround defect in Redhat 6.1, which folds case on 'sort' command
+
+1999-11-28  Thomas E. Dickey  <dickey@clark.net>
+
+	* lessopen.sh: *.HTM too
+
+	* lessopen.sh: add html via lynx -dump
+
+1999-09-16  Thomas E. Dickey  <dickey@clark.net>
+
+	* lessopen.sh: add *.man
+
+1999-09-14  Thomas E. Dickey  <dickey@clark.net>
+
+	* lessopen.sh: add nroff stuff
+
+1999-08-15  Thomas E. Dickey  <dickey@clark.net>
+
+	* lessopen.sh: add *.tar
+
+1999-08-05  Thomas E. Dickey  <dickey@clark.net>
+
+	* lessopen.sh, lessclose.sh: RCS_BASE
+
+1998-09-21  Thomas E. Dickey  <dickey@clark.net>
+
+	* classpath: RCS_BASE
+
+1998-04-30  Thomas E. Dickey  <dickey@clark.net>
+
+	* grep-numbers: RCS_BASE
+
+1998-02-25  Thomas E. Dickey  <dickey@clark.net>
+
+	* grep-date: RCS_BASE
+
+1998-01-02  Thomas E. Dickey  <dickey@clark.net>
+
+	* grep-bad-ifdefs: RCS_BASE
+
+1997-12-08  Thomas E. Dickey  <dickey@clark.net>
+
+	* manifest: add special cases for config.guess and config.sub
+
+1996-10-28  Thomas E. Dickey  <dickey@clark.net>
+
+	* nm_cmp: RCS_BASE
+
+1996-08-25  Thomas E. Dickey  <dickey@clark.net>
+
+	* Regress: RCS_BASE
+
+1996-06-19  Thomas E. Dickey  <dickey@clark.net>
+
+	* grep-ifdefs: RCS_BASE
+
+	* grep-cast: allow underscores in numbers
+
+1996-02-23  Thomas E. Dickey  <dickey@clark.net>
+
+	* grep-cast: FROM_KEYS
+
+1996-02-04  Thomas E. Dickey  <dickey@clark.net>
+
+	* remake: RCS_BASE
+
+1995-12-03  Thomas E. Dickey  <dickey@clark.net>
+
+	* manifest: a couple of error-recovery nits
+
+1995-09-04  Thomas E. Dickey  <dickey@clark.net>
+
+	* manifest: redirect stderr
+
+1995-02-23  Thomas E. Dickey  <dickey@clark.net>
+
+	* libpath: syntax
+
+1994-10-15  Thomas E. Dickey  <dickey@clark.net>
+
+	* manifest:
+	make dummy-entries for directories, so cshar will do the right thing
+
+	* manifest:
+	added logic to let me append auto-generated files into the manifest
+
+	* manifest: rewrote so I don't need 'checkup'
+
+1994-09-03  Thomas E. Dickey  <dickey@clark.net>
+
+	* manifest:
+	strip off the "-r" from the revision so the generated file looks nicer
+
+1994-08-19  Thomas E. Dickey  <dickey@clark.net>
+
+	* manifest:
+	hack to make 'configure' appear after other files (for timestamps)
+
+1994-08-18  Thomas E. Dickey  <dickey@clark.net>
+
+	* manifest:
+	mods to sort subdirectories into separate clumps, for readability
+
+1994-08-16  Thomas E. Dickey  <dickey@clark.net>
+
+	* manifest: RCS_BASE
+
+1994-05-25  Thomas E. Dickey  <dickey@clark.net>
+
+	* libpath: RCS_BASE
+

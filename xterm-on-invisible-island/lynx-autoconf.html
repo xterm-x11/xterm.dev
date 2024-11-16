@@ -1,0 +1,218 @@
+<!--
+  $Id: lynx-autoconf.html,v 1.33 2019/04/14 17:39:58 tom Exp $
+  -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+
+  <title>LYNX &ndash; CONFIGURE SCRIPT</title>
+  <link rel="author" href="mailto:dickey@invisible-island.net">
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii">
+  <link rel="SHORTCUT ICON" href="/img/icons/lynx.ico" type=
+  "image/x-icon">
+  <link rel="stylesheet" href="/css/simplestyle.css" type=
+  "text/css">
+  <link rel="stylesheet" href="/css/lynx-icons.css" type=
+  "text/css">
+  <style type="text/css">
+@import "/css/simplenavXX.css" all;
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <hr>
+
+  <p><a href="/">http://invisible-island.net/</a><a href=
+  "/lynx/">lynx/</a><br>
+  Copyright &copy; 1997-2014,2015 by Thomas E. Dickey</p>
+  <hr>
+
+  <div class="nav">
+    <ul>
+      <li class="nav-top"><a href=
+      "/lynx/lynx-autoconf.html">(top)</a></li>
+
+      <li><a href="#synopsis">Synopsis</a></li>
+
+      <li><a href="#progress">Plans/Progress</a></li>
+
+      <li><a href="#related">Related Links</a></li>
+
+      <li><a href="#feedback">Feedback</a></li>
+    </ul>
+  </div>
+
+  <h2 id="synopsis-h2"><a name="synopsis" id=
+  "synopsis">Synopsis</a></h2>
+
+  <p>In 1997 (shortly after <em class="small-caps">Lynx</em> 2.6
+  was announced), I became involved with <em class=
+  "small-caps">Lynx</em> development. Although <em class=
+  "small-caps">Lynx</em> ran on many platforms, its <em class=
+  "small-caps">Unix</em> build configuration needed improvement.
+  This project arose out of tracking issues on the lynx-dev mailing
+  list.</p>
+
+  <h2 id="progress-h2"><a name="progress" id=
+  "progress">Plans/Progress</a></h2>
+
+  <p>At the start, <em class="small-caps">Lynx</em> used a makefile
+  with a separate rule for every combination of platform and
+  library (curses, ncurses, slang). It was unmaintainable. Here is
+  a small slice listing some of the targets:</p>
+
+  <blockquote>
+    <!--{{atr2html-->
+
+    <p style="font-family: monospace; font-size: 10pt;">
+    <strong><font color="#000080">all</font></strong>:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=
+    "#800080">@</font>echo<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=
+    "#800080">@</font>echo&nbsp;<font color=
+    "#800080">"Please&nbsp;run&nbsp;make&nbsp;with&nbsp;one&nbsp;of&nbsp;the&nbsp;following&nbsp;arguments"</font><br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=
+    "#800080">@</font>echo&nbsp;<font color=
+    "#800080">"aix4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;for&nbsp;RS/6000&nbsp;running&nbsp;AIX&nbsp;4.n&nbsp;and&nbsp;some&nbsp;3.2"</font><br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=
+    "#800080">@</font>echo&nbsp;<font color=
+    "#800080">"aix32&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;for&nbsp;RS/6000&nbsp;running&nbsp;AIX&nbsp;3.2"</font><br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=
+    "#800080">@</font>echo&nbsp;<font color=
+    "#800080">"aix31&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;for&nbsp;RS/6000&nbsp;running&nbsp;AIX&nbsp;3.1&nbsp;with&nbsp;curses&nbsp;bug"</font><br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=
+    "#800080">@</font>echo&nbsp;<font color=
+    "#800080">"apollo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;apollo&nbsp;systems&nbsp;(untested)"</font><br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=
+    "#800080">@</font>echo&nbsp;<font color=
+    "#800080">"bsdi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;BSD&nbsp;Interactive"</font><br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=
+    "#800080">@</font>echo&nbsp;<font color=
+    "#800080">"bsdi-ncurses&nbsp;--&nbsp;BSD/OS(v2.0&nbsp;or&nbsp;later)&nbsp;using&nbsp;ncurses(v1.9.4&nbsp;or&nbsp;later)&nbsp;package."</font><br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=
+    "#800080">@</font>echo&nbsp;<font color=
+    "#800080">"clix&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;for&nbsp;Intergraph&nbsp;CLIX"</font><br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=
+    "#800080">@</font>echo&nbsp;<font color=
+    "#800080">"convex&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;for&nbsp;Convex&nbsp;C-series"</font><br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=
+    "#800080">@</font>echo&nbsp;<font color=
+    "#800080">"convex-ncurses&nbsp;--&nbsp;for&nbsp;Convex&nbsp;C-series&nbsp;with&nbsp;ncurses&nbsp;package"</font><br>
+    </p>
+  </blockquote>
+
+  <p>and an example of one of the 58 targets:</p>
+
+  <blockquote>
+    <!--{{atr2html-->
+
+    <p style="font-family: monospace; font-size: 10pt;">
+    <strong><font color=
+    "#000080">convex-ncurses</font></strong>:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cd&nbsp;WWW/Library/convex;&nbsp;<font color="#008080">$(MAKE)</font>&nbsp;LYFLAGS=<font color="#800080">"</font><font color="#008080">$(SITE_LYDEFS)</font><font color="#800080">"</font><br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cd&nbsp;src;&nbsp;<font color="#008080">$(MAKE)</font>&nbsp;all&nbsp;CC=<font color="#800080">"cc"</font>&nbsp;MCFLAGS=<font color="#800080">"-O&nbsp;\<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-I/usr/local/include&nbsp;\<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-DNCURSES&nbsp;-DFANCY_CURSES&nbsp;\<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-D__STDC__&nbsp;\<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-DNO_PUTENV&nbsp;-DNO_CBREAK&nbsp;-DNO_KEYPAD&nbsp;-DUSE_DIRENT&nbsp;-DUNIX&nbsp;\<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-DSTDC_HEADERS&nbsp;-I../</font><font color="#008080">$(WWWINC)</font><font color="#800080">&nbsp;</font><font color="#008080">$(SITE_DEFS)</font><font color="#800080">"</font>&nbsp;<font color="#800080">\<br>
+    </font>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008080">LIBS</font>=<font color="#800080">"-L/usr/local/lib&nbsp;-lncurses&nbsp;-ltermcap&nbsp;\<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008080">$(WAISLIB)</font><font color="#800080">&nbsp;</font><font color="#008080">$(SOCKSLIB)</font><font color="#800080">&nbsp;</font><font color="#008080">$(SITE_LIBS)</font><font color="#800080">"</font>&nbsp;<font color="#800080">\<br>
+    </font>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#008080">WWWLIB</font>=<font color="#800080">"../WWW/Library/convex/libwww.a"</font><br>
+
+    <!--atr2html}}--></p>
+  </blockquote>
+
+  <p>I worked with <a href=
+  "https://web.archive.org/web/19990125090419/http://jim.spath.com/">
+  Jim Spath</a> on this. As of <em class="small-caps">Lynx</em>
+  2.8, it was mostly complete.</p>
+
+  <p>This was my plan. It took more than one step, so I applied
+  intermediate versions into the developmental sources, both to get
+  feedback, as well as to simplify synchronization.</p>
+
+  <ul>
+    <li>Convert preprocessor symbols into form consistent with
+    <code>autoconf</code>.</li>
+
+    <li>Generate <code>config.h</code>, included in all files.</li>
+
+    <li>Replace the top-level <code>Makefile</code> by generating
+    <code>makefile</code> from <code>makefile.in</code> with an
+    auto-configure script.</li>
+
+    <li>Implement configuration script tests to consolidate the
+    variations within each hardware platform.</li>
+
+    <li>Combine/eliminate platform-specific directories under
+    WWW.</li>
+
+    <li>Reduce the top-level <code>makefile</code> to a single
+    target (i.e., <code>lynx</code>). (At this point, the top-level
+    <code>Makefile</code> can be deleted, as well as some of the
+    scaffolding for config.h).</li>
+
+    <li>Generate makefiles for subdirectories, simplifying the
+    <code>lynx</code> target.</li>
+
+    <li>Implement configuration script tests to eliminate most
+    <em class="small-caps">Unix</em> #ifdef's. (Not all #ifdef's
+    are driven from the top-level Makefile).</li>
+
+    <li>Add options to the <code>configure</code> script to support
+    common user options (such as whether DirEd is built).</li>
+  </ul>
+
+  <h2 id="related-h2"><a name="related" id="related">Related
+  links</a></h2>
+
+  <ul>
+    <li><a href="http://invisible-island.net/lynx/current/">Current
+    development versions of <em class=
+    "small-caps">Lynx</em></a></li>
+
+    <li><a href=
+    "https://web.archive.org/web/19990209120828/http://www.bcpl.lib.md.us/~jspath/lynx/">
+    Jim Spath's working stuff</a></li>
+
+    <li><a href="/scripts/readme.html">Analyzing problems with
+    configure scripts</a></li>
+
+    <li><a href="/autoconf/">my autoconf macros</a> are maintained
+    separately from the programs in which they are used.</li>
+  </ul>
+
+  <h2 id="feedback-h2"><a name="feedback" id=
+  "feedback">Feedback</a></h2>
+
+  <p>If you have built <em class="small-caps">Lynx</em> on an
+  obscure platform, or have other contributions, we are interested
+  in hearing from you. Comments can be directed to the <em class=
+  "small-caps">Lynx</em> Developers List at <a href=
+  "mailto:lynx-dev@nongnu.org">lynx-dev@nongnu.org</a>.</p>
+</body>
+</html>

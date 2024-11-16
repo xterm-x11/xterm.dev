@@ -1,0 +1,839 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<title>ctlseqs(contents)</title>
+<link rel="SHORTCUT ICON" href="/img/icons/xterm.ico" type="image/x-icon">
+<link rel="stylesheet" href="/css/man2html.css" type="text/css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<hr>
+<p><a href="/">https://invisible-island.net/</a><a href="/xterm/">xterm/</a><a href="/xterm/ctlseqs/ctlseqs.html">ctlseqs/</a></p>
+<hr>
+<h1 class="no-header">ctlseqs(contents)</h1>
+<pre>
+ <a href="ctlseqs.html#h2-Definitions"><b>Definitions</b></a>
+     <a href="ctlseqs.html#h3-Definitions:C.5C1"><b>C</b></a>  A single (required) character.
+     <a href="ctlseqs.html#h3-Definitions:Ps.641"><b><i>Ps</i></b></a>  A single (usually optional) numeric parameter, composed of one or more digits.
+     <a href="ctlseqs.html#h3-Definitions:Pm.63B"><b><i>Pm</i></b></a>  Any number of single numeric parameters, separated by ; character(s).
+     <a href="ctlseqs.html#h3-Definitions:Pt.642"><b><i>Pt</i></b></a>  A text parameter composed of printable characters.
+     <a href="ctlseqs.html#h3-Control-Bytes_-Characters_-and-Sequences"><b>Control Bytes, Characters, and Sequences</b></a>
+     <a href="ctlseqs.html#h3-C1-lparen-8-Bit-rparen-Control-Characters"><b>C1 (8-Bit) Control Characters</b></a>
+          <a href="ctlseqs.html#h4-C1-lparen-8-Bit-rparen-Control-Characters:ESC-D.1113"><b>ESC D</b></a>  Index (ID is 0x84).
+          <a href="ctlseqs.html#h4-C1-lparen-8-Bit-rparen-Control-Characters:ESC-E.1114"><b>ESC E</b></a>  Next Line (NL is 0x85).
+          <a href="ctlseqs.html#h4-C1-lparen-8-Bit-rparen-Control-Characters:ESC-H.1117"><b>ESC H</b></a>  Tab Set (HT is 0x88).
+          <a href="ctlseqs.html#h4-C1-lparen-8-Bit-rparen-Control-Characters:ESC-M.111C"><b>ESC M</b></a>  Reverse Index (RI is 0x8d).
+          <a href="ctlseqs.html#h4-C1-lparen-8-Bit-rparen-Control-Characters:ESC-N.111D"><b>ESC N</b></a>  Single Shift Select of G2 Character Set (SS2 is 0x8e), VT220.
+          <a href="ctlseqs.html#h4-C1-lparen-8-Bit-rparen-Control-Characters:ESC-O.111E"><b>ESC O</b></a>  Single Shift Select of G3 Character Set (SS3 is 0x8f), VT220.
+          <a href="ctlseqs.html#h4-C1-lparen-8-Bit-rparen-Control-Characters:ESC-P.111F"><b>ESC P</b></a>  Device Control String (DCS is 0x90).
+          <a href="ctlseqs.html#h4-C1-lparen-8-Bit-rparen-Control-Characters:ESC-V.1125"><b>ESC V</b></a>  Start of Guarded Area (SPA is 0x96).
+          <a href="ctlseqs.html#h4-C1-lparen-8-Bit-rparen-Control-Characters:ESC-W.1126"><b>ESC W</b></a>  End of Guarded Area (EPA is 0x97).
+          <a href="ctlseqs.html#h4-C1-lparen-8-Bit-rparen-Control-Characters:ESC-X.1127"><b>ESC X</b></a>  Start of String (SOS is 0x98).
+          <a href="ctlseqs.html#h4-C1-lparen-8-Bit-rparen-Control-Characters:ESC-Z.1129"><b>ESC Z</b></a>  Return Terminal ID (DECID is 0x9a).
+          <a href="ctlseqs.html#h4-C1-lparen-8-Bit-rparen-Control-Characters:ESC-%5B.116B"><b>ESC [</b></a>  Control Sequence Introducer (CSI is 0x9b).
+          <a href="ctlseqs.html#h4-C1-lparen-8-Bit-rparen-Control-Characters:ESC-bs.11A4"><b>ESC \</b></a>  String Terminator (ST is 0x9c).
+          <a href="ctlseqs.html#h4-C1-lparen-8-Bit-rparen-Control-Characters:ESC-%5D.116D"><b>ESC ]</b></a>  Operating System Command (OSC is 0x9d).
+          <a href="ctlseqs.html#h4-C1-lparen-8-Bit-rparen-Control-Characters:ESC-%5E.116E"><b>ESC ^</b></a>  Privacy Message (PM is 0x9e).
+          <a href="ctlseqs.html#h4-C1-lparen-8-Bit-rparen-Control-Characters:ESC-_.112E"><b>ESC _</b></a>  Application Program Command (APC is 0x9f).
+     <a href="ctlseqs.html#h3-VT100-related-terminals"><b>VT100-related terminals</b></a>
+ <a href="ctlseqs.html#h2-VT100-Mode"><b>VT100 Mode</b></a>
+     <a href="ctlseqs.html#h3-Single-character-functions"><b>Single-character functions</b></a>
+          <a href="ctlseqs.html#h4-Single-character-functions:BEL.C18"><b>BEL</b></a>  Bell (BEL is Ctrl-G).
+          <a href="ctlseqs.html#h4-Single-character-functions:BS.BDA"><b>BS</b></a>  Backspace (BS is Ctrl-H).
+          <a href="ctlseqs.html#h4-Single-character-functions:CR.BDA"><b>CR</b></a>  Carriage Return (CR is Ctrl-M).
+          <a href="ctlseqs.html#h4-Single-character-functions:ENQ.C29"><b>ENQ</b></a>  Return Terminal Status (ENQ is Ctrl-E).
+          <a href="ctlseqs.html#h4-Single-character-functions:FF.BD1"><b>FF</b></a>  Form Feed or New Page (NP).
+          <a href="ctlseqs.html#h4-Single-character-functions:LF.BD7"><b>LF</b></a>  Line Feed or New Line (NL).
+          <a href="ctlseqs.html#h4-Single-character-functions:SI.BE1"><b>SI</b></a>  Switch to Standard Character Set (Ctrl-O is Shift In or LS0).
+          <a href="ctlseqs.html#h4-Single-character-functions:SO.BE7"><b>SO</b></a>  Switch to Alternate Character Set (Ctrl-N is Shift Out or LS1).
+          <a href="ctlseqs.html#h4-Single-character-functions:SP.BE8"><b>SP</b></a>  Space.
+          <a href="ctlseqs.html#h4-Single-character-functions:TAB.C1C"><b>TAB</b></a>  Horizontal Tab (HT is Ctrl-I).
+          <a href="ctlseqs.html#h4-Single-character-functions:VT.BEF"><b>VT</b></a>  Vertical Tab (VT is Ctrl-K).
+     <a href="ctlseqs.html#h3-Controls-beginning-with-ESC"><b>Controls beginning with ESC</b></a>
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-SP-F.D44"><b>ESC SP F</b></a>  7-bit controls (S7C1T), VT220.
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-SP-G.D45"><b>ESC SP G</b></a>  8-bit controls (S8C1T), VT220.
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-SP-L.D4A"><b>ESC SP L</b></a>  Set ANSI conformance level 1, ECMA-43.
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-SP-M.D4B"><b>ESC SP M</b></a>  Set ANSI conformance level 2, ECMA-43.
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-SP-N.D4C"><b>ESC SP N</b></a>  Set ANSI conformance level 3, ECMA-43.
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-pound-3.EB4"><b>ESC # 3</b></a>  DEC double-height line, top half (DECDHL), VT100.
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-pound-4.EB5"><b>ESC # 4</b></a>  DEC double-height line, bottom half (DECDHL), VT100.
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-pound-5.EB6"><b>ESC # 5</b></a>  DEC single-width line (DECSWL), VT100.
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-pound-6.EB7"><b>ESC # 6</b></a>  DEC double-width line (DECDWL), VT100.
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-pound-8.EB9"><b>ESC # 8</b></a>  DEC Screen Alignment Test (DECALN), VT100.
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-percent-@.F8C"><b>ESC % @</b></a>  Select default character set.
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-percent-G.F93"><b>ESC % G</b></a>  Select UTF-8 character set, ISO 2022.
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-lparen-C.F20"><b>ESC ( C</b></a>  Designate G0 Character Set, VT100, ISO 2022.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-lparen-C:C-=-A.1003"><b>C = A</b></a>  United Kingdom (UK), VT100.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-lparen-C:C-=-B.1004"><b>C = B</b></a>  United States (USASCII), VT100.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-lparen-C:C-=-C-or-5.1175"><b>C = C or 5</b></a>  Finnish, VT200.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-lparen-C:C-=-H-or-7.117C"><b>C = H or 7</b></a>  Swedish, VT200.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-lparen-C:C-=-K.100D"><b>C = K</b></a>  German, VT200.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-lparen-C:C-=-Q-or-9.1187"><b>C = Q or 9</b></a>  French Canadian, VT200.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-lparen-C:C-=-R-or-f.11B5"><b>C = R or f</b></a>  French, VT200.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-lparen-C:C-=-Y.101B"><b>C = Y</b></a>  Italian, VT200.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-lparen-C:C-=-Z.101C"><b>C = Z</b></a>  Spanish, VT200.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-lparen-C:C-=-4.FF6"><b>C = 4</b></a>  Dutch, VT200.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-lparen-C:C-=-dq-gt.119F"><b>C = " &gt;</b></a>  Greek, VT500.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-lparen-C:C-=-percent-2.1312"><b>C = % 2</b></a>  Turkish, VT500.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-lparen-C:C-=-percent-6.1316"><b>C = % 6</b></a>  Portuguese, VT300.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-lparen-C:C-=-percent-=.131D"><b>C = % =</b></a>  Hebrew, VT500.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-lparen-C:C-=-=.FFF"><b>C = =</b></a>  Swiss, VT200.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-lparen-C:C-=--percent-60,-E-or-6.1582"><b>C = `, E or 6</b></a>  Norwegian/Danish, VT200.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-lparen-C:C-=-0.FF2"><b>C = 0</b></a>  DEC Special Character and Line Drawing Set, VT100.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-lparen-C:C-=-lt.10A2"><b>C = &lt;</b></a>  DEC Supplemental, VT200.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-lparen-C:C-=-lt.10A2"><b>C = &lt;</b></a>  User Preferred Selection Set, VT300.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-lparen-C:C-=-gt.109D"><b>C = &gt;</b></a>  DEC Technical, VT300.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-lparen-C:C-=-dq-4.10F8"><b>C = " 4</b></a>  DEC Hebrew, VT500.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-lparen-C:C-=-dq-?.1103"><b>C = " ?</b></a>  DEC Greek, VT500.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-lparen-C:C-=-percent-0.1310"><b>C = % 0</b></a>  DEC Turkish, VT500.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-lparen-C:C-=-percent-5.1315"><b>C = % 5</b></a>  DEC Supplemental Graphics, VT300.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-lparen-C:C-=-amp;4.116F"><b>C = &amp; 4</b></a>  DEC Cyrillic, VT500.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-lparen-C:C-=-I.100B"><b>C = I</b></a>  JIS-Katakana, VT382.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-lparen-C:C-=-J.100C"><b>C = J</b></a>  JIS-Roman, VT382.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-lparen-C:C-=-percent-3.1313"><b>C = % 3</b></a>  SCS NRCS, VT500.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-lparen-C:C-=-amp;5.1170"><b>C = &amp; 5</b></a>  DEC Russian, VT500.
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-rparen-C.F26"><b>ESC ) C</b></a>  Designate G1 Character Set, ISO 2022, VT100.
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-*-C.CC8"><b>ESC * C</b></a>  Designate G2 Character Set, ISO 2022, VT220.
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-plus-C.E62"><b>ESC + C</b></a>  Designate G3 Character Set, ISO 2022, VT220.
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC---C.CCB"><b>ESC - C</b></a>  Designate G1 Character Set, VT300.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC---C:C-=-A.DAE"><b>C = A</b></a>  ISO Latin-1 Supplemental, VT300.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC---C:C-=-B.DAF"><b>C = B</b></a>  ISO Latin-2 Supplemental, VT500.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC---C:C-=-F.DB3"><b>C = F</b></a>  ISO Greek Supplemental, VT500.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC---C:C-=-H.DB5"><b>C = H</b></a>  ISO Hebrew Supplemental, VT500.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC---C:C-=-L.DB9"><b>C = L</b></a>  ISO Latin-Cyrillic, VT500.
+               <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC---C:C-=-M.DBA"><b>C = M</b></a>  ISO Latin-5 Supplemental, VT500.
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-.-C.CCC"><b>ESC . C</b></a>  Designate G2 Character Set, VT300.
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-slash-C.EB9"><b>ESC / C</b></a>  Designate G3 Character Set, VT300.
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-6.C64"><b>ESC 6</b></a>  Back Index (DECBI), VT420 and up.
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-7.C65"><b>ESC 7</b></a>  Save Cursor (DECSC), VT100.
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-8.C66"><b>ESC 8</b></a>  Restore Cursor (DECRC), VT100.
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-9.C67"><b>ESC 9</b></a>  Forward Index (DECFI), VT420 and up.
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-=.C6B"><b>ESC =</b></a>  Application Keypad (DECKPAM).
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-gt.D09"><b>ESC &gt;</b></a>  Normal Keypad (DECKPNM), VT100.
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-F.C74"><b>ESC F</b></a>  Cursor to lower left corner of screen.
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-c.C91"><b>ESC c</b></a>  Full Reset (RIS), VT100.
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-l.C9A"><b>ESC l</b></a>  Memory Lock (per HP terminals).
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-m.C9B"><b>ESC m</b></a>  Memory Unlock (per HP terminals).
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-n.C9C"><b>ESC n</b></a>  Invoke the G2 Character Set as GL (LS2).
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-o.C9D"><b>ESC o</b></a>  Invoke the G3 Character Set as GL (LS3).
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-%7C.CCD"><b>ESC |</b></a>  Invoke the G3 Character Set as GR (LS3R).
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-%7D.CCE"><b>ESC }</b></a>  Invoke the G2 Character Set as GR (LS2R).
+          <a href="ctlseqs.html#h4-Controls-beginning-with-ESC:ESC-~.CAC"><b>ESC ~</b></a>  Invoke the G1 Character Set as GR (LS1R), VT100.
+     <a href="ctlseqs.html#h3-Application-Program-Command-functions"><b>Application Program-Command functions</b></a>
+          <a href="ctlseqs.html#h4-Application-Program-Command-functions:APC-Pt-ST.1207"><b>APC <i>Pt</i> ST</b></a>  None.
+     <a href="ctlseqs.html#h3-Device-Control-functions"><b>Device-Control functions</b></a>
+          <a href="ctlseqs.html#h4-Device-Control-functions:DCS-Ps;Ps-%7C-Pt-ST.FC0"><b>DCS <i>Ps</i> ; <i>Ps</i> | <i>Pt</i> ST</b></a>  User-Defined Keys (DECUDK), VT220 and up.
+               <a href="ctlseqs.html#h4-Device-Control-functions:DCS-Ps;Ps--percent-7C-Pt-ST:Ps-=-0.1438"><b><i>Ps</i> = 0</b></a>  Clear all UDK definitions before starting (default).
+               <a href="ctlseqs.html#h4-Device-Control-functions:DCS-Ps;Ps--percent-7C-Pt-ST:Ps-=-1.1439"><b><i>Ps</i> = 1</b></a>  Erase Below (default).
+          <a href="ctlseqs.html#h4-Device-Control-functions:DCS-Ps!-u-Pt-ST.EB9"><b>DCS <i>Ps</i> ! u <i>Pt</i> ST</b></a>  Assigning User-Preferred Supplemental Sets (DECAUPSS), VT320, VT510.
+          <a href="ctlseqs.html#h4-Device-Control-functions:DCS-$-q-Pt-ST.DF5"><b>DCS $ q <i>Pt</i> ST</b></a>  Request Status String (DECRQSS), VT420 and up.
+          <a href="ctlseqs.html#h4-Device-Control-functions:DCS-Ps-$-t-Pt-ST.EE8"><b>DCS <i>Ps</i> $ t <i>Pt</i> ST</b></a>  Restore presentation status (DECRSPS), VT320 and up.
+               <a href="ctlseqs.html#h4-Device-Control-functions:DCS-Ps-$-t-Pt-ST:Ps-=-1.103B"><b><i>Ps</i> = 1</b></a>  DECCIR
+               <a href="ctlseqs.html#h4-Device-Control-functions:DCS-Ps-$-t-Pt-ST:Ps-=-2.103C"><b><i>Ps</i> = 2</b></a>  DECTABSR
+          <a href="ctlseqs.html#h4-Device-Control-functions:DCS-plus-Q-Pt-ST.F75"><b>DCS + Q <i>Pt</i> ST</b></a>  Request resource values (XTGETXRES), xterm.
+          <a href="ctlseqs.html#h4-Device-Control-functions:DCS-plus-p-Pt-ST.F94"><b>DCS + p <i>Pt</i> ST</b></a>  Set Termcap/Terminfo Data (XTSETTCAP), xterm.
+          <a href="ctlseqs.html#h4-Device-Control-functions:DCS-plus-q-Pt-ST.F95"><b>DCS + q <i>Pt</i> ST</b></a>  Request Termcap/Terminfo String (XTGETTCAP), xterm.
+     <a href="ctlseqs.html#h3-Functions-using-CSI-_-ordered-by-the-final-character_s_"><b>Functions using CSI , ordered by the final character(s)</b></a>
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-@.1C80"><b>CSI <i>Ps</i> @</b></a>  Insert Ps (Blank) Character(s) (default = 1) (ICH).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-SP-@.1D50"><b>CSI <i>Ps</i> SP @</b></a>  Shift left Ps columns(s) (default = 1) (SL), ECMA-48.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-A.1C81"><b>CSI <i>Ps</i> A</b></a>  Cursor Up Ps Times (default = 1) (CUU).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-SP-A.1D51"><b>CSI <i>Ps</i> SP A</b></a>  Shift right Ps columns(s) (default = 1) (SR), ECMA-48.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-B.1C82"><b>CSI <i>Ps</i> B</b></a>  Cursor Down Ps Times (default = 1) (CUD).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-C.1C83"><b>CSI <i>Ps</i> C</b></a>  Cursor Forward Ps Times (default = 1) (CUF).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-D.1C84"><b>CSI <i>Ps</i> D</b></a>  Cursor Backward Ps Times (default = 1) (CUB).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-E.1C85"><b>CSI <i>Ps</i> E</b></a>  Cursor Next Line Ps Times (default = 1) (CNL).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-F.1C86"><b>CSI <i>Ps</i> F</b></a>  Cursor Preceding Line Ps Times (default = 1) (CPL).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-G.1C87"><b>CSI <i>Ps</i> G</b></a>  Cursor Character Absolute [column] (default = [row,1]) (CHA).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps-H.1D86"><b>CSI <i>Ps</i> ; <i>Ps</i> H</b></a>  Cursor Position [row;column] (default = [1,1]) (CUP).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-I.1C89"><b>CSI <i>Ps</i> I</b></a>  Cursor Forward Tabulation Ps tab stops (default = 1) (CHT).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-J.1C8A"><b>CSI <i>Ps</i> J</b></a>  Erase in Display (ED), VT100.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-J:Ps-=-0.1DDC"><b><i>Ps</i> = 0</b></a>  Erase Below (default).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-J:Ps-=-1.1DDD"><b><i>Ps</i> = 1</b></a>  Erase Above.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-J:Ps-=-2.1DDE"><b><i>Ps</i> = 2</b></a>  Erase All.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-J:Ps-=-3.1DDF"><b><i>Ps</i> = 3</b></a>  Erase Saved Lines,  xterm.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Ps-J.1CF6"><b>CSI ? <i>Ps</i> J</b></a>  Erase in Display (DECSED), VT220.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Ps-J:Ps-=-0.1E48"><b><i>Ps</i> = 0</b></a>  Selective Erase Below (default).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Ps-J:Ps-=-1.1E49"><b><i>Ps</i> = 1</b></a>  Selective Erase Above.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Ps-J:Ps-=-2.1E4A"><b><i>Ps</i> = 2</b></a>  Selective Erase All.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Ps-J:Ps-=-3.1E4B"><b><i>Ps</i> = 3</b></a>  Selective Erase Saved Lines,  xterm.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-K.1C8B"><b>CSI <i>Ps</i> K</b></a>  Erase in Line (EL), VT100.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-K:Ps-=-0.1DDD"><b><i>Ps</i> = 0</b></a>  Erase to Right (default).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-K:Ps-=-1.1DDE"><b><i>Ps</i> = 1</b></a>  Erase to Left.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-K:Ps-=-2.1DDF"><b><i>Ps</i> = 2</b></a>  Erase All.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Ps-K.1CF7"><b>CSI ? <i>Ps</i> K</b></a>  Erase in Line (DECSEL), VT220.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Ps-K:Ps-=-0.1E49"><b><i>Ps</i> = 0</b></a>  Selective Erase to Right (default).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Ps-K:Ps-=-1.1E4A"><b><i>Ps</i> = 1</b></a>  Selective Erase to Left.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Ps-K:Ps-=-2.1E4B"><b><i>Ps</i> = 2</b></a>  Selective Erase All.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-L.1C8C"><b>CSI <i>Ps</i> L</b></a>  Insert Ps Line(s) (default = 1) (IL).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-M.1C8D"><b>CSI <i>Ps</i> M</b></a>  Delete Ps Line(s) (default = 1) (DL).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-P.1C90"><b>CSI <i>Ps</i> P</b></a>  Delete Ps Character(s) (default = 1) (DCH).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-pound-P.1DF3"><b>CSI # P</b></a>  Push current dynamic- and ANSI-palette colors onto stack (XTPUSHCOLORS), xterm.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-pound-P.1EDD"><b>CSI <i>Pm</i> # P</b></a>  Push current dynamic- and ANSI-palette colors onto stack (XTPUSHCOLORS), xterm.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-pound-Q.1DF4"><b>CSI # Q</b></a>  Pop stack to set dynamic- and ANSI-palette colors (XTPOPCOLORS), xterm.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-pound-Q.1EDE"><b>CSI <i>Pm</i> # Q</b></a>  Pop stack to set dynamic- and ANSI-palette colors (XTPOPCOLORS), xterm.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-pound-R.1DF5"><b>CSI # R</b></a>  Report the current entry on the palette stack, and the number of palettes stored on the stack, using the same form as XTPOPCOLOR (default = 0) (XTREPORTCOLORS), xterm.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-S.1C93"><b>CSI <i>Ps</i> S</b></a>  Scroll up Ps lines (default = 1) (SU), VT420, ECMA-48.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pi;Pa;Pv-S.1EE2"><b>CSI ? <i>Pi</i> ; <i>Pa</i> ; <i>Pv</i> S</b></a>  Set or request graphics attribute (XTSMGRAPHICS), xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pi;Pa;Pv-S:Pi-=-1.202B"><b><i>Pi</i> = 1</b></a>  item is number of color registers.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pi;Pa;Pv-S:Pi-=-2.202C"><b><i>Pi</i> = 2</b></a>  item is Sixel graphics geometry (in pixels).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pi;Pa;Pv-S:Pi-=-3.202D"><b><i>Pi</i> = 3</b></a>  item is ReGIS graphics geometry (in pixels).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pi;Pa;Pv-S:Pa-=-1.2023"><b><i>Pa</i> = 1</b></a>  read attribute.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pi;Pa;Pv-S:Pa-=-2.2024"><b><i>Pa</i> = 2</b></a>  reset to default.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pi;Pa;Pv-S:Pa-=-3.2025"><b><i>Pa</i> = 3</b></a>  set to value in Pv.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pi;Pa;Pv-S:Pa-=-4.2026"><b><i>Pa</i> = 4</b></a>  read the maximum allowed value.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-T.1C94"><b>CSI <i>Ps</i> T</b></a>  Scroll down Ps lines (default = 1) (SD), VT420.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps;Ps;Ps-T.208C"><b>CSI <i>Ps</i> ; <i>Ps</i> ; <i>Ps</i> ; <i>Ps</i> ; <i>Ps</i> T</b></a>  Initiate highlight mouse tracking (XTHIMOUSE), xterm.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pm-T.1D96"><b>CSI &gt; <i>Pm</i> T</b></a>  Reset title mode features to default value (XTRMTITLE), xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pm-T:Ps-=-0.1EE8"><b><i>Ps</i> = 0</b></a>  Do not set window/icon labels using hexadecimal.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pm-T:Ps-=-1.1EE9"><b><i>Ps</i> = 1</b></a>  Do not query window/icon labels using hexadecimal.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pm-T:Ps-=-2.1EEA"><b><i>Ps</i> = 2</b></a>  Do not set window/icon labels using UTF-8.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pm-T:Ps-=-3.1EEB"><b><i>Ps</i> = 3</b></a>  Do not query window/icon labels using UTF-8.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-5-W.1C75"><b>CSI ? 5 W</b></a>  Reset tab stops to start with column 9, every 8 columns (DECST8C), VT510.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-X.1C98"><b>CSI <i>Ps</i> X</b></a>  Erase Ps Character(s) (default = 1) (ECH).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-Z.1C9A"><b>CSI <i>Ps</i> Z</b></a>  Cursor Backward Tabulation Ps tab stops (default = 1) (CBT).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-%5E.1CDF"><b>CSI <i>Ps</i> ^</b></a>  Scroll down Ps lines (default = 1) (SD), ECMA-48.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-%60.1CCB"><b>CSI <i>Ps</i> `</b></a>  Character Position Absolute [column] (default = [row,1]) (HPA).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-a.1CA1"><b>CSI <i>Ps</i> a</b></a>  Character Position Relative [columns] (default = [row,col+1]) (HPR).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-b.1CA2"><b>CSI <i>Ps</i> b</b></a>  Repeat the preceding graphic character Ps times (REP).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-c.1CA3"><b>CSI <i>Ps</i> <i>c</i></b></a>  Send Device Attributes (Primary DA).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-c:Ps-=-0-or-omitted.2226"><b><i>Ps</i> = 0 or omitted</b></a>  request attributes from terminal.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-c:Ps-=-1.1DF6"><b><i>Ps</i> = 1</b></a>  132-columns.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-c:Ps-=-2.1DF7"><b><i>Ps</i> = 2</b></a>  Printer.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-c:Ps-=-3.1DF8"><b><i>Ps</i> = 3</b></a>  ReGIS graphics.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-c:Ps-=-4.1DF9"><b><i>Ps</i> = 4</b></a>  Sixel graphics.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-c:Ps-=-6.1DFB"><b><i>Ps</i> = 6</b></a>  Selective erase.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-c:Ps-=-8.1DFD"><b><i>Ps</i> = 8</b></a>  User-defined keys.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-c:Ps-=-9.1DFE"><b><i>Ps</i> = 9</b></a>  National Replacement Character sets.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-c:Ps-=-1-5.1E58"><b><i>Ps</i> = 1 5</b></a>  Technical characters.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-c:Ps-=-1-6.1E59"><b><i>Ps</i> = 1 6</b></a>  Locator port.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-c:Ps-=-1-7.1E5A"><b><i>Ps</i> = 1 7</b></a>  Terminal state interrogation.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-c:Ps-=-1-8.1E5B"><b><i>Ps</i> = 1 8</b></a>  User windows.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-c:Ps-=-2-1.1E55"><b><i>Ps</i> = 2 1</b></a>  Horizontal scrolling.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-c:Ps-=-2-2.1E56"><b><i>Ps</i> = 2 2</b></a>  ANSI color, e.g., VT525.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-c:Ps-=-2-8.1E5C"><b><i>Ps</i> = 2 8</b></a>  Rectangular editing.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-c:Ps-=-2-9.1E5D"><b><i>Ps</i> = 2 9</b></a>  ANSI text locator (i.e., DEC Locator mode).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-=-Ps-c.1D0D"><b>CSI = <i>Ps</i> <i>c</i></b></a>  Send Device Attributes (Tertiary DA).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-=-Ps-c:Ps-=-0.1E5F"><b><i>Ps</i> = 0</b></a>  report Terminal Unit ID (default), VT400.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-c.1DAB"><b>CSI &gt; <i>Ps</i> <i>c</i></b></a>  Send Device Attributes (Secondary DA).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-c:Ps-=-0-or-omitted.232E"><b><i>Ps</i> = 0 or omitted</b></a>  request the terminal's identification code.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-c:Pp-=-0.1EFA"><b><i>Pp</i> = 0</b></a>  &ldquo;VT100&rdquo;.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-c:Pp-=-1.1EFB"><b><i>Pp</i> = 1</b></a>  &ldquo;VT220&rdquo;.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-c:Pp-=-2.1EFC"><b><i>Pp</i> = 2</b></a>  &ldquo;VT240&rdquo; or &ldquo;VT241&rdquo;.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-c:Pp-=-1-8.1F60"><b><i>Pp</i> = 1 8</b></a>  &ldquo;VT330&rdquo;.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-c:Pp-=-1-9.1F61"><b><i>Pp</i> = 1 9</b></a>  &ldquo;VT340&rdquo;.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-c:Pp-=-2-4.1F5D"><b><i>Pp</i> = 2 4</b></a>  &ldquo;VT320&rdquo;.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-c:Pp-=-3-2.1F5C"><b><i>Pp</i> = 3 2</b></a>  &ldquo;VT382&rdquo;.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-c:Pp-=-4-1.1F5C"><b><i>Pp</i> = 4 1</b></a>  &ldquo;VT420&rdquo;.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-c:Pp-=-6-1.1F5E"><b><i>Pp</i> = 6 1</b></a>  &ldquo;VT510&rdquo;.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-c:Pp-=-6-4.1F61"><b><i>Pp</i> = 6 4</b></a>  &ldquo;VT520&rdquo;.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-c:Pp-=-6-5.1F62"><b><i>Pp</i> = 6 5</b></a>  &ldquo;VT525&rdquo;.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-d.1CA4"><b>CSI <i>Ps</i> d</b></a>  Line Position Absolute [row] (default = [1,column]) (VPA).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-e.1CA5"><b>CSI <i>Ps</i> e</b></a>  Line Position Relative [rows] (default = [row+1,column]) (VPR).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps-f.1DA4"><b>CSI <i>Ps</i> ; <i>Ps</i> <i>f</i></b></a>  Horizontal and Vertical Position [row;column] (default = [1,1]) (HVP).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-g.1CA7"><b>CSI <i>Ps</i> g</b></a>  Tab Clear (TBC).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-g:Ps-=-0.1DF9"><b><i>Ps</i> = 0</b></a>  Clear Current Column (default).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-g:Ps-=-3.1DFC"><b><i>Ps</i> = 3</b></a>  Clear All.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-h.1CA2"><b>CSI <i>Pm</i> h</b></a>  Set Mode (SM).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-h:Ps-=-2.1DF6"><b><i>Ps</i> = 2</b></a>  Keyboard Action Mode (KAM).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-h:Ps-=-4.1DF8"><b><i>Ps</i> = 4</b></a>  Insert Mode (IRM).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-h:Ps-=-1-2.1E54"><b><i>Ps</i> = 1 2</b></a>  Send/receive (SRM).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-h:Ps-=-2-0.1E53"><b><i>Ps</i> = 2 0</b></a>  Automatic Newline (LNM).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h.1D0E"><b>CSI ? <i>Pm</i> h</b></a>  DEC Private Mode Set (DECSET).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1.1E61"><b><i>Ps</i> = 1</b></a>  Application Cursor Keys (DECCKM), VT100.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-2.1E62"><b><i>Ps</i> = 2</b></a>  Designate USASCII for character sets G0-G3 (DECANM), VT100, and set VT100 mode.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-3.1E63"><b><i>Ps</i> = 3</b></a>  132 Column Mode (DECCOLM), VT100.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-4.1E64"><b><i>Ps</i> = 4</b></a>  Smooth (Slow) Scroll (DECSCLM), VT100.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-5.1E65"><b><i>Ps</i> = 5</b></a>  Reverse Video (DECSCNM), VT100.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-6.1E66"><b><i>Ps</i> = 6</b></a>  Origin Mode (DECOM), VT100.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-7.1E67"><b><i>Ps</i> = 7</b></a>  Auto-Wrap Mode (DECAWM), VT100.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-8.1E68"><b><i>Ps</i> = 8</b></a>  Auto-Repeat Keys (DECARM), VT100.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-9.1E69"><b><i>Ps</i> = 9</b></a>  Send Mouse X  amp Y on button press.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0.1EBE"><b><i>Ps</i> = 1 0</b></a>  Show toolbar (rxvt).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-2.1EC0"><b><i>Ps</i> = 1 2</b></a>  Start blinking cursor (AT ampT 610).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-3.1EC1"><b><i>Ps</i> = 1 3</b></a>  Start blinking cursor (set only via resource or menu).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-4.1EC2"><b><i>Ps</i> = 1 4</b></a>  Enable XOR of blinking cursor control sequence and menu.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-8.1EC6"><b><i>Ps</i> = 1 8</b></a>  Print Form Feed (DECPFF), VT220.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-9.1EC7"><b><i>Ps</i> = 1 9</b></a>  Set print extent to full screen (DECPEX), VT220.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-2-5.1EC4"><b><i>Ps</i> = 2 5</b></a>  Show cursor (DECTCEM), VT220.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-3-0.1EC0"><b><i>Ps</i> = 3 0</b></a>  Show scrollbar (rxvt).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-3-5.1EC5"><b><i>Ps</i> = 3 5</b></a>  Enable font-shifting functions (rxvt).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-3-8.1EC8"><b><i>Ps</i> = 3 8</b></a>  Enter Tektronix mode (DECTEK), VT240,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-4-0.1EC1"><b><i>Ps</i> = 4 0</b></a>  132 mode,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-4-1.1EC2"><b><i>Ps</i> = 4 1</b></a>  more(1) fix (see curses resource).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-4-2.1EC3"><b><i>Ps</i> = 4 2</b></a>  Enable National Replacement Character sets (DECNRCM), VT220.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-4-3.1EC4"><b><i>Ps</i> = 4 3</b></a>  Enable Graphic Expanded Print Mode (DECGEPM), VT340.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-4-4.1EC5"><b><i>Ps</i> = 4 4</b></a>  Turn on margin bell,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-4-4.1EC5"><b><i>Ps</i> = 4 4</b></a>  Enable Graphic Print Color Mode (DECGPCM), VT340.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-4-5.1EC6"><b><i>Ps</i> = 4 5</b></a>  Reverse-wraparound mode (XTREVWRAP),  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-4-5.1EC6"><b><i>Ps</i> = 4 5</b></a>  Enable Graphic Print Color Syntax (DECGPCS), VT340.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-4-6.1EC7"><b><i>Ps</i> = 4 6</b></a>  Start logging (XTLOGGING),  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-4-6.1EC7"><b><i>Ps</i> = 4 6</b></a>  Graphic Print Background Mode, VT340.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-4-7.1EC8"><b><i>Ps</i> = 4 7</b></a>  Use Alternate Screen Buffer,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-4-7.1EC8"><b><i>Ps</i> = 4 7</b></a>  Enable Graphic Rotated Print Mode (DECGRPM), VT340.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-6-6.1EC9"><b><i>Ps</i> = 6 6</b></a>  Application keypad mode (DECNKM), VT320.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-6-7.1ECA"><b><i>Ps</i> = 6 7</b></a>  Backarrow key sends backspace (DECBKM), VT340, VT420.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-6-9.1ECC"><b><i>Ps</i> = 6 9</b></a>  Enable left and right margin mode (DECLRMM), VT420 and up.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-8-0.1EC5"><b><i>Ps</i> = 8 0</b></a>  Enable Sixel Display Mode (DECSDM), VT330, VT340, VT382.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-9-5.1ECB"><b><i>Ps</i> = 9 5</b></a>  Do not clear screen when DECCOLM is set/reset (DECNCSM), VT510 and up.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-0-0.1F78"><b><i>Ps</i> = 1 0 0 0</b></a>  Send Mouse X  amp Y on button press and release.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-0-1.1F79"><b><i>Ps</i> = 1 0 0 1</b></a>  Use Hilite Mouse Tracking,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-0-2.1F7A"><b><i>Ps</i> = 1 0 0 2</b></a>  Use Cell Motion Mouse Tracking,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-0-3.1F7B"><b><i>Ps</i> = 1 0 0 3</b></a>  Use All Motion Mouse Tracking,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-0-4.1F7C"><b><i>Ps</i> = 1 0 0 4</b></a>  Send FocusIn/FocusOut events,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-0-5.1F7D"><b><i>Ps</i> = 1 0 0 5</b></a>  Enable UTF-8 Mouse Mode,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-0-6.1F7E"><b><i>Ps</i> = 1 0 0 6</b></a>  Enable SGR Mouse Mode,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-0-7.1F7F"><b><i>Ps</i> = 1 0 0 7</b></a>  Enable Alternate Scroll Mode,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-1-0.1F79"><b><i>Ps</i> = 1 0 1 0</b></a>  Scroll to bottom on tty output (rxvt).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-1-1.1F7A"><b><i>Ps</i> = 1 0 1 1</b></a>  Scroll to bottom on key press (rxvt).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-1-4.1F7D"><b><i>Ps</i> = 1 0 1 4</b></a>  Enable \fB\%fastScroll\fP resource,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-1-5.1F7E"><b><i>Ps</i> = 1 0 1 5</b></a>  Enable urxvt Mouse Mode.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-1-6.1F7F"><b><i>Ps</i> = 1 0 1 6</b></a>  Enable SGR Mouse PixelMode,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-3-4.1F7F"><b><i>Ps</i> = 1 0 3 4</b></a>  Interpret &ldquo;meta&rdquo; key,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-3-5.1F80"><b><i>Ps</i> = 1 0 3 5</b></a>  Enable special modifiers for Alt and NumLock keys,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-3-6.1F81"><b><i>Ps</i> = 1 0 3 6</b></a>  Send ESC when Meta modifies a key,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-3-7.1F82"><b><i>Ps</i> = 1 0 3 7</b></a>  Send DEL from the editing-keypad Delete key,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-3-9.1F84"><b><i>Ps</i> = 1 0 3 9</b></a>  Send ESC when Alt modifies a key,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-4-0.1F7C"><b><i>Ps</i> = 1 0 4 0</b></a>  Keep selection even if not highlighted,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-4-1.1F7D"><b><i>Ps</i> = 1 0 4 1</b></a>  Use the CLIPBOARD selection,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-4-2.1F7E"><b><i>Ps</i> = 1 0 4 2</b></a>  Enable Urgency window manager hint when Control-G is received,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-4-3.1F7F"><b><i>Ps</i> = 1 0 4 3</b></a>  Enable raising of the window when Control-G is received,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-4-4.1F80"><b><i>Ps</i> = 1 0 4 4</b></a>  Reuse the most recent data copied to CLIPBOARD,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-4-5.1F81"><b><i>Ps</i> = 1 0 4 5</b></a>  Extended Reverse-wraparound mode (XTREVWRAP2),  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-4-6.1F82"><b><i>Ps</i> = 1 0 4 6</b></a>  Enable switching to/from Alternate Screen Buffer,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-4-7.1F83"><b><i>Ps</i> = 1 0 4 7</b></a>  Use Alternate Screen Buffer,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-4-8.1F84"><b><i>Ps</i> = 1 0 4 8</b></a>  Save cursor as in DECSC,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-4-9.1F85"><b><i>Ps</i> = 1 0 4 9</b></a>  Save cursor as in DECSC,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-5-0.1F7D"><b><i>Ps</i> = 1 0 5 0</b></a>  Set terminfo/termcap function-key mode,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-5-1.1F7E"><b><i>Ps</i> = 1 0 5 1</b></a>  Set Sun function-key mode,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-5-2.1F7F"><b><i>Ps</i> = 1 0 5 2</b></a>  Set HP function-key mode,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-5-3.1F80"><b><i>Ps</i> = 1 0 5 3</b></a>  Set SCO function-key mode,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-6-0.1F7E"><b><i>Ps</i> = 1 0 6 0</b></a>  Set legacy keyboard emulation, i.e, X11R6,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-6-1.1F7F"><b><i>Ps</i> = 1 0 6 1</b></a>  Set VT220 keyboard emulation,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-2-0-0-1.1F7A"><b><i>Ps</i> = 2 0 0 1</b></a>  Enable readline mouse button-1,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-2-0-0-2.1F7B"><b><i>Ps</i> = 2 0 0 2</b></a>  Enable readline mouse button-2,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-2-0-0-3.1F7C"><b><i>Ps</i> = 2 0 0 3</b></a>  Enable readline mouse button-3,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-2-0-0-4.1F7D"><b><i>Ps</i> = 2 0 0 4</b></a>  Set bracketed paste mode,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-2-0-0-5.1F7E"><b><i>Ps</i> = 2 0 0 5</b></a>  Enable readline character-quoting,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-2-0-0-6.1F7F"><b><i>Ps</i> = 2 0 0 6</b></a>  Enable readline newline pasting,  xterm.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-i.1CA9"><b>CSI <i>Ps</i> i</b></a>  Media Copy (MC).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-i:Ps-=-0.1DFB"><b><i>Ps</i> = 0</b></a>  Print screen (default).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-i:Ps-=-4.1DFF"><b><i>Ps</i> = 4</b></a>  Turn off printer controller mode.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-i:Ps-=-5.1E00"><b><i>Ps</i> = 5</b></a>  Turn on printer controller mode.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-i:Ps-=-1-0.1E59"><b><i>Ps</i> = 1 0</b></a>  HTML screen dump,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-i:Ps-=-1-1.1E5A"><b><i>Ps</i> = 1 1</b></a>  SVG screen dump,  xterm.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Ps-i.1D15"><b>CSI ? <i>Ps</i> i</b></a>  Media Copy (MC), DEC-specific.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Ps-i:Ps-=-1.1E68"><b><i>Ps</i> = 1</b></a>  Print line containing cursor.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Ps-i:Ps-=-4.1E6B"><b><i>Ps</i> = 4</b></a>  Turn off autoprint mode.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Ps-i:Ps-=-5.1E6C"><b><i>Ps</i> = 5</b></a>  Turn on autoprint mode.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Ps-i:Ps-=-1-0.1EC5"><b><i>Ps</i> = 1 0</b></a>  Print composed display, ignores DECPEX.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Ps-i:Ps-=-1-1.1EC6"><b><i>Ps</i> = 1 1</b></a>  Print all pages.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-l.1CA6"><b>CSI <i>Pm</i> l</b></a>  Reset Mode (RM).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-l:Ps-=-2.1DFA"><b><i>Ps</i> = 2</b></a>  Keyboard Action Mode (KAM).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-l:Ps-=-4.1DFC"><b><i>Ps</i> = 4</b></a>  Replace Mode (IRM).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-l:Ps-=-1-2.1E58"><b><i>Ps</i> = 1 2</b></a>  Send/receive (SRM).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-l:Ps-=-2-0.1E57"><b><i>Ps</i> = 2 0</b></a>  Normal Linefeed (LNM).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l.1D12"><b>CSI ? <i>Pm</i> l</b></a>  DEC Private Mode Reset (DECRST).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1.1E65"><b><i>Ps</i> = 1</b></a>  Normal Cursor Keys (DECCKM), VT100.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-2.1E66"><b><i>Ps</i> = 2</b></a>  Designate VT52 mode (DECANM), VT100.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-3.1E67"><b><i>Ps</i> = 3</b></a>  80 Column Mode (DECCOLM), VT100.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-4.1E68"><b><i>Ps</i> = 4</b></a>  Jump (Fast) Scroll (DECSCLM), VT100.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-5.1E69"><b><i>Ps</i> = 5</b></a>  Normal Video (DECSCNM), VT100.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-6.1E6A"><b><i>Ps</i> = 6</b></a>  Normal Cursor Mode (DECOM), VT100.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-7.1E6B"><b><i>Ps</i> = 7</b></a>  No Auto-Wrap Mode (DECAWM), VT100.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-8.1E6C"><b><i>Ps</i> = 8</b></a>  No Auto-Repeat Keys (DECARM), VT100.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-9.1E6D"><b><i>Ps</i> = 9</b></a>  Don't send Mouse X  amp Y on button press,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0.1EC2"><b><i>Ps</i> = 1 0</b></a>  Hide toolbar (rxvt).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-2.1EC4"><b><i>Ps</i> = 1 2</b></a>  Stop blinking cursor (AT ampT 610).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-3.1EC5"><b><i>Ps</i> = 1 3</b></a>  Disable blinking cursor (reset only via resource or menu).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-4.1EC6"><b><i>Ps</i> = 1 4</b></a>  Disable XOR of blinking cursor control sequence and menu.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-8.1ECA"><b><i>Ps</i> = 1 8</b></a>  Don't Print Form Feed (DECPFF), VT220.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-9.1ECB"><b><i>Ps</i> = 1 9</b></a>  Limit print to scrolling region (DECPEX), VT220.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-2-5.1EC8"><b><i>Ps</i> = 2 5</b></a>  Hide cursor (DECTCEM), VT220.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-3-0.1EC4"><b><i>Ps</i> = 3 0</b></a>  Don't show scrollbar (rxvt).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-3-5.1EC9"><b><i>Ps</i> = 3 5</b></a>  Disable font-shifting functions (rxvt).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-4-0.1EC5"><b><i>Ps</i> = 4 0</b></a>  132 mode,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-4-1.1EC6"><b><i>Ps</i> = 4 1</b></a>  No more(1) fix (see curses resource).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-4-2.1EC7"><b><i>Ps</i> = 4 2</b></a>  Disable National Replacement Character sets (DECNRCM), VT220.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-4-3.1EC8"><b><i>Ps</i> = 4 3</b></a>  Disable Graphic Expanded Print Mode (DECGEPM), VT340.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-4-4.1EC9"><b><i>Ps</i> = 4 4</b></a>  Turn off margin bell,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-4-4.1EC9"><b><i>Ps</i> = 4 4</b></a>  Disable Graphic Print Color Mode (DECGPCM), VT340.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-4-5.1ECA"><b><i>Ps</i> = 4 5</b></a>  No Reverse-wraparound mode (XTREVWRAP),  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-4-5.1ECA"><b><i>Ps</i> = 4 5</b></a>  Disable Graphic Print Color Syntax (DECGPCS), VT340.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-4-6.1ECB"><b><i>Ps</i> = 4 6</b></a>  Stop logging (XTLOGGING),  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-4-7.1ECC"><b><i>Ps</i> = 4 7</b></a>  Use Normal Screen Buffer,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-4-7.1ECC"><b><i>Ps</i> = 4 7</b></a>  Disable Graphic Rotated Print Mode (DECGRPM), VT340.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-6-6.1ECD"><b><i>Ps</i> = 6 6</b></a>  Numeric keypad mode (DECNKM), VT320.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-6-7.1ECE"><b><i>Ps</i> = 6 7</b></a>  Backarrow key sends delete (DECBKM), VT340, VT420.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-6-9.1ED0"><b><i>Ps</i> = 6 9</b></a>  Disable left and right margin mode (DECLRMM), VT420 and up.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-8-0.1EC9"><b><i>Ps</i> = 8 0</b></a>  Disable Sixel Display Mode (DECSDM), VT330, VT340, VT382.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-9-5.1ECF"><b><i>Ps</i> = 9 5</b></a>  Clear screen when DECCOLM is set/reset (DECNCSM), VT510 and up.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-0-0.1F7C"><b><i>Ps</i> = 1 0 0 0</b></a>  Don't send Mouse X  amp Y on button press and release.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-0-1.1F7D"><b><i>Ps</i> = 1 0 0 1</b></a>  Don't use Hilite Mouse Tracking,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-0-2.1F7E"><b><i>Ps</i> = 1 0 0 2</b></a>  Don't use Cell Motion Mouse Tracking,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-0-3.1F7F"><b><i>Ps</i> = 1 0 0 3</b></a>  Don't use All Motion Mouse Tracking,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-0-4.1F80"><b><i>Ps</i> = 1 0 0 4</b></a>  Don't send FocusIn/FocusOut events,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-0-5.1F81"><b><i>Ps</i> = 1 0 0 5</b></a>  Disable UTF-8 Mouse Mode,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-0-6.1F82"><b><i>Ps</i> = 1 0 0 6</b></a>  Disable SGR Mouse Mode,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-0-7.1F83"><b><i>Ps</i> = 1 0 0 7</b></a>  Disable Alternate Scroll Mode,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-1-0.1F7D"><b><i>Ps</i> = 1 0 1 0</b></a>  Don't scroll to bottom on tty output (rxvt).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-1-1.1F7E"><b><i>Ps</i> = 1 0 1 1</b></a>  Don't scroll to bottom on key press (rxvt).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-1-4.1F81"><b><i>Ps</i> = 1 0 1 4</b></a>  Disable \fB\%fastScroll\fP resource,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-1-5.1F82"><b><i>Ps</i> = 1 0 1 5</b></a>  Disable urxvt Mouse Mode.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-1-6.1F83"><b><i>Ps</i> = 1 0 1 6</b></a>  Disable SGR Mouse Pixel-Mode,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-3-4.1F83"><b><i>Ps</i> = 1 0 3 4</b></a>  Don't interpret &ldquo;meta&rdquo; key,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-3-5.1F84"><b><i>Ps</i> = 1 0 3 5</b></a>  Disable special modifiers for Alt and NumLock keys,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-3-6.1F85"><b><i>Ps</i> = 1 0 3 6</b></a>  Don't send ESC when Meta modifies a key,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-3-7.1F86"><b><i>Ps</i> = 1 0 3 7</b></a>  Send VT220 Remove from the editing-keypad Delete key,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-3-9.1F88"><b><i>Ps</i> = 1 0 3 9</b></a>  Don't send ESC when Alt modifies a key,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-4-0.1F80"><b><i>Ps</i> = 1 0 4 0</b></a>  Do not keep selection when not highlighted,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-4-1.1F81"><b><i>Ps</i> = 1 0 4 1</b></a>  Use the PRIMARY selection,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-4-2.1F82"><b><i>Ps</i> = 1 0 4 2</b></a>  Disable Urgency window manager hint when Control-G is received,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-4-3.1F83"><b><i>Ps</i> = 1 0 4 3</b></a>  Disable raising of the window when Control-G is received,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-4-5.1F85"><b><i>Ps</i> = 1 0 4 5</b></a>  No Extended Reverse-wraparound mode (XTREVWRAP2),  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-4-6.1F86"><b><i>Ps</i> = 1 0 4 6</b></a>  Disable switching to/from Alternate Screen Buffer,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-4-7.1F87"><b><i>Ps</i> = 1 0 4 7</b></a>  Use Normal Screen Buffer,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-4-8.1F88"><b><i>Ps</i> = 1 0 4 8</b></a>  Restore cursor as in DECRC,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-4-9.1F89"><b><i>Ps</i> = 1 0 4 9</b></a>  Use Normal Screen Buffer and restore cursor as in DECRC,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-5-0.1F81"><b><i>Ps</i> = 1 0 5 0</b></a>  Reset terminfo/termcap function-key mode,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-5-1.1F82"><b><i>Ps</i> = 1 0 5 1</b></a>  Reset Sun function-key mode,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-5-2.1F83"><b><i>Ps</i> = 1 0 5 2</b></a>  Reset HP function-key mode,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-5-3.1F84"><b><i>Ps</i> = 1 0 5 3</b></a>  Reset SCO function-key mode,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-6-0.1F82"><b><i>Ps</i> = 1 0 6 0</b></a>  Reset legacy keyboard emulation, i.e, X11R6,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-1-0-6-1.1F83"><b><i>Ps</i> = 1 0 6 1</b></a>  Reset keyboard emulation to Sun/PC style,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-2-0-0-1.1F7E"><b><i>Ps</i> = 2 0 0 1</b></a>  Disable readline mouse button-1,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-2-0-0-2.1F7F"><b><i>Ps</i> = 2 0 0 2</b></a>  Disable readline mouse button-2,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-2-0-0-3.1F80"><b><i>Ps</i> = 2 0 0 3</b></a>  Disable readline mouse button-3,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-2-0-0-4.1F81"><b><i>Ps</i> = 2 0 0 4</b></a>  Reset bracketed paste mode,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-2-0-0-5.1F82"><b><i>Ps</i> = 2 0 0 5</b></a>  Disable readline character-quoting,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-2-0-0-6.1F83"><b><i>Ps</i> = 2 0 0 6</b></a>  Disable readline newline pasting,  xterm.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m.1CA7"><b>CSI <i>Pm</i> m</b></a>  Character Attributes (SGR).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-0.1DF9"><b><i>Ps</i> = 0</b></a>  Normal (default), VT100.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-1.1DFA"><b><i>Ps</i> = 1</b></a>  Bold, VT100.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-2.1DFB"><b><i>Ps</i> = 2</b></a>  Faint, decreased intensity, ECMA-48 2nd.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-3.1DFC"><b><i>Ps</i> = 3</b></a>  Italicized, ECMA-48 2nd.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-4.1DFD"><b><i>Ps</i> = 4</b></a>  Underlined, VT100.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-5.1DFE"><b><i>Ps</i> = 5</b></a>  Blink, VT100.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-7.1E00"><b><i>Ps</i> = 7</b></a>  Inverse, VT100.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-8.1E01"><b><i>Ps</i> = 8</b></a>  Invisible, i.e., hidden, ECMA-48 2nd, VT300.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-9.1E02"><b><i>Ps</i> = 9</b></a>  Crossed-out characters, ECMA-48 3rd.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-2-1.1E59"><b><i>Ps</i> = 2 1</b></a>  Doubly-underlined, ECMA-48 3rd.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-2-2.1E5A"><b><i>Ps</i> = 2 2</b></a>  Normal (neither bold nor faint), ECMA-48 3rd.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-2-3.1E5B"><b><i>Ps</i> = 2 3</b></a>  Not italicized, ECMA-48 3rd.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-2-4.1E5C"><b><i>Ps</i> = 2 4</b></a>  Not underlined, ECMA-48 3rd.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-2-5.1E5D"><b><i>Ps</i> = 2 5</b></a>  Steady (not blinking), ECMA-48 3rd.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-2-7.1E5F"><b><i>Ps</i> = 2 7</b></a>  Positive (not inverse), ECMA-48 3rd.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-2-8.1E60"><b><i>Ps</i> = 2 8</b></a>  Visible, i.e., not hidden, ECMA-48 3rd, VT300.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-2-9.1E61"><b><i>Ps</i> = 2 9</b></a>  Not crossed-out, ECMA-48 3rd.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-3-0.1E59"><b><i>Ps</i> = 3 0</b></a>  Set foreground color to Black.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-3-1.1E5A"><b><i>Ps</i> = 3 1</b></a>  Set foreground color to Red.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-3-2.1E5B"><b><i>Ps</i> = 3 2</b></a>  Set foreground color to Green.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-3-3.1E5C"><b><i>Ps</i> = 3 3</b></a>  Set foreground color to Yellow.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-3-4.1E5D"><b><i>Ps</i> = 3 4</b></a>  Set foreground color to Blue.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-3-5.1E5E"><b><i>Ps</i> = 3 5</b></a>  Set foreground color to Magenta.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-3-6.1E5F"><b><i>Ps</i> = 3 6</b></a>  Set foreground color to Cyan.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-3-7.1E60"><b><i>Ps</i> = 3 7</b></a>  Set foreground color to White.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-3-9.1E62"><b><i>Ps</i> = 3 9</b></a>  Set foreground color to default, ECMA-48 3rd.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-4-0.1E5A"><b><i>Ps</i> = 4 0</b></a>  Set background color to Black.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-4-1.1E5B"><b><i>Ps</i> = 4 1</b></a>  Set background color to Red.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-4-2.1E5C"><b><i>Ps</i> = 4 2</b></a>  Set background color to Green.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-4-3.1E5D"><b><i>Ps</i> = 4 3</b></a>  Set background color to Yellow.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-4-4.1E5E"><b><i>Ps</i> = 4 4</b></a>  Set background color to Blue.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-4-5.1E5F"><b><i>Ps</i> = 4 5</b></a>  Set background color to Magenta.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-4-6.1E60"><b><i>Ps</i> = 4 6</b></a>  Set background color to Cyan.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-4-7.1E61"><b><i>Ps</i> = 4 7</b></a>  Set background color to White.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-4-9.1E63"><b><i>Ps</i> = 4 9</b></a>  Set background color to default, ECMA-48 3rd.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-9-0.1E5F"><b><i>Ps</i> = 9 0</b></a>  Set foreground color to Black.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-9-1.1E60"><b><i>Ps</i> = 9 1</b></a>  Set foreground color to Red.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-9-2.1E61"><b><i>Ps</i> = 9 2</b></a>  Set foreground color to Green.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-9-3.1E62"><b><i>Ps</i> = 9 3</b></a>  Set foreground color to Yellow.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-9-4.1E63"><b><i>Ps</i> = 9 4</b></a>  Set foreground color to Blue.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-9-5.1E64"><b><i>Ps</i> = 9 5</b></a>  Set foreground color to Magenta.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-9-6.1E65"><b><i>Ps</i> = 9 6</b></a>  Set foreground color to Cyan.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-9-7.1E66"><b><i>Ps</i> = 9 7</b></a>  Set foreground color to White.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-1-0-0.1EB4"><b><i>Ps</i> = 1 0 0</b></a>  Set background color to Black.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-1-0-1.1EB5"><b><i>Ps</i> = 1 0 1</b></a>  Set background color to Red.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-1-0-2.1EB6"><b><i>Ps</i> = 1 0 2</b></a>  Set background color to Green.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-1-0-3.1EB7"><b><i>Ps</i> = 1 0 3</b></a>  Set background color to Yellow.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-1-0-4.1EB8"><b><i>Ps</i> = 1 0 4</b></a>  Set background color to Blue.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-1-0-5.1EB9"><b><i>Ps</i> = 1 0 5</b></a>  Set background color to Magenta.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-1-0-6.1EBA"><b><i>Ps</i> = 1 0 6</b></a>  Set background color to Cyan.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-1-0-7.1EBB"><b><i>Ps</i> = 1 0 7</b></a>  Set background color to White.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-1-0-0.1EB4"><b><i>Ps</i> = 1 0 0</b></a>  Set foreground and background color to default.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-3-8-colon-2-colon-Pi-colon-Pr-colon-Pg-colon-Pb.2DC0"><b><i>Ps</i> = 3 8 : 2 : <i>Pi</i> : <i>Pr</i> : <i>Pg</i> : <i>Pb</i></b></a>  Set foreground color using RGB values.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-3-8-colon-5-colon-Ps.2443"><b><i>Ps</i> = 3 8 : 5 : <i>Ps</i></b></a>  Set foreground color to Ps, using indexed color.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-4-8-colon-2-colon-Pi-colon-Pr-colon-Pg-colon-Pb.2DC1"><b><i>Ps</i> = 4 8 : 2 : <i>Pi</i> : <i>Pr</i> : <i>Pg</i> : <i>Pb</i></b></a>  Set background color using RGB values.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-4-8-colon-5-colon-Ps.2444"><b><i>Ps</i> = 4 8 : 5 : <i>Ps</i></b></a>  Set background color to Ps, using indexed color.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-3-8;2;Pr;Pg;Pb.21AA"><b><i>Ps</i> = 3 8 ; 2 ; <i>Pr</i> ; <i>Pg</i> ; <i>Pb</i></b></a>  Set foreground color using RGB values.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-m:Ps-=-4-8;2;Pr;Pg;Pb.21AB"><b><i>Ps</i> = 4 8 ; 2 ; <i>Pr</i> ; <i>Pg</i> ; <i>Pb</i></b></a>  Set background color using RGB values.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pp;Pv-m.1EB3"><b>CSI &gt; <i>Pp</i> ; <i>Pv</i> m</b></a>  Set/reset key modifier options (XTMODKEYS), xterm.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pp-m.1DB2"><b>CSI &gt; <i>Pp</i> m</b></a>  Set/reset key modifier options (XTMODKEYS), xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pp-m:Pp-=-0.1F01"><b><i>Pp</i> = 0</b></a>  modifyKeyboard.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pp-m:Pp-=-1.1F02"><b><i>Pp</i> = 1</b></a>  modifyCursorKeys.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pp-m:Pp-=-2.1F03"><b><i>Pp</i> = 2</b></a>  modifyFunctionKeys.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pp-m:Pp-=-4.1F05"><b><i>Pp</i> = 4</b></a>  modifyOtherKeys.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-m.1D16"><b>CSI ? <i>Pp</i> m</b></a>  Query key modifier options (XTQMODKEYS), xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-m:Pp-=-0.1E65"><b><i>Pp</i> = 0</b></a>  modifyKeyboard.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-m:Pp-=-1.1E66"><b><i>Pp</i> = 1</b></a>  modifyCursorKeys.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-m:Pp-=-2.1E67"><b><i>Pp</i> = 2</b></a>  modifyFunctionKeys.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-m:Pp-=-4.1E69"><b><i>Pp</i> = 4</b></a>  modifyOtherKeys.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-m:Pp-=-0.1E65"><b><i>Pp</i> = 0</b></a>  modifyKeyboard.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-m:Pp-=-1.1E66"><b><i>Pp</i> = 1</b></a>  modifyCursorKeys.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-m:Pp-=-2.1E67"><b><i>Pp</i> = 2</b></a>  modifyFunctionKeys.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-m:Pp-=-4.1E69"><b><i>Pp</i> = 4</b></a>  modifyOtherKeys.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-n.1CAE"><b>CSI <i>Ps</i> n</b></a>  Device Status Report (DSR).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-n:Ps-=-5.1E05"><b><i>Ps</i> = 5</b></a>  Status Report.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-n:Ps-=-6.1E06"><b><i>Ps</i> = 6</b></a>  Report Cursor Position (CPR) [row;column].
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-n.1DB6"><b>CSI &gt; <i>Ps</i> n</b></a>  Disable key modifier options, xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-n:Ps-=-0.1F08"><b><i>Ps</i> = 0</b></a>  modifyKeyboard.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-n:Ps-=-1.1F09"><b><i>Ps</i> = 1</b></a>  modifyCursorKeys.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-n:Ps-=-2.1F0A"><b><i>Ps</i> = 2</b></a>  modifyFunctionKeys.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-n:Ps-=-4.1F0C"><b><i>Ps</i> = 4</b></a>  modifyOtherKeys.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Ps-n.1D1A"><b>CSI ? <i>Ps</i> n</b></a>  Device Status Report (DSR, DEC-specific).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Ps-n:Ps-=-6.1E72"><b><i>Ps</i> = 6</b></a>  Report Cursor Position (DECXCPR).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Ps-n:Ps-=-1-5.1ECF"><b><i>Ps</i> = 1 5</b></a>  Report Printer status.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Ps-n:Ps-=-2-5.1ED0"><b><i>Ps</i> = 2 5</b></a>  Report UDK status.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Ps-n:Ps-=-2-6.1ED1"><b><i>Ps</i> = 2 6</b></a>  Report Keyboard status.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Ps-n:Ps-=-5-5.1ED3"><b><i>Ps</i> = 5 5</b></a>  Report Locator status.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Ps-n:Ps-=-5-6.1ED4"><b><i>Ps</i> = 5 6</b></a>  Report Locator type.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Ps-n:Ps-=-6-2.1ED1"><b><i>Ps</i> = 6 2</b></a>  Report macro space (DECMSR).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Ps-n:Ps-=-6-3.1ED2"><b><i>Ps</i> = 6 3</b></a>  Report memory checksum (DECCKSR), VT420 and up.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Ps-n:Ps-=-7-5.1ED5"><b><i>Ps</i> = 7 5</b></a>  Report data integrity.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Ps-n:Ps-=-8-5.1ED6"><b><i>Ps</i> = 8 5</b></a>  Report multi-session configuration.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-p.1DB8"><b>CSI &gt; <i>Ps</i> p</b></a>  Set resource value \fB\%pointerMode\fP (XTSMPOINTER), xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-p:Ps-=-0.1F0A"><b><i>Ps</i> = 0</b></a>  never hide the pointer.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-p:Ps-=-1.1F0B"><b><i>Ps</i> = 1</b></a>  hide if the mouse tracking mode is not enabled.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-p:Ps-=-2.1F0C"><b><i>Ps</i> = 2</b></a>  always hide the pointer, except when leaving the window.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-p:Ps-=-3.1F0D"><b><i>Ps</i> = 3</b></a>  always hide the pointer, even if leaving/entering the window.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-!-p.1C0E"><b>CSI ! p</b></a>  Soft terminal reset (DECSTR), VT220 and up.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pl;Pc-dq-p.1E99"><b>CSI <i>Pl</i> ; <i>Pc</i> " p</b></a>  Set conformance level (DECSCL), VT220 and up.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pl;Pc-dq-p:Pl-=-6-1.2048"><b><i>Pl</i> = 6 1</b></a>  level 1, e.g., VT100.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pl;Pc-dq-p:Pl-=-6-2.2049"><b><i>Pl</i> = 6 2</b></a>  level 2, e.g., VT200.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pl;Pc-dq-p:Pl-=-6-3.204A"><b><i>Pl</i> = 6 3</b></a>  level 3, e.g., VT300.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pl;Pc-dq-p:Pl-=-6-4.204B"><b><i>Pl</i> = 6 4</b></a>  level 4, e.g., VT400.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pl;Pc-dq-p:Pl-=-6-5.204C"><b><i>Pl</i> = 6 5</b></a>  level 5, e.g., VT500.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pl;Pc-dq-p:Pc-=-0.1FDB"><b><i>Pc</i> = 0</b></a>  8-bit controls.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pl;Pc-dq-p:Pc-=-1.1FDC"><b><i>Pc</i> = 1</b></a>  7-bit controls (DEC factory default).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pl;Pc-dq-p:Pc-=-2.1FDD"><b><i>Pc</i> = 2</b></a>  8-bit controls.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-$-p.1D01"><b>CSI <i>Ps</i> $ p</b></a>  Request ANSI mode (DECRQM).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Ps-$-p.1D6D"><b>CSI ? <i>Ps</i> $ p</b></a>  Request DEC private mode (DECRQM).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-pound-p.1E13"><b>CSI # p</b></a>  Push video attributes onto stack (XTPUSHSGR), xterm.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-pound-p.1EFD"><b>CSI <i>Pm</i> # p</b></a>  Push video attributes onto stack (XTPUSHSGR), xterm.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-q.1DB9"><b>CSI &gt; <i>Ps</i> q</b></a>
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-q:Ps-=-0.1F0B"><b><i>Ps</i> = 0</b></a>  Report  xterm name and version (XTVERSION).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-q.1CB1"><b>CSI <i>Ps</i> q</b></a>  Load LEDs (DECLL), VT100.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-q:Ps-=-0.1E03"><b><i>Ps</i> = 0</b></a>  Clear all LEDS (default).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-q:Ps-=-1.1E04"><b><i>Ps</i> = 1</b></a>  Light Num Lock.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-q:Ps-=-2.1E05"><b><i>Ps</i> = 2</b></a>  Light Caps Lock.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-q:Ps-=-3.1E06"><b><i>Ps</i> = 3</b></a>  Light Scroll Lock.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-q:Ps-=-2-1.1E63"><b><i>Ps</i> = 2 1</b></a>  Extinguish Num Lock.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-q:Ps-=-2-2.1E64"><b><i>Ps</i> = 2 2</b></a>  Extinguish Caps Lock.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-q:Ps-=-2-3.1E65"><b><i>Ps</i> = 2 3</b></a>  Extinguish Scroll Lock.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-SP-q.1D81"><b>CSI <i>Ps</i> SP q</b></a>  Set cursor style (DECSCUSR), VT520.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-SP-q:Ps-=-0.1ED3"><b><i>Ps</i> = 0</b></a>  blinking block.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-SP-q:Ps-=-1.1ED4"><b><i>Ps</i> = 1</b></a>  blinking block (default).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-SP-q:Ps-=-2.1ED5"><b><i>Ps</i> = 2</b></a>  steady block.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-SP-q:Ps-=-3.1ED6"><b><i>Ps</i> = 3</b></a>  blinking underline.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-SP-q:Ps-=-4.1ED7"><b><i>Ps</i> = 4</b></a>  steady underline.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-SP-q:Ps-=-5.1ED8"><b><i>Ps</i> = 5</b></a>  blinking bar,  xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-SP-q:Ps-=-6.1ED9"><b><i>Ps</i> = 6</b></a>  steady bar,  xterm.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-dq-q.1DB3"><b>CSI <i>Ps</i> " q</b></a>  Select character protection attribute (DECSCA), VT220.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-dq-q:Ps-=-0.1F05"><b><i>Ps</i> = 0</b></a>  DECSED and DECSEL can erase (default).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-dq-q:Ps-=-1.1F06"><b><i>Ps</i> = 1</b></a>  DECSED and DECSEL cannot erase.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-dq-q:Ps-=-2.1F07"><b><i>Ps</i> = 2</b></a>  DECSED and DECSEL can erase.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-pound-q.1E14"><b>CSI # q</b></a>  Pop video attributes from stack (XTPOPSGR), xterm.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps-r.1DB0"><b>CSI <i>Ps</i> ; <i>Ps</i> r</b></a>  Set Scrolling Region [top;bottom] (default = full size of window) (DECSTBM), VT100.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-r.1D18"><b>CSI ? <i>Pm</i> r</b></a>  Restore DEC Private Mode Values (XTRESTORE), xterm.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pt;Pl;Pb;Pr;Pm-$-r.20DD"><b>CSI <i>Pt</i> ; <i>Pl</i> ; <i>Pb</i> ; <i>Pr</i> ; <i>Pm</i> $ r</b></a>  Change Attributes in Rectangular Area (DECCARA), VT400 and up.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-s.1BC3"><b>CSI s</b></a>  Save cursor, available only when DECLRMM is disabled (SCOSC, also ANSI.SYS).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pl;Pr-s.1DA9"><b>CSI <i>Pl</i> ; <i>Pr</i> s</b></a>  Set left and right margins (DECSLRM), VT420 and up.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-s.1DBB"><b>CSI &gt; <i>Ps</i> s</b></a>  Set/reset shift-escape options (XTSHIFTESCAPE), xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-s:Ps-=-0.1F0D"><b><i>Ps</i> = 0</b></a>  allow shift-key to override mouse protocol.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-s:Ps-=-1.1F0E"><b><i>Ps</i> = 1</b></a>  conditionally allow shift-key as modifier in mouse protocol.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-s:Ps-=-2.1F0F"><b><i>Ps</i> = 2</b></a>  always allow shift-key as modifier in mouse protocol.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-s:Ps-=-3.1F10"><b><i>Ps</i> = 3</b></a>  never allow shift-key as modifier in mouse protocol.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-s.1D19"><b>CSI ? <i>Pm</i> s</b></a>  Save DEC Private Mode Values (XTSAVE), xterm.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t.1EB0"><b>CSI <i>Ps</i> ; <i>Ps</i> ; <i>Ps</i> t</b></a>  Window manipulation (XTWINOPS), dtterm, extended by xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-1.2003"><b><i>Ps</i> = 1</b></a>  De-iconify window.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-2.2004"><b><i>Ps</i> = 2</b></a>  Iconify window.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-3;x;y.216C"><b><i>Ps</i> = 3 ; <i>x</i> ; <i>y</i></b></a>  Move window to [x, y].
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-4;height;width.2515"><b><i>Ps</i> = 4 ; <i>height</i> ; <i>width</i></b></a>  Resize the  xterm window to given height and width in pixels.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-5.2007"><b><i>Ps</i> = 5</b></a>  Raise the  xterm window to the front of the stacking order.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-6.2008"><b><i>Ps</i> = 6</b></a>  Lower the  xterm window to the bottom of the stacking order.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-7.2009"><b><i>Ps</i> = 7</b></a>  Refresh the  xterm window.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-8;height;width.2519"><b><i>Ps</i> = 8 ; <i>height</i> ; <i>width</i></b></a>  Resize the text area to given height and width in characters.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-9;0.2076"><b><i>Ps</i> = 9 ; 0</b></a>  Restore maximized window.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-9;1.2077"><b><i>Ps</i> = 9 ; 1</b></a>  Maximize window (i.e., resize to screen size).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-9;2.2078"><b><i>Ps</i> = 9 ; 2</b></a>  Maximize window vertically.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-9;3.2079"><b><i>Ps</i> = 9 ; 3</b></a>  Maximize window horizontally.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-1-0;0.20CB"><b><i>Ps</i> = 1 0 ; 0</b></a>  Undo full-screen mode.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-1-0;1.20CC"><b><i>Ps</i> = 1 0 ; 1</b></a>  Change to full-screen.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-1-0;2.20CD"><b><i>Ps</i> = 1 0 ; 2</b></a>  Toggle full-screen.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-1-1.2061"><b><i>Ps</i> = 1 1</b></a>  Report  xterm window state.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-1-3.2063"><b><i>Ps</i> = 1 3</b></a>  Report  xterm window position.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-1-3;2.20D0"><b><i>Ps</i> = 1 3 ; 2</b></a>  Report  xterm text-area position.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-1-4.2064"><b><i>Ps</i> = 1 4</b></a>  Report  xterm text area size in pixels.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-1-4;2.20D1"><b><i>Ps</i> = 1 4 ; 2</b></a>  Report  xterm window size in pixels.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-1-5.2065"><b><i>Ps</i> = 1 5</b></a>  Report size of the screen in pixels.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-1-6.2066"><b><i>Ps</i> = 1 6</b></a>  Report  xterm character cell size in pixels.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-1-8.2068"><b><i>Ps</i> = 1 8</b></a>  Report the size of the text area in characters.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-1-9.2069"><b><i>Ps</i> = 1 9</b></a>  Report the size of the screen in characters.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-2-0.2061"><b><i>Ps</i> = 2 0</b></a>  Report  xterm window's icon label.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-2-1.2062"><b><i>Ps</i> = 2 1</b></a>  Report  xterm window's title.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-2-2;0.20CE"><b><i>Ps</i> = 2 2 ; 0</b></a>  Save  xterm icon and window title on stack.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-2-2;1.20CF"><b><i>Ps</i> = 2 2 ; 1</b></a>  Save  xterm icon title on stack.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-2-2;2.20D0"><b><i>Ps</i> = 2 2 ; 2</b></a>  Save  xterm window title on stack.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-2-3;0.20CF"><b><i>Ps</i> = 2 3 ; 0</b></a>  Restore  xterm icon and window title from stack.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-2-3;1.20D0"><b><i>Ps</i> = 2 3 ; 1</b></a>  Restore  xterm icon title from stack.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-=-2-3;2.20D1"><b><i>Ps</i> = 2 3 ; 2</b></a>  Restore  xterm window title from stack.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Ps;Ps-t:Ps-gt=-2-4.2140"><b><i>Ps</i> &gt;= 2 4</b></a>  Resize to Ps lines (DECSLPP), VT340 and VT420.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pm-t.1DB6"><b>CSI &gt; <i>Pm</i> t</b></a>  This xterm control sets one or more features of the title modes (XTSMTITLE), xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pm-t:Ps-=-0.1F08"><b><i>Ps</i> = 0</b></a>  Set window/icon labels using hexadecimal.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pm-t:Ps-=-1.1F09"><b><i>Ps</i> = 1</b></a>  Query window/icon labels using hexadecimal.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pm-t:Ps-=-2.1F0A"><b><i>Ps</i> = 2</b></a>  Set window/icon labels using UTF-8.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pm-t:Ps-=-3.1F0B"><b><i>Ps</i> = 3</b></a>  Query window/icon labels using UTF-8.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-SP-t.1D84"><b>CSI <i>Ps</i> SP t</b></a>  Set warning-bell volume (DECSWBV), VT520.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-SP-t:Ps-=-0-or-1.2042"><b><i>Ps</i> = 0 or 1</b></a>  off.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-SP-t:Ps-=-2,-3-or-4.20D3"><b><i>Ps</i> = 2, 3 or 4</b></a>  low.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-SP-t:Ps-=-5,-6,-7,-or-8.2199"><b><i>Ps</i> = 5, 6, 7, or 8</b></a>  high.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pt;Pl;Pb;Pr;Pm-$-t.20DF"><b>CSI <i>Pt</i> ; <i>Pl</i> ; <i>Pb</i> ; <i>Pr</i> ; <i>Pm</i> $ t</b></a>  Reverse Attributes in Rectangular Area (DECRARA), VT400 and up.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-u.1BC5"><b>CSI u</b></a>  Restore cursor (SCORC, also ANSI.SYS).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI&amp;u.1D37"><b>CSI&; u</b></a>  User-Preferred Supplemental Set (DECRQUPSS), VT320, VT510.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-SP-u.1D85"><b>CSI <i>Ps</i> SP u</b></a>  Set margin-bell volume (DECSMBV), VT520.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-SP-u:Ps-=-0,-5,-6,-7,-or-8.2223"><b><i>Ps</i> = 0, 5, 6, 7, or 8</b></a>  high.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-SP-u:Ps-=-1.1ED8"><b><i>Ps</i> = 1</b></a>  off.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-SP-u:Ps-=-2,-3-or-4.20D4"><b><i>Ps</i> = 2, 3 or 4</b></a>  low.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-dq-v.1CC8"><b>CSI " v</b></a>  Request Displayed Extent (DECRQDE), VT340, VT420.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pt;Pl;Pb;Pr;Pp;Pt;Pl;Pp-$-v.23D5"><b>CSI <i>Pt</i> ; <i>Pl</i> ; <i>Pb</i> ; <i>Pr</i> ; <i>Pp</i> ; <i>Pt</i> ; <i>Pl</i> ; <i>Pp</i> $ v</b></a>  Copy Rectangular Area (DECCRA), VT400 and up.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-$-w.1D08"><b>CSI <i>Ps</i> $ w</b></a>  Request presentation state report (DECRQPSR), VT320 and up.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-$-w:Ps-=-0.1E5A"><b><i>Ps</i> = 0</b></a>  error.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-$-w:Ps-=-1.1E5B"><b><i>Ps</i> = 1</b></a>  cursor information report (DECCIR).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-$-w:Ps-=-2.1E5C"><b><i>Ps</i> = 2</b></a>  tab stop report (DECTABSR).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pt;Pl;Pb;Pr-'-w.1FED"><b>CSI <i>Pt</i> ; <i>Pl</i> ; <i>Pb</i> ; <i>Pr</i> ' w</b></a>  Enable Filter Rectangle (DECEFR), VT420 and up.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-x.1CB8"><b>CSI <i>Ps</i> <i>x</i></b></a>  Request Terminal Parameters (DECREQTPARM).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-*-x.1D0F"><b>CSI <i>Ps</i> * <i>x</i></b></a>  Select Attribute Change Extent (DECSACE), VT420 and up.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-*-x:Ps-=-0.1E61"><b><i>Ps</i> = 0</b></a>  from start to end position, wrapped.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-*-x:Ps-=-1.1E62"><b><i>Ps</i> = 1</b></a>  from start to end position, wrapped.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-*-x:Ps-=-2.1E63"><b><i>Ps</i> = 2</b></a>  rectangle (exact).
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pc;Pt;Pl;Pb;Pr-$-x.20D9"><b>CSI <i>Pc</i> ; <i>Pt</i> ; <i>Pl</i> ; <i>Pb</i> ; <i>Pr</i> $ <i>x</i></b></a>  Fill Rectangular Area (DECFRA), VT420 and up.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-pound-y.1F0C"><b>CSI <i>Ps</i> # <i>y</i></b></a>  Select checksum extension (XTCHECKSUM), xterm.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pi;Pg;Pt;Pl;Pb;Pr-*-y.21D8"><b>CSI <i>Pi</i> ; <i>Pg</i> ; <i>Pt</i> ; <i>Pl</i> ; <i>Pb</i> ; <i>Pr</i> * <i>y</i></b></a>  Request Checksum of Rectangular Area (DECRQCRA), VT420 and up.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Pu-'-z.1E0E"><b>CSI <i>Ps</i> ; <i>Pu</i> ' z</b></a>  Enable Locator Reporting (DECELR).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Pu-'-z:Ps-=-0.1F60"><b><i>Ps</i> = 0</b></a>  Locator disabled (default).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Pu-'-z:Ps-=-1.1F61"><b><i>Ps</i> = 1</b></a>  Locator enabled.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Pu-'-z:Ps-=-2.1F62"><b><i>Ps</i> = 2</b></a>  Locator enabled for one report, then disabled.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Pu-'-z:Pu-=-0-or-omitted.2393"><b><i>Pu</i> = 0 or omitted</b></a>  default to character cells.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pt;Pl;Pb;Pr-$-z.1FED"><b>CSI <i>Pt</i> ; <i>Pl</i> ; <i>Pb</i> ; <i>Pr</i> $ z</b></a>  Erase Rectangular Area (DECERA), VT400 and up.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-'-%7B.1D2C"><b>CSI <i>Pm</i> ' {</b></a>  Select Locator Events (DECSLE).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-'--percent-7B:Ps-=-0.21A4"><b><i>Ps</i> = 0</b></a>  only respond to explicit host requests (DECRQLP).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-'--percent-7B:Ps-=-1.21A5"><b><i>Ps</i> = 1</b></a>  report button down transitions.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-'--percent-7B:Ps-=-2.21A6"><b><i>Ps</i> = 2</b></a>  do not report button down transitions.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-'--percent-7B:Ps-=-3.21A7"><b><i>Ps</i> = 3</b></a>  report button up transitions.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-'--percent-7B:Ps-=-4.21A8"><b><i>Ps</i> = 4</b></a>  do not report button up transitions.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-pound-%7B.1E41"><b>CSI # {</b></a>  Push video attributes onto stack (XTPUSHSGR), xterm.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-pound-%7B.1F2B"><b>CSI <i>Pm</i> # {</b></a>  Push video attributes onto stack (XTPUSHSGR), xterm.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-pound--percent-7B:Ps-=-1.23A4"><b><i>Ps</i> = 1</b></a>  Bold.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-pound--percent-7B:Ps-=-2.23A5"><b><i>Ps</i> = 2</b></a>  Faint.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-pound--percent-7B:Ps-=-3.23A6"><b><i>Ps</i> = 3</b></a>  Italicized.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-pound--percent-7B:Ps-=-4.23A7"><b><i>Ps</i> = 4</b></a>  Underlined.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-pound--percent-7B:Ps-=-5.23A8"><b><i>Ps</i> = 5</b></a>  Blink.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-pound--percent-7B:Ps-=-7.23AA"><b><i>Ps</i> = 7</b></a>  Inverse.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-pound--percent-7B:Ps-=-8.23AB"><b><i>Ps</i> = 8</b></a>  Invisible.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-pound--percent-7B:Ps-=-9.23AC"><b><i>Ps</i> = 9</b></a>  Crossed-out characters.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-pound--percent-7B:Ps-=-2-1.2403"><b><i>Ps</i> = 2 1</b></a>  Doubly-underlined.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-pound--percent-7B:Ps-=-3-0.2403"><b><i>Ps</i> = 3 0</b></a>  Foreground color.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-pound--percent-7B:Ps-=-3-1.2404"><b><i>Ps</i> = 3 1</b></a>  Background color.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pt;Pl;Pb;Pr-$-%7B.2011"><b>CSI <i>Pt</i> ; <i>Pl</i> ; <i>Pb</i> ; <i>Pr</i> $ {</b></a>  Selective Erase Rectangular Area (DECSERA), VT400 and up.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pt;Pl;Pb;Pr-pound-%7C.2214"><b>CSI <i>Pt</i> ; <i>Pl</i> ; <i>Pb</i> ; <i>Pr</i> # |</b></a>  Report selected graphic rendition (XTREPORTSGR), xterm.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-$-%7C.1D30"><b>CSI <i>Ps</i> $ |</b></a>  Select columns per page (DECSCPP), VT340.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-$--percent-7C:Ps-=-0.21A8"><b><i>Ps</i> = 0</b></a>  80 columns, default if Ps omitted.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-$--percent-7C:Ps-=-8-0.220D"><b><i>Ps</i> = 8 0</b></a>  80 columns.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-$--percent-7C:Ps-=-1-3-2.2268"><b><i>Ps</i> = 1 3 2</b></a>  132 columns.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-'-%7C.1D33"><b>CSI <i>Ps</i> ' |</b></a>  Request Locator Position (DECRQLP).
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-'--percent-7C:Ps-=-0,-1-or-omitted.2666"><b><i>Ps</i> = 0, 1 or omitted</b></a>  transmit a single DECLRP locator report.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-*-%7C.1D36"><b>CSI <i>Ps</i> * |</b></a>  Select number of lines per screen (DECSNLS), VT420 and up.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-pound-%7D.1E43"><b>CSI # }</b></a>  Pop video attributes from stack (XTPOPSGR), xterm.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Pf;Pb_-%7C.1F1C"><b>CSI <i>Ps</i> ; <i>Pf</i> ; <i>Pb</i> , |</b></a>  Assign Color (DECAC), VT525 only.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Pf;Pb_--percent-7C:Ps-=-1.2395"><b><i>Ps</i> = 1</b></a>  normal text
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Pf;Pb_--percent-7C:Ps-=-2.2396"><b><i>Ps</i> = 2</b></a>  window frame
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Pf;Pb_-%7D.1F1D"><b>CSI <i>Ps</i> ; <i>Pf</i> ; <i>Pb</i> , }</b></a>  Alternate Text Color (DECATC), VT525 only.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Pf;Pb_--percent-7D:Ps-=-0.2395"><b><i>Ps</i> = 0</b></a>  normal text
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Pf;Pb_--percent-7D:Ps-=-1.2396"><b><i>Ps</i> = 1</b></a>  bold
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Pf;Pb_--percent-7D:Ps-=-2.2397"><b><i>Ps</i> = 2</b></a>  reverse
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Pf;Pb_--percent-7D:Ps-=-3.2398"><b><i>Ps</i> = 3</b></a>  underline
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Pf;Pb_--percent-7D:Ps-=-4.2399"><b><i>Ps</i> = 4</b></a>  blink
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Pf;Pb_--percent-7D:Ps-=-5.239A"><b><i>Ps</i> = 5</b></a>  bold reverse
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Pf;Pb_--percent-7D:Ps-=-6.239B"><b><i>Ps</i> = 6</b></a>  bold underline
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Pf;Pb_--percent-7D:Ps-=-7.239C"><b><i>Ps</i> = 7</b></a>  bold blink
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Pf;Pb_--percent-7D:Ps-=-8.239D"><b><i>Ps</i> = 8</b></a>  reverse underline
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Pf;Pb_--percent-7D:Ps-=-9.239E"><b><i>Ps</i> = 9</b></a>  reverse blink
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Pf;Pb_--percent-7D:Ps-=-1-0.23F3"><b><i>Ps</i> = 1 0</b></a>  underline blink
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Pf;Pb_--percent-7D:Ps-=-1-1.23F4"><b><i>Ps</i> = 1 1</b></a>  bold reverse underline
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Pf;Pb_--percent-7D:Ps-=-1-2.23F5"><b><i>Ps</i> = 1 2</b></a>  bold reverse blink
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Pf;Pb_--percent-7D:Ps-=-1-3.23F6"><b><i>Ps</i> = 1 3</b></a>  bold underline blink
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Pf;Pb_--percent-7D:Ps-=-1-4.23F7"><b><i>Ps</i> = 1 4</b></a>  reverse underline blink
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps;Pf;Pb_--percent-7D:Ps-=-1-5.23F8"><b><i>Ps</i> = 1 5</b></a>  bold reverse underline blink
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-'-%7D.1D34"><b>CSI <i>Ps</i> ' }</b></a>  Insert Ps Column(s) (default = 1) (DECIC), VT420 and up.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-$-%7D.1D31"><b>CSI <i>Ps</i> $ }</b></a>  Select active status display (DECSASD), VT320 and up.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-$--percent-7D:Ps-=-0.21A9"><b><i>Ps</i> = 0</b></a>  main (default)
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-$--percent-7D:Ps-=-1.21AA"><b><i>Ps</i> = 1</b></a>  status line
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-'-~.1D12"><b>CSI <i>Ps</i> ' ~</b></a>  Delete Ps Column(s) (default = 1) (DECDC), VT420 and up.
+          <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-$-~.1D0F"><b>CSI <i>Ps</i> $ ~</b></a>  Select status line type (DECSSDT), VT320 and up.
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-$-~:Ps-=-0.1E61"><b><i>Ps</i> = 0</b></a>  none
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-$-~:Ps-=-1.1E62"><b><i>Ps</i> = 1</b></a>  indicator (default)
+               <a href="ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-$-~:Ps-=-2.1E63"><b><i>Ps</i> = 2</b></a>  host-writable.
+     <a href="ctlseqs.html#h3-Operating-System-Commands"><b>Operating System Commands</b></a>
+          <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-BEL.E91"><b>OSC <i>Ps</i> ; <i>Pt</i> BEL</b></a>  Set Text Parameters, xterm.
+          <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST.E65"><b>OSC <i>Ps</i> ; <i>Pt</i> ST</b></a>  Set Text Parameters, xterm.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-0.FB7"><b><i>Ps</i> = 0</b></a>  Change Icon Name and Window Title to Pt.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-1.FB8"><b><i>Ps</i> = 1</b></a>  Change Icon Name to Pt.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-2.FB9"><b><i>Ps</i> = 2</b></a>  Change Window Title to Pt.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-3.FBA"><b><i>Ps</i> = 3</b></a>  Set X property on top-level window.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-4;c;spec.123F"><b><i>Ps</i> = 4 ;<i>c</i> ;<i>spec</i></b></a>  Change Color Number c to the color specified by spec.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-5;c;spec.1240"><b><i>Ps</i> = 5 ;<i>c</i> ;<i>spec</i></b></a>  Change Special Color Number c to the color specified by spec.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-6;c;f.10FC"><b><i>Ps</i> = 6 ;<i>c</i> ;<i>f</i></b></a>  Enable/disable Special Color Number c.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-1-0.1015"><b><i>Ps</i> = 1 0</b></a>  Change VT100 text foreground color to Pt.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-1-1.1016"><b><i>Ps</i> = 1 1</b></a>  Change VT100 text background color to Pt.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-1-2.1017"><b><i>Ps</i> = 1 2</b></a>  Change text cursor color to Pt.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-1-3.1018"><b><i>Ps</i> = 1 3</b></a>  Change pointer foreground color to Pt.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-1-4.1019"><b><i>Ps</i> = 1 4</b></a>  Change pointer background color to Pt.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-1-5.101A"><b><i>Ps</i> = 1 5</b></a>  Change Tektronix foreground color to Pt.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-1-6.101B"><b><i>Ps</i> = 1 6</b></a>  Change Tektronix background color to Pt.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-1-7.101C"><b><i>Ps</i> = 1 7</b></a>  Change highlight background color to Pt.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-1-8.101D"><b><i>Ps</i> = 1 8</b></a>  Change Tektronix cursor color to Pt.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-1-9.101E"><b><i>Ps</i> = 1 9</b></a>  Change highlight foreground color to Pt.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-2-2.1018"><b><i>Ps</i> = 2 2</b></a>  Change pointer cursor shape to Pt.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-4-6.101E"><b><i>Ps</i> = 4 6</b></a>  Change Log File to Pt.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-5-0.1019"><b><i>Ps</i> = 5 0</b></a>  Set Font to Pt.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-5-1.101A"><b><i>Ps</i> = 5 1</b></a>  reserved for Emacs shell.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-5-2.101B"><b><i>Ps</i> = 5 2</b></a>  Manipulate Selection Data.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-6-0.101A"><b><i>Ps</i> = 6 0</b></a>  Query allowed features (XTQALLOWED).
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-6-1.101B"><b><i>Ps</i> = 6 1</b></a>  Query disallowed features (XTQDISALLOWED).
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-1-0-4;c.1114"><b><i>Ps</i> = 1 0 4 ;<i>c</i></b></a>  Reset Color Number c.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-1-0-5;c.1115"><b><i>Ps</i> = 1 0 5 ;<i>c</i></b></a>  Reset Special Color Number c.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-1-0-6;c;f.11B7"><b><i>Ps</i> = 1 0 6 ;<i>c</i> ;<i>f</i></b></a>  Enable/disable Special Color Number c.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-1-1-0.1073"><b><i>Ps</i> = 1 1 0</b></a>  Reset VT100 text foreground color.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-1-1-1.1074"><b><i>Ps</i> = 1 1 1</b></a>  Reset VT100 text background color.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-1-1-2.1075"><b><i>Ps</i> = 1 1 2</b></a>  Reset text cursor color.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-1-1-3.1076"><b><i>Ps</i> = 1 1 3</b></a>  Reset pointer foreground color.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-1-1-4.1077"><b><i>Ps</i> = 1 1 4</b></a>  Reset pointer background color.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-1-1-5.1078"><b><i>Ps</i> = 1 1 5</b></a>  Reset Tektronix foreground color.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-1-1-6.1079"><b><i>Ps</i> = 1 1 6</b></a>  Reset Tektronix background color.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-1-1-7.107A"><b><i>Ps</i> = 1 1 7</b></a>  Reset highlight color.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-1-1-8.107B"><b><i>Ps</i> = 1 1 8</b></a>  Reset Tektronix cursor color.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-1-1-9.107C"><b><i>Ps</i> = 1 1 9</b></a>  Reset highlight foreground color.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-I;c.106E"><b><i>Ps</i> = I ;<i>c</i></b></a>  Set icon to file.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-l;c.1091"><b><i>Ps</i> = l ;<i>c</i></b></a>  Set window title.
+               <a href="ctlseqs.html#h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-L;c.1071"><b><i>Ps</i> = L ;<i>c</i></b></a>  Set icon label.
+     <a href="ctlseqs.html#h3-Privacy-Message"><b>Privacy Message</b></a>
+          <a href="ctlseqs.html#h4-Privacy-Message:PM-Pt-ST.935"><b>PM <i>Pt</i> ST</b></a>  xterm implements no PM functions; Pt is ignored.
+ <a href="ctlseqs.html#h2-Special-Keyboard-Keys"><b>Special Keyboard Keys</b></a>
+     <a href="ctlseqs.html#h3-Alt-and-Meta-Keys"><b>Alt and Meta Keys</b></a>
+     <a href="ctlseqs.html#h3-PC-Style-Function-Keys"><b>PC-Style Function Keys</b></a>
+     <a href="ctlseqs.html#h3-VT220-Style-Function-Keys"><b>VT220-Style Function Keys</b></a>
+     <a href="ctlseqs.html#h3-VT52-Style-Function-Keys"><b>VT52-Style Function Keys</b></a>
+     <a href="ctlseqs.html#h3-Sun-Style-Function-Keys"><b>Sun-Style Function Keys</b></a>
+     <a href="ctlseqs.html#h3-HP-Style-Function-Keys"><b>HP-Style Function Keys</b></a>
+     <a href="ctlseqs.html#h3-Non-Function-Keys"><b>Non-Function Keys</b></a>
+ <a href="ctlseqs.html#h2-The-Alternate-Screen-Buffer"><b>The Alternate Screen Buffer</b></a>
+ <a href="ctlseqs.html#h2-Bracketed-Paste-Mode"><b>Bracketed Paste Mode</b></a>
+ <a href="ctlseqs.html#h2-Readline-Modes"><b>Readline Modes</b></a>
+ <a href="ctlseqs.html#h2-Title-Modes"><b>Title Modes</b></a>
+ <a href="ctlseqs.html#h2-Mouse-Tracking"><b>Mouse Tracking</b></a>
+     <a href="ctlseqs.html#h3-X10-compatibility-mode"><b>X10 compatibility mode</b></a>
+     <a href="ctlseqs.html#h3-Normal-tracking-mode"><b>Normal tracking mode</b></a>
+     <a href="ctlseqs.html#h3-Wheel-mice"><b>Wheel mice</b></a>
+     <a href="ctlseqs.html#h3-Other-buttons"><b>Other buttons</b></a>
+     <a href="ctlseqs.html#h3-Highlight-tracking"><b>Highlight tracking</b></a>
+     <a href="ctlseqs.html#h3-Button-event-tracking"><b>Button-event tracking</b></a>
+     <a href="ctlseqs.html#h3-Any-event-tracking"><b>Any-event tracking</b></a>
+     <a href="ctlseqs.html#h3-FocusIn_FocusOut"><b>FocusIn/FocusOut</b></a>
+     <a href="ctlseqs.html#h3-Extended-coordinates"><b>Extended coordinates</b></a>
+ <a href="ctlseqs.html#h2-Graphics"><b>Graphics</b></a>
+     <a href="ctlseqs.html#h3-Sixel-Graphics"><b>Sixel Graphics</b></a>
+          <a href="ctlseqs.html#h4-Sixel-Graphics:CSI-Ps-c.8C5"><b>CSI <i>Ps</i> <i>c</i></b></a>  Send Device Attributes (Primary DA), DEC graphics terminals, xterm.
+               <a href="ctlseqs.html#h4-Sixel-Graphics:CSI-Ps-c:Ps-=-4.A1B"><b><i>Ps</i> = 4</b></a>  Sixel graphics.
+          <a href="ctlseqs.html#h4-Sixel-Graphics:CSI-?-Pm-h.930"><b>CSI ? <i>Pm</i> h</b></a>  Set Mode (with corresponding Reset Mode CSI ? Pm l):
+               <a href="ctlseqs.html#h4-Sixel-Graphics:CSI-?-Pm-h:Ps-=-8-0.AE7"><b><i>Ps</i> = 8 0</b></a>  Sixel Display Mode (DECSDM), VT330, VT340, VT382.
+               <a href="ctlseqs.html#h4-Sixel-Graphics:CSI-?-Pm-h:Ps-=-1-0-7-0.BA1"><b><i>Ps</i> = 1 0 7 0</b></a>  use private color registers for each graphic,  xterm.
+               <a href="ctlseqs.html#h4-Sixel-Graphics:CSI-?-Pm-h:Ps-=-8-4-5-2.BAC"><b><i>Ps</i> = 8 4 5 2</b></a>  Sixel scrolling leaves cursor to right of graphic, RLogin,  xterm.
+          <a href="ctlseqs.html#h4-Sixel-Graphics:DCS-Pa;Pb;Ph-q-Ps..Ps-ST.D7F"><b>DCS <i>Pa</i> ; <i>Pb</i> ; <i>Ph</i> q <i>Ps</i>.. <i>Ps</i></b> ST</a>  Send SIXEL image, DEC graphics terminals, VT330, VT340, VT382.
+     <a href="ctlseqs.html#h3-ReGIS-Graphics"><b>ReGIS Graphics</b></a>
+          <a href="ctlseqs.html#h4-ReGIS-Graphics:CSI-Ps-c.85A"><b>CSI <i>Ps</i> <i>c</i></b></a>  Send Device Attributes (Primary DA), DEC graphics terminals, xterm.
+               <a href="ctlseqs.html#h4-ReGIS-Graphics:CSI-Ps-c:Ps-=-3.9AF"><b><i>Ps</i> = 3</b></a>  ReGIS graphics.
+          <a href="ctlseqs.html#h4-ReGIS-Graphics:CSI-?-Pm-h.8C5"><b>CSI ? <i>Pm</i> h</b></a>  Set Mode, xterm.
+               <a href="ctlseqs.html#h4-ReGIS-Graphics:CSI-?-Pm-h:Ps-=-1-0-7-0.B36"><b><i>Ps</i> = 1 0 7 0</b></a>  use private color registers for each graphic.
+          <a href="ctlseqs.html#h4-ReGIS-Graphics:DCS-Pm-p-Pr..Pr-ST.B3D"><b>DCS <i>Pm</i> p <i>Pr</i>.. <i>Pr</i></b> ST</a>  Enter or exit ReGIS, VT300, xterm.
+               <a href="ctlseqs.html#h4-ReGIS-Graphics:DCS-Pm-p-Pr..Pr-ST:Pm-=-0.C89"><b><i>Pm</i> = 0</b></a>  resume command, use fullscreen mode.
+               <a href="ctlseqs.html#h4-ReGIS-Graphics:DCS-Pm-p-Pr..Pr-ST:Pm-=-1.C8A"><b><i>Pm</i> = 1</b></a>  start new command, use fullscreen mode.
+               <a href="ctlseqs.html#h4-ReGIS-Graphics:DCS-Pm-p-Pr..Pr-ST:Pm-=-2.C8B"><b><i>Pm</i> = 2</b></a>  resume command, use command display mode.
+               <a href="ctlseqs.html#h4-ReGIS-Graphics:DCS-Pm-p-Pr..Pr-ST:Pm-=-3.C8C"><b><i>Pm</i> = 3</b></a>  start new command, use command display mode.
+ <a href="ctlseqs.html#h2-Non-VT100-Modes"><b>Non-VT100 Modes</b></a>
+     <a href="ctlseqs.html#h3-Tektronix-4014-Mode"><b>Tektronix 4014 Mode</b></a>
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:BEL.846"><b>BEL</b></a>  Bell (Ctrl-G).
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:BS.808"><b>BS</b></a>  Backspace (Ctrl-H).
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:TAB.84A"><b>TAB</b></a>  Horizontal Tab (Ctrl-I).
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:LF.805"><b>LF</b></a>  Line Feed or New Line (Ctrl-J).
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:VT.81D"><b>VT</b></a>  Cursor up (Ctrl-K).
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:FF.7FF"><b>FF</b></a>  Form Feed or New Page (Ctrl-L).
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:CR.808"><b>CR</b></a>  Carriage Return (Ctrl-M).
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:ESC-ETX.96C"><b>ESC ETX</b></a>  Switch to VT100 Mode (ESC Ctrl-C).
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:ESC-ENQ.95F"><b>ESC ENQ</b></a>  Return Terminal Status (ESC Ctrl-E).
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:ESC-FF.907"><b>ESC FF</b></a>  PAGE (Clear Screen) (ESC Ctrl-L).
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:ESC-SO.91D"><b>ESC SO</b></a>  Begin 4015 APL mode (ESC Ctrl-N).
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:ESC-SI.917"><b>ESC SI</b></a>  End 4015 APL mode (ESC Ctrl-O).
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:ESC-ETB.956"><b>ESC ETB</b></a>  COPY (Save Tektronix Codes to file COPYyyyy-mm-dd.hh:mm:ss).
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:ESC-CAN.94D"><b>ESC CAN</b></a>  Bypass Condition (ESC Ctrl-X).
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:ESC-SUB.965"><b>ESC SUB</b></a>  GIN mode (ESC Ctrl-Z).
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:ESC-FS.914"><b>ESC FS</b></a>  Special Point Plot Mode (ESC Ctrl-\e).
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:ESC-8.8B3"><b>ESC 8</b></a>  Select Large Character Set.
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:ESC-9.8B4"><b>ESC 9</b></a>  Select #2 Character Set.
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:ESC-colon.A96"><b>ESC :</b></a>  Select #3 Character Set.
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:ESC;.889"><b>ESC ;</b></a>  Select Small Character Set.
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:OSC-Ps;Pt-BEL.B47"><b>OSC <i>Ps</i> ; <i>Pt</i> BEL</b></a>  Set Text Parameters of VT window.
+               <a href="ctlseqs.html#h4-Tektronix-4014-Mode:OSC-Ps;Pt-BEL:Ps-=-0.C99"><b><i>Ps</i> = 0</b></a>  Change Icon Name and Window Title to Pt.
+               <a href="ctlseqs.html#h4-Tektronix-4014-Mode:OSC-Ps;Pt-BEL:Ps-=-1.C9A"><b><i>Ps</i> = 1</b></a>  Change Icon Name to Pt.
+               <a href="ctlseqs.html#h4-Tektronix-4014-Mode:OSC-Ps;Pt-BEL:Ps-=-2.C9B"><b><i>Ps</i> = 2</b></a>  Change Window Title to Pt.
+               <a href="ctlseqs.html#h4-Tektronix-4014-Mode:OSC-Ps;Pt-BEL:Ps-=-4-6.D00"><b><i>Ps</i> = 4 6</b></a>  Change Log File to Pt.
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:ESC-%60.906"><b>ESC `</b></a>  Normal Z Axis and Normal (solid) Vectors.
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:ESC-a.8DC"><b>ESC a</b></a>  Normal Z Axis and Dotted Line Vectors.
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:ESC-b.8DD"><b>ESC b</b></a>  Normal Z Axis and Dot-Dashed Vectors.
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:ESC-c.8DE"><b>ESC c</b></a>  Normal Z Axis and Short-Dashed Vectors.
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:ESC-d.8DF"><b>ESC d</b></a>  Normal Z Axis and Long-Dashed Vectors.
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:ESC-h.8E3"><b>ESC h</b></a>  Defocused Z Axis and Normal (solid) Vectors.
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:ESC-i.8E4"><b>ESC i</b></a>  Defocused Z Axis and Dotted Line Vectors.
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:ESC-j.8E5"><b>ESC j</b></a>  Defocused Z Axis and Dot-Dashed Vectors.
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:ESC-k.8E6"><b>ESC k</b></a>  Defocused Z Axis and Short-Dashed Vectors.
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:ESC-l.8E7"><b>ESC l</b></a>  Defocused Z Axis and Long-Dashed Vectors.
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:ESC-p.8EB"><b>ESC p</b></a>  Write-Thru Mode and Normal (solid) Vectors.
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:ESC-q.8EC"><b>ESC q</b></a>  Write-Thru Mode and Dotted Line Vectors.
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:ESC-r.8ED"><b>ESC r</b></a>  Write-Thru Mode and Dot-Dashed Vectors.
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:ESC-s.8EE"><b>ESC s</b></a>  Write-Thru Mode and Short-Dashed Vectors.
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:ESC-t.8EF"><b>ESC t</b></a>  Write-Thru Mode and Long-Dashed Vectors.
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:FS.80C"><b>FS</b></a>  Point Plot Mode (Ctrl-\e).
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:GS.80D"><b>GS</b></a>  Graph Mode (Ctrl-]).
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:RS.818"><b>RS</b></a>  Incremental Plot Mode (Ctrl- ^).
+          <a href="ctlseqs.html#h4-Tektronix-4014-Mode:US.81B"><b>US</b></a>  Alpha Mode (Ctrl-_).
+     <a href="ctlseqs.html#h3-VT52-Mode"><b>VT52 Mode</b></a>
+          <a href="ctlseqs.html#h4-VT52-Mode:ESC-lt.5AE"><b>ESC &lt;</b></a>  Exit VT52 mode (Enter VT100 mode).
+          <a href="ctlseqs.html#h4-VT52-Mode:ESC-=.50B"><b>ESC =</b></a>  Enter alternate keypad mode.
+          <a href="ctlseqs.html#h4-VT52-Mode:ESC-gt.5A9"><b>ESC &gt;</b></a>  Exit alternate keypad mode.
+          <a href="ctlseqs.html#h4-VT52-Mode:ESC-A.50F"><b>ESC A</b></a>  Cursor up.
+          <a href="ctlseqs.html#h4-VT52-Mode:ESC-B.510"><b>ESC B</b></a>  Cursor down.
+          <a href="ctlseqs.html#h4-VT52-Mode:ESC-C.511"><b>ESC C</b></a>  Cursor right.
+          <a href="ctlseqs.html#h4-VT52-Mode:ESC-D.512"><b>ESC D</b></a>  Cursor left.
+          <a href="ctlseqs.html#h4-VT52-Mode:ESC-F.514"><b>ESC F</b></a>  Enter graphics mode.
+          <a href="ctlseqs.html#h4-VT52-Mode:ESC-G.515"><b>ESC G</b></a>  Exit graphics mode.
+          <a href="ctlseqs.html#h4-VT52-Mode:ESC-H.516"><b>ESC H</b></a>  Move the cursor to the home position.
+          <a href="ctlseqs.html#h4-VT52-Mode:ESC-I.517"><b>ESC I</b></a>  Reverse line feed.
+          <a href="ctlseqs.html#h4-VT52-Mode:ESC-J.518"><b>ESC J</b></a>  Erase from the cursor to the end of the screen.
+          <a href="ctlseqs.html#h4-VT52-Mode:ESC-K.519"><b>ESC K</b></a>  Erase from the cursor to the end of the line.
+          <a href="ctlseqs.html#h4-VT52-Mode:ESC-Y-Ps-Ps.707"><b>ESC Y <i>Ps</i> <i>Ps</i></b></a>  Move the cursor to given row and column.
+          <a href="ctlseqs.html#h4-VT52-Mode:ESC-Z.528"><b>ESC Z</b></a>  Identify.
+ <a href="ctlseqs.html#h2-Further-reading"><b>Further reading</b></a>
+     <a href="ctlseqs.html#h3-Technical-manuals"><b>Technical manuals</b></a>
+     <a href="ctlseqs.html#h3-Standards"><b>Standards</b></a>
+     <a href="ctlseqs.html#h3-Miscellaneous"><b>Miscellaneous</b></a>
+</pre>
+</body>
+</html>

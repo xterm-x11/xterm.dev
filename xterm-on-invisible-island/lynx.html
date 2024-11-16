@@ -1,0 +1,377 @@
+<!--
+  $Id: lynx.html,v 1.103 2023/09/26 08:19:30 tom Exp $
+  -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0">
+  <title>LYNX &ndash; The Text Web-Browser</title>
+  <link rel="author" href="mailto:dickey@invisible-island.net">
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii">
+  <link rel="SHORTCUT ICON" href="/img/icons/lynx.ico" type=
+  "image/x-icon">
+  <meta name="keywords" content=
+  "lynx, browser, curses, ncurses, PRCS, installers, packages">
+  <meta name="description" content=
+  "Thomas Dickey is the maintainer/developer of the Lynx text-browser. This page gives some background and pointers to Lynx resources.">
+  <link rel="stylesheet" href="/css/simplestyle.css" type=
+  "text/css">
+  <link rel="stylesheet" href="/css/lynx-icons.css" type=
+  "text/css">
+  <style type="text/css">
+  @import "/css/simplenavXX.css" all;
+  </style>
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1">
+</head>
+<body>
+  <hr>
+
+  <p><a href="/">https://invisible-island.net/</a><br>
+  Copyright &copy; 1997-2020,2023 by Thomas E. Dickey</p>
+
+  <hr>
+
+  <h1 class="no-header">LYNX &ndash; The Text Web-Browser</h1>
+
+  <div class="nav">
+    <ul>
+      <li class="nav-top"><a href="/lynx/lynx.html">(top)</a></li>
+
+      <li><a href="#synopsis">Synopsis</a></li>
+
+      <li><a name="patches" href="/lynx/lynx-develop.html" id=
+      "patches">Development</a></li>
+
+      <li>
+        <a href="#installers">Win32 Installers</a>
+        <ul>
+          <li><a href="#ftp_install">Archives</a></li>
+
+          <li><a href="#http_install">Direct</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a name="resources" href=
+        "https://lynx.invisible-island.net/lynx-resources.html" id=
+        "resources">Other Resources</a>
+        <ul>
+          <li><a name="main_links" href=
+          "https://lynx.invisible-island.net/lynx-resources.html#main_links"
+          id="main_links">Primary</a></li>
+
+          <li><a name="packages" href=
+          "https://lynx.invisible-island.net/lynx-resources.html#packages"
+          id="packages">Packages</a></li>
+
+          <li><a name="misc_links" href=
+          "https://lynx.invisible-island.net/lynx-resources.html#misc_links"
+          id="misc_links">Comments</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2 id="synopsis-h2"><a name="synopsis" id=
+  "synopsis">Synopsis</a></h2>
+
+  <p><strong>Lynx</strong> is a fully featured World-Wide Web
+  browser for users on both Unix and VMS platforms who are
+  connected to those systems via cursor-addressable, character-cell
+  terminals or emulators. That includes VT100 terminals, and
+  desktop-based software packages emulating VT100 terminals (e.g.,
+  Kermit, Procomm, etc.).</p>
+
+  <h2 id="patches-h2">Changes</h2>
+
+  <p>The <a href="/lynx/lynx-develop.html">Lynx Development</a>
+  page gives some background on ongoing development.</p>
+
+  <h2 id="installers-h2"><a name="installers" id="installers">Win32
+  Installers</a></h2>
+
+  <p>Before each patch-release, I (usually) do a test-build on
+  Windows. That builds several flavors, which I use in testing.
+  Along with that, since 2007, I have made packages for a few of
+  these executables. Although starting with release 2.8.9, Lynx
+  will build/run as a 64-bit executable, these are 32-bit
+  executables which will run on a 64-bit Windows system:</p>
+
+  <ul>
+    <li>
+      <p><em>built with curses (not color-style)</em>.</p>
+
+      <p>This is the older color-scheme used by
+      <strong>Lynx</strong>, from 1996. Links and form-fields are
+      colored.</p>
+
+      <p>It happens that this flavor of the Windows executables
+      requires <a href="https://www.openssl.org">OpenSSL</a> to
+      run. Your machine may already have OpenSSL installed; many
+      programs use it. If not, you might find the
+      &ldquo;light&rdquo; version from <a href=
+      "https://www.slproweb.com/products/Win32OpenSSL.html">this
+      page</a> useful. While the <strong>Lynx</strong>
+      <em>Windows</em> installer added support for the SSL
+      libraries in <a href=
+      "https://lynx.invisible-island.net//current/CHANGES.html#v2.8.9dev.12">
+      2017</a>, the <a href=
+      "https://web.archive.org/web/20230000000000*/https://www.slproweb.com/products/Win32OpenSSL.html">
+      <em>Internet Archive</em></a> shows that the page has been
+      around far longer (first crawled in 2004).</p>
+
+      <p>There are two executables, depending on whether you use
+      the &ldquo;old&rdquo; or &ldquo;new&rdquo; OpenSSL
+      libraries:</p>
+
+      <dl>
+        <dt>&ldquo;Cur&rdquo; (version 3.0.x)</dt>
+
+        <dd>
+          <p>You will need these DLLs, either in
+          <strong>Lynx</strong>'s directory or in your system32
+          directory:</p>
+
+          <ul>
+            <li><code>libssl-1_3.dll</code>
+            </li>
+
+            <li><code>libcrypto-3.dll</code>
+            </li>
+          </ul>
+
+          <p>I have tested <strong>Lynx</strong> using those DLLs
+          in <strong>Lynx</strong>'s directory.</p>
+        </dd>
+
+        <dt>&ldquo;New&rdquo; (version 1.1.1)</dt>
+
+        <dd>
+          <p>I used these to run the 32-bit Lynx executables on
+          Windows 7 (again, either in <strong>Lynx</strong>'s
+          directory or in your system32 directory):</p>
+
+          <ul>
+            <li><code>libssl-1_1.dll</code>
+            </li>
+
+            <li><code>libcrypto-1_1.dll</code>
+            </li>
+          </ul>
+        </dd>
+      </dl>
+
+      <p>For both choices, you will need the <a href=
+      "https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170">
+      Microsoft Visual C++ distributables</a>, i.e.,
+      <em>vcruntime140.dll</em> (for Visual Studio 2015 or
+      later).</p>
+
+      <p>Beginning with <a href=
+      "https://lynx.invisible-island.net//current/CHANGES.html#v2.8.9dev.17">
+      2.8.9dev.17</a>, the installer helps you select the DLLs,
+      provided that they are in the same directory. It does this by
+      a file-selection dialog that matches only the SSL-library
+      (<code>ssleay32.dll</code> or
+      <code>libssl-1_1.dll</code>).</p>
+
+      <p>The other installers do not require OpenSSL, but since
+      they do not have support for OpenSSL compiled-in, will not
+      connect to <em><code>https</code></em> URLs.</p>
+
+      <p><strong>Lynx</strong> also builds/works with the
+      &ldquo;old&rdquo; version of OpenSSL (up to 1.0.2), but the
+      OpenSSL developers have abandoned that line of development,
+      and DLLs are no longer offered. Those were named based on the
+      <em>win32</em> API, which did not make it simple to see if
+      they were actually 64-bit:</p>
+
+      <ul>
+        <li><code>libeay32.dll</code> (replaced by
+        <code>libssl-1_1.dll</code>)</li>
+
+        <li><code>ssleay32.dll</code> (replaced by
+        <code>libcrypto-1_1.dll</code>)</li>
+      </ul>
+
+      <p>In the more recent versions, the names in each case
+      (<em>new</em>, <em>cur</em>) are related to whether the DLLs
+      are 32-bit or 64-bit (in the latter, a &ldquo;-x64&rdquo; is
+      inserted).</p>
+    </li>
+
+    <li>
+      <p><em>built with curses (color-style)</em>
+      </p>
+
+      <p>The &ldquo;color-style&rdquo; refers to the newer scheme
+      where different HTML tags can be colored. It gives a better
+      sense of the page's structure than highlighting links, and
+      has been the default configuration since release 2.8.6 in
+      October 2006.</p>
+
+      <p>Both of the curses configurations are built using <a href=
+      "https://pdcurses.sourceforge.net">PDCurses</a>.</p>
+    </li>
+
+    <li>
+      <p><em>built with slang</em>
+      </p>
+
+      <p>This is built using the <a href="https://s-lang.org">slang
+      library</a>. The color scheme is like the first installer
+      (essentially only coloring links and form-fields), but slang
+      provides brighter background colors in a console window.</p>
+    </li>
+  </ul>
+
+  <p>In the list below, &ldquo;release&rdquo; refers to the latest
+  stable release, while &ldquo;current patch&rdquo; is the more
+  recent development version.</p>
+
+  <p>I built all of these using Visual Studio on Windows 10 and 11
+  machines:</p>
+
+  <ul>
+    <li>
+      <p>They are 32-bit executables (though it is possible to
+      build Lynx as 64-bit executables, I have installed the 32-bit
+      executables on 64-bit operating systems without problems.</p>
+    </li>
+
+    <li>
+      <p>The installers should work with Windows 7 or later.</p>
+
+      <p>They will not work with older versions of Windows, e.g.,
+      Windows XP. See <em><a href=
+      "https://social.technet.microsoft.com/Forums/windows/en-US/8a751f65-ade9-4b8b-a3d3-c720ccbd3d2c/ieshimsdll-missing?forum=w7itproinstall">
+      ieshims.dll missing</a></em> for possible solutions.</p>
+    </li>
+  </ul>
+
+  <p>Here are screenshots showing the DLL <a href=
+  "https://github.com/lucasg/Dependencies">dependencies</a>:</p>
+
+  <ul>
+    <li>&ldquo;Old&rdquo; OpenSSL
+      <blockquote>
+        <p><a href=
+        "/lynx/images/lynx-oldssl-dependencies.png"><img width=
+        "450" src="/lynx/images/lynx-oldssl-dependencies.png" alt=
+        "Old OpenSSL dependencies"></a></p>
+      </blockquote>
+    </li>
+
+    <li>&ldquo;New&rdquo; OpenSSL
+      <blockquote>
+        <p><a href=
+        "/lynx/images/lynx-newssl-dependencies.png"><img width=
+        "450" src="/lynx/images/lynx-newssl-dependencies.png" alt=
+        "Old OpenSSL dependencies"></a></p>
+      </blockquote>
+    </li>
+  </ul>
+
+  <p>That said, here are links to the <strong>Lynx</strong>
+  installers on my website:</p>
+
+  <h3><a name="http_install" id="http_install">Win32 installers
+  (Direct)</a></h3>
+
+  <ul>
+    <li>Stable release
+      <ul>
+        <li><a href=
+        "/datafiles/release/lynx-oldssl-setup.exe">&ldquo;old&rdquo;
+        SSL</a></li>
+
+        <li><a href=
+        "/datafiles/release/lynx-newssl-setup.exe">&ldquo;new&rdquo;
+        SSL</a></li>
+
+        <li><a href="/datafiles/release/lynx-cs-setup.exe">curses
+        (color-style)</a></li>
+
+        <li><a href=
+        "/datafiles/release/lynx-sl-setup.exe">slang</a></li>
+      </ul>
+    </li>
+
+    <li>Development version (current patch):
+      <ul>
+        <li><a href=
+        "/datafiles/current/lynx-curssl-setup.exe">&ldquo;cur&rdquo;
+        SSL</a></li>
+
+        <li><a href=
+        "/datafiles/current/lynx-newssl-setup.exe">&ldquo;new&rdquo;
+        SSL</a></li>
+
+        <li><a href="/datafiles/current/lynx-cs-setup.exe">curses
+        (color-style)</a></li>
+
+        <li><a href=
+        "/datafiles/current/lynx-sl-setup.exe">slang</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3><a name="ftp_install" id="ftp_install">Win32 installers
+  (Archives)</a></h3>
+
+  <p>All files are here: <a href=
+  "https://invisible-island.net/archives/lynx/">https://invisible-island.net/archives/lynx/</a></p>
+
+  <ul>
+    <li>Stable release
+      <ul>
+        <li><a href=
+        "https://invisible-island.net/archives/lynx/lynx-curssl-setup.exe">
+        &ldquo;cur&rdquo; SSL</a></li>
+
+        <li><a href=
+        "https://invisible-island.net/archives/lynx/lynx-newssl-setup.exe">
+        &ldquo;new&rdquo; SSL</a></li>
+
+        <li><a href=
+        "https://invisible-island.net/archives/lynx/lynx-cs-setup.exe">
+        curses (color-style)</a></li>
+
+        <li><a href=
+        "https://invisible-island.net/archives/lynx/lynx-sl-setup.exe">
+        slang</a></li>
+      </ul>
+    </li>
+
+    <li>Development version (current patch)
+      <ul>
+        <li><a href=
+        "https://invisible-island.net/archives/lynx/current/lynx-curssl-setup.exe">
+        &ldquo;cur&rdquo; SSL</a></li>
+
+        <li><a href=
+        "https://invisible-island.net/archives/lynx/current/lynx-newssl-setup.exe">
+        &ldquo;new&rdquo; SSL</a></li>
+
+        <li><a href=
+        "https://invisible-island.net/archives/lynx/current/lynx-cs-setup.exe">
+        curses (color-style)</a></li>
+
+        <li><a href=
+        "https://invisible-island.net/archives/lynx/current/lynx-sl-setup.exe">
+        slang</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <hr>
+
+  <p><img src="/img/anybrowser4b.png" alt=
+  "Viewable with any browser;" height="31" width="88"> <a href=
+  "https://validator.w3.org/check?uri=http%3A%2F%2Finvisible-island.net%2Flynx%2F">
+  valid HTML.</a></p>
+</body>
+</html>

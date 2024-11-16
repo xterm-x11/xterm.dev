@@ -1,0 +1,119 @@
+<!--
+  $Id: lynx-ncurses.html,v 1.36 2024/05/15 20:08:10 tom Exp $
+  -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en-us">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0">
+  <title>LYNX &ndash; NCURSES COLOR SUPPORT</title>
+  <link rel="author" href="mailto:dickey@invisible-island.net">
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii">
+  <link rel="SHORTCUT ICON" href="/img/icons/lynx.ico" type=
+  "image/x-icon">
+  <link rel="stylesheet" href="/css/simplestyle.css" type=
+  "text/css">
+  <link rel="stylesheet" href="/css/lynx-icons.css" type=
+  "text/css">
+  <style type="text/css">
+  @import "/css/simplenavXX.css" all;
+  </style>
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1">
+</head>
+<body>
+  <hr>
+
+  <p><a href="/">http://invisible-island.net/</a><a href=
+  "/lynx/">lynx/</a><br>
+  Copyright &copy; 1997-2019,2024 by Thomas E. Dickey</p>
+
+  <hr>
+
+  <div class="nav">
+    <ul>
+      <li class="nav-top"><a href="lynx-ncurses.html">(top)</a></li>
+
+      <li><a href="#synopsis">Synopsis</a></li>
+
+      <li><a href="#history">History</a></li>
+
+      <li><a href="#download">Download</a></li>
+    </ul>
+  </div>
+
+  <h2><a name="synopsis" id="synopsis">Synopsis</a></h2>
+
+  <p>Lynx is normally built on UNIX using curses, a screen
+  management library. Contemporary versions of curses (as well as
+  other libraries such as slang) support color.</p>
+
+  <h2><a name="history" id="history">History</a></h2>
+
+  <p>Someone asked me (January 1997) for help configuring Lynx to
+  run with color, linked with <a href=
+  "/ncurses/ncurses.html">ncurses</a>. I made changes (originally
+  in the Lynx 2.8 release version) which implements the same color
+  scheme as that which is done with slang (i.e., mapping the
+  combinations of <em>bold</em>, <em>underline</em>, and
+  <em>reverse</em> to <em>colors</em>. This is also known as the
+  "Christmas Tree" color scheme. My changes can also be used to
+  configure Lynx with SVr4 (e.g., Solaris) curses, which is the
+  reference model for ncurses.</p>
+
+  <p>Here are samples showing Lynx built with ncurses and slang
+  (before it was corrected to handle dtterm and other non-bce
+  terminals), running on dtterm, using default and white
+  backgrounds.</p>
+
+  <table summary="contrast between ncurses and slang" border>
+    <tr>
+      <th>NCURSES</th>
+      <th>S-Lang</th>
+    </tr>
+
+    <tr>
+      <td><img width="517" height="364" src=
+      "/lynx/images/ncurses-default.jpg" alt=
+      "lynx (ncurses) with default colors">
+      </td>
+      <td><img width="517" height="364" src=
+      "/lynx/images/slang-default.jpg" alt=
+      "lynx (slang) with default colors">
+      </td>
+    </tr>
+
+    <tr>
+      <td><img width="517" height="364" src=
+      "/lynx/images/ncurses-white.jpg" alt=
+      "lynx (ncurses) with white background">
+      </td>
+      <td><img width="517" height="364" src=
+      "/lynx/images/slang-white.jpg" alt=
+      "lynx (slang) with white background">
+      </td>
+    </tr>
+  </table>
+
+  <p>Besides the simple color scheme, Lynx also supports a more
+  elaborate scheme which maps colors to the HTML types, known as
+  "color styles". Here is a sample (linked with ncurses):</p>
+
+  <p><img width="517" height="364" src=
+  "/lynx/images/ncurses-styled.jpg" alt=
+  "lynx (ncurses) with color styles">
+  </p>
+
+  <h2><a name="download" id="download">Download</a></h2>
+
+  <p>Download: <a href=
+  "https://invisible-island.net/archives/lynx/current/">Current
+  development versions of Lynx</a></p>
+
+  <p>Download: <a href=
+  "https://invisible-island.net/archives/ncurses/ncurses.tar.gz">The
+  source (gzip'd tar)</a> current release of ncurses</p>
+</body>
+</html>

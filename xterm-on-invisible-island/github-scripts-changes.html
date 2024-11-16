@@ -1,0 +1,767 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0">
+  <title>Change-Log for GITHUB-SCRIPTS</title>
+  <link rel="author" href="mailto:dickey@invisible-island.net">
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8">
+  <link rel="stylesheet" href="/css/simplestyle.css" type=
+  "text/css">
+  <link rel="SHORTCUT ICON" href="/img/icons/favicon.ico" type=
+  "image/x-icon">
+  <meta name="keywords" content="CHANGES,change-log">
+  <meta name="description" content="Change-Log for GITHUB-SCRIPTS">
+  <style type="text/css">
+  @import "/css/simplenavXX.css" all;
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <h1 class="no-header">Change-Log for GITHUB-SCRIPTS</h1>
+  <hr>
+  <a href="/">https://invisible-island.net/</a><a href=
+  "/scripts/">scripts/</a>
+  <hr>
+  <pre>
+<a name="t20230204" href="#index-t20230204" id=
+"t20230204">2023-02-04</a>
+
+        * release2git:
+        add a check/fix in case the rcs archives have file-permissions different from
+        git's index.
+
+<a name="t20230118" href="#index-t20230118" id=
+"t20230118">2023-01-18</a>
+
+        * manifest:
+        strip patch/version from basename to better match my use in Git-snapshots
+
+<a name="t20221031" href="#index-t20221031" id=
+"t20221031">2022-10-31</a>
+
+        * git-utimes:
+        modify to handle merge-branches, using the latest commit on the branch
+        rather than the merge-time as done by git-extras
+
+<a name="t20220614" href="#index-t20220614" id=
+"t20220614">2022-06-14</a>
+
+        * resync-git: sign merges -- needed for freedesktop gitlab
+
+<a name="t20220326" href="#index-t20220326" id=
+"t20220326">2022-03-26</a>
+
+        * gimme-git: quiet the X-forwarding messages
+
+<a name="t20220120" href="#index-t20220120" id=
+"t20220120">2022-01-20</a>
+
+        * manifest: show a diff if -v option is given
+
+<a name="t20220114" href="#index-t20220114" id=
+"t20220114">2022-01-14</a>
+
+        * manifest: implement a "-n" (no-op) option
+        tidy-up error-exits
+
+<a name="t20211230" href="#index-t20211230" id=
+"t20211230">2021-12-30</a>
+
+        * manifest: no more MANIFEST.bak!
+
+<a name="t20211227" href="#index-t20211227" id=
+"t20211227">2021-12-27</a>
+
+        * gimme-git:
+        recreate tmp-directory on each pass in the loop, to attempt to work around
+        permissions problems with MacOS.
+
+<a name="t20211211" href="#index-t20211211" id=
+"t20211211">2021-12-11</a>
+
+        * gimme-git:
+        print full pathname for "OOPS" to simplify investigating those.
+
+<a name="t20211204" href="#index-t20211204" id=
+"t20211204">2021-12-04</a>
+
+        * gimme-git: prune old stuff, and try to point out bad merges
+
+<a name="t20200212" href="#index-t20200212" id=
+"t20200212">2020-02-12</a>
+
+        * release2git: workaround for rcs-blame
+
+<a name="t20200125" href="#index-t20200125" id=
+"t20200125">2020-01-25</a>
+
+        * release2git: filter out "RCS,v" file
+
+        * release2git:
+        a little more general, check for missing files and assume that co is confused
+
+        * release2git: add workaround for rcs-blame's ",v" test-data
+
+        * release2git: add -Q option, for debugging
+
+        * release2git:
+        check for $RCS_DIR environment variable, to handle special case needed
+        for "rcs-blame"
+
+<a name="t20191225" href="#index-t20191225" id=
+"t20191225">2019-12-25</a>
+
+        * git-stats: add -d option, to make it possible to sort the report
+
+        * git-stats: improve alignment of columns
+
+<a name="t20190322" href="#index-t20190322" id=
+"t20190322">2019-03-22</a>
+
+        * git-stats:
+        make the binmode optional, to work around garbage in some repos
+
+        * git-stats: Git's metadata uses UTF-8; account for this in the report.
+
+<a name="t20190321" href="#index-t20190321" id=
+"t20190321">2019-03-21</a>
+
+        * git-stats: account for multiple records per commit
+
+        * git-stats: RCS_BASE
+
+<a name="t20190312" href="#index-t20190312" id=
+"t20190312">2019-03-12</a>
+
+        * resync-git: RCS_BASE
+
+<a name="t20180623" href="#index-t20180623" id=
+"t20180623">2018-06-23</a>
+
+        * release2git:
+        account for timezone in cutoff, which will be compared with gmt dates
+
+<a name="t20180416" href="#index-t20180416" id=
+"t20180416">2018-04-16</a>
+
+        * release2git:
+        improve tagging for the generated CHANGES file by accounting for localtime
+        offset from gmtime.
+
+<a name="t20171027" href="#index-t20171027" id=
+"t20171027">2017-10-27</a>
+
+        * gimme-git:
+        ignore git's notion of directory-timestamps, if any - recur for file-timestamps
+
+<a name="t20171016" href="#index-t20171016" id=
+"t20171016">2017-10-16</a>
+
+        * gimme-git: missed one (the top-level directory)
+
+        * gimme-git:
+        quote directory- and file-names to help when they have embedded spaces
+
+<a name="t20170826" href="#index-t20170826" id=
+"t20170826">2017-08-26</a>
+
+        * gimme-git: RCS_BASE
+
+        * git-utimes: initial import of some git's doesn't fit pattern
+
+        * git-utimes: RCS_BASE
+
+<a name="t20170812" href="#index-t20170812" id=
+"t20170812">2017-08-12</a>
+
+        * manifest: use SIGQUIT(3) rather than SIGTRAP(5) in trap commands
+        This error dates back to 1997 (970802) in ncurses:
+                + many corrections to make progs/capconvert work, as well as make it
+                  reasonably portable and integrated with ncurses 4.1 (reported by Dave
+                  Furstenau &lt;df@ravine.binary.net&gt;).
+
+        but I see in my "nfilter" script I used it as far back as December 1993, on the
+        other hand in "externs" (August 1991) I had it corrrect.
+
+        But here are the first uses in ncurses:
+                capconvert      <a href=
+"/ncurses/NEWS.html#t970802">1997/08/02</a> 21:52:06    1.3
+                edit_cfg.sh     <a href=
+"/ncurses/NEWS.html#t971108">1997/11/08</a> 18:14:57    1.7
+                make_sed.sh     <a href=
+"/ncurses/NEWS.html#t971206">1997/12/06</a> 20:52:47       tom
+                MKterminfo.sh   <a href=
+"/ncurses/NEWS.html#t980905">1998/09/05</a> 23:53:51    1.4
+                MKtermsort.sh   <a href=
+"/ncurses/NEWS.html#t20010526">2001/05/26</a> 23:37:57    1.7
+                MKkey_defs.sh   <a href=
+"/ncurses/NEWS.html#t20010616">2001/06/16</a> 15:25:10       tom
+                MKkeys_list.sh  <a href=
+"/ncurses/NEWS.html#t20010616">2001/06/16</a> 16:47:39       tom
+                make-tar.sh     <a href=
+"/ncurses/NEWS.html#t20100220">2010/02/20</a> 22:46:57       tom
+
+<a name="t20170319" href="#index-t20170319" id=
+"t20170319">2017-03-19</a>
+
+        * release2git: restore a special case for ncurses's components
+
+        * release2git: handle compressed archives by expanding as needed.
+
+        * release2git: ensure the temporary file is writable
+
+        * release2git: set modification time for generated CHANGES files.
+
+        * release2git: make -y work without -x
+
+        * release2git: add -y option
+
+        * release2git: make the rcs2log part less verbose
+
+        * release2git: -x depends upon -d
+
+        * release2git: add -x option
+
+<a name="t20170101" href="#index-t20170101" id=
+"t20170101">2017-01-01</a>
+
+        * release2git:
+        git commit is using local time, not UTC.  work around by setting TZ=0, so
+        the log will show correct local time.
+
+<a name="t20160907" href="#index-t20160907" id=
+"t20160907">2016-09-07</a>
+
+        * release2git:
+        change format of date returned from git to make it match the format used
+        in rcs, allowing comparison of the two lists.
+
+<a name="t20160817" href="#index-t20160817" id=
+"t20160817">2016-08-17</a>
+
+        * release2git:
+        make special case of changelog-name for dbmalloc, where I left the original
+        "CHANGES" alone, and distributed the program with generated "ChangeLog" in
+        2003.
+
+<a name="t20160731" href="#index-t20160731" id=
+"t20160731">2016-07-31</a>
+
+        * release2git: corrected destination directory for git clone
+
+<a name="t20160707" href="#index-t20160707" id=
+"t20160707">2016-07-07</a>
+
+        * release2git: overlooked GNU case
+
+        * release2git: linklint special case
+
+<a name="t20160706" href="#index-t20160706" id=
+"t20160706">2016-07-06</a>
+
+        * release2git: done testing
+
+        * release2git: fixes for -v option
+        add my-indent to manifest list, temporarily
+
+<a name="t20160703" href="#index-t20160703" id=
+"t20160703">2016-07-03</a>
+
+        * compare-manifests:
+        output from release2git can have multiple tags for a given date
+
+        * compare-manifests: create output directory
+
+        * compare-manifests: RCS_BASE
+
+        * manifest: make this a little less verbose
+
+        * release2git: add -p option for compare-manifests
+
+        * release2git: add -t option, for use by compare-manifests
+
+        * release2git:
+        handle "." parameter the same as no-parameters: current-project
+
+        * release2git: simplify -d option by eliminating $destdir variable
+
+<a name="t20160702" href="#index-t20160702" id=
+"t20160702">2016-07-02</a>
+
+        * release2git: recover better when rcs2log doesn't do the right thing
+
+        * release2git: move the email stuff to run-rcs2log
+
+<a name="t20160701" href="#index-t20160701" id=
+"t20160701">2016-07-01</a>
+
+        * tag-cutoff: RCS_BASE
+
+        * release2git: add -s option
+
+        * release2git: actually show the report
+
+        * release2git: workable merge also for sizes
+
+        * release2git: workable merge for number-of-files
+
+        * release2git: working on merge for -D (about half-done)
+
+        * release2git: second part of -D option computes total sizes
+
+        * release2git: manage the date-conversion for -D option
+
+        * release2git: start work on -D option
+
+        * release2git: fix -C option again
+
+<a name="t20160629" href="#index-t20160629" id=
+"t20160629">2016-06-29</a>
+
+        * bundle2github: quoting
+
+<a name="t20160628" href="#index-t20160628" id=
+"t20160628">2016-06-28</a>
+
+        * release2git: show messages when cloning/bundling
+
+        * manifest: make this less verbose, for release2git
+
+        * release2git: implemented the rest of -b
+
+        * release2git: add bundle_finish
+
+        * release2git:
+        eliminate a duplicate check whether I need to use my-rcs2log
+
+<a name="t20160627" href="#index-t20160627" id=
+"t20160627">2016-06-27</a>
+
+        * release2git: correct a typo that added CHANGES to xterm's archive
+
+        * release2git:
+        modify email shown in CHANGES to be a ... little ... less anachronistic
+
+        * release2git:
+        only generate CHANGES once (saves a lot of awk), keeping it in memory for
+        the different subsets
+
+<a name="t20160622" href="#index-t20160622" id=
+"t20160622">2016-06-22</a>
+
+        * release2git: add special-case for misc/terminfo.src
+
+        * release2git: add -L option
+
+<a name="t20160621" href="#index-t20160621" id=
+"t20160621">2016-06-21</a>
+
+        * release2git: start work on multi-archive needed for ncurses
+
+<a name="t20160620" href="#index-t20160620" id=
+"t20160620">2016-06-20</a>
+
+        * release2git: eliminated old_XXX
+
+        * release2git: use "-a" option of git commit to delete obsoleted files
+
+        * release2git: tag multiple labels in git
+
+        * release2git:
+        start work to handle label-aliases.  This makes "-R" work.
+
+<a name="t20160619" href="#index-t20160619" id=
+"t20160619">2016-06-19</a>
+
+        * release2git:
+        eliminated an unnecessary rcsget when no manifest is generated
+
+        * release2git: split-out need_CHANGES and need_MANIFEST
+
+        * release2git: eliminate label_date()
+
+<a name="t20160617" href="#index-t20160617" id=
+"t20160617">2016-06-17</a>
+
+        * release2git:
+        be less stringent about "valid RCS archive", works with pgf-vile
+
+        * release2git: to-do items
+
+        * release2git: notice
+
+        * release2git:
+        be more specific about MANIFEST, based on existing tar-balls
+
+        * release2git: got CHANGES to generate for byacc
+
+        * release2git: fix type
+
+        * release2git:
+        workable version which generates MANIFEST file for "add".
+
+        * release2git: add make_rcs_tree()
+
+        * release2git: implement incremental-add
+
+        * release2git: add -c option
+
+        * release2git: implement -G option
+
+<a name="t20160616" href="#index-t20160616" id=
+"t20160616">2016-06-16</a>
+
+        * release2git: good enough: "-C" works
+
+<a name="t20160615" href="#index-t20160615" id=
+"t20160615">2016-06-15</a>
+
+        * release2git: first cut of cutoff-matching
+
+        * release2git: implement -n option
+
+<a name="t20160614" href="#index-t20160614" id=
+"t20160614">2016-06-14</a>
+
+        * release2git: split-out read_rcs_logs
+
+        * release2git: start work on -C option
+
+        * release2git: added git tags
+
+<a name="t20160613" href="#index-t20160613" id=
+"t20160613">2016-06-13</a>
+
+        * release2git: successfully converted all snapshots for "add"
+
+        * release2git: got initial commit
+
+        * release2git: construct working directory
+
+        * release2git:
+        eliminated %rcs_labels global, so I can manipulate file-list and label-list
+        separately
+
+<a name="t20160612" href="#index-t20160612" id=
+"t20160612">2016-06-12</a>
+
+        * release2git: another step toward eliminating global %rcs_labels
+
+        * release2git:
+        add find_rcs_files (another step toward eliminating global %rcs_labels)
+
+        * release2git: add -a and -r options, call make_workdir with label info
+
+        * release2git: start work on building rcs checkouts
+
+<a name="t20160610" href="#index-t20160610" id=
+"t20160610">2016-06-10</a>
+
+        * rcs2git: exclude pgf-vile from keyword expansion feature
+
+<a name="t20160607" href="#index-t20160607" id=
+"t20160607">2016-06-07</a>
+
+        * release2git: RCS_BASE
+
+<a name="t20120830" href="#index-t20120830" id=
+"t20120830">2012-08-30</a>
+
+        * rcs2git: testing for xterm
+        skip branches
+
+<a name="t20120828" href="#index-t20120828" id=
+"t20120828">2012-08-28</a>
+
+        * manifest: dash didn't like shift of empty args
+
+<a name="t20120626" href="#index-t20120626" id=
+"t20120626">2012-06-26</a>
+
+        * bundle2github: RCS_BASE
+
+<a name="t20120625" href="#index-t20120625" id=
+"t20120625">2012-06-25</a>
+
+        * rcs2git: combine the authors stuff, since it's gotten to be clutter
+
+<a name="t20120603" href="#index-t20120603" id=
+"t20120603">2012-06-03</a>
+
+        * manifest: oops - fix LINE initialization.
+
+<a name="t20120602" href="#index-t20120602" id=
+"t20120602">2012-06-02</a>
+
+        * rcs2git: Neider's req
+
+<a name="t20120318" href="#index-t20120318" id=
+"t20120318">2012-03-18</a>
+
+        * manifest:
+        add -p option for cdk-perl which needs manifest w/o directories since perl
+        insists
+
+<a name="t20120226" href="#index-t20120226" id=
+"t20120226">2012-02-26</a>
+
+        * manifest:
+        some macros in my-autoconf have pathnames longer than 32, which made the
+        description bump to column 64.  Change the expression for tabstop to check
+        the name-length.
+
+<a name="t20120122" href="#index-t20120122" id=
+"t20120122">2012-01-22</a>
+
+        * rcs2git: fill in authors,
+
+        * rcs2git: implemented --expand-keywords option
+
+<a name="t20120119" href="#index-t20120119" id=
+"t20120119">2012-01-19</a>
+
+        * rcs2git: corrected path of source-archives
+
+        * rcs2git: RCS_BASE
+
+<a name="t20100705" href="#index-t20100705" id=
+"t20100705">2010-07-05</a>
+
+        * manifest:
+        since I'm usually checking-in configure scripts now, it turns out that this
+        script always assumed they weren't, and generated an entry for it right after
+        configure.in - however, the checked-in script appears right before configure.in,
+        and is a duplicate (report by Jonathan Neider).
+
+<a name="t20071227" href="#index-t20071227" id=
+"t20071227">2007-12-27</a>
+
+        * manifest: use csort
+
+<a name="t20030430" href="#index-t20030430" id=
+"t20030430">2003-04-30</a>
+
+        * manifest: allow more than one option, in any order
+
+<a name="t20021123" href="#index-t20021123" id=
+"t20021123">2002-11-23</a>
+
+        * manifest: a couple of programs (tin, bcpp) have config.h files
+
+<a name="t20020728" href="#index-t20020728" id=
+"t20020728">2002-07-28</a>
+
+        * manifest:
+        add -d option, so I can suppress "subdirectory" lines which confuse Perl's
+        packaging
+
+<a name="t19991231" href="#index-t19991231" id=
+"t19991231">1999-12-31</a>
+
+        * manifest:
+        workaround defect in Redhat 6.1, which folds case on 'sort' command
+
+<a name="t19971208" href="#index-t19971208" id=
+"t19971208">1997-12-08</a>
+
+        * manifest: add special cases for config.guess and config.sub
+
+<a name="t19951203" href="#index-t19951203" id=
+"t19951203">1995-12-03</a>
+
+        * manifest: a couple of error-recovery nits
+
+<a name="t19950904" href="#index-t19950904" id=
+"t19950904">1995-09-04</a>
+
+        * manifest: redirect stderr
+
+<a name="t19941015" href="#index-t19941015" id=
+"t19941015">1994-10-15</a>
+
+        * manifest:
+        make dummy-entries for directories, so cshar will do the right thing
+
+        * manifest:
+        added logic to let me append auto-generated files into the manifest
+
+        * manifest: rewrote so I don't need 'checkup'
+
+<a name="t19940903" href="#index-t19940903" id=
+"t19940903">1994-09-03</a>
+
+        * manifest:
+        strip off the "-r" from the revision so the generated file looks nicer
+
+<a name="t19940819" href="#index-t19940819" id=
+"t19940819">1994-08-19</a>
+
+        * manifest:
+        hack to make 'configure' appear after other files (for timestamps)
+
+<a name="t19940818" href="#index-t19940818" id=
+"t19940818">1994-08-18</a>
+
+        * manifest:
+        mods to sort subdirectories into separate clumps, for readability
+
+<a name="t19940816" href="#index-t19940816" id=
+"t19940816">1994-08-16</a>
+
+        * manifest: RCS_BASE
+
+</pre>
+  <div class="nav">
+    <ul>
+      <li class="nav-top"><a href="CHANGES.html">(top)</a></li>
+      <li><a name="index-t20230204" href="#t20230204" id=
+      "index-t20230204">2023-02-04</a></li>
+      <li><a name="index-t20230118" href="#t20230118" id=
+      "index-t20230118">2023-01-18</a></li>
+      <li><a name="index-t20221031" href="#t20221031" id=
+      "index-t20221031">2022-10-31</a></li>
+      <li><a name="index-t20220614" href="#t20220614" id=
+      "index-t20220614">2022-06-14</a></li>
+      <li><a name="index-t20220326" href="#t20220326" id=
+      "index-t20220326">2022-03-26</a></li>
+      <li><a name="index-t20220120" href="#t20220120" id=
+      "index-t20220120">2022-01-20</a></li>
+      <li><a name="index-t20220114" href="#t20220114" id=
+      "index-t20220114">2022-01-14</a></li>
+      <li><a name="index-t20211230" href="#t20211230" id=
+      "index-t20211230">2021-12-30</a></li>
+      <li><a name="index-t20211227" href="#t20211227" id=
+      "index-t20211227">2021-12-27</a></li>
+      <li><a name="index-t20211211" href="#t20211211" id=
+      "index-t20211211">2021-12-11</a></li>
+      <li><a name="index-t20211204" href="#t20211204" id=
+      "index-t20211204">2021-12-04</a></li>
+      <li><a name="index-t20200212" href="#t20200212" id=
+      "index-t20200212">2020-02-12</a></li>
+      <li><a name="index-t20200125" href="#t20200125" id=
+      "index-t20200125">2020-01-25</a></li>
+      <li><a name="index-t20191225" href="#t20191225" id=
+      "index-t20191225">2019-12-25</a></li>
+      <li><a name="index-t20190322" href="#t20190322" id=
+      "index-t20190322">2019-03-22</a></li>
+      <li><a name="index-t20190321" href="#t20190321" id=
+      "index-t20190321">2019-03-21</a></li>
+      <li><a name="index-t20190312" href="#t20190312" id=
+      "index-t20190312">2019-03-12</a></li>
+      <li><a name="index-t20180623" href="#t20180623" id=
+      "index-t20180623">2018-06-23</a></li>
+      <li><a name="index-t20180416" href="#t20180416" id=
+      "index-t20180416">2018-04-16</a></li>
+      <li><a name="index-t20171027" href="#t20171027" id=
+      "index-t20171027">2017-10-27</a></li>
+      <li><a name="index-t20171016" href="#t20171016" id=
+      "index-t20171016">2017-10-16</a></li>
+      <li><a name="index-t20170826" href="#t20170826" id=
+      "index-t20170826">2017-08-26</a></li>
+      <li><a name="index-t20170812" href="#t20170812" id=
+      "index-t20170812">2017-08-12</a></li>
+      <li><a name="index-t20170319" href="#t20170319" id=
+      "index-t20170319">2017-03-19</a></li>
+      <li><a name="index-t20170101" href="#t20170101" id=
+      "index-t20170101">2017-01-01</a></li>
+      <li><a name="index-t20160907" href="#t20160907" id=
+      "index-t20160907">2016-09-07</a></li>
+      <li><a name="index-t20160817" href="#t20160817" id=
+      "index-t20160817">2016-08-17</a></li>
+      <li><a name="index-t20160731" href="#t20160731" id=
+      "index-t20160731">2016-07-31</a></li>
+      <li><a name="index-t20160707" href="#t20160707" id=
+      "index-t20160707">2016-07-07</a></li>
+      <li><a name="index-t20160706" href="#t20160706" id=
+      "index-t20160706">2016-07-06</a></li>
+      <li><a name="index-t20160703" href="#t20160703" id=
+      "index-t20160703">2016-07-03</a></li>
+      <li><a name="index-t20160702" href="#t20160702" id=
+      "index-t20160702">2016-07-02</a></li>
+      <li><a name="index-t20160701" href="#t20160701" id=
+      "index-t20160701">2016-07-01</a></li>
+      <li><a name="index-t20160629" href="#t20160629" id=
+      "index-t20160629">2016-06-29</a></li>
+      <li><a name="index-t20160628" href="#t20160628" id=
+      "index-t20160628">2016-06-28</a></li>
+      <li><a name="index-t20160627" href="#t20160627" id=
+      "index-t20160627">2016-06-27</a></li>
+      <li><a name="index-t20160622" href="#t20160622" id=
+      "index-t20160622">2016-06-22</a></li>
+      <li><a name="index-t20160621" href="#t20160621" id=
+      "index-t20160621">2016-06-21</a></li>
+      <li><a name="index-t20160620" href="#t20160620" id=
+      "index-t20160620">2016-06-20</a></li>
+      <li><a name="index-t20160619" href="#t20160619" id=
+      "index-t20160619">2016-06-19</a></li>
+      <li><a name="index-t20160617" href="#t20160617" id=
+      "index-t20160617">2016-06-17</a></li>
+      <li><a name="index-t20160616" href="#t20160616" id=
+      "index-t20160616">2016-06-16</a></li>
+      <li><a name="index-t20160615" href="#t20160615" id=
+      "index-t20160615">2016-06-15</a></li>
+      <li><a name="index-t20160614" href="#t20160614" id=
+      "index-t20160614">2016-06-14</a></li>
+      <li><a name="index-t20160613" href="#t20160613" id=
+      "index-t20160613">2016-06-13</a></li>
+      <li><a name="index-t20160612" href="#t20160612" id=
+      "index-t20160612">2016-06-12</a></li>
+      <li><a name="index-t20160610" href="#t20160610" id=
+      "index-t20160610">2016-06-10</a></li>
+      <li><a name="index-t20160607" href="#t20160607" id=
+      "index-t20160607">2016-06-07</a></li>
+      <li><a name="index-t20120830" href="#t20120830" id=
+      "index-t20120830">2012-08-30</a></li>
+      <li><a name="index-t20120828" href="#t20120828" id=
+      "index-t20120828">2012-08-28</a></li>
+      <li><a name="index-t20120626" href="#t20120626" id=
+      "index-t20120626">2012-06-26</a></li>
+      <li><a name="index-t20120625" href="#t20120625" id=
+      "index-t20120625">2012-06-25</a></li>
+      <li><a name="index-t20120603" href="#t20120603" id=
+      "index-t20120603">2012-06-03</a></li>
+      <li><a name="index-t20120602" href="#t20120602" id=
+      "index-t20120602">2012-06-02</a></li>
+      <li><a name="index-t20120318" href="#t20120318" id=
+      "index-t20120318">2012-03-18</a></li>
+      <li><a name="index-t20120226" href="#t20120226" id=
+      "index-t20120226">2012-02-26</a></li>
+      <li><a name="index-t20120122" href="#t20120122" id=
+      "index-t20120122">2012-01-22</a></li>
+      <li><a name="index-t20120119" href="#t20120119" id=
+      "index-t20120119">2012-01-19</a></li>
+      <li><a name="index-t20100705" href="#t20100705" id=
+      "index-t20100705">2010-07-05</a></li>
+      <li><a name="index-t20071227" href="#t20071227" id=
+      "index-t20071227">2007-12-27</a></li>
+      <li><a name="index-t20030430" href="#t20030430" id=
+      "index-t20030430">2003-04-30</a></li>
+      <li><a name="index-t20021123" href="#t20021123" id=
+      "index-t20021123">2002-11-23</a></li>
+      <li><a name="index-t20020728" href="#t20020728" id=
+      "index-t20020728">2002-07-28</a></li>
+      <li><a name="index-t19991231" href="#t19991231" id=
+      "index-t19991231">1999-12-31</a></li>
+      <li><a name="index-t19971208" href="#t19971208" id=
+      "index-t19971208">1997-12-08</a></li>
+      <li><a name="index-t19951203" href="#t19951203" id=
+      "index-t19951203">1995-12-03</a></li>
+      <li><a name="index-t19950904" href="#t19950904" id=
+      "index-t19950904">1995-09-04</a></li>
+      <li><a name="index-t19941015" href="#t19941015" id=
+      "index-t19941015">1994-10-15</a></li>
+      <li><a name="index-t19940903" href="#t19940903" id=
+      "index-t19940903">1994-09-03</a></li>
+      <li><a name="index-t19940819" href="#t19940819" id=
+      "index-t19940819">1994-08-19</a></li>
+      <li><a name="index-t19940818" href="#t19940818" id=
+      "index-t19940818">1994-08-18</a></li>
+      <li><a name="index-t19940816" href="#t19940816" id=
+      "index-t19940816">1994-08-16</a></li>
+    </ul>
+  </div><!-- vile:html
+  -->
+</body>
+</html>

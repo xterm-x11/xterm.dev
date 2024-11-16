@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="Manpage converted by man2html - see https://invisible-island.net/scripts/readme.html#others_scripts">
+<title>resize(1)</title>
+<link rel="SHORTCUT ICON" href="/img/icons/xterm.ico" type="image/x-icon">
+<link rel="stylesheet" href="/css/man2html.css" type="text/css">
+<style type="text/css">
+@import "/css/simplenav15.css" all;
+</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<hr><p><a 
+href="/">https://invisible-island.net/</a><a 
+href="/xterm/">xterm/</a>
+<hr>
+<h1 class="no-header">resize(1)</h1>
+<pre>
+</pre>
+<h2><a name="h2-NAME" id="h2-NAME">NAME</a></h2>
+<pre>       resize  - set environment and terminal settings to current xterm window
+       size
+
+</pre>
+<h2><a name="h2-SYNOPSIS" id="h2-SYNOPSIS">SYNOPSIS</a></h2>
+<pre>       <b>resize</b> [ <b>-v</b> | <b>-u</b> | <b>-c</b> ] [ <b>-s</b> [ <i>row col</i> ] ]
+
+</pre>
+<h2><a name="h2-DESCRIPTION" id="h2-DESCRIPTION">DESCRIPTION</a></h2>
+<pre>       <i>Resize</i> prints a shell command for setting the  appropriate  environment
+       variables  to  indicate the current size of <i>xterm</i> window from which the
+       command is run.
+
+       <i>Resize</i> determines the command through several steps:
+
+       <b>o</b>   first, it finds the name of the user's shell program.  It uses  the
+           <b>SHELL</b>  variable  if  set,  otherwise  it  uses the user's data from
+           /etc/passwd.
+
+       <b>o</b>   then it decides whether to  use  Bourne  shell  syntax  or  C-Shell
+           syntax.   It  uses  a  built-in table of known shells, which can be
+           overridden by the <b>-u</b> and <b>-c</b> options.
+
+       <b>o</b>   then <i>resize</i> asks the operating system for  the  terminal  settings.
+           This is the same information which can be manipulated using <i>stty</i>.
+
+       <b>o</b>   then   <i>resize</i>  asks  the  terminal  for  its  size  in  characters.
+           Depending on whether  the  "<b>-s</b>  option  is  given,  <i>resize</i>  uses  a
+           different escape sequence to ask for this information.
+
+       <b>o</b>   at  this  point, <i>resize</i> attempts to update the terminal settings to
+           reflect the terminal window's size in pixels:
+
+           <b>o</b>   if the <b>-s</b> option is used, <i>resize</i> then asks the terminal for its
+               size in pixels.
+
+           <b>o</b>   otherwise, <i>resize</i> asks the operating system for the information
+               and updates that after ensuring that  the  window's  dimensions
+               are a multiple of the character height and width.
+
+           <b>o</b>   in  either case, the updated terminal settings are done using a
+               different system call than used for <i>stty</i>.
+
+       <b>o</b>   then <i>resize</i> updates the terminal settings to  reflect  any  altered
+           values  such  as  its  size  in  rows or columns.  This affects the
+           values shown by <i>stty</i>.
+
+       <b>o</b>   finally,  <i>resize</i>  generates  shell   commands   for   setting   the
+           environment variables, and writes that to the standard output.
+
+</pre>
+<h2><a name="h2-OPTIONS" id="h2-OPTIONS">OPTIONS</a></h2>
+<pre>       The following options may be used with <i>resize</i>:
+
+       <b>-c</b>      This option indicates that C shell commands should be generated
+               even if the user's current shell does not appear to use C shell
+               syntax.
+
+       <b>-s</b> [<i>rows columns</i>]
+               This option indicates that Sun console escape sequences will be
+               used instead of the VT100-style <i>xterm</i> escape  codes.   If  <i>rows</i>
+               and  <i>columns</i>  are  given,  <i>resize</i>  will ask the <i>xterm</i> to resize
+               itself using those values.
+
+               Both of the escape sequences used for  this  option  (first  to
+               obtain  the window size and second to modify it) are subject to
+               <i>xterm</i>'s <b>allowWindowOps</b> resource setting.   The  window  manager
+               may also choose to disallow the change.
+
+               The  VT100-style  escape  sequence used to determine the screen
+               size always works for VT100-compatible terminals.  VT100s  have
+               no corresponding way to modify the screensize.
+
+       <b>-u</b>      This  option  indicates  that  Bourne  shell commands should be
+               generated even if the user's current shell does not  appear  to
+               use Bourne shell syntax.
+
+       <b>-v</b>      This  causes  <i>resize</i>  to print a version number to the standard
+               output, and then exit.
+
+       Note that the Sun console escape sequences are  recognized  by  XFree86
+       <i>xterm</i>  and  by <i>dtterm</i>.  The <i>resize</i> program may be installed as <i>sunsize</i>,
+       which causes makes it assume the <b>-s</b> option.
+
+       The <i>rows</i> and <i>columns</i>  arguments  must  appear  last;  though  they  are
+       normally associated with the <b>-s</b> option, they are parsed separately.
+
+</pre>
+<h2><a name="h2-ENVIRONMENT" id="h2-ENVIRONMENT">ENVIRONMENT</a></h2>
+<pre>       SHELL          Unless  overridden  by  the <b>-c</b> option, <i>resize</i> determines
+                      the user's current shell by
+
+                      <b>o</b>   first checking if <b>$SHELL</b> is set, and using that,
+
+                      <b>o</b>   otherwise  <i>resize</i>  looks  in   the   password   file
+                          (/etc/passwd).
+
+                      Generally  Bourne-shell  variants (including <i>ksh</i>) do not
+                      modify <b>$SHELL</b>, so  it  is  possible  for  <i>resize</i>  to  be
+                      confused  if one runs <i>resize</i> from a Bourne shell spawned
+                      from a C shell.
+
+                      After determining the user's shell, <i>resize</i>   checks  the
+                      shell's  name  against a table of known shell names.  If
+                      it does not find the name in its table, <i>resize</i> will  use
+                      C  shell  syntax  for  the  generated  commands  to  set
+                      environment variables.
+
+       TERM           <i>Resize</i>'s generated shell command sets  this  to  "xterm-
+                      new" if not already set.
+
+       TERMCAP        <i>Resize</i>'s  generated  shell command sets this variable on
+                      systems using termcap, e.g., when <i>resize</i> is linked  with
+                      the <i>termcap</i> library rather than a <i>terminfo</i> library.  The
+                      latter does not provide the complete text for a  termcap
+                      entry.
+
+       COLUMNS, LINES <i>Resize</i>'s generated shell command sets these variables on
+                      systems using terminfo.   Many  applications  (including
+                      the  curses  library)  use  those  variables when set to
+                      override their screensize.
+
+</pre>
+<h2><a name="h2-FILES" id="h2-FILES">FILES</a></h2>
+<pre>       /etc/termcap   for the base termcap entry to modify.
+
+       ~/.cshrc       user's alias for the command.
+
+</pre>
+<h2><a name="h2-EXAMPLES" id="h2-EXAMPLES">EXAMPLES</a></h2>
+<pre>       For <i>resize</i>'s output to take effect, <i>resize</i> must either be evaluated  as
+       part  of the command line (usually done with a shell alias or function)
+       or else redirected to a file which can then be read  in.   From  the  C
+       shell (usually known as <i>/bin/csh</i>), the following alias could be defined
+       in the user's <i>.cshrc</i>:
+
+           % alias rs 'set noglob; eval `resize`'
+
+       After resizing the window, the user would type:
+
+           % rs
+
+       Users of versions of the Bourne shell (usually known as  <i>/bin/sh</i>)  that
+       don't  have  command  functions  will  need  to  send  the  output to a
+       temporary file and then read it back in with the "." command:
+
+           $ resize &gt; /tmp/out
+           $ . /tmp/out
+
+</pre>
+<h2><a name="h2-AUTHORS" id="h2-AUTHORS">AUTHORS</a></h2>
+<pre>       Mark Vandevoorde (MIT-Athena), Edward Moy (Berkeley)
+       Thomas Dickey (invisible-island.net).
+       Copyright (c) 1984, 1985 by X Consortium
+       See <a href="https://www.x.org/releases/X11R7.7/doc/man/man7/X.7.xhtml"><b>X(7)</b></a> for a complete copyright notice.
+
+</pre>
+<h2><a name="h2-SEE-ALSO" id="h2-SEE-ALSO">SEE ALSO</a></h2>
+<pre>       <a href="/ncurses/man/curs_util.3x.html#h3-use_env"><b>use_env(3X)</b></a>
+       <a href="https://www.freebsd.org/cgi/man.cgi?query=csh&amp;apropos=0&amp;sektion=1&amp;manpath=SunOS+4.1.3&amp;arch=default&amp;format=html"><b>csh(1)</b></a>, <b><a href="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/stty.html">stty(1)</a></b>, <a href="/ncurses/man/tset.1.html"><b>tset(1)</b></a>
+       <a href="/xterm/manpage/xterm.html"><b>xterm(1)</b></a>
+
+Patch #395                        2024-10-24                         <b>RESIZE(1)</b>
+</pre>
+<div class="nav">
+<ul>
+<li><a href="resize.html" class="nav-top">(top)</a></li>
+<li><a href="#h2-NAME">NAME</a></li>
+<li><a href="#h2-SYNOPSIS">SYNOPSIS</a></li>
+<li><a href="#h2-DESCRIPTION">DESCRIPTION</a></li>
+<li><a href="#h2-OPTIONS">OPTIONS</a></li>
+<li><a href="#h2-ENVIRONMENT">ENVIRONMENT</a></li>
+<li><a href="#h2-FILES">FILES</a></li>
+<li><a href="#h2-EXAMPLES">EXAMPLES</a></li>
+<li><a href="#h2-AUTHORS">AUTHORS</a></li>
+<li><a href="#h2-SEE-ALSO">SEE ALSO</a></li>
+</ul>
+</div>
+</body>
+</html>
