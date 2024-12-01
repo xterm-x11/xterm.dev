@@ -1,6 +1,6 @@
 !!! tip
 
-You can read this website in a terminal by installing and running [Lynx](https://lynx.browser.org/).
+    You can read this website in a terminal by installing and running [Lynx](https://lynx.browser.org/).
 
 # Configuring XTerm
 
@@ -21,7 +21,7 @@ Before doing anything regarding the `~/.Xresources` dotfile, first check if you 
 
 !!! tip
 
-The easiest way to start with a `~/.Xresources` dotfile is to download and use the [sample](https://github.com/xterm-x11/files.Xresources/blob/main/sample.Xresources) file (see instructions inside that file). Alternatively, you can run `$ touch ~/.Xresources` to create a blank one where you can add XTerm configuration lines.
+    The easiest way to start with a `~/.Xresources` dotfile is to download and use the [sample](https://github.com/xterm-x11/files.Xresources/blob/main/sample.Xresources) file (see instructions inside that file). Alternatively, you can run `$ touch ~/.Xresources` to create a blank one where you can add XTerm configuration lines.
 
 ## Checking the loaded X resources
 
@@ -29,7 +29,7 @@ Run `$ xrdb -query` to view the loaded X resources.
 
 !!! tip
 
-This command might be useful after editing the `~/.Xresources` dotfile.
+    This command might be useful after editing the `~/.Xresources` dotfile.
 
 ## Loading the X resources from the ~/.Xresources dotfile
 
@@ -55,13 +55,13 @@ You can reference another file in the `~/.Xresources` dotfile with an absolute p
 
 * `.Xresources` are loaded into the X server, so are linked to a particular display environment.
 
-"For most desktop environments, ~/.Xresources should be loaded at login.  Note that if you make changes, you will need to run xrdb to pick them up. In my case, typically I care more about the server than the client for things like font size: for example, when using my laptop the resources are configured to suit a 14" screen at a particular resolution, and those same settings are used when I run xvile either locally, or remotely on my workstation over ssh.  When sitting at my workstation which has a somewhat larger screen, I want different settings configured in the X server.  By using .Xresources rather than .Xdefaults the same invocation of xvile behaves appropriately depending on where it is being displayed, rather than where was invoked from." [*Source*](https://lists.nongnu.org/archive/html/vile/2019-11/msg00002.html) "`.Xresources` works using `ssh -x`. I thought that my window manager would automatically load `.Xresources`, but it doesn't do so.  Modifying my `.xinitrc` fixes the problem." [*Source*](https://lists.nongnu.org/archive/html/vile/2019-11/msg00004.html)
+*"For most desktop environments, `~/.Xresources` should be loaded at login.  Note that if you make changes, you will need to run `xrdb` to pick them up. In my case, typically I care more about the server than the client for things like font size: for example, when using my laptop the resources are configured to suit a 14" screen at a particular resolution, and those same settings are used when I run `xvile` either locally, or remotely on my workstation over `ssh`.  When sitting at my workstation which has a somewhat larger screen, I want different settings configured in the X server.  By using `.Xresources` rather than `.Xdefaults` the same invocation of `xvile` behaves appropriately depending on where it is being displayed, rather than where was invoked from."* [*Source*](https://lists.nongnu.org/archive/html/vile/2019-11/msg00002.html) *"`.Xresources` works using `ssh -x`. I thought that my window manager would automatically load `.Xresources`, but it doesn't do so.  Modifying my `.xinitrc` fixes the problem."* [*Source*](https://lists.nongnu.org/archive/html/vile/2019-11/msg00004.html)
 
 * `.Xdefaults` are set based on the client.
 
 ### .Xdefaults-*host* and XENVIRONMENT
 
-"On POSIX-based systems, the user's environment resource file name is specified by the value of the `XENVIRONMENT` Environment Variable. If this environment variable does not exist, the user's home directory is searched for a file named `.Xdefaults-<host>`, where `<host>` is the host name of the machine on which the application is running." [*Source*](https://www.x.org/releases/X11R7.7/doc/libXt/intrinsics.html)
+*"On POSIX-based systems, the user's environment resource file name is specified by the value of the `XENVIRONMENT` Environment Variable. If this environment variable does not exist, the user's home directory is searched for a file named `.Xdefaults-<host>`, where `<host>` is the host name of the machine on which the application is running."* [*Source*](https://www.x.org/releases/X11R7.7/doc/libXt/intrinsics.html)
 
 ### XAPPLRESDIR
 
@@ -90,8 +90,8 @@ Run `$ xrdb -help` or see the [xrdb](https://www.x.org/releases/X11R7.7/doc/man/
 
 !!! warning
 
-Running some of the `xrdb` options interferes with dynamic loading of X resources by applications.
+    Running some of the `xrdb` options interferes with dynamic loading of X resources by applications.
 
 !!! warning
 
-If you decide to use `$ xrdb -remove`, be aware that it clears **(!)** *all* previously loaded X resources, including the X resources that were loaded at login.
+    If you decide to use `$ xrdb -remove`, be aware that it clears **(!)** *all* previously loaded X resources, including the X resources that were loaded at login.

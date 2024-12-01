@@ -1,10 +1,10 @@
 !!! tip
 
-The X resources mentioned on this page are included in both the [template `.Xresouces` file](https://github.com/xterm-x11/files.Xresources/blob/main/template.Xresources) and the [sample `.Xresources` file](https://github.com/xterm-x11/files.Xresources/blob/main/sample.Xresources).
+    The X resources mentioned on this page are included in both the [template `.Xresouces` file](https://github.com/xterm-x11/files.Xresources/blob/main/template.Xresources) and the [sample `.Xresources` file](https://github.com/xterm-x11/files.Xresources/blob/main/sample.Xresources).
 
 !!! note
 
-You can also use XTerm's command-line options as an alternative to the .Xresources file when needed.
+    You can also use XTerm's command-line options as an alternative to the .Xresources file when needed.
 
 # XTerm window properties
 
@@ -40,7 +40,7 @@ xterm*borderColor: green
 
 !!! note
 
-On some window managers, the window internal border might appear thicker in pixels when set to the default (`2` pixels) or minimal (`1` pixel) width values. XTerm sets window-manager hints such as to tell the window manager to do resizing in units that correspond to the font size or that the minimal window size is equal to the inner border (`2` when the border is set to `1`), but the hints and negotiation might not be correctly implemented in some window managers.
+    On some window managers, the window internal border might appear thicker in pixels when set to the default (`2` pixels) or minimal (`1` pixel) width values. XTerm sets window-manager hints such as to tell the window manager to do resizing in units that correspond to the font size or that the minimal window size is equal to the inner border (`2` when the border is set to `1`), but the hints and negotiation might not be correctly implemented in some window managers.
 
 ## Configuring the default window size
 
