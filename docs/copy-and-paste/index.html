@@ -10,7 +10,7 @@
         <meta name="author" content="Max Leonov">
       
       
-        <link rel="canonical" href="https://xterm.org/copy-and-paste/">
+        <link rel="canonical" href="https://xterm.dev/copy-and-paste/">
       
       <link rel="icon" href="../favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.2.5">
@@ -143,7 +143,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/xterm-x11/docs" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/xterm-x11/xterm.dev" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -187,7 +187,7 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/xterm-x11/docs" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/xterm-x11/xterm.dev" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -477,20 +477,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../prompt/" class="md-nav__link">
-        Prompt
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -561,6 +547,20 @@
     <li class="md-nav__item">
       <a href="../fonts/" class="md-nav__link">
         Fonts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prompt/" class="md-nav__link">
+        Prompt
       </a>
     </li>
   
@@ -1437,12 +1437,16 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/xterm-x11/docs/edit/master/docs/copy-and-paste.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/xterm-x11/xterm.dev/edit/master/docs/copy-and-paste.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
 
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can read this website in a terminal by installing and running <a href="https://lynx.browser.org/">Lynx</a>.</p>
+</div>
 <h1 id="copy-and-paste">Copy and paste</h1>
 <h2 id="selecting-text-in-xterm">Selecting text in XTerm</h2>
 <p>You can easily select text in an XTerm window as you would expect in another application:</p>
@@ -1451,22 +1455,43 @@
 <li>Double-click to select a word.</li>
 <li>Triple-click to select the whole line.</li>
 </ul>
-<p><strong>TIP</strong> XTerm's X resources enable you to configure how much of text you wish to get selected on multiple clicks, adjust the clicking speed (as time interval) for multiple clicks, include or exclude the new line, and more. For more information, see <a href="../configure/">Configure</a> and <a href="customize-copy-and-paste.md">Customize copy and paste</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>XTerm's X resources enable you to configure how much of text you wish to get selected on multiple clicks, adjust the clicking speed (as time interval) for multiple clicks, include or exclude the new line, and more. For more information, see <a href="../configure/">Configure</a> and <a href="customize-copy-and-paste.md">Customize copy and paste</a>.</p>
+</div>
 <p>With a mouse or trackball that has a scroll wheel, you can extend your initial selection beyond the visible screen in an XTerm window:</p>
 <p>1. Make your initial selection by left-clicking and dragging to highlight text.</p>
 <p>2. Scroll down (or up) to where you want to continue the started selection.</p>
 <p>3. Right-click precisely on the line and column where you want to complete the selection.</p>
 <p>If the selection is very long, you can continue to scroll and right-click to extend the selection multiple times.</p>
-<p><strong>NOTE</strong> Right-clicking means using mouse button 3, and scrolling works as described when XTerm is not using the mouse protocol.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<p>Right-clicking means using mouse button 3, and scrolling works as described when XTerm is not using the mouse protocol.</p>
 <h2 id="copying-text-in-xterm">Copying text in XTerm</h2>
 <p>By default, XTerm automatically copies every text selection you make in an XTerm window. You don't need to press any keyboard shortcuts (like <strong>Ctrl+C</strong>) or go into any menu (like clicking a <strong>Copy</strong> button). XTerm has already copied the selected text.</p>
-<p><strong>IMPORTANT</strong> Unconfigured XTerm copies text to the PRIMARY buffer rather than CLIPBOARD that most applications use nowadays. Unless you prefer or need to use the PRIMARY buffer on purpose, it's best that you configure XTerm to copy all text to CLIPBOARD instead. To do that, all you need to do is add the <code>XTerm.vt100.selectToClipboard: true</code> X resource to your dotfile (this is already <code>true</code> in <a href="https://github.com/xterm-x11/files.Xresources/blob/main/sample.Xresources">sample.Xresources</a>). For more information, see <a href="../configure/">Configure</a> and <a href="customize-copy-and-paste.md">Customize copy and paste</a>.</p>
-<p><strong>TIP</strong> You can configure XTerm to work with a keyboard shortcut to copy text if you can't get used to the convenience of not having to press any keys to copy. For how to set a custom keyboard shortcut, see <a href="../configure/">Configure</a> and <a href="customize-copy-and-paste.md">Customize copy and paste</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Unconfigured XTerm copies text to the PRIMARY buffer rather than CLIPBOARD that most applications use nowadays. Unless you prefer or need to use the PRIMARY buffer on purpose, it's best that you configure XTerm to copy all text to CLIPBOARD instead. To do that, all you need to do is add the <code>XTerm.vt100.selectToClipboard: true</code> X resource to your dotfile (this is already <code>true</code> in <a href="https://github.com/xterm-x11/files.Xresources/blob/main/sample.Xresources">sample.Xresources</a>). For more information, see <a href="../configure/">Configure</a> and <a href="customize-copy-and-paste.md">Customize copy and paste</a>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can configure XTerm to work with a keyboard shortcut to copy text if you can't get used to the convenience of not having to press any keys to copy. For how to set a custom keyboard shortcut, see <a href="../configure/">Configure</a> and <a href="customize-copy-and-paste.md">Customize copy and paste</a>.</p>
+</div>
 <h2 id="pasting-text-in-xterm">Pasting text in XTerm</h2>
 <p>By default, to paste copied text into an XTerm window, use the <strong>Shift+Insert</strong> keyboard shortcut or the middle mouse button (if your mouse or trackpad has one).</p>
-<p><strong>TIP</strong> Depending on your system, you should be able to use the <strong>Shift+Insert</strong> keyboard shortcut for pasting text copied from an XTerm window into other applications (like <strong>Ctrl+V</strong>). If you stick with using the <strong>Shift+Insert</strong> keyboard shortcut in XTerm, it's easier to remember and more convenient to use this same shortcut every time you paste text copied to or from XTerm.</p>
-<p><strong>TIP</strong> You can set a custom keyboard shortcut for pasting selected text. For how to do that, see <a href="../configure/">Configure</a> and <a href="customize-copy-and-paste.md">Customize copy and paste</a>. This is useful in some situations such as when the keyboard you're using doesn't have a dedicated <strong>Insert</strong> button, making it difficult to press <strong>Shift+Insert</strong>.</p>
-<p><strong>TIP</strong> If your hardware doesn't have the middle mouse button, you might be able to set up emulation to use both the left and right mouse buttons instead of the middle mouse button.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Depending on your system, you should be able to use the <strong>Shift+Insert</strong> keyboard shortcut for pasting text copied from an XTerm window into other applications (like <strong>Ctrl+V</strong>). If you stick with using the <strong>Shift+Insert</strong> keyboard shortcut in XTerm, it's easier to remember and more convenient to use this same shortcut every time you paste text copied to or from XTerm.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can set a custom keyboard shortcut for pasting selected text. For how to do that, see <a href="../configure/">Configure</a> and <a href="customize-copy-and-paste.md">Customize copy and paste</a>. This is useful in some situations such as when the keyboard you're using doesn't have a dedicated <strong>Insert</strong> button, making it difficult to press <strong>Shift+Insert</strong>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If your hardware doesn't have the middle mouse button, you might be able to set up emulation to use both the left and right mouse buttons instead of the middle mouse button.</p>
+</div>
 
               
             </article>
