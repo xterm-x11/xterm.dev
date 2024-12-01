@@ -1,3 +1,7 @@
+!!! tip
+
+You can read this website in a terminal by installing and running [Lynx](https://lynx.browser.org/).
+
 # Keyboard shortcuts for XTerm
 
 The keyboard shortcuts to use in XTerm windows fall into two categories:

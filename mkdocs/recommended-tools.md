@@ -1,3 +1,7 @@
+!!! tip
+
+You can read this website in a terminal by installing and running [Lynx](https://lynx.browser.org/).
+
 <!--- issue ?? --->
 
 # About Thomas E. Dickey's recommended tools

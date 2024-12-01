@@ -1,3 +1,7 @@
+!!! tip
+
+You can read this website in a terminal by installing and running [Lynx](https://lynx.browser.org/).
+
 # Manual window title
 
 This page is under construction.
