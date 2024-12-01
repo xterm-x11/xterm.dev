@@ -1,4 +1,6 @@
-**TIP** You can read this website in a terminal by installing and running [Lynx](https://lynx.browser.org/).
+!!! tip
+
+You can read this website in a terminal by installing and running [Lynx](https://lynx.browser.org/).
 
 # Configuring XTerm
 
@@ -17,13 +19,17 @@ Before doing anything regarding the `~/.Xresources` dotfile, first check if you 
 
 `$ ls -a ~/.Xresources ~/.Xdefaults ~/.Xdefaults-*`
 
-**TIP** The easiest way to start with a `~/.Xresources` dotfile is to download and use the [sample](https://github.com/xterm-x11/files.Xresources/blob/main/sample.Xresources) file (see instructions inside that file). Alternatively, you can run `$ touch ~/.Xresources` to create a blank one where you can add XTerm configuration lines.
+!!! tip
+
+The easiest way to start with a `~/.Xresources` dotfile is to download and use the [sample](https://github.com/xterm-x11/files.Xresources/blob/main/sample.Xresources) file (see instructions inside that file). Alternatively, you can run `$ touch ~/.Xresources` to create a blank one where you can add XTerm configuration lines.
 
 ## Checking the loaded X resources
 
 Run `$ xrdb -query` to view the loaded X resources.
 
-**TIP** This command might be useful after editing the `~/.Xresources` dotfile.
+!!! tip
+
+This command might be useful after editing the `~/.Xresources` dotfile.
 
 ## Loading the X resources from the ~/.Xresources dotfile
 
@@ -82,6 +88,10 @@ Another in-depth alternative is to set `XAPPLRESDIR`, which lets one set up a di
 
 Run `$ xrdb -help` or see the [xrdb](https://www.x.org/releases/X11R7.7/doc/man/man1/xrdb.1.xhtml) manpage for more `xrdb` options.
 
-**WARNING** Running some of the `xrdb` options interferes with dynamic loading of X resources by applications.
+!!! warning
 
-**WARNING** If you decide to use `$ xrdb -remove`, be aware that it clears **(!)** *all* previously loaded X resources, including the X resources that were loaded at login.
+Running some of the `xrdb` options interferes with dynamic loading of X resources by applications.
+
+!!! warning
+
+If you decide to use `$ xrdb -remove`, be aware that it clears **(!)** *all* previously loaded X resources, including the X resources that were loaded at login.

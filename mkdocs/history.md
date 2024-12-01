@@ -1,3 +1,7 @@
+!!! tip
+
+You can read this website in a terminal by installing and running [Lynx](https://lynx.browser.org/).
+
 # TBD, The XTerm story
 
 This page is under construction.

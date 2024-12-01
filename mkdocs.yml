@@ -28,11 +28,11 @@ nav:
        - Tabs: tabs.md
        - Full-screen: full-screen.md
        - Scrolling: scrolling.md
-       - Prompt: prompt.md
   - Customize:
        - Sample: sample.md
        - Themes: themes.md
        - Fonts: fonts.md
+       - Prompt: prompt.md
        - Template: template.md
        - Icon: icon.md
        - Manual window title: manual-window-title.md
@@ -85,6 +85,9 @@ nav:
        - Recommended tools: recommended-tools.md
 #          - download?
 #
+markdown_extensions:
+  - admonition
+
 theme:
   name: material
   favicon: favicon.png
@@ -98,7 +101,7 @@ theme:
   features:
     - navigation.expand
 #   - navigation.tabs
-   
+
   extra:
     consent:
       title: Cookie consent

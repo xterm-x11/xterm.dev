@@ -5,7 +5,9 @@
 // _'xterm.tar.gz'
 -->
 
-**TIP** You can read this website in a terminal by installing and running [Lynx](https://lynx.browser.org/).
+!!! tip
+
+You can read this website in a terminal by installing and running [Lynx](https://lynx.browser.org/).
 
 # Quick install on Linux
 
