@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://xterm.org/configure/">
+        <link rel="canonical" href="https://xterm.dev/configure/">
       
       <link rel="icon" href="../favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.2.5">
@@ -141,7 +141,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/xterm-x11/docs" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/xterm-x11/xterm.dev" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -185,7 +185,7 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/xterm-x11/docs" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/xterm-x11/xterm.dev" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
@@ -528,20 +528,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../prompt/" class="md-nav__link">
-        Prompt
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -612,6 +598,20 @@
     <li class="md-nav__item">
       <a href="../fonts/" class="md-nav__link">
         Fonts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prompt/" class="md-nav__link">
+        Prompt
       </a>
     </li>
   
@@ -1543,13 +1543,16 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/xterm-x11/docs/edit/master/docs/configure.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/xterm-x11/xterm.dev/edit/master/docs/configure.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
 
-<p><strong>TIP</strong> You can read this website in a terminal by installing and running <a href="https://lynx.browser.org/">Lynx</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can read this website in a terminal by installing and running <a href="https://lynx.browser.org/">Lynx</a>.</p>
+</div>
 <h1 id="configuring-xterm">Configuring XTerm</h1>
 <p>Almost all of XTerm's configuration is described in terms of X resources (see <a href="https://wiki.archlinux.org/title/X_resources">archlinux.org</a> and <a href="https://stuff.mit.edu/afs/sipb/project/doc/ixresources/xres.html">stuff.mit.edu</a>). For desktop users, X resources are typically stored in the <code>~/.Xresources</code> dotfile. (For additional details, see the section <em>~/.Xresources for advanced use cases</em> further below.)</p>
 <p>The X resources that you can configure for XTerm are listed in the XTerm manpage, which is available as <code>$ man xterm</code> or <a href="https://invisible-island.net/xterm/manpage/xterm.html#h2-RESOURCES">online</a>.</p>
@@ -1561,10 +1564,16 @@ The X resources that you can configure for XTerm are listed in the [template](ht
 <h2 id="checking-for-the-xresources-dotfile">Checking for the ~/.Xresources dotfile</h2>
 <p>Before doing anything regarding the <code>~/.Xresources</code> dotfile, first check if you already have it in the system's user home directory. Because <code>~/.Xdefaults</code> and <code>~/.Xdefaults-*</code> are other dotfiles where X resources might be stored, you can check for their presence too. Read the output of the command to find out:</p>
 <p><code>$ ls -a ~/.Xresources ~/.Xdefaults ~/.Xdefaults-*</code></p>
-<p><strong>TIP</strong> The easiest way to start with a <code>~/.Xresources</code> dotfile is to download and use the <a href="https://github.com/xterm-x11/files.Xresources/blob/main/sample.Xresources">sample</a> file (see instructions inside that file). Alternatively, you can run <code>$ touch ~/.Xresources</code> to create a blank one where you can add XTerm configuration lines.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The easiest way to start with a <code>~/.Xresources</code> dotfile is to download and use the <a href="https://github.com/xterm-x11/files.Xresources/blob/main/sample.Xresources">sample</a> file (see instructions inside that file). Alternatively, you can run <code>$ touch ~/.Xresources</code> to create a blank one where you can add XTerm configuration lines.</p>
+</div>
 <h2 id="checking-the-loaded-x-resources">Checking the loaded X resources</h2>
 <p>Run <code>$ xrdb -query</code> to view the loaded X resources.</p>
-<p><strong>TIP</strong> This command might be useful after editing the <code>~/.Xresources</code> dotfile.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This command might be useful after editing the <code>~/.Xresources</code> dotfile.</p>
+</div>
 <h2 id="loading-the-x-resources-from-the-xresources-dotfile">Loading the X resources from the ~/.Xresources dotfile</h2>
 <p>Run <code>$ xrdb -merge ~/.Xresources</code>.</p>
 <h2 id="updating-the-xresources-dotfile">Updating the ~/.Xresources dotfile</h2>
@@ -1579,12 +1588,12 @@ The X resources that you can configure for XTerm are listed in the [template](ht
 <ul>
 <li><code>.Xresources</code> are loaded into the X server, so are linked to a particular display environment.</li>
 </ul>
-<p>"For most desktop environments, ~/.Xresources should be loaded at login.  Note that if you make changes, you will need to run xrdb to pick them up. In my case, typically I care more about the server than the client for things like font size: for example, when using my laptop the resources are configured to suit a 14" screen at a particular resolution, and those same settings are used when I run xvile either locally, or remotely on my workstation over ssh.  When sitting at my workstation which has a somewhat larger screen, I want different settings configured in the X server.  By using .Xresources rather than .Xdefaults the same invocation of xvile behaves appropriately depending on where it is being displayed, rather than where was invoked from." <a href="https://lists.nongnu.org/archive/html/vile/2019-11/msg00002.html"><em>Source</em></a> "<code>.Xresources</code> works using <code>ssh -x</code>. I thought that my window manager would automatically load <code>.Xresources</code>, but it doesn't do so.  Modifying my <code>.xinitrc</code> fixes the problem." <a href="https://lists.nongnu.org/archive/html/vile/2019-11/msg00004.html"><em>Source</em></a></p>
+<p><em>"For most desktop environments, <code>~/.Xresources</code> should be loaded at login.  Note that if you make changes, you will need to run <code>xrdb</code> to pick them up. In my case, typically I care more about the server than the client for things like font size: for example, when using my laptop the resources are configured to suit a 14" screen at a particular resolution, and those same settings are used when I run <code>xvile</code> either locally, or remotely on my workstation over <code>ssh</code>.  When sitting at my workstation which has a somewhat larger screen, I want different settings configured in the X server.  By using <code>.Xresources</code> rather than <code>.Xdefaults</code> the same invocation of <code>xvile</code> behaves appropriately depending on where it is being displayed, rather than where was invoked from."</em> <a href="https://lists.nongnu.org/archive/html/vile/2019-11/msg00002.html"><em>Source</em></a> <em>"<code>.Xresources</code> works using <code>ssh -x</code>. I thought that my window manager would automatically load <code>.Xresources</code>, but it doesn't do so.  Modifying my <code>.xinitrc</code> fixes the problem."</em> <a href="https://lists.nongnu.org/archive/html/vile/2019-11/msg00004.html"><em>Source</em></a></p>
 <ul>
 <li><code>.Xdefaults</code> are set based on the client.</li>
 </ul>
 <h3 id="xdefaults-host-and-xenvironment">.Xdefaults-<em>host</em> and XENVIRONMENT</h3>
-<p>"On POSIX-based systems, the user's environment resource file name is specified by the value of the <code>XENVIRONMENT</code> Environment Variable. If this environment variable does not exist, the user's home directory is searched for a file named <code>.Xdefaults-&lt;host&gt;</code>, where <code>&lt;host&gt;</code> is the host name of the machine on which the application is running." <a href="https://www.x.org/releases/X11R7.7/doc/libXt/intrinsics.html"><em>Source</em></a></p>
+<p><em>"On POSIX-based systems, the user's environment resource file name is specified by the value of the <code>XENVIRONMENT</code> Environment Variable. If this environment variable does not exist, the user's home directory is searched for a file named <code>.Xdefaults-&lt;host&gt;</code>, where <code>&lt;host&gt;</code> is the host name of the machine on which the application is running."</em> <a href="https://www.x.org/releases/X11R7.7/doc/libXt/intrinsics.html"><em>Source</em></a></p>
 <h3 id="xapplresdir">XAPPLRESDIR</h3>
 <p>Another in-depth alternative is to set <code>XAPPLRESDIR</code>, which lets one set up a directory where X will search for an <code>.Xresources</code> dotfile:</p>
 <pre><code>       application-specific files
@@ -1603,8 +1612,14 @@ The X resources that you can configure for XTerm are listed in the [template](ht
 <p><a href="https://www.x.org/releases/X11R7.7/doc/libXt/intrinsics.html"><em>X Toolkit Intrinsics - C Language Interface</em></a> discusses this as well.</p>
 <h2 id="additional-resources">Additional resources</h2>
 <p>Run <code>$ xrdb -help</code> or see the <a href="https://www.x.org/releases/X11R7.7/doc/man/man1/xrdb.1.xhtml">xrdb</a> manpage for more <code>xrdb</code> options.</p>
-<p><strong>WARNING</strong> Running some of the <code>xrdb</code> options interferes with dynamic loading of X resources by applications.</p>
-<p><strong>WARNING</strong> If you decide to use <code>$ xrdb -remove</code>, be aware that it clears <strong>(!)</strong> <em>all</em> previously loaded X resources, including the X resources that were loaded at login.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Running some of the <code>xrdb</code> options interferes with dynamic loading of X resources by applications.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you decide to use <code>$ xrdb -remove</code>, be aware that it clears <strong>(!)</strong> <em>all</em> previously loaded X resources, including the X resources that were loaded at login.</p>
+</div>
 
               
             </article>
