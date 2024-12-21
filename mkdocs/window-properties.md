@@ -82,6 +82,19 @@ Here are some examples for 15-inch laptops, depending on the display size and UI
 
 `xterm*geometry: 94x48`
 
+<!--- also link to this or copy this to the page about fonts --->
+
+Because the default XTerm window size is specified in the `.Xresources` file in the units of columns and lines, the default XTerm window size is tied to the font size. In other words, if you change the `xterm*faceSize` font size in the `.Xresources` file, then the next time you open a new XTerm window, it will appear out of its intended proportions on the screen. So if you change the `xterm*faceSize` font size in the `.Xresources` file, you must also update the `xterm*geometry` Xresource, which sets the XTerm window geometry default, if you have set any, in your `.Xresources` file. For example, if you wish to increase XTerm's font size from `14` to `16`, you must update both lines as follows:
+
+```
+xterm*faceSize: 14
+xterm*geometry: 96x59
+```
+```
+xterm*faceSize: 16
+xterm*geometry: 90x50
+```
+
 To conveniently determine your desired terminal window size for XTerm startup, you can drag and resize an XTerm window to the desired size and then run the `resize` script, which is included with XTerm.
 The `resize` script prints your adjusted XTerm window size to standard output so that you can then copy and paste these values into the `xterm*geometry` line in the `.Xresources` file. Here is an example of this script's output:
 
