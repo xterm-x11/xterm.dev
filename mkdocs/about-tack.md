@@ -1,5 +1,9 @@
 <!--- issue 89 --->
 
+!!! tip
+
+    You can read this website in a terminal by installing and running [Lynx](https://lynx.browser.org/).
+
 # About tack
 
 This page is under construction.
