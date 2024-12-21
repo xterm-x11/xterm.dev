@@ -1371,7 +1371,10 @@
 
 <!--- issue 89 --->
 
-<p><strong>TIP</strong> You can read this website in a terminal by installing and running <a href="https://lynx.browser.org/">Lynx</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can read this website in a terminal by installing and running <a href="https://lynx.browser.org/">Lynx</a>.</p>
+</div>
 <h1 id="tack-changelog"><code>tack</code> changelog</h1>
 <div class="nav">
 <ul>
@@ -1707,8 +1710,2328 @@
 <li><a name="index-t19970922" href="#t19970922" id="index-t19970922">1997-09-22 Daniel.Weaver</a></li>
 </ul>
 </div>
-<!-- vile:html
-  -->
+<a name="t20240501" href="#index-t20240501" id="t20240501">2024-05-01</a>
+
+        * init.c, configure.in: bump
+
+        * configure: regen
+
+        * configure.in:
+        add a configure-check if terminfo functions use "const" strings, to fix
+        compiler warnings with NetBSD
+
+        * init.c, edit.c: gcc warning (NetBSD)
+
+        * package/tack.spec, package/debian/changelog, tack.h, HISTORY:
+        bump to 1.10
+
+        * package/debian/changelog, package/tack.spec, tack.h: bump
+
+        * edit.c:
+        check to avoid printing a non-printable character, per Coverity
+
+        * tack.c: initialize variables, per Coverity
+
+        * configure: regen
+
+        * aclocal.m4:
+        correction for CF_ANSI_CC_CHECK, works around MacOS "c89" confusion of "-O"
+
+<a name="t20240430" href="#index-t20240430" id="t20240430">2024-04-30</a>
+
+        * tack.1: change limit for SGR tool to allow for aixterm's colors
+
+        * ansi.c: change the SGR tool to show up to 120 (past aixterm's 108)
+
+        * color.c:
+        when reloading the colors 0-7, use the index for the named color rather than
+        just the array-index (fixing an interchanged red/blue for instance).
+        Also, initialize the palette using the ANSI codes if the terminal supports
+        setaf/setab.
+
+        * color.c, charset.c, ansi.c, edit.c, crum.c, pad.c, tack.c, tack.h:
+        use "const" in a few places reported by cppcheck
+
+        * tack.1: improve formatting/style
+
+        * package/debian/changelog, package/tack.spec: bump
+
+<a name="t20240107" href="#index-t20240107" id="t20240107">2024-01-07</a>
+
+        * configure: regen
+
+        * aclocal.m4:
+        resync with my-autoconf, fixing compiler-warnings inside configure script
+
+<a name="t20231227" href="#index-t20231227" id="t20231227">2023-12-27</a>
+
+        * config.sub: 2023-12-27
+
+<a name="t20231202" href="#index-t20231202" id="t20231202">2023-12-02</a>
+
+        * config.guess: 2023-12-02
+
+<a name="t20230201" href="#index-t20230201" id="t20230201">2023-02-01</a>
+
+        * configure: regen
+
+        * configure.in: initialize $ac_includes_default
+        s/fgrep/$FGREP/
+
+        * aclocal.m4: resync with my-autoconf
+
+        * package/debian/changelog, package/tack.spec, tack.h: bump
+
+<a name="t20221229" href="#index-t20221229" id="t20221229">2022-12-29</a>
+
+        * package/tack.spec: rpmlint fixes
+
+        * package/tack.spec, package/debian/watch: update url
+
+        * package/debian/compat, package/debian/control,
+          package/debian/changelog, package/tack.spec, tack.h:
+        bump
+
+<a name="t20221202" href="#index-t20221202" id="t20221202">2022-12-02</a>
+
+        * configure: regen
+
+        * aclocal.m4: resync with my-autoconf
+
+<a name="t20220801" href="#index-t20220801" id="t20220801">2022-08-01</a>
+
+        * config.guess, config.sub: update to 2022-08-01
+
+<a name="t20220528" href="#index-t20220528" id="t20220528">2022-05-28</a>
+
+        * fun.c: gcc warning
+
+        * configure: regen
+
+        * aclocal.m4: add CF_APPEND_CFLAGS and CF_REMOVE_CFLAGS
+
+        * tack.h: bump
+
+        * aclocal.m4: resync with my-autoconf:
+
+        CF_ADD_INCDIR
+        CF_DISABLE_ECHO.log
+        CF_MAKEFLAGS
+        CF_NCURSES_LIBS
+        CF_PKG_CONFIG
+                fix errata in comments
+
+        CF_FIX_WARNINGS
+                package-fix for cdk-perl: suppress the fixup for -Werror=format,
+                e.g., -Werror=format-security
+
+        CF_NCURSES_CONFIG
+        CF_TRY_XOPEN_SOURCE
+        CF_XOPEN_SOURCE
+                filter out redefinition, e.g., changing _XOPEN_SOURCE from 500 to 600
+
+        CF_XOPEN_SOURCE
+                modify special-case for OpenBSD 6 (and up) to work around one of the
+                places where the compile-time environment is broken.  This was reported
+                before OpenBSD 6.7:
+                        https://www.mail-archive.com/bugs@openbsd.org/msg13200.html
+                but the ensuring discussion elicited no action.
+
+        * package/debian/changelog, package/tack.spec, tack.h: bump
+
+<a name="t20220508" href="#index-t20220508" id="t20220508">2022-05-08</a>
+
+        * config.guess: 2022-05-08
+            From: Bruno Haible &lt;bruno@clisp.org&gt;
+            config.guess (x86_64:Linux:*:*): Detect 32-bit ABI.
+
+            * config.guess (x86_64:Linux:*:*): Test for the 32-bit ABI. Don't assume that
+            __ILP32__ is a certain indicator for the x32 ABI; for GCC &acirc;&permil;&yen; 9 it no longer is.
+            * doc/config.guess.1: Regenerate.
+
+<a name="t20220109" href="#index-t20220109" id="t20220109">2022-01-09</a>
+
+        * config.guess: 2022-01-09
+            From: Idan Horowitz &lt;idan.horowitz@gmail.com&gt;
+            config.guess: recognize SerenityOS
+
+            * config.guess (*:SerenityOS:*:*): Recognize.
+            (timestamp): Update.
+            * doc/config.guess.1: Regenerate.
+            * testsuite/config-guess.data: Add test case for SerenityOS.
+
+            Signed-off-by: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+
+<a name="t20220103" href="#index-t20220103" id="t20220103">2022-01-03</a>
+
+        * config.guess, config.sub: 2022-01-03
+            From: Bernhard Voelker &lt;mail@bernhard-voelker.de&gt;
+            Fix GPLv3 license headers to use a comma instead of semicolon
+
+            See: https://www.gnu.org/licenses/gpl-3.0.html#howto
+
+            Update license headers automatically using the following script:
+
+              $ git grep -l 'Foundation; either version 3' \
+                | xargs sed -i '/Foundation; either version 3/ s/n; e/n, e/'
+
+            * config.guess: Adjust via the above command.
+            (timestamp): Update.
+            * config.sub: Likewise.
+            * doc/config.guess.1: Regenerate.
+            * doc/config.sub.1: Likewise.
+
+            Signed-off-by: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+
+<a name="t20220101" href="#index-t20220101" id="t20220101">2022-01-01</a>
+
+        * config.guess, config.sub: 2022-01-01
+            From: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+            Update copyright years
+
+            * config.guess: Update copyright years.
+            * config.sub: Likewise.
+            * testsuite/config-guess.sh: Likewise.
+            * testsuite/config-sub.sh: Likewise.
+            * doc/config.guess.1: Regenerate.
+            * doc/config.sub.1: Likewise.
+
+<a name="t20211225" href="#index-t20211225" id="t20211225">2021-12-25</a>
+
+        * config.sub: 2021-12-25
+            From: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+            config.sub: alias armh to armv7l
+
+            ALT uses armh as an alias for armv7l-alt-linux-gnueabihf since 2012.
+
+            * config.sub (armh-unknown|armh-alt): Set cpu, vendor, and basic_os.
+            (timestamp): Update.
+            * doc/config.sub.1: Regenerate.
+            * testsuite/config-sub.data (armh, armh-alt-linux-gnueabihf): New tests.
+
+<a name="t20211224" href="#index-t20211224" id="t20211224">2021-12-24</a>
+
+        * config.sub: 2021-12-24
+            From: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+            config.sub: alias aarch64le to aarch64
+
+            Apparently, QNX reports aarch64 as aarch64le on little-endian machines.
+
+            * config.sub (aarch64le-*): Set cpu to aarch64.
+            (timestamp): Update.
+            * doc/config.sub.1: Regenerate.
+            * testsuite/config-sub.data (aarch64le-qnx): New test.
+
+            Reported-by: Elad Lahav &lt;e2lahav@gmail.com&gt;
+            Link: https://lists.gnu.org/archive/html/config-patches/2021-12/msg00009.html
+
+<a name="t20211213" href="#index-t20211213" id="t20211213">2021-12-13</a>
+
+        * config.sub: 2021-10-27
+            From: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+            config.sub: fix typo in timestamp
+
+            * config.sub: Fix timestamp.
+            * doc/config.sub.1: Regenerate.
+
+            Reported-by: Jordi Sanfeliu &lt;jordi@fibranet.cat&gt;
+            Fixes: a013aac61edfa2a03727521508286480010e7bf3
+            Signed-off-by: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+
+<a name="t20211130" href="#index-t20211130" id="t20211130">2021-11-30</a>
+
+        * config.guess: 2021-11-30
+            From: Andreas F. Borchert &lt;github@andreas-borchert.de&gt;
+            config.guess: x86_64-pc-solaris2.11 is not properly recognized
+
+            config.guess guesses Solaris 11 to run on a 32-bit platform
+            despite Solaris 11 no longer supporting any 32-bit platform.
+
+            See the following code at lines 434 to 445:
+
+            | SUN_ARCH=i386
+            | # If there is a compiler, see if it is configured for 64-bit objects.
+            | # Note that the Sun cc does not turn __LP64__ into 1 like gcc does.
+            | # This test works for both compilers.
+            | if test "$CC_FOR_BUILD" != no_compiler_found; then
+            |     if (echo '#ifdef __amd64'; echo IS_64BIT_ARCH; echo '#endif') | \
+            |         (CCOPTS="" $CC_FOR_BUILD -E - 2&gt;/dev/null) | \
+            |         grep IS_64BIT_ARCH &gt;/dev/null
+            |     then
+            |         SUN_ARCH=x86_64
+            |     fi
+            | fi
+
+            If "cc" is installed, i.e. the Oracle Studio compiler, this one is
+            chosen for $CC_FOR_BUILD.  This compiler, the gcc provided by Oracle
+            and also gcc bootstrapped from sources on that platform with a default
+            configuration will by default generate 32-bit binaries -- even on
+            a 64-bit platform.  And __amd64 will not be defined for compilations
+            targeting a 32-bit platform.  This is different from the corresponding
+            behaviour on GNU/Linux systems where the local platform is targeted by
+            default.
+
+            Thus, as long as you do not add "-m64" or if you have a custom-built
+            gcc which defaults to 64 bit, you will get 32-bit binaries on Solaris
+            despite living on a 64-bit platform.
+
+            * config.guess (i86pc:SunOS:5.*:* || i86xen:SunOS:5.*:*): Adapt the
+            test by adding the "-m64" flag.  This will work properly for Solaris
+            10 as well (the last Solaris release that supported x86 32-bit
+            platforms).
+            * doc/config.guess.1: Regenerate.
+
+            Signed-off-by: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+
+<a name="t20211027" href="#index-t20211027" id="t20211027">2021-10-27</a>
+
+        * config.guess: 2021-10-27
+            From: Jordi Sanfeliu &lt;jordi@fibranet.cat&gt;
+            Recognize Fiwix
+
+            $ make check
+            cd testsuite &amp;&amp; bash config-guess.sh &amp;&amp; rm uname
+            PASS: config.guess checks (137 tests)
+            cd testsuite &amp;&amp; bash config-sub.sh
+            PASS: config.sub checks (882 tests)
+            PASS: config.sub idempotency checks (819 tests)
+            PASS: config.sub canonicalise each config.guess testcase (137 tests)
+
+            * config.guess (i*86:Fiwix:*:*): Recognize.
+            * config.sub (fiwix*): Likewise.
+            * doc/config.guess.1: Regenerate.
+            * doc/config.sub.1: Likewise.
+            * testsuite/config-guess.data: Add a test case for Fiwix.
+            * testsuite/config-sub.data (i386-fiwix): New test.
+
+            Signed-off-by: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+
+        * config.sub: 2021-20-27
+            From: Jordi Sanfeliu &lt;jordi@fibranet.cat&gt;
+            Recognize Fiwix
+
+            $ make check
+            cd testsuite &amp;&amp; bash config-guess.sh &amp;&amp; rm uname
+            PASS: config.guess checks (137 tests)
+            cd testsuite &amp;&amp; bash config-sub.sh
+            PASS: config.sub checks (882 tests)
+            PASS: config.sub idempotency checks (819 tests)
+            PASS: config.sub canonicalise each config.guess testcase (137 tests)
+
+            * config.guess (i*86:Fiwix:*:*): Recognize.
+            * config.sub (fiwix*): Likewise.
+            * doc/config.guess.1: Regenerate.
+            * doc/config.sub.1: Likewise.
+            * testsuite/config-guess.data: Add a test case for Fiwix.
+            * testsuite/config-sub.data (i386-fiwix): New test.
+
+            Signed-off-by: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+
+<a name="t20211018" href="#index-t20211018" id="t20211018">2021-10-18</a>
+
+        * config.sub: 2021-08-14
+            From: Kinshuk Dua &lt;kinshukdua@gmail.com&gt;
+            config.sub: Fix typo in comment
+
+            Fixes: 5e531d391852a54e7fab2d8ff55625fca514b305
+            Signed-off-by: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+
+<a name="t20210814" href="#index-t20210814" id="t20210814">2021-08-14</a>
+
+        * config.sub: 2021-08-14
+            From: Nick Bowler &lt;nbowler@draconx.ca&gt;
+            config.sub: work around command assignment bug in some shells
+
+            When combining variable assignments with a shell command, some older
+            shells (notably heirloom-sh and presumably also Solaris 10 /bin/sh)
+            have a bug which causes the assignment to alter the current execution
+            environment whenever the command is a shell built-in.  For example:
+
+              % dash -c 'x=good; x=bad echo &gt;/dev/null; echo $x'
+              good
+
+              % jsh -c 'x=good; x=bad echo &gt;/dev/null; echo $x'
+              bad
+
+            The config.sub script contains a few commands of the form:
+
+              IFS=- read ...
+
+            which triggers this bug, causing the IFS assignment to persist for the
+            remainder of the script.  This can cause misbehaviour in certain cases,
+            for example:
+
+              % jsh config.sub i386-linux-gnu
+              config.sub: test: unknown operator gnu
+
+              % jsh config.sub i386-gnu/linux
+              sed: can't read s|gnu/linux|gnu|: No such file or directory
+              Invalid configuration `i386-gnu/linux': OS `' not recognized
+
+            * config.sub: Save and restore IFS explicitly to avoid shell bugs.
+            * doc/config.sub.1: Regenerate.
+
+            Signed-off-by: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+
+<a name="t20210804" href="#index-t20210804" id="t20210804">2021-08-04</a>
+
+        * config.sub: 2021-08-04
+            From: Jeremy Soller &lt;jackpot51@gmail.com&gt;
+            config.sub: add Linux Relibc Target
+
+            $ make check
+            cd testsuite &amp;&amp; bash config-guess.sh &amp;&amp; rm uname
+            PASS: config.guess checks (136 tests)
+            cd testsuite &amp;&amp; bash config-sub.sh
+            PASS: config.sub checks (881 tests)
+            PASS: config.sub idempotency checks (818 tests)
+            PASS: config.sub canonicalise each config.guess testcase (136 tests)
+
+            * config.sub (relibc*): Recognize.
+            * doc/config.sub.1: Regenerate.
+            * testsuite/config-sub.data (x86_64-linux-relibc): New test.
+
+            Signed-off-by: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+
+<a name="t20210706" href="#index-t20210706" id="t20210706">2021-07-06</a>
+
+        * config.sub: 2021-07-06
+            From: Stephanos Ioannidis &lt;root@stephanos.io&gt;
+            config.sub: add Zephyr RTOS support
+
+            This adds the Zephyr RTOS targets in preparation for implementing the
+            Zephyr RTOS-specific toolchain support.
+
+            $ make check
+            cd testsuite &amp;&amp; bash config-guess.sh &amp;&amp; rm uname
+            PASS: config.guess checks (136 tests)
+            cd testsuite &amp;&amp; bash config-sub.sh
+            PASS: config.sub checks (880 tests)
+            PASS: config.sub idempotency checks (817 tests)
+            PASS: config.sub canonicalise each config.guess testcase (136 tests)
+
+            * config.sub (zephyr*): Recognize.
+            * doc/config.sub.1: Regenerate.
+            * testsuite/config-sub.data: Add testcases for *-zephyr.
+
+            Signed-off-by: Stephanos Ioannidis &lt;root@stephanos.io&gt;
+            Signed-off-by: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+
+<a name="t20210703" href="#index-t20210703" id="t20210703">2021-07-03</a>
+
+        * config.sub: 2021-07-03
+            From: Ozkan Sezer &lt;sezero@users.sourceforge.net&gt;
+            config.sub: disable shellcheck SC2006 / SC2268 warnings
+
+            This is in line with the recent config.guess change in commit
+            12fcf67c9108f4c4b581eaa302088782f0ee40ea
+
+            * config.sub (shellcheck disable): Add SC2006,SC2268.
+
+            Suggested-by: Jacob Bachmeyer &lt;jcb@gnu.org&gt;
+            Signed-off-by: Ozkan Sezer &lt;sezero@users.sourceforge.net&gt;
+            Signed-off-by: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+
+        * config.sub: 2021-07-03
+            From: Ozkan Sezer &lt;sezero@users.sourceforge.net&gt;
+            config.sub: normalize the quoting in the `echo FOO | sed ...`
+
+            Some cases quote the argument to echo and some do not.  At runtime
+            it probably does not matter because the substituted values will never
+            contain whitespace, but quoting them all would make shellcheck more
+            useful.
+
+            * config.sub: Consistently quote the argument of echo.
+            * doc/config.sub.1: Regenerate.
+
+            Suggested-by: Jacob Bachmeyer &lt;jcb@gnu.org&gt;
+            Signed-off-by: Ozkan Sezer &lt;sezero@users.sourceforge.net&gt;
+            Signed-off-by: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+
+<a name="t20210702" href="#index-t20210702" id="t20210702">2021-07-02</a>
+
+        * config.sub: 2021-06-03
+            From: Ozkan Sezer &lt;sezero@users.sourceforge.net&gt;
+            config.sub: replace POSIX $( ) with classic ` ` throughout
+
+            This is in line with the recent config.guess change in commit
+            d70c4fa934de164178054c3a60aaa0024ed07c91.
+
+            The patch was generated using patch-6.gawk script introduced in that
+            commit.
+
+            * config.sub: Revert POSIX command substitutions to classic form.
+
+            Signed-off-by: Ozkan Sezer &lt;sezero@users.sourceforge.net&gt;
+            Signed-off-by: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+
+<a name="t20210619" href="#index-t20210619" id="t20210619">2021-06-19</a>
+
+        * Makefile.in: update copyright
+
+        * sysdep.c: scan-build warning about unused assignment
+
+        * Makefile.in: adjust rules to work with --program-suffix
+
+        * configure: regen
+
+        * configure.in: add AC_ARG_PROGRAM to get --program-suffix, etc.
+
+        * configure: regen
+
+        * aclocal.m4: resync with my-autoconf
+
+        * package/debian/changelog, package/tack.spec, tack.h: bump
+
+<a name="t20210604" href="#index-t20210604" id="t20210604">2021-06-04</a>
+
+        * config.guess: 2021-06-03
+            From: Vineet Gupta &lt;Vineet.Gupta1@synopsys.com&gt;
+            Recognize arc32
+
+            This is the 32-bit variant of ARCv3 ISA (which is not compatible with the
+            32-bit ARCv2 ISA)
+
+            | make check
+            | cd testsuite &amp;&amp; bash config-guess.sh &amp;&amp; rm uname
+            | PASS: config.guess checks (136 tests)
+            | cd testsuite &amp;&amp; bash config-sub.sh
+            | PASS: config.sub checks (864 tests)
+            | PASS: config.sub idempotency checks (801 tests)
+            | PASS: config.sub canonicalise each config.guess testcase (136 tests)
+
+            * config.guess (arc32:Linux:*:*): Recognize.
+            * config.sub (arc32): Likewise.
+            * doc/config.guess.1: Regenerate.
+            * doc/config.sub.1: Likewise.
+            * testsuite/config-guess.data: Add a test case for arc32.
+            * testsuite/config-sub.data (arc32, arc*-elf): Add test cases.
+
+            Signed-off-by: Vineet Gupta &lt;vgupta@synopsys.com&gt;
+            Signed-off-by: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+
+        * config.sub: 2021-06-03 (repaired)
+            From: Vineet Gupta &lt;Vineet.Gupta1@synopsys.com&gt;
+            Recognize arc32
+
+            This is the 32-bit variant of ARCv3 ISA (which is not compatible with the
+            32-bit ARCv2 ISA)
+
+            | make check
+            | cd testsuite &amp;&amp; bash config-guess.sh &amp;&amp; rm uname
+            | PASS: config.guess checks (136 tests)
+            | cd testsuite &amp;&amp; bash config-sub.sh
+            | PASS: config.sub checks (864 tests)
+            | PASS: config.sub idempotency checks (801 tests)
+            | PASS: config.sub canonicalise each config.guess testcase (136 tests)
+
+            * config.guess (arc32:Linux:*:*): Recognize.
+            * config.sub (arc32): Likewise.
+            * doc/config.guess.1: Regenerate.
+            * doc/config.sub.1: Likewise.
+            * testsuite/config-guess.data: Add a test case for arc32.
+            * testsuite/config-sub.data (arc32, arc*-elf): Add test cases.
+
+            Signed-off-by: Vineet Gupta &lt;vgupta@synopsys.com&gt;
+            Signed-off-by: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+
+<a name="t20210526" href="#index-t20210526" id="t20210526">2021-05-26</a>
+
+        * config.guess: 2021-05-24
+            From: Jacob Bachmeyer &lt;jcb@gnu.org&gt;
+            config.guess: manual fixups after previous automatic patch
+
+            The tool could not handle command substitutions that span lines, but
+            fortunately there were only two such substitutions in the script.
+
+            The test for which universe is active on Pyramid is rewritten into a
+            case block because it was the only use of a command substitution as an
+            argument to the test command, which would require quoting.
+
+            * config.guess: Rewrite "if" for Pyramid systems to "case".
+
+        * config.guess: 2021-05-24 (repaired)
+            From: Jacob Bachmeyer &lt;jcb@gnu.org&gt;
+            config.guess: replace POSIX $( ) with classic ` ` throughout
+
+            The previous replacement of backticks with POSIX command substitutions
+            was ill-considered and illogical: this script recognizes many archaic
+            machine types that probably never had POSIX shells, therefore it needs
+            to be able to run successfully under pre-POSIX shells.
+
+            This patch was generated using the included GNU Awk program.
+
+            * config.guess: Revert POSIX command substitutions to classic form.
+            * patch-6.gawk: Store the tool that produced the automated patch.
+
+<a name="t20210525" href="#index-t20210525" id="t20210525">2021-05-25</a>
+
+        * config.guess: 2021-05-24 (repaired)
+            From: Jacob Bachmeyer &lt;jcb@gnu.org&gt;
+            config.guess: manual fixup after previous automated patches
+
+            This patch provides the special handling for the GNU system.  As these
+            were two small and unique edits, they were not included in the scripts.
+
+            This patch also cleans up other minor issues that must be addressed
+            before reverting to classic command substitutions and updates
+            "shellcheck" directives to account for changes in this script and the
+            change in "shellcheck" towards reporting individual portability issues.
+
+        * config.guess: 2021-05-24 (repaired)
+            From: Jacob Bachmeyer &lt;jcb@gnu.org&gt;
+            config.guess: automatic fixups after previous automated patch
+
+            This patch was generated using the following command:
+
+              sed -i config.guess \
+                  -e '/="[^"]\+"\(-\|$\)/s/="\([^"([:space:])]\+\)"/=\1/' \
+                  -e '/="[^"]\+"[[:alnum:]]/s/="\$\([^([:space:])]\+\)"/=${\1}/' \
+                  -e \
+            '/\$(echo[^|]\+|/s/\([^[:space:]]\)[[:space:]]*|[[:space:]]*sed/\1 | sed/g'
+
+            * config.guess: Remove unneeded quotes in other variable assignments,
+            standardize spacing for "echo ... | sed" substitutions.
+
+        * config.guess: 2021-05-24 (repaired)
+            From: Jacob Bachmeyer &lt;jcb@gnu.org&gt;
+            config.guess: remove unneeded quotes and factor command substitutions
+
+            This is further cleanup and simplifies some constructs that can confuse
+            Emacs' syntax highlighting while generally reducing required quoting.
+
+            This patch was generated using the included GNU Awk program.
+
+            * config.guess: Remove unneeded variable quotes and factor out command
+            substitutions when setting GUESS.
+            * patch-3.gawk: Store the tool that produced the automated patch.
+
+        * config.guess: 2021-05-24 (repaired)
+            From: Jacob Bachmeyer &lt;jcb@gnu.org&gt;
+            config.guess: manual fixups after previous automatic patch
+
+            * config.guess: Adjust a few "leftover" cases that the tool could not
+            easily recognize and fixes comment indentation in a few other special
+            cases.
+
+        * config.guess: 2021-05-24 (repaired)
+            From: Jacob Bachmeyer &lt;jcb@gnu.org&gt;
+            config.guess: introduce intermediate variable with uname results
+
+            This will allow quoting to be significantly simplified in another
+            pass through the file.
+
+            * config.guess: Introduce GUESS variable to hold results of uname analysis.
+
+        * config.guess: 2021-05-24 (repaired)
+            From: Jacob Bachmeyer &lt;jcb@gnu.org&gt;
+            config.guess: use intermediate variable with uname results
+
+            This will allow quoting to be significantly simplified in another
+            pass through the file.
+
+            This patch was generated using the included GNU Awk program.
+
+            * config.guess: Use GUESS variable to hold results of uname analysis.
+            * patch-1.gawk: Store the tool that produced the automated patch.
+
+<a name="t20210524" href="#index-t20210524" id="t20210524">2021-05-24</a>
+
+        * config.guess: 2021-05-24 (repaired)
+            From: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+            config.guess: fix shellcheck warning SC2154
+
+            While, according to Plan 9 documentation, the environment variable
+            $cputype is set to the name of the kernel's CPU's architecture,
+            shellcheck warns that cputype is referenced but not assigned.
+            Be on the safe side and do not use cputype if it is not defined
+            or empty.
+
+            * config.guess (*:Plan9:*:*): Fix shellcheck warning SC2154.
+
+        * config.guess: 2021-05-24 (repaired)
+            From: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+            config.guess: remove redundant quotes in case commands
+
+            According to the GNU Autoconf Portable Shell Programming manual,
+            the Bourne shell does not systematically split variables and back-quoted
+            expressions, in particular on the right-hand side of assignments and in
+            the argument of 'case'.
+
+            The change is made automatically using the following command:
+            $ sed -E -i 's/(\&lt;case )"(\$[^"]+)"( in\&gt;)/\1\2\3/' config.guess
+
+            * config.guess: Simplify case commands by removing quotes around the
+            argument.
+
+            Suggested-by: Jacob Bachmeyer &lt;jcb@gnu.org&gt;
+
+        * config.guess: 2021-05-24 (repaired)
+            From: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+            config.guess: simplify exit status workaround on alphaev67-dec-osf5.1
+
+            Commit 29865ea8a5622cdd80b7a69a0afa78004b4cd311 introduced an exit trap
+            reset before exiting to avoid a spurious non-zero exit status on
+            alphaev67-dec-osf5.1.  Simplify that code a bit by moving the exit trap
+            reset around.
+
+            * config.guess (alpha:OSF1:*:*): Reset exit trap earlier.
+            * doc/config.guess.1: Regenerate.
+
+<a name="t20210430" href="#index-t20210430" id="t20210430">2021-04-30</a>
+
+        * config.sub: 2021-04-30 (repaired)
+            From: Maciej W. Rozycki &lt;macro@orcam.me.uk&gt;
+            config.sub: Handle MIPS R3 and R5 ISA levels with CPU names
+
+            Complement binutils commit ae52f4830604 ("Add MIPS r3 and r5 support.")
+            and recognize MIPS CPU patterns for the R3 and R5 ISA levels, used by
+            GAS to set defaults.
+
+            * config.sub (mipsisa32r3, mipsisa32r3el, mipsisa32r5, mipsisa32r5el,
+            mipsisa64r3, mipsisa64r3el, mipsisa64r5, mipsisa64r5el): Recognize.
+            * doc/config.sub.1: Regenerate.
+            * testsuite/config-sub.data: Add test cases.
+
+            Signed-off-by: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+
+<a name="t20210429" href="#index-t20210429" id="t20210429">2021-04-29</a>
+
+        * fun.c:
+        rewrite the meta-key test to show the input character in readable form
+        (from unctrl) in addition to hex.  also, make a second pass with the
+        meta-mode turned off.
+
+        * package/debian/changelog, package/tack.spec, tack.h: bump
+
+<a name="t20210421" href="#index-t20210421" id="t20210421">2021-04-21</a>
+
+        * config.guess, config.sub: 2021-04-21 (repaired)
+            From: Vineet Gupta &lt;Vineet.Gupta1@synopsys.com&gt;
+            Recognize arc64
+
+            This paves way for setting up arc64 software ecosystem.
+
+            $ make check
+            cd testsuite &amp;&amp; bash config-guess.sh &amp;&amp; rm uname
+            PASS: config.guess checks (136 tests)
+            cd testsuite &amp;&amp; bash config-sub.sh
+            PASS: config.sub checks (853 tests)
+            PASS: config.sub idempotency checks (790 tests)
+            PASS: config.sub canonicalise each config.guess testcase (136 tests)
+
+            * config.guess (arc64:Linux:*:*): Recognize.
+            * config.sub (arc64): Likewise.
+            * doc/config.guess.1: Regenerate.
+            * doc/config.sub.1: Likewise.
+            * testsuite/config-guess.data: Add a test case for arc64.
+            * testsuite/config-sub.data (arc64, arc*-elf): Add test cases.
+
+            Signed-off-by: Vineet Gupta &lt;vgupta@synopsys.com&gt;
+            Signed-off-by: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+
+<a name="t20210416" href="#index-t20210416" id="t20210416">2021-04-16</a>
+
+        * config.guess: 2021-04-16 (repaired)
+            From: Purple Rain &lt;purplerain@secbsd.org&gt;
+            config.guess: add SecBSD support
+
+            * config.guess (*:SecBSD:*:*): Recognize.
+            * doc/config.guess.1: Regenerate.
+            * testsuite/config-guess.data: Add a test case.
+
+            Signed-off-by: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+
+        * config.sub: 2021-04-16 (repaired)
+            From: Purple Rain &lt;purplerain@secbsd.org&gt;
+            config.sub: add SecBSD support
+
+            * config.sub (secbsd*): Recognize.
+            * doc/config.sub.1: Regenerate.
+            * testsuite/config-sub.data: Add x86_64-secbsd.
+
+            Signed-off-by: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+
+<a name="t20210403" href="#index-t20210403" id="t20210403">2021-04-03</a>
+
+        * configure: regen
+
+        * aclocal.m4: resync with my-autoconf
+
+<a name="t20210324" href="#index-t20210324" id="t20210324">2021-03-24</a>
+
+        * configure: regen
+
+        * configure.in: minor fixes, per shellcheck
+
+        * package/debian/changelog, package/tack.spec, tack.h: bump
+
+        * tack.h: updates to work with _Noreturn changes in ncurses
+
+<a name="t20210322" href="#index-t20210322" id="t20210322">2021-03-22</a>
+
+        * configure: regen
+
+        * aclocal.m4: resync with my-autoconf
+
+<a name="t20210310" href="#index-t20210310" id="t20210310">2021-03-10</a>
+
+        * config.sub: 2021-03-10 (repaired)
+            From: Idan Horo &lt;idan.horowitz@gmail.com&gt;
+            config.sub: Add support for SerenityOS
+
+            * config.sub (serenity*): Recognize.
+            * doc/config.sub.1: Regenerate.
+            * testsuite/config-sub.data: Add i386-serenity.
+
+            Signed-off-by: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+
+<a name="t20210125" href="#index-t20210125" id="t20210125">2021-01-25</a>
+
+        * config.guess: 2021-01-25 (repaired)
+            From: Kalamatee &lt;kalamatee@gmail.com&gt;
+            config.guess: update AROS system detection
+
+            * config.guess: Recognize *:AROS:*:*.
+            * doc/config.guess.1: Regenerate.
+            * testsuite/config-guess.data: Add test cases.
+
+            Signed-off-by: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+
+<a name="t20210119" href="#index-t20210119" id="t20210119">2021-01-19</a>
+
+        * config.guess: 2021-01-19 (repaired)
+            From: M. Levinson &lt;mlevins@users.sourceforge.net&gt;
+            config.guess: fix shell variable quoting bug
+
+            * config.guess (*:NetBSD:*:*): Spell out the full sysctl command twice
+            instead of using a shell variable.
+            * doc/config.guess.1: Regenerate.
+
+            Fixes: 827c77253b396c07306927b2a4b794a3251c48eb
+            Signed-off-by: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+
+<a name="t20210107" href="#index-t20210107" id="t20210107">2021-01-07</a>
+
+        * config.sub: 2021-01-08 (repaired)
+            From: Peixing Xin &lt;peixing.xin@windriver.com&gt;
+            config.sub: recognize four-part configuration name for VxWorks
+
+            For example:
+
+              armv7m-wrs-vxworks-eabihf
+              armv7-wrs-vxworks-eabihf
+              i686-wrs-vxworks-simlinux
+              i686-wrs-vxworks-simwindows
+              powerpc-wrs-vxworks-spe
+              x86_64-wrs-vxworks-simlinux
+              x86_64-wrs-vxworks-simwindows
+
+            * config.sub: Recognize four-part configuration name for VxWorks.
+            * doc/config.guess.1: Regenerate.
+            * testsuite/config-sub.data: Add test cases.
+
+            Co-authored-by: John Ericson &lt;git@JohnEricson.me&gt;
+            Signed-off-by: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+
+<a name="t20210106" href="#index-t20210106" id="t20210106">2021-01-06</a>
+
+        * config.sub: 2021-01-07 (repaired)
+            From: Alan Modra &lt;amodra@gmail.com&gt;
+            config.sub: accept OS of eabi* and gnueabi*
+
+            Commit 5e531d391852 broke powerpc-eabivle:
+
+            $ ./config.sub powerpc-eabivle
+            Invalid configuration `powerpc-eabivle': OS `eabivle' not recognized
+
+            Also powerpc-eabisim and probably some arm configurations.
+
+            * config.sub: Accept OS of eabi* and gnueabi*.
+            * testsuite/config-sub.data: Add powerpc-eabisim and powerpc-eabivle.
+
+            Signed-off-by: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+
+<a name="t20210101" href="#index-t20210101" id="t20210101">2021-01-01</a>
+
+        * config.guess, config.sub: 2021-01-01 (repaired)
+            From: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+            Update copyright years
+
+            * config.guess: Update copyright years.
+            * config.sub: Likewise.
+            * doc/config.guess.1: Regenerate.
+            * doc/config.sub.1: Likewise.
+
+<a name="t20201231" href="#index-t20201231" id="t20201231">2020-12-31</a>
+
+        * config.guess, config.sub: 2020-12-31 (repaired)
+            From: Kito Cheng &lt;kito.cheng@sifive.com&gt;
+            Recognize riscv32be and riscv64be
+
+            Recently RISC-V community got patches big-endian support for binutils,
+            and we'd like to accept that, however before accepting that I think it
+            would be better to upstream config.sub and config.guess change here :)
+
+            It's my check result on Ubuntu 18.04:
+
+             $ make check
+             cd testsuite &amp;&amp; bash config-guess.sh &amp;&amp; rm uname
+             PASS: config.guess checks (131 tests)
+             cd testsuite &amp;&amp; bash config-sub.sh
+             PASS: config.sub checks (830 tests)
+             PASS: config.sub idempotency checks (767 tests)
+             PASS: config.sub canonicalise each config.guess testcase (131 tests)
+
+            * config.guess (riscv32be:Linux:*:*, riscv64be:Linux:*:*): Recognize.
+            * config.sub (riscv32be, riscv64be): Likewise.
+            * doc/config.guess.1: Regenerate.
+            * doc/config.sub.1: Likewise.
+            * testsuite/config-guess.data: Add test cases for riscv32be, and riscv64be.
+            * testsuite/config-sub.data (riscv32be, riscv64be): Add test cases.
+
+            Signed-off-by: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+
+<a name="t20201203" href="#index-t20201203" id="t20201203">2020-12-03</a>
+
+        * config.guess, config.sub: 2020-12-22 (repaired)
+            From: Xiaotian Wu &lt;wuxiaotian@loongson.cn&gt;
+            Recognize loongarch32, loongarch64, and loongarchx32
+
+            * config.guess (loongarch32:Linux:*:*, loongarch64:Linux:*:*,
+            loongarchx32:Linux:*:*): Recognize.
+            * config.sub (loongarch32, loongarch64, loongarchx32): Likewise.
+            * doc/config.guess.1: Regenerate.
+            * doc/config.sub.1: Likewise.
+            * testsuite/config-guess.data: Add test cases for loongarch32,
+            loongarch64, and loongarchx32.
+            * testsuite/config-sub.data (loongarch32, loongarch64, loongarchx32):
+            Add test cases.
+
+            Signed-off-by: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+
+<a name="t20201201" href="#index-t20201201" id="t20201201">2020-12-01</a>
+
+        * config.sub: 2020-12-02 (repaired)
+            From: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+            config.sub: recognize thumbv7*
+
+            * config.sub (thumbv7*): Recognize.
+            * testsuite/config-sub.data (thumbv7): New test.
+
+            Reported-by: Karl Berry &lt;karl@freefriends.org&gt;
+            Link: https://lists.gnu.org/archive/html/config-patches/2020-12/msg00001.html
+
+<a name="t20201130" href="#index-t20201130" id="t20201130">2020-11-30</a>
+
+        * install-sh: update to 2020-11-14
+
+<a name="t20201128" href="#index-t20201128" id="t20201128">2020-11-28</a>
+
+        * tack.h, pad.c:
+        improve interaction in padding tests by ensuring a time-delay happens for the
+        cases where the terminal itself has no delays
+
+        * configure: regen
+
+        * tackgen.c: fix a memory-leak
+
+        * tack.c: prefer exit_terminfo to _nc_free_tinfo
+
+        * configure.in: add check for exit_terminfo
+
+        * configure: regen
+
+        * aclocal.m4: resync with my-autoconf
+
+        * package/debian/changelog, package/tack.spec, tack.h: bump
+
+<a name="t20201121" href="#index-t20201121" id="t20201121">2020-11-21</a>
+
+        * tack.1: cleanup using check-manpage
+
+        * configure: regen
+
+        * aclocal.m4: resync with my-autoconf
+
+        * configure.in: suppress checks for X
+
+        * package/debian/changelog, package/tack.spec, tack.h: bump
+
+<a name="t20201119" href="#index-t20201119" id="t20201119">2020-11-19</a>
+
+        * config.guess, config.sub: 2020-11-17 (repaired)
+            From: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+            .gitattributes: specify a custom git merge driver for the ChangeLog file
+
+        * config.guess, config.sub: 2020-11-19 (repaired)
+            From: Dmitry V. Levin &lt;ldv@altlinux.org&gt;
+            Update URLs of the latest version of config.guess and config.sub scripts
+
+            Prefer cgit URLs over gitweb as the former are usually served faster:
+            $ time -f %e wget -q 'https://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess'
+            1.06
+            $ time -f %e wget -q 'https://git.savannah.gnu.org/cgit/config.git/plain/config.guess'
+            0.73
+
+            * config.guess: Prefer cgit URLs over gitweb.
+            (timestamp): Update.
+            * config.sub: Likewise.
+            * doc/config.guess.1: Regenerate.
+            * doc/config.sub.1: Likewise.
+
+<a name="t20201106" href="#index-t20201106" id="t20201106">2020-11-06</a>
+
+        * config.guess, config.sub: 2020-11-07 (repaired)
+            From: Ben Elliston &lt;bje@gnu.org&gt;
+            Update timestamps.
+
+        * config.sub: 2020-10-13 (repaired)
+            From: Ben Elliston &lt;bje@gnu.org&gt;
+                    * config.sub, config.guess: Replace backtick `..` substitutions
+                    with POSIX $(..) command substitutions throughout.
+                    * Makefile (shellcheck): Don't exclude message SC2006.
+
+        * config.guess: 2020-10-22 (repaired)
+            From: Ben Elliston &lt;bje@gnu.org&gt;
+                    * config.sub, config.guess: Replace backtick `..` substitutions
+                    with POSIX $(..) command substitutions throughout.
+                    * Makefile (shellcheck): Don't exclude message SC2006.
+
+<a name="t20201021" href="#index-t20201021" id="t20201021">2020-10-21</a>
+
+        * config.guess: 2020-10-22
+            From: Rin Okuyama &lt;rin@netbsd.org&gt;
+                    * config.guess (*:NetBSD:*:*): Handle aarch64eb.
+                    * testsuite/config-guess.data: Add test cases.
+
+            Signed-off-by: Ben Elliston &lt;bje@gnu.org&gt;
+
+<a name="t20201014" href="#index-t20201014" id="t20201014">2020-10-14</a>
+
+        * config.sub: 2020-10-13
+            From: Ben Elliston &lt;bje@gnu.org&gt;
+            Fix whitespace problem in config.sub.
+
+<a name="t20201013" href="#index-t20201013" id="t20201013">2020-10-13</a>
+
+        * config.sub: 2020-10-13
+            From: Ben Elliston &lt;bje@gnu.org&gt;
+                    * config.sub (i*86-pc-os2-emx): Recognise correctly.
+                    * testsuite/config-sub.data: Add OS/2 tests to avoid regressions.
+
+<a name="t20200926" href="#index-t20200926" id="t20200926">2020-09-26</a>
+
+        * config.sub: 2020-09-08
+            From: Fabrice Fontaine &lt;fontaine.fabrice@gmail.com&gt;
+                    * config.sub (uclinux-uclibc*): Fix detection.
+                    * testsuite/config-sub.data: Add a test case to avoid regression.
+
+            Signed-off-by: Ben Elliston &lt;bje@gnu.org&gt;
+
+<a name="t20200920" href="#index-t20200920" id="t20200920">2020-09-20</a>
+
+        * config.guess: 2020-09-19
+            From: Bruno Haible &lt;bruno@clisp.org&gt;
+                    * config.guess: Don't use 'ldd --version' to determine the presence of
+                    musl libc, as this fails on Alpine Linux 3.10.
+
+            Signed-off-by: Ben Elliston &lt;bje@gnu.org&gt;
+
+<a name="t20200907" href="#index-t20200907" id="t20200907">2020-09-07</a>
+
+        * config.sub: 2020-09-08
+            From: Elad Lahav &lt;e2lahav@gmail.com&gt;
+                    * config.sub: Fix regression in QNX recognition.
+                    * testsuite/config-sub.data: Add some test cases.
+
+            Signed-off-by: Ben Elliston &lt;bje@gnu.org&gt;
+
+<a name="t20200816" href="#index-t20200816" id="t20200816">2020-08-16</a>
+
+        * config.guess, config.sub: 2020-08-17
+            From: Issam E. Maghni &lt;issam.e.maghni@mailbox.org&gt;
+                    * config.guess: Replace "if [ EXPR ]" with "if test EXPR".
+                    * config.sub: Likewise.
+                    * testsuite/config-guess.sh: Likewise.
+                    * testsuite/config-sub.sh: Likewise.
+
+            Signed-off-by: Ben Elliston &lt;bje@gnu.org&gt;
+
+<a name="t20200712" href="#index-t20200712" id="t20200712">2020-07-12</a>
+
+        * config.guess: 2020-07-12
+            From: Ben Elliston &lt;bje@gnu.org&gt;
+                    * config.guess (arm64:Darwin:*:*): Recognise.
+                    * testsuite/config-guess.data: Add a test case.
+
+<a name="t20200710" href="#index-t20200710" id="t20200710">2020-07-10</a>
+
+        * config.sub: 2020-07-10
+            From: Ben Elliston &lt;bje@gnu.org&gt;
+                    * config.sub (case $cpu): Whitespace fix.
+
+        * config.sub: 2020-06-28
+            From: Keno Fischer &lt;keno@juliacomputing.com&gt;
+                    * config.sub (arm64-*): Canonicalise to aarch64-*.
+
+            Signed-off-by: Ben Elliston &lt;bje@gnu.org&gt;
+
+<a name="t20200628" href="#index-t20200628" id="t20200628">2020-06-28</a>
+
+        * config.sub: 2020/06/28
+
+<a name="t20200614" href="#index-t20200614" id="t20200614">2020-06-14</a>
+
+        * config.guess: 2020/04/26
+
+<a name="t20200220" href="#index-t20200220" id="t20200220">2020-02-20</a>
+
+        * sysdep.c: gcc-warning
+
+        * sysdep.c:
+        two changes to allow most tests to work with mintty in Cygwin and MSYS2
+        (the meta-mode test is one case that does not work):
+                a) change the VTIME value in tty_set() to 0, since interbyte timing
+                   does not work at all.  Without this fix, getchar() returns
+                   immediately without error, whether or not data is available.
+                b) in read_key(), do not exit from the loop as long as read() returns
+                   -1 (error).  Without this fix, read_key() returns ^@'s (nulls)
+                   in the function-key test.
+        These changes do not seem to break existing tests on other platforms,
+        e.g., Unix (AIX, HPUX, Solaris).
+
+        * tack.c: fix gcc warning for non-ncurses configuration
+
+        * package/debian/changelog, package/tack.spec, tack.h: bump
+
+        * init.c: zero-out the debug/log-pointers after closing them
+
+<a name="t20200217" href="#index-t20200217" id="t20200217">2020-02-17</a>
+
+        * tack.1: add -d option, for debug.log
+
+        * output.c:
+        use debug.log to record putp's and tput's which hint at the testing done
+
+        * sysdep.c: use debug.log to record when the tty is set/reset
+
+        * tack.h: split-out log_chr and log_str
+
+        * tack.c: add -d option, for debug.log
+
+<a name="t20200216" href="#index-t20200216" id="t20200216">2020-02-16</a>
+
+        * tack.1, tack.c, tack.h: add -l option
+
+        * tack.c:
+        eliminate a confusing comparison for the logging-menu-entry state by using
+        #define'd strings for that and the hex-output menu.
+
+<a name="t20200214" href="#index-t20200214" id="t20200214">2020-02-14</a>
+
+        * tack.c: use getopt
+
+        * fun.c, crum.c, edit.c:
+        fix coverity warning about copying into fixed-size buffer
+
+        * tack.c: do a sanity-check on $TERM
+
+<a name="t20200208" href="#index-t20200208" id="t20200208">2020-02-08</a>
+
+        * package/debian/changelog, package/tack.spec, tack.h: bump
+
+        * aclocal.m4: resync with my-autoconf
+
+        * configure: regen
+
+        * aclocal.m4: split-out CF__CURSES_DATA to simplify ifdef's
+
+<a name="t20200207" href="#index-t20200207" id="t20200207">2020-02-07</a>
+
+        * configure: regen
+
+        * aclocal.m4: workaround for Cygwin broken-linker
+
+<a name="t20200202" href="#index-t20200202" id="t20200202">2020-02-02</a>
+
+        * tack.c: update copyright in version-message
+
+        * package/tack.spec, tack.h, package/debian/changelog, HISTORY:
+        bump to 1.09
+
+        * fun.c, init.c, output.c, tack.h:
+        reduce some of the const/assignment and similar warnings seen in Unix builds
+
+        * edit.c, scan.c, tack.h, output.c: cppcheck-warnings
+
+        * package/debian/compat, package/debian/rules: fix build-warnings
+
+        * package/debian/copyright: update copyright
+
+        * Makefile.in, aclocal.m4, ansi.c, charset.c, color.c, configure.in,
+          control.c, crum.c, edit.c, fun.c, init.c, menu.c, modes.c, modules,
+          ncurses_tst.hin, output.c, pad.c, scan.c, sync.c, sysdep.c, tack.1,
+          tack.c, tack.h, tackgen.c:
+        update copyright notices using script which inspects commit-timestamps
+
+        * ansi.c, charset.c, color.c, control.c, crum.c, edit.c, fun.c, init.c,
+          menu.c, modes.c, output.c, pad.c, scan.c, sync.c, sysdep.c, tack.c,
+          tack.h, tackgen.c:
+        rescind permission implied or otherwise to relicense my work as GPL3
+
+        * aclocal.m4: resync with my-autoconf
+
+        * configure: regen
+
+        * package/debian/changelog, package/tack.spec, tack.h: bump
+
+<a name="t20191220" href="#index-t20191220" id="t20191220">2019-12-20</a>
+
+        * config.guess: 2019-12-21
+
+<a name="t20190911" href="#index-t20190911" id="t20190911">2019-09-11</a>
+
+        * config.sub: 2019-09-11
+
+<a name="t20190721" href="#index-t20190721" id="t20190721">2019-07-21</a>
+
+        * tack.c, edit.c, tack.h: gcc-8.x-warnings
+
+        * init.c, edit.c: gcc 4.x warning
+
+        * charset.c: update copyright
+
+<a name="t20190721_u0" href="#index-t20190721_u0" id="t20190721_u0">2019-07-21  Brad.Town</a>
+
+        * charset.c: rewrite of set_attr resulted in off-by-one loop limit
+
+<a name="t20190721_u1" href="#index-t20190721_u1" id="t20190721_u1">2019-07-21</a>
+
+        * configure: regen
+
+        * aclocal.m4:
+        add CF_CURSES_TERM_H to get proper ifdef's for the boolnames arrays
+
+        * configure.in: add CF_CURSES_TERM_H
+
+        * aclocal.m4: add CF_TERMIOS_TYPES, from xterm
+
+        * sysdep.c: use termios types such as tcflag_t
+
+        * configure.in: use CF_TERMIOS_TYPES
+
+        * configure: regen
+
+        * tack.h: update copyright
+
+        * configure: regen
+
+        * aclocal.m4: resync with my-autoconf
+
+        * package/debian/changelog, package/tack.spec, tack.h: bump
+
+<a name="t20190630" href="#index-t20190630" id="t20190630">2019-06-30</a>
+
+        * config.sub: 2019-06-30
+
+<a name="t20190610" href="#index-t20190610" id="t20190610">2019-06-10</a>
+
+        * config.guess: 2019-06-10
+
+<a name="t20170818" href="#index-t20170818" id="t20170818">2017-08-18</a>
+
+        * package/debian/changelog, package/tack.spec, tack.h: bump
+
+        * charset.c, tack.h, tack.c, edit.c:
+        improve ifdef's to recover if term_entry.h is missing
+
+        * charset.c, init.c, tack.h:
+        move italics to separate test from sgr, add test for crossed-out
+
+        * output.c, edit.c, tack.h: move VALID_STRING, etc., to tack.h
+
+<a name="t20170817" href="#index-t20170817" id="t20170817">2017-08-17</a>
+
+        * charset.c: split charset_sgr into two, since it is really two screens
+
+        * modes.c, pad.c: eliminate forward references
+
+        * output.c:
+        avoid having run-on entries in function-key list by putting a space when
+        the preceding text on the line happens to end on a column-marker.
+
+<a name="t20170816" href="#index-t20170816" id="t20170816">2017-08-16</a>
+
+        * charset.c:
+        eliminate forward references.  add demo of italics (not in sgr of course)
+
+<a name="t20170808" href="#index-t20170808" id="t20170808">2017-08-08</a>
+
+        * config.guess: 2017-08-05
+
+<a name="t20170728" href="#index-t20170728" id="t20170728">2017-07-28</a>
+
+        * ansi.c:
+        cppcheck reported an sprintf using output buffer as an input - fix
+
+        * scan.c, ansi.c, charset.c, color.c, control.c, crum.c, edit.c, fun.c,
+          init.c, menu.c, modes.c, output.c, pad.c, sync.c, sysdep.c:
+        cppcheck:style-warnings
+
+        * fun.c: quiet a bogus warning from clang --analyze
+
+        * tackgen.c: avoid a zero-sized allocation
+
+        * sysdep.c, tack.c, init.c, tack.h:
+        help the compiler know how large temp[] is, for better warnings
+
+        * aclocal.m4: resync with my-autoconf
+
+        * package/debian/changelog: bump
+
+        * configure: regen
+
+        * init.c: build-fix
+
+        * configure.in:
+        AIX has acs_map renamed and optionally available as "acs32map"
+
+        * init.c:
+        workaround for AIX to turn on optional feature that declares acs32map[]
+
+        * aclocal.m4:
+        suppress the second loop-exit, to avoid making undeclared data match first
+
+        * aclocal.m4:
+        modify CF_CURSES_CHECK_DATA to accept a list of names to check
+
+        * configure.in:
+        add configure check for acs_map and the most common aliases
+
+        * init.c: improve initial port for HPUX to use autoconf to find acs_map
+
+        * sysdep.c: copyright-date
+
+        * package/tack.spec, tack.h: bump
+
+        * sysdep.c, edit.c, init.c, tackgen.c, tack.h:
+        initial port to HPUX, which does not declare the name-arrays in its X/Open
+        curses header.
+
+<a name="t20170726" href="#index-t20170726" id="t20170726">2017-07-26</a>
+
+        * package/tack.spec: disable debug-package
+
+        * tack.1: typographic fixes prompted by lintian warning
+
+        * Makefile.in:
+        if built in-tree, we may need shlib to fixup shared library paths
+
+        * edit.c: gcc warning
+
+        * HISTORY, package/debian/changelog, package/tack.spec, tack.h:
+        bump to 1.08
+
+<a name="t20170725" href="#index-t20170725" id="t20170725">2017-07-25</a>
+
+        * tack.h, tack.c: fix symbol conflict with TRACE
+
+        * modules: fix dependencies for building in ncurses-tree
+
+        * configure: regen
+
+        * tack.c, tack.h, configure.in:
+        check for _nc_free_tinfo, for memory-leaks
+
+        * tack.c, init.c, edit.c, tack.h: memory-leaks
+
+        * edit.c:
+        initial version of "copy_termtype()", to replace call to ncurses internal
+        _nc_copy_termtype() - not a derived function but rewrite.
+
+<a name="t20170724" href="#index-t20170724" id="t20170724">2017-07-24</a>
+
+        * init.c: gcc warnings
+
+        * init.c: make "baudrate" work portably
+
+        * init.c, edit.c, tackgen.c, tack.h:
+        add configure-checks for "ar" and its flags, needed in configure-checks for data
+
+        * init.c:
+        changes to make NetBSD curses "work".  This asks infocmp for the current
+        terminal description, with the caveat that the type of cancelled capabilities
+        cannot be determined.  Also, it moves the acs initialization earlier to
+        work with the incomplete tables.
+
+        * tack.h: for NetBSD, use variables for the array maximums
+
+        * edit.c:
+        for NetBSD, use the arrays read via infocmp to construct a "good enough"
+        name-table.  Take out the warning for entries not found.
+
+<a name="t20170723" href="#index-t20170723" id="t20170723">2017-07-23</a>
+
+        * tackgen.c: for NetBSD workaround, declare maximums for the arrays
+
+        * tack.h: NetBSD 6 also left out plab_norm
+
+        * tack.c: NetBSD needs stdarg, since its curses.h isn't complete.
+
+        * tack.h:
+        there's no configure check (yet) for readonly terminfo.  But only ncurses
+        is viable -- simplify ifdef.
+
+        * configure.in: no need to check for ttytype[]
+
+        * init.c: provide alternative to ttytype[], using termname()+longname()
+
+        * tackgen.c: build-fix
+
+        * edit.c: NetBSD workaround won't support long-names
+
+        * tackgen.c:
+        for NetBSD, provide a workaround - start by stubbing out the data here
+
+        * tack.h: stub for NetBSD will have strnames
+
+        * aclocal.m4: resync with my-autoconf
+
+        * configure: regen
+
+        * README: update dependency notes
+
+        * package/debian/changelog: bump
+
+        * aclocal.m4: add check for term.h if pkg-config is used
+
+        * aclocal.m4, configure.in:
+        add configure-checks for "ar" and its flags, needed in configure-checks for data
+
+        * edit.c, tackgen.c: gcc warnings
+
+        * package/debian/rules: use "hardening" flags
+
+        * package/debian/copyright, package/tack.spec, tack.h: bump
+
+        * configure: regen
+
+        * configure.in: fix tackgen dependencies
+
+        * tackgen.c: stricter gcc warnings
+
+        * tack.h: with gcc-stricter, "sun" is not defined
+
+        * configure: regen
+
+        * edit.c, configure.in, tack.h:
+        move include of tackgen.h to tack.h to define BOOLCOUNT, etc., for Solaris
+
+        * tack.h, tack.c: add Trace(), for debugging
+
+        * init.c: fill in acs_map[] for Solaris curses (not done in setupterm)
+
+        * edit.c: finish Solaris unused-warnings
+
+        * edit.c: grouped editing functions (not supported with Solaris)
+
+        * edit.c:
+        start changes to make function-key test work with Solaris, using macros and
+        functions to hide differences between the way capabilities are stored in
+        the TERMINAL structure
+
+        * tack.h, pad.c: const-tweaks
+
+        * control.c, tack.h, ansi.c, charset.c, color.c, crum.c, edit.c, fun.c,
+          menu.c, modes.c, pad.c, sync.c, tack.c:
+        improve readability using typedefs
+
+        * tack.h: typo
+
+        * tack.h: help readability using typedef's
+        add workaround to reduce compiler warnings when building with Solaris curses
+
+        * output.c:
+        use workaround to quiet compiler warnings with Solaris curses
+
+        * tack.c: ifdef'd ncurses-specific menu-entry
+
+<a name="t20170721" href="#index-t20170721" id="t20170721">2017-07-21</a>
+
+        * init.c:
+        Solaris (and other Unix) baudrate function uses SP, e.g., newterm.
+        We're using setterm, and most of the baudrate logic here is ncurses-specific.
+
+        * modes.c, crum.c, color.c:
+        most of edit.c is ncurses-only since it relies upon using arrays of capabilities
+        in TERMINAL - ifdef that and related menu-entries.
+
+        * edit.c:
+        partial reorganization/ifdef'ing to get this to compile with Solaris curses
+
+        * tackgen.c, tack.h, pad.c, charset.c, fun.c, tack.c:
+        most of edit.c is ncurses-only since it relies upon using arrays of capabilities
+        in TERMINAL - ifdef that and related menu-entries.
+
+        * Makefile.in: cleanup tackgen.o
+
+        * aclocal.m4: resync with my-autoconf
+        add macro for checking curses-data, e.g., boolnames
+
+        * configure.in: drop checks for unused headers
+        add checks for curses data (boolnames, boolfnames and ttytype)
+
+        * output.c, control.c: const-fixes
+
+        * fun.c, pad.c, tack.c: workaround in case terminfo is readonly
+
+        * tack.h:
+        work around several problems with NetBSD curses to compile most of tack...
+
+        * charset.c: const-fixes
+
+        * tack.h: omit nc_tparm.h, for portability
+
+<a name="t20170720" href="#index-t20170720" id="t20170720">2017-07-20</a>
+
+        * edit.c: eliminate dependency on tic.h
+
+        * edit.c:
+        replace calls to _nc_find_entry + _nc_get_hash_table with generated tackgen.h
+        wrapper
+
+        * tackgen.c: RCS_BASE
+
+        * modules: add tackgen program, used to generate tackgen.h for edit.c
+
+        * configure.in: add tackgen.h dependency for edit.o
+
+        * Makefile.in: add rule for making tackgen.h
+
+        * tack.c, init.c, tack.h: change tty_basename to a pointer
+
+        * configure.in, tack.c, Makefile.in, tack.h:
+        tack no longer uses tic library
+
+<a name="t20170718" href="#index-t20170718" id="t20170718">2017-07-18</a>
+
+        * edit.c:
+        reduce calls to _nc_find_entry to single function, as a step toward rewrite.
+        also, allocate the boolean- and numeric-flags arrays since those may have
+        extensions.
+
+        * tack.h: define MAX_BOOLEAN and MAX_NUMBERS for consistency
+
+        * init.c: get the terminfo-entry's filename from infocmp
+
+        * edit.c: eliminate calls to _nc_tic_expand
+
+        * edit.c: eliminate calls to _nc_reset_input and _nc_trans_string
+
+        * init.c:
+        eliminate calls to _nc_read_entry and _nc_fallback, no longer needed.
+
+        * charset.c: eliminate call to _nc_init_acs; tack does not use acs_map
+
+        * output.c: modify tc_putp() to check for invalid string-pointer.
+
+<a name="t20170429" href="#index-t20170429" id="t20170429">2017-04-29</a>
+
+        * config.sub: 2017-04-02
+
+<a name="t20170318" href="#index-t20170318" id="t20170318">2017-03-18</a>
+
+        * init.c:
+        use def_prog_mode() to eliminate two internal details from ncurses
+
+        * edit.c, tack.h: accommodate opaque TERMINAL structure in ncurses
+
+        * tack.h: update copyright to match version
+
+        * configure: regen
+
+        * aclocal.m4: resync with my-autoconf:
+         + CF_ADD_CFLAGS
+           improve formatting of generated lists using CF_APPEND_TEXT
+         + CF_CC_ENV_FLAGS
+           several fixes...
+         + CF_GNU_SOURCE
+           recent glibc (Debian 2.23-4 for example) has misordered ifdef/checks for
+           new symbol _DEFAULT_SOURCE, producing warning messages when only _GNU_SOURCE
+           is defined.  Add a followup check to define _DEFAULT_SOURCE.
+         + CF_LD_RPATH_OPT
+           change FreeBSD to use -Wl,-rpath rather than -rpath option.  According to
+           FreeBSD <a href="http://www.freebsd.org/cgi/query-pr.cgi?pr=178732">#178732</a>, either works since FreeBSD 4.x; however scons does not
+           accept anything except the -Wl,-rpath form.
+         + CF_LIB_PREFIX
+           build-fixes for OS/2
+         + CF_LINK_DATAONLY
+           quiet strict gcc warning
+         + CF_MAKEFLAGS
+           use $SHELL consistently
+         + CF_NCURSES_CONFIG
+           PKG_CONFIG may simply be unset - fix
+         + CF_PROG_LINT
+           add cpplint to programs to use; drop ad hoc tdlint and alint.
+         + CF_WITH_MAN2HTML
+           use configured shell
+         + CF_WITH_NCURSES_ETC
+           add check for ncurses pthreads
+         + CF_XOPEN_SOURCE
+           add "uclinux" to list of Linux's
+           use _GNU_SOURCE for cygwin headers, tested with cygwin 2.3, 2.5
+           build-fixes for OS/2
+
+        * config.sub: 2017-02-07
+
+        * config.guess: 2017-03-05
+
+        * package/debian/changelog, package/tack.spec, tack.h: bump
+
+<a name="t20150706" href="#index-t20150706" id="t20150706">2015-07-06</a>
+
+        * package/debian/changelog, package/tack.spec, tack.h: bump
+
+        * configure: regen
+
+        * configure.in, Makefile.in: add --with-man2html
+
+        * Makefile.in: fix copyright date
+
+        * aclocal.m4: add --with-man2html
+
+<a name="t20150603" href="#index-t20150603" id="t20150603">2015-06-03</a>
+
+        * configure: regen
+
+        * configure.in:
+        tic functions may/may not be bundled with ncurses.  Add a configure check
+        which works with pkg-config, also handling renaming of library used in
+        the test-packages for ncurses6
+
+        * package/debian/rules: use ncurses6 package
+
+        * configure: regen
+
+        * configure.in: fix order of evaluation for CF_PKG_CONFIG
+
+<a name="t20150602" href="#index-t20150602" id="t20150602">2015-06-02</a>
+
+        * configure.in:
+        use CF_WITH_NCURSES_ETC, but disable the pdcurses flavor
+
+        * configure: regen
+
+        * aclocal.m4: use CF_WITH_NCURSES_ETC
+
+        * control.c: workaround for glibc header defect
+
+        * configure: regen
+
+        * aclocal.m4: resync with my-autoconf
+
+        * tack.h, package/debian/changelog, package/tack.spec: bump
+
+<a name="t20150502" href="#index-t20150502" id="t20150502">2015-05-02</a>
+
+        * config.guess: update to 2015-03-04
+
+        * config.sub: update to 2015-03-08
+
+<a name="t20130713" href="#index-t20130713" id="t20130713">2013-07-13</a>
+
+        * init.c: copyright-date
+
+        * init.c: typo
+
+        * fun.c: copyright-date
+
+        * fun.c: fix warnings from clang 3.3 --analyze
+
+        * scan.c: copyright-date
+
+        * scan.c: fix warnings from clang 3.3 --analyze
+
+        * init.c:
+        add error check to setupterm call; ncurses does in fact allow hardcopy and
+        generic terminal descriptions (Debian <a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=716377">#716377</a>).
+
+        * configure: regen
+
+        * aclocal.m4, configure.in:
+        add/use CF_LIB_PREFIX, CF_MAKEFLAGS, CF_TOP_BUILDDIR and CF_WITH_LIB_PREFIX,
+        to fix unexpanded variables in Makefile.in
+
+        * package/debian/changelog, tack.h, package/tack.spec: bump
+
+        * configure: regen
+
+        * aclocal.m4: resync with my-autoconf:
+        + add 3rd parameter to AC_DEFINE's to allow autoheader to run
+          (several macros)
+        + CF_MAKE_DOCS: apply workaround from xterm <a href="/xterm/xterm.log.html#xterm_288">#288</a> for html output
+        + CF_INTEL_COMPILER, CF_XOPEN_SOURCE: $host_os needs AC_CANONICAL_HOST
+        + CF_ACVERSION_CHECK: change from byacc to work around long-ago
+          breakage in autoconf
+        + CF_GCC_VERSION: amend workarounds to accommodate Debian's
+          modification of version-message
+        + CF_CC_ENV_FLAGS: new macro
+        + remove unused macros
+
+<a name="t20130210" href="#index-t20130210" id="t20130210">2013-02-10</a>
+
+        * config.sub, config.guess: update to 2013-02-04
+
+<a name="t20120916" href="#index-t20120916" id="t20120916">2012-09-16</a>
+
+        * configure, configure.in:
+        add check for long filenames to define HAVE_LONG_FILE_NAMES, needed to choose
+        larger limit for MAX_ALIAS (the actual length of a terminal description's name)
+
+        * edit.c: fix Solaris compiler warning
+
+        * tack.c: ensure that $TERM is set and is not too large
+
+        * configure, configure.in, aclocal.m4:
+        add --disable-rpath-hack to simplify ports to Solaris
+
+        * edit.c: build-fix for g++
+
+        * configure, aclocal.m4: resync with my-autoconf:
+        - add CF_CLANG_COMPILER to tune strict warnings for clang
+        - modify CF_CURSES_LIBS to check for tinfo library
+        - modify CF_PATH_SYNTAX to allow for variables such as ${datadir}
+
+        * configure, configure.in: remove unused checks for header-files
+
+<a name="t20120916_u0" href="#index-t20120916_u0" id="t20120916_u0">2012-09-16  Adrian.Bunk</a>
+
+        * configure, configure.in, aclocal.m4, ncurses_tst.hin, sysdep.c,
+          tack.h, Makefile.in:
+        - remove fallback definitions for "const" and "inline" from ncurses_tst.hin
+        - remove unused AC_HEADER_TIME configure check
+        - remove the obsolete CF_SYS_TIME_SELECT configure check
+        - change the autoconf prerequisite to "2.52" (noting that the patched 2.52 is
+          actually required)
+        - remove configure-checks for AWK and LN_S variables
+
+<a name="t20120916_u1" href="#index-t20120916_u1" id="t20120916_u1">2012-09-16</a>
+
+        * Makefile.in: datarootdir is now needed for mandir
+        remove unused includedir and datadir
+
+        * package/debian/changelog, package/tack.spec, tack.h: bump
+
+        * configure: regen (will support --datarootdir with this)
+
+<a name="t20120429" href="#index-t20120429" id="t20120429">2012-04-29</a>
+
+        * package/debian/changelog, package/tack.spec, tack.h: bump
+
+        * configure: regen
+
+        * aclocal.m4: add CF_MAKE_DOCS
+        update CF_GCC_WARNINGS for old gcc's whose pointer-arithmetic warnings were bogus.
+
+        * configure.in:
+        use CF_MAKE_DOCS rule in makefile for generating html/pdf/txt versions of manpages.
+
+        * color.c: copyright-date
+
+        * color.c:
+        corrected check for ncv (no_color_video), which did not handle the case when
+        all video attributes should work.
+
+        * color.c:
+        add/use init_palette() and reset_palette() to restore the 0-7 ANSI colors
+        to sane values after running the change-colors tests.  Without some specific
+        knowledge of the terminal (terminfo does not provide this), it is not possible
+        to restore the original colors.
+
+<a name="t20120428" href="#index-t20120428" id="t20120428">2012-04-28</a>
+
+        * charset.c: add a test for "eslok" capability
+
+        * charset.c: copyright-date
+
+        * configure: regen
+
+        * configure.in:
+        the last change could produce unbalanced quote with certain shells - check
+        for that and repair it (report by Samuel Bronson).
+
+<a name="t20120303" href="#index-t20120303" id="t20120303">2012-03-03</a>
+
+        * fun.c: gcc warning
+
+        * configure: regen
+
+        * configure.in: Solaris' "set" does not quote - fix with sed.
+
+        * configure: regen
+
+        * configure.in:
+        substitution for --disable-echo feature did not work with FreeBSD 7.2;
+        work around using output of shell's "set" command.  Also remove CF_PRG_RULES
+        which is not needed.
+
+        * aclocal.m4: remove CF_PRG_RULES - unused
+
+        * sysdep.c, scan.c, output.c, ansi.c, edit.c, control.c, fun.c, sync.c,
+          tack.h:
+        strict gcc 4.1.2 warnings with CentOS 5.7 64-bit
+
+        * init.c, tack.c:
+        quiet unnecessary warning about ignoring return-value from system()
+
+        * configure:
+        regen with ac252 20120303 to work with Intel 12.0.3 compiler
+
+        * tack.h:
+        quiet unnecessary warning about ignoring return-value from system()
+
+<a name="t20120302" href="#index-t20120302" id="t20120302">2012-03-02</a>
+
+        * configure: regen
+
+        * output.c: icc9 warning
+
+        * configure.in: LIBS_CURSES_symbol is redundant - remove
+
+        * package/debian/changelog, package/tack.spec, tack.h: bump-version
+
+        * tack.h: quiet gcc -Wundef warnings
+        also quiet two no-return cases when configuring with no-leaks option.
+
+        * configure.in:
+        Add CF_ERRNO, CF_LINK_DATAONLY checks with supporting macros to address
+        gcc -Wundef warnings about DECL_ERRNO and BROKEN_LINKER symbols.
+
+        * configure.in:
+        add EXTRA_CFLAGS to CFLAGS/CPPFLAGS (report by Samuel Bronson)
+
+        * aclocal.m4:
+        Add CF_ERRNO, CF_LINK_DATAONLY checks with supporting macros to address
+        gcc -Wundef warnings about DECL_ERRNO and BROKEN_LINKER symbols.
+
+<a name="t20120301" href="#index-t20120301" id="t20120301">2012-03-01</a>
+
+        * Makefile.in: copyright date
+
+<a name="t20120229" href="#index-t20120229" id="t20120229">2012-02-29  Werner.Fink</a>
+
+        * Makefile.in, configure.in:
+        Update configure-script and makefile template to work with this post-5.9
+        change, allowing build of tack within the ncurses source-tree:
+
+        <a href="/ncurses/NEWS.html#t20110924">20110924</a>
+                + modify configure script and makefiles to split TIC_ARGS and
+                  TINFO_ARGS into pieces corresponding to LDFLAGS and LIBS variables,
+                  to help separate searches for tic- and tinfo-libraries (patch by Nick
+                  Alcock aka "Nix").
+
+        The change is prompted by review of OpenSUSE package by Werner Fink, using
+        a patch from the rpm source file:
+                ncurses-5.9-tack-tinfo.dif (2011-11-18)
+
+        and discarding
+                ncurses-5.7-tack.dif (2010-01-12)
+
+        because the latter breaks builds with libtool -TD
+
+<a name="t20120226" href="#index-t20120226" id="t20120226">2012-02-26</a>
+
+        * configure: regen
+
+        * configure.in:
+        add $ECHO_CC to AC_OUTPUT logic, overlooked in echo-fixes
+
+        * tack.h, package/debian/changelog, package/tack.spec: bump
+
+        * configure.in:
+        add configure check to determine if we have tinfo library, and further if
+        tack needs intermediate ncurses library to link.
+
+        * configure.in: always check for _nc_tic_expand
+
+        * configure.in:
+        use CF_DISABLE_ECHO (prompted by patch by Samuel Bronson).
+
+        * aclocal.m4: add CF_DISABLE_ECHO macro
+
+        * aclocal.m4: resync with-my-autoconf:
+        + add/use CF_ACVERSION_CHECK to support lookup with AC_CHECK_TOOLS vs
+          AC_PATH_PROGS for ncurses*-config script in CF_NCURSES_CONFIG
+        + modify CF_ANSI_CC_CHECK to check for environment variable $CC, which
+          conflicts with usage for curses applications.
+        + modify CF_CURSES_LIBS to check for OpenBSD "otermcap" library.
+        + new macro CF_TRY_XOPEN_SOURCE
+        + modify CF_XOPEN_SOURCE to omit Solaris-specific __EXTENSIONS__ definition
+          where possible.  This led to adding workarounds for Darwin, IRIX64, MirBSD,
+          OpenBSD as well as configure check with CF_TRY_XOPEN_SOURCE.  Also modify
+          version pattern for newer AIX systems,
+
+<a name="t20120225" href="#index-t20120225" id="t20120225">2012-02-25</a>
+
+        * config.guess, config.sub: update to 2012-02-10
+
+<a name="t20110626" href="#index-t20110626" id="t20110626">2011-06-26</a>
+
+        * configure: regen
+
+        * aclocal.m4:
+        update CF_CURSES_HEADER, looking for ncurses.h ahead of curses.h for
+        consistency with CF_NCURSES_HEADER
+
+        * package/debian/changelog, package/tack.spec, tack.h: bump
+
+<a name="t20110626_u0" href="#index-t20110626_u0" id="t20110626_u0">2011-06-26  Daniel.Weaver</a>
+
+        * ansi.c:
+        minor bug-fix to show "GR" label in appropriate ANSI character-sets.
+
+        * tack.1: update email address
+
+        * scan.wy150: New file.
+
+<a name="t20110501" href="#index-t20110501" id="t20110501">2011-05-01</a>
+
+        * configure: regen
+
+        * aclocal.m4, configure.in: add check for lint program
+
+        * output.c, fun.c: gcc warning
+
+        * color.c: fix clang warnings
+
+        * output.c: fix clang warnings
+        ensure that EOF is tested properly on return from getchp()
+
+        * fun.c: fix clang warning
+
+        * crum.c: copyright-date
+
+        * crum.c: fix clang warning
+
+        * fun.c: ensure that EOF is checked for return-value from getchp()
+        (report by Joachim Schmitz)
+
+        * aclocal.m4: resync with my-autoconf, many fixes
+
+        * package/debian/changelog, package/tack.spec, tack.h: bump
+
+<a name="t20110401" href="#index-t20110401" id="t20110401">2011-04-01</a>
+
+        * config.sub: update to 2011-04-01
+
+<a name="t20110202" href="#index-t20110202" id="t20110202">2011-02-02</a>
+
+        * config.guess: update to 2011-01-01
+
+<a name="t20100904" href="#index-t20100904" id="t20100904">2010-09-04</a>
+
+        * package/tack.spec, package/debian/rules, package/debian/docs,
+          package/debian/copyright, package/debian/control,
+          package/debian/watch, package/debian/changelog,
+          package/debian/source/format:
+        RCS_BASE
+
+        * tack.c, tack.h: add patch-date to version message
+
+<a name="t20100903" href="#index-t20100903" id="t20100903">2010-09-03</a>
+
+        * AUTHORS: RCS_BASE
+
+        * sysdep.c, sync.c, init.c, fun.c, output.c, scan.c, control.c:
+        gcc-warnings
+
+        * fun.c: indent
+
+        * Makefile.in: add dummy for "make check".
+
+        * tack.h, tack.c, sysdep.c, sync.c, scan.c: indent
+
+        * pad.c: copyright-date
+
+        * pad.c, output.c: indent
+
+        * modes.c: copyright-date
+
+        * modes.c: indent
+
+        * menu.c: copyright-date
+
+        * menu.c, init.c, fun.c, edit.c, crum.c, control.c, color.c, charset.c,
+          ansi.c:
+        indent
+
+<a name="t20100420" href="#index-t20100420" id="t20100420">2010-04-20</a>
+
+        * package/debian/compat: RCS_BASE
+
+<a name="t20091226" href="#index-t20091226" id="t20091226">2009-12-26</a>
+
+        * configure:
+        regen to get new macros, as well as to use autoconf-252 (patched)
+
+        * aclocal.m4: resync with my-autoconf (many changes)
+
+        * Makefile.in: drop mkdirs.sh, just use mkdir -p
+
+        * control.c, tack.c, sysdep.c, sync.c: strict gcc warnings
+
+        * init.c: check if baudrate() returns ERR, use 1 if so.
+
+        * fun.c, edit.c, pad.c, scan.c, charset.c: strict gcc warnings
+
+        * tack.h: bump to 1.07
+
+        * HISTORY: reason for release
+
+        * ansi.c, output.c, menu.c: strict gcc warnings
+
+        * edit.c:
+        fix an incorrect malloc-size in show_report(), which could cause core-dump
+        when displaying long list of function-keys, e.g., for xterm-new
+
+<a name="t20091119" href="#index-t20091119" id="t20091119">2009-11-19</a>
+
+        * config.guess, config.sub: update to 2009-11-20
+
+<a name="t20070812" href="#index-t20070812" id="t20070812">2007-08-12</a>
+
+        * edit.c:
+        as of 2007/8/12, ncurses no longer exports the data _nc_info_hash_table.
+        Instead, use the function _nc_get_hash_table(), which is in ncurses 5.0
+
+<a name="t20070811" href="#index-t20070811" id="t20070811">2007-08-11</a>
+
+        * HISTORY:
+        tweak to build with latest ncurses (does not rely on new api's)
+
+<a name="t20070429" href="#index-t20070429" id="t20070429">2007-04-29</a>
+
+        * HISTORY, tack.h: mark 1.05
+
+        * configure: regen'd
+
+        * configure.in: update LIB_LINK symbol to match CF_WITH_LIBTOOL change
+
+        * tack.h: use SIG_ATOMIC_T
+
+        * sysdep.c:
+        move include of &lt;signal.h&gt; to tack.h so SIG_ATOMIC_T definition works.
+
+        * tack.c: use EXIT_FAILURE/EXIT_SUCCESS
+
+        * sysdep.c: use EXIT_FAILURE/EXIT_SUCCESS
+        use SIG_ATOMIC_T
+
+        * output.c: add braces for readability
+
+        * tack.h: trim whitespace
+
+        * scan.c, init.c: use EXIT_FAILURE/EXIT_SUCCESS
+
+        * configure.in, aclocal.m4: add CF_SIG_ATOMIC_T
+
+        * control.c: use SIG_ATOMIC_T
+
+        * Makefile.in:
+        update $(LINK) to work with ncurses after importing CF_WITH_LIBTOOL change
+        that moved $(CC) into $(LIBTOOL_LINK) symbol.
+
+<a name="t20070408" href="#index-t20070408" id="t20070408">2007-04-08</a>
+
+        * configure: regen'd
+
+        * Makefile.in: define $(INCDIR) - needed for building in ncurses tree
+
+        * tack.h:
+        expand the ExitProgram() macro into a function which can call the ncurses-
+        and tack-specific leak-auditing functions.
+
+        * configure.in:
+        check for _nc_free_tic() function, since that's what tack needs.
+
+        * edit.c: add tack_edit_leaks(), to help audit memory leaks
+
+        * tack.c:
+        add ExitProgram() function, to free all application memory on exit to simplify
+        leak-checking.
+
+        * fun.c: add tack_fun_leaks(), to help audit memory leaks
+
+        * init.c: free the TERMTYPE used just for error-checking (memory leak)
+
+        * tack.h:
+        define ExitProgram() macro to hide details of memory audit on exit().
+
+        * tack.c, init.c, sysdep.c: use ExitProgram() macro
+
+        * configure.in: add "--disable-leaks" and related testing options.
+
+        * aclocal.m4:
+        add macros used for "--disable-leaks" and related testing options
+
+        * configure.in:
+        use CF_NCURSES_CONFIG to find ncurses5-config, etc., fixing rpath issues.
+        add check for ticlib, if needed.  remove check for pdcurses (this will
+        never work with anything except for ncurses), and add checks for select()
+        and gettimeofday().
+
+        * aclocal.m4:
+        modify CF_XOPEN_SOURCE to add FreeBSD/GNU (kFreeBSD) pattern
+
+        * Makefile.in: rename mkinstalldirs to mkdirs.sh
+
+        * HISTORY: 1.04
+
+<a name="t20070407" href="#index-t20070407" id="t20070407">2007-04-07</a>
+
+        * ansi.c, output.c: fixes from Coverity report
+
+<a name="t20070325" href="#index-t20070325" id="t20070325">2007-03-25</a>
+
+        * mkdirs.sh: RCS_BASE
+
+<a name="t20070128" href="#index-t20070128" id="t20070128">2007-01-28</a>
+
+        * HISTORY: tack's out of ncurses now.
+
+        * Makefile.in: make install rule work
+
+        * tack.h: bump to 1.03
+
+        * Makefile.in: first cut of installing manpage
+
+        * Makefile.in: tweaks to work after chopping out of ncurses tree
+
+<a name="t20070127" href="#index-t20070127" id="t20070127">2007-01-27</a>
+
+        * HISTORY: update to 1.03
+
+        * README: FROM_KEYS
+
+<a name="t20070113" href="#index-t20070113" id="t20070113">2007-01-13</a>
+
+        * Makefile.in: FROM_KEYS
+
+        * configure: RCS_BASE
+
+        * configure.in, aclocal.m4: FROM_KEYS
+
+<a name="t20061223" href="#index-t20061223" id="t20061223">2006-12-23</a>
+
+        * modules: FROM_KEYS
+
+<a name="t20061222" href="#index-t20061222" id="t20061222">2006-12-22</a>
+
+        * config.guess: RCS_BASE
+
+<a name="t20061208" href="#index-t20061208" id="t20061208">2006-12-08</a>
+
+        * config.sub: RCS_BASE
+
+<a name="t20061125" href="#index-t20061125" id="t20061125">2006-11-25</a>
+
+        * output.c: FROM_KEYS
+
+        * modes.c: from ncurses
+
+        * init.c, fun.c: FROM_KEYS
+
+        * crum.c: from ncurses
+
+        * color.c, charset.c, tack.h: FROM_KEYS
+
+<a name="t20060624" href="#index-t20060624" id="t20060624">2006-06-24</a>
+
+        * control.c, edit.c: FROM_KEYS
+
+<a name="t20060506" href="#index-t20060506" id="t20060506">2006-05-06</a>
+
+        * sync.c: FROM_KEYS
+
+<a name="t20060422" href="#index-t20060422" id="t20060422">2006-04-22</a>
+
+        * tack.1: FROM_KEYS
+
+<a name="t20050917" href="#index-t20050917" id="t20050917">2005-09-17</a>
+
+        * ansi.c, pad.c, sysdep.c: FROM_KEYS
+
+        * menu.c, scan.c, tack.c: from ncurses
+
+        * COPYING: fix address
+
+<a name="t20031129" href="#index-t20031129" id="t20031129">2003-11-29</a>
+
+        * install-sh: resync with my-autoconf
+
+<a name="t20020629" href="#index-t20020629" id="t20020629">2002-06-29</a>
+
+        * mkinstalldirs: RCS_BASE
+
+<a name="t20010622" href="#index-t20010622" id="t20010622">2001-06-22</a>
+
+        * install-sh: RCS_BASE
+
+<a name="t19990207" href="#index-t19990207" id="t19990207">1999-02-07</a>
+
+        * HISTORY: nit
+
+        * init.c: tweak to make this build after renaming as per Alexander
+
+<a name="t19980926" href="#index-t19980926" id="t19980926">1998-09-26</a>
+
+        * edit.c: add param to _nc_tic_expand()
+
+<a name="t19980328" href="#index-t19980328" id="t19980328">1998-03-28</a>
+
+        * Makefile.in: updates to sync with ncurses 4.2
+
+<a name="t19980211" href="#index-t19980211" id="t19980211">1998-02-11</a>
+
+        * ncurses_tst.hin: FROM_KEYS
+
+<a name="t19980109" href="#index-t19980109" id="t19980109">1998-01-09  Daniel.Weaver</a>
+
+        * tack.c, Makefile.in, tack.h, control.c, color.c, charset.c, ansi.c,
+          sysdep.c, sync.c, scan.c, pad.c, output.c, modes.c, menu.c, init.c,
+          fun.c, edit.c, crum.c, HISTORY, COPYING:
+        tack-1.00
+
+<a name="t19980103" href="#index-t19980103" id="t19980103">1998-01-03</a>
+
+        * tack.h: moved ncurses' externs to tic.h
+
+        * edit.c: split-out _nc_tic_expand(), as per DW's request.
+
+        * sysdep.c: nits (we don't _need_ time.h?)
+
+        * tack.h: SCO's compiler doesn't like array-of-const
+
+<a name="t19980102" href="#index-t19980102" id="t19980102">1998-01-02</a>
+
+        * control.c: work with no 'gettimeofday()'
+        workaround for SCO 3.x compiler which gets confused by array of const.
+
+        * output.c, edit.c, fun.c: SCO's compiler doesn't like array-of-const
+
+        * ansi.c: SCO's compiler: parameter promotion warnings.
+
+<a name="t19971228" href="#index-t19971228" id="t19971228">1997-12-28</a>
+
+        * tack.h: first cut of fixes for AIX/SCO/CLIX
+
+        * sysdep.c, control.c: first cut of fixes for AIX/CLIX/SCO
+
+<a name="t19971227" href="#index-t19971227" id="t19971227">1997-12-27</a>
+
+        * ansi.c, charset.c, control.c, crum.c, edit.c, fun.c, init.c, menu.c,
+          modes.c, output.c, scan.c, sync.c, sysdep.c, tack.c:
+        integration with ncurses: restructured includes, fix gcc warnings
+
+        * pad.c:
+        integration with ncurses: restructures includes, fix gcc warnings
+
+        * color.c: typo
+
+        * tack.h:
+        integration with ncurses: reordered headers, provide fallback definitions
+        for the stuff we get from ncurses_cfg.h, make some stuff const.
+
+        * Makefile.in: use HAVE_SELECT from configure-script
+
+        * color.c:
+        integration with ncurses: move most headers into tack.h, fix gcc warnings
+
+        * Makefile.in: we'll have a config.h (actually ncurses_cfg.h)
+
+        * modules: set base-subset
+
+<a name="t19971224" href="#index-t19971224" id="t19971224">1997-12-24  Daniel.Weaver</a>
+
+        * HISTORY: ncurses-4.1-971220
+
+<a name="t19971222" href="#index-t19971222" id="t19971222">1997-12-22  Daniel.Weaver</a>
+
+        * ansi.c, tack.1: ncurses-4.1-971220
+
+<a name="t19971202" href="#index-t19971202" id="t19971202">1997-12-02  Daniel.Weaver</a>
+
+        * tack.c, init.c: ncurses-4.1-971220
+
+<a name="t19971130" href="#index-t19971130" id="t19971130">1997-11-30  Daniel.Weaver</a>
+
+        * edit.c: ncurses-4.1-971220
+
+<a name="t19971129" href="#index-t19971129" id="t19971129">1997-11-29  Daniel.Weaver</a>
+
+        * charset.c, pad.c: ncurses-4.1-971220
+
+<a name="t19971107" href="#index-t19971107" id="t19971107">1997-11-07  Daniel.Weaver</a>
+
+        * sync.c, fun.c, crum.c, modes.c, control.c, sysdep.c, output.c, tack.h:
+        ncurses-4.1-971220
+
+<a name="t19971104" href="#index-t19971104" id="t19971104">1997-11-04  Daniel.Weaver</a>
+
+        * Makefile.in, menu.c: ncurses-4.1-971220
+
+<a name="t19971103" href="#index-t19971103" id="t19971103">1997-11-03  Daniel.Weaver</a>
+
+        * scan.c, color.c, modules: ncurses-4.1-971220
+
+<a name="t19971029" href="#index-t19971029" id="t19971029">1997-10-29  Daniel.Weaver</a>
+
+        * control.c, fun.c: ncurses-4.1-971101
+
+<a name="t19971026" href="#index-t19971026" id="t19971026">1997-10-26  Daniel.Weaver</a>
+
+        * makefile, edit.c, tack.h, sync.c: ncurses-4.1-971101
+
+<a name="t19971025" href="#index-t19971025" id="t19971025">1997-10-25  Daniel.Weaver</a>
+
+        * pad.c, tack.1: ncurses-4.1-971101
+
+<a name="t19971019" href="#index-t19971019" id="t19971019">1997-10-19  Daniel.Weaver</a>
+
+        * tack.c, sysdep.c, scan.c, output.c, modes.c, menu.c, init.c, crum.c,
+          color.c, charset.c, ansi.c, HISTORY:
+        ncurses-4.1-971101
+
+<a name="t19971006" href="#index-t19971006" id="t19971006">1997-10-06  Daniel.Weaver</a>
+
+        * makefile, tac.h, tack.c: ncurses-4.1-971011
+
+<a name="t19971004" href="#index-t19971004" id="t19971004">1997-10-04  Daniel.Weaver</a>
+
+        * control.c, fun.c, sync.c, init.c, pad.c, modes.c, sysdep.c:
+        ncurses-4.1-971011
+
+<a name="t19971003" href="#index-t19971003" id="t19971003">1997-10-03  Daniel.Weaver</a>
+
+        * charset.c, output.c, edit.c, crum.c: ncurses-4.1-971011
+
+<a name="t19971002" href="#index-t19971002" id="t19971002">1997-10-02  Daniel.Weaver</a>
+
+        * menu.c: ncurses-4.1-971011
+
+<a name="t19970929" href="#index-t19970929" id="t19970929">1997-09-29  Daniel.Weaver</a>
+
+        * color.c, ansi.c: ncurses-4.1-971011
+
+<a name="t19970928" href="#index-t19970928" id="t19970928">1997-09-28  Daniel.Weaver</a>
+
+        * tic.h: ncurses-4.1-971011
+
+<a name="t19970922" href="#index-t19970922" id="t19970922">1997-09-22  Daniel.Weaver</a>
+
+        * scan.c: ncurses-4.1-971011
+
 
               
             </article>
