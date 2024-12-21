@@ -174,8 +174,7 @@ wget https://invisible-island.net/ncurses/NEWS.gz
 wget https://invisible-island.net/xterm/xtoolkit/xtoolkit.html #X Toolkit links
 # wget https://github.com/freedesktop/xorg-libXt/commit/85eb751e4e1683af6cee3ee9dce29f74911a639d
 # the previous link is now a 404 page, hence commenting this out and reuploading last copy from the main branch of this repo:
-# wget https://raw.githubusercontent.com/xterm-x11/docs/main/xterm-on-invisible-island/85eb751e4e1683af6cee3ee9dce29f74911a639d
-# the previous link is now a 404 page, hence commenting this out
+wget https://raw.githubusercontent.com/xterm-x11/xterm.dev/main/xterm-on-invisible-island/85eb751e4e1683af6cee3ee9dce29f74911a639d
 wget https://invisible-island.net/xterm/xtoolkit/intrinsics.html
 wget https://invisible-island.net/xterm/xtoolkit/intrinsics.pdf
 wget https://invisible-island.net/xterm/xtoolkit/manpage-index.html # include all linked pages after the first link because those are separate pages
