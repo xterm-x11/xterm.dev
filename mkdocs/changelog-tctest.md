@@ -1,6 +1,8 @@
 <!--- issue 89 --->
 
-**TIP** You can read this website in a terminal by installing and running [Lynx](https://lynx.browser.org/).
+!!! tip
+
+    You can read this website in a terminal by installing and running [Lynx](https://lynx.browser.org/).
 
 # `tctest` changelog
 
