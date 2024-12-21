@@ -1,0 +1,3869 @@
+<!--
+  $Id: ncurses-license.html,v 1.185 2022/01/23 20:19:47 tom Exp $
+  -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0">
+  <title>NCURSES &ndash; Licensing</title>
+  <link rel="author" href="mailto:dickey@invisible-island.net">
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii">
+  <link rel="SHORTCUT ICON" href="/img/icons/vile.ico" type=
+  "image/x-icon">
+  <link rel="stylesheet" href="/css/simplestyle.css" type=
+  "text/css">
+  <style type="text/css">
+  @import "/css/simplenav23.css" all;
+  </style>
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1">
+</head>
+<body>
+  <hr>
+
+  <p><a href="/">http://invisible-island.net/</a><a href=
+  "/ncurses/">ncurses/</a><br>
+  Copyright &copy; 2011-2021,2022 by Thomas E. Dickey</p>
+
+  <hr>
+
+  <div class="nav">
+    <ul>
+      <li class="nav-top"><a href=
+      "/ncurses/ncurses-license.html">(top)</a></li>
+
+      <li><a href="#synopsis">Synopsis</a></li>
+
+      <li><a href="#players">The Players</a></li>
+
+      <li><a href="#stage">The Stage</a></li>
+
+      <li>
+        <a href="#history">Timeline of Events</a>
+        <ul>
+          <li><a href="#pcurses_1986">pcurses &ndash; December 1,
+          1986 (shar archive)</a></li>
+
+          <li><a href="#ncurses_0_7_2">ncurses 0.7.2 &ndash; May
+          22, 1993</a></li>
+
+          <li><a href="#ncurses_1_8_1">ncurses 1.8.1 &ndash;
+          November 5, 1993</a></li>
+
+          <li><a href="#ncurses_1_8_5">ncurses 1.8.5 &ndash;
+          February 23, 1994</a></li>
+
+          <li><a href="#ncurses_1_8_6">ncurses 1.8.6 &ndash;
+          October 22, 1994</a></li>
+
+          <li><a href="#ncurses_1_9">ncurses 1.9 &ndash; April 20,
+          1995</a></li>
+
+          <li><a href="#ncurses_1_9_1">ncurses 1.9.1 &ndash; May 3,
+          1995</a></li>
+
+          <li><a href="#ncurses_1_9_2">ncurses 1.9.2 &ndash; May
+          30, 1995</a></li>
+
+          <li><a href="#ncurses_1_9_3">ncurses 1.9.3 &ndash; July
+          12, 1995</a></li>
+
+          <li><a href="#ncurses_1_9_4">ncurses 1.9.4 &ndash; August
+          11, 1995</a></li>
+
+          <li><a href="#ncurses_1_9_5">ncurses 1.9.5 &ndash;
+          September 11, 1995</a></li>
+
+          <li><a href="#ncurses_1_9_6">ncurses 1.9.6 &ndash;
+          October 13, 1995</a></li>
+
+          <li><a href="#ncurses_1_9_7a">ncurses 1.9.7a &ndash;
+          November 10, 1995</a></li>
+
+          <li><a href="#ncurses_1_9_8a">ncurses 1.9.8a &ndash;
+          December 9, 1995</a></li>
+
+          <li><a href="#ncurses_1_9_9">ncurses 1.9.9 &ndash;
+          February 13, 1996</a></li>
+
+          <li><a href="#ncurses_1_9_9a">ncurses 1.9.9a &ndash;
+          March 4, 1996</a></li>
+
+          <li><a href="#ncurses_1_9_9b">ncurses 1.9.9b &ndash;
+          March 6, 1996</a></li>
+
+          <li><a href="#ncurses_1_9_9c">ncurses 1.9.9c &ndash;
+          March 12, 1996</a></li>
+
+          <li><a href="#ncurses_1_9_9d">ncurses 1.9.9d &ndash;
+          March 17, 1996</a></li>
+
+          <li><a href="#ncurses_1_9_9e">ncurses 1.9.9e &ndash;
+          March 24, 1996</a></li>
+
+          <li><a href="#patch_960406">April 6, 1996</a></li>
+
+          <li><a href="#may_1996">May 1996</a></li>
+
+          <li><a href="#june_1996">June 1996</a></li>
+
+          <li><a href="#patch_960907">September 7, 1996</a></li>
+
+          <li><a href="#october_1996">October 1996</a></li>
+
+          <li><a href="#november_1996">November 1996</a></li>
+
+          <li><a href="#patch_961130">ncurses 1.9.9g &ndash;
+          November 30, 1996</a></li>
+
+          <li><a href="#december_1996">December 1996</a></li>
+
+          <li><a href="#patch_961224">ncurses 4.0 &ndash; December
+          24, 1996</a></li>
+
+          <li><a href="#January_1997">January 1997</a></li>
+
+          <li><a href="#February_1997">February 1997</a></li>
+
+          <li><a href="#March_1997">March 1997</a></li>
+
+          <li><a href="#April_1997">April 1997</a></li>
+
+          <li><a href="#May_1997">May 1997</a></li>
+
+          <li><a href="#patch_970515">ncurses 4.1 &ndash; May 15,
+          1997</a></li>
+
+          <li><a href="#June_1997">June 1997</a></li>
+
+          <li><a href="#July_1997">July 1997</a></li>
+
+          <li><a href="#August_1997">August 1997</a></li>
+
+          <li><a href="#September_1997">September 1997</a></li>
+
+          <li><a href="#October_1997">October 1997</a></li>
+
+          <li><a href="#November_1997">November 1997</a></li>
+
+          <li><a href="#December_1997">December 1997</a></li>
+
+          <li><a href="#January_1998">January 1998</a></li>
+
+          <li><a href="#February_1998">February 1998</a></li>
+
+          <li><a href="#March_1998">March 1998</a></li>
+
+          <li><a href="#patch_980302">ncurses 4.2 &ndash; March 2,
+          1998</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#other_issues">License and Other Issues</a>
+        <ul>
+          <li><a href="#issue_delay">Explaining the Delay</a></li>
+
+          <li><a href="#issue_opens">Open Source Dispute</a></li>
+
+          <li><a href="#issues_freer">How is the License
+          Improved?</a></li>
+
+          <li><a href="#issues_expat">But that MIT-X11
+          License...</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2><a name="synopsis" id="synopsis">Synopsis</a></h2>
+
+  <p>The <a href="/ncurses/ncurses.html">ncurses</a> license
+  evolved in several stages, which are detailed here. Copyright
+  ownership and attribution played important parts in this
+  history.</p>
+
+  <h2><a name="players" id="players">The Players</a></h2>
+
+  <p>In order of appearance</p>
+
+  <ul>
+    <li>Pavel Curtis (mostly offstage)</li>
+
+    <li>Zeyd M. Ben-Halim</li>
+
+    <li>Eric S. Raymond</li>
+
+    <li>Thomas E. Dickey (narrator, etc).</li>
+
+    <li>Juergen Pfeifer</li>
+
+    <li>Alexander V. Lukyanov</li>
+
+    <li>Keith Bostic</li>
+
+    <li>Richard M. Stallman</li>
+
+    <li>Florian La Roche</li>
+  </ul>
+
+  <h2><a name="stage" id="stage">The Stage</a></h2>
+
+  <p>Most of the interaction took place on mailing lists:</p>
+
+  <ul>
+    <li>until early 1997, this was on Zeyd M. Ben-Halim's majordomo
+    mailing list on netcom.</li>
+
+    <li>after that (until establishing a mailing list with GNU
+    after the transfer of copyrights to the Free Software
+    Foundation) on a BSDI mailing list provided by Keith
+    Bostic.</li>
+  </ul>
+
+  <p>Zeyd and I each had shell accounts with ISPs (netcom and
+  clarknet, respectively). We also had ftp areas, which we used to
+  provide files. My access to the nascent Internet was by 56k
+  dialup modem. Zeyd had no webpage, nor did I, initially.</p>
+
+  <p>Eric Raymond had a webpage, which referred to an ncurses page.
+  That page was no longer in existence when I looked for it in
+  1996. Nor did he provide ftp downloads for ncurses. There was
+  intermittent access to the terminfo/termcap files. All of my
+  other interaction with Eric was via email.</p>
+
+  <p>Juergen Pfeifer had an ISP account, with a generic webpage. He
+  had no ftp-area.</p>
+
+  <p>We exchanged changes using source patches, with occasional tar
+  archives to help synchronization. I uuencoded changes larger than
+  a few lines. Juergen used mime attachments (which were initially
+  a problem, requiring a separate program to decode them). Eric
+  used neither, putting patches inline. Zeyd did not distribute
+  changes via email.</p>
+
+  <p>Majordomo provided the ability to moderate the mailing list.
+  More than once, my mail was delayed by several days (rather than
+  a few minutes) during a dispute, prompting me to ask Zeyd if he
+  was moderating it. He stated that he was not. I was the moderator
+  for the ncurses list on BSDI, but did not interfere with the
+  discussion.</p>
+
+  <h2><a name="history" id="history">Timeline of Events</a></h2>
+
+  <p>These examples and discussion use several snapshots of ncurses
+  which I obtained around the time I started maintaining ncurses in
+  April 1996. I used about 40 of these, starting with ncurses 1.8.7
+  (plus about 20 snapshots of the terminfo database) to build up
+  the "prehistory" of my archive. There was no publicly-accessible
+  archive for the sources, nor was there an archive for the mailing
+  list on netcom.</p>
+
+  <p>I had observed that RCS keywords in Eric's patches were passed
+  through untouched into Zeyd's snapshots. From this, I concluded
+  that Zeyd did not use source-control archives of either CVS nor
+  RCS (I use RCS).</p>
+
+  <p>I have used the file modification dates, since
+  <code>CHANGES</code> usually did not give a release date.</p>
+
+  <h3 id="pcurses_1986-toc"><a name="pcurses_1986" id=
+  "pcurses_1986">pcurses &ndash; December 1, 1986 (shar
+  archive)</a></h3>
+
+  <p>The original pcurses had this notice on each file:</p>
+
+  <blockquote>
+    <pre class="code-block">
+/*********************************************************************
+*                         COPYRIGHT NOTICE                           *
+**********************************************************************
+*        This software is copyright (C) 1982 by Pavel Curtis         *
+*                                                                    *
+*        Permission is granted to reproduce and distribute           *
+*        this file by any means so long as no fee is charged         *
+*        above a nominal handling fee and so long as this            *
+*        notice is always included in the copies.                    *
+*                                                                    *
+*        Other rights are reserved except as explicitly granted      *
+*        by written permission of the author.                        *
+*                Pavel Curtis                                        *
+*                Computer Science Dept.                              *
+*                405 Upson Hall                                      *
+*                Cornell University                                  *
+*                Ithaca, NY 14853                                    *
+*                                                                    *
+*                Ph- (607) 256-4934                                  *
+*                                                                    *
+*                Pavel.Cornell@Udel-Relay   (ARPAnet)                *
+*                decvax!cornell!pavel       (UUCPnet)                *
+*********************************************************************/
+</pre>
+  </blockquote>
+
+  <p>The <code>rlog</code> comments say this notice was added
+  October 25, 1982.</p>
+
+  <h3 id="ncurses_0_7_2-h3"><a name="ncurses_0_7_2" id=
+  "ncurses_0_7_2">ncurses 0.7.2 &ndash; May 22, 1993</a></h3>
+
+  <p>While researching for this page, I found 0.7.2 in <a href=
+  "http://www.oldlinux.org/Linux.old/distributions/TAMU/TAMU-1.0D/src/tar/">
+  TAMU-1.0D</a></p>
+
+  <p>There was a binary-only distribution of ncurses 0.7 in
+  <a href="http://ftp.heanet.ie/mirrors/slackware/pub/slackware/slackware-1.01/a9/">
+  Slackware 1.01</a>. While there are <a href=
+  "http://ibiblio.org/pub/linux/docs/linux-announce.archive/Index">scattered
+  announcements</a>, there is no earlier source code to comment
+  upon.</p>
+
+  <p>The most noticeable difference between pcurses and ncurses is
+  of course the removal of copyright notices and rlog comments from
+  the C source, putting the "old" and "new" copyright notices in
+  separate files. Here is the "new" copyright notice (timestamp
+  January 24, 1993):</p>
+
+  <blockquote>
+    <pre class="code-block">
+/*********************************************************************
+*                         COPYRIGHT NOTICE                           *
+**********************************************************************
+*        This software is copyright (C) 1982 by Pavel Curtis         *
+*        Parts of it are copyright (C) 1992 by Zeyd M. Ben-Halim     *
+*                                                                    *
+*        Permission is granted to reproduce and distribute           *
+*        this file by any means so long as no fee is charged         *
+*        above a nominal handling fee and so long as this            *
+*        notice is always included in the copies.                    *
+*                                                                    *
+*********************************************************************/
+</pre>
+  </blockquote>
+
+  <h3 id="ncurses_1_8_1-toc"><a name="ncurses_1_8_1" id=
+  "ncurses_1_8_1">ncurses 1.8.1 &ndash; November 5, 1993</a></h3>
+
+  <p>This was the first version of ncurses for which I found source
+  code in 1996, e.g., with <a href=
+  "http://mirrors.dotsrc.org/slackware/slackware-2.0.1/slakware/contrib/">
+  Slackware 2.0.1</a>.</p>
+
+  <p>What I saw in 1996 (and 1997) was that this release was only a
+  little larger than pcurses. The copyright notices (and
+  <code>rlog</code> comments) were removed from each file. The
+  actual copyright notice was in <code>src/COPYRIGHT.NEW</code>,
+  dated September 16, 1993. It differs from the 0.7.2 version by
+  changing the date and disclaiming warranty. The
+  <code>src/COPYRIGHT.OLD</code> file is unchanged, but its
+  timestamp in the 1.8.1 tarball is June 18, 1993.</p>
+
+  <p>Aside from adding copyright ownership, and a disclaimer, the
+  permissions granted are identical:</p>
+
+  <blockquote>
+    <pre class="code-block">
+/***************************************************************************
+*                         COPYRIGHT NOTICE                                 *
+****************************************************************************
+*        This software is copyright (C) 1982 by Pavel Curtis               *
+*        Parts of it are copyright (C) 1992, 1993 by Zeyd M. Ben-Halim     *
+*                                                                          *
+*        Permission is granted to reproduce and distribute                 *
+*        this file by any means so long as no fee is charged               *
+*        above a nominal handling fee and so long as this                  *
+*        notice is always included in the copies.                          *
+*                                                                          *
+*        ncurses comes AS IS with no warranty, implied or expressed.       *
+*                                                                          *
+***************************************************************************/
+</pre>
+  </blockquote>
+
+  <p>Each of the C-source and Awk-source files which made up the
+  library contained a comment pointing the reader to the file
+  containing the copyright notice. The test/example programs had no
+  copyright notice.</p>
+
+  <p>ncurses 1.8.1 also included some C++ files, e.g., a panel
+  interface:</p>
+
+  <blockquote>
+    <pre class="code-block">
+Copyright (C) 1993 by Anatoly Ivasyuk
+</pre>
+  </blockquote>
+
+  <p>and a curses interface, attributed to Ulrich Drepper. The
+  panel library itself was distributed separately from ncurses.</p>
+
+  <h3 id="ncurses_1_8_5-toc"><a name="ncurses_1_8_5" id=
+  "ncurses_1_8_5">ncurses 1.8.5 &ndash; February 23, 1994</a></h3>
+
+  <p>The <code>COPYRIGHT.OLD</code> file is replaced with this:</p>
+
+  <blockquote>
+    <pre class="code-block">
+Pavel Curtis has given up his copyright to the public domain. This mean
+his ORIGINAL sources are in the public domain, not this current release.
+This current release IS copyrighted, see COPYRIGHT.NEW.
+</pre>
+  </blockquote>
+
+  <p>The permissions granted are more elaborate and (noting the
+  "written permission") more restrictive:</p>
+
+  <blockquote>
+    <pre class="code-block">
+/***************************************************************************
+*                         COPYRIGHT NOTICE                                 *
+****************************************************************************
+*              ncurses is copyright (C) 1992, 1993, 1994                   *
+*                        by Zeyd M. Ben-Halim                              *
+*                        zmbenhal@netcom.com                               *
+*                                                                          *
+*        Permission is hereby granted to reproduce and distribute ncurses  *
+*        by any means and for any fee, whether alone or as part of a       *
+*        larger distribution, in source or in binary form, PROVIDED        *
+*        this notice remains in the sources and is reproduced in any       *
+*        documentation accompanying it or the applications linked with it. *
+*        Any other use of ncurses, including incorporating it in another   *
+*        product is subject to written permission.                         *
+*                                                                          *
+*        ncurses comes AS IS with no warranty, implied or expressed.       *
+*                                                                          *
+***************************************************************************/
+</pre>
+  </blockquote>
+
+  <p>Eric Raymond first appears in the <code>CHANGES</code> file.
+  One change, cited for 1.8.3, was related to the problem with
+  color which I pointed out more than a year later:</p>
+
+  <blockquote>
+    <pre class="code-block">
+*) PDCurses seem to assume that wclear() will use current attribute
+   when clearing the screen. According to Eric this is not the case
+   with SVR4.
+</pre>
+  </blockquote>
+
+  <p>The panel library was distributed as part of ncurses with this
+  release.</p>
+
+  <p>This release introduced manpages provided by Eric Raymond. In
+  his note, Eric said:</p>
+
+  <blockquote>
+    <pre class="code-block">
+I prepared them by reverse-nroffing the (uncopyrighted) SVr4 curses
+man pages with an Emacs package I wrote for the purpose.  I then rewrote
+them extensively, removing passive voice, adding many clarifications, and
+cleaning up and tightening the language.
+</pre>
+  </blockquote>
+
+  <p>Later, I pointed out that large sections of the documentation
+  were identical with SVr4, e.g., as on Solaris.</p>
+
+  <h3 id="ncurses_1_8_6-toc"><a name="ncurses_1_8_6" id=
+  "ncurses_1_8_6">ncurses 1.8.6 &ndash; October 22, 1994</a></h3>
+
+  <p>The requirement for attribution was tightened, and "written
+  permission" was dropped:</p>
+
+  <blockquote>
+    <pre class="code-block">
+/***************************************************************************
+*                            COPYRIGHT NOTICE                              *
+****************************************************************************
+*                ncurses is copyright (C) 1992, 1993, 1994                 *
+*                          by Zeyd M. Ben-Halim                            *
+*                          zmbenhal@netcom.com                             *
+*                                                                          *
+*        Permission is hereby granted to reproduce and distribute ncurses  *
+*        by any means and for any fee, whether alone or as part of a       *
+*        larger distribution, in source or in binary form, PROVIDED        *
+*        this notice is included with any such distribution, not removed   *
+*        from header files, and is reproduced in any documentation         *
+*        accompanying it or the applications linked with it.               *
+*                                                                          *
+*        ncurses comes AS IS with no warranty, implied or expressed.       *
+*                                                                          *
+***************************************************************************/
+</pre>
+  </blockquote>
+
+  <h3 id="ncurses_1_9-h3"><a name="ncurses_1_9" id=
+  "ncurses_1_9">ncurses 1.9 &ndash; April 20, 1995</a></h3>
+
+  <p>The copyright notice was updated to add Eric Raymond, who had
+  been involved in development since 1993. Version 1.8.5 (February
+  23, 1994) lists contributions dating to late 1993.</p>
+
+  <p>The permissions were also relaxed, omitting the clause dealing
+  with documentation:</p>
+
+  <blockquote>
+    <pre class="code-block">
+/***************************************************************************
+*                            COPYRIGHT NOTICE                              *
+****************************************************************************
+*                ncurses is copyright (C) 1992-1995                        *
+*                          Zeyd M. Ben-Halim                               *
+*                          zmbenhal@netcom.com                             *
+*                          Eric S. Raymond                                 *
+*                          esr@snark.thyrsus.com                           *
+*                                                                          *
+*        Permission is hereby granted to reproduce and distribute ncurses  *
+*        by any means and for any fee, whether alone or as part of a       *
+*        larger distribution, in source or in binary form, PROVIDED        *
+*        this notice is included with any such distribution, and is not    *
+*        removed from any of its header files. Mention of ncurses in any   *
+*        applications linked with it is highly appreciated.                *
+*                                                                          *
+*        ncurses comes AS IS with no warranty, implied or expressed.       *
+*                                                                          *
+***************************************************************************/
+</pre>
+  </blockquote>
+
+  <p>The copyright notice was added to each file that had a comment
+  pointing to COPYRIGHT.NEW.</p>
+
+  <p>Most (11 of 13) of the changes documented in the 1.8.8 to
+  1.8.9 step were my work, unattributed.</p>
+
+  <h3 id="ncurses_1_9_1-h3"><a name="ncurses_1_9_1" id=
+  "ncurses_1_9_1">ncurses 1.9.1 &ndash; May 3, 1995</a></h3>
+
+  <p>The <code>CHANGES</code> file does not reflect the changes
+  made. Its only change was to clarify a point regarding PDCurses
+  in the 1.9 fixes made for background color. The
+  <code>ANNOUNCE</code> file gives a hint (covering about 1/3 of
+  the changes made):</p>
+
+  <blockquote>
+    <pre class="code-block">
+New in 1.9.1:
+        * Integrated panels support.
+        * ncurses output can now be redirected.
+</pre>
+  </blockquote>
+
+  <p>No change was made to the copyright notice. However, the two
+  source files for the panel support gave some attribution to its
+  original author.</p>
+
+  <h3 id="ncurses_1_9_2-h3"><a name="ncurses_1_9_2" id=
+  "ncurses_1_9_2">ncurses 1.9.2 &ndash; May 30, 1995</a></h3>
+
+  <p>The reason for the release was my work, introducing the
+  configure script. The <code>CHANGES</code> file said only:</p>
+
+  <blockquote>
+    <pre class="code-block">
+*) use 'autoconf' to implement 'configure' script.
+</pre>
+  </blockquote>
+
+  <p>Like the test/example programs, the ncurses copyright notice
+  was not applied to my ongoing work with the configure script. My
+  ownership of its copyright was never in serious doubt, though
+  later Eric claimed that <em>he</em> owned it.</p>
+
+  <p>According to <em>GNU's Bulletin</em> in <a href=
+  "https://web.archive.org/web/20080426230444/http://www.cs.utah.edu/dept/old/texinfo/bulletin.html">
+  June 1995</a>, 1.9.1a was distributed on a GNU tape, as well as
+  nvi. DECUS has a copy of a later tape with 1.9.2d <a href=
+  "http://www.decuslib.com/decus/lt95a/gnusoftware/">here</a>.</p>
+
+  <h3 id="ncurses_1_9_3-h3"><a name="ncurses_1_9_3" id=
+  "ncurses_1_9_3">ncurses 1.9.3 &ndash; July 12, 1995</a></h3>
+
+  <p>The three of us had a short discussion regarding
+  <code>resizeterm</code> starting around the time 1.9.3 was
+  released. Keeping in mind that it had been a full year since my
+  first inconclusive contact with Zeyd, and that I had spent half
+  of that time cleaning up their code, it was time to resume my
+  original goal.</p>
+
+  <p>I submitted a patch on July 15 (actually prepared on July 8)
+  to incorporate <code>resizeterm</code> The text was different,
+  and for those files I was listed as the copyright owner:</p>
+
+  <blockquote>
+    <pre class="code-block">
+/******************************************************************************
+ * Copyright 1995 by Thomas E. Dickey.  All Rights Reserved.                  *
+ *                                                                            *
+ * You may freely copy or redistribute this software, so long as there is no  *
+ * profit made from its use, sale trade or reproduction. You may not change   *
+ * this copyright notice, and it must be included in any copy made.           *
+ ******************************************************************************/
+</pre>
+  </blockquote>
+
+  <p>There were two points of contention. Contemporary readers may
+  focus on the permissions; but that was less unusual in the mid
+  1990s. The more important aspect was the copyright ownership
+  (both attribution and the ability to grant permissions). At that
+  point, most of my improvements to ncurses were unacknowledged in
+  the <code>CHANGES</code> file (noting that I was credited
+  <em>only</em> with spelling fixes and one patch to address
+  portability for NeXT). For instance,</p>
+
+  <ul>
+    <li>1.9.2 and 1.9.3 introduced my work on the configure
+    script.</li>
+
+    <li>Earlier, 1.8.9 compiler-warning fixes, etc., were my
+    work.</li>
+
+    <li>The changes for <code>wkbgd</code> in 1.8.8 were the result
+    of my report, followup with testing ncurses versus Solaris
+    curses. (I could have sent a patch, but at that time thought
+    that I could move on after getting <code>resizeterm</code>
+    integrated).</li>
+  </ul>
+
+  <p>However, rather than arguing or discussing the language of the
+  copyright, Zeyd and Eric both asserted that their copyright
+  notice had to be used, without change. After a few messages back
+  and forth, Eric cc'd me on a message to Zeyd, saying that while
+  the copyright notice was not negotiable, that they might
+  <em>allow</em> me to have my name on the files. The tone of that
+  email, in particular the word <em>allow</em> was unnecessarily
+  rude. It was clear from the context that their names would be on
+  the copyright notice, that the <em>allow</em> referred to an
+  "author" comment found in many files, separated from the
+  copyright notice.</p>
+
+  <p>Eric's comments terminated the discussion.</p>
+
+  <p>The wording of the permissions, by the way, was that which I
+  used initially in 1994 to take into account the agreement which I
+  had with my employer delineating this type of activity. From
+  their standpoint, "as long as no money is involved", they were
+  unconcerned. When asked politely (as in the case of <a href=
+  "/diffstat/diffstat.html">diffstat</a>), I would agree to
+  accommodate the request.</p>
+
+  <h3 id="ncurses_1_9_4-h3"><a name="ncurses_1_9_4" id=
+  "ncurses_1_9_4">ncurses 1.9.4 &ndash; August 11, 1995</a></h3>
+
+  <p>This release began integrating Juergen Pfeifer's libraries
+  (the menu library first), with no change to the copyright
+  notice.</p>
+
+  <p>Each of the C-source files added bore the same copyright
+  notice. Juergen's name was not on any of those files. He was
+  listed as author in the supporting documentation, including
+  manpages.</p>
+
+  <p>As with the previous inclusion of manpages, Eric wrote the
+  manpages using SVr4 documentation as a basis. In this release,
+  there was no claim that those were uncopyrighted.</p>
+
+  <h3 id="ncurses_1_9_5-toc"><a name="ncurses_1_9_5" id=
+  "ncurses_1_9_5">ncurses 1.9.5 &ndash; September 11, 1995</a></h3>
+
+  <h3 id="ncurses_1_9_6-toc"><a name="ncurses_1_9_6" id=
+  "ncurses_1_9_6">ncurses 1.9.6 &ndash; October 13, 1995</a></h3>
+
+  <p>This release finished adding Juergen's libraries, i.e., the
+  form library.</p>
+
+  <p>It also added <code>tset</code>, which was mostly (70%
+  according to my analysis in 2009) copied without change from 4.4
+  BSD. In this case, the Regent's copyright is also used.</p>
+
+  <h3 id="ncurses_1_9_7a-toc"><a name="ncurses_1_9_7a" id=
+  "ncurses_1_9_7a">ncurses 1.9.7a &ndash; November 10, 1995</a></h3>
+
+  <p>The two "a" releases 1.9.7a and 1.9.8a were issued because
+  Zeyd released 1.9.7 and 1.9.8 without checking if they built
+  successfully. I reported the problems with both, and was told it
+  was "too late".</p>
+
+  <h3 id="ncurses_1_9_8a-toc"><a name="ncurses_1_9_8a" id=
+  "ncurses_1_9_8a">ncurses 1.9.8a &ndash; December 9, 1995</a></h3>
+
+  <h3 id="ncurses_1_9_9-toc"><a name="ncurses_1_9_9" id=
+  "ncurses_1_9_9">ncurses 1.9.9 &ndash; February 13, 1996</a></h3>
+
+  <p>This release added one new file using the ncurses copyright.
+  It was <code>ncurses/lib_resize.c</code>.</p>
+
+  <p>That was the result of a collaboration between Eric Raymond
+  and Ken Hollis. Ken would write the code and Eric would use it.
+  At least that's the way it was presented by Raymond in email,
+  first privately on January 6th and then on the mailing list on
+  the 12th.</p>
+
+  <p>Ken Hollis was in the process of writing a small library named
+  <a href=
+  "http://www.ibiblio.org/pub/linux/docs/LSM/LSM.1999-08-30">winlib</a>,
+  which approached resizing in a different way. The code that Eric
+  Raymond added to ncurses was based on reading the patch which I
+  had made (at this writing, noting the similarity of the logic),
+  and extending that to handle subwindows. I had already pointed
+  Ken Hollis to my patch on December 26, 1995, and Eric Raymond had
+  more than once read the patch.</p>
+
+  <p>Likewise, the accompanying manpage was based on the manpage
+  which I had written. To make his point clear, Raymond added a
+  paragraph which explicitly claimed originality:</p>
+
+  <blockquote>
+    <p>This call was designed for ncurses(3x), and is not found in
+    SVr4 curses, 4.4BSD curses, or any other previous version of
+    curses. It is recommended that you conditionalize all code
+    depending on it with the symbol NCURSES.</p>
+  </blockquote>
+
+  <p>In either case (whoever was the programmer), it was
+  plagiarism. The manpage was written by Eric Raymond.</p>
+
+  <p>While I was considering my next step, I happened upon an
+  amusing incident related to this. My usual practice in inspecting
+  an ncurses snapshot was to build it, and link my programs against
+  it. I overlooked applying my patch, and since it built, did not
+  immediately notice that I was using the unpatched ncurses
+  version. My program dumped core. I investigated (using
+  ElectricFence) and found three places in the code which indexed
+  one cell too far. I informed Eric that I had found that his
+  version would dump core. After a few emails, he had not taken the
+  time to investigate. As I told him (on the mailing list, February
+  28):</p>
+
+  <blockquote>
+    <p>I traced the core dump down to an error in your version of
+    wresize (it's a fine point of etiquette, but you'll have to
+    analyze and fix it).</p>
+  </blockquote>
+
+  <h3 id="ncurses_1_9_9a-h3"><a name="ncurses_1_9_9a" id=
+  "ncurses_1_9_9a">ncurses 1.9.9a &ndash; March 4, 1996</a></h3>
+
+  <h3 id="ncurses_1_9_9b-h3"><a name="ncurses_1_9_9b" id=
+  "ncurses_1_9_9b">ncurses 1.9.9b &ndash; March 6, 1996</a></h3>
+
+  <h3 id="ncurses_1_9_9c-toc"><a name="ncurses_1_9_9c" id=
+  "ncurses_1_9_9c">ncurses 1.9.9c &ndash; March 12, 1996</a></h3>
+
+  <p>The <code>TO-DO</code> file was modified to note</p>
+
+  <blockquote>
+    <pre class="code-block">
+* The wresize() code has been reported to core-dump occasionally.  The
+  maintainers haven't been able to reproduce this.
+</pre>
+  </blockquote>
+
+  <h3 id="ncurses_1_9_9d-toc"><a name="ncurses_1_9_9d" id=
+  "ncurses_1_9_9d">ncurses 1.9.9d &ndash; March 17, 1996</a></h3>
+
+  <h3 id="ncurses_1_9_9e-toc"><a name="ncurses_1_9_9e" id=
+  "ncurses_1_9_9e">ncurses 1.9.9e &ndash; March 24, 1996</a></h3>
+
+  <p>This marked the end of Zeyd's maintainership of ncurses. It
+  was still his mailing list, but it was the last release that he
+  prepared, and he made only minor contributions past that
+  point.</p>
+
+  <p>The release introduced a bug in the form library; it did not
+  refresh.</p>
+
+  <p>I decided at this point that I would no longer send patches to
+  Eric or Zeyd:</p>
+
+  <ul>
+    <li>I had done more than half of the total work on ncurses
+    during the past year.</li>
+
+    <li>I had more than once done the fixes to repair a broken
+    release.</li>
+
+    <li>There was that matter of plagiarism.</li>
+  </ul>
+
+  <p>As a matter of practice, this meant that I would send only
+  patch announcements to the mailing list. Patches would be
+  accessible on my ftp area, at ClarkNet.</p>
+
+  <p>I made a collection of all of the available snapshots of
+  ncurses, and sorted them by date, checked in sequentially to
+  build a "prehistory" for an archive to start development.</p>
+
+  <h3 id="patch_960406-h3"><a name="patch_960406" id=
+  "patch_960406">April 6, 1996</a></h3>
+
+  <p>This was the first patch against my ncurses archive. In
+  addition to the C files, I began updating the <a href=
+  "NEWS.html#t960406">NEWS file</a>. The ncurses NEWS file has been
+  the <a href="/personal/changelogs.html">changelog</a> since
+  <a href="#ncurses_1_9_4">release 1.9.4</a> in 1995, replacing the
+  older CHANGES file.</p>
+
+  <ul>
+    <li>Unlike Zeyd, I chose to date each patch, in the NEWS
+    file.</li>
+
+    <li>Further, I would cite each contributor in the NEWS
+    file.</li>
+
+    <li>However, I had no intention of providing releases.</li>
+  </ul>
+
+  <p>The point of maintaining my own archive was to compel Eric and
+  Zeyd (by competition or whatever motivation) to make their
+  version of ncurses better.</p>
+
+  <p>However, there was no follow-up version from Zeyd. I collected
+  some of Eric's patches from the mailing list over the next month
+  before he reoriented himself and decided that my archive was his
+  official repository.</p>
+
+  <p>For instance, Eric's patch #294 on April 4 included fixes by
+  Juergen for the form library. In email (April 1, 1996), Juergen
+  sent a patch, reporting</p>
+
+  <blockquote>
+    <p>due to a change in the wsyncup() routine in module
+    lib_window.c the form and menu code is broken. Because the fix
+    in wsyncup() is correct, I've to provide this small patch which
+    fixes the problems. Obviously next time we have to better
+    synchronize our cross-testing before we release.</p>
+  </blockquote>
+
+  <p>Juergen amended that (April 3, 1996):</p>
+
+  <blockquote>
+    <pre class="code-block">
+Hi Eric,
+
+yes, you applied it correctly, but unfortunately I forgot to
+mail also the patch that is necessary for ncurses/lib_window.c,
+where the implementation of wsyncup() and wsyncdown() has
+changed for 1.9.9 and is terribly broken.
+
+At least after you apply this patch, you may drop my last
+patch for form and menu. It doesn't harm, but it is unnecessary
+defensive programming and may affect performance.
+
+This is the patch for lib_window.c
+
+Regards
+Juergen
+</pre>
+  </blockquote>
+
+  <h3 id="may_1996-h3"><a name="may_1996" id="may_1996">May
+  1996</a></h3>
+
+  <p>Philippe De Muyter suggested that I also note who reported a
+  problem; I began recording these as "requested by", "reported
+  by", etc., noting that "requested by" carries the connotation of
+  whose idea the change was.</p>
+
+  <p>One long-running dispute which began in May 1996 was regarding
+  the <em>hashmap</em> feature to improve scrolling performance.
+  Eric added it in his patch #301, which I applied in <a href=
+  "NEWS.html#t960526">late May</a>. His email noted</p>
+
+  <blockquote>
+    <pre class="code-block">
+ncurses/hashmap.c:
+        New file.  It's included after the patch band.  Use a modified
+        Heckel algorithm on line hashes to fill in scramble-vector
+        information based on the old and new screen contents,
+</pre>
+  </blockquote>
+
+  <p>"Heckel" refers to (CACM-3114 April 1978). As an aside, see
+  Paul Heckel's 1992 article <a href=
+  "http://groups.csail.mit.edu/mac/classes/6.805/articles/int-prop/heckel-debunking.html">
+  Debunking the Software Patent Myths</a>.</p>
+
+  <p>However when I measured it, rather than improving performance,
+  the result was often slower, typically 5-20%.</p>
+
+  <p>I added the source, but after measuring it, <a href=
+  "NEWS.html#t960615">ifdef'd it out</a>.</p>
+
+  <h3 id="june_1996-h3"><a name="june_1996" id="june_1996">June
+  1996</a></h3>
+
+  <p>Acting as the maintainer, I was able to see first-hand Eric's
+  changes before they were applied. Much of Eric's work was
+  poor-quality.</p>
+
+  <p>One example that I recall clearly was that in July/August, he
+  sent 6 successive patches for the terminfo.src file&mdash;5 of
+  those were defective.</p>
+
+  <p>Also (though he usually cited contributions in the
+  accompanying email), Eric's suggested updates for the NEWS file
+  were almost all for his own work. Initially, I had thought that
+  Eric and Zeyd would update their site and construct the NEWS file
+  according to their own tastes. In my version, I listed Eric's
+  patches, adding highlights (but not all features) to NEWS. In
+  reviewing email to obtain the information for this page, I have
+  updated NEWS to reflect the accompanying email as well.</p>
+
+  <p>Reviewing one patch in June, I had just spent some late nights
+  fixing a previous patch of his. I wrote to Eric, advising him
+  that I would not put his patch in that week, because I could see
+  problems with it.</p>
+
+  <p>Eric replied, saying</p>
+
+  <blockquote>
+    <p>You have no right to do this,<br>
+    for I am an author of ncurses,<br>
+    and you are not.</p>
+  </blockquote>
+
+  <p>On that occasion, I gave in (<em>I</em> did the work to fix
+  the patch). Additionally, I continued to correct his patches
+  through November 1996.</p>
+
+  <p>However, I did not give in on the <em>hashmap</em> code. That
+  issue was finally resolved by Alexander V. Lukyanov in 1997.
+  Because of the substantial improvements he made, Alexander is
+  arguably the primary author of this feature; without those
+  improvements it would not be part of ncurses today. In terms of
+  total contribution to ncurses since 1996, Alexander ranks fourth,
+  immediately after Eric.</p>
+
+  <h3 id="patch_960907-h3"><a name="patch_960907" id=
+  "patch_960907">September 7, 1996</a></h3>
+
+  <p>I fixed one of the problems in <a href=
+  "#ncurses_1_9_9">1.9.9</a>:</p>
+
+  <blockquote>
+    <pre class="code-block">
+960907  - snapshot
+        + replaced Eric's imitation of wresize with my original (his didn't
+          work).
+</pre>
+  </blockquote>
+
+  <p>This patch used the MIT X11 license, which I was using with
+  xterm:</p>
+
+  <blockquote>
+    <pre class="code-block">
+/******************************************************************************
+ * Copyright 1996 by Thomas E. Dickey &lt;dickey@clark.net&gt;                      *
+ * All Rights Reserved.                                                       *
+ *                                                                            *
+ * Permission to use, copy, modify, and distribute this software and its      *
+ * documentation for any purpose and without fee is hereby granted, provided  *
+ * that the above copyright notice appear in all copies and that both that    *
+ * copyright notice and this permission notice appear in supporting           *
+ * documentation, and that the name of the above listed copyright holder(s)   *
+ * not be used in advertising or publicity pertaining to distribution of the  *
+ * software without specific, written prior permission. THE ABOVE LISTED      *
+ * COPYRIGHT HOLDER(S) DISCLAIM ALL WARRANTIES WITH REGARD TO THIS SOFTWARE,  *
+ * INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS, IN NO     *
+ * EVENT SHALL THE ABOVE LISTED COPYRIGHT HOLDER(S) BE LIABLE FOR ANY         *
+ * SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER       *
+ * RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF       *
+ * CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN        *
+ * CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.                   *
+ ******************************************************************************/
+</pre>
+  </blockquote>
+
+  <h3 id="october_1996-h3"><a name="october_1996" id=
+  "october_1996">October 1996</a></h3>
+
+  <p>Juergen sent email with the <a href=
+  "/ncurses/ncurses-Ada95.html">Ada95 binding</a>. I was initially
+  unable to compile this (although I was familiar with Ada, the
+  available compiler did not work), and did not immediately add it
+  to my snapshots. Eric was unfamiliar with Ada. Zeyd objected to
+  its inclusion (in our discussion of <a href=
+  "#patch_961130">ncurses 1.9.g</a> on November 30):</p>
+
+  <blockquote>
+    <pre class="code-block">
+I would also like to package non-C support seperately. The Ada binding increase
+the size and complexity of the package, but are unneeded by the overwhelming
+majority of ncurses users. We now have C++, Ada, Modula-2, and FORTRAN interfaces.
+</pre>
+  </blockquote>
+
+  <p>At the time, I was undecided, suggesting that separate
+  packages might work. Juergen argued against that, pointing out
+  that it increased "only slightly".</p>
+
+  <p>The Ada95 binding also had Juergen's copyright notice, based
+  on the wording used by Eric and Zeyd. Here is a sample:</p>
+
+  <blockquote>
+    <pre class="code-block">
+#----------------------------------------------------------------------------
+#                                                                          --
+#                            GNAT ncurses Binding                          --
+#                                gen/Makefile                              --
+#                                                                          --
+#  Version 00.91                                                           --
+#                                                                          --
+#  The ncurses Ada95 binding is copyrighted 1996 by                        --
+#  Juergen Pfeifer, Email: Juergen.Pfeifer@T-Online.de                     --
+#                                                                          --
+#  Permission is hereby granted to reproduce and distribute this           --
+#  binding by any means and for any fee, whether alone or as part          --
+#  of a larger distribution, in source or in binary form, PROVIDED         --
+#  this notice is included with any such distribution, and is not          --
+#  removed from any of its header files. Mention of ncurses and the        --
+#  author of this binding in any applications linked with it is            --
+#  highly appreciated.                                                     --
+#                                                                          --
+#  This binding comes AS IS with no warranty, implied or expressed.        --
+#----------------------------------------------------------------------------
+</pre>
+  </blockquote>
+
+  <h3 id="november_1996-h3"><a name="november_1996" id=
+  "november_1996">November 1996</a></h3>
+
+  <h3 id="patch_961130-toc"><a name="patch_961130" id=
+  "patch_961130">ncurses 1.9.9g &ndash; November 30, 1996</a></h3>
+
+  <p>I released ncurses <a href=
+  "/ncurses/NEWS.html#t961130">1.9.9g</a>.</p>
+
+  <p>The version number itself had been suggested by Zeyd in
+  discussion July 3rd. He had started to apply patches, attempting
+  to resync against my changes. There were some problems with it; I
+  did not see a followup. As I commented in email to a user
+  September 14:</p>
+
+  <blockquote>
+    <pre class="code-block">
+So at the moment we're sort of at an impasse: I'm not going to do an official
+release until Zeyd does something about the credits, and he's not going to
+do anything, because he's not feeling that he's in control - but wants to be.
+Probably what'll happen will be that he discontinues his mailing list (that's
+the easy solution - he could issue another broken release).  After the past
+few years, I doubt that the graceful solution will occur to him (I've been
+working on it intermittently since December 1993, but fairly consistently
+for two years - it supports another of my projects).
+</pre>
+  </blockquote>
+
+  <p>and on the 16th:</p>
+
+  <blockquote>
+    <pre class="code-block">
+(When Zeyd last emailed me in mid-July, it was to tell me about a "1.9.9g"
+version - but he was still ~30k of diffs away from my version -- and his
+wouldn't work, because some of the diffs were pieces of bugs.  So I told
+him there was no point in discussing it until he got in sync - I assume he's
+sulking).
+</pre>
+  </blockquote>
+
+  <p>The technical goal for the release was to mark a stable point
+  before modifying the versioning to work with the latest Linux
+  dynamic loader. Juergen had reported in mid-November</p>
+
+  <blockquote>
+    <pre class="code-block">
+I just installed the newest dynamic linker ld.so.1.8.5 on my
+Linux box. It appears that this version no longer accepts that
+a shared library file that is not a symbolic link can have a
+name different from its soname. So, our current construct
+
+    libblabla.so.1.9.9g   is the real file
+    libblabla.so.3.3      is the symbolic link
+
+no longer works, it must be the vice versa relation.
+</pre>
+  </blockquote>
+
+  <p>The proposed solution was to bump both numbers up to 4. But we
+  <em>could not</em> do just that because there had been no recent
+  stable release for users to migrate from.</p>
+
+  <p>The release itself was by agreement between me, Zeyd and
+  Juergen, in response to Eric's repeated demands for a release, as
+  well as repeated threats to "hijack" the project. From email, I
+  see that Eric started demanding a release in May 1996, repeated
+  in July, September, October and November. The threats to hijack
+  the project started in September. He also demanded a copy of my
+  bug-list, which I declined. As I noted in email to Juergen:</p>
+
+  <blockquote>
+    <pre class="code-block">
+From dickey Mon Nov 18 21:15:24 1996
+Subject: Re: Bug lists, please? (fwd)
+To: Juergen.Pfeifer@t-online.de (Juergen Pfeifer)
+Date: Mon, 18 Nov 1996 21:15:24 -0500 (EST)
+X-Mailer: ELM [version 2.4 PL24alpha3]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+Status: RO
+Content-Length: 243
+Lines: 5
+
+You might find this interesting (I did send Eric a copy of my bug list
+some time ago -- he responded with several patches that made the list
+longer by introducing more bugs -- so I'm rather reluctant to add to my
+overhead).
+
+Forwarded message:
+</pre>
+  </blockquote>
+
+  <p>Here is my email advising Zeyd and Juergen of the upcoming
+  release, which I cc'd to the mailing list. Zeyd, who perhaps did
+  not notice that it was sent to the mailing list, forwarded the
+  email to Eric, whose most recent threat to hijack the project was
+  on the preceding day:</p>
+
+  <blockquote>
+    <pre class="code-block">
+From owner-ncurses-list@majordomo.netcom.com  Sat Nov 30 18:51:41 1996
+Received: from majordomo.netcom.com (listless.netcom.com [206.217.29.105]) by mail.clark.net (8.7.3/8.6.5) with ESMTP id SAA21073 for &lt;dickey@clark.net&gt;; Sat, 30 Nov 1996 18:51:40 -0500 (EST)
+Received: by majordomo.netcom.com (8.7.5/8.7.3/(NETCOM MLS v1.01)) id PAA18685; Sat, 30 Nov 1996 15:39:53 -0800 (PST)
+From: "T.E.Dickey" &lt;dickey@clark.net&gt;
+Message-Id: &lt;199611302339.SAA27746@explorer2.clark.net&gt;
+Subject: ncurses 1.9.9g (?)
+To: zmbenhal@netcom.com (Zeyd M. Ben-Halim),
+        Juergen.Pfeifer@T-Online.de (Juergen Pfeifer)
+Date: Sat, 30 Nov 1996 18:39:50 -0500 (EST)
+Cc: ncurses-list@netcom.com (Ncurses Mailing List)
+X-Mailer: ELM [version 2.4 PL24alpha3]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+Sender: owner-ncurses-list@majordomo.netcom.com
+Errors-To: owner-ncurses-list@majordomo.netcom.com
+Precedence: bulk
+Reply-To: ncurses-list@netcom.com
+Status: RO
+Content-Length: 753
+Lines: 19
+
+I'm putting together this week's snapshot as a formal release of 1.9.9g
+As I discussed before, there's a few issues that should be cleared up
+before 2.0.0, however much it irritates Eric
+
+        + the shared library versioning reported by Juergen (this is fairly
+          simple to work on)
+
+        + the resizing via endwin/refresh (if I don't get dumped on, that'll
+          take a week or two with my current timing).
+
+        + check on the scrolling bug that I observed, and decide when/what
+          to do about it (I'm reluctant to make fast changes: _all_ of the
+          optimizer changes that have been given to me by Alex or Eric have
+          had bugs in them - some minor, some subtle &amp; nasty -- I don't have
+          time to fix Eric's patches just now).
+
+--
+Thomas E. Dickey
+dickey@clark.net
+</pre>
+  </blockquote>
+
+  <p>And this was the formal announcement:</p>
+
+  <blockquote>
+    <pre class="code-block">
+From owner-ncurses-list@majordomo.netcom.com  Sun Dec  1 20:37:31 1996
+Received: from majordomo.netcom.com (listless.netcom.com [206.217.29.105]) by mail.clark.net (8.7.3/8.6.5) with ESMTP id UAA12505 for &lt;dickey@clark.net&gt;; Sun, 1 Dec 1996 20:37:30 -0500 (EST)
+Received: by majordomo.netcom.com (8.7.5/8.7.3/(NETCOM MLS v1.01)) id RAA26790; Sun, 1 Dec 1996 17:24:40 -0800 (PST)
+From: "T.E.Dickey" &lt;dickey@clark.net&gt;
+Message-Id: &lt;199612020124.UAA06527@clark.net&gt;
+Subject: ncurses 1.9.9g release
+To: ncurses-list@netcom.com (Ncurses Mailing List)
+Date: Sun, 1 Dec 1996 20:24:38 -0500 (EST)
+X-Mailer: ELM [version 2.4 PL24alpha3]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+Sender: owner-ncurses-list@majordomo.netcom.com
+Errors-To: owner-ncurses-list@majordomo.netcom.com
+Precedence: bulk
+Reply-To: ncurses-list@netcom.com
+Status: RO
+Content-Length: 361
+Lines: 13
+
+I've completed my regression builds for ncurses 1.9.9g (a couple of minor
+fixes since last night).  It's available in
+
+        ftp.clark.net:/pub/dickey/ncurses/ncurses-1.9.9g.tgz
+
+and will probably be in Zeyd's directory soon (I put a copy in his incoming
+directory).
+
+(this is an interim release - further changes are planned)
+
+--
+Thomas E. Dickey
+dickey@clark.net
+</pre>
+  </blockquote>
+
+  <p>At the same time, I added the same MIT-X11 copyright notice to
+  the 37 remaining files for which I was the author, e.g., the
+  configure script, makefiles, as well as some of the source code,
+  such as <code>test.priv.h</code>.</p>
+
+  <h3 id="december_1996-h3"><a name="december_1996" id=
+  "december_1996">December 1996</a></h3>
+
+  <p>On December 20, Eric Raymond asserted in email that 1.9.9g had
+  not been announced on the mailing list (see above).</p>
+
+  <p>Not much else from his comments are of interest, since they
+  were merely a rehash of previous verbal attacks.</p>
+
+  <h3 id="patch_961224-h3"><a name="patch_961224" id=
+  "patch_961224">ncurses 4.0 &ndash; December 24, 1996</a></h3>
+
+  <p>The release of ncurses 4.0 was done to solve a technical
+  issue. As noted before, I released <a href=
+  "NEWS.html#t961130">1.9.9g</a> at the end of <a href=
+  "#patch_961130">November, 1996</a> to provide a stable basis for
+  the proposed 4.0 release.</p>
+
+  <p>Zeyd for instance suggested bumping the ABI to 4.0 and the
+  release version to match, in email to me and Eric on September
+  24, even before the problem with ld.so.1.8.5 surfaced. At the
+  time, Eric disagreed with the proposal to bump the ABI version. I
+  forwarded the mail to Michael Alan Dorman (the Debian package
+  maintainer for ncurses), noting that there already had been ABI
+  breakage due to some of Eric's changes. No resolution was made at
+  that point; email from Zeyd on November 18 still echoes that
+  conversation. Eric's reply to Zeyd at that point included
+  this:</p>
+
+  <blockquote>
+    <pre class="code-block">
+&gt; I'm still tempted to move the whole release to 4.0 and avoid all the hassle
+&gt; with sonames. a link from libncurses.3.5 -&gt; libncurses.4.0 can provide
+&gt; backward compatibility since the changes are actually very limited.
+
+I have no particular opinion about this.  I don't see how changing to 4.0
+would buy us anything, but with this link it wouldn't break anything either.
+Where's the gain?
+
+Fair warning -- if you disappear down a hole again, I'm going to issue
+a public release myself.  This is not to ace you out or anything, but
+you've been virtually incommunicado since 1.9.9e. I don't think I've
+seen four pieces of email from you since.  And people are banging down
+my door trying to get a release schedule out of us.  In case you've missed
+it, most of the Linuxes are ncurses-based now, and the BSD people want to
+switch over on our next release.
+</pre>
+  </blockquote>
+
+  <p>Zeyd replied to my mail regarding 1.9.9g (cc'ing Eric),
+  proposing that we release 4.0:</p>
+
+  <blockquote>
+    <pre class="code-block">
+&gt;I'm putting together this week's snapshot as a formal release of 1.9.9g
+&gt;As I discussed before, there's a few issues that should be cleared up
+&gt;before 2.0.0, however much it irritates Eric
+&gt;
+&gt;       + the shared library versioning reported by Juergen (this is fairly
+&gt;         simple to work on)
+
+Which I would like to fix via moving to 4.0.0 and keep the ABI_VERSION equal
+to VERSION from now on. This will allow us to clean out any deadwood.
+
+libncurses.so -&gt; libncurses.so.4
+libncurses.so.4 -&gt; libncurses.so.4.0.0
+</pre>
+  </blockquote>
+
+  <p>A later email from Zeyd dated December 4 proposed a release
+  date</p>
+
+  <blockquote>
+    <pre class="code-block">
+I haven't actually looked at the contents, but I'm not inclined
+to include the second part in post-1.9.9g. I'm sure it can wait
+for post-4.0.0. Frankly, apart from fixes to docs, very few fixes
+should be incorporated prior to release of 4.0.0. The weekend
+before Xmas seems like a good point to shoot for (so users can
+fill their stockings :-)
+</pre>
+  </blockquote>
+
+  <p>The problem with the shared libraries was becoming a nuisance,
+  forcing a short timeline. My email to the mailing list on
+  December 9 summarized the situation:</p>
+
+  <blockquote>
+    <pre class="code-block">
+From owner-ncurses-list@majordomo.netcom.com  Mon Dec  9 05:59:42 1996
+Received: from majordomo.netcom.com (listless.netcom.com [206.217.29.105]) by mail.clark.net (8.8.4/8.6.5) with ESMTP id FAA22039 for &lt;dickey@clark.net&gt;; Mon, 9 Dec 1996 05:59:41 -0500 (EST)
+Received: by majordomo.netcom.com (8.7.5/8.7.3/(NETCOM MLS v1.01)) id CAA11072; Mon, 9 Dec 1996 02:47:49 -0800 (PST)
+From: "T.E.Dickey" &lt;dickey@clark.net&gt;
+Message-Id: &lt;199612091047.FAA29480@clark.net&gt;
+Subject: Re: ldconfig reports inconsistent sonames for ncurses (linux)
+To: ncurses-list@netcom.com
+Date: Mon, 9 Dec 1996 05:47:46 -0500 (EST)
+In-Reply-To: &lt;199612090336.NAA15150@sctnugen.ppp.gu.edu.au&gt; from "Tony Nugent" at Dec 9, 96 01:36:03 pm
+X-Mailer: ELM [version 2.4 PL24alpha3]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+Sender: owner-ncurses-list@majordomo.netcom.com
+Errors-To: owner-ncurses-list@majordomo.netcom.com
+Precedence: bulk
+Reply-To: ncurses-list@netcom.com
+Status: RO
+
+&gt;
+&gt; I just installed ld.so-1.8.3 (along with upgrades to gcc, libc,
+&gt; binutils etc), and running ldconfig produced the following output:
+Juergen reported this a few weeks ago.  I've tested (and put into my
+beta) Zeyd's proposal to bump the versions to 4.x.
+
+&gt; /sbin/ldconfig: warning: /usr/lib/libncurses.so.1.9.9e has inconsistent soname (libncurses.so.3.0), skipping
+&gt; /sbin/ldconfig: warning: /usr/lib/libncurses.so.1.9.7a has inconsistent soname (libncurses.so.2.1), skipping
+(my source of amusement here is that the people who were supposed to know
+that advised us that the 1.9.7a configuration was ok - I didn't like it then,
+but didn't want to start a war over it, but it would have been nice for whoever
+maintains ld.so to have more widely advertised the impact of the change)
+
+&gt; This is probably a known problem, and it can probably (hopefully!) be
+&gt; ignored.  Nothing here is broken - which at least is a good sign:)
+When I was testing, I did notice that ld.so 1.8.5 was able to _run_ the
+programs, but ldconfig doesn't show the libraries in the resulting listing.  I
+suppose they'll hobble along, whimpering.
+
+&gt; But just in case, can someone verify that this is ok (I'm aware of the
+&gt; ongoing linux soname controversy with ncurses), or will be / has been
+&gt; fixed in ncurses-1.9.9g (which I haven't installed yet... I'm waiting
+&gt; for the final version).
+probably right around Christmas, unless someone derails me -- I've got
+to finish off a change that I started on Saturday, and do some more testing.
+
+--
+Thomas E. Dickey
+dickey@clark.net
+</pre>
+  </blockquote>
+
+  <p>I proceeded, paring down the critical bugs, and on December 24
+  was ready to package a release. However, there were a few
+  problems to consider: how to resolve the issue of credits, and
+  how to ensure a timely release:</p>
+
+  <ul>
+    <li>For the first, it was certain that if I simply handed the
+    work over to Zeyd, then the resulting <a href=
+    "/ncurses/NEWS.html#t961224">NEWS</a> file would be reworded,
+    reducing and/or eliminating mention of non-<em>authors</em>.
+      <p>As a rule, I have not added my name to each entry of the
+      NEWS file, since (as primary developer and maintainer) it
+      would be very cluttered. Later (before 4.2) I added the
+      disclaimer at the top to address this. I do add my initials
+      for changes to the terminfo.src file. But my name does appear
+      in other contexts, and there are the other contributors to
+      consider.</p>
+    </li>
+
+    <li>My ftp area was not sufficient to support a release of
+    ncurses and ongoing work, so it needed a good home.</li>
+
+    <li>Zeyd (ignoring the three-month absence) was responding to
+    email. But in spite of several commenting that he was putting a
+    patched version together, I saw no result.
+      <p>Given that, I saw no reason to expect that the
+      "authoritative" version would be released soon.</p>
+    </li>
+  </ul>
+
+  <p>Reflecting on these issues, I prepared an upload to the
+  <a href="http://sunsite.unc.edu/">sunsite</a> ftp server. Their
+  format called for an ".lsm" (Linux Software Map) file. The ".lsm"
+  file included fields for <em>developer</em> and
+  <em>maintainer</em>.</p>
+
+  <p>I added my name, and Juergen's to the developers, and listed
+  them alphabetically:</p>
+
+  <ul>
+    <li>Zeyd Ben-Halim</li>
+
+    <li>Thomas Dickey</li>
+
+    <li>Eric S. Raymond</li>
+
+    <li>Juergen Pfeifer</li>
+  </ul>
+
+  <p>For maintainer, I listed myself (since it was my work), and
+  added Juergen Pfeifer. I added Juergen's name for two
+  reasons:</p>
+
+  <ul>
+    <li>like myself, there was a lot of code in ncurses which had
+    Eric's and Zeyd's names on it, which Juergen had written.</li>
+
+    <li>he was more responsive in email, producing almost as much
+    as Eric, but invariably well-considered and polite.</li>
+  </ul>
+
+  <p>I did still list Zeyd's ftp area as the primary site, and
+  added my own. I also removed Eric's ftp area because it had no
+  ncurses files.</p>
+
+  <p>The timing also came into play, since that was still in time
+  for Christmas.</p>
+
+  <p>Perhaps (if I had not run short of time), I might have sent
+  mail to Juergen and Zeyd in advance. However, the <a href=
+  "license-mail/ncurses40/0000.html">first email</a> that I have
+  from that time is the one advising Erik Troan that I had uploaded
+  a release of ncurses, and that Zeyd would be making some
+  announcement soon, to make it official.</p>
+
+  <p><a href="/ncurses/license-mail/ncurses40/index.html">Here</a>
+  is an archive of the discussion.</p>
+
+  <p>As noted in the discussion, some mail was lost by the mailing
+  list. I have used my "sent" file for instance when my mail to the
+  list did not come back to me.</p>
+
+  <p>Eric and Zeyd announced that they were preparing a release to
+  replace ncurses 4.0, but nothing ever came of that.</p>
+
+  <h3 id="January_1997-h3"><a name="January_1997" id=
+  "January_1997">January 1997</a></h3>
+
+  <p>I keep mail archives in six-month intervals. The first half of
+  1997 had more than twice as much ncurses email as the preceding
+  six months. Most of the increase is due to the conflict.</p>
+
+  <p>I continued to make weekly patch announcements (and Alexander,
+  Juergen and I continued developing), but most of the mail dealt
+  with politics.</p>
+
+  <p>On January 3, 1997, Zeyd requested that I remove ncurses 4.0
+  from my ftp area. I said "no", then upon being asked</p>
+
+  <blockquote>
+    <pre class="code-block">
+Gee, thanks a lot! Would you like to be more cryptic? Are you simply tring to
+hijack the ncurses project before Eric does?
+</pre>
+  </blockquote>
+
+  <p>I elaborated, giving my position. In our replies, we each cc'd
+  Juergen and Eric. Juergen followed up with</p>
+
+  <blockquote>
+    <pre class="code-block">
+Maybe I'm an ignorant, but could you please explain what hijacking of the
+ncurses project means to you ? Wouldn't "adopting the ncurses orphan" be
+a more proper term ?
+</pre>
+  </blockquote>
+
+  <p>Eric's response was to make an (unspecified) threat.</p>
+
+  <p>Keith Bostic had offered to help. At this point, I suggested
+  to Keith that we (including Juergen) discuss how to continue the
+  ncurses project. I picked up on an earlier offer of a separate
+  mailing list, and possibly a new home for its ftp area. He agreed
+  to help.</p>
+
+  <p>After some discussion, Juergen approached Zeyd to better
+  explain the situation. Zeyd (and Eric) did not respond until a
+  week had passed (January 18). Eric announced that no upload to
+  sunsite would be accepted without his approval. Zeyd (due to work
+  pressure) was not eager to continue with ncurses.</p>
+
+  <p>Replying to Zeyd, I wrote:</p>
+
+  <blockquote>
+    <pre class="code-block">
+&gt; any more bullshit. If Tom wants to be responsible for maintaining releases he
+&gt; can be my guest. If Eric wants to take over, he too is welcome.
+We would like to move the mailing list, if you're not interested in maintaining
+it anymore.  May I have a copy of your list?
+</pre>
+  </blockquote>
+
+  <p>Zeyd replied on the 21st, sending a list of subscribers. I
+  started talking to Keith's chief admin at BSDI (Kelly Alexander)
+  on the 23rd. Due to various technical problems, the list was not
+  set up immediately.</p>
+
+  <p>In the meantime, bickering continued on the mailing list.</p>
+
+  <p>On the 29th, Keith Bostic suggested that we talk on the
+  telephone to discuss the problems with ncurses. I called him, and
+  we talked for more than an hour. Keith had several comments to
+  make, and suggested that I send mail to Eric outlining my
+  position in detail.</p>
+
+  <p>Eric's reply was three times as long. One of the principal
+  areas of disagreement was the role of the <em>project
+  maintainer</em>. From my point of view, the attributes that he
+  used for that overlapped with the alternative (which he said I
+  was doing), called <em>project librarian</em>. The overall tone
+  was more polite, but the end result was the same as before: Eric
+  was the only suitable choice for being the maintainer, and it
+  would be nice if I continued as the project librarian.</p>
+
+  <p>I discussed this reply with Keith, who suggested that I make a
+  counter offer, where the project maintainership would be co-owned
+  between us. I followed up first with Juergen, who had some
+  concerns about Eric's proposal to be the project coordinator
+  (maintainer), if we had no rules about which circumstances would
+  be appropriate for Eric's overriding the others.</p>
+
+  <p>I started my ncurses FAQ at this point (see <a href=
+  "/ncurses/license-mail/original-ncurses.faq.html">original</a>
+  dated January 31, 1997), and responded that evening:</p>
+
+  <blockquote>
+    <pre class="code-block">
+From dickey Fri Jan 31 20:19:33 1997
+Subject: Re: your mail
+To: esr@snark.thyrsus.com (Eric S. Raymond)
+Date: Fri, 31 Jan 1997 20:19:33 +73900 (EST)
+Cc: Juergen.Pfeifer@t-online.de (Juergen Pfeifer)
+In-Reply-To: &lt;199701311852.NAA08177@snark.thyrsus.com&gt; from "Eric S. Raymond" at Jan 31, 97 01:52:48 pm
+X-Mailer: ELM [version 2.4 PL24alpha3]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 8bit
+Content-Length: 603
+Status: RO
+
+Rather than respond point by point, I'll be brief.  My proposal (which is what
+Keith &amp; I discussed this week) is that we organize this as equal partners in
+respect to discussion of release targets, design issues.  (His term is 'board
+of directors').  Discussion of this nature would be separate from the mailing
+list - but in a polite manner nonetheless.
+
+I would continue to maintain the source archive, as I have been doing,
+integrating patches that look stable enough for public beta, tracking
+problems that have been reported.
+</pre>
+  </blockquote>
+
+  <p>Incidentally, I considered my phrasing about the
+  &ldquo;pun&rdquo; to be awkward wording. However, I have noticed
+  others quoting me on that, e.g., in the <em>ncurses <span style=
+  "font-variant:small-caps">howto</span></em> written several years
+  later.</p>
+
+  <h3 id="February_1997-h3"><a name="February_1997" id=
+  "February_1997">February 1997</a></h3>
+
+  <p>I received no reply to that; the bickering continued.</p>
+
+  <p>A user reported on the 14th that 1.9.9g was no longer
+  available from Zeyd's ftp area (it was a zero-length file). I
+  remarked to Juergen on the 19th that Red Hat was distributing
+  ncurses 4.0 with my patches through February 9. Shortly after (on
+  the 21st), I noted that 1.9.9g was no longer on sunsite. There
+  were about 30 downloads a day of ncurses from my ftp area.</p>
+
+  <h3 id="March_1997-h3"><a name="March_1997" id="March_1997">March
+  1997</a></h3>
+
+  <p>I noted in email to Juergen on the 8th that Zeyd had replaced
+  the 1.9.9g on his ftp area on the 26th. Also, the new mailing
+  list was still not setup properly. There had been some suggestion
+  of uploading the next release of ncurses to
+  <strong>prep.ai.mit.edu</strong> (the old GNU site), though that
+  was still in the future.</p>
+
+  <p>On the 27th, Juergen told me that 1.9.9g was on
+  <strong>prep.ai.mit.edu</strong>. Immediately after that, Zeyd
+  emailed me, asking what plans I had for 4.1.</p>
+
+  <h3 id="April_1997-h3"><a name="April_1997" id="April_1997">April
+  1997</a></h3>
+
+  <p>The new mailing list finally worked. I subscribed to it
+  (ncurses@bsdi.com) on the 9th. The first regular email was on the
+  <a href="/ncurses/license-mail/ncurses41/0030.html">12th</a>. I
+  updated the subscribers list (155 total).</p>
+
+  <h3 id="May_1997-h3"><a name="May_1997" id="May_1997">May
+  1997</a></h3>
+
+  <p>At the beginning of May, Zeyd wrote that he was having trouble
+  shutting down the old mailing list, or providing forwarding. I
+  replied that I was nearly ready to release 4.1.</p>
+
+  <p>At the same time, I applied a patch from Juergen which changed
+  the copyright owner for the form and menu libraries to him. This
+  made the wording consistent with the notices which I used. Here
+  is a sample:</p>
+
+  <blockquote>
+    <pre class="code-block">
+/*-----------------------------------------------------------------------------+
+|           The ncurses menu library is  Copyright (C) 1995-1997               |
+|             by Juergen Pfeifer &lt;Juergen.Pfeifer@T-Online.de&gt;                 |
+|                          All Rights Reserved.                                |
+|                                                                              |
+| Permission to use, copy, modify, and distribute this software and its        |
+| documentation for any purpose and without fee is hereby granted, provided    |
+| that the above copyright notice appear in all copies and that both that      |
+| copyright notice and this permission notice appear in supporting             |
+| documentation, and that the name of the above listed copyright holder(s) not |
+| be used in advertising or publicity pertaining to distribution of the        |
+| software without specific, written prior permission.                         |
+|                                                                              |
+| THE ABOVE LISTED COPYRIGHT HOLDER(S) DISCLAIM ALL WARRANTIES WITH REGARD TO  |
+| THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FIT-  |
+| NESS, IN NO EVENT SHALL THE ABOVE LISTED COPYRIGHT HOLDER(S) BE LIABLE FOR   |
+| ANY SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RE- |
+| SULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, |
+| NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH    |
+| THE USE OR PERFORMANCE OF THIS SOFTWARE.                                     |
++-----------------------------------------------------------------------------*/
+</pre>
+  </blockquote>
+
+  <p>Juergen did not change the notices in the Ada95 binding, which
+  was inconsistent. However, this change made the copyright notices
+  fairly evenly split between Eric and Zeyd on one part, and me and
+  Juergen on the other.</p>
+
+  <h3 id="patch_970515-h3"><a name="patch_970515" id=
+  "patch_970515">ncurses 4.1 &ndash; May 15, 1997</a></h3>
+
+  <p>After a couple of false starts, ncurses 4.1 was ready for
+  release.</p>
+
+  <p>More than one person suggested uploading it to
+  <strong>prep.ai.mit.edu</strong>. Following up got this
+  result:</p>
+
+  <blockquote>
+    <pre class="code-block">
+From hjl@lucon.org  Wed May 14 23:19:26 1997
+Received: from ocean.lucon.org (root@ocean.lucon.org [204.160.189.73]) by mail.clark.net (8.8.5/8.6.5) with SMTP id XAA06418 for &lt;dickey@clark.net&gt;; Wed, 14 May 1997 23:19:18 -0400 (EDT)
+Received: by ocean.lucon.org
+        id m0wRr4v-0004ecC
+        (Debian /\oo/\ Smail3.1.29.1 #29.37); Wed, 14 May 97 20:19 PDT
+Message-Id: &lt;m0wRr4v-0004ecC@ocean.lucon.org&gt;
+From: hjl@lucon.org (H.J. Lu)
+Subject: Re: The latest ncurses 4.1 (fwd)
+To: dickey@clark.net
+Date: Wed, 14 May 1997 20:19:41 -0700 (PDT)
+X-Mailer: ELM [version 2.4 PL25 PGP2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Status: RO
+Content-Length: 634
+Lines: 16
+
+Forwarded message:
+&gt;From drepper@ipd.info.uni-karlsruhe.de Wed May 14 20:12:57 1997
+Date: Wed, 14 May 1997 23:11:22 -0400
+Message-Id: &lt;199705150311.XAA24111@psilocin.gnu.ai.mit.edu&gt;
+From: Richard Stallman &lt;rms@gnu.ai.mit.edu&gt;
+To: hjl@lucon.org
+CC: libc-linux@gnu.ai.mit.edu, drepper@gnu.ai.mit.edu
+In-reply-to: &lt;m0wRowf-0004ecC@ocean.lucon.org&gt; (hjl@lucon.org)
+Subject: Re: The latest ncurses 4.1
+References:  &lt;m0wRowf-0004ecC@ocean.lucon.org&gt;
+
+    The lastest ncurses 4.1 970510, supports glibc as an add-on. I
+    was asked by the ncurses maintainer that how to update ncurses
+    at prep.ai.mit.edu.
+
+Please ask him to contact me.
+</pre>
+  </blockquote>
+
+  <p>and this</p>
+
+  <blockquote>
+    <pre class="code-block">
+Date: Thu, 15 May 1997 19:37:54 -0400
+From: Richard Stallman &lt;rms@gnu.ai.mit.edu&gt;
+To: dickey@clark.net
+cc: kwzh@gnu.ai.mit.edu
+Subject: Re: The latest ncurses 4.1 (fwd)
+
+kwzh@gnu is te person who puts things on prep.
+Karl, could you please put the latest ncurses on prep?
+</pre>
+  </blockquote>
+
+  <p>After that, things were quiet for a couple of weeks, until I
+  responded to a terminfo update on the old mailing list. Eric
+  <a href="/ncurses/license-mail/ncurses41/0040.html">responded to
+  my comment</a>. This is the first of several emails, all of about
+  the same flavor:</p>
+
+  <p><em>Someone</em> did remove the file from
+  <strong>prep.ai.mit.edu</strong>. Apparently a different
+  <em>someone</em> followed up to Eric's missive, making RMS aware
+  of the issue. His first <a href=
+  "license-mail/ncurses41/0045.html">response</a> was on May
+  30:</p>
+
+  <blockquote>
+    <pre class="code-block">
+Having seen only one side of the story, I don't know Dickey did, or
+whether it was illegal or even uncool.  But there are certain general
+things I can say for certain:
+
+1. The copyright holders of ncurses cannot retroactively deny any
+party the right to change and distribute ncurses in accord with the
+distribution terms that are published on it.  A freedom which can be
+summarily taken away is no freedom at all.
+
+2. If someone has violated these distribution terms, that's a
+different matter, since that is doing something for which permission
+was never given.
+
+3. None of you is authorized to delete files from prep.ai.mit.edu.
+
+If I believe that ncurses 4.1 was made illegally, or if I conclude
+that it's not good for the community, I'll stop the FSF's distribution
+of it.  But I am going to judge this for myself, after hearing both
+sides.
+</pre>
+  </blockquote>
+
+  <p>There were about 300 emails from the ncurses mailing lists
+  over the next day. There was also a thread on <a href=
+  "http://lists.debian.org/debian-devel/1997/06/threads.html#00127">
+  Debian developer</a> mailing list, but I was not invited. Debian
+  had been distributing a package based on 1.9.9g, labeling it as
+  "3.4", with the <a href=
+  "http://lists.debian.org/debian-devel/1997/05/msg01173.html">expectation</a>
+  that 4.1 would resolve enough issues to make "3.4" obsolete.
+  Debian developers were notable for discussing the issue at length
+  without questioning any detail of Eric's account of the
+  situation.</p>
+
+  <h3 id="June_1997-h3"><a name="June_1997" id="June_1997">June
+  1997</a></h3>
+
+  <p>At the time, I discarded the uninteresting ones (and some,
+  such as the thread in which Eric was discredited when he claimed
+  that I had no copyright on my code because I "gave" it to him).
+  Interestingly, there are few comments on the flamewar, aside from
+  those by the Debian ncurses <a href=
+  "http://www.ibiblio.org/pub/historic-linux/distributions/debian-1.1/i386/indices/Maintainers">
+  package maintainer</a> Michael Alan Dorman <a href=
+  "http://lkml.org/lkml/2002/2/15/143/">here</a> and <a href=
+  "http://www.advogato.org/person/mdorman/">here</a>.</p>
+
+  <p>Most of what I discarded however, was simple "me-too"
+  attacks.</p>
+
+  <p>However, one of those <a href=
+  "license-mail/ncurses41/0111.html">elaborated</a> an
+  interpretation of the ncurses license which caught RMS's
+  attention. RMS <a href=
+  "license-mail/ncurses41/0115.html">wrote</a>:</p>
+
+  <blockquote>
+    <pre class="code-block">
+I just checked the ncurses distribution terms, and was very surprised:
+they *do not* give permission for distribution of modified versions.
+
+I had assumed ncurses was free software because "everyone knew" it".
+I was under the impression that ncurses was derived from some BSD
+software and was distributed under the same terms as BSD.  I should
+have checked the distribution terms when the FSF first considered
+distributing ncurses.  I am sorry I failed to do that.
+
+Unfortunately, this means that ncurses is not free software.
+The freedom to distribute modified versions, including changes that
+the author does not like, is a crucial aspect of free software.
+
+As a result, it is indeed forbidden for Dickey, or any of us, to
+distribute modified versions.  So I deleted ncurses 4.1 from prep.
+
+I also deleted the other versions of ncurses from prep, because the
+FSF exists to develop and distribute free software only.  Distributing
+a non-free program, even if legally permitted, does not advance our
+mission.
+
+The free software community is now in a hole.  We need a good free
+curses package for free operating systems, and the one we thought we
+had, we do not have.  I can see three possible ways we can come up
+with one:
+
+* ESR and Zeyd together can agree to permit distribution of modified
+versions and thus make ncurses free software.
+
+* Someone can write a new program which is free software.  Perhaps
+some of Dickey's code, and other recent contributors' code, can be
+used as part of this.
+
+* There may be another good alternative, or at least one that is
+better than nothing.  Does anyone know?
+
+The first way is best.  Perhaps it is possible.  ESR spoke of
+transferring ncurses to the FSF.  If both ESR and Zeyd are willing to
+say yes to this, and understand that we would have to change the
+distribution terms and thus make ncurses free software, then the FSF
+will say yes to it.
+</pre>
+  </blockquote>
+
+  <p>In subsequent discussion, Eric more than once insisted that
+  his and Zeyd's copyrights were the only relevant ones, and that
+  mine (and Juergen's) were irrelevant. RMS responded to Eric,
+  cc'ing Keith, me, Juergen and Zeyd:</p>
+
+  <blockquote>
+    <pre class="code-block">
+Subject: Re: ncurses 4.1
+
+    Not true.  See Kaz Kylheku's analysis of this point, and Richard
+    Stallman's conclusions upon analyzing the ncurses license language.
+    Zeyd's and my wishes are the only ones legally relevant.
+
+Perhaps there is a misunderstanding; that is not what I meant to imply.
+
+Although you and Zeyd are the only people whose names mentioned in the
+copyright notice, that does not mean you two are the only copyright
+holders.  In fact, each contributor holds the copyright to his own
+work, unless he has assigned it or disclaimed it.
+
+Whether you have the right to use other contributors' work, or they
+yours, I don't know.  I do know that it is a complicated question.
+One of the reasons why the FSF asks for legal papers from all
+contributors is to eliminate uncertainty about whether we can use
+their contributions.
+</pre>
+  </blockquote>
+
+  <p>Just before that, RMS sent private email to me:</p>
+
+  <blockquote>
+    <pre class="code-block">
+I don't blame you for feeling angry, but expressing anger to Eric may
+be counterproductive.  He may be less likely to agree to make *his*
+work free software if he dwells on the conflict between you.
+
+So I would suggest that you not post on the list for a while,
+hoping that Eric will calm down and agree.
+</pre>
+  </blockquote>
+
+  <p>I complied with that request, limiting my comments (other than
+  patch notices) to private email.</p>
+
+  <p>In the followup discussion, several people suggested
+  relicensing ncurses, and perhaps adding a neutral third person to
+  be the project lead:</p>
+
+  <ul>
+    <li>Jason Evans <a href=
+    "license-mail/ncurses41/0066.html">suggested</a> assigning
+    copyrights to a third party but did not address the issue of
+    the project lead.</li>
+
+    <li>Florian La Roche went a little further, <a href=
+    "license-mail/ncurses41/0138.html">suggesting himself</a> as a
+    possible maintainer.</li>
+
+    <li>Keith Bostic picked up on Jason Evans comments in private
+    email to me and Eric, cc'ing Jason Evans and RMS on June 3:
+      <blockquote>
+        <pre class="code-block">
+Given that Jason has the time and inclination to work on a
+curses project, would he be a possible choice as an FSF person
+to shepherd the ncurses project forward?
+
+Eric, you've said that you'd be willing to have a neutral 3rd
+party head the project.  Jason hasn't worked with either you or
+Tom in the past, and he believes he has the time and background
+to bring himself up to speed quickly.
+
+Tom, Eric, would you consider the following:
+
+    + Jason takes responsibility for moderating the patches
+      and releases of ncurses.  He owns taking patches from all
+      interested parties, coordinating people's efforts,
+      deciding issues about which there is contention, and
+      making releases.  I'll sign up to help him when he wants
+      me to.
+
+    + Put a Berkeley-style copyright on the sources (Eric is
+      unwilling to use the LGPL).
+
+    + We jointly ensure that the source code acknowledgements
+      are correct and up-to-date.
+
+    + The four main contributors to ncurses assign their copyright
+      in ncurses to the FSF.
+</pre>
+      </blockquote>
+
+      <p>I replied to Keith Bostic that it sounded reasonable. Eric
+      <a href=
+      "/ncurses/license-mail/ncurses41/0087.html">referred</a> to
+      it in the mailing list, implying a more active role than was
+      apparent.</p>
+
+      <p>Keith Bostic emailed the four ncurses developers (me,
+      Eric, Juergen and Zeyd) recapping the progress, and stating
+      that both Eric and I had agreed in principle to let a neutral
+      third party manage the project. He listed three who were
+      apparently willing. Licensing was the more important aspect
+      of the mail; Eric had not yet agreed to changing the license
+      to permit modification and redistribution. Keith wanted to
+      know if there was any problem with the other developers with
+      either BSD or LGPL.</p>
+
+      <p>I replied that I had been using a BSD-style license.</p>
+    </li>
+  </ul>
+
+  <p>Jason Evans pointed out that ncurses itself was a <a href=
+  "license-mail/ncurses41/0095.html">derivative work</a> of
+  pcurses. I replied to Jason privately:</p>
+
+  <blockquote>
+    <pre class="code-block">
+Zeyd has asserted that he received permission (that Pavel declared it
+public domain).  I've never seen any email from Pavel.
+</pre>
+  </blockquote>
+
+  <p>Zeyd <a href=
+  "/ncurses/license-mail/ncurses41/0096.html">replied</a> to the
+  list.</p>
+
+  <blockquote>
+    <pre class="code-block">
+According to Adam Richter of Yggdrasil, Pavel Curtis released his work in
+pcurses into the public domain. Up until that point I included his copyright
+notice and a copyright notice to cover my own work. Thomas was not involved
+with ncurses at the time and is not privy what happened before he did. It is
+kinda late for him to question events. All of a sudden people are coming
+out the woodwork claiming that ncurses is not free because they were not aware
+of the copyright! The main purpose of the copyright is to prevent others from
+taking ncurses, modifying it, and then releasing it as their own work.
+I believe QNX include a modified copy of ncurses, but nobody is complaining
+becuase they are not misrepresenting it as their own work.
+</pre>
+  </blockquote>
+
+  <p>As I previously noted, after <a href=
+  "#ncurses_1_9_9e">1.9.9e</a> I had collected copies of all extent
+  versions of ncurses as well as pcurses. My comments have been
+  based on email from Eric and Zeyd as well as the source code as
+  it evolved. At the time, I read Zeyd's reply as no more than
+  confirming that the public domain status of pcurses was second
+  hand information.</p>
+
+  <p>Zeyd's comment about "included his copyright" on the other
+  hand requires quantification.<br>
+  Here is a table showing counts of copyright and attribution (the
+  author's name) in source and documentation for each release
+  through 4.2:</p>
+
+  <table summary="Counts of Copyrights and Attribution" border="1">
+    <tr>
+      <th>Release</th>
+      <th colspan="6">Copyright</th>
+      <th colspan="5">Attribution</th>
+    </tr>
+
+    <tr>
+      <th>
+      </th>
+      <th>FSF</th>
+      <th>Pavel</th>
+      <th>Zeyd</th>
+      <th>Eric</th>
+      <th>Thomas</th>
+      <th>Juergen</th>
+      <th>Pavel</th>
+      <th>Zeyd</th>
+      <th>Eric</th>
+      <th>Thomas</th>
+      <th>Juergen</th>
+    </tr>
+
+    <tr>
+      <td><a href="#pcurses_1986">pcurses</a>
+      </td>
+      <td>&nbsp;</td>
+      <td>62</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>353</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+
+    <tr>
+      <td><a href="#ncurses_0_7_2">ncurses 0.7.2</a>
+      </td>
+      <td>&nbsp;</td>
+      <td>2</td>
+      <td>1</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>10</td>
+      <td>7</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+
+    <tr>
+      <td><a href="#ncurses_1_8_1">ncurses 1.8.1</a>
+      </td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>8</td>
+      <td>10</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+
+    <tr>
+      <td><a href="#ncurses_1_8_5">ncurses 1.8.5</a>
+      </td>
+      <td>1</td>
+      <td>&nbsp;</td>
+      <td>1</td>
+      <td>1</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>14</td>
+      <td>13</td>
+      <td>8</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+
+    <tr>
+      <td><a href="#ncurses_1_8_6">ncurses 1.8.6</a>
+      </td>
+      <td>1</td>
+      <td>&nbsp;</td>
+      <td>7</td>
+      <td>1</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>6</td>
+      <td>7</td>
+      <td>10</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+
+    <tr>
+      <td><a href="#ncurses_1_9">ncurses 1.9</a>
+      </td>
+      <td>1</td>
+      <td>&nbsp;</td>
+      <td>85</td>
+      <td>86</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>7</td>
+      <td>10</td>
+      <td>31</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+
+    <tr>
+      <td><a href="#ncurses_1_9_1">ncurses 1.9.1</a>
+      </td>
+      <td>1</td>
+      <td>&nbsp;</td>
+      <td>87</td>
+      <td>88</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>7</td>
+      <td>11</td>
+      <td>31</td>
+      <td>2</td>
+      <td>&nbsp;</td>
+    </tr>
+
+    <tr>
+      <td><a href="#ncurses_1_9_2">ncurses 1.9.2</a>
+      </td>
+      <td>1</td>
+      <td>&nbsp;</td>
+      <td>86</td>
+      <td>87</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>7</td>
+      <td>11</td>
+      <td>31</td>
+      <td>2</td>
+      <td>&nbsp;</td>
+    </tr>
+
+    <tr>
+      <td><a href="#ncurses_1_9_3">ncurses 1.9.3</a>
+      </td>
+      <td>1</td>
+      <td>&nbsp;</td>
+      <td>89</td>
+      <td>90</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>7</td>
+      <td>15</td>
+      <td>45</td>
+      <td>3</td>
+      <td>&nbsp;</td>
+    </tr>
+
+    <tr>
+      <td><a href="#ncurses_1_9_4">ncurses 1.9.4</a>
+      </td>
+      <td>2</td>
+      <td>&nbsp;</td>
+      <td>116</td>
+      <td>117</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>7</td>
+      <td>14</td>
+      <td>71</td>
+      <td>3</td>
+      <td>24</td>
+    </tr>
+
+    <tr>
+      <td><a href="#ncurses_1_9_5">ncurses 1.9.5</a>
+      </td>
+      <td>1</td>
+      <td>&nbsp;</td>
+      <td>116</td>
+      <td>117</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>7</td>
+      <td>14</td>
+      <td>72</td>
+      <td>3</td>
+      <td>24</td>
+    </tr>
+
+    <tr>
+      <td><a href="#ncurses_1_9_6">ncurses 1.9.6</a>
+      </td>
+      <td>1</td>
+      <td>&nbsp;</td>
+      <td>134</td>
+      <td>135</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>7</td>
+      <td>14</td>
+      <td>97</td>
+      <td>3</td>
+      <td>49</td>
+    </tr>
+
+    <tr>
+      <td><a href="#ncurses_1_9_7a">ncurses 1.9.7a</a>
+      </td>
+      <td>2</td>
+      <td>&nbsp;</td>
+      <td>130</td>
+      <td>131</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>7</td>
+      <td>14</td>
+      <td>258</td>
+      <td>3</td>
+      <td>49</td>
+    </tr>
+
+    <tr>
+      <td><a href="#ncurses_1_9_8a">ncurses 1.9.8a</a>
+      </td>
+      <td>2</td>
+      <td>&nbsp;</td>
+      <td>130</td>
+      <td>131</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>7</td>
+      <td>14</td>
+      <td>273</td>
+      <td>3</td>
+      <td>49</td>
+    </tr>
+
+    <tr>
+      <td><a href="#ncurses_1_9_9">ncurses 1.9.9</a>
+      </td>
+      <td>2</td>
+      <td>&nbsp;</td>
+      <td>131</td>
+      <td>132</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>7</td>
+      <td>14</td>
+      <td>282</td>
+      <td>5</td>
+      <td>49</td>
+    </tr>
+
+    <tr>
+      <td><a href="#ncurses_1_9_9a">ncurses 1.9.9a</a>
+      </td>
+      <td>2</td>
+      <td>&nbsp;</td>
+      <td>130</td>
+      <td>131</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>7</td>
+      <td>14</td>
+      <td>281</td>
+      <td>5</td>
+      <td>49</td>
+    </tr>
+
+    <tr>
+      <td><a href="#ncurses_1_9_9b">ncurses 1.9.9b</a>
+      </td>
+      <td>2</td>
+      <td>&nbsp;</td>
+      <td>130</td>
+      <td>131</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>7</td>
+      <td>14</td>
+      <td>281</td>
+      <td>5</td>
+      <td>49</td>
+    </tr>
+
+    <tr>
+      <td><a href="#ncurses_1_9_9c">ncurses 1.9.9c</a>
+      </td>
+      <td>2</td>
+      <td>&nbsp;</td>
+      <td>131</td>
+      <td>132</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>7</td>
+      <td>14</td>
+      <td>281</td>
+      <td>5</td>
+      <td>49</td>
+    </tr>
+
+    <tr>
+      <td><a href="#ncurses_1_9_9d">ncurses 1.9.9d</a>
+      </td>
+      <td>2</td>
+      <td>&nbsp;</td>
+      <td>131</td>
+      <td>132</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>7</td>
+      <td>14</td>
+      <td>281</td>
+      <td>5</td>
+      <td>49</td>
+    </tr>
+
+    <tr>
+      <td><a href="#ncurses_1_9_9e">ncurses 1.9.9e</a>
+      </td>
+      <td>2</td>
+      <td>&nbsp;</td>
+      <td>131</td>
+      <td>132</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>7</td>
+      <td>14</td>
+      <td>281</td>
+      <td>5</td>
+      <td>49</td>
+    </tr>
+
+    <tr>
+      <td><a href="#patch_961130">ncurses 1.9.9g</a>
+      </td>
+      <td>2</td>
+      <td>&nbsp;</td>
+      <td>140</td>
+      <td>141</td>
+      <td>42</td>
+      <td>&nbsp;</td>
+      <td>8</td>
+      <td>19</td>
+      <td>367</td>
+      <td>18</td>
+      <td>259</td>
+    </tr>
+
+    <tr>
+      <td><a href="#patch_961224">ncurses 4.0</a>
+      </td>
+      <td>2</td>
+      <td>&nbsp;</td>
+      <td>140</td>
+      <td>141</td>
+      <td>45</td>
+      <td>&nbsp;</td>
+      <td>8</td>
+      <td>18</td>
+      <td>354</td>
+      <td>24</td>
+      <td>268</td>
+    </tr>
+
+    <tr>
+      <td><a href="#patch_970515">ncurses 4.1</a>
+      </td>
+      <td>4</td>
+      <td>&nbsp;</td>
+      <td>98</td>
+      <td>99</td>
+      <td>50</td>
+      <td>43</td>
+      <td>8</td>
+      <td>19</td>
+      <td>350</td>
+      <td>27</td>
+      <td>244</td>
+    </tr>
+
+    <tr>
+      <td><a href="#patch_980302">ncurses 4.2</a>
+      </td>
+      <td>433</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>8</td>
+      <td>154</td>
+      <td>510</td>
+      <td>101</td>
+      <td>364</td>
+    </tr>
+  </table>
+
+  <p>Notes on the table:</p>
+
+  <ul>
+    <li>As noted, Eric's involvement predated <a href=
+    "#ncurses_1_8_5">ncurses 1.8.5</a>, when the Pavel's copyright
+    notice was removed. The more elaborate notice in each file
+    dated from the beginning of Eric's fulltime involvement with
+    the project. Zeyd found some issue with my summary of ncurses
+    history, but did not respond to my direct questions asking
+    where the disagreement lay. The email quoted above is the only
+    polite one mentioning the issue.</li>
+
+    <li>Zeyd <a href=
+    "/ncurses/license-mail/ncurses41/0054.html">here</a> stated
+    that he was working on ncurses in 1991. The copyrights say 1992
+    for the earliest date.</li>
+
+    <li>The earlier FSF copyrights were for the
+    <code>cursesw.cc</code> file, and the <code>configure</code>
+    script. My older archives (until ncurses 5.5, when I changed my
+    strategy for regression builds) did not tag the related
+    <code>config.guess</code> and <code>config.sub</code>
+    files.</li>
+
+    <li>As part of development of <code>cursesw.cc</code>, it had
+    been rewritten, so (while its copyright has "always" been FSF),
+    the license was changed for conformity with ncurses.</li>
+
+    <li>I started writing the autoconf-based <code>configure</code>
+    script in May 1995. The first release containing this (and the
+    reworked makefiles, etc) was <a href="#ncurses_1_9_2">ncurses
+    1.9.2</a>. The NEWS file did mention this change; none of the
+    comments credit me with the work. I see 27 items in the NEWS
+    file mentioning my work (through <a href=
+    "#ncurses_1_9_9e">ncurses 1.9.9e</a>), 2 are attributed to
+    me.</li>
+
+    <li>There was an earlier configure script, which Eric wrote.
+    But it was unsatisfactory, requiring the developers to maintain
+    a matrix of all possible #defines (host versus definition).
+    Eric may have been referring to that, though it did not occur
+    to me <a href="/ncurses/license-mail/ncurses41/0056.html">at
+    the time</a>. We had not used it for more than two years.</li>
+
+    <li>After 1.9.9e, unmarked items in <a href=
+    "NEWS.html">NEWS</a> are noted to be my own work, reducing
+    clutter.</li>
+
+    <li>When releasing <a href="#patch_961130">ncurses 1.9.9g</a>,
+    I added my copyright notice to the configure script and
+    makefiles.</li>
+
+    <li>Copyrights by Eric and Zeyd were for the same files; Eric
+    had copyrighted in addition the test/ncurses.c file.</li>
+
+    <li>Attributions for Eric increased noticeably at 1.9.7a
+    because starting at that point the terminfo.src file was
+    bundled with ncurses. Eric initialed many changes in that
+    file.</li>
+
+    <li>Copyrights for Eric and Zeyd dropped at <a href=
+    "#patch_970515">ncurses 4.1</a> because Juergen asserted his
+    copyright.</li>
+
+    <li>Attributes for both Eric and Zeyd increased with ncurses
+    4.2, because the scripts which I developed for changing the
+    copyright notices added "Author" comments to replace the
+    copyright notices which were removed.</li>
+
+    <li>Copyright notices for 4.2 covered the files which had RCS
+    identifiers, e.g., were not generated.</li>
+  </ul>
+
+  <p>I contacted Pavel that evening to get his input on its
+  copyright status. He replied</p>
+
+  <blockquote>
+    <pre class="code-block">
+I am the author.  I make no claims whatsoever to ownership of the code, to
+rights to any credit (monetary or otherwise) for its use, or to its legal
+or technical fitness for any purpose.  Basically, from my point of view,
+you should treat it as completely free "found" code.  Enjoy.
+</pre>
+  </blockquote>
+
+  <p>The following day (June 5), I clarified in mail a reply to
+  RMS, cc'ing Juergen and Keith, a forward of Pavel's email:</p>
+
+  <blockquote>
+    <pre class="code-block">
+&gt; If it is true that ncurses still includes material derived from
+&gt; pcurses, then we would need to have Pavel's permission for its use.
+&gt;
+&gt; However, if he gave permission for the use of this material in ncurses
+&gt; some time ago, that permission may be sufficient.  It depends on the
+&gt; details of the permission that was given.
+&gt;
+&gt; Also, if he sees our situation, and he thinks that our plans for
+&gt; ncurses are a reasonable way of handling the situation, he may extend
+&gt; the permission that he gave previously.
+I sent email to Pavel last night (having gotten a current address via
+DejaNews), and he has no problems with that.  Jason was misinterpreting my
+statement of distaste (for the removal of the original author's name from
+files rather than citing the author in the copyright notice), as opposed to
+a claim that they'd violated his legal rights).
+</pre>
+  </blockquote>
+
+  <p>Following this short burst at the beginning of June 1997,
+  almost all of the licensing related mail was private. There were
+  occasional queries from users directed to the mailing list, but
+  again, my replies were private.</p>
+
+  <p>For instance, on the 13th it seems that I was the only one who
+  responded to a request from RMS for a list of contributors:</p>
+
+  <blockquote>
+    <pre class="code-block">
+So can people please put together a complete list of everyone who
+contributed to ncurses, and classify them into major and minor
+contributors?
+
+The major contributors are people who wrote more than 10% (roughly) or
+who contributed entire new files.  Others are minor contributors.
+
+People who contributed less than 20 lines can be omitted from the
+list, since we don't want to ask them for papers.
+</pre>
+  </blockquote>
+
+  <p id="metrics19970613">Replying, I pointed out that there were
+  six major contributors (Pavel Curtis and Warren Tucker as well as
+  the then-current four), with only two active developers. From the
+  NEWS file I listed 16 minor contributors.</p>
+
+  <p id="metrics19970824">In a later message (on August 24, to RMS
+  and Florian), I reported data from <a href=
+  "/personal/changelogs.html#categories">RCS logs</a>. The data
+  showed that:</p>
+
+  <ul>
+    <li>9 of the minor contributors could be discarded.</li>
+
+    <li>Juergen and I had done most of the changes (he had added
+    more new code, while I had made more changes to existing
+    code).</li>
+
+    <li>Most of Eric's changes were modifications to existing code;
+    he had done less in that area than Juergen. He ranked third on
+    that list.</li>
+
+    <li>Unexpectedly, from that data it was apparent that Alexander
+    was a major contributor, ranking fourth.</li>
+
+    <li>For the period where I had data, Zeyd was a minor
+    contributor, between H.J.&nbsp;Lu and Philippe De Muyter.</li>
+
+    <li>All of the minor contributors together totaled less than
+    one percent of the changes.</li>
+  </ul>
+
+  <p>My list was not the final one. Reviewing the various lists in
+  2011, I see that:</p>
+
+  <ul>
+    <li>Warren Tucker (original author of the panel library) was
+    categorized as a minor contributor.</li>
+
+    <li>Some of the contributors who had not met the 15-line
+    threshold (and who were not mentioned in any of the usual
+    places such as NEWS, README or terminfo.src files) were listed
+    in email from RMS on September 24 as minor contributors.</li>
+  </ul>
+
+  <p>For my own reference, I made a table. Here are counts from
+  that table.</p>
+
+  <ul>
+    <li>I had listed 16 contributors from the NEWS file (other than
+    the 4 main developers), and then showed data from RCS logs to
+    reduce that to 7.</li>
+
+    <li>23 minor contributors were given in the <a href=
+    "#final19970919">final list</a> on September 19.</li>
+
+    <li>my data overlooked two of these, but on reexamination, it
+    appears that they probably did not meet the 15-line (or later
+    20-line) limit.</li>
+
+    <li>4 of the contributors who I listed as not meeting the
+    15-line limit were nonetheless in the final list.</li>
+
+    <li>one is listed, though the only contribution on record was a
+    flawed patch that I had reworked to make it usable.</li>
+
+    <li>another was marginal, providing 17 lines of changes.</li>
+
+    <li>the README file appears to be the source for 6 others. One
+    contributor is mentioned <em>there</em>, but there is nowhere
+    an indication that they provided code or documentation.</li>
+  </ul>
+
+  <p>Given that, the list might have been pruned to 14. As an added
+  complication, three of the minor contributors would in other
+  situations be regarded as major contributors (one with more than
+  2500 lines of change, and two with more than 1000).</p>
+
+  <p>At the end of June, I pointed out to RMS and Keith that there
+  was a problem with the terminfo.src file versus ncurses. I had
+  noticed that Eric was preparing an update which was flawed in
+  more than one way.</p>
+
+  <h3 id="July_1997-h3"><a name="July_1997" id="July_1997">July
+  1997</a></h3>
+
+  <p>After some discussion, I made my point that it was
+  unreasonable to expect ncurses to be independent of Eric unless
+  its copy of the terminfo.src file was also independent. The
+  ncurses maintainer would have to deal with technical issues
+  (which I noted at the time).</p>
+
+  <p id="policy19970702">In concluding that discussion, RMS said in
+  part:</p>
+
+  <blockquote>
+    <pre class="code-block">
+When Florian takes over as ncurses maintainer, he will maintain the
+copy of the terminfo data base that's included in ncurses.  You don't
+have to pay attention to the copy of the terminfo data base that Eric
+distributes.
+</pre>
+  </blockquote>
+
+  <p>We had not completely solved the problem, because I continued
+  doing almost all of the technical work related to ncurses. But a
+  policy had been established.</p>
+
+  <p>Florian was very busy (with work for SuSE, and later with a
+  new child). I have a half-dozen replies in my mail archive for
+  July 1997, one for August, another half-dozen for September, none
+  for October or November, two for December. There are several from
+  January and February 1998, when I was preparing the actual
+  release. But in practice (aside from fending off requests to do
+  releases) my activities were not very different from the
+  preceding six months.</p>
+
+  <p>In mid-July RMS asked for status, and I told him that I was
+  waiting for Florian, but was willing to spend time, e.g., review,
+  integrate, test. RMS asked Florian, who replied that he was
+  waiting for confirmation from Zeyd, and also that he was in the
+  process of updating the license notice in each file. His mail
+  said "40%", which gave me the impression that he was editing the
+  files, rather than scripting the process (Florian and I had
+  discussed scripting this, starting on June 20, and I also
+  suggested <a href="/ded/copyrite.html">copyrite</a>).</p>
+
+  <p id="license19970717">Florian also attached "the currently used
+  copyright terms" (the ncurses license, which I saw there for the
+  first time). Given the people involved, and the discussion up to
+  that point, it is my understanding that Keith Bostic was the
+  source of the modified license.</p>
+
+  <p>Eric responded to Florian's message:</p>
+
+  <blockquote>
+    <pre class="code-block">
+&gt; I have changed about 40% of the ncurses files to have the new copyright.
+
+I hope you started from the cleaned-up version I made available.
+</pre>
+  </blockquote>
+
+  <p>Florian replied to Eric's mail:</p>
+
+  <blockquote>
+    <pre class="code-block">
+&gt; I hope you started from the cleaned-up version I made available.
+
+I couldn't do that. I need to know who owned the original copyright, since
+that person will also own the the new file, just with a different copyright
+notice.
+</pre>
+  </blockquote>
+
+  <p>and</p>
+
+  <blockquote>
+    <pre class="code-block">
+&gt; Other than that, I have no pending issues.
+
+I did not use that package, but a current snapshot of Thomas Dickey.
+It does not make sense to use a really old ncurses-source like ncurses
+1.9.9e. So we should agree on just using the development version.
+</pre>
+  </blockquote>
+
+  <p>Again, this was news to me. There was more. But first, RMS
+  then sent mail to Florian, me and Zeyd (but not Juergen),
+  outlining the process for the copyright assignments. I replied to
+  RMS, noting that my agreement with my employer actually exempted
+  me from that (though later RMS did not agree).</p>
+
+  <p>A week later (July 25), when RMS asked for updated status, it
+  seemed to him that I was the only one to comment on the
+  assignments. Zeyd in particular had not replied. Florian was able
+  to contact Zeyd at this point.</p>
+
+  <h3 id="August_1997-h3"><a name="August_1997" id=
+  "August_1997">August 1997</a></h3>
+
+  <p>On August 24, RMS sent a draft of the copyright assignment,
+  listing the four developers, the maintainer (Florian), and 14
+  minor contributors.</p>
+
+  <p>I noticed a typo, and in a followup reply to that thread, sent
+  mail to RMS and Florian giving <a href="#metrics19970824">counts
+  from my RCS logs</a>, which could of course only identify
+  contributors back to <a href="#ncurses_1_9_9e">ncurses
+  1.9.9e</a>. RMS asked for more information <em>before</em>
+  1.9.9e.</p>
+
+  <p>I commented that</p>
+
+  <blockquote>
+    <pre class="code-block">
+The list of contributors at the bottom of README hasn't been updated
+(except for Alexander's recent request) for some time - and Zeyd used
+to have some additional names there, preceding the 1.8.5 release (which
+I noticed recently while comparing versions).
+</pre>
+  </blockquote>
+
+  <p>RMS replied, requesting the additional names. I did more than
+  that, giving line-counts for the ones that I could identify by
+  comparing old releases of ncurses, as well as by studying Eric's
+  patches. The final list of minor contributors includes the ones
+  for whom I cited numbers. There were another 13 that we could
+  have added to the list, but there were no numbers for those.</p>
+
+  <p>Zeyd did not reply to RMS's email; I provided RMS an alternate
+  mailing address on August 27.</p>
+
+  <h3 id="September_1997-h3"><a name="September_1997" id=
+  "September_1997">September 1997</a></h3>
+
+  <p>Juergen and I discussed status in mid-September, and Juergen
+  asked RMS what was going on. RMS replied on September 18 that he
+  was waiting for Florian to okay the copyright assignment. Florian
+  answered, saying that he agreed to it, had thought (since he was
+  not an author) that it was not necessary.</p>
+
+  <p id="final19970919">With that done, RMS sent the final version
+  of the copyright assignment to the <em>five</em> of us on
+  September 19. It listed 23 minor contributors, though getting
+  their assignments was not necessary at that point. There was a
+  constraint on the agreement:</p>
+
+  <blockquote>
+    <pre class="code-block">
+   This assignment is executed in multiple counterparts, each of which is
+binding on the respective signer(s) even if other counterparts are delayed.
+However, the Foundation will not begin distribution of the Program until it
+has received counterparts signed by all of us.  If the Foundation does not
+receive counterparts with signatures of all of us, within six months of
+receiving the first counterpart, then this assignment is entirely void and
+all rights revert to us.
+</pre>
+  </blockquote>
+
+  <p>Juergen reported on September 26 that he had <em>snailed</em>
+  the signed document to RMS. I replied that I had mailed mine on
+  Monday morning (September 22). RMS certainly had mine in hand by
+  September 26, so all five <a id="deadline19970428" name=
+  "deadline19970428">had to be received by sometime in April</a>
+  1998 for the agreement to be completed.</p>
+
+  <p>But we were not nearly done at that point. The following day,
+  Eric replied to the thread discussing status:</p>
+
+  <blockquote>
+    <pre class="code-block">
+Florian LaRoche.
+&gt; The current ncurses-snapshots seem to be quite stable, so we could
+&gt; make a new release soon.
+
+There are at least two changes that need to be made in Dickey's snapshots
+before a release; also, I want to add a new terminfo.master file.  Please
+give me a chance to run an eyeball over a prerelease before you ship.
+And let'd do it soon -- a release is long overdue and the Red Hat people
+are begging for one.
+</pre>
+  </blockquote>
+
+  <p>I pointed out to Florian that there were problems with Eric's
+  changes. Eric was not proposing to send patches against ncurses
+  (which Florian considered suggesting), but to substitute the
+  entire file. That would undo fixes that I had made. My reply to
+  Florian pointed out an easily discussed specific issue as a
+  start:</p>
+
+  <blockquote>
+    <pre class="code-block">
+&gt; On Sun, Sep 28, 1997 at 07:02:59AM -0400, T.E.Dickey wrote:
+&gt; &gt; Unless he's made significant changes over the past week since I last
+&gt; &gt; checked, this won't work, since a large part of the differences that he had
+&gt; &gt; were one of the following:
+&gt; &gt;
+&gt; &gt;     + not adding the corrections that I had made
+&gt; &gt;
+&gt; &gt;     + adding other errors
+&gt;
+&gt; We have all agreed in the new licence terms that we care about proper
+&gt; credit and it should be obvious that buggy patches can only be put into
+&gt; special "ifdef"-code.
+the terminfo stuff cannot be ifdef'd.  there is more than one problem
+that I've corrected; the chief (noticeable) one is that it appears that
+Eric at some point misunderstood the use of the setf/setb color controls
+and modified all of the setaf/setab controls to be setf/setb.  So his
+file is incompatible with SVr4 (colors are interchanged, e.g., red/blue).
+</pre>
+  </blockquote>
+
+  <p>Shortly after, I added that topic to my FAQ (<a href=
+  "/ncurses/ncurses.faq.html#interchanged_colors">Why are red/blue
+  interchanged?</a>).</p>
+
+  <p>On a related note, one of Eric's supporters sent a message to
+  the mailing list on the next day, regarding ncurses versus Eric's
+  copy of the terminfo database:</p>
+
+  <blockquote>
+    <pre class="code-block">
+Any errors in the terminal database should be directed to the terminfo
+maintainer (Eric S. Raymond), as the database is only included with
+ncurses, not maintained by the ncurses folks.
+</pre>
+  </blockquote>
+
+  <p>However (see <a href="#policy19970702">policy</a>), I pointed
+  out that Eric was free to use whatever changes he wanted from
+  ncurses.</p>
+
+  <h3 id="October_1997-h3"><a name="October_1997" id=
+  "October_1997">October 1997</a></h3>
+
+  <p>RMS pointed out a missing step in my paperwork on October 2
+  (my existing agreement was not specific enough). That required
+  another amendment to my employee agreement, which took until
+  December 10 to resolve.</p>
+
+  <p>I followed up with a comment that the additional disclaimer
+  for my employee agreement was being reviewed.</p>
+
+  <p>Shortly after that (October 6), Daniel Weaver started
+  discussing <strong>tack</strong>, indicating that he would like
+  to have it included with ncurses. We also discussed other
+  changes, such as his improved descriptions for Wyse
+  terminals.</p>
+
+  <h3 id="November_1997-h3"><a name="November_1997" id=
+  "November_1997">November 1997</a></h3>
+
+  <p>On November 4, RMS wrote to Juergen, cc'ing the six of us
+  (counting Keith):</p>
+
+  <blockquote>
+    <pre class="code-block">
+I received papers from you, from Tom Dickey, and from Zeyd.
+I spoke with Eric a week ago and he said he would send them,
+but I am not home so I do not know if they have arrived.
+
+I have not heard from Florian at all.
+</pre>
+  </blockquote>
+
+  <p>There was no immediate followup to this. But initially
+  unrelated, Daniel Weaver brought RMS into the discussion of tack.
+  It turned out that some of Daniel's work had been incorporated
+  into ncurses. That included part of the color computations, as
+  well as about 900 lines of termcap definitions (anonymously via
+  his work for Wyse). I commented that it sounded as if he should
+  have been listed as a minor contributor, but RMS steered away
+  from that, saying that Florian would fix the credits. (Changing
+  the list of contributors would have required restarting the
+  process to get the copyright assignments, so that would not have
+  been a good thing).</p>
+
+  <p>RMS suggested to Daniel that he could either make tack a part
+  of ncurses (which would use the same license), or distribute it
+  with ncurses (which would allow using a different license).
+  Daniel replied that he was willing to do either.</p>
+
+  <p>On November 20, RMS wrote that he had not heard from Florian
+  for many weeks. Juergen provided a phone number, commenting that
+  Florian and his wife were expecting a child.</p>
+
+  <p>RMS followed up on the 24th, having spoken with Florian.
+  Florian had been too busy to read his email, but had agreed to
+  send his assignment papers soon. (Florian was at that point also
+  reconsidering whether he had enough time to act as the ncurses
+  maintainer). RMS finished by saying that he had also spoken with
+  Eric a few weeks before, and that Eric also had promised to send
+  his papers.</p>
+
+  <p>RMS wrote to me the following day that he did not know who
+  else might be suitable for the ncurses maintainer. I replied that
+  there were few possibilities, but that it really should not take
+  more than an hour per week.</p>
+
+  <h3 id="December_1997-h3"><a name="December_1997" id=
+  "December_1997">December 1997</a></h3>
+
+  <p>On December 7, RMS wrote to me, cc'ing Florian:</p>
+
+  <blockquote>
+    <pre class="code-block">
+Eric sent papers, but unfortunately he used the wrong text for them.
+So I asked him to try again.
+
+Florian, have you sent your papers yet?
+</pre>
+  </blockquote>
+
+  <p>The others (Juergen, Zeyd, and people on the mailing list)
+  were losing patience.</p>
+
+  <p>In a reply to RMS on December 18, Daniel indicated that he had
+  just mailed his paperwork, and that he would like to use the same
+  license as ncurses.</p>
+
+  <p>On the 19th, Zeyd proposed that we simply release it by
+  Christmas. I pointed out that we could do this only with
+  agreement from Eric. About an hour later, Eric replied to Zeyd,
+  objecting to the proposal. Eric also stated that he had mailed
+  his papers.</p>
+
+  <p id="papers19971219">I asked RMS for clarification on that; RMS
+  suggested that Eric may have been talking about the first time
+  (with the wrong text). RMS also said that he had talked with
+  Florian on the phone, and that Florian had sent in his
+  papers.</p>
+
+  <p>Replying to RMS on the 20th, I suggested that (as a
+  contingency) Daniel Weaver might be a suitable replacement for
+  Florian, and to mention it to Florian as a possibility if he was
+  unable to commit to the time. I discussed this with Daniel at the
+  same time.</p>
+
+  <p>Florian wrote to RMS on December 22, cc'ing six of us
+  (counting Alexander) that he had to resend his papers due to a
+  problem with the address.</p>
+
+  <p>Daniel Weaver continued discussing licensing with RMS, and
+  advising me of interesting developments. Part of this was
+  Daniel's ongoing work to reuse some of the internal functions in
+  the ncurses library in tack. On the 23rd, he reported that RMS
+  had talked him into using GPL.</p>
+
+  <p>Discussing all of this (and the prospect of a release) with
+  Florian on the 28th, I suggested tying off loose ends (such as
+  tack and the OS/2 port), which would take it into January. For a
+  release, I had to rebuild and test on each of the dozen or so
+  platforms that I had access to.</p>
+
+  <h3 id="January_1998-h3"><a name="January_1998" id=
+  "January_1998">January 1998</a></h3>
+
+  <p>Discussing status with Florian on the 7th, Florian asked if
+  Eric's papers had arrived. I pointed out that a <a href=
+  "#papers19971219">few weeks before</a>, RMS had been uncertain
+  about that, suggesting that Eric had not resubmitted the
+  paperwork. I cc'd RMS to get his advice.</p>
+
+  <p>RMS responded on the 9th, stating that he was away from email,
+  but on return would phone Eric to remind him if the papers had
+  not been mailed.</p>
+
+  <p>I replied, reporting that Florian had agreed to let me help
+  him by writing scripts for updating the copyright notices. I
+  completed those on January 17. One script removed the old notice,
+  replacing it with a marker. The other script inserted the new
+  marker. To avoid breakage, the scripts only modified files
+  containing RCS keywords, hinting that they were not generated
+  text.</p>
+
+  <p id="date19980116">RMS wrote on the 16th that he had received
+  Florian's papers. He added that he had phoned Eric, finding that
+  Eric had not mailed the papers yet, thinking there was no hurry.
+  RMS urged him to mail the papers, saying that everyone else was
+  waiting. I was unsurprised, but remarked in my reply that I
+  thought we had only six more weeks (which was shorter than the
+  <a href="#deadline19970428">actual time</a> remaining).</p>
+
+  <p>On the 20th, I asked Florian if he had reviewed my scripts. I
+  do not see a reply to that in my mail.</p>
+
+  <p id="date19980122">On January 22, RMS reported that Eric said
+  he had mailed his papers.</p>
+
+  <p>Florian followed up on the next day, and we began discussing
+  how to proceed (scripting, patches, prerelease).</p>
+
+  <p>On January 30, RMS again reported that he had received the
+  wrong papers again from Eric, two days before. He still had not
+  sent the papers when RMS called on the 30th (a Friday) to check
+  on this.</p>
+
+  <h3 id="February_1998-h3"><a name="February_1998" id=
+  "February_1998">February 1998</a></h3>
+
+  <p>On Friday, February 6, RMS reported that Eric's wife said she
+  mailed the envelope containing the papers on Tuesday (February
+  3). RMS expected to get the papers at his office on the following
+  Tuesday or Wednesday.</p>
+
+  <p>On February 10, RMS wrote to me, Florian and Keith:</p>
+
+  <blockquote>
+    <pre class="code-block">
+Today Eric's papers arrived, I checked them, and I signed them.
+So the way is clear--please release as soon as you are ready!
+</pre>
+  </blockquote>
+
+  <p>I replied to RMS that I was doing test-builds, expecting to
+  complete those in a few days. On the other hand, I had not gotten
+  feedback from Florian regarding the scripts for updating the
+  copyright notices. He replied without focussing on that, to
+  discuss when and where to put a prerelease.</p>
+
+  <p>More than once, Florian had expressed an willingness to step
+  aside once the release was done. I made no argument either way.
+  But having Florian leave was not what RMS had in mind (the task
+  would not be complete). Replying to Florian on February 11, RMS
+  said:</p>
+
+  <blockquote>
+    <pre class="code-block">
+    In short: You are the real maintainer of ncurses for me. But it is probably
+    wise to neither list me as maintainer nor state my official disappearance.
+
+Since the authors agreed based on the idea you would be the
+maintainer, I think it is best to list you as the official maintainer,
+and make that an honest statement by having you act as the "maintainer
+in chief" in case there is a dispute among the major contributors.  In
+the mean time, Thomas can do all the work and make all the decisions
+when there is no dispute--which we hope will be all the time.
+
+After some time (perhaps a year), if Eric remains uninvolved in
+ncurses, it would be ok to change this and make Thomas the official
+maintainer.  If he has been uninvolved for that long, he would have to
+recognize that this is ok.
+</pre>
+  </blockquote>
+
+  <p>This was the basis for my resuming maintainership of ncurses a
+  year and a half later:</p>
+
+  <ul>
+    <li>Florian left,</li>
+
+    <li>RMS was unable to contact him, and</li>
+
+    <li>RMS found that there was no remaining obstacle.</li>
+  </ul>
+
+  <p>RMS, when asked about the ".lsm" file, stated on February
+  13</p>
+
+  <blockquote>
+    <pre class="code-block">
+We don't make entries in the "Linux system map" for GNU programs,
+because GNU programs are not "part of Linux" or "for Linux".
+They should run on Linux-based GNU systems, of course,
+and the kernel is an important part of the system,
+but we shouldn't treat it as if it were everything.
+</pre>
+  </blockquote>
+
+  <p>I removed it at <a href="/ncurses/NEWS.html#t980214">that
+  point</a>.</p>
+
+  <p>At RMS's suggestion, we began moving the mailing list on
+  February 16.</p>
+
+  <p>Florian reported on February 21 that Eric had sent mail,
+  saying that Florian should not make a release without patches to
+  the terminfo database. Florian asked Eric to send patches, but
+  also told him that the current beta looked okay, and that he
+  would like to make the release soon.</p>
+
+  <p>In reviewing Eric's <em>first</em> set of changes on the 28th,
+  neither of us found those to be urgent. Florian noted of Eric's
+  change to make the hashmap code "on" by default, that it had not
+  been tested during the beta period. At that point, Eric had still
+  promised patches for the terminfo.src file. Juergen agreed: make
+  no major changes.</p>
+
+  <h3 id="March_1998-h3"><a name="March_1998" id="March_1998">March
+  1998</a></h3>
+
+  <p>However, Eric was allowed to make a last-minute change to the
+  terminfo.src file, as seen in the <a href=
+  "NEWS.html#t980302">ncurses 4.2</a> release summary. That changed
+  about 400 lines of the file. Some parts were improvements; some
+  were cosmetic (renaming entries or their descriptions). Some were
+  neither. For instance, Eric replaced a year's notes from the
+  change history (76 lines) with a cut-down version (29 lines)
+  which was more than half describing the changes that Eric added
+  in the other 350 lines of text. In doing that, it changed the
+  attribution (noting that Daniel Weaver's name was removed).</p>
+
+  <p>I did some repairs in the following week's patch. Ultimately,
+  I restored that section of the change history to provide
+  before/after comparisons, in 2007-07-14.</p>
+
+  <h3 id="patch_980302-h3"><a name="patch_980302" id=
+  "patch_980302">ncurses 4.2 &ndash; March 2, 1998</a></h3>
+
+  <p>The release announcement for ncurses 4.2 came 3 hours after
+  the upload with Eric's changes.</p>
+
+  <h2 id="other_issues-h2"><a name="other_issues" id=
+  "other_issues">License and Other Issues</a></h2>
+
+  <h3 id="issue_delay-toc"><a name="issue_delay" id=
+  "issue_delay">Explaining the Delay</a></h3>
+
+  <p>Going back to the timeline, one may ask what made Eric (the
+  most self-proclaimed knowledgeable person about this process)
+  take the <em>longest</em> to get a copyright assignment signed
+  and mailed to RMS. Eric was (according to the comments in emails)
+  also in fairly frequent phone contact with RMS.</p>
+
+  <p>Conversely, what prompted his completing the process? Eric was
+  in <a href="#date19980116">no hurry</a> when RMS talked with him
+  on January 16. Even on <a href="#date19980122">January 22</a> he
+  had not successfully completed the assignment.</p>
+
+  <p>That part is probably simpler to answer:</p>
+
+  <dl>
+    <dt>1998/01/22</dt>
+
+    <dd><a href=
+    "http://blog.lizardwrangler.com/2008/01/22/january-22-1998-the-beginning-of-mozilla/">
+    the Beginning of Mozilla</a>
+    </dd>
+
+    <dt>1998/01/23</dt>
+
+    <dd>Netscape announces the release of the source code for
+    Netscape Navigator 5.0</dd>
+
+    <dd>
+      <a href=
+      "http://www.nytimes.com/1998/01/23/business/browser-war-a-concession-and-a-push.html">
+      Browser War: A Concession And a Push</a> (New York Times,
+      January 23, 1998)
+      <p>Netscape was making the source code available, but aimed
+      at hobbyists.</p>
+    </dd>
+
+    <dt>1998/01/27</dt>
+
+    <dd>
+      <a href=
+      "http://money.cnn.com/1998/01/27/technology/netscape/">Netscape
+      misses target</a> (Money, January 27, 1998)
+      <p>Netscape started layoffs on this date (10% of 3000
+      employees according to an article in the San Francisco
+      Gate).</p>
+
+      <p>This article notes that in the original announcement,
+      modified versions of the source code were not allowed to be
+      sold.</p>
+    </dd>
+
+    <dt>1998/01/30</dt>
+
+    <dd>Eric <a href=
+    "http://lists.debian.org/debian-devel/1998/01/msg01829.html">announces</a>
+    on mailing lists that he will be visiting Netscape
+    headquarters.</dd>
+
+    <dd>"Open source" was not yet in Eric's vocabulary.</dd>
+
+    <dt>1998/02/03</dt>
+
+    <dd>Eric <a href=
+    "http://www.catb.org/~esr/faqs/hacker-revenge.html">meets</a>
+    with other hackers at VA Linux Systems</dd>
+
+    <dd>The papers are mailed.</dd>
+
+    <dt>1998/02/09</dt>
+
+    <dd>
+      change comment for <a href=
+      "http://www.catb.org/~esr/writings/homesteading/cathedral-bazaar/">
+      CATB</a> says
+      <blockquote>
+        <pre class="code-block">
+   Revision 1.29 February 9 1998 esr
+   Changed ``free software'' to ``open source''.
+</pre>
+      </blockquote>
+    </dd>
+
+    <dt>1998/02/10</dt>
+
+    <dd>
+      change comment for <a href=
+      "http://www.catb.org/~esr/writings/homesteading/cathedral-bazaar/">
+      CATB</a> says
+      <blockquote>
+        <pre class="code-block">
+   Revision 1.31 February 10 1998 esr
+   Added ``Epilog: Netscape Embraces the Bazaar!''
+</pre>
+      </blockquote>
+    </dd>
+  </dl>
+
+  <p>Bear in mind that few mainstream sources mentioned Eric's
+  relationship to the Netscape announcement early. Recalling the
+  newsgroup discussions, it seemed that came later (no earlier than
+  the 27th).</p>
+
+  <p>Essentially, the delays were cut short, because Eric was
+  unable to <em>not</em> complete the paperwork. Further delays
+  would have interfered with his ability to exploit the Netscape
+  announcement. Even had he chosen to walk away from it, there was
+  a good potential for ncurses licensing being a liability.</p>
+
+  <p>Still, it was not obvious to Eric, since he waited until the
+  day of his meeting to mail the form. Perhaps someone pointed it
+  out to him.</p>
+
+  <h3 id="issue_opens-h3"><a name="issue_opens" id=
+  "issue_opens">Open Source Dispute</a></h3>
+
+  <p>Along with revising CATB to hoist a new flag on it, Eric did
+  the same in other parts of his web page. I noticed that he
+  claimed to have been a <em>principal</em> developer of the "open
+  source" ncurses. That failed scrutiny for several reasons:</p>
+
+  <ul>
+    <li>the dictionary is clear on the meaning of "principal";
+    there is only one.</li>
+
+    <li>phrasing it as "one of the principal developers" sidesteps
+    the issue. Eric was again explicitly claiming to be the
+    <a href="/personal/maintainer.html">maintainer</a>.</li>
+
+    <li>the term "open source" did not exist at any point in time
+    where Eric had any control over the development.</li>
+
+    <li>Eric did not ask for opinions from any of the authors or
+    contributors to ncurses.</li>
+
+    <li>at that early stage, "open source" was a term used only by
+    Eric (and his cronies), and predictably, took on a meaning
+    based on their views. RMS had a different opinion of the
+    term.</li>
+
+    <li>to remind the reader, it was the Free Software Foundation
+    that held the copyright to ncurses at that point.</li>
+
+    <li>while Keith and others had no specific terminology for the
+    nature of the ncurses license, RMS was clear starting in
+    <a href="#June_1997">June 1997</a> that it would be "free
+    software".</li>
+  </ul>
+
+  <p>Having these issues in mind, I consulted with RMS (on February
+  13), who responded:</p>
+
+  <blockquote>
+    <pre class="code-block">
+    btw, I'm not wholly clear on your position on "open source".
+
+It means more or less the same thing as "free software", but I don't
+think it is a good choice of terminology.  Please see
+<a href=
+"https://web.archive.org/web/19981205104835/http://www.gnu.org/philosophy/open-source-or-free.html">http://www.gnu.org/philosophy/open-source-or-free.html</a>
+for my reasons.
+
+In the GNU project, we will keep using the term "free software".
+</pre>
+  </blockquote>
+
+  <p>and further (on February 14):</p>
+
+  <blockquote>
+    <pre class="code-block">
+    I think that some people are treating it as more than a synonym (or whatever),
+    but trying to use it as a path to change how issues are interpreted.
+
+I know, and I think that change is for the worse.  That is why
+I urge people to keep using the term "Free Software".
+</pre>
+  </blockquote>
+
+  <p>Again, we had a policy. I summarized my position on the matter
+  <a href="/ncurses/ncurses.faq.html#who_claims_it">here</a>, and,
+  taking into account the behavior of both Eric and his cronies
+  with respect to my work on ncurses over the following years, have
+  not found a reason to amend it.</p>
+
+  <h3 id="issues_freer-h3"><a name="issues_freer" id=
+  "issues_freer">How is the License Improved?</a></h3>
+
+  <p>While it is a clear improvement over the license that Eric and
+  Zeyd used, <a href="#license19970717">the origin</a> of the
+  wording was unclear to me, as well as the reason for using a
+  license which did not quite match others in use at that time.
+  Reusing an existing license would for instance reduce arguments
+  over interpretation.</p>
+
+  <p>Start by looking at the ncurses license, for example in
+  <code>ncurses.h</code>:</p>
+
+  <blockquote>
+    <pre class="code-block">
+/****************************************************************************
+ * Copyright (c) 1998-2007,2008 Free Software Foundation, Inc.              *
+ *                                                                          *
+ * Permission is hereby granted, free of charge, to any person obtaining a  *
+ * copy of this software and associated documentation files (the            *
+ * "Software"), to deal in the Software without restriction, including      *
+ * without limitation the rights to use, copy, modify, merge, publish,      *
+ * distribute, distribute with modifications, sublicense, and/or sell       *
+ * copies of the Software, and to permit persons to whom the Software is    *
+ * furnished to do so, subject to the following conditions:                 *
+ *                                                                          *
+ * The above copyright notice and this permission notice shall be included  *
+ * in all copies or substantial portions of the Software.                   *
+ *                                                                          *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS  *
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF               *
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.   *
+ * IN NO EVENT SHALL THE ABOVE COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,   *
+ * DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR    *
+ * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR    *
+ * THE USE OR OTHER DEALINGS IN THE SOFTWARE.                               *
+ *                                                                          *
+ * Except as contained in this notice, the name(s) of the above copyright   *
+ * holders shall not be used in advertising or otherwise to promote the     *
+ * sale, use or other dealings in this Software without prior written       *
+ * authorization.                                                           *
+ ****************************************************************************/
+</pre>
+  </blockquote>
+
+  <p>The ncurses license is said to be based on MIT-X11. When I
+  read that, I have in mind the license used for X11 header files,
+  which differ from ncurses. For example, here is the license from
+  <code>Xlib.h</code>:</p>
+
+  <blockquote>
+    <pre class="code-block">
+Copyright 1985, 1986, 1987, 1991, 1998  The Open Group
+
+Permission to use, copy, modify, distribute, and sell this software and its
+documentation for any purpose is hereby granted without fee, provided that
+the above copyright notice appear in all copies and that both that
+copyright notice and this permission notice appear in supporting
+documentation.
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
+OPEN GROUP BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN
+AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Except as contained in this notice, the name of The Open Group shall not be
+used in advertising or otherwise to promote the sale, use or other dealings
+in this Software without prior written authorization from The Open Group.
+</pre>
+  </blockquote>
+
+  <p>Only the first paragraph really differs. The last two differ
+  in the way the copyright owner is mentioned, but that does not
+  affect the meaning of the text.</p>
+
+  <p>Both forms of the license <em>grant</em> rights (that is how
+  to interpret a license). Rights not granted are
+  <em>reserved</em>.</p>
+
+  <p>After discarding the repetition regarding the copyright notice
+  from the MIT-X11 license (compare with the second paragraph),
+  there is not much left:</p>
+
+  <blockquote>
+    <p>Permission to use, copy, modify, distribute, and sell this
+    software and its documentation for any purpose is hereby
+    granted without fee, <del>provided that the above copyright
+    notice appear in all copies and that both that copyright notice
+    and this permission notice appear in supporting
+    documentation</del>.</p>
+  </blockquote>
+
+  <p>That is, it lists anticipated <em>uses</em> ("use", "copy",
+  "modify", "distribute", "sell") and combines that with "any
+  purpose", and "without fee". Bear in mind that the MIT-X11
+  license is widely interpreted to grant the right to
+  <em>anyone</em> to modify a program and distribute the modified
+  program.</p>
+
+  <p>Trimming down the ncurses license for analysis is harder:</p>
+
+  <blockquote>
+    <p>Permission is hereby granted, free of charge, to any person
+    obtaining a copy of this software and associated documentation
+    files (the "Software"), to deal in the Software without
+    restriction, including without limitation the rights to use,
+    copy, modify, merge, publish, distribute, distribute with
+    modifications, sublicense, and/or sell copies of the Software,
+    and to permit persons to whom the Software is furnished to do
+    so, <del>subject to the following conditions:</del></p>
+  </blockquote>
+
+  <p>The ncurses license parallels some of MIT-X11:</p>
+
+  <ul>
+    <li>
+      <p>"free of charge" corresponds to "without fee".</p>
+    </li>
+  </ul>
+
+  <p>but ncurses differs:</p>
+
+  <ul>
+    <li>
+      <p>ncurses mentions "any person", and "persons". What a
+      "person" is can be subject to interpretation. MIT-X11 does
+      not limit that, grants its permissions to <em>whatever</em>
+      can use the rights.</p>
+    </li>
+
+    <li>
+      <p>ncurses lists uses which are not listed in MIT-X11, such
+      as "merge", "publish", "distribute with modifications",
+      "sublicense".</p>
+    </li>
+  </ul>
+
+  <p>Considering the context in which the ncurses license was
+  produced, the problem which it was intended to solve (by
+  comparing the Eric+Zeyd license with MIT-X11) was the omission of
+  "modify" from the list of uses. If an explicit "distribute with
+  modifications" is legally necessary, then the MIT-X11 license,
+  which lacks that explicit use, is defective. MIT-X11 has been in
+  use for more than twenty years, so that argument seems
+  implausible, due to extensive precedent.</p>
+
+  <p>Likewise, "merge" and "publish" are likely redundant (viz
+  "modify" and "distribute").</p>
+
+  <p>In summary, the ncurses license appears to be a restating of
+  the MIT-X11 license. But it is unclear if the changes were
+  necessary.</p>
+
+  <h3><a id="issues_expat" name="issues_expat">But that MIT-X11
+  License...</a></h3>
+
+  <p>I quoted the license from <code>Xlib.h</code> file. But some
+  comments regarding MIT-X11 versus the ncurses license have gotten
+  my attention. For instance in <a href=
+  "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=284340">Debian&nbsp;#284340</a>
+  MIT-X11 and the <code>expat</code> license differ only by the
+  final clause dealing with advertising.</p>
+
+  <p>This <a href="http://www.linfo.org/mitlicense.html">anonymous
+  discussion</a> states that</p>
+
+  <ul>
+    <li>
+      <p>the MIT license is the same as the ncurses license except
+      for the &ldquo;addition&rdquo; of the advertising
+      paragraph.</p>
+    </li>
+
+    <li>
+      <p>Expat uses the MIT license.</p>
+    </li>
+  </ul>
+
+  <p>In other discussion, some arguments are made that the MIT
+  license should be called the Expat license (apparently on the
+  basis of distinguishing that from other MIT licenses.</p>
+
+  <p>That raises the issue: how are these licenses related?</p>
+
+  <ul>
+    <li>
+      <p>To start, I noticed that the earliest date on the expat
+      copyright is 1998. But I first saw the text for ncurses's
+      license in <a href="#license19970717">July 1997</a>.</p>
+    </li>
+
+    <li>
+      <p>If expat development had been well-known in 1997, then it
+      would be possible for the ncurses license to be based on that
+      in some way. Early expat development was discussed on the
+      <a href="http://lists.xml.org/archives/xml-dev/">xml-dev</a>
+      mailing list.</p>
+    </li>
+
+    <li>
+      <p>Expat 1.0 was announced in <a href=
+      "http://lists.xml.org/archives/xml-dev/199808/msg00464.html">August
+      1998</a>, over a year later.</p>
+    </li>
+
+    <li>
+      <p>The announcement mentions earlier beta versions. The
+      earliest of these appears to be in <a href=
+      "http://lists.xml.org/archives/xml-dev/199804/msg00088.html">April
+      1998</a>, not long after the ncurses 4.2 release. But in that
+      message, James Clark stated that he was using the Mozilla
+      Public License (none of the <a href=
+      "http://www.mozilla.org/MPL/historical.html">old versions</a>
+      of MPL bear any resemblance to MIT-X11); they are
+      self-similar.</p>
+    </li>
+
+    <li>
+      <p>None of the messages through 1.0 mention licensing.</p>
+    </li>
+
+    <li>
+      <p>Subsequent messages mention dual-licensing (MPL and GPL),
+      e.g., in the announcement of <a href=
+      "http://mailman.ic.ac.uk/pipermail/xml-dev/1999-May/012447.html">
+      expat 1.1</a>.</p>
+    </li>
+
+    <li>
+      <p>The MIT-style license used by expat was adopted in
+      <a href="http://lists.xml.org/archives/xml-dev/200010/msg00167.html">
+      October 2000</a>.</p>
+    </li>
+
+    <li>
+      <p>Noting this <a href=
+      "https://fedoraproject.org/wiki/Licensing:MIT?rd=Licensing/MIT#Modern_Style_with_sublicense">
+      Licensing:MIT &ndash; FedoraProject</a> page which quotes the
+      same license as</p>
+
+      <blockquote class="code-block">
+        <p>Copyright (c) 1998, 1999, 2000 Thai Open Source Software
+        Center Ltd</p>
+      </blockquote>
+
+      <p>(the same author), it is possible that it was used by him
+      in some <em>other</em> published work. Still,
+      1998&nbsp;&gt;1997.</p>
+    </li>
+
+    <li>
+      <p>Expat was not part of X11R6.<br>
+      It was added to XFree86 on February 18, 2002 (according to
+      <a href=
+      "http://cvsweb.xfree86.org/cvsweb/xc/extras/expat/lib/xmlparse.c">
+      XFree86 CVS</a>).<br>
+      In my 2006 snapshot, Expat comprises 15878 lines of the
+      3280100 total in XFree86.<br>
+      That is about 0.5%, making it just a small part of the
+      &ldquo;extras&rdquo; directory (602353 lines).</p>
+
+      <p>Incidentally, &ldquo;contrib&rdquo; and
+      &ldquo;extras&rdquo; are not strictly considered
+      <em>part</em> of XFree86. They were add-ons, for
+      convenience.</p>
+    </li>
+
+    <li>
+      <p>Notwithstanding the copyright notice and mailing-list
+      tidbits, I have have found no earlier sources than <a href=
+      "http://www.jclark.com/xml/expat.html">version 1.2</a> (all
+      library files dated April 21, 2000 or later), with a separate
+      <a href=
+      "http://www.jclark.com/xml/copying.txt">copying.txt</a> file
+      (October 6, 2000).</p>
+    </li>
+
+    <li>
+      <p>Expat's author had no relationship with MIT (refer to his
+      <a href="http://www.jclark.com/bio.htm">bio-page</a>).<br>
+      There are no pointers to an earlier instance of this license
+      <em>from MIT</em>.<br>
+      Lacking a better explanation, equate it with the CDK <a href=
+      "/cdk/cdk.html#licensing">"BSD License"</a>.</p>
+    </li>
+  </ul>
+
+  <p>To summarize,</p>
+
+  <ul>
+    <li>
+      <p>the ncurses license is not based on the expat license in
+      any way.</p>
+    </li>
+
+    <li>
+      <p>Expat's license is &ldquo;MIT&rdquo; because its author
+      says so.</p>
+    </li>
+
+    <li>
+      <p>However, it is demonstrably not &ldquo;MIT-X11&rdquo;.</p>
+    </li>
+  </ul>
+
+  <p>Continuing, the question is what MIT-X11 licenses are found
+  (in X11 source code), and what is the closest match to the
+  ncurses license.</p>
+
+  <p>A quick check of the X11R1 (September 1987) source code does
+  not find &ldquo;sublicense&rdquo; used&mdash;except in a
+  different way by <em>two</em> files. I happen to have a full
+  XFree86 source tree.</p>
+
+  <ul>
+    <li>
+      <p>There are 13144 files in the &ldquo;xc&rdquo; tree.</p>
+    </li>
+
+    <li>
+      <p>There are 6413 C-language files, totalling 3051851
+      lines.<br>
+      Copyright and license notices appear in both C-language files
+      as well as supporting build-scripts.</p>
+    </li>
+
+    <li>
+      <p>The word &ldquo;sublicense&rdquo; appears in 2968 files
+      (compared with 6668 for &ldquo;Permission&rdquo; or 9400 for
+      &ldquo;Copyright&rdquo;). Only about 500 of those files are
+      older than November 2003. I see this text in the oldest of
+      those 2968 files, xc/doc/specs/Xaw/Xtk.widg.front, dated
+      April 1994:</p>
+
+      <blockquote>
+        <pre class="code-block">
+.LP
+Copyright \(co 1985, 1986, 1987, 1988
+Digital Equipment Corporation, Maynard, Massachusetts.
+.LP
+Permission to use, copy, modify and distribute this documentation for any
+purpose and without fee is hereby granted, provided that the above copyright
+notice appears in all copies and that both that copyright notice and this
+permission notice appear in supporting documentation, and that the name of
+Digital not be used in in advertising or publicity pertaining
+to distribution of the software without specific, written prior permission.
+Digital makes no representations about the suitability of the
+software described herein for any purpose.
+It is provided ``as is'' without express or implied warranty.
+Copyright \(co 1985, 1986, 1987, 1988 X Consortium
+.LP
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the ``Software''), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+.LP
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+.LP
+THE SOFTWARE IS PROVIDED ``AS IS'', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
+X CONSORTIUM BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN
+AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+.LP
+Except as contained in this notice, the name of the X Consortium shall not be
+used in advertising or otherwise to promote the sale, use or other dealings
+in this Software without prior written authorization from the X Consortium.
+</pre>
+      </blockquote>
+    </li>
+
+    <li>
+      <p>The word &ldquo;advertising&rdquo; (from the last clause,
+      which is the difference between MIT-X11 and expat) is used in
+      6506 files.</p>
+    </li>
+  </ul>
+
+  <p>That is, after skipping the actual copyright notice, and
+  changing &ldquo;X Consortium&rdquo; to &ldquo;above copyright
+  holders&rdquo;, we have the ncurses license.</p>
+
+  <p>X11R6.3 was the current release at the time that the ncurses
+  license text was first seen (July 1997):</p>
+
+  <ul>
+    <li>
+      <p>6443 source files comprise the release</p>
+    </li>
+
+    <li>
+      <p>4689 have &ldquo;Copyright&rdquo;</p>
+    </li>
+
+    <li>
+      <p>4177 have &ldquo;Permission&rdquo;</p>
+    </li>
+
+    <li>
+      <p>2817 have &ldquo;sublicense&rdquo;</p>
+    </li>
+
+    <li>
+      <p>The oldest files with &ldquo;sublicense&rdquo; are
+      copyright by Bitstream (May 11, 1991), and have a similar
+      first paragraph.</p>
+    </li>
+
+    <li>
+      <p>The files starting with April 1994 with
+      &ldquo;sublicense&rdquo; have the same license as the sample
+      quoted above. In particular, this includes
+      <code>Xlib.h</code>.</p>
+    </li>
+
+    <li>
+      <p>The remaining files are copyright by other organizations
+      than X Consortium (such as fonts), or have no copyright
+      keyword (such as generated documentation).</p>
+    </li>
+  </ul>
+
+  <p>To summarize:</p>
+
+  <ul>
+    <li>
+      <p>The license used by ncurses was the same as that used in
+      X11R6.3.</p>
+    </li>
+
+    <li>
+      <p>The text of the license is at least 3 years older (April
+      1994) than X11R6.3's release.</p>
+    </li>
+
+    <li>
+      <p>The &ldquo;sublicense&rdquo; wording was dropped later by
+      The Open Group, apparently in 1998.</p>
+
+      <p>That would make the license now used in X11 header files
+      no longer MIT-X11.</p>
+    </li>
+
+    <li>
+      <p>The advertising paragraph was not added for ncurses.</p>
+    </li>
+
+    <li>
+      <p>Comments that FSF added this are likely based on confusion
+      regarding the license changes made by The Open Group (which
+      took over the sources following the demise of X Consortium at
+      the end of 1996).</p>
+    </li>
+  </ul>
+
+  <p>For comparison, one can readily find evidence that the
+  anonymous not-a-lawyer topic promoting Expat as <em>the</em> MIT
+  license on the Linux Information Project has been used as the
+  basis for more official-sounding pages &ldquo;MIT
+  License&rdquo;:</p>
+
+  <ul>
+    <li>
+      <p><a href="http://opensource.org/licenses/MIT">OSI</a></p>
+    </li>
+
+    <li>
+      <p><a href=
+      "https://fedoraproject.org/wiki/Licensing:MIT?rd=Licensing/MIT">
+      Fedora</a></p>
+    </li>
+
+    <li>
+      <p><a href=
+      "https://spdx.org/licenses/MIT#licenseText">SPDX</a></p>
+    </li>
+  </ul>
+
+  <p>These all are lacking in useful information, e.g., dates and
+  authors which would help show how the information evolved (or
+  simply migrated). I noticed the OSI page, of course in the first
+  draft of this page. In later investigation (2014), I noticed the
+  Fedora and SPDX pages, noting that the latter generally copies
+  from the others after some discussion, e.g.,</p>
+
+  <ul>
+    <li>
+      <p><a href=
+      "http://wiki.spdx.org/view/Legal_Team/Minutes/2013-04-16">Legal
+      Team &ndash; minutes &ndash; 2013-04-16</a><br>
+      This proposed making templates to match subsets of the MIT
+      licenses.<br>
+      For instance, <a href=
+      "http://spdx.org/spdx-license-list/matching-guidelines">this
+      page</a> claims that these templates exist. Searching for
+      templates on this site found only deleted pages, no
+      content.<br>
+      Likewise, the attachments for a <a href=
+      "http://wiki.spdx.org/view/Legal_Team/Decisions/SPDX_Metadata_License:_Rationale_for_CC0">
+      relevant page</a> do not exist.</p>
+    </li>
+
+    <li>
+      <p><a href=
+      "http://wiki.spdx.org/view/Legal_Team/Minutes/2013-06-06">Legal
+      Team &ndash; minutes &ndash; 2013-06-06</a><br>
+      The comment that &ldquo;old&rdquo; MIT - never considered (?
+      may have fell through the cracks)&rdquo; seemed interesting,
+      until reading other pages it was clear that this referred to
+      an earlier timeframe than X development.</p>
+    </li>
+
+    <li>
+      <p>A <a href=
+      "http://lists.spdx.org/pipermail/spdx/2012-December/000785.html">
+      2012 paper</a> by Trevor Maryka presents some numbers
+      illustrating an investigation into the features of different
+      versions of the MIT and MIT-X11 licenses. The numbers
+      presented are for Debian 6.</p>
+    </li>
+  </ul>
+
+  <p>Here are their main pages, for future consideration:</p>
+
+  <ul>
+    <li>
+      <p><a href=
+      "https://fedoraproject.org/wiki/Licensing:Main?rd=Licensing">Fedora</a></p>
+    </li>
+
+    <li>
+      <p><a href="https://spdx.org/licenses/">SPDX</a></p>
+    </li>
+  </ul>
+
+  <p>Occasionally someone else becomes interested in the topic. In
+  <a href=
+  "https://opensource.com/article/19/4/history-mit-license"><em>The
+  mysterious history of the MIT License</em></a>, Gordon Haff
+  stated that &ldquo;The "modern" MIT License is the same as the
+  license used for the Expat XML parser library beginning in about
+  1998. The MIT License using this text was part of the first group
+  of licenses approved by the OSI in 1999&rdquo; and points to the
+  Wayback machine crawl of opensource.org for <a href=
+  "https://web.archive.org/web/20000815055529/http:/www.opensource.org/licenses/">
+  August 15, 2000</a> (no earlier data is available).</p>
+
+  <p>Incidentally, some readers are confused by the &ldquo;All
+  Rights Reserved&rdquo; found in many files of the X releases
+  (4490 occurrences in my XFree86 snapshot for instance), supposing
+  it to be part of the <em>license</em>. Instead, it is part of the
+  copyright <em>notice</em>, and was required (until a debatable
+  date, depending upon the source used) due to the United States'
+  participation in the Buenos Aires Convention of 1910. Its absence
+  from ncurses is likely due to Stallman's preference for the form
+  of the copyright notice versus the GPL.</p>
+</body>
+</html>

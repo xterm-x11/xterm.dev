@@ -23,8 +23,23 @@
 <hr>
 
 <pre>
--- $Id: CHANGES,v 1.308 2024/10/31 07:53:39 tom Exp $
+-- $Id: CHANGES,v 1.317 2024/12/05 00:30:03 tom Exp $
 -------------------------------------------------------------------------------
+
+<a name="t20241204" href="#index-t20241204" id="t20241204">20241204</a>
+        + add tests for XTTITLEPOS, XTSMTITLE and XTRMTITLE from xterm <a href="/xterm/xterm.log.html#xterm_396">#396</a>.
+
+        + pause/resume replay while checking the 7-bit/8-bit/C2 toggle.
+
+        + improve lint options in configure script
+
+<a name="t20241124" href="#index-t20241124" id="t20241124">20241124</a>
+        + correct check for end-of-options (cf: <a href="#t20241010">20241010</a>)
+
+        + check after toggling 7-bit/8-bit/C2 parser, revert if the terminal
+          does not appear to support the mode.
+
+        + modify vt52 test to check behavior of out-of-bounds row-addressing
 
 <a name="t20241031" href="#index-t20241031" id="t20241031">20241031</a>
         + add null-pointer check in window-modify tests when logging is not
@@ -1007,6 +1022,10 @@ VERSION 2.0
 <div class="nav">
 <ul>
 <li class="nav-top"><a href="CHANGES.html">(top)</a></li>
+
+<li><a name="index-t20241204" href="#t20241204" id="index-t20241204">2024/12/04</a></li>
+
+<li><a name="index-t20241124" href="#t20241124" id="index-t20241124">2024/11/24</a></li>
 
 <li><a name="index-t20241031" href="#t20241031" id="index-t20241031">2024/10/31</a></li>
 

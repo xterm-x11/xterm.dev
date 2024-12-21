@@ -32,7 +32,7 @@
                              <i>Thomas Dickey</i>
                       XFree86 Project (1996-2006)
                     invisible-island.net (2006-2024)
-               updated for XTerm Patch #395 (2024/10/14)
+               updated for XTerm Patch #396 (2024/12/04)
 
 </pre>
 <h2><a name="h2-Definitions" id="h2-Definitions">Definitions</a></h2>
@@ -502,6 +502,7 @@ C1 controls, ordered by the final character(s).
             , |     &#8658;&nbsp; DECAC (VT525 only)
             , }     &#8658;&nbsp; DECATC (VT525 only)
             &gt; <i>Pm</i> m  &#8658;&nbsp; XTQMODKEYS (xterm)
+            &gt; <i>Pm</i> t  &#8658;&nbsp; XTSMTITLE (xterm)
           <i>xterm</i> responds with DCS 1 $ r <i>Pt</i> ST for valid requests,
           replacing the <i>Pt</i> with the corresponding CSI string, or DCS 0 $
           r  ST for invalid requests.
@@ -652,6 +653,13 @@ C1 controls, ordered by the final character(s).
 
 <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-S.1C93">CSI <i>Ps</i> S</a>  Scroll up <i>Ps</i> lines (default = 1) (SU), VT420, ECMA-48.
 
+<a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-pound-S.1DF6">CSI # S</a>   Report position on title-stack (XTTITLEPOS), <i>xterm</i>.
+          Response is the same format, with parameters:
+            CSI <i>Pn</i>; <i>Pm</i> # S
+          where
+            <i>Pn</i> is the current index into the title stack
+            <i>Pm</i> is the maximum index for the title stack
+
 <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pi;Pa;Pv-S.1EE2">CSI ? <i>Pi</i> ; <i>Pa</i> ; <i>Pv</i> S</a>
           Set or request graphics attribute (XTSMGRAPHICS), <i>xterm</i>.  If
           configured to support either <b><a href="#h3-Sixel-Graphics">Sixel Graphics</a></b> or <b><a href="#h3-ReGIS-Graphics">ReGIS Graphics</a></b>,
@@ -719,6 +727,9 @@ C1 controls, ordered by the final character(s).
           Normally, "reset" disables the feature.  It is possible to
           disable the ability to reset features by compiling a different
           default for the title modes into <i>xterm</i>.
+
+          If no parameters are given, all title mode features are reset
+          to the initial (compiled-in) default.
 
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pm-T:Ps-=-0.1EE8"><i>Ps</i> = 0</a>  &#8658;&nbsp; Do not set window/icon labels using hexadecimal.
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pm-T:Ps-=-1.1EE9"><i>Ps</i> = 1</a>  &#8658;&nbsp; Do not query window/icon labels using
@@ -1617,6 +1628,9 @@ C1 controls, ordered by the final character(s).
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pm-t:Ps-=-2.1F0A"><i>Ps</i> = 2</a>  &#8658;&nbsp; Set window/icon labels using UTF-8.
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pm-t:Ps-=-3.1F0B"><i>Ps</i> = 3</a>  &#8658;&nbsp; Query window/icon labels using UTF-8.  (See
           discussion of <b><a href="#h2-Title-Modes">Title Modes</a></b>)
+
+          If no parameters are given, title mode features are set to the
+          initial (compiled-in) default.
 
 <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-SP-t.1D84">CSI <i>Ps</i> SP t</a>
           Set warning-bell volume (DECSWBV), VT520.

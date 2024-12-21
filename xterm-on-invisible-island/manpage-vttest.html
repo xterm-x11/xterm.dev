@@ -66,6 +66,11 @@ href="/vttest/">vttest/</a>
 
        <b>-V</b>   print the program version, and exit.
 
+       <b>-c</b> <i>commands</i>
+            replay commands recorded by the logging option.  Some keyboard and
+            mouse  input  is  required,  depending on the tests, but otherwise
+            menu selection and next-page responses are automated.
+
        <b>-f</b> <i>fontfile</i>
             specify a file  containing  a  DRCS  (soft  character  definition)
             string.
@@ -80,25 +85,54 @@ href="/vttest/">vttest/</a>
        <b>-s</b>   add time-delay  in  selected  panning/scrolling  options  to  show
             details.
 
+       <b>-u</b>   suppress  switch  from  UTF-8  mode on startup, and enable a third
+            setting in the 7-bit/8-bit parsing test to allow for  C2  controls
+            as an alternate to 8-bit C1.
+
        <b>-8</b>   use 8-bit controls (this can be changed with a menu option).
 
 </pre>
-<h2><a name="h2-AUTHOR" id="h2-AUTHOR">AUTHOR</a></h2>
+<h2><a name="h2-ENVIRONMENT" id="h2-ENVIRONMENT">ENVIRONMENT</a></h2>
+<pre>       When  <b>vttest</b>  starts, it checks the locale (LC_ALL, etc.), to determine
+       if the terminal uses UTF-8,  and  normally  switches  the  terminal  to
+       ISO-8859 1.  Use the "<b>-u</b>" option to disable this switching, and provide
+       some special cases where UTF-8 encoding is accepted.
+
+       For  example,  the  Unicode  specification  does   not   document   its
+       relationship to ECMA-48 (ISO 6429) beyond listing C0 and C1 codes which
+       Unicode treats  as  whitespace.   The  latter  (i.e.,  NEL  U+0085)  is
+       misleading  because  Unicode  describes C1 controls only obliquely.  It
+       goes into a little more detail regarding ECMA-35  (ISO  2022).   <b>vttest</b>
+       allows  for  both  the  standard  encoding  of C1 (single byte) and the
+       variant implied by Unicode, referred to  here  as  C2  (two  bytes)  to
+       distinguish the two encodings.
+
+</pre>
+<h2><a name="h2-AUTHORS" id="h2-AUTHORS">AUTHORS</a></h2>
 <pre>       Per Lindberg (mcvax,seismo)!enea!suadb!lindberg sometime 1985.
 
-       Modified by Thomas Dickey from June 1996, to support nonstandard screen
-       geometry, VT220-VT520, ISO color and xterm-specific tests.
+       Modified  by  Thomas  E.  Dickey from June 1996, to support nonstandard
+       screen geometry, VT220-VT525, ISO color and xterm-specific tests.
 
-                                  2020-09-20                         <b>VTTEST(1)</b>
+</pre>
+<h2><a name="h2-SEE-ALSO" id="h2-SEE-ALSO">SEE ALSO</a></h2>
+<pre>       <i><a href="/xterm/ctlseqs/ctlseqs.html">XTerm Control Sequences</a></i>
+       &lt;https://invisible-island.net/xterm/ctlseqs/ctlseqs.html&gt;
+       <i>DEC VT terminal line-wrapping semantics</i>
+       &lt;https://github.com/mattiase/wraptest/&gt;
+
+                                  2024-10-10                         <b>VTTEST(1)</b>
 </pre>
 <div class="nav">
 <ul>
-<li><a href="vttest.html" class="nav-top">(top)</a><br>
+<li><a href="vttest.html" class="nav-top">(top)</a></li>
 <li><a href="#h2-NAME">NAME</a></li>
 <li><a href="#h2-SYNOPSIS">SYNOPSIS</a></li>
 <li><a href="#h2-DESCRIPTION">DESCRIPTION</a></li>
 <li><a href="#h2-OPTIONS">OPTIONS</a></li>
-<li><a href="#h2-AUTHOR">AUTHOR</a></li>
+<li><a href="#h2-ENVIRONMENT">ENVIRONMENT</a></li>
+<li><a href="#h2-AUTHORS">AUTHORS</a></li>
+<li><a href="#h2-SEE-ALSO">SEE ALSO</a></li>
 </ul>
 </div>
 </body>
