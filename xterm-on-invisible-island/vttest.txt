@@ -45,6 +45,11 @@ OPTIONS
 
        -V   print the program version, and exit.
 
+       -c commands
+            replay commands recorded by the logging option.  Some keyboard and
+            mouse  input  is  required,  depending on the tests, but otherwise
+            menu selection and next-page responses are automated.
+
        -f fontfile
             specify a file  containing  a  DRCS  (soft  character  definition)
             string.
@@ -59,14 +64,39 @@ OPTIONS
        -s   add time-delay  in  selected  panning/scrolling  options  to  show
             details.
 
+       -u   suppress  switch  from  UTF-8  mode on startup, and enable a third
+            setting in the 7-bit/8-bit parsing test to allow for  C2  controls
+            as an alternate to 8-bit C1.
+
        -8   use 8-bit controls (this can be changed with a menu option).
 
-AUTHOR
+ENVIRONMENT
+       When  vttest  starts, it checks the locale (LC_ALL, etc.), to determine
+       if the terminal uses UTF-8,  and  normally  switches  the  terminal  to
+       ISO-8859 1.  Use the "-u" option to disable this switching, and provide
+       some special cases where UTF-8 encoding is accepted.
+
+       For  example,  the  Unicode  specification  does   not   document   its
+       relationship to ECMA-48 (ISO 6429) beyond listing C0 and C1 codes which
+       Unicode treats  as  whitespace.   The  latter  (i.e.,  NEL  U+0085)  is
+       misleading  because  Unicode  describes C1 controls only obliquely.  It
+       goes into a little more detail regarding ECMA-35  (ISO  2022).   vttest
+       allows  for  both  the  standard  encoding  of C1 (single byte) and the
+       variant implied by Unicode, referred to  here  as  C2  (two  bytes)  to
+       distinguish the two encodings.
+
+AUTHORS
        Per Lindberg (mcvax,seismo)!enea!suadb!lindberg sometime 1985.
 
-       Modified by Thomas Dickey from June 1996, to support nonstandard screen
-       geometry, VT220-VT520, ISO color and xterm-specific tests.
+       Modified  by  Thomas  E.  Dickey from June 1996, to support nonstandard
+       screen geometry, VT220-VT525, ISO color and xterm-specific tests.
+
+SEE ALSO
+       XTerm Control Sequences
+       <https://invisible-island.net/xterm/ctlseqs/ctlseqs.html>
+       DEC VT terminal line-wrapping semantics
+       <https://github.com/mattiase/wraptest/>
 
 
 
-                                  2020-09-20                         VTTEST(1)
+                                  2024-10-10                         VTTEST(1)
