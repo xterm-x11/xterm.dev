@@ -1494,10 +1494,17 @@
            "Name" (i.e., the name which a graphical application may use as the
            <i>presentation name</i>).
 
-       If no theme is set, or if no cursor is found for  the  specified  theme
+           More than one <i>theme-name</i> may be listed on the <b>Inherits=</b> line.   The
+           freedesktop.org  spec  states  that  list  items  are  separated by
+           commas.  Xcursor also accepts semicolon,  but  translates  both  to
+           colon  when searching the path.  Xcursor expects only one <b>Inherits=</b>
+           line; the freedesktop.org spec is unclear whether multiple keys are
+           allowed.
+
+       If  no  theme  is set, or if no cursor is found for the specified theme
        anywhere along the path, Xcursor checks the "default" theme.
 
-       When  Xcursor  finds a cursor file, it stops searching.  It always uses
+       When Xcursor finds a cursor file, it stops searching.  It  always  uses
        the first cursor file found while searching along the path.
 
 
@@ -1527,9 +1534,9 @@
                 } XcursorImages;
 
        <b>XcursorCursors</b>
-              Holds multiple Cursor  objects.   They're  all  freed  when  the
-              XcursorCursors  is  freed.   These are reference counted so that
-              multiple   XcursorAnimate   structures   can   use   the    same
+              Holds  multiple  Cursor  objects.   They  are all freed when the
+              XcursorCursors is freed.  These are reference  counted  so  that
+              multiple    XcursorAnimate   structures   can   use   the   same
               XcursorCursors.
 
                 typedef struct _XcursorCursors {
@@ -1540,8 +1547,8 @@
                 } XcursorCursors;
 
        <b>XcursorAnimate</b>
-              References  a  set  of  cursors  and a sequence within that set.
-              Multiple  XcursorAnimate  structures  may  reference  the   same
+              References a set of cursors and  a  sequence  within  that  set.
+              Multiple   XcursorAnimate  structures  may  reference  the  same
               XcursorCursors; each holds a reference which is removed when the
               XcursorAnimate is freed.
 
@@ -1551,11 +1558,11 @@
                 } XcursorAnimate;
 
        <b>XcursorFile</b>
-              Xcursor provides an abstract API for accessing  the  file  data.
-              Xcursor  provides  a  stdio implementation of this abstract API;
-              applications are  free  to  create  additional  implementations.
+              Xcursor  provides  an  abstract API for accessing the file data.
+              Xcursor provides a stdio implementation of  this  abstract  API;
+              applications  are  free  to  create  additional implementations.
               These functions parallel the stdio functions in return value and
-              expected argument values; the read and write functions flip  the
+              expected  argument values; the read and write functions flip the
               arguments around to match the POSIX versions.
 
                 typedef struct _XcursorFile {
@@ -1580,8 +1587,8 @@
        void XcursorImageDestroy (
                       XcursorImage          *<i>image</i>)
 
-              Allocate  and  free  images.  On allocation, the hotspot and the
-              pixels are left uninitialized.  The size is set to  the  maximum
+              Allocate and free images.  On allocation, the  hotspot  and  the
+              pixels  are  left uninitialized.  The size is set to the maximum
               of <i>width</i> and <i>height</i>.
 
        XcursorImages *XcursorImagesCreate (
@@ -1590,7 +1597,7 @@
        void XcursorImagesDestroy (
                       XcursorImages         *<i>images</i>)
 
-              Allocate  and  free  arrays  to hold multiple cursor images.  On
+              Allocate and free arrays to hold  multiple  cursor  images.   On
               allocation, <i>nimage</i> is set to zero.
 
        XcursorCursors *XcursorCursorsCreate (
@@ -1600,12 +1607,12 @@
        void XcursorCursorsDestroy (
                       XcursorCursors        *<i>cursors</i>)
 
-              Allocate  and  free  arrays  to  hold  multiple   cursors.    On
+              Allocate   and   free  arrays  to  hold  multiple  cursors.   On
               allocation, <i>ncursor</i> is set to zero, <i>ref</i> is set to one.
 
 
 </pre>
-<h3><a name="h3-Reading-and-writing-images_" id="h3-Reading-and-writing-images_">Reading and writing images.</a></h3>
+<h3><a name="h3-Reading-and-writing-images" id="h3-Reading-and-writing-images">Reading and writing images</a></h3>
 <pre>
        XcursorImage *XcursorXcFileLoadImage (
                       XcursorFile           *<i>file</i>,
@@ -1628,8 +1635,8 @@
                       const XcursorComments *<i>comments</i>,
                       const XcursorImages   *<i>images</i>)
 
-              These  read and write cursors from an XcursorFile handle.  After
-              reading, the file pointer will be left at some random  place  in
+              These read and write cursors from an XcursorFile handle.   After
+              reading,  the  file pointer will be left at some random place in
               the file.
 
        XcursorImage *XcursorFileLoadImage (
@@ -1657,7 +1664,7 @@
                       const XcursorComments *<i>comments</i>,
                       const XcursorImages   *<i>images</i>)
 
-              These  read and write cursors from a stdio FILE handle.  Writing
+              These read and write cursors from a stdio FILE handle.   Writing
               flushes before returning so that any errors should be detected.
 
        XcursorImage *XcursorFilenameLoadImage (
@@ -1702,18 +1709,18 @@
                       const char            *<i>theme</i>,
                       int                    <i>size</i>)
 
-              These  search  the library path, loading the first file found of
+              These search the library path, loading the first file  found  of
               the desired <i>size</i>, using a private function (XcursorScanTheme) to
               find the appropriate theme:
 
               <b>o</b>   If <i>theme</i> is not NULL, use that.
 
-              <b>o</b>   If  <i>theme</i>  is NULL, or if there was no match for the desired
+              <b>o</b>   If <i>theme</i> is NULL, or if there was no match for  the  desired
                   theme, use "default" for the theme name.
 
               <b>o</b>   If neither search succeeds, these functions return NULL.
 
-              The two functions differ by  more  than  the  number  of  images
+              The  two  functions  differ  by  more  than the number of images
               loaded:
 
               <b>o</b>   XcursorLibraryLoadImage calls XcursorFileLoadImage but
@@ -1741,7 +1748,7 @@
               Search Xcursor's table of cursor font names for the given "shape
               name" (<i>library</i>):
 
-              <b>o</b>   If  found,  return  the index into that table, multiplied by
+              <b>o</b>   If found, return the index into that  table,  multiplied  by
                   two (to account for the source- and mask-values used in an X
                   cursor font).
 
@@ -1769,17 +1776,17 @@
                       Display               *<i>dpy</i>,
                       const char            *<i>name</i>)
 
-              These  load cursors using the specified library <i>name</i>.  The theme
+              These load cursors using the specified library <i>name</i>.  The  theme
               comes from the display.
 
        Cursor XcursorImageLoadCursor(
                       Display               *<i>dpy</i>,
                       const XcursorImage    *<i>image</i>)
 
-              This creates a cursor, given the image  to  display.   It  calls
+              This  creates  a  cursor,  given the image to display.  It calls
               XcursorSupportsARGB to decide what type of cursor to create:
 
-              <b>o</b>   XRenderCreateCursor  is  used  if  ARGB  is supported on the
+              <b>o</b>   XRenderCreateCursor is used if  ARGB  is  supported  on  the
                   display, and
 
               <b>o</b>   XCreatePixmapCursor is used otherwise.
@@ -1789,7 +1796,7 @@
                       const XcursorImages   *<i>images</i>)
 
               This provides an interface for creating animated cursors, if the
-              <i>images</i>     array    contains    multiple    images,    and    if
+              <i>images</i>    array    contains    multiple    images,    and     if
               XcursorSupportsAnim   returns   true.    Otherwise,   it   calls
               XcursorImageLoadCursor.
 
@@ -1797,7 +1804,7 @@
                       Display               *<i>dpy</i>,
                       const XcursorImages   *<i>images</i>)
 
-              This   calls   XcursorCursorsCreate   to   create  an  array  of
+              This  calls  XcursorCursorsCreate  to   create   an   array   of
               XcursorCursors, to correspond to the XcursorImages <i>images</i> array,
               and uses XcursorImageLoadCursor to load the corresponding cursor
               data.
@@ -1820,7 +1827,7 @@
                       const char            *<i>theme</i>,
                       int                    <i>size</i>)
 
-              These map <i>shape</i> to a library name using the  standard  X  cursor
+              These  map  <i>shape</i>  to a library name using the standard X cursor
               names and then load the images.
 
        Cursor XcursorShapeLoadCursor (
@@ -1841,9 +1848,9 @@
                       XcursorUInt            <i>comment</i><b>_</b><i>type</i>,
                       int                    <i>length</i>)
 
-              XcursorXcFileLoad    uses   this   function   to   allocate   an
-              XcursorComment structure for a single cursor.  The  <i>comment</i><b>_</b><i>type</i>
-              parameter  is  used  as the <i>subtype</i> field, e.g., COPYRIGHT.  The
+              XcursorXcFileLoad   uses   this   function   to   allocate    an
+              XcursorComment  structure for a single cursor.  The <i>comment</i><b>_</b><i>type</i>
+              parameter is used as the <i>subtype</i> field,  e.g.,  COPYRIGHT.   The
               <i>length</i> is the number of bytes to allocate for the comment text.
 
        void XcursorCommentDestroy(
@@ -1854,14 +1861,14 @@
        XcursorComments * XcursorCommentsCreate (
                       int                    <i>size</i>)
 
-              XcursorXcFileLoad uses this function to  allocate  an  index  of
-              XcursorComment  structure pointers.  The <i>size</i> parameter tells it
+              XcursorXcFileLoad  uses  this  function  to allocate an index of
+              XcursorComment structure pointers.  The <i>size</i> parameter tells  it
               how many pointers will be in the index.
 
        void XcursorCommentsDestroy (
                       XcursorComments       *<i>comments</i>)
 
-              Deallocates the given XcursorComments structure as well  as  the
+              Deallocates  the  given XcursorComments structure as well as the
               XcursorComment structures which it points to.
 
 
@@ -1871,8 +1878,8 @@
        XcursorAnimate * XcursorAnimateCreate (
                       XcursorCursors        *<i>cursors</i>)
 
-              Wrap   the   given   array  of  cursors  in  a  newly  allocated
-              XcursorAnimate structure, which adds a sequence number  used  in
+              Wrap  the  given  array  of  cursors  in   a   newly   allocated
+              XcursorAnimate  structure,  which adds a sequence number used in
               XcursorAnimateNext.
 
        void XcursorAnimateDestroy (
@@ -1884,24 +1891,24 @@
        Cursor XcursorAnimateNext (
                       XcursorAnimate        *<i>animate</i>)
 
-              Cyclically returns the next Cursor in  the  array,  incrementing
+              Cyclically  returns  the  next Cursor in the array, incrementing
               the sequence number to prepare for the next call.
 
-              The  caller  is  responsible for displaying the series of Cursor
+              The caller is responsible for displaying the  series  of  Cursor
               images.  Xcursor does not do that.
 
 
 </pre>
 <h3><a name="h3-Glyph-Cursor-APIs" id="h3-Glyph-Cursor-APIs">Glyph Cursor APIs</a></h3>
 <pre>
-       The X11 XCreateFontCursor and  XCreateGlyphCursor  functions  use  this
+       The  X11  XCreateFontCursor  and  XCreateGlyphCursor functions use this
        part of the API to extend the X core cursors feature to use themes.
 
        void XcursorImageHash (
                       XImage                *<i>image</i>,
                       unsigned char          <i>hash</i>[XCURSOR_BITMAP_HASH_SIZE])
 
-              Compute  a  hash  of  the image, to display when the environment
+              Compute a hash of the image, to  display  when  the  environment
               variable XCURSOR_DISCOVER is set.
 
        void XcursorImagesSetName (
@@ -1917,9 +1924,9 @@
                       unsigned int           <i>height</i>)
 
               Check if the display supports either ARGB or themes, and also if
-              the  image size fits within the maximum cursor size (64 pixels).
-              If so, create a bitmap of the  specified  size,  and  cache  the
-              result  in  Xcursor,  identifying  it  with  the Pixmap-id (pid)
+              the image size fits within the maximum cursor size (64  pixels).
+              If  so,  create  a  bitmap  of the specified size, and cache the
+              result in Xcursor,  identifying  it  with  the  Pixmap-id  (pid)
               value.
 
        void XcursorNoticePutBitmap (
@@ -1927,8 +1934,8 @@
                       Drawable               <i>draw</i>,
                       XImage                *<i>image</i>)
 
-              Update the image contents in the bitmap specified  by  the  draw
-              value  (a  Pixmap-id).   The  bitmap  must  have been created by
+              Update  the  image  contents in the bitmap specified by the draw
+              value (a Pixmap-id).  The  bitmap  must  have  been  created  by
               XcursorNoticeCreateBitmap.
 
        Cursor XcursorTryShapeBitmapCursor (
@@ -1940,9 +1947,9 @@
                       unsigned int           <i>x</i>,
                       unsigned int           <i>y</i>)
 
-              If the display supports either ARGB or themes,  try  to  load  a
-              cursor  into  Xcursor's  cache  using  the <i>source</i> parameter as a
-              Pixmap-id.  The source may no longer be in the  cache.   Xcursor
+              If  the  display  supports  either ARGB or themes, try to load a
+              cursor into Xcursor's cache using  the  <i>source</i>  parameter  as  a
+              Pixmap-id.   The  source may no longer be in the cache.  Xcursor
               uses the hash value to identify the desired image.
 
        Cursor XcursorTryShapeCursor (
@@ -1954,7 +1961,7 @@
                       XColor _Xconst        *<i>foreground</i>,
                       XColor _Xconst        *<i>background</i>)
 
-              If  the  display  supports  either ARGB or themes, try to load a
+              If the display supports either ARGB or themes,  try  to  load  a
               cursor into Xcursor's cache using the <i>source</i><b>_</b><i>char</i> parameter as a
               shape.  Using
 
@@ -1964,8 +1971,8 @@
 
               <b>o</b>   the <i>source</i><b>_</b><i>char</i> parameter as a shape,
 
-              Xcursor  calls XcursorShapeLoadImages to load the cursor images.
-              If successful, Xcursor uses XcursorImagesLoadCursor to load  the
+              Xcursor calls XcursorShapeLoadImages to load the cursor  images.
+              If  successful, Xcursor uses XcursorImagesLoadCursor to load the
               cursor information.
 
 
@@ -1975,27 +1982,38 @@
        XcursorBool XcursorSupportsARGB (
                       Display               *<i>dpy</i>)
 
-              Returns  true  if the display supports ARGB cursors.  Otherwise,
+              Returns true if the display supports ARGB  cursors.   Otherwise,
               cursors will be mapped to a core X cursor.
 
        XcursorBool XcursorSupportsAnim (
                       Display               *<i>dpy</i>)
 
-              Returns  true  if  the  display   supports   animated   cursors.
+              Returns   true   if   the  display  supports  animated  cursors.
               Otherwise, cursors will be mapped to a core X cursor.
 
        XcursorBool XcursorSetDefaultSize (
                       Display               *<i>dpy</i>,
                       int                    <i>size</i>)
 
-              Sets the default size for cursors on the specified display. When
-              loading cursors, those whose nominal size  is  closest  to  this
-              size will be preferred.
+              Sets the default size for  cursors  on  the  specified  display.
+              When  loading  cursors,  those  whose nominal size is closest to
+              this size will be preferred.
 
        int XcursorGetDefaultSize (
                       Display               *<i>dpy</i>)
 
               Gets the default cursor size.
+
+       XcursorBool XcursorSetResizable (
+                      Display               *<i>dpy</i>,
+                      XcursorBool            <i>resizable</i>)
+
+              Sets the current resizable-cursors state.
+
+       XcursorBool XcursorGetResizable (
+                      Display               *<i>dpy</i>)
+
+              Gets the current resizable-cursors state.
 
        XcursorBool XcursorSetTheme (
                       Display               *<i>dpy</i>,
@@ -2020,12 +2038,12 @@
 
 
 </pre>
-<h2><a name="h2-ENVIRONMENT-VARIABLES" id="h2-ENVIRONMENT-VARIABLES">ENVIRONMENT VARIABLES</a></h2>
+<h2><a name="h2-ENVIRONMENT" id="h2-ENVIRONMENT">ENVIRONMENT</a></h2>
 <pre>
-       Environment variables can be used to override resource settings,  which
+       Environment  variables can be used to override resource settings, which
        in turn override compiled-in default values.
 
-       Some  of  the environment variables recognized by Xcursor are booleans,
+       Some of the environment variables recognized by Xcursor  are  booleans,
        specified as follows:
 
           <i>true</i> for "t", "1", "y" or "on"
@@ -2034,38 +2052,38 @@
 
        Xcursor ignores other values for these booleans.
 
-       <b>HOME</b>           Xcursor interprets "~" in the search list  as  the  home
-                      directory,  using this variable rather than the password
+       <b>HOME</b>           Xcursor  interprets  "~"  in the search list as the home
+                      directory, using this variable rather than the  password
                       database.
 
        <b>XCURSOR_ANIM</b>   If the display supports the Render CreateCursor request,
-                      and  the  Render  feature  is  enabled, disable <i>animated</i>
+                      and the Render  feature  is  enabled,  disable  <i>animated</i>
                       cursors if the environment variable is <i>false</i>.
 
-                      If the environment variable is not given,  Xcursor  uses
+                      If  the  environment variable is not given, Xcursor uses
                       the resource <b>Xcursor.anim</b>.
 
-       <b>XCURSOR_CORE</b>   If  the display supports the Render CreateCursor request
-                      disable the Render feature if the  environment  variable
+       <b>XCURSOR_CORE</b>   If the display supports the Render CreateCursor  request
+                      disable  the  Render feature if the environment variable
                       is <i>false</i>.
 
-                      If  the  environment variable is not given, Xcursor uses
+                      If the environment variable is not given,  Xcursor  uses
                       the resource <b>Xcursor.core</b>.
 
        <b>XCURSOR_DISCOVER</b>
-                      If the variable is  set,  Xcursor  turns  on  a  logging
-                      feature.   It  displays  the hash value and the image so
-                      that users can see which cursor name is associated  with
+                      If  the  variable  is  set,  Xcursor  turns on a logging
+                      feature.  It displays the hash value and  the  image  so
+                      that  users can see which cursor name is associated with
                       each image.
 
                       There is no corresponding resource setting.
 
        <b>XCURSOR_DITHER</b> This variable sets the desired <i>dither</i>.
 
-                      If  the  environment variable is not given, Xcursor uses
+                      If the environment variable is not given,  Xcursor  uses
                       the resource <b>Xcursor.dither</b>.
 
-                      If neither environment variable or  resource  is  found,
+                      If  neither  environment  variable or resource is found,
                       Xcursor uses "threshold"
 
                       These are the recognized values:
@@ -2078,41 +2096,62 @@
 
                          <b>threshold</b>
 
-       <b>XCURSOR_PATH</b>   This  variable sets the list of paths in which to search
+       <b>XCURSOR_PATH</b>   This variable sets the list of paths in which to  search
                       for cursors, rather than the compiled-in default list.
 
                       Directories in this path are separated by colons (:).
 
-       <b>XCURSOR_SIZE</b>   This variable sets the desired cursor size, in pixels.
+       <b>XCURSOR_RESIZED</b>
+                      Enables  automatic  resizing of cursors to improve their
+                      displayed size if the environment variable is <i>true</i>.
 
                       If the environment variable is not given, Xcursor  tries
+                      the <b>Xcursor.resized</b> resource.
+
+       <b>XCURSOR_SIZE</b>   This variable sets the desired cursor size, in pixels.
+
+                      If  the environment variable is not given, Xcursor tries
                       the <b>Xcursor.size</b> resource.
 
-                      If  no size is given, whether by environment variable or
-                      resource  setting,  Xcursor  next  tries   the   <b>Xft.dpi</b>
+                      If no size is given, whether by environment variable  or
+                      resource   setting,   Xcursor  next  tries  the  <b>Xft.dpi</b>
                       resource setting to guess the size of a 16-point cursor.
 
                       Finally, if <b>Xft.dpi</b> is not set, Xcursor uses the display
-                      height, dividing by 48  (assuming  that  the  height  is
+                      height,  dividing  by  48  (assuming  that the height is
                       768).
 
        <b>XCURSOR_THEME</b>  This variable selects the desired <i>theme</i>.
 
-                      If  the environment variable is not given, Xcursor tries
+                      If the environment variable is not given, Xcursor  tries
                       the <b>Xcursor.theme</b> resource.
 
-                      If neither environment variable or  resource  is  found,
+                      If  neither  environment  variable or resource is found,
                       Xcursor uses the <i>default</i> theme.
 
        <b>XCURSOR_THEME_CORE</b>
-                      Enables  themes  for  core  cursors  if  the environment
+                      Enables themes  for  core  cursors  if  the  environment
                       variable is <i>true</i>.
 
-                      If the environment variable is not given, Xcursor  tries
+                      If  the environment variable is not given, Xcursor tries
                       the <b>Xcursor.theme_core</b> resource.
 
                       An  application  can  enable  or  disable  themes  using
                       XcursorSetThemeCore.
+
+
+</pre>
+<h2><a name="h2-CAVEATS" id="h2-CAVEATS">CAVEATS</a></h2>
+<pre>
+       <b>Xcursor</b>  will  probably  change  radically in the future; weak attempts
+       will be made to retain some level of source-file compatibility.
+
+
+</pre>
+<h2><a name="h2-AUTHORS" id="h2-AUTHORS">AUTHORS</a></h2>
+<pre>
+       Keith Packard
+       Thomas E. Dickey
 
 
 </pre>
@@ -2123,24 +2162,12 @@
 
        as well as
 
+              <i>Icon Theme Specification</i>
               <a href="https://specifications.freedesktop.org/icon-theme-spec/">https://specifications.freedesktop.org/icon-theme-spec/</a>
 
 
-</pre>
-<h2><a name="h2-RESTRICTIONS" id="h2-RESTRICTIONS">RESTRICTIONS</a></h2>
-<pre>
-       <b>Xcursor</b>  will  probably  change  radically in the future; weak attempts
-       will be made to retain some level of source-file compatibility.
 
-
-</pre>
-<h2><a name="h2-AUTHOR" id="h2-AUTHOR">AUTHOR</a></h2>
-<pre>
-       Keith Packard
-
-
-
-X Version 11                   libXcursor 1.2.0                     <b>XCURSOR(3)</b>
+X Version 11                   libXcursor 1.2.3                     <b>XCURSOR(3)</b>
 </pre>
 
               
