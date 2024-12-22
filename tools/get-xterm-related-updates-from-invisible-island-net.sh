@@ -157,6 +157,7 @@ wget https://invisible-island.net/personal/git-exports.html #Xorg libs used by X
 # https://invisible-island.net/personal/git-exports.html#others # see what can be linked or forked under Other stuff, and where to incorporate it in the docs website
 #
 wget https://invisible-island.net/ncurses/ncurses.html
+wget https://invisible-island.net/ncurses/ncurses-intro.html
 # add more pages linked in ncurses.html, including:
   wget https://invisible-island.net/xterm/terminfo.html
   wget https://invisible-island.net/datafiles/current/terminfo.src.gz
