@@ -170,6 +170,7 @@ wget https://invisible-island.net/ncurses/man/ # ADD ALL LINKS FROM THIS PAGE AS
 wget https://invisible-island.net/ncurses/ncurses.faq.html
 wget https://invisible-island.net/ncurses/NEWS.html
 wget https://invisible-island.net/ncurses/NEWS.gz
+wget https://invisible-island.net/ncurses/ncurses-Ada95.html
 # more ncurses-related content targets to add for download here from https://invisible-island.net/ncurses/ncurses.html
 #
 wget https://invisible-island.net/xterm/xtoolkit/xtoolkit.html #X Toolkit links
