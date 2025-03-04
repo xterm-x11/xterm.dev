@@ -17,11 +17,17 @@ sed -i /'nav-top'/d  ../stage/changelog-vttest-nav.html
 # get the line number for this HTML element, pipe it as a variable with read, and delete the last lines of the file excluding the line of this HTML element
 sed -n '/<\/div>/=' ../stage/changelog-vttest-nav.html | (read ; LINEAFTER=$(( $REPLY + 1 )); sed -i "$LINEAFTER,$ d" ../stage/changelog-vttest-nav.html)
 
-# get the line number for this HTML element, pipe it as a variable with read, and delete the first lines of the file including the line of this HTML element
-sed -n '/-------------------------------------------------------------------------------/=' ../stage/changelog-vttest-content.html | (read ; sed -i "1,$REPLY d" ../stage/changelog-vttest-content.html)
+# get the line number for this HTML element, pipe it as a variable with read, and delete the first lines of the file excluding the line of this HTML element
+sed -n '/<pre>/=' ../stage/changelog-vttest-content.html | (read ; LINEBEFORE=$(( $REPLY - 1 )); sed -i "1,$LINEBEFORE d" ../stage/changelog-vttest-content.html)
 
-# get the line number for this HTML element, pipe it as a variable with read, and delete the last lines of the file including the line of this HTML element
-sed -n '/<\/pre>/=' ../stage/changelog-vttest-content.html | (read ; sed -i "$REPLY,$ d" ../stage/changelog-vttest-content.html)
+# remove the line `-- \$\Id\: CHANGES,v 1.317 2024\/12\/05 00:30:03 tom Exp \$` from ../stage/changelog-vttest-content.html
+sed -i /'-- \$Id: CHANGES,v 1\.317 2024\/12\/05 00:30:03 tom Exp \$'/d  ../stage/changelog-vttest-content.html
+
+# remove the line `-------------------------------------------------------------------------------` from ../stage/changelog-vttest-content.html
+sed -i /'-------------------------------------------------------------------------------'/d  ../stage/changelog-vttest-content.html
+
+# get the line number for this HTML element, pipe it as a variable with read, and delete the last lines of the file excluding the line of this HTML element
+sed -n '/<\/pre>/=' ../stage/changelog-vttest-content.html | (read ; LINEAFTER=$(( $REPLY + 1 )); sed -i "$LINEAFTER,$ d" ../stage/changelog-vttest-content.html)
 
 # concatenate both file excerpts
 cat ../stage/changelog-vttest-nav.html ../stage/changelog-vttest-content.html > ../stage/downstreamed-complete-changelog-vttest-page.html

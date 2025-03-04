@@ -15,13 +15,13 @@ sed -n '/<div class="nav">/=' ../stage/changelog-tctest-nav.html | (read ; LINEB
 sed -i /'nav-top'/d  ../stage/changelog-tctest-nav.html
 
 # get the line number for this HTML element, pipe it as a variable with read, and delete the last lines of the file excluding the line of this HTML element
-sed -n '/<\/div>/=' ../stage/changelog-tctest-nav.html | (read ; LINEAFTER=$(( $REPLY + 1 )); sed -i "$LINEAFTER,$ d" ../stage/changelog-tctest-nav.html)
+sed -n '/<\/div>/=' ../stage/changelog-tctest-nav.html | (read ; LINEAFTER=$(( $REPLY + 2 )); sed -i "$LINEAFTER,$ d" ../stage/changelog-tctest-nav.html)
 
-# get the line number for this HTML element, pipe it as a variable with read, and delete the first lines of the file including the line of this HTML element
-sed -n '/<pre>/=' ../stage/changelog-tctest-content.html | (read ; sed -i "1,$REPLY d" ../stage/changelog-tctest-content.html)
+# get the line number for this HTML element, pipe it as a variable with read, and delete the first lines of the file excluding the line of this HTML element
+sed -n '/<pre>/=' ../stage/changelog-tctest-content.html | (read ; LINEBEFORE=$(( $REPLY - 1 )); sed -i "1,$LINEBEFORE d" ../stage/changelog-tctest-content.html)
 
-# get the line number for this HTML element, pipe it as a variable with read, and delete the last lines of the file including the line of this HTML element
-sed -n '/<\/pre>/=' ../stage/changelog-tctest-content.html | (read ; sed -i "$REPLY,$ d" ../stage/changelog-tctest-content.html)
+# get the line number for this HTML element, pipe it as a variable with read, and delete the last lines of the file excluding the line of this HTML element
+sed -n '/<\/pre>/=' ../stage/changelog-tctest-content.html | (read ; LINEAFTER=$(( $REPLY + 1 )); sed -i "$LINEAFTER,$ d" ../stage/changelog-tctest-content.html)
 
 # concatenate both file excerpts
 cat ../stage/changelog-tctest-nav.html ../stage/changelog-tctest-content.html > ../stage/downstreamed-complete-changelog-tctest-page.html
