@@ -101,6 +101,7 @@ theme:
   features:
     - navigation.expand
     - navigation.tabs
+    - navigation.tabs.sticky
 
   extra:
     consent:
