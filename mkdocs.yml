@@ -5,7 +5,7 @@ site_name: XTerm
 site_url: https://xterm.dev
 # &copy; as ©
 copyright: >
-  Copyright © 1997-2024 by Thomas E. Dickey et al.
+  Copyright © 1997-2025 by Thomas E. Dickey et al.
   <br/>
   No cookies are served on this website.
 nav:
@@ -84,14 +84,33 @@ nav:
        - Recommended tools: recommended-tools.md
 #          - download?
   - History: history.md
-#
+
 markdown_extensions:
   - admonition
+# - pymdownx.emoji:
+      # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown-extensions/#emoji
+      # https://facelessuser.github.io/pymdown-extensions/installation/
+    # emoji_index: !!python/name:material.extensions.emoji.twemoji
+    # emoji_generator: !!python/name:material.extensions.emoji.to_svg
+    # options:
+    #   custom_icons:
+    #     - overrides/.icons
 
 theme:
   name: material
   favicon: favicon.png
   logo: logo-favicon.png # https://github.com/xterm-x11/xterm-snapshots/blob/master/icons/xterm-color.png (the .svg file is a bit corrupted)
+  custom_dir: overrides
+  icon:
+  # https://squidfunk.github.io/mkdocs-material/setup/changing-the-logo-and-icons/#additional-icons
+  # https://squidfunk.github.io/mkdocs-material/customization/#extending-the-theme
+    admonition:
+      Tip: octicons/light-bulb-24
+      # https://primer.style/foundations/icons/light-bulb-24
+      Note: octicons/note-24
+      # https://primer.style/foundations/icons/note-24
+      Warning: octicons/alert-24
+      # https://primer.style/foundations/icons/alert-24
   palette:
     primary: deep purple
     accent: lime
