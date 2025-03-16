@@ -11,7 +11,6 @@ copyright: >
 nav:
   - Home: index.md
   - Changelog (release notes): changelog-xterm.md
-  - History: history.md
   - Install:
        - Package: package.md
        - xterm.tar.gz: xterm.tar.gz.md
@@ -84,6 +83,7 @@ nav:
 #          - download?
        - Recommended tools: recommended-tools.md
 #          - download?
+  - History: history.md
 #
 markdown_extensions:
   - admonition
