@@ -100,7 +100,7 @@ theme:
     code: Roboto Mono
   features:
     - navigation.expand
-#   - navigation.tabs
+    - navigation.tabs
 
   extra:
     consent:
