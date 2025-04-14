@@ -1,3 +1,28 @@
+2025-01-21  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* tctest.c:
+	fix a possible null-pointer reference if the entry contains only a cancel.
+
+	* tctest.c: gcc15-warnings.
+
+	* package/debian/copyright, COPYING, VERSION, package/debian/changelog,
+	  package/tctest.spec:
+	bump
+
+2025-01-10  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* configure: regen
+
+	* aclocal.m4, configure.in: resync with my-autoconf
+
+2024-07-28  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* config.guess: 2024/07/27
+
+2024-06-03  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* config.sub: 2024/05/27
+
 2024-04-29  Thomas E. Dickey  <dickey@invisible-island.net>
 
 	* tctest.1: workaround for groff mis-hyphenating

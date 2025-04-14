@@ -24,7 +24,7 @@
 
 <pre>
 -------------------------------------------------------------------------------
--- Copyright 2018-2023,2024 Thomas E. Dickey                                 --
+-- Copyright 2018-2024,2025 Thomas E. Dickey                                 --
 -- Copyright 1998-2017,2018 Free Software Foundation, Inc.                   --
 --                                                                           --
 -- Permission is hereby granted, free of charge, to any person obtaining a   --
@@ -51,7 +51,7 @@
 -- sale, use or other dealings in this Software without prior written        --
 -- authorization.                                                            --
 -------------------------------------------------------------------------------
--- $Id: NEWS,v 1.4212 2024/12/14 20:03:39 tom Exp $
+-- $Id: NEWS,v 1.4273 2025/04/12 21:08:43 tom Exp $
 -------------------------------------------------------------------------------
 
 This is a log of changes that ncurses has gone through since Zeyd started
@@ -71,10 +71,144 @@ See the AUTHORS file for the corresponding full names.
 Changes through 1.9.9e did not credit all contributions;
 it is not possible to add this information.
 
+<a name="t20250412" href="#index-t20250412" id="t20250412">20250412</a>
+        + add pangoterm -TD
+        + add kf1 to kf5 to sclp (report by Werner Fink)
+        + add vt100+pf1-pf4 -TD
+
+<a name="t20250405" href="#index-t20250405" id="t20250405">20250405</a>
+        + improve formatting/style of manpages (patches by Branden Robinson).
+        + improve infocmp -E/-e fallback feature (report by Ville Rissanen):
+          + prefix names with "ti_" if they begin with a digit, e.g., 9term
+          + escape backslashes and double-quotes in description fields
+        + modify infocmp -E/-e fallback feature to reduce stricter compiler
+          warnings for the extended capability data.
+        + add sclp -TD
+        + add op to vt525 -TD
+        + update contour -TD
+
+<a name="t20250329" href="#index-t20250329" id="t20250329">20250329</a>
+        + add XM/xm to ms-terminal, to enable mouse with experimental Windows
+          driver -TD
+        + add -x option to infocmp in MKfallback.sh
+        + improve experimental Windows driver by restoring the scroll buffer
+          and console mode, e.g., when reset_prog_mode or endwin is called
+          (patch by Daniel Starke).
+        + add a buffer-limit check in postprocess_termcap (report/testcase by
+          Yifan Zhang).
+
+<a name="t20250322" href="#index-t20250322" id="t20250322">20250322</a>
+        + add a null pointer check in mouse-initialization, for the
+          experimental Windows driver (patch by Daniel Starke).
+        + improve makefile dependency in Ada95/src
+        + add note in user_caps.5 addressing a quibble about dates.
+
+<a name="t20250315" href="#index-t20250315" id="t20250315">20250315</a>
+        + improve formatting/style of manpages (patches by Branden Robinson).
+
+<a name="t20250308" href="#index-t20250308" id="t20250308">20250308</a>
+        + remove test in wgetch which applied notimeout to the initial read
+          of a character (patch by Branden Robinson).
+        + improve formatting/style of manpages (patches by Branden Robinson).
+        + fix a few compiler-warnings in MinGW port.
+
+<a name="t20250301" href="#index-t20250301" id="t20250301">20250301</a>
+        + add color to vt525 (Branden Robinson)
+        + add vt520-w and vt525-w (Branden Robinson)
+        + improve formatting/style of manpages (patches by Branden Robinson).
+        + improve configurability of alloca() as used in Windows ports.
+        + fix some typos in manpages.
+        + modify configure script checks for stdbool.h to fix build with older
+          gcc version.
+
+<a name="t20250222" href="#index-t20250222" id="t20250222">20250222</a>
+        + modify treatment of "n" parameter for waddnstr, waddnwstr, and
+          wins_nwstr to return OK when "n" is zero, for consistency with other
+          implementations (report by Benjamin Barenblat, cf: <a href="#t20231118">20231118</a>).
+        + formatting improvements for terminfo.5 (Debian <a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1096164">#1096164</a>).
+
+<a name="t20250216" href="#index-t20250216" id="t20250216">20250216</a>
+        + add limit-checks in alloc_entry.c and alloc_ttype.c to avoid indexing
+          errors when using infocmp to compare all capabilities when processing
+          a malformed terminfo binary which has a valid header (testcase by
+          "Ekkosun").
+
+<a name="t20250215" href="#index-t20250215" id="t20250215">20250215</a>
+        + add gzip option for suppressing filename/timestamp information to an
+          overlooked case (cf: <a href="#t20240330">20240330</a>).
+        + correct spelling errors found with codespell.
+        + fix some typos in manpages (report by Sven Joachim)
+        + amend change to lib_set_term.c to work with thread configuration
+          (report by Rajeev Pillai, cf: <a href="#t20250208">20250208</a>).
+
+<a name="t20250208" href="#index-t20250208" id="t20250208">20250208</a>
+        + change etip.h.in to include either/both of &lt;new&gt; and &lt;exception&gt;,
+          needed for another old BSD.
+        + update st (report by Alexander Kashpir) -TD
+        + add note for ghostty 1.1.0 -TD
+        + fix a few issues found with coverity.
+
+<a name="t20250201" href="#index-t20250201" id="t20250201">20250201</a>
+        + add &lt;new&gt; to the possible headers declaring the C++ std::bad_alloc
+          (report by Carl Hansen).
+        + modify check for stdbool.h to be more conservative in case the
+          headers are used with a compiler other than that which was used to
+          configure (Redhat <a href="https://bugzilla.redhat.com/show_bug.cgi?id=2342514">#2342514</a>).
+        + improve MKlib_gen.sh handling of "bool" type, for building link_test
+        + improve formatting/style of manpages (patches by Branden Robinson).
+
+<a name="t20250125" href="#index-t20250125" id="t20250125">20250125</a>
+        + improve error-handling in c++ binding (report by Mingjie Shen).
+        + strict compiler-warning fixes for upcoming gcc15
+
+<a name="t20250118" href="#index-t20250118" id="t20250118">20250118</a>
+        + improve pattern used for configure --with-xterm-kbs option (report by
+          Mingyu Wang)
+        + update configure macros, from work on cdk and dialog.
+        + change a parameter name in curs_sp_funcs.3x, for consistency (patch
+          by "WHR").
+        &gt; patches by Branden Robinson:
+        + improve formatting/style of manpages
+        + change winwstr() to a generated function, using the macro definition,
+          moving its handling of negative length parameter into winnwstr().
+        + correct actual-function name in a few trace calls.
+
+<a name="t20250111" href="#index-t20250111" id="t20250111">20250111</a>
+        + add check for infinite loop in tic's use-resolution.
+        + increase limit on use-clauses from 32 to 40, warn but allow entries
+          which exceed the old limit.
+        + add some null-pointer checks after mallocs in test-programs.
+
+<a name="t20250104" href="#index-t20250104" id="t20250104">20250104</a>
+        + modify tput to warn about capabilities which expect parameters where
+          none are given; also repair the feature where multiple capabilities
+          can be handled on a single line.
+        + cleanup use-clauses -TD
+        + add linux+lockeys, xterm+r5+lockeys, xterm+r5+fkeys -TD
+        + add vt220+ufkeys, vt220+sfkeys
+        + revert man/manlinks.sed change, which loses aliases (cf: <a href="#t20241228">20241228</a>).
+        + modify MKlib_gen.c to allow for Solaris's definition of NULL as 0L
+
+<a name="t20241228" href="#index-t20241228" id="t20241228">20241228</a>
+        + correct conditional-compile for a case when the C compiler does not
+          have a bool type.
+        + add ghostty -TD
+        &gt; patches by Branden Robinson:
+        + add comments to generated term.h to hint the configure options used
+        + use same subdir-convention for term.h, in configure script
+        + improve formatting/style of manpages
+
+<a name="t20241221" href="#index-t20241221" id="t20241221">20241221</a>
+        + modify ncurses/tinfo/MKfallback.sh to work with MacOS sed, which
+          lacks BSD-style \&lt; and \&gt;
+        + trim padding from sgr expression used in trim_sgr0, to avoid copying
+          the padding into the resulting sgr0 (report by Rajeev Pillai).
+        + strict compiler-warning fixes for upcoming gcc15
+
 <a name="t20241214" href="#index-t20241214" id="t20241214">20241214</a>
         + avoid redefining bool in curses.h if the platform already supports
           that type (cf: <a href="#t20241123">20241123</a>).
-        + move include &lt;curses.h&gt; from etip.h.in to cursesw.hh, to work around
+        + move include &lt;curses.h&gt; from etip.h.in to cursesw.h, to work around
           breakage in Apple's port of ncurses.
         + strict compiler-warning fixes for upcoming gcc15
 
@@ -126,7 +260,7 @@ it is not possible to add this information.
         + improve filtering of -L options in misc/gen-pkgconfig.in and in
           misc/ncurses-config.in
         + add check in wresize() for out-of-range dimensions (report by Peter
-          Bierma). 
+          Bierma).
 
 <a name="t20240922" href="#index-t20240922" id="t20240922">20240922</a>
         + add a few null-pointer checks in ncurses
@@ -15894,6 +16028,42 @@ available separately from netcom.com:pub/zmbenhal/
 <div class="nav">
 <ul>
 <li class="nav-top"><a href="NEWS.html">(top)</a></li>
+
+<li><a name="index-t20250412" href="#t20250412" id="index-t20250412">2025/04/12</a></li>
+
+<li><a name="index-t20250405" href="#t20250405" id="index-t20250405">2025/04/05</a></li>
+
+<li><a name="index-t20250329" href="#t20250329" id="index-t20250329">2025/03/29</a></li>
+
+<li><a name="index-t20250322" href="#t20250322" id="index-t20250322">2025/03/22</a></li>
+
+<li><a name="index-t20250315" href="#t20250315" id="index-t20250315">2025/03/15</a></li>
+
+<li><a name="index-t20250308" href="#t20250308" id="index-t20250308">2025/03/08</a></li>
+
+<li><a name="index-t20250301" href="#t20250301" id="index-t20250301">2025/03/01</a></li>
+
+<li><a name="index-t20250222" href="#t20250222" id="index-t20250222">2025/02/22</a></li>
+
+<li><a name="index-t20250216" href="#t20250216" id="index-t20250216">2025/02/16</a></li>
+
+<li><a name="index-t20250215" href="#t20250215" id="index-t20250215">2025/02/15</a></li>
+
+<li><a name="index-t20250208" href="#t20250208" id="index-t20250208">2025/02/08</a></li>
+
+<li><a name="index-t20250201" href="#t20250201" id="index-t20250201">2025/02/01</a></li>
+
+<li><a name="index-t20250125" href="#t20250125" id="index-t20250125">2025/01/25</a></li>
+
+<li><a name="index-t20250118" href="#t20250118" id="index-t20250118">2025/01/18</a></li>
+
+<li><a name="index-t20250111" href="#t20250111" id="index-t20250111">2025/01/11</a></li>
+
+<li><a name="index-t20250104" href="#t20250104" id="index-t20250104">2025/01/04</a></li>
+
+<li><a name="index-t20241228" href="#t20241228" id="index-t20241228">2024/12/28</a></li>
+
+<li><a name="index-t20241221" href="#t20241221" id="index-t20241221">2024/12/21</a></li>
 
 <li><a name="index-t20241214" href="#t20241214" id="index-t20241214">2024/12/14</a></li>
 

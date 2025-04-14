@@ -1,34 +1,54 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
 <head>
-  <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.6.0">
-  <title>Change-Log for TCTEST</title>
-  <link rel="author" href="mailto:dickey@invisible-island.net">
-  <meta http-equiv="Content-Type" content=
-  "text/html; charset=utf-8">
-  <link rel="stylesheet" href="/css/simplestyle.css" type=
-  "text/css">
-  <link rel="SHORTCUT ICON" href="/img/icons/favicon.ico" type=
-  "image/x-icon">
-  <meta name="keywords" content="CHANGES,change-log">
-  <meta name="description" content="Change-Log for TCTEST">
-  <style type="text/css">
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+<title>Change-Log for TCTEST</title>
+<link rel="author" href="mailto:dickey@invisible-island.net">
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<link rel="stylesheet" href="/css/simplestyle.css" type="text/css">
+<link rel="SHORTCUT ICON" href="/img/icons/favicon.ico" type="image/x-icon">
+<meta name="keywords" content="CHANGES,change-log">
+<meta name="description" content="Change-Log for TCTEST">
+<style type="text/css">
   @import "/css/simplenavXX.css" all;
-  </style>
+</style>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <h1 class="no-header">Change-Log for TCTEST</h1>
-  <hr>
-  <a href="/">https://invisible-island.net/</a><a href=
-  "/ncurses/">ncurses/</a><a href=
-  "/ncurses/tctest/">tctest/</a><a href=
-  "/ncurses/tctest/CHANGES.html">CHANGES</a>
-  <hr>
-  <pre>
-<a name="t20240429" href="#index-t20240429" id=
-"t20240429">2024-04-29</a>
+<h1 class="no-header">Change-Log for TCTEST</h1>
+
+<hr>
+<a href="/">https://invisible-island.net/</a><a href="/ncurses/">ncurses/</a><a href="/ncurses/tctest/">tctest/</a><a href="/ncurses/tctest/CHANGES.html">CHANGES</a>
+
+<hr>
+
+<pre>
+<a name="t20250121" href="#index-t20250121" id="t20250121">2025-01-21</a>
+
+        * tctest.c:
+        fix a possible null-pointer reference if the entry contains only a cancel.
+
+        * tctest.c: gcc15-warnings.
+
+        * package/debian/copyright, COPYING, VERSION, package/debian/changelog,
+          package/tctest.spec:
+        bump
+
+<a name="t20250110" href="#index-t20250110" id="t20250110">2025-01-10</a>
+
+        * configure: regen
+
+        * aclocal.m4, configure.in: resync with my-autoconf
+
+<a name="t20240728" href="#index-t20240728" id="t20240728">2024-07-28</a>
+
+        * config.guess: 2024/07/27
+
+<a name="t20240603" href="#index-t20240603" id="t20240603">2024-06-03</a>
+
+        * config.sub: 2024/05/27
+
+<a name="t20240429" href="#index-t20240429" id="t20240429">2024-04-29</a>
 
         * tctest.1: workaround for groff mis-hyphenating
 
@@ -43,25 +63,21 @@
           package/debian/changelog, package/tctest.spec:
         bump
 
-<a name="t20240107" href="#index-t20240107" id=
-"t20240107">2024-01-07</a>
+<a name="t20240107" href="#index-t20240107" id="t20240107">2024-01-07</a>
 
         * configure: regen
 
         * aclocal.m4: resync with my-autoconf, for compiler warning fixes
 
-<a name="t20231227" href="#index-t20231227" id=
-"t20231227">2023-12-27</a>
+<a name="t20231227" href="#index-t20231227" id="t20231227">2023-12-27</a>
 
         * config.sub: 2023-12-27
 
-<a name="t20231202" href="#index-t20231202" id=
-"t20231202">2023-12-02</a>
+<a name="t20231202" href="#index-t20231202" id="t20231202">2023-12-02</a>
 
         * config.guess: 2023-12-02
 
-<a name="t20230130" href="#index-t20230130" id=
-"t20230130">2023-01-30</a>
+<a name="t20230130" href="#index-t20230130" id="t20230130">2023-01-30</a>
 
         * makefile.in, testing/run_test.sh: shellcheck-warnings
 
@@ -75,8 +91,7 @@
 
         * aclocal.m4: resync with my-autoconf
 
-<a name="t20221008" href="#index-t20221008" id=
-"t20221008">2022-10-08</a>
+<a name="t20221008" href="#index-t20221008" id="t20221008">2022-10-08</a>
 
         * tctest.1: check-manpage fixes
 
@@ -90,13 +105,11 @@
 
         * configure.in: resync with my-autoconf
 
-<a name="t20220801" href="#index-t20220801" id=
-"t20220801">2022-08-01</a>
+<a name="t20220801" href="#index-t20220801" id="t20220801">2022-08-01</a>
 
         * config.guess, config.sub: 2022-08-01
 
-<a name="t20210328" href="#index-t20210328" id=
-"t20210328">2021-03-28</a>
+<a name="t20210328" href="#index-t20210328" id="t20210328">2021-03-28</a>
 
         * aclocal.m4: corrected initial date for this particular collection
 
@@ -114,18 +127,15 @@
 
         * configure.in: use CF_WITHOUT_X
 
-<a name="t20201130" href="#index-t20201130" id=
-"t20201130">2020-11-30</a>
+<a name="t20201130" href="#index-t20201130" id="t20201130">2020-11-30</a>
 
         * install-sh: update to 2020-11-14
 
-<a name="t20200816" href="#index-t20200816" id=
-"t20200816">2020-08-16</a>
+<a name="t20200816" href="#index-t20200816" id="t20200816">2020-08-16</a>
 
         * config.guess, config.sub: 2020-08-17
 
-<a name="t20180512" href="#index-t20180512" id=
-"t20180512">2018-05-12</a>
+<a name="t20180512" href="#index-t20180512" id="t20180512">2018-05-12</a>
 
         * configure: regen
 
@@ -141,15 +151,13 @@
           package/tctest.spec:
         bump
 
-<a name="t20180205" href="#index-t20180205" id=
-"t20180205">2018-02-05</a>
+<a name="t20180205" href="#index-t20180205" id="t20180205">2018-02-05</a>
 
         * config.sub: 2018-01-15
 
         * config.guess: 2018-01-26
 
-<a name="t20150706" href="#index-t20150706" id=
-"t20150706">2015-07-06</a>
+<a name="t20150706" href="#index-t20150706" id="t20150706">2015-07-06</a>
 
         * package/debian/copyright, COPYING, package/debian/changelog,
           package/tctest.spec, VERSION:
@@ -168,15 +176,13 @@
         * aclocal.m4: resync with my-autoconf
         add --with-man2html option
 
-<a name="t20150502" href="#index-t20150502" id=
-"t20150502">2015-05-02</a>
+<a name="t20150502" href="#index-t20150502" id="t20150502">2015-05-02</a>
 
         * config.guess: 2015-03-04
 
         * config.sub: 2015-03-08
 
-<a name="t20131208" href="#index-t20131208" id=
-"t20131208">2013-12-08</a>
+<a name="t20131208" href="#index-t20131208" id="t20131208">2013-12-08</a>
 
         * configure: regen
 
@@ -195,18 +201,15 @@
 
         * configure.in: use CF_PROG_CC
 
-<a name="t20131025" href="#index-t20131025" id=
-"t20131025">2013-10-25</a>
+<a name="t20131025" href="#index-t20131025" id="t20131025">2013-10-25</a>
 
         * config.sub: 2013-10-01
 
-<a name="t20130907" href="#index-t20130907" id=
-"t20130907">2013-09-07</a>
+<a name="t20130907" href="#index-t20130907" id="t20130907">2013-09-07</a>
 
         * config.guess: 2013-06-10
 
-<a name="t20111001" href="#index-t20111001" id=
-"t20111001">2011-10-01</a>
+<a name="t20111001" href="#index-t20111001" id="t20111001">2011-10-01</a>
 
         * tctest.c: icc warnings
 
@@ -229,8 +232,7 @@
         * tctest.c:
         provide a breakdown of names+aliases into v6-names, primary and aliases
 
-<a name="t20110930" href="#index-t20110930" id=
-"t20110930">2011-09-30</a>
+<a name="t20110930" href="#index-t20110930" id="t20110930">2011-09-30</a>
 
         * testing/bsd44.ref, testing/3bsd.ref: RCS_BASE
 
@@ -242,8 +244,7 @@
         add a column to by-name.dat which tells whether the capability is standard
         or obsolete with respect to BSD 4.3
 
-<a name="t20110929" href="#index-t20110929" id=
-"t20110929">2011-09-29</a>
+<a name="t20110929" href="#index-t20110929" id="t20110929">2011-09-29</a>
 
         * tctest.c:
         add -g option, to write data-files for plotting frequency of entries at
@@ -255,36 +256,31 @@
 
         * tctest.c: libtic isn't relevant here - only in configure script
 
-<a name="t20110926" href="#index-t20110926" id=
-"t20110926">2011-09-26</a>
+<a name="t20110926" href="#index-t20110926" id="t20110926">2011-09-26</a>
 
         * testing/run_test.sh:
         use ncurses tic -K option if available, to suppress extensions to escapes.
 
-<a name="t20110924" href="#index-t20110924" id=
-"t20110924">2011-09-24</a>
+<a name="t20110924" href="#index-t20110924" id="t20110924">2011-09-24</a>
 
         * testing/run_test.sh:
         omit ".db" from TERMCAP and TERMPATH values, needed for *BSD's.
         use "time -p" for more consistent reporting of timing.
 
-<a name="t20110818" href="#index-t20110818" id=
-"t20110818">2011-08-18</a>
+<a name="t20110818" href="#index-t20110818" id="t20110818">2011-08-18</a>
 
         * VERSION, package/debian/changelog, package/tctest.spec: bump
 
         * testing/run_test.sh: workaround for Solaris' sh
 
-<a name="t20110815" href="#index-t20110815" id=
-"t20110815">2011-08-15</a>
+<a name="t20110815" href="#index-t20110815" id="t20110815">2011-08-15</a>
 
         * testing/escapes.ref, testing/bsd43.ref, testing/bsd42.ref: regen
 
         * testing/escapes.tc:
         add ^'s and \'s for punctuation, to exercise ^? and friends
 
-<a name="t20110813" href="#index-t20110813" id=
-"t20110813">2011-08-13</a>
+<a name="t20110813" href="#index-t20110813" id="t20110813">2011-08-13</a>
 
         * tctest.c:
         configure script changed so that USE_TERMINFO isn't set for FreeBSD builds
@@ -297,8 +293,7 @@
 
         * tctest.c: add a null-pointer check in same_list()
 
-<a name="t20110812" href="#index-t20110812" id=
-"t20110812">2011-08-12</a>
+<a name="t20110812" href="#index-t20110812" id="t20110812">2011-08-12</a>
 
         * tctest.c:
         improve check for "unknown" status return from tgetent, showing "unknown"
@@ -309,8 +304,7 @@
 
         * testing/includes.ref: RCS_BASE
 
-<a name="t20110811" href="#index-t20110811" id=
-"t20110811">2011-08-11</a>
+<a name="t20110811" href="#index-t20110811" id="t20110811">2011-08-11</a>
 
         * tctest.c: add counts for tc's before/after
 
@@ -326,8 +320,7 @@
 
         * configure.in: add check for broken tgetent status
 
-<a name="t20110810" href="#index-t20110810" id=
-"t20110810">2011-08-10</a>
+<a name="t20110810" href="#index-t20110810" id="t20110810">2011-08-10</a>
 
         * tctest.1: add -c, -n and -r options
 
@@ -336,8 +329,7 @@
 
         * tctest.c: add -c, -n and -r options
 
-<a name="t20110809" href="#index-t20110809" id=
-"t20110809">2011-08-09</a>
+<a name="t20110809" href="#index-t20110809" id="t20110809">2011-08-09</a>
 
         * package/debian/changelog, package/tctest.spec, VERSION: bump
 
@@ -369,8 +361,7 @@
         improve redirection of stderr to separate output from 'time' (stderr on
         some BSDs) from the program's output.
 
-<a name="t20110808" href="#index-t20110808" id=
-"t20110808">2011-08-08</a>
+<a name="t20110808" href="#index-t20110808" id="t20110808">2011-08-08</a>
 
         * testing/bsd43.ref: regen
 
@@ -391,8 +382,7 @@
         * testing/run_test.sh:
         modify to test with hashed-db using NetBSD termcap
 
-<a name="t20110805" href="#index-t20110805" id=
-"t20110805">2011-08-05</a>
+<a name="t20110805" href="#index-t20110805" id="t20110805">2011-08-05</a>
 
         * configure: regen
 
@@ -413,8 +403,7 @@
         again, wrap tgetstr() to work around various BSD4.2 flavors which are defective.
         show totals for library-failures and tctest-warnings in summary.
 
-<a name="t20110804" href="#index-t20110804" id=
-"t20110804">2011-08-04</a>
+<a name="t20110804" href="#index-t20110804" id="t20110804">2011-08-04</a>
 
         * tctest.c: fix count for tgetent() calls for terminfo systems.
 
@@ -435,8 +424,7 @@
         simple check of the result from tgetstr() for unrecognized parameter
         functions.
 
-<a name="t20110803" href="#index-t20110803" id=
-"t20110803">2011-08-03</a>
+<a name="t20110803" href="#index-t20110803" id="t20110803">2011-08-03</a>
 
         * testing/escapes.ref: regen
 
@@ -451,8 +439,7 @@
         * tctest.c:
         remove two cases which are terminfo-specific, to help test ncurses' conversion
 
-<a name="t20110731" href="#index-t20110731" id=
-"t20110731">2011-07-31</a>
+<a name="t20110731" href="#index-t20110731" id="t20110731">2011-07-31</a>
 
         * tctest.c: implement -s option
 
@@ -460,8 +447,7 @@
 
         * tctest.c: fix sign-extension in use of ctype macros
 
-<a name="t20110730" href="#index-t20110730" id=
-"t20110730">2011-07-30</a>
+<a name="t20110730" href="#index-t20110730" id="t20110730">2011-07-30</a>
 
         * package/debian/changelog, package/tctest.spec, VERSION: bump
 
@@ -479,8 +465,7 @@
         * tctest.c:
         provide for generating statistics if "-v" option is repeated.
 
-<a name="t20110729" href="#index-t20110729" id=
-"t20110729">2011-07-29</a>
+<a name="t20110729" href="#index-t20110729" id="t20110729">2011-07-29</a>
 
         * testing/freebsd.ref, testing/bsd43.ref, testing/bsd42.ref,
           testing/vim-amiga.ref:
@@ -497,15 +482,13 @@
 
         * configure.in: add checks for ncurses no-leaks functions
 
-<a name="t20110728" href="#index-t20110728" id=
-"t20110728">2011-07-28</a>
+<a name="t20110728" href="#index-t20110728" id="t20110728">2011-07-28</a>
 
         * testing/run_test.sh:
         improve use of environment variables so the test looks only at the test
         data-file.
 
-<a name="t20110727" href="#index-t20110727" id=
-"t20110727">2011-07-27</a>
+<a name="t20110727" href="#index-t20110727" id="t20110727">2011-07-27</a>
 
         * tctest.c: remove unused debug-code
 
@@ -535,8 +518,7 @@
 
         * testing/bsd43.ref, testing/bsd42.ref: RCS_BASE
 
-<a name="t20110726" href="#index-t20110726" id=
-"t20110726">2011-07-26</a>
+<a name="t20110726" href="#index-t20110726" id="t20110726">2011-07-26</a>
 
         * tctest.c: remove leftover debug variable
 
@@ -547,15 +529,13 @@
         * tctest.c:
         suppress expansion of escapes if we're getting _nc_infotocap() to help.
 
-<a name="t20110725" href="#index-t20110725" id=
-"t20110725">2011-07-25</a>
+<a name="t20110725" href="#index-t20110725" id="t20110725">2011-07-25</a>
 
         * testing/run_test.sh:
         set TERMINFO_DIRS to specify that the termcap file should be read first
         (new feature of ncurses)
 
-<a name="t20110724" href="#index-t20110724" id=
-"t20110724">2011-07-24</a>
+<a name="t20110724" href="#index-t20110724" id="t20110724">2011-07-24</a>
 
         * makefile.in: widen the mostlyclean rule to add valgrind's core-files.
 
@@ -610,8 +590,7 @@
 
         * configure.in: add xterm's check for full tgetent()
 
-<a name="t20110723" href="#index-t20110723" id=
-"t20110723">2011-07-23</a>
+<a name="t20110723" href="#index-t20110723" id="t20110723">2011-07-23</a>
 
         * testing/run_test.sh: typo
 
@@ -654,192 +633,189 @@
 
         * tctest.c: to-do list
 
-<a name="t20110722" href="#index-t20110722" id=
-"t20110722">2011-07-22</a>
+<a name="t20110722" href="#index-t20110722" id="t20110722">2011-07-22</a>
 
         * tctest.c:
         for a start, trim out the features that assume I have terminfo, from ncurses.
 
         * testing/vim-amiga.tc: RCS_BASE
 
-<a name="t20110401" href="#index-t20110401" id=
-"t20110401">2011-04-01</a>
+<a name="t20110401" href="#index-t20110401" id="t20110401">2011-04-01</a>
 
         * config.sub: RCS_BASE
 
-<a name="t20110202" href="#index-t20110202" id=
-"t20110202">2011-02-02</a>
+<a name="t20110202" href="#index-t20110202" id="t20110202">2011-02-02</a>
 
         * config.guess: RCS_BASE
 
-<a name="t20110115" href="#index-t20110115" id=
-"t20110115">2011-01-15</a>
+<a name="t20110115" href="#index-t20110115" id="t20110115">2011-01-15</a>
 
         * tctest.c: RCS_BASE
 
-<a name="t20100904" href="#index-t20100904" id=
-"t20100904">2010-09-04</a>
+<a name="t20100904" href="#index-t20100904" id="t20100904">2010-09-04</a>
 
         * package/debian/source/format: RCS_BASE
 
-<a name="t20100808" href="#index-t20100808" id=
-"t20100808">2010-08-08  gavin</a>
+<a name="t20100808" href="#index-t20100808" id="t20100808">2010-08-08  gavin</a>
 
         * testing/freebsd.tc: FROM_KEYS
 
-<a name="t20100420" href="#index-t20100420" id=
-"t20100420">2010-04-20</a>
+<a name="t20100420" href="#index-t20100420" id="t20100420">2010-04-20</a>
 
         * package/debian/compat: RCS_BASE
 
-<a name="t20031129" href="#index-t20031129" id=
-"t20031129">2003-11-29</a>
+<a name="t20031129" href="#index-t20031129" id="t20031129">2003-11-29</a>
 
         * install-sh: RCS_BASE
 
-<a name="t19940711" href="#index-t19940711" id=
-"t19940711">1994-07-11</a>
+<a name="t19940711" href="#index-t19940711" id="t19940711">1994-07-11</a>
 
         * config_h.in: RCS_BASE
 
         * config_h.in: s/Header/Id/
 
-<a name="t19920825" href="#index-t19920825" id=
-"t19920825">1992-08-25  dickey@software.org</a>
+<a name="t19920825" href="#index-t19920825" id="t19920825">1992-08-25  dickey@software.org</a>
 
         * testing/bsd44.tc: RCS_BASE
 
-<a name="t19900521" href="#index-t19900521" id=
-"t19900521">1990-05-21  dickey@software.org</a>
+<a name="t19900521" href="#index-t19900521" id="t19900521">1990-05-21  dickey@software.org</a>
 
         * testing/bsd43.tc: RCS_BASE
 
-<a name="t19830701" href="#index-t19830701" id=
-"t19830701">1983-07-01  Thomas E. Dickey</a>
+<a name="t19830701" href="#index-t19830701" id="t19830701">1983-07-01  Thomas E. Dickey</a>
 
         * testing/bsd42.tc: RCS_BASE
 
-<a name="t19791231" href="#index-t19791231" id=
-"t19791231">1979-12-31  Thomas E. Dickey</a>
+<a name="t19791231" href="#index-t19791231" id="t19791231">1979-12-31  Thomas E. Dickey</a>
 
         * testing/3bsd.tc: RCS_BASE
 
 </pre>
-  <div class="nav">
-    <ul>
-      <li class="nav-top"><a href="CHANGES.html">(top)</a></li>
-      <li><a name="index-t20240429" href="#t20240429" id=
-      "index-t20240429">2024-04-29</a></li>
-      <li><a name="index-t20240107" href="#t20240107" id=
-      "index-t20240107">2024-01-07</a></li>
-      <li><a name="index-t20231227" href="#t20231227" id=
-      "index-t20231227">2023-12-27</a></li>
-      <li><a name="index-t20231202" href="#t20231202" id=
-      "index-t20231202">2023-12-02</a></li>
-      <li><a name="index-t20230130" href="#t20230130" id=
-      "index-t20230130">2023-01-30</a></li>
-      <li><a name="index-t20221008" href="#t20221008" id=
-      "index-t20221008">2022-10-08</a></li>
-      <li><a name="index-t20220801" href="#t20220801" id=
-      "index-t20220801">2022-08-01</a></li>
-      <li><a name="index-t20210328" href="#t20210328" id=
-      "index-t20210328">2021-03-28</a></li>
-      <li><a name="index-t20201130" href="#t20201130" id=
-      "index-t20201130">2020-11-30</a></li>
-      <li><a name="index-t20200816" href="#t20200816" id=
-      "index-t20200816">2020-08-16</a></li>
-      <li><a name="index-t20180512" href="#t20180512" id=
-      "index-t20180512">2018-05-12</a></li>
-      <li><a name="index-t20180205" href="#t20180205" id=
-      "index-t20180205">2018-02-05</a></li>
-      <li><a name="index-t20150706" href="#t20150706" id=
-      "index-t20150706">2015-07-06</a></li>
-      <li><a name="index-t20150502" href="#t20150502" id=
-      "index-t20150502">2015-05-02</a></li>
-      <li><a name="index-t20131208" href="#t20131208" id=
-      "index-t20131208">2013-12-08</a></li>
-      <li><a name="index-t20131025" href="#t20131025" id=
-      "index-t20131025">2013-10-25</a></li>
-      <li><a name="index-t20130907" href="#t20130907" id=
-      "index-t20130907">2013-09-07</a></li>
-      <li><a name="index-t20111001" href="#t20111001" id=
-      "index-t20111001">2011-10-01</a></li>
-      <li><a name="index-t20110930" href="#t20110930" id=
-      "index-t20110930">2011-09-30</a></li>
-      <li><a name="index-t20110929" href="#t20110929" id=
-      "index-t20110929">2011-09-29</a></li>
-      <li><a name="index-t20110926" href="#t20110926" id=
-      "index-t20110926">2011-09-26</a></li>
-      <li><a name="index-t20110924" href="#t20110924" id=
-      "index-t20110924">2011-09-24</a></li>
-      <li><a name="index-t20110818" href="#t20110818" id=
-      "index-t20110818">2011-08-18</a></li>
-      <li><a name="index-t20110815" href="#t20110815" id=
-      "index-t20110815">2011-08-15</a></li>
-      <li><a name="index-t20110813" href="#t20110813" id=
-      "index-t20110813">2011-08-13</a></li>
-      <li><a name="index-t20110812" href="#t20110812" id=
-      "index-t20110812">2011-08-12</a></li>
-      <li><a name="index-t20110811" href="#t20110811" id=
-      "index-t20110811">2011-08-11</a></li>
-      <li><a name="index-t20110810" href="#t20110810" id=
-      "index-t20110810">2011-08-10</a></li>
-      <li><a name="index-t20110809" href="#t20110809" id=
-      "index-t20110809">2011-08-09</a></li>
-      <li><a name="index-t20110808" href="#t20110808" id=
-      "index-t20110808">2011-08-08</a></li>
-      <li><a name="index-t20110805" href="#t20110805" id=
-      "index-t20110805">2011-08-05</a></li>
-      <li><a name="index-t20110804" href="#t20110804" id=
-      "index-t20110804">2011-08-04</a></li>
-      <li><a name="index-t20110803" href="#t20110803" id=
-      "index-t20110803">2011-08-03</a></li>
-      <li><a name="index-t20110731" href="#t20110731" id=
-      "index-t20110731">2011-07-31</a></li>
-      <li><a name="index-t20110730" href="#t20110730" id=
-      "index-t20110730">2011-07-30</a></li>
-      <li><a name="index-t20110729" href="#t20110729" id=
-      "index-t20110729">2011-07-29</a></li>
-      <li><a name="index-t20110728" href="#t20110728" id=
-      "index-t20110728">2011-07-28</a></li>
-      <li><a name="index-t20110727" href="#t20110727" id=
-      "index-t20110727">2011-07-27</a></li>
-      <li><a name="index-t20110726" href="#t20110726" id=
-      "index-t20110726">2011-07-26</a></li>
-      <li><a name="index-t20110725" href="#t20110725" id=
-      "index-t20110725">2011-07-25</a></li>
-      <li><a name="index-t20110724" href="#t20110724" id=
-      "index-t20110724">2011-07-24</a></li>
-      <li><a name="index-t20110723" href="#t20110723" id=
-      "index-t20110723">2011-07-23</a></li>
-      <li><a name="index-t20110722" href="#t20110722" id=
-      "index-t20110722">2011-07-22</a></li>
-      <li><a name="index-t20110401" href="#t20110401" id=
-      "index-t20110401">2011-04-01</a></li>
-      <li><a name="index-t20110202" href="#t20110202" id=
-      "index-t20110202">2011-02-02</a></li>
-      <li><a name="index-t20110115" href="#t20110115" id=
-      "index-t20110115">2011-01-15</a></li>
-      <li><a name="index-t20100904" href="#t20100904" id=
-      "index-t20100904">2010-09-04</a></li>
-      <li><a name="index-t20100808" href="#t20100808" id=
-      "index-t20100808">2010-08-08 gavin</a></li>
-      <li><a name="index-t20100420" href="#t20100420" id=
-      "index-t20100420">2010-04-20</a></li>
-      <li><a name="index-t20031129" href="#t20031129" id=
-      "index-t20031129">2003-11-29</a></li>
-      <li><a name="index-t19940711" href="#t19940711" id=
-      "index-t19940711">1994-07-11</a></li>
-      <li><a name="index-t19920825" href="#t19920825" id=
-      "index-t19920825">1992-08-25 dickey@software.org</a></li>
-      <li><a name="index-t19900521" href="#t19900521" id=
-      "index-t19900521">1990-05-21 dickey@software.org</a></li>
-      <li><a name="index-t19830701" href="#t19830701" id=
-      "index-t19830701">1983-07-01 Thomas E. Dickey</a></li>
-      <li><a name="index-t19791231" href="#t19791231" id=
-      "index-t19791231">1979-12-31 Thomas E. Dickey</a></li>
-    </ul>
-  </div><!-- vile:html
+
+<div class="nav">
+<ul>
+<li class="nav-top"><a href="CHANGES.html">(top)</a></li>
+
+<li><a name="index-t20250121" href="#t20250121" id="index-t20250121">2025-01-21</a></li>
+
+<li><a name="index-t20250110" href="#t20250110" id="index-t20250110">2025-01-10</a></li>
+
+<li><a name="index-t20240728" href="#t20240728" id="index-t20240728">2024-07-28</a></li>
+
+<li><a name="index-t20240603" href="#t20240603" id="index-t20240603">2024-06-03</a></li>
+
+<li><a name="index-t20240429" href="#t20240429" id="index-t20240429">2024-04-29</a></li>
+
+<li><a name="index-t20240107" href="#t20240107" id="index-t20240107">2024-01-07</a></li>
+
+<li><a name="index-t20231227" href="#t20231227" id="index-t20231227">2023-12-27</a></li>
+
+<li><a name="index-t20231202" href="#t20231202" id="index-t20231202">2023-12-02</a></li>
+
+<li><a name="index-t20230130" href="#t20230130" id="index-t20230130">2023-01-30</a></li>
+
+<li><a name="index-t20221008" href="#t20221008" id="index-t20221008">2022-10-08</a></li>
+
+<li><a name="index-t20220801" href="#t20220801" id="index-t20220801">2022-08-01</a></li>
+
+<li><a name="index-t20210328" href="#t20210328" id="index-t20210328">2021-03-28</a></li>
+
+<li><a name="index-t20201130" href="#t20201130" id="index-t20201130">2020-11-30</a></li>
+
+<li><a name="index-t20200816" href="#t20200816" id="index-t20200816">2020-08-16</a></li>
+
+<li><a name="index-t20180512" href="#t20180512" id="index-t20180512">2018-05-12</a></li>
+
+<li><a name="index-t20180205" href="#t20180205" id="index-t20180205">2018-02-05</a></li>
+
+<li><a name="index-t20150706" href="#t20150706" id="index-t20150706">2015-07-06</a></li>
+
+<li><a name="index-t20150502" href="#t20150502" id="index-t20150502">2015-05-02</a></li>
+
+<li><a name="index-t20131208" href="#t20131208" id="index-t20131208">2013-12-08</a></li>
+
+<li><a name="index-t20131025" href="#t20131025" id="index-t20131025">2013-10-25</a></li>
+
+<li><a name="index-t20130907" href="#t20130907" id="index-t20130907">2013-09-07</a></li>
+
+<li><a name="index-t20111001" href="#t20111001" id="index-t20111001">2011-10-01</a></li>
+
+<li><a name="index-t20110930" href="#t20110930" id="index-t20110930">2011-09-30</a></li>
+
+<li><a name="index-t20110929" href="#t20110929" id="index-t20110929">2011-09-29</a></li>
+
+<li><a name="index-t20110926" href="#t20110926" id="index-t20110926">2011-09-26</a></li>
+
+<li><a name="index-t20110924" href="#t20110924" id="index-t20110924">2011-09-24</a></li>
+
+<li><a name="index-t20110818" href="#t20110818" id="index-t20110818">2011-08-18</a></li>
+
+<li><a name="index-t20110815" href="#t20110815" id="index-t20110815">2011-08-15</a></li>
+
+<li><a name="index-t20110813" href="#t20110813" id="index-t20110813">2011-08-13</a></li>
+
+<li><a name="index-t20110812" href="#t20110812" id="index-t20110812">2011-08-12</a></li>
+
+<li><a name="index-t20110811" href="#t20110811" id="index-t20110811">2011-08-11</a></li>
+
+<li><a name="index-t20110810" href="#t20110810" id="index-t20110810">2011-08-10</a></li>
+
+<li><a name="index-t20110809" href="#t20110809" id="index-t20110809">2011-08-09</a></li>
+
+<li><a name="index-t20110808" href="#t20110808" id="index-t20110808">2011-08-08</a></li>
+
+<li><a name="index-t20110805" href="#t20110805" id="index-t20110805">2011-08-05</a></li>
+
+<li><a name="index-t20110804" href="#t20110804" id="index-t20110804">2011-08-04</a></li>
+
+<li><a name="index-t20110803" href="#t20110803" id="index-t20110803">2011-08-03</a></li>
+
+<li><a name="index-t20110731" href="#t20110731" id="index-t20110731">2011-07-31</a></li>
+
+<li><a name="index-t20110730" href="#t20110730" id="index-t20110730">2011-07-30</a></li>
+
+<li><a name="index-t20110729" href="#t20110729" id="index-t20110729">2011-07-29</a></li>
+
+<li><a name="index-t20110728" href="#t20110728" id="index-t20110728">2011-07-28</a></li>
+
+<li><a name="index-t20110727" href="#t20110727" id="index-t20110727">2011-07-27</a></li>
+
+<li><a name="index-t20110726" href="#t20110726" id="index-t20110726">2011-07-26</a></li>
+
+<li><a name="index-t20110725" href="#t20110725" id="index-t20110725">2011-07-25</a></li>
+
+<li><a name="index-t20110724" href="#t20110724" id="index-t20110724">2011-07-24</a></li>
+
+<li><a name="index-t20110723" href="#t20110723" id="index-t20110723">2011-07-23</a></li>
+
+<li><a name="index-t20110722" href="#t20110722" id="index-t20110722">2011-07-22</a></li>
+
+<li><a name="index-t20110401" href="#t20110401" id="index-t20110401">2011-04-01</a></li>
+
+<li><a name="index-t20110202" href="#t20110202" id="index-t20110202">2011-02-02</a></li>
+
+<li><a name="index-t20110115" href="#t20110115" id="index-t20110115">2011-01-15</a></li>
+
+<li><a name="index-t20100904" href="#t20100904" id="index-t20100904">2010-09-04</a></li>
+
+<li><a name="index-t20100808" href="#t20100808" id="index-t20100808">2010-08-08 gavin</a></li>
+
+<li><a name="index-t20100420" href="#t20100420" id="index-t20100420">2010-04-20</a></li>
+
+<li><a name="index-t20031129" href="#t20031129" id="index-t20031129">2003-11-29</a></li>
+
+<li><a name="index-t19940711" href="#t19940711" id="index-t19940711">1994-07-11</a></li>
+
+<li><a name="index-t19920825" href="#t19920825" id="index-t19920825">1992-08-25 dickey@software.org</a></li>
+
+<li><a name="index-t19900521" href="#t19900521" id="index-t19900521">1990-05-21 dickey@software.org</a></li>
+
+<li><a name="index-t19830701" href="#t19830701" id="index-t19830701">1983-07-01 Thomas E. Dickey</a></li>
+
+<li><a name="index-t19791231" href="#t19791231" id="index-t19791231">1979-12-31 Thomas E. Dickey</a></li>
+</ul>
+</div>
+<!-- vile:html
   -->
 </body>
 </html>
