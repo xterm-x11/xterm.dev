@@ -11,11 +11,11 @@ copyright: >
 nav:
   - Home: index.md
   - Changelog (release notes): changelog-xterm.md
-  - Install:
+  - Installing:
        - Package: package.md
        - xterm.tar.gz: xterm.tar.gz.md
-  - Configure: configure.md
-  - Get started:
+  - Configuring: configure.md
+  - Getting started:
        # Select content from
        # https://invisible-island.net/xterm/xterm.faq.html
        # and
@@ -27,7 +27,7 @@ nav:
        - Tabs: tabs.md
        - Full-screen: full-screen.md
        - Scrolling: scrolling.md
-  - Customize:
+  - Customizing:
        - Sample: sample.md
        - Themes: themes.md
        - Fonts: fonts.md
@@ -53,7 +53,7 @@ nav:
        - Xft: manpage-xft.md
        - NCURSES: ncurses.md
 #          - ?
-  - Quality engineering:
+  - Testing:
        - VTtest:
            - Manpage: manpage-vttest.md
            - Changelog: changelog-vttest.md
