@@ -1,0 +1,284 @@
+<!--
+  $Id: ncurses-Ada95.html,v 1.25 2019/04/13 21:10:52 tom Exp $
+  -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
+
+  <title>NCURSES &ndash; Ada95 Binding</title>
+  <link rel="author" href="mailto:dickey@invisible-island.net">
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii">
+  <link rel="SHORTCUT ICON" href="/img/icons/vile.ico" type=
+  "image/x-icon">
+  <link rel="stylesheet" href="/css/simplestyle.css" type=
+  "text/css">
+  <style type="text/css">
+@import "/css/simplenavXX.css" all;
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <hr>
+
+  <p><a href="/">http://invisible-island.net/</a><a href=
+  "/ncurses/">ncurses/</a><br>
+  Copyright &copy; 2011-2014,2017 by Thomas E. Dickey</p>
+  <hr>
+
+  <div class="nav">
+    <ul>
+      <li class="nav-top"><a href=
+      "ncurses-Ada95.html">(top)</a></li>
+
+      <li><a href="#synopsis">Synopsis</a></li>
+
+      <li><a href="#platforms">Platforms</a></li>
+
+      <li><a href="#download">Download</a></li>
+    </ul>
+  </div>
+
+  <h2 id="synopsis-h2"><a name="synopsis" id=
+  "synopsis">Synopsis</a></h2>
+
+  <p>The <a href="/ncurses/ncurses.html">ncurses</a> Ada95 binding
+  was originally written by Juergen Pfeifer in 1996. It has been
+  improved several times by Juergen, as well as by Eugene V
+  Melaragno and Nicolas Boulenguez.</p>
+
+  <p>Although it has been distributed as part of ncurses since
+  1996, at the outset its inclusion was <a href=
+  "ncurses-license.html#october_1996">disputed</a> by Zeyd
+  Ben-Halim because of its size, and its licensing differed
+  slightly from the prevailing ncurses license. Consequently, I
+  maintained it in a separate source archive, as well as adding a
+  check in the configure script in case the binding was not
+  present.</p>
+
+  <p>Beginning with <a href="/ncurses/announce-5.8.html">ncurses
+  5.8</a>, the ncurses sources include <code>make-tar.sh</code>
+  scripts for the Ada95 and test directories which may be used to
+  generate tarballs of those directories which can build separately
+  from the complete ncurses distribution.</p>
+
+  <h2 id="platforms-h2"><a name="platforms" id=
+  "platforms">Platforms</a></h2>
+
+  <p>In preparing the release of <a href=
+  "announce-5.9.html">ncurses 5.9</a>, these compiler versions and
+  systems were used:</p>
+
+  <table border="1" summary="Ada95 binding build-configurations">
+    <tr>
+      <th>System</th>
+
+      <th>CPU</th>
+
+      <th>C (gcc)</th>
+
+      <th>Ada (gnat)</th>
+    </tr>
+
+    <tr>
+      <td>Centos 5.5</td>
+
+      <td>x86_64</td>
+
+      <td>4.1.2</td>
+
+      <td>4.1.2</td>
+    </tr>
+
+    <tr>
+      <td>Cygwin 6.1</td>
+
+      <td>x86_64</td>
+
+      <td>4.3.4</td>
+
+      <td>4.3.4</td>
+    </tr>
+
+    <tr>
+      <td>Debian 3.1</td>
+
+      <td>i686</td>
+
+      <td>3.3.5</td>
+
+      <td>3.15</td>
+    </tr>
+
+    <tr>
+      <td>Debian 5.0</td>
+
+      <td>i486</td>
+
+      <td>4.3.2</td>
+
+      <td>4.3.2</td>
+    </tr>
+
+    <tr>
+      <td>Debian 6.0</td>
+
+      <td>i686</td>
+
+      <td>4.4.5</td>
+
+      <td>4.4.5</td>
+    </tr>
+
+    <tr>
+      <td>Debian 6.0</td>
+
+      <td>x86_64</td>
+
+      <td>4.4.5</td>
+
+      <td>4.4.5</td>
+    </tr>
+
+    <tr>
+      <td>Fedora 13</td>
+
+      <td>x86_64</td>
+
+      <td>4.4.5</td>
+
+      <td>4.4.5</td>
+    </tr>
+
+    <tr>
+      <td>Fedora 14</td>
+
+      <td>x86_64</td>
+
+      <td>4.5.1</td>
+
+      <td>4.5.1</td>
+    </tr>
+
+    <tr>
+      <td>FreeBSD 6.3</td>
+
+      <td>i386</td>
+
+      <td>4.1.2</td>
+
+      <td>4.1.2</td>
+    </tr>
+
+    <tr>
+      <td>FreeBSD 6.3</td>
+
+      <td>i386</td>
+
+      <td>4.2.2</td>
+
+      <td>4.2.2</td>
+    </tr>
+
+    <tr>
+      <td>FreeBSD 6.3</td>
+
+      <td>i386</td>
+
+      <td>4.3.0</td>
+
+      <td>4.3.0</td>
+    </tr>
+
+    <tr>
+      <td>FreeBSD 8.1</td>
+
+      <td>x86_64</td>
+
+      <td>4.4.0</td>
+
+      <td>4.4.0</td>
+    </tr>
+
+    <tr>
+      <td>Mandriva 2010.0</td>
+
+      <td>x86_64</td>
+
+      <td>4.4.1</td>
+
+      <td>4.4.1</td>
+    </tr>
+
+    <tr>
+      <td>MirBSD 10</td>
+
+      <td>i386</td>
+
+      <td>3.4.6</td>
+
+      <td>3.4.6</td>
+    </tr>
+
+    <tr>
+      <td>OpenSuse 11.3</td>
+
+      <td>x86_64</td>
+
+      <td>4.5.0</td>
+
+      <td>4.5.0</td>
+    </tr>
+
+    <tr>
+      <td>Ubuntu 10.04</td>
+
+      <td>x86_64</td>
+
+      <td>4.4.3</td>
+
+      <td>4.4.3</td>
+    </tr>
+
+    <tr>
+      <td>Ubuntu 10.10</td>
+
+      <td>i686</td>
+
+      <td>4.4.4</td>
+
+      <td>4.4.5</td>
+    </tr>
+  </table>
+  <hr>
+
+  <h2 id="download-h2"><a name="download" id=
+  "download">Download</a></h2>
+
+  <ul>
+    <li><a href=
+    "/archives/AdaCurses/AdaCurses.tar.gz">The
+    AdaCurses source (gzip'd tar)</a></li>
+
+    <li><a href="/datafiles/release/AdaCurses.tar.gz">The AdaCurses
+    source (gzip'd tar via http)</a></li>
+  </ul>
+
+  <p>The full sources contain the HTML documentation, found
+  <a href="/ncurses/Ada95.html">here</a>. You may want only the Ada
+  code, without the documentation:</p>
+
+  <ul>
+    <li><a href=
+    "/archives/AdaCurses/AdaCurses-small.tar.gz">The
+    AdaCurses source (gzip'd tar)</a></li>
+
+    <li><a href="/datafiles/release/AdaCurses-small.tar.gz">The
+    AdaCurses source (gzip'd tar via http)</a></li>
+  </ul>
+</body>
+</html>

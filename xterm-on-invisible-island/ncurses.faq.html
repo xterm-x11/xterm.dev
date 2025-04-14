@@ -1,5 +1,5 @@
 <!--
-  $Id: ncurses.faq.html,v 1.542 2022/03/16 23:58:40 tom Exp $
+  $Id: ncurses.faq.html,v 1.573 2025/04/07 07:48:47 tom Exp $
   -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
@@ -441,11 +441,11 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
   </blockquote>
 
   <p>By omitting some of the facts (equating "non-GPL'd" with
-  "proprietary"), this paragraph stated in terms of ncurses, for
-  example, that I could not work on ncurses on cygwin without
-  buying a license for Cygwin. The same applied to the developers
-  of about half of the contributed software for Cygwin, since not
-  all are GPL'd. 
+  &ldquo;proprietary&rdquo;), this paragraph stated in terms of
+  ncurses, for example, that I could not work on ncurses on cygwin
+  without buying a license for Cygwin. The same applied to the
+  developers of about half of the contributed software for Cygwin,
+  since not all are GPL'd. 
   <!-- I'm quoting the second one this time, since its wording changed -->
    There was a better attempt at explaining Cygwin licensing
   <a href=
@@ -667,7 +667,8 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
 
   <p>Eric Raymond's website has an old version misleadingly
   numbered "11.0". It actually is much older than ncurses's
-  terminfo (whose major version I have left as "10").</p>
+  terminfo (whose major version I have left as
+  &ldquo;10&rdquo;).</p>
 
   <p>The content of "11.0" is derived from <a href=
   "announce-5.0.html">ncurses 5.0</a>. It makes more than one
@@ -1476,11 +1477,13 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
 
     <li>Linux-based systems
       <ul>
+        <li>Arch Linux</li>
+
         <li>Debian 10-12, and testing</li>
 
-        <li>Fedora 38-39 and rawhide, CentOS 6-9</li>
+        <li>Fedora 38-41 and rawhide, CentOS 6-9</li>
 
-        <li>SuSE tumbleweed</li>
+        <li>Mageia 7-9</li>
       </ul>
     </li>
   </ul>
@@ -2114,7 +2117,8 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
         &ldquo;xterm&rdquo;?</a></li>
 
         <li><a href="#xterm_256color">Why not make
-        &ldquo;xterm&rdquo; equated to "xterm-256color"?</a></li>
+        &ldquo;xterm&rdquo; equated to
+        &ldquo;xterm-256color&rdquo;?</a></li>
 
         <li><a href="#xterm_16MegaColors">Why only 16 (or 256)
         colors?</a></li>
@@ -2657,7 +2661,8 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
     exists, <strong>screen</strong> tries
     <em>&ldquo;screen&rdquo;</em> (or <em>"screen-w"</em> if the
     terminal is wide (132 cols or more)). If even this entry cannot
-    be found, <em>"vt100"</em> is used as a substitute.</p>
+    be found, <em>&ldquo;vt100&rdquo;</em> is used as a
+    substitute.</p>
   </blockquote>
 
   <p>Although <code>screen</code>'s mapping to different terminals
@@ -4334,7 +4339,7 @@ comparing xterm-color to nsterm.
 
   <h4 id="xterm_256color-id"><a name="xterm_256color" id=
   "xterm_256color">Why not make &ldquo;xterm&rdquo; equated to
-  "xterm-256color"?</a></h4>
+  &ldquo;xterm-256color&rdquo;?</a></h4>
 
   <p>It breaks things, in more than one way. Seriously, no one
   should be asking this question, but see <a href=
@@ -4679,13 +4684,12 @@ comparing xterm-color to nsterm.
 
   <p>Although ncurses (starting with release 5.5 in 2005) can be
   configured to support 256 colors, it seems that no widespread
-  distribution is using the extended colors feature (certainly not
-  Red Hat or Debian &mdash; perhaps OpenSuSE does). That (and the
-  extended mouse feature) are the main features for the
-  "ABI&nbsp;6", which could easily coexist with the usual
-  "ABI&nbsp;5" ncurses.</p>
+  distribution was using the extended colors feature (certainly not
+  Red Hat or Debian). That (and the extended mouse feature) were
+  the main features for the "ABI&nbsp;6", which could easily
+  coexist with the usual "ABI&nbsp;5" ncurses.</p>
 
-  <p>Without widespread use of ABI&nbsp;6, there is no reason to
+  <p>Without widespread use of ABI&nbsp;6, there was no reason to
   change the primary flavor of any of ncurses' terminfo entries to
   the -256color or -88color flavor.</p>
 
@@ -4693,7 +4697,8 @@ comparing xterm-color to nsterm.
   "http://lists.debian.org/debian-devel/2008/09/threads.html#00435">
   an attempt in 2008</a> on the part of the ncurses package
   maintainer to provide a migration path to ABI&nbsp;6. That effort
-  died, and does not at this time have a clear successor.</p>
+  died, and (writing in October 2012) did not have a clear
+  successor.</p>
 
   <p>Just because it is not viable does not prevent others from
   assuming it is. For example:</p>
@@ -4741,7 +4746,7 @@ comparing xterm-color to nsterm.
       <p>Even in early 2015, postings such as <em><a href=
       "http://stackoverflow.com/questions/13060139/how-can-i-get-more-colors-curses-python-terminal">
       How can I get more colors? [Curses] [Python]
-      [Terminal]</a></em> are common.<br>
+      [Terminal]</a></em> were common.<br>
       As I noted (and because my correction was twice deleted,
       promoted it to this FAQ):</p>
 
@@ -4806,8 +4811,8 @@ applications will not use them.
   <p>Finally (<a href="/ncurses/announce-6.0.html">August
   2015</a>), we have ncurses6 (ncurses 6.0). Releasing a new
   version is a different matter from getting it accepted and in
-  wide use. Once packagers have been providing it for some time,
-  the compatibility issues will be of less concern.</p>
+  wide use. Since packagers have been providing it for some time,
+  the compatibility issues are of less concern.</p>
 
   <h4><a name="xterm_16MegaColors" id="xterm_16MegaColors">Why only
   16 (or 256) colors?</a></h4>
@@ -8465,7 +8470,7 @@ ETI is <strong>the best</strong> package for creating forms and menus.
   "copyright_text">Copyright</a></h2>
 
   <p>
-  Copyright&nbsp;&copy;&nbsp;1997&ndash;2023,&nbsp;2024&nbsp;by&nbsp;Thomas&nbsp;E.&nbsp;Dickey
+  Copyright&nbsp;&copy;&nbsp;1997&ndash;2024,&nbsp;2025&nbsp;by&nbsp;Thomas&nbsp;E.&nbsp;Dickey
   &lt;dickey@invisible-island.net&gt;<br>
   All Rights Reserved.</p>
 

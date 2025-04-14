@@ -31,8 +31,8 @@
 
                              <i>Thomas Dickey</i>
                       XFree86 Project (1996-2006)
-                    invisible-island.net (2006-2024)
-               updated for XTerm Patch #396 (2024/12/04)
+                    invisible-island.net (2006-2025)
+               updated for XTerm Patch #398 (2025/03/30)
 
 </pre>
 <h2><a name="h2-Definitions" id="h2-Definitions">Definitions</a></h2>
@@ -501,6 +501,7 @@ C1 controls, ordered by the final character(s).
             * |     &#8658;&nbsp; DECSNLS
             , |     &#8658;&nbsp; DECAC (VT525 only)
             , }     &#8658;&nbsp; DECATC (VT525 only)
+            &gt; <i>Pm</i> f  &#8658;&nbsp; XTQFMTKEYS (xterm)
             &gt; <i>Pm</i> m  &#8658;&nbsp; XTQMODKEYS (xterm)
             &gt; <i>Pm</i> t  &#8658;&nbsp; XTSMTITLE (xterm)
           <i>xterm</i> responds with DCS 1 $ r <i>Pt</i> ST for valid requests,
@@ -535,6 +536,7 @@ C1 controls, ordered by the final character(s).
           provides control sequences for querying the state directly:
 
           <b>o</b>   XTQALLOWED
+          <b>o</b>   XTQFMTKEYS
           <b>o</b>   XTQMODKEYS
 
 <a name="h4-Device-Control-functions:DCS-plus-p-Pt-ST.F94">DCS + p <i>Pt</i> ST</a>
@@ -839,11 +841,66 @@ C1 controls, ordered by the final character(s).
           Horizontal and Vertical Position [row;column] (default =
           [1,1]) (HVP).
 
+<a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pp;Pv-f.1EAC">CSI &gt; <i>Pp</i> ; <i>Pv</i> f</a>
+<a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pp-f.1DAB">CSI &gt; <i>Pp</i> f</a>
+          Set/reset key format options (XTFMTKEYS), xterm.  Set or reset
+          resource-values used by <i>xterm</i> to decide how to format escape
+          sequences holding information about the modifiers pressed with
+          a given key.
+
+          The first parameter <i>Pp</i> identifies the resource to set/reset.
+          The second parameter <i>Pv</i> is the value to assign to the
+          resource.
+
+          If the second parameter is omitted, the resource is reset to
+          its initial value.  Value 5  is reserved for input via the
+          <b><a href="/xterm/manpage/xterm.html#Actions:string">string</a></b> action.
+
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pp-f:Pp-=-0.1EFA"><i>Pp</i> = 0</a>  &#8658;&nbsp; <b>formatKeyboard</b>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pp-f:Pp-=-1.1EFB"><i>Pp</i> = 1</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:formatCursorKeys">formatCursorKeys</a></b>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pp-f:Pp-=-2.1EFC"><i>Pp</i> = 2</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:formatFunctionKeys">formatFunctionKeys</a></b>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pp-f:Pp-=-3.1EFD"><i>Pp</i> = 3</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:formatKeypadKeys">formatKeypadKeys</a></b>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pp-f:Pp-=-4.1EFE"><i>Pp</i> = 4</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:formatOtherKeys">formatOtherKeys</a></b>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pp-f:Pp-=-6.1F00"><i>Pp</i> = 6</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:formatModifierKeys">formatModifierKeys</a></b>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pp-f:Pp-=-7.1F01"><i>Pp</i> = 7</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:formatSpecialKeys">formatSpecialKeys</a></b>.
+
+          If no parameters are given, all resources are reset to their
+          initial values.  See <i>Alt and Meta Keys</i> for more details on the
+          <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:formatOtherKeys">formatOtherKeys</a></b> feature.
+
 <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-g.1CA7">CSI <i>Ps</i> g</a>  Tab Clear (TBC).  ECMA-48 defines additional codes, but the
           VT100 user manual notes that it ignores other codes.  DEC's
           later terminals (and <i>xterm</i>) do the same, for compatibility.
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-g:Ps-=-0.1DF9"><i>Ps</i> = 0</a>  &#8658;&nbsp; Clear Current Column (default).
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-g:Ps-=-3.1DFC"><i>Ps</i> = 3</a>  &#8658;&nbsp; Clear All.
+
+<a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-g.1D10">CSI ? <i>Pp</i> g</a>
+          Query key modifier options (XTQFMTKEYS), <i>xterm</i>.
+
+          The parameter <i>Pp</i> identifies the resource to query.
+
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-g:Pp-=-0.1E5F"><i>Pp</i> = 0</a>  &#8658;&nbsp; <b>formatKeyboard</b>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-g:Pp-=-1.1E60"><i>Pp</i> = 1</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:formatCursorKeys">formatCursorKeys</a></b>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-g:Pp-=-2.1E61"><i>Pp</i> = 2</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:formatFunctionKeys">formatFunctionKeys</a></b>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-g:Pp-=-3.1E62"><i>Pp</i> = 3</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:formatKeypadKeys">formatKeypadKeys</a></b>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-g:Pp-=-4.1E63"><i>Pp</i> = 4</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:formatOtherKeys">formatOtherKeys</a></b>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-g:Pp-=-6.1E65"><i>Pp</i> = 6</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:formatModifierKeys">formatModifierKeys</a></b>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-g:Pp-=-7.1E66"><i>Pp</i> = 7</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:formatSpecialKeys">formatSpecialKeys</a></b>.
+
+          XTerm's response can be used to restore this state, because it
+          is formatted as an XTFMTKEYS control, i.e.,
+
+            CSI &gt; <i>Pp</i> f
+
+          where
+
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-g:Pp-=-0.1E5F"><i>Pp</i> = 0</a>  &#8658;&nbsp; <b>formatKeyboard</b>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-g:Pp-=-1.1E60"><i>Pp</i> = 1</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:formatCursorKeys">formatCursorKeys</a></b>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-g:Pp-=-2.1E61"><i>Pp</i> = 2</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:formatFunctionKeys">formatFunctionKeys</a></b>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-g:Pp-=-3.1E62"><i>Pp</i> = 3</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:formatKeypadKeys">formatKeypadKeys</a></b>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-g:Pp-=-4.1E63"><i>Pp</i> = 4</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:formatOtherKeys">formatOtherKeys</a></b>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-g:Pp-=-6.1E65"><i>Pp</i> = 6</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:formatModifierKeys">formatModifierKeys</a></b>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-g:Pp-=-7.1E66"><i>Pp</i> = 7</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:formatSpecialKeys">formatSpecialKeys</a></b>.
 
 <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-h.1CA2">CSI <i>Pm</i> h</a>  Set Mode (SM).
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-h:Ps-=-2.1DF6"><i>Ps</i> = 2</a>  &#8658;&nbsp; Keyboard Action Mode (KAM).
@@ -878,7 +935,7 @@ C1 controls, ordered by the final character(s).
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-3-5.1EC5"><i>Ps</i> = 3 5</a>  &#8658;&nbsp; Enable font-shifting functions (rxvt).
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-3-8.1EC8"><i>Ps</i> = 3 8</a>  &#8658;&nbsp; Enter Tektronix mode (DECTEK), VT240, <i>xterm</i>.
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-4-0.1EC1"><i>Ps</i> = 4 0</a>  &#8658;&nbsp; Allow 80 <b>&#8658;&nbsp;</b> 132 mode, <i>xterm</i>.
-            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-4-1.1EC2"><i>Ps</i> = 4 1</a>  &#8658;&nbsp; <b><a href="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/more.html">more(1)</a></b> fix (see <b>curses</b> resource).
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-4-1.1EC2"><i>Ps</i> = 4 1</a>  &#8658;&nbsp; <b><a href="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/more.html">more(1)</a></b> fix (see <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:curses">curses</a></b> resource).
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-4-2.1EC3"><i>Ps</i> = 4 2</a>  &#8658;&nbsp; Enable National Replacement Character sets
           (DECNRCM), VT220.
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-4-3.1EC4"><i>Ps</i> = 4 3</a>  &#8658;&nbsp; Enable Graphic Expanded Print Mode (DECGEPM),
@@ -1022,7 +1079,7 @@ C1 controls, ordered by the final character(s).
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-3-0.1EC4"><i>Ps</i> = 3 0</a>  &#8658;&nbsp; Don't show scrollbar (rxvt).
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-3-5.1EC9"><i>Ps</i> = 3 5</a>  &#8658;&nbsp; Disable font-shifting functions (rxvt).
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-4-0.1EC5"><i>Ps</i> = 4 0</a>  &#8658;&nbsp; Disallow 80 <b>&#8658;&nbsp;</b> 132 mode, <i>xterm</i>.
-            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-4-1.1EC6"><i>Ps</i> = 4 1</a>  &#8658;&nbsp; No <b><a href="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/more.html">more(1)</a></b> fix (see <b>curses</b> resource).
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-4-1.1EC6"><i>Ps</i> = 4 1</a>  &#8658;&nbsp; No <b><a href="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/more.html">more(1)</a></b> fix (see <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:curses">curses</a></b> resource).
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-4-2.1EC7"><i>Ps</i> = 4 2</a>  &#8658;&nbsp; Disable National Replacement Character sets
           (DECNRCM), VT220.
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-l:Ps-=-4-3.1EC8"><i>Ps</i> = 4 3</a>  &#8658;&nbsp; Disable Graphic Expanded Print Mode (DECGEPM),
@@ -1270,16 +1327,20 @@ C1 controls, ordered by the final character(s).
           resource.
 
           If the second parameter is omitted, the resource is reset to
-          its initial value.  Values 3  and 5  are reserved for keypad-
-          keys and string-keys.
+          its initial value.  Value 5  is reserved for input via the
+          <b><a href="/xterm/manpage/xterm.html#Actions:string">string</a></b> action.
 
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pp-m:Pp-=-0.1F01"><i>Pp</i> = 0</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyKeyboard">modifyKeyboard</a></b>.
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pp-m:Pp-=-1.1F02"><i>Pp</i> = 1</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyCursorKeys">modifyCursorKeys</a></b>.
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pp-m:Pp-=-2.1F03"><i>Pp</i> = 2</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyFunctionKeys">modifyFunctionKeys</a></b>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pp-m:Pp-=-3.1F04"><i>Pp</i> = 3</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyKeypadKeys">modifyKeypadKeys</a></b>.
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pp-m:Pp-=-4.1F05"><i>Pp</i> = 4</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyOtherKeys">modifyOtherKeys</a></b>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pp-m:Pp-=-6.1F07"><i>Pp</i> = 6</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyModifierKeys">modifyModifierKeys</a></b>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Pp-m:Pp-=-7.1F08"><i>Pp</i> = 7</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifySpecialKeys">modifySpecialKeys</a></b>.
 
           If no parameters are given, all resources are reset to their
-          initial values.
+          initial values.  See <i>Alt and Meta Keys</i> for more details on the
+          <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyOtherKeys">modifyOtherKeys</a></b> feature.
 
 <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-m.1D16">CSI ? <i>Pp</i> m</a>
           Query key modifier options (XTQMODKEYS), <i>xterm</i>.
@@ -1289,7 +1350,10 @@ C1 controls, ordered by the final character(s).
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-m:Pp-=-0.1E65"><i>Pp</i> = 0</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyKeyboard">modifyKeyboard</a></b>.
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-m:Pp-=-1.1E66"><i>Pp</i> = 1</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyCursorKeys">modifyCursorKeys</a></b>.
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-m:Pp-=-2.1E67"><i>Pp</i> = 2</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyFunctionKeys">modifyFunctionKeys</a></b>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-m:Pp-=-3.1E68"><i>Pp</i> = 3</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyKeypadKeys">modifyKeypadKeys</a></b>.
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-m:Pp-=-4.1E69"><i>Pp</i> = 4</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyOtherKeys">modifyOtherKeys</a></b>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-m:Pp-=-6.1E6B"><i>Pp</i> = 6</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyModifierKeys">modifyModifierKeys</a></b>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-m:Pp-=-7.1E6C"><i>Pp</i> = 7</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifySpecialKeys">modifySpecialKeys</a></b>.
 
           XTerm's response can be used to restore this state, because it
           is formatted as an XTMODKEYS control, i.e.,
@@ -1301,7 +1365,10 @@ C1 controls, ordered by the final character(s).
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-m:Pp-=-0.1E65"><i>Pp</i> = 0</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyKeyboard">modifyKeyboard</a></b>.
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-m:Pp-=-1.1E66"><i>Pp</i> = 1</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyCursorKeys">modifyCursorKeys</a></b>.
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-m:Pp-=-2.1E67"><i>Pp</i> = 2</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyFunctionKeys">modifyFunctionKeys</a></b>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-m:Pp-=-3.1E68"><i>Pp</i> = 3</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyKeypadKeys">modifyKeypadKeys</a></b>.
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-m:Pp-=-4.1E69"><i>Pp</i> = 4</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyOtherKeys">modifyOtherKeys</a></b>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-m:Pp-=-6.1E6B"><i>Pp</i> = 6</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyModifierKeys">modifyModifierKeys</a></b>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pp-m:Pp-=-7.1E6C"><i>Pp</i> = 7</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifySpecialKeys">modifySpecialKeys</a></b>.
 
 <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-n.1CAE">CSI <i>Ps</i> n</a>  Device Status Report (DSR).
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-n:Ps-=-5.1E05"><i>Ps</i> = 5</a>  &#8658;&nbsp; Status Report.
@@ -1335,7 +1402,10 @@ C1 controls, ordered by the final character(s).
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-n:Ps-=-0.1F08"><i>Ps</i> = 0</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyKeyboard">modifyKeyboard</a></b>.
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-n:Ps-=-1.1F09"><i>Ps</i> = 1</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyCursorKeys">modifyCursorKeys</a></b>.
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-n:Ps-=-2.1F0A"><i>Ps</i> = 2</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyFunctionKeys">modifyFunctionKeys</a></b>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-n:Ps-=-3.1F0B"><i>Ps</i> = 3</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyKeypadKeys">modifyKeypadKeys</a></b>.
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-n:Ps-=-4.1F0C"><i>Ps</i> = 4</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyOtherKeys">modifyOtherKeys</a></b>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-n:Ps-=-6.1F0E"><i>Ps</i> = 6</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyModifierKeys">modifyModifierKeys</a></b>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-gt-Ps-n:Ps-=-7.1F0F"><i>Ps</i> = 7</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifySpecialKeys">modifySpecialKeys</a></b>.
 
           If the parameter is omitted, <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyFunctionKeys">modifyFunctionKeys</a></b> is disabled.
           When <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyFunctionKeys">modifyFunctionKeys</a></b> is disabled, <i>xterm</i> uses the modifier
@@ -1720,13 +1790,13 @@ C1 controls, ordered by the final character(s).
           Modes 0  and 1  are the <i>stream</i> modes of the DECCARA and
           DECRARA controls.  There are several aspects to <i>stream</i> versus
           <i>rectangle</i> modes:
-          1. In both <i>stream</i> and <i>rectangle</i> modes, the row- and column-
+          1) In both <i>stream</i> and <i>rectangle</i> modes, the row- and column-
           positions are affected by Origin Mode.
-          2. In <i>rectangle</i> mode, cells outside the row- and column-
+          2) In <i>rectangle</i> mode, cells outside the row- and column-
           positions are unaffected.  In <i>stream</i> mode, the row- and
           column-positions are the starting and ending cells, with
           wrapping which ignores Origin Mode.
-          3. In <i>stream</i> mode, those controls affect only cells where a
+          3) In <i>stream</i> mode, those controls affect only cells where a
           character was drawn.  In <i>rectangle</i> mode, cells where no
           character was drawn are first filled in with a space.
 
@@ -2040,7 +2110,7 @@ C1 controls, ordered by the final character(s).
 
             <a name="h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-2-2.1018"><i>Ps</i> = 2 2</a>  &#8658;&nbsp; Change pointer cursor shape to <i>Pt</i>.  The
           parameter <i>Pt</i> sets the <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:pointerShape">pointerShape</a></b> resource.  If <i>Pt</i> is empty,
-          or does not match any of the standard names, <i>n</i>  uses the
+          or does not match any of the standard names, <i>xterm</i> uses the
           resource's default "xterm" shape.
 
             <a name="h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-4-6.101E"><i>Ps</i> = 4 6</a>  &#8658;&nbsp; Change Log File to <i>Pt</i>.  The parameter <i>Pt</i> sets
@@ -2226,32 +2296,6 @@ keys unless the <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:mod
 
 <b>o</b>   shift the key from codes 0-127 to 128-255 by adding 128.
 
-When <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyOtherKeys">modifyOtherKeys</a></b> is set, ordinary keys may be sent as escape
-sequences:
-
-<b>o</b>   When <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyOtherKeys">modifyOtherKeys</a></b> is set to 1, only the alt- and meta-modifiers
-    apply.  For example, <i>alt-Tab</i> sends CSI 2 7 ; 3 ; 9 ~ (the second
-    parameter is "3" for <i>alt</i>, and the third parameter is the ASCII value
-    of tab, "9").
-
-<b>o</b>   When <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyOtherKeys">modifyOtherKeys</a></b> is set to 2, all of the modifiers apply.  For
-    example, <i>shift-Tab</i> sends CSI 2 7 ; 2 ; 9 ~ rather than CSI Z (the
-    second parameter is "2" for <i>shift</i>).
-
-The <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:formatOtherKeys">formatOtherKeys</a></b> resource tells <i>n</i>  to change the format of the escape
-sequences sent when <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyOtherKeys">modifyOtherKeys</a></b> applies.  When <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyOtherKeys">modifyOtherKeys</a></b> is
-set to 1, for example <i>alt-Tab</i> sends CSI 9 ; 3 u (changing the order of
-parameters).  One drawback to this format is that applications may
-confuse it with CSI u  (restore-cursor).
-
-The <i>xterm</i> FAQ sections
-
-   <a href="/xterm/xterm.faq.html#xterm_modother"><i>How can my program distinguish control-I from tab?</i></a>
-
-   <a href="/xterm/modified-keys.html"><i>XTerm - "Other" Modified Keys</i></a>
-
-go into greater detail on this topic.
-
 The table shows the result for a given character "x" with modifiers
 according to the default translations with the resources set on or off.
 This assumes <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:altIsNotMeta">altIsNotMeta</a></b> is set:
@@ -2275,6 +2319,105 @@ This assumes <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:altIsN
        Alt-x      | ON             | ON              | ESC  x
        Alt+Meta-x | ON             | ON              | ESC  x
        -----------+----------------+-----------------+------------
+
+When <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyOtherKeys">modifyOtherKeys</a></b> is set, ordinary keys may be sent as escape
+sequences:
+
+<b>o</b>   When <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyOtherKeys">modifyOtherKeys</a></b> is set to 1, the usual shift- and control-
+    modifiers work as expected, but other modifiers (such as alt- and
+    meta-modifiers) cause ordinary keys to be encoded as if they were
+    function-keys.  For example, <i>alt-Tab</i> sends CSI 2 7 ; 3 ; 9 ~ (the
+    second parameter is "3" for <i>alt</i>, and the third parameter is the
+    ASCII value of tab, "9").
+
+    Ordinary characters can have non-ASCII values.  <i>XTerm</i> uses the X11
+    libraries to obtain the character encoding used for a given <i>keysym</i>
+    (key symbol).  The X11 <i>keysymdef.h</i> header lists 2104 predefined key
+    symbols, as well as documenting how arbitrary Unicode values are
+    represented.  The other <i>*keysym.h</i> headers add 480 symbols.
+
+<b>o</b>   When <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyOtherKeys">modifyOtherKeys</a></b> is set to 2, all of the modifiers apply.  For
+    example, <i>shift-Tab</i> sends CSI 2 7 ; 2 ; 9 ~ rather than CSI Z (the
+    second parameter is "2" for <i>shift</i>).
+
+<b>o</b>   If <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyOtherKeys">modifyOtherKeys</a></b> is set to 3, unmodified keys also are sent as
+    escape sequences.  For example, <i>space</i> sends CSI 2 7 ; 1 ; 3 2 ~
+
+There are a few variations available; they can be set statically with
+resource values or dynamically using control sequences:
+
+<b>o</b>   The <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:formatOtherKeys">formatOtherKeys</a></b> resource tells <i>xterm</i> to change the format of the
+    escape sequences sent when <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyOtherKeys">modifyOtherKeys</a></b> applies.  When
+    <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyOtherKeys">modifyOtherKeys</a></b> is set to 1, for example <i>alt-Tab</i> sends CSI 9 ; 3 u
+    (changing the order of parameters).  One drawback to this format is
+    that applications may confuse it with CSI u  (restore-cursor).
+
+    The resource value can be updated with a corresponding control
+    sequence.
+
+<b>o</b>   The <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyOtherKeys">modifyOtherKeys</a></b> resource can be updated via a corresponding
+    control sequence.  The control sequence accepts a single
+    subparameter, which is interpreted as a mask of modifier bits to
+    factor out of the parameter encoding of the escape sequence.  For
+    example CSI &gt; 4 : 1  m factors out the shift modifier.
+
+Some of the predefined key symbols can be automatically derived, or are
+duplicates.  That leaves about half of the key symbols which <i>xterm</i> may
+encounter.  Most of these are non-character key symbols which may be
+assigned to positions on a keyboard.
+
+<b>o</b>   The most common non-character key symbols are in the range 0xfd00 to
+    0xffff.  <i>XTerm</i> maps them to the Unicode BMP private use area
+    beginning at U+E001.  These account for about a quarter (329) of the
+    non-character symbols.
+
+<b>o</b>   The other non-character key symbols are vendor/platform specific.
+    Those use codes above 0x10000000.  <i>XTerm</i> maps them to the Unicode
+    BMP private use area beginning at U+F0000.
+
+<b>o</b>   The remaining non-Unicode values are characters used in the DEC
+    Technical character set.  <i>XTerm</i> maps them to the Unicode BMP private
+    use area beginning at U+EEEE.
+
+<i>XTerm</i> has additional resource settings (and control sequences) to send
+these non-character symbols as escape sequences.  The <i>Xutil.h</i> header
+defines some of the macros which <i>xterm</i> uses for categorizing these non-
+character symbols:
+
+IsKeypadKey(<i>keysym</i>)
+          is used for the numeric keypad (see <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyKeypadKeys">modifyKeypadKeys</a></b> and
+          <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:formatKeypadKeys">formatKeypadKeys</a></b>).
+
+IsPrivateKeypadKey(<i>keysym</i>)
+          is unused.
+
+IsCursorKey(<i>keysym</i>)
+          is used for the cursor keys, including <i>Home</i> and <i>End</i> (see
+          <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyCursorKeys">modifyCursorKeys</a></b> and <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:formatCursorKeys">formatCursorKeys</a></b>).  <i>XTerm</i> makes a special
+          check for the PC keyboard's editing keypad, which is not
+          handled by the <i>Xutil.h</i> macros.
+
+IsPFKey(<i>keysym</i>)
+
+IsFunctionKey(<i>keysym</i>)
+
+IsMiscFunctionKey(<i>keysym</i>)
+          are used for function keys (see <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyFunctionKeys">modifyFunctionKeys</a></b> and
+          <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:formatFunctionKeys">formatFunctionKeys</a></b>).
+
+IsModifierKey(<i>keysym</i>)
+          is used for modifier keys (see <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:modifyModifierKeys">modifyModifierKeys</a></b> and
+          <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:formatModifierKeys">formatModifierKeys</a></b>).
+
+These macros account for 162 of the 329 non-Unicode values in the BMP.
+
+The <i>xterm</i> FAQ sections
+
+   <a href="/xterm/xterm.faq.html#xterm_modother"><i>How can my program distinguish control-I from tab?</i></a>
+
+   <a href="/xterm/modified-keys.html"><i>XTerm - "Other" Modified Keys</i></a>
+
+go into greater detail on this topic.
 
 </pre>
 <h2><a name="h3-PC-Style-Function-Keys" id="h3-PC-Style-Function-Keys">PC-Style Function Keys</a></h2>
@@ -3251,7 +3394,11 @@ For example, !  is 1.  The screen coordinate system is 0-based.
           Move the cursor to given row and column.
 
 <a name="h4-VT52-Mode:ESC-Z.528">ESC Z</a>     Identify.
-            &#8658;&nbsp; ESC  /  Z  ("I am a VT52.").
+            &#8658;&nbsp; ESC  /  Z  ("I am a VT52 emulated by VT100.").
+          or
+            &#8658;&nbsp; ESC  /  K  ("I am a VT52.").
+          depending on whether <i>xterm</i> is started as a VT52 by setting the
+          <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:decTerminalID">decTerminalID</a></b> resource to "52" or not.
 
 </pre>
 <h2><a name="h2-Further-reading" id="h2-Further-reading">Further reading</a></h2>

@@ -23,8 +23,18 @@
 <hr>
 
 <pre>
--- $Id: CHANGES,v 1.317 2024/12/05 00:30:03 tom Exp $
+-- $Id: CHANGES,v 1.321 2024/12/08 20:00:18 tom Exp $
 -------------------------------------------------------------------------------
+
+<a name="t20241208" href="#index-t20241208" id="t20241208">20241208</a>
+        + modify sixel.c to show all of the font glyphs, for context, and also
+          add a menu entry to quickly display the bitmap for each.
+
+        + bracket keyboard-tests in keyboard.c with command-replay pause/resume.
+
+        + bracket mouse-tests in tek4014.c with command-replay pause/resume.
+
+        + amend change to VT52 cursor-addressing per DEC 070 (mintty <a href="https://github.com/mintty/mintty/issues/1299">#1299</a>).
 
 <a name="t20241204" href="#index-t20241204" id="t20241204">20241204</a>
         + add tests for XTTITLEPOS, XTSMTITLE and XTRMTITLE from xterm <a href="/xterm/xterm.log.html#xterm_396">#396</a>.
@@ -1022,6 +1032,8 @@ VERSION 2.0
 <div class="nav">
 <ul>
 <li class="nav-top"><a href="CHANGES.html">(top)</a></li>
+
+<li><a name="index-t20241208" href="#t20241208" id="index-t20241208">2024/12/08</a></li>
 
 <li><a name="index-t20241204" href="#t20241204" id="index-t20241204">2024/12/04</a></li>
 
