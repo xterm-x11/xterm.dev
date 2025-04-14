@@ -193,4 +193,8 @@ git switch main
 
 git branch -D downstreaming_$(date -I)
 
-echo "https://github.com/xterm-x11/docs/pull/new/downstreaming_$(date -I)"
+# echo "https://github.com/xterm-x11/docs/pull/new/downstreaming_$(date -I)"
+# or
+# echo "https://github.com/xterm-x11/xterm.dev/pull/new/downstreaming_$(date -I)"
+# remove ^ if v works as expected:
+echo "https://github.com/xterm-x11/xterm.dev/compare/downstreaming_$(date -I)?expand=1"

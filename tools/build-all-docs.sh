@@ -63,7 +63,7 @@ git switch main
 
 git branch -D website_build_$(date -I)
 
-echo "https://github.com/xterm-x11/docs/pull/new/website_build_$(date -I)"
+echo "https://github.com/xterm-x11/xterm.dev/pull/new/website_build_$(date -I)"
 
 # consider using the gh command-line tool:
 # gh pr create --title "website_build_$(date -I)"
