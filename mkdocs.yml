@@ -10,7 +10,7 @@ copyright: >
   No cookies are served on this website.
 nav:
   - Home: index.md
-  - Changelog (release notes): changelog-xterm.md
+  - Changelog: changelog-xterm.md
   - Installing:
        - Package: package.md
        - xterm.tar.gz: xterm.tar.gz.md
