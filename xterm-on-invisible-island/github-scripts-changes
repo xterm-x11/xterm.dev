@@ -1,3 +1,43 @@
+2024-05-17  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* release2git:
+	change format of for-each-ref to collect dates for signed tags
+
+2024-05-04  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* release2git: partial fix for duplicate tags
+
+2024-04-21  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* release2git: print an error message to clarify a recent problem
+
+	* release2git: provide proper message for signed tags
+
+	* manifest: shellcheck warnings
+
+	* manifest:
+	revise sort-order, to improve the way that files are listed before directories
+
+2024-04-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* release2git: sign tags, per email from David Runge
+
+2024-02-25  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* git-utimes: fix hashbang for portability
+
+2024-01-09  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* release2git:
+	add "CHANGES" to the "MANIFEST" file if we have generated it.
+	this is used in byacc.
+
+	* manifest: provide for generated changelog
+
+2023-09-09  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gimme-git: ensure tree is clean, e.g., no core-dumps
+
 2023-02-04  Thomas E. Dickey  <dickey@invisible-island.net>
 
 	* release2git:

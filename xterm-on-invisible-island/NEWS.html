@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.8.0">
 <title>Change-Log for NCURSES</title>
 <link rel="author" href="mailto:bug-ncurses@gnu.org">
 <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
@@ -51,7 +51,7 @@
 -- sale, use or other dealings in this Software without prior written        --
 -- authorization.                                                            --
 -------------------------------------------------------------------------------
--- $Id: NEWS,v 1.4273 2025/04/12 21:08:43 tom Exp $
+-- $Id: NEWS,v 1.4356 2025/10/18 15:49:43 tom Exp $
 -------------------------------------------------------------------------------
 
 This is a log of changes that ncurses has gone through since Zeyd started
@@ -70,6 +70,176 @@ See the AUTHORS file for the corresponding full names.
 
 Changes through 1.9.9e did not credit all contributions;
 it is not possible to add this information.
+
+<a name="t20251018" href="#index-t20251018" id="t20251018">20251018</a>
+        + add check for build-time utilities, in case cross-compiling is setup
+          with an invalid $BUILD_CC (prompted by discussion with Stas Sergeev).
+        + modify configure-script and makefiles to make it easier to override
+          the "--with-install-prefix" default with environment variable
+          (report by Stas Sergeev).
+
+<a name="t20251010" href="#index-t20251010" id="t20251010">20251010</a>
+        + fix stray "\" in curs_extend.3x, regen html manpages.
+        + regen html manpages with man2html 1.42, fixing a few cases where
+          headers were not linked (report by Branden Robinson).
+
+<a name="t20251004" href="#index-t20251004" id="t20251004">20251004</a>
+        + improve formatting/style of manpages (patches by Branden Robinson).
+        + in-progress work to merge MinGW/Windows port.
+        + improve configure check for "install".
+
+<a name="t20250927" href="#index-t20250927" id="t20250927">20250927</a>
+        + in-progress work to merge MinGW/Windows port.
+
+<a name="t20250920" href="#index-t20250920" id="t20250920">20250920</a>
+        + in-progress work to merge MinGW/Windows port.
+        + add configure check for &lt;sys/fsuid.h&gt;, build-fix for flatpacks
+          (report by Stas Sergeev).
+        + update config.guess, config.sub
+
+<a name="t20250913" href="#index-t20250913" id="t20250913">20250913</a>
+        + update ncurses-howto.
+        + modify MKfallback.sh to eliminate TERMINFO environment variable.
+        + improve checks in run_tic.sh script, change some variable names to
+          reduce packager confusion (report by Stas Sergeev).
+        + disallow configure options which apply only to multiuser systems, to
+          improve ports to single-user systems such as Haiku (report by Stas
+          Sergeev).
+        + update ncurses/wcwidth.c, for MinGW ports, from xterm.
+        + correct _nc_to_char() for the case when wctob() is not found by
+          configure script (report/patch by Benno Schulenberg).
+        &gt; patches by Robin Haberkorn
+          + modify handle_wheel case 2 to ignore the event as in case 1 for
+            mouse version 1, since that corresponds to a button 6 or 7 event
+            which is not supported with ABI 6.
+          + use separate read/write pointers in the mouse event queue to work
+            with too-close events for the click-detection to work reliably,
+            and further improve that in case mouseinterval(0) is used to
+            suppress click-detection.
+
+<a name="t20250830" href="#index-t20250830" id="t20250830">20250830</a>
+        + in-progress work to merge MinGW/Windows port.
+        + build-fix for experimental Windows configuration (report by Kirill
+          Makurin).
+        + improve pattern used for configure --with-xterm-kbs option.
+
+<a name="t20250823" href="#index-t20250823" id="t20250823">20250823</a>
+        + improve style of MKterminfo.sh script (patches by Branden Robinson).
+        + improve formatting/style of manpages (patches by Branden Robinson).
+        + remove redundant definition of ConsoleInfo.
+        + change scope of TTY, GET_TTY and SET_TTY to ncurses-internals
+
+<a name="t20250816" href="#index-t20250816" id="t20250816">20250816</a>
+        + remove redundant reference to compiler in libtool configuration of
+          mk-1st.awk (report by Lorinczy Zsigmond).
+        + build-fixes for --enable-exp-win32 configuration
+        + improve formatting/style of manpages (patches by Branden Robinson).
+
+<a name="t20250809" href="#index-t20250809" id="t20250809">20250809</a>
+        + add configure check for Win32 named pipes feature, using that to make
+          nc_mingw.h obsolete in favor of nc_win32.h
+        + amend limit used in alloc_pair, by applying an adjustment for default
+          colors only when the maximum number of color pairs is greater than
+          the maximum number of colors (report by "Ingvix").
+
+<a name="t20250802" href="#index-t20250802" id="t20250802">20250802</a>
+        + fixes for reading Unicode characters in MinGW/Windows port (report by
+          Axel Reinhold).
+
+<a name="t20250726" href="#index-t20250726" id="t20250726">20250726</a>
+        + modify configure script cases for $host_os, to accommodate 64-bit
+          big-endian POWER linux with glibc (patch by Cosima Neidahl).
+        + add warning to configure script to address conflict between the
+          --enable-lp64 option and the options for overriding the types used
+          for chtype and mmask_t.
+
+<a name="t20250720" href="#index-t20250720" id="t20250720">20250720</a>
+        + further improve readability of header-files
+        + add a consistency-check for termio(s)/tty headers, to help with
+          cross-compiles (report by Stas Sergeev).
+        + remove some unused configure-macros
+        + add xterm+keypad to pccon+base -TD
+        + trim trailing blanks from a few files (report by Stas Sergeev).
+
+<a name="t20250712" href="#index-t20250712" id="t20250712">20250712</a>
+        + improve readability of term.h
+        + modify recursive make rules to avoid interference with GNU make's
+          "-j" option (report by Stas Sergeev).
+
+<a name="t20250705" href="#index-t20250705" id="t20250705">20250705</a>
+        + when installing the terminfo database, check if symbolic links are
+          supported before attemping to link lib/terminfo from share/terminfo
+          (report by Kirill Makurin).
+        + modify configure check for MAKEFLAGS/MFLAGS to ignore existing value
+          of these environment variables (report by Stas Sergeev).
+        + reserve -c/-l options in test/*.c for command/logging like vttest.
+        + add options to test/worm.c for benchmarking (Nibby Nebbulous)
+        + improve formatting/style of manpages (patches by Branden Robinson).
+        + improve readability of header-files (patches by Branden Robinson).
+
+<a name="t20250628" href="#index-t20250628" id="t20250628">20250628</a>
+        + fix a few compiler-warnings.
+        + simplify include for wchar.h in Windows port by removing the platform
+          ifdef's (report by Kirill Makurin).
+        + regen Ada95/configure (report by Sven Joachim).
+
+<a name="t20250621" href="#index-t20250621" id="t20250621">20250621</a>
+        + revise loop in wins_nwstr, to ensure that non-spacing characters are
+          combined with the base spacing character (report by Karl Knechtel).
+        + fixes for port using clang-cl or cl MSVC (report by Kirill Makurin).
+        + improve test-packages:
+          + convert debian*/copyright to DEP-5 format.
+          + modify ".spec" test-files to work around timestamp-clamping in
+            recent Fedora releases.
+
+<a name="t20250614" href="#index-t20250614" id="t20250614">20250614</a>
+        + reduce lintian warnings for test-packages.
+        + clean up some shellcheck warnings
+        + improve test/configure checks for X libraries, reducing duplicates
+        + fix some typos/errata in license text, to help with scripted checks
+
+<a name="t20250531" href="#index-t20250531" id="t20250531">20250531</a>
+        + improve logic in misc/run_tic.in for constructing symbolic link
+          when $DESTDIR is set.
+
+<a name="t20250524" href="#index-t20250524" id="t20250524">20250524</a>
+        + correct option-name used in configure script, which resulted in size
+          change for cchar_t (cf: <a href="#t20250517">20250517</a>).
+
+<a name="t20250517" href="#index-t20250517" id="t20250517">20250517</a>
+        + initial changes for some ABI 7 features:
+          + disable wgetch-events
+          + add feature for extending mouse-buttons
+          + add feature for extending direct-color support
+        + use bracketed+paste in nsterm, rlogin-color, screen, terminology -TD
+
+<a name="t20250510" href="#index-t20250510" id="t20250510">20250510</a>
+        + add rv/xr codes for domterm, mintty, mlterm -TD
+        + add xr code for putty -TD
+        + update teraterm to 5.0 -TD
+        + add rlogin-color -TD
+
+<a name="t20250503" href="#index-t20250503" id="t20250503">20250503</a>
+        + update/correct some of the rv/xr strings, checked with tack -TD
+        + use ansi+rca in sclp -TD
+        + use vt220+pcedit in sclp (Werner Fink)
+        + move some building blocks from illumos to sun-color, based on
+          illumos source-history -TD
+        + improve use-clauses: ansi+cup, ansi+idl1, ansi+rca, ansi+rca2,
+          ansi+sgrso, ansi+sgrul -TD
+        + add ecma+standout, ecma+underline -TD
+        + add rv code for alacritty -TD
+        + add rv/xr codes for contour, ghostty, iterm2, kitty, konsole,
+          vscode, vte, wezterm -TD
+
+<a name="t20250426" href="#index-t20250426" id="t20250426">20250426</a>
+        + expand note on extensions in curs_addch.3x
+        + add illumos, sun-16color, sun-256color, sun-direct -TD
+        + add wyse+cvis -TD
+
+<a name="t20250419" href="#index-t20250419" id="t20250419">20250419</a>
+        + add note on scrolling and lower-right corner to waddch and wadd_wch
+          manual pages.
 
 <a name="t20250412" href="#index-t20250412" id="t20250412">20250412</a>
         + add pangoterm -TD
@@ -16028,6 +16198,56 @@ available separately from netcom.com:pub/zmbenhal/
 <div class="nav">
 <ul>
 <li class="nav-top"><a href="NEWS.html">(top)</a></li>
+
+<li><a name="index-t20251018" href="#t20251018" id="index-t20251018">2025/10/18</a></li>
+
+<li><a name="index-t20251010" href="#t20251010" id="index-t20251010">2025/10/10</a></li>
+
+<li><a name="index-t20251004" href="#t20251004" id="index-t20251004">2025/10/04</a></li>
+
+<li><a name="index-t20250927" href="#t20250927" id="index-t20250927">2025/09/27</a></li>
+
+<li><a name="index-t20250920" href="#t20250920" id="index-t20250920">2025/09/20</a></li>
+
+<li><a name="index-t20250913" href="#t20250913" id="index-t20250913">2025/09/13</a></li>
+
+<li><a name="index-t20250830" href="#t20250830" id="index-t20250830">2025/08/30</a></li>
+
+<li><a name="index-t20250823" href="#t20250823" id="index-t20250823">2025/08/23</a></li>
+
+<li><a name="index-t20250816" href="#t20250816" id="index-t20250816">2025/08/16</a></li>
+
+<li><a name="index-t20250809" href="#t20250809" id="index-t20250809">2025/08/09</a></li>
+
+<li><a name="index-t20250802" href="#t20250802" id="index-t20250802">2025/08/02</a></li>
+
+<li><a name="index-t20250726" href="#t20250726" id="index-t20250726">2025/07/26</a></li>
+
+<li><a name="index-t20250720" href="#t20250720" id="index-t20250720">2025/07/20</a></li>
+
+<li><a name="index-t20250712" href="#t20250712" id="index-t20250712">2025/07/12</a></li>
+
+<li><a name="index-t20250705" href="#t20250705" id="index-t20250705">2025/07/05</a></li>
+
+<li><a name="index-t20250628" href="#t20250628" id="index-t20250628">2025/06/28</a></li>
+
+<li><a name="index-t20250621" href="#t20250621" id="index-t20250621">2025/06/21</a></li>
+
+<li><a name="index-t20250614" href="#t20250614" id="index-t20250614">2025/06/14</a></li>
+
+<li><a name="index-t20250531" href="#t20250531" id="index-t20250531">2025/05/31</a></li>
+
+<li><a name="index-t20250524" href="#t20250524" id="index-t20250524">2025/05/24</a></li>
+
+<li><a name="index-t20250517" href="#t20250517" id="index-t20250517">2025/05/17</a></li>
+
+<li><a name="index-t20250510" href="#t20250510" id="index-t20250510">2025/05/10</a></li>
+
+<li><a name="index-t20250503" href="#t20250503" id="index-t20250503">2025/05/03</a></li>
+
+<li><a name="index-t20250426" href="#t20250426" id="index-t20250426">2025/04/26</a></li>
+
+<li><a name="index-t20250419" href="#t20250419" id="index-t20250419">2025/04/19</a></li>
 
 <li><a name="index-t20250412" href="#t20250412" id="index-t20250412">2025/04/12</a></li>
 

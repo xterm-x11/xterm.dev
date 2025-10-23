@@ -1,4 +1,304 @@
+2025-07-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gcc-normal, gcc-stricter, gcc-strict: fix for recursion
+
+	* gcc-stricter:
+	setting $ACTUAL_GCC to this script caused infinite loop - check and recover
+
+2025-07-15  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* clean-lynx: don't clean source...
+
+	* clean-lynx: use setup-clean
+
+2025-07-13  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all, openbsd-egcc:
+	use $ACTUAL_GCC where I might have egcc or gcc
+
+	* setup-build-all: move OpenBSD workaround before first use of "gcc"
+
+	* gcc-stricter, gcc-strict:
+	use $ACTUAL_GCC where I might have egcc or gcc
+
+2025-05-31  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6: msys2 has the same issue with extra-suffix as cygwin
+
+2025-05-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-savebuild:
+	filter out the -f, -g, -m switches which complicate builds with Fedora
+
+2025-05-24  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-ncurses: split-out logs for gcc-c23 and gcc-c11
+
+2025-05-17  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6: allow NCURSES_ABI to override script
+	fix some shellcheck warnings
+
+2025-04-30  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gcc-stricter: fix for my Solaris 11.4 (gcc9)
+
+2025-04-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all:
+	attempt to filter out some duplicate builds by checking $TOP
+
+2025-03-08  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-thread:
+	don't install pkg-config files, since that should be done by package scripts
+
+2025-01-12  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-ncu-pconfig: improved "diff" from check-dlg-pconfig
+
+2025-01-04  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-thread: string-hacks for macs
+
+2024-12-10  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gcc-stricter:
+	-Wformat=2 is not useful because gcc does not even look at strings assigned
+	to the format variable on the preceding line.
+
+2024-12-07  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-tin: ensure CFLAGS has my opt-tree
+
+2024-12-01  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gcc-stricter: fixes version-detection on MacOS with unrelease gcc15
+
+2024-11-25  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gcc-stricter: move a few options which weren't in gcc 3 or 7
+
+2024-11-24  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gcc-stricter: drop another, due to unnecessary noise in ncurses
+
+2024-11-23  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gcc-stricter:
+	newer stuff isn't that useful - comment out pure and const attribute
+
+	* gcc-stricter: some tweaks per gcc-14
+
+	* gcc-stricter: prompted by Urs, reading
+		https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html
+	add options which might be useful, which are supported in gcc-12 (Debian old),
+	or gcc-14 (Debian-testing)
+
+2024-10-06  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cppcheck-lint:
+	first cut of changes to work also with Fedora configuration of cppcheck
+
+	* cppcheck-lint: first cut of ncurses internals
+
+	* cppcheck-lint: done with panel, etc., for test-programs
+
+	* cppcheck-lint: panels, etc.
+
+	* cppcheck-lint: only update the config-file when this script changes
+
+	* cppcheck-lint:
+	more -- almost done with test-programs vs ncurses library
+
+	* cppcheck-lint: more...
+
+	* cppcheck-lint: more parameter-data.
+
+	* cppcheck-lint:
+	start work to define arguments -- needed to appease C++ matching
+
+	* cppcheck-lint: working to generate cfg chunks
+
+	* cppcheck-lint: the --check-level option is not in cppcheck 2.10
+	add a declaration for _tracef - there are several more needed.
+
+2024-10-05  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cppcheck-lint:
+	in-progress work to construct a noreturn configuration for ncurses
+
+2024-09-28  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-ncu-pconfig: make it clearer where the end of the "diff" is
+
+2024-09-22  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncursesw: reuse cfg-local
+
+2024-08-10  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* clean-ncurses: cleanup AdaCurses.gpr
+
+2024-08-03  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6: don't look in /usr/local/ncurses6 for Debian
+
+2024-08-01  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-lynx: test compression separately
+
+2024-07-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cppcheck-lint: allow for passing cppcheck's "--XXX" options
+
+2024-07-13  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-ncu-pconfig: trim whitespace on this script
+
+	* check-ncu-pconfig:
+	pkg-config's output may have trailing blanks - ignore those.
+
+	* check-ncu-pconfig: filter out matches on the C++ binding
+
+2024-07-11  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-xterm: changed default for imake
+
+2024-06-10  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* check-ncu-pconfig: fix-typo
+
+	* check-ncu-pconfig: align dlg/ncu scripts, adding cflags-only checks
+
+2024-06-04  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-lynx: use dante library for socks5
+
+2024-05-04  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-clean:
+	make this consistent with build-ncurses, allowing override of "make"
+
+	* build-xterm: use setup-clean to fix cleanup after imake build
+
+2024-04-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all:
+	workaround for pkgsrc, which installs extra compilers in /usr/pkg/gcc*/bin
+
+2024-04-11  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* save-lynx: use setup-save
+
+2024-04-10  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* save-tin: using setup-savebuild, works with Solaris 10
+
+2024-04-02  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-lynx: build with nls on cygwin (also with slang)
+
+2024-04-01  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* save-tin: solaris10-fix
+
+2024-02-19  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-clean: ignore errors in "make distclean", for imake stuff
+
+2024-01-27  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6: my macs all need string-hacks
+
+2024-01-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-libtool-ncurses: count mac's for string-hacks
+
+	* setup-clean: use a function for 'find'
+
+	* build-ncurses:
+	treat macos like the BSD's, for string-hacks and hashed-db
+
+2024-01-15  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* save-lynx: workaround for Solaris10
+
+	* save-lynx: fix for Solaris 10
+
+2024-01-01  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-clean: fix for xmkmf, whose output has no "distclean" rule
+
+2023-12-17  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-tin: both Solaris 10/11 have a problem
+
+	* build-tin: my Solaris 10 lacks GNUtls
+
+2023-11-12  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: fix typo
+
+	* setup-build-all:
+	drop some very old machine references, and add gcc-c11, gcc-c2x
+
+	* gcc-c23: fix - documented option is not yet workable.
+
+	* gcc-c23: RCS_BASE
+
+2023-10-21  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-thread: changing default for widec
+
+2023-10-16  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* cfg-ncurses6: new option
+
+2023-10-02  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-opt-xterm: provide for "/" in options
+
+	* all-opts-xterm: add with-[uw]tmp-path
+
+2023-08-26  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-clang-ncurses:
+	clang on newer macOS warns about ncurses use of override vs C++ 2003
+
+2023-08-05  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-clang-ncurses: macs need string-hacks
+
+	* build-xterm: solaris10
+
+2023-05-30  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-xterm: special case for openbsd
+
+	* build-xterm: don't show the failing xmkmf-generated Makefile
+
+2023-05-29  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* build-xterm: make $BUILD_SRC visible to the subprocess
+
+	* build-xterm:
+	improve handling of --srcdir, to test changes for installing terminfo
+
+	* build-xterm: unset the unrelated variables vs $TERMINFO
+
+2023-05-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* setup-build-all: add muskrat
+
+2023-05-06  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* all-opts-ncurses:
+	fix a few disable/enable duplicates, and add a couple of missing ones
+
 2023-02-18  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gcc-strict: add -Wextra
 
 	* gcc-stricter: extend case to gcc > 9.9
 
@@ -247,6 +547,10 @@
 2021-03-23  Thomas E. Dickey  <dickey@invisible-island.net>
 
 	* cfg-ncurses6: use new feature
+
+2021-03-20  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* gcc-c11: RCS_BASE
 
 2021-03-14  Thomas E. Dickey  <dickey@invisible-island.net>
 

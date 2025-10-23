@@ -1,7 +1,5 @@
 RESIZE(1)                       X Window System                      RESIZE(1)
 
-
-
 NAME
        resize  - set environment and terminal settings to current xterm window
        size
@@ -60,65 +58,65 @@ OPTIONS
 
        -s [rows columns]
                This option indicates that Sun console escape sequences will be
-               used instead of the VT100-style xterm escape  codes.   If  rows
-               and  columns  are  given,  resize  will ask the xterm to resize
+               used  instead  of  the VT100-style xterm escape codes.  If rows
+               and columns are given, resize will  ask  the  xterm  to  resize
                itself using those values.
 
-               Both of the escape sequences used for  this  option  (first  to
-               obtain  the window size and second to modify it) are subject to
-               xterm's allowWindowOps resource setting.   The  window  manager
+               Both  of  the  escape  sequences used for this option (first to
+               obtain the window size and second to modify it) are subject  to
+               xterm's  allowWindowOps  resource  setting.  The window manager
                may also choose to disallow the change.
 
-               The  VT100-style  escape  sequence used to determine the screen
-               size always works for VT100-compatible terminals.  VT100s  have
+               The VT100-style escape sequence used to  determine  the  screen
+               size  always works for VT100-compatible terminals.  VT100s have
                no corresponding way to modify the screensize.
 
-       -u      This  option  indicates  that  Bourne  shell commands should be
-               generated even if the user's current shell does not  appear  to
+       -u      This option indicates that  Bourne  shell  commands  should  be
+               generated  even  if the user's current shell does not appear to
                use Bourne shell syntax.
 
-       -v      This  causes  resize  to print a version number to the standard
+       -v      This causes resize to print a version number  to  the  standard
                output, and then exit.
 
-       Note that the Sun console escape sequences are  recognized  by  XFree86
-       xterm  and  by dtterm.  The resize program may be installed as sunsize,
+       Note  that  the  Sun console escape sequences are recognized by XFree86
+       xterm and by dtterm.  The resize program may be installed  as  sunsize,
        which causes makes it assume the -s option.
 
-       The rows and columns  arguments  must  appear  last;  though  they  are
+       The  rows  and  columns  arguments  must  appear  last; though they are
        normally associated with the -s option, they are parsed separately.
 
 ENVIRONMENT
-       SHELL          Unless  overridden  by  the -c option, resize determines
+       SHELL          Unless overridden by the -c  option,  resize  determines
                       the user's current shell by
 
                       o   first checking if $SHELL is set, and using that,
 
-                      o   otherwise  resize  looks  in   the   password   file
+                      o   otherwise   resize   looks   in  the  password  file
                           (/etc/passwd).
 
-                      Generally  Bourne-shell  variants (including ksh) do not
-                      modify $SHELL, so  it  is  possible  for  resize  to  be
-                      confused  if one runs resize from a Bourne shell spawned
+                      Generally Bourne-shell variants (including ksh)  do  not
+                      modify  $SHELL,  so  it  is  possible  for  resize to be
+                      confused if one runs resize from a Bourne shell  spawned
                       from a C shell.
 
-                      After determining the user's shell, resize   checks  the
-                      shell's  name  against a table of known shell names.  If
-                      it does not find the name in its table, resize will  use
+                      After  determining  the user's shell, resize  checks the
+                      shell's name against a table of known shell  names.   If
+                      it  does not find the name in its table, resize will use
                       C  shell  syntax  for  the  generated  commands  to  set
                       environment variables.
 
-       TERM           Resize's generated shell command sets  this  to  "xterm-
+       TERM           Resize's  generated  shell  command sets this to "xterm-
                       new" if not already set.
 
-       TERMCAP        Resize's  generated  shell command sets this variable on
-                      systems using termcap, e.g., when resize is linked  with
+       TERMCAP        Resize's generated shell command sets this  variable  on
+                      systems  using termcap, e.g., when resize is linked with
                       the termcap library rather than a terminfo library.  The
                       latter does not provide the complete text for a  termcap
                       entry.
 
        COLUMNS, LINES Resize's generated shell command sets these variables on
-                      systems using terminfo.   Many  applications  (including
-                      the  curses  library)  use  those  variables when set to
+                      systems  using  terminfo.   Many applications (including
+                      the curses library) use  those  variables  when  set  to
                       override their screensize.
 
 FILES
@@ -127,9 +125,9 @@ FILES
        ~/.cshrc       user's alias for the command.
 
 EXAMPLES
-       For resize's output to take effect, resize must either be evaluated  as
-       part  of the command line (usually done with a shell alias or function)
-       or else redirected to a file which can then be read  in.   From  the  C
+       For  resize's output to take effect, resize must either be evaluated as
+       part of the command line (usually done with a shell alias or  function)
+       or  else  redirected  to  a file which can then be read in.  From the C
        shell (usually known as /bin/csh), the following alias could be defined
        in the user's .cshrc:
 
@@ -157,6 +155,4 @@ SEE ALSO
        csh(1), stty(1), tset(1)
        xterm(1)
 
-
-
-Patch #398                        2025-04-11                         RESIZE(1)
+Patch #403                        2025-10-19                         RESIZE(1)

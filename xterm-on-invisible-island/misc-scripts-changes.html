@@ -25,6 +25,384 @@
   "/scripts/">scripts/</a>
   <hr>
   <pre>
+<a name="t20250722" href="#index-t20250722" id=
+"t20250722">2025-07-22</a>
+
+        * lessopen.sh: add tar.zst, for Arch packages
+
+<a name="t20250705" href="#index-t20250705" id=
+"t20250705">2025-07-05</a>
+
+        * check-manpage:
+        ignore less-than-useful warnings that popped up in April 5's ncurses changes
+
+<a name="t20250607" href="#index-t20250607" id=
+"t20250607">2025-06-07</a>
+
+        * report-terminfo: fill in categories of extensions
+
+<a name="t20250421" href="#index-t20250421" id=
+"t20250421">2025-04-21</a>
+
+        * check-manpage: add "TQ" macro
+
+<a name="t20250215" href="#index-t20250215" id=
+"t20250215">2025-02-15</a>
+
+        * check-manpage: copyright date
+
+        * check-manpage: check for stuttering (repeated words)
+
+<a name="t20250111" href="#index-t20250111" id=
+"t20250111">2025-01-11</a>
+
+        * report-terminfo:
+        correct display for %max_usages - ghostty is really maxed out at 32
+
+        * report-terminfo:
+        show (at least part) of the names of the entries with the most number of
+        "use=" clauses
+
+        * report-terminfo: report max-usages
+
+        * report-terminfo:
+        for source file (-s), show the number of times "use=" was seen, and the
+        most frequent blocks referenced.
+
+        * report-terminfo:
+        add aliases to all_names, which makes the summary-count correct but has the
+        drawback that the individual capabilities are counted twice.
+
+<a name="t20241231" href="#index-t20241231" id=
+"t20241231">2024-12-31</a>
+
+        * lessopen.sh: add pattern for mhtml
+
+<a name="t20241202" href="#index-t20241202" id=
+"t20241202">2024-12-02</a>
+
+        * find-xterm-fonts: don't use "diagnostics"
+
+<a name="t20241027" href="#index-t20241027" id=
+"t20241027">2024-10-27</a>
+
+        * check-manpage:
+        libXcursor's PS macro had a ".sp", which gets a warning from mandoc when
+        it follows a ".SH" (fix by splitting out PC)
+
+        * check-manpage: add CAVEATS per man-pages(7)
+
+        * check-manpage:
+        only complain about fill/nofill nesting in verbose mode, since libXcursor
+        would have a lot of those
+
+<a name="t20240914" href="#index-t20240914" id=
+"t20240914">2024-09-14</a>
+
+        * check-manpage:
+        Branden added a few cases of "p." for pages in a cite - don't treat that
+        as an embedded sentence ending.
+
+        * check-manpage:
+        Branden's changes for curs_window.3x replace \fR's with \fP's, and confuse
+        the logic in this script which insert's \fR's at the beginning and ending
+        of the lines in SYNOPSIS.  Just remove those (and as needed, fix the transfer
+        between \fR's and \fP's.
+
+        * check-manpage: add macros used by Branden Robinson, from an-ext.tmac
+
+<a name="t20240906" href="#index-t20240906" id=
+"t20240906">2024-09-06</a>
+
+        * check-manpage: flex.1 has an 8-parameter BR
+
+<a name="t20240617" href="#index-t20240617" id=
+"t20240617">2024-06-17</a>
+
+        * check-manpage:
+        add a special check for SYNOPSYS in a comment, to quiet some ncurses warnings
+
+<a name="t20240615" href="#index-t20240615" id=
+"t20240615">2024-06-15</a>
+
+        * check-manpage: add section-6 "games" to check for OPTIONS
+
+<a name="t20240601" href="#index-t20240601" id=
+"t20240601">2024-06-01</a>
+
+        * check-manpage: treat embedded \" in arguments as a comment
+
+<a name="t20240502" href="#index-t20240502" id=
+"t20240502">2024-05-02</a>
+
+        * check-manpage:
+        improve the longer-than warning for formatted, to show what I ended up with
+
+        * check-manpage: filter out quoted-section message in xterm
+
+        * check-manpage: eliminate false-positives for fake quotes in xterm.man
+
+<a name="t20240421" href="#index-t20240421" id=
+"t20240421">2024-04-21</a>
+
+        * manifest: shellcheck warnings
+
+        * manifest:
+        revise sort-order, to improve the way that files are listed before directories
+
+<a name="t20240420" href="#index-t20240420" id=
+"t20240420">2024-04-20</a>
+
+        * check-manpage: provide separate-parameter warning for .RI
+
+        * check-manpage: fix for comment-lines in macros
+
+        * check-manpage: add tQ macro
+
+<a name="t20240406" href="#index-t20240406" id=
+"t20240406">2024-04-06</a>
+
+        * check-manpage:
+        the PS parameter is unused in both libXcursor and libXft, and the space
+        before the parameter (for .TP) causes mandoc to complain about trailing
+        space -- just eliminate that.  Also remove the .sp in the macro, similar
+        reason.
+
+<a name="t20240328" href="#index-t20240328" id=
+"t20240328">2024-03-28</a>
+
+        * check-manpage: more Cdk fixes
+
+        * check-manpage: work around special cases in Cdk
+
+<a name="t20240323" href="#index-t20240323" id=
+"t20240323">2024-03-23</a>
+
+        * check-manpage:
+        check for stuff like ".I foo," which should have the "," as a separate parameter
+
+        * check-manpage:
+        workaround for a bug in groff 1.23.0, which gives 4 warnings for each case
+        where ncurses manpages use "@" substitutions in ".TH" macros.
+
+<a name="t20240316" href="#index-t20240316" id=
+"t20240316">2024-03-16</a>
+
+        * check-manpage:
+        pretend that @FOO@ substitutions are a single column, to work around bulk
+        change to ".TH" in ncurses
+
+<a name="t20240306" href="#index-t20240306" id=
+"t20240306">2024-03-06</a>
+
+        * check-manpage: allow "." and "-" in section names without quoting
+
+<a name="t20240302" href="#index-t20240302" id=
+"t20240302">2024-03-02</a>
+
+        * check-manpage:
+        work around an ambiguity if there's other italicized text on the line
+
+        * check-manpage: the "%" must be escaped
+
+        * check-manpage:
+        add "-e" option, to help filter out prefer-bold-link messages for ncurses
+
+        * check-manpage: new macros dS/dE from Brandon
+
+<a name="t20240224" href="#index-t20240224" id=
+"t20240224">2024-02-24</a>
+
+        * check-manpage:
+        add a check for bogus externs such as \fPfoo\fB(3), and also modify these
+        checks to ignore "\%" escape
+
+<a name="t20240219" href="#index-t20240219" id=
+"t20240219">2024-02-19</a>
+
+        * check-manpage:
+        allow for ". ds", etc., rather than just ".ds" since Branden does that.
+
+        * check-manpage: Branden's changes added a CI font
+
+<a name="t20240206" href="#index-t20240206" id=
+"t20240206">2024-02-06</a>
+
+        * check-manpage: macro for rcs-blame
+
+<a name="t20240123" href="#index-t20240123" id=
+"t20240123">2024-01-23</a>
+
+        * check-manpage: add SU from mawk-code.7
+
+        * check-manpage: add Pi definition from mawk.1
+
+<a name="t20240120" href="#index-t20240120" id=
+"t20240120">2024-01-20</a>
+
+        * check-manpage: ignore plain ".ft" line without a parameter
+
+<a name="t20240109" href="#index-t20240109" id=
+"t20240109">2024-01-09</a>
+
+        * manifest: provide for generated changelog
+
+<a name="t20240105" href="#index-t20240105" id=
+"t20240105">2024-01-05</a>
+
+        * check-manpage: add weak warning about quoting SH/SS title string
+
+<a name="t20240102" href="#index-t20240102" id=
+"t20240102">2024-01-02</a>
+
+        * check-manpage: assume section 1 for ".man"
+
+<a name="t20240101" href="#index-t20240101" id=
+"t20240101">2024-01-01</a>
+
+        * check-manpage: add my sections for dialog program
+
+<a name="t20231223" href="#index-t20231223" id=
+"t20231223">2023-12-23</a>
+
+        * check-manpage:
+        quiet a warning about Branden's formatting in curs_variables.3x
+
+        * check-manpage:
+        Branden's making a distinction which makes references inconsistent
+
+<a name="t20231217" href="#index-t20231217" id=
+"t20231217">2023-12-17</a>
+
+        * check-manpage: account for hyphen in adacurses-config manpage
+
+<a name="t20231210" href="#index-t20231210" id=
+"t20231210">2023-12-10</a>
+
+        * check-manpage: improve check related to "\-" in NAME section
+
+<a name="t20231125" href="#index-t20231125" id=
+"t20231125">2023-11-25</a>
+
+        * check-manpage: more section-tweaks
+
+        * check-manpage:
+        strip quotes from section names, to match those with more than one word
+
+        * check-manpage: do the same for CONSTANTS and VARIABLES
+
+        * check-manpage:
+        add FUNCTIONS as known section, where DESCRIPTION tends to be long and
+        interfere with a list of functions
+
+        * check-manpage: put HISTORY after PORTABILITY, per Branden
+
+<a name="t20231124" href="#index-t20231124" id=
+"t20231124">2023-11-24</a>
+
+        * check-manpage: check section ordering
+
+        * check-manpage: provide a test for comments (which should be italics)
+
+        * check-manpage:
+        first cut of improved check for function prototypes which have incorrect
+        font (needs more work to skip over C-style comments)
+
+<a name="t20231008" href="#index-t20231008" id=
+"t20231008">2023-10-08</a>
+
+        * check-manpage: EX/EE do nf/fi
+
+<a name="t20231007" href="#index-t20231007" id=
+"t20231007">2023-10-07</a>
+
+        * check-manpage:
+        quiet dangling-font warnings produced by Branden's changes.
+
+        * check-manpage: another example from Branden Robinson
+
+        * check-manpage:
+        quiet the warnings about "embedded sentence" in no-fill area, by tracking
+        .fi/.nf direct- and macro-usage.
+
+        * check-manpage:
+        construct an array to denote whether a given line is filled or not.
+        this doesn't go into macros - more changes needed.
+
+<a name="t20231001" href="#index-t20231001" id=
+"t20231001">2023-10-01</a>
+
+        * check-manpage:
+        add more ie/el cases based on Branden Robinson's patches, e.g., for clear.1
+
+<a name="t20230930" href="#index-t20230930" id=
+"t20230930">2023-09-30</a>
+
+        * check-manpage: add Branden's EX/EE
+
+<a name="t20230918" href="#index-t20230918" id=
+"t20230918">2023-09-18</a>
+
+        * check-manpage: don't use mandoc for ".ms" files
+
+<a name="t20230916" href="#index-t20230916" id=
+"t20230916">2023-09-16</a>
+
+        * check-manpage: skip macros such as ".ad" in NAME section
+
+        * check-manpage: tweaks for ncurses
+
+        * check-manpage:
+        add a consistency check for syntax needed in ncurses manlinks.sed
+
+<a name="t20230909" href="#index-t20230909" id=
+"t20230909">2023-09-09</a>
+
+        * check-manpage: adapt Branden's font changes
+
+<a name="t20230710" href="#index-t20230710" id=
+"t20230710">2023-07-10</a>
+
+        * report-terminfo:
+        avoid using -a option of toe if -e option is given, to allow for scanning
+        just one directory
+
+<a name="t20230709" href="#index-t20230709" id=
+"t20230709">2023-07-09</a>
+
+        * report-terminfo:
+        count variations on backspace key (kbs), which are system-dependent
+
+<a name="t20230701" href="#index-t20230701" id=
+"t20230701">2023-07-01</a>
+
+        * check-manpage: ignore mandoc's style message about lowercase in title
+
+<a name="t20230627" href="#index-t20230627" id=
+"t20230627">2023-06-27</a>
+
+        * check-manpage:
+        ignore a couple of mandoc's non-portable recommendations
+
+<a name="t20230626" href="#index-t20230626" id=
+"t20230626">2023-06-26</a>
+
+        * check-manpage: check for mandoc, use it for linting
+
+<a name="t20230617" href="#index-t20230617" id=
+"t20230617">2023-06-17</a>
+
+        * check-manpage: add a check for ".ft" commands
+
+        * check-manpage: change fixed-font to "CR" (Debian <a href=
+"http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1037353">#1037353</a>)
+
+        * check-manpage:
+        improve check for dangling font by taking into account continuation lines
+
+        * check-manpage:
+        only warn about line length if the formatted result is too long
+
 <a name="t20230118" href="#index-t20230118" id=
 "t20230118">2023-01-18</a>
 
@@ -1497,6 +1875,106 @@
   <div class="nav">
     <ul>
       <li class="nav-top"><a href="CHANGES.html">(top)</a></li>
+      <li><a name="index-t20250722" href="#t20250722" id=
+      "index-t20250722">2025-07-22</a></li>
+      <li><a name="index-t20250705" href="#t20250705" id=
+      "index-t20250705">2025-07-05</a></li>
+      <li><a name="index-t20250607" href="#t20250607" id=
+      "index-t20250607">2025-06-07</a></li>
+      <li><a name="index-t20250421" href="#t20250421" id=
+      "index-t20250421">2025-04-21</a></li>
+      <li><a name="index-t20250215" href="#t20250215" id=
+      "index-t20250215">2025-02-15</a></li>
+      <li><a name="index-t20250111" href="#t20250111" id=
+      "index-t20250111">2025-01-11</a></li>
+      <li><a name="index-t20241231" href="#t20241231" id=
+      "index-t20241231">2024-12-31</a></li>
+      <li><a name="index-t20241202" href="#t20241202" id=
+      "index-t20241202">2024-12-02</a></li>
+      <li><a name="index-t20241027" href="#t20241027" id=
+      "index-t20241027">2024-10-27</a></li>
+      <li><a name="index-t20240914" href="#t20240914" id=
+      "index-t20240914">2024-09-14</a></li>
+      <li><a name="index-t20240906" href="#t20240906" id=
+      "index-t20240906">2024-09-06</a></li>
+      <li><a name="index-t20240617" href="#t20240617" id=
+      "index-t20240617">2024-06-17</a></li>
+      <li><a name="index-t20240615" href="#t20240615" id=
+      "index-t20240615">2024-06-15</a></li>
+      <li><a name="index-t20240601" href="#t20240601" id=
+      "index-t20240601">2024-06-01</a></li>
+      <li><a name="index-t20240502" href="#t20240502" id=
+      "index-t20240502">2024-05-02</a></li>
+      <li><a name="index-t20240421" href="#t20240421" id=
+      "index-t20240421">2024-04-21</a></li>
+      <li><a name="index-t20240420" href="#t20240420" id=
+      "index-t20240420">2024-04-20</a></li>
+      <li><a name="index-t20240406" href="#t20240406" id=
+      "index-t20240406">2024-04-06</a></li>
+      <li><a name="index-t20240328" href="#t20240328" id=
+      "index-t20240328">2024-03-28</a></li>
+      <li><a name="index-t20240323" href="#t20240323" id=
+      "index-t20240323">2024-03-23</a></li>
+      <li><a name="index-t20240316" href="#t20240316" id=
+      "index-t20240316">2024-03-16</a></li>
+      <li><a name="index-t20240306" href="#t20240306" id=
+      "index-t20240306">2024-03-06</a></li>
+      <li><a name="index-t20240302" href="#t20240302" id=
+      "index-t20240302">2024-03-02</a></li>
+      <li><a name="index-t20240224" href="#t20240224" id=
+      "index-t20240224">2024-02-24</a></li>
+      <li><a name="index-t20240219" href="#t20240219" id=
+      "index-t20240219">2024-02-19</a></li>
+      <li><a name="index-t20240206" href="#t20240206" id=
+      "index-t20240206">2024-02-06</a></li>
+      <li><a name="index-t20240123" href="#t20240123" id=
+      "index-t20240123">2024-01-23</a></li>
+      <li><a name="index-t20240120" href="#t20240120" id=
+      "index-t20240120">2024-01-20</a></li>
+      <li><a name="index-t20240109" href="#t20240109" id=
+      "index-t20240109">2024-01-09</a></li>
+      <li><a name="index-t20240105" href="#t20240105" id=
+      "index-t20240105">2024-01-05</a></li>
+      <li><a name="index-t20240102" href="#t20240102" id=
+      "index-t20240102">2024-01-02</a></li>
+      <li><a name="index-t20240101" href="#t20240101" id=
+      "index-t20240101">2024-01-01</a></li>
+      <li><a name="index-t20231223" href="#t20231223" id=
+      "index-t20231223">2023-12-23</a></li>
+      <li><a name="index-t20231217" href="#t20231217" id=
+      "index-t20231217">2023-12-17</a></li>
+      <li><a name="index-t20231210" href="#t20231210" id=
+      "index-t20231210">2023-12-10</a></li>
+      <li><a name="index-t20231125" href="#t20231125" id=
+      "index-t20231125">2023-11-25</a></li>
+      <li><a name="index-t20231124" href="#t20231124" id=
+      "index-t20231124">2023-11-24</a></li>
+      <li><a name="index-t20231008" href="#t20231008" id=
+      "index-t20231008">2023-10-08</a></li>
+      <li><a name="index-t20231007" href="#t20231007" id=
+      "index-t20231007">2023-10-07</a></li>
+      <li><a name="index-t20231001" href="#t20231001" id=
+      "index-t20231001">2023-10-01</a></li>
+      <li><a name="index-t20230930" href="#t20230930" id=
+      "index-t20230930">2023-09-30</a></li>
+      <li><a name="index-t20230918" href="#t20230918" id=
+      "index-t20230918">2023-09-18</a></li>
+      <li><a name="index-t20230916" href="#t20230916" id=
+      "index-t20230916">2023-09-16</a></li>
+      <li><a name="index-t20230909" href="#t20230909" id=
+      "index-t20230909">2023-09-09</a></li>
+      <li><a name="index-t20230710" href="#t20230710" id=
+      "index-t20230710">2023-07-10</a></li>
+      <li><a name="index-t20230709" href="#t20230709" id=
+      "index-t20230709">2023-07-09</a></li>
+      <li><a name="index-t20230701" href="#t20230701" id=
+      "index-t20230701">2023-07-01</a></li>
+      <li><a name="index-t20230627" href="#t20230627" id=
+      "index-t20230627">2023-06-27</a></li>
+      <li><a name="index-t20230626" href="#t20230626" id=
+      "index-t20230626">2023-06-26</a></li>
+      <li><a name="index-t20230617" href="#t20230617" id=
+      "index-t20230617">2023-06-17</a></li>
       <li><a name="index-t20230118" href="#t20230118" id=
       "index-t20230118">2023-01-18</a></li>
       <li><a name="index-t20221105" href="#t20221105" id=
