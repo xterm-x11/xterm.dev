@@ -20,6 +20,7 @@
   "text/css">
   <link rel="stylesheet" href="/css/inline-code.css" type=
   "text/css">
+  <link rel="stylesheet" href="/css/diffstat.css" type="text/css">
   <style type="text/css">
   @import "/css/simplenavXX.css" all;
   </style>
@@ -263,6 +264,12 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
 </pre>
   </blockquote>
 
+  <p>Four of those made subsequent contributions, but only one
+  exceeding 0.1% of the total (Lukyanov, with 1.3%). As of 2025,
+  almost 290 contributors have been recorded in the changelog (see
+  <a href="/personal/changelogs.html#other_logs">this page</a>
+  for context).</p>
+
   <p>In addition to Florian La Roche, who agreed to act as
   maintainer, these were the principal authors of ncurses, for
   assigning copyright to the Free Software Foundation:</p>
@@ -276,6 +283,10 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
 
     <li>Eric S. Raymond</li>
   </ul>
+
+  <p>Ben-Halim made no further contributions; Raymond continued for
+  a short time (about 1.8% of the total as of 2025); Pfeifer
+  continued making contributions for about twenty years.</p>
 
   <p>Pavel Curtis' work is in the public domain, hence not needed
   for copyright assignment. (The <code>README</code> file in the
@@ -4809,10 +4820,109 @@ applications will not use them.
   </ul>
 
   <p>Finally (<a href="/ncurses/announce-6.0.html">August
-  2015</a>), we have ncurses6 (ncurses 6.0). Releasing a new
+  2015</a>), I provided ncurses6 (ncurses 6.0). Releasing a new
   version is a different matter from getting it accepted and in
   wide use. Since packagers have been providing it for some time,
   the compatibility issues are of less concern.</p>
+
+  <p>That is, compatbility of ncurses was solved long ago. Terminal
+  emulators (and their developers) are a different matter. As in
+  <a href="#xterm_generic"><em>Why not just use TERM set to
+  &ldquo;xterm&rdquo;?</em></a>, setting an incorrect <tt>TERM</tt>
+  only leads to problems.</p>
+
+  <p>As of 2025, not much has changed. A few developers provide
+  usable terminal descriptions; others rely upon copy/paste.
+  Results for the latter are poor, in particular for those choosing
+  to hard-code <tt>TERM</tt> to xterm-256color. Here is an
+  illustration, showing the amount of difference in various
+  terminal descriptions compared to xterm-256color:</p>
+
+  <p style="font-family: monospace; font-size: 10pt;"><br>
+  xterm-256color<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+  "terminfo.src.html#tic-xterm-256color">xterm-256color</a>&nbsp;100%&nbsp;<font class="unchanged">=====================================================</font><br>
+
+  <br>
+  Hardware<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+  "terminfo.src.html#tic-vt100">vt100</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;22%&nbsp;<font class="unchanged">===========</font><font class="modified">~~~~~~~~~</font><font class="deleted">--------------------------------</font><font class="added">++</font><br>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+  "terminfo.src.html#tic-vt220">vt220</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;37%&nbsp;<font class="unchanged">====================</font><font class="modified">~~~~~</font><font class="deleted">---------------------------</font><font class="added">+++</font><br>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+  "terminfo.src.html#tic-vt420">vt420</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;35%&nbsp;<font class="unchanged">==================</font><font class="modified">~~~~~~~</font><font class="deleted">--------------------------</font><font class="added">++</font><br>
+
+  <br>
+  X&nbsp;terminals<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+  "terminfo.src.html#tic-konsole">konsole</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;67%&nbsp;<font class="unchanged">===================================</font><font class="modified">~~~~~~~~</font><font class="deleted">--------</font><br>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+  "terminfo.src.html#tic-mlterm">mlterm</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;84%&nbsp;<font class="unchanged">============================================</font><font class="modified">~~~~</font><font class="deleted">----</font><br>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+  "terminfo.src.html#tic-rxvt">rxvt</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;37%&nbsp;<font class="unchanged">====================</font><font class="modified">~~~~~~~~~~~~~~~~~~</font><font class="deleted">--------------</font><font class="added">++</font><br>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+  "#no_urxvt">urxvt</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;48%&nbsp;<font class="unchanged">=========================</font><font class="modified">~~~~~~~~~~~~~~~~~~</font><font class="deleted">--------</font><font class="added">++++</font><br>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+  "terminfo.src.html#tic-vte">vte</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80%&nbsp;<font class="unchanged">==========================================</font><font class="modified">~~~</font><font class="deleted">------</font><br>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+  "terminfo.src.html#tic-xterm">xterm</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;96%&nbsp;<font class="unchanged">==================================================</font><font class="modified">~</font><br>
+
+  <br>
+  OpenGL&nbsp;terminals<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+  "terminfo.src.html#tic-alacritty">alacritty</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;92%&nbsp;<font class="unchanged">================================================</font><font class="modified">~</font><font class="deleted">---</font><br>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+  "terminfo.src.html#tic-contour">contour</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;73%&nbsp;<font class="unchanged">======================================</font><font class="modified">~~~~~~~~</font><font class="deleted">-----</font><font class="added">+</font><br>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+  "terminfo.src.html#tic-foot">foot</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;85%&nbsp;<font class="unchanged">=============================================</font><font class="modified">~~~</font><font class="deleted">----</font><br>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+  "terminfo.src.html#tic-ghostty">ghostty</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;87%&nbsp;<font class="unchanged">==============================================</font><font class="modified">~~</font><font class="deleted">----</font><br>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+  "terminfo.src.html#tic-kitty">kitty</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;83%&nbsp;<font class="unchanged">============================================</font><font class="modified">~~</font><font class="deleted">-----</font><br>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+  "terminfo.src.html#tic-wezterm">wezterm</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;85%&nbsp;<font class="unchanged">=============================================</font><font class="modified">~</font><font class="deleted">-----</font><br>
+
+  <br>
+  Non-X&nbsp;terminals<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+  "terminfo.src.html#tic-domterm">domterm</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;84%&nbsp;<font class="unchanged">============================================</font><font class="modified">~</font><font class="deleted">-------</font><br>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+  "terminfo.src.html#tic-iterm2">iterm2</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;58%&nbsp;<font class="unchanged">==============================</font><font class="modified">~~~</font><font class="deleted">------------------</font><font class="added">+</font><br>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+  "terminfo.src.html#tic-linux">linux</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;35%&nbsp;<font class="unchanged">==================</font><font class="modified">~~~~~~~~~~</font><font class="deleted">-----------------------</font><font class="added">++</font><br>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+  "terminfo.src.html#tic-mintty">mintty</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;93%&nbsp;<font class="unchanged">=================================================</font><font class="deleted">---</font><font class="added">++</font><br>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+  "terminfo.src.html#tic-ms-terminal">ms-terminal</a>&nbsp;&nbsp;&nbsp;&nbsp;91%&nbsp;<font class="unchanged">================================================</font><font class="modified">~</font><font class="deleted">---</font><br>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+  "terminfo.src.html#tic-nsterm">nsterm</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;49%&nbsp;<font class="unchanged">=========================</font><font class="modified">~~~~~~~</font><font class="deleted">-------------------</font><font class="added">+</font><br>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+  "terminfo.src.html#tic-pccon">pccon</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;35%&nbsp;<font class="unchanged">==================</font><font class="modified">~~~~~~~~~</font><font class="deleted">------------------------</font><font class="added">+</font><br>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+  "terminfo.src.html#tic-putty">putty</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;41%&nbsp;<font class="unchanged">======================</font><font class="modified">~~~~~~~~~~~</font><font class="deleted">-------------------</font><font class="added">+++</font><br>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+  "terminfo.src.html#tic-teken">teken</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;32%&nbsp;<font class="unchanged">=================</font><font class="modified">~~~~~~</font><font class="deleted">-----------------------------</font><br>
+  </p>
 
   <h4><a name="xterm_16MegaColors" id="xterm_16MegaColors">Why only
   16 (or 256) colors?</a></h4>
@@ -6798,7 +6908,7 @@ cat -v
 
   <p>Ncurses 5.0 can be configured to establish its own
   <code>SIGWINCH</code> hander. In this configuration, the <a href=
-  "/ncurses/man/curs_getch.3x.html#h3-Predefined-Key-Codes"><code>wgetch</code></a>
+  "/ncurses/man/curs_getch.3x.html"><code>wgetch</code></a>
   function returns a special keycode <code>KEY_RESIZE</code> when a
   resizing event is detected. The signal handler also sets a flag
   which the library checks with <a href=
@@ -7190,6 +7300,20 @@ subscribe &lt;name&gt;@&lt;host.domain&gt;
       to tell applications how to <em>display</em> on a terminal or
       get <em>input</em> from a terminal, they have be relevant to
       ncurses.</p>
+    </li>
+
+    <li>
+      <p>ncurses is extensible. Developers have been able to define
+      terminfo capabilities since the release of ncurses 5.0 in
+      1999.</p>
+
+      <p>Other extended capabilities (i.e., <strong>not</strong>
+      relevant to ncurses) can be added to the terminal database to
+      support extensions used by other applications, but ncurses
+      will not assign a name to those capabilities, nor will it
+      define their behavior. Both aspects require documentation,
+      and are the responsibility of the developer proposing the
+      extension.</p>
     </li>
 
     <li>

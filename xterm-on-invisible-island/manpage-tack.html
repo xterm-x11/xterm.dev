@@ -85,15 +85,29 @@
        run all the standard tests.
 
        When <b>tack</b> first comes up it will display some basic  information  about
-       the  terminal.   Take  some  time to verify this information.  If it is
-       wrong many of the subsequent tests will fail.  The most important  item
-       is  the screen size.  If the screen size is wrong, there is no point in
-       proceeding.  (home) and (clear) are also critical  to  the  success  of
-       subsequent  tests.  The values of (cr) (ind) (cub1) and (ht) may effect
-       the tests if they are defined incorrectly.  If they are undefined  <b>tack</b>
-       will  set  them  to  reasonable  defaults.  The last two entries on the
-       display are the enquire and acknowledge  strings.   These  strings  are
-       taken from the user strings (u9) and (u8).
+       the terminal.  Take some time to verify this information.  First, there
+       are the cursor movement and clearing capabilities: If any of those  are
+       wrong, many of the subsequent tests will fail.
+
+       <b>o</b>   (home)  and  (clear) are also critical to the success of subsequent
+           tests.
+
+       <b>o</b>   The values of (cr) (ind) (cub1) and (ht) may affect  the  tests  if
+           they  are defined incorrectly.  If they are undefined <b>tack</b> will set
+           them to reasonable defaults.
+
+       After these basic capabilities, <b>tack</b> shows optional features which  may
+       provide information:
+
+       <b>o</b>   The  enquire (ENQ) and acknowledge (ACK) strings are taken from the
+           user strings (u9) and (u8).
+
+       <b>o</b>   If the screen has at least 30  lines,  there  is  room  to  display
+           ncurses  extensions  for  secondary  device  attributes  (DA2)  and
+           terminal version.
+
+       The most important item is the screen size.   If  the  screen  size  is
+       wrong, there is no point in proceeding.
 
        By  now  you  must  be wondering why the terminfo names are enclosed in
        parenthesis.  This has no profound meaning other  than  it  makes  them
@@ -357,7 +371,7 @@ terminfo action checker           2024-04-30                           <b>tack(1
 </pre>
 <div class="nav">
 <ul>
-<li><a href="tack.html" class="nav-top">(top)</a><br>
+<li><a href="tack.html" class="nav-top">(top)</a></li>
 <li><a href="#h2-NAME">NAME</a></li>
 <li><a href="#h2-SYNOPSIS">SYNOPSIS</a></li>
 <li><a href="#h2-DESCRIPTION">DESCRIPTION</a>

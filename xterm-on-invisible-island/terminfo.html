@@ -20,13 +20,13 @@
 <noframes>
 <body>
 <h1 class="no-header">terminfo for XTERM</h1>
-<font class="comment">#&nbsp;$XTermId:&nbsp;terminfo,v&nbsp;1.209&nbsp;2024/02/11&nbsp;23:35:48&nbsp;tom&nbsp;Exp&nbsp;$</font><br>
+<font class="comment">#&nbsp;$XTermId:&nbsp;terminfo,v&nbsp;1.210&nbsp;2025/05/16&nbsp;08:24:47&nbsp;tom&nbsp;Exp&nbsp;$</font><br>
 <font class="comment">#</font><br>
 <font class="comment">#&nbsp;Updates/notes/new&nbsp;entries&nbsp;(e.g.,&nbsp;xterm-8bit,&nbsp;xterm-16color,&nbsp;xterm-256color)</font><br>
 <font class="comment">#&nbsp;-&nbsp;Thomas&nbsp;E.&nbsp;Dickey</font><br>
 <font class="comment">#</font><br>
 <font class="comment">#------------------------------------------------------------------------------</font><br>
-<font class="comment">#&nbsp;Copyright&nbsp;1996-2023,2024&nbsp;by&nbsp;Thomas&nbsp;E.&nbsp;Dickey</font><br>
+<font class="comment">#&nbsp;Copyright&nbsp;1996-2024,2025&nbsp;by&nbsp;Thomas&nbsp;E.&nbsp;Dickey</font><br>
 <font class="comment">#</font><br>
 <font class="comment">#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;Rights&nbsp;Reserved</font><br>
 <font class="comment">#</font><br>
@@ -152,6 +152,7 @@
 <font class="comment">#&nbsp;respectively.</font><br>
 <font class="comment">#</font><br>
 <a href="terminfo-entries.html#tic-xterm-new" name="tic-xterm-new" target="index">xterm-new</a><font class="literal">|</font><font class="comment"><a href="terminfo-entries.html#tic-modern_xterm_terminal_emulator" name="tic-modern_xterm_terminal_emulator" target="index">modern&nbsp;xterm&nbsp;terminal&nbsp;emulator</a></font>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rv=<font class="literal">\E\\[>41;[1-6][0-9][0-9];0c</font>,&nbsp;xr=<font class="literal">\EP>\\|XTerm\\(([1-9][0-9]+)\\)\E\\\\</font>,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font class="keyword">use</font>=<font class="literal"><a href="#tic-dec_sl">dec+sl</a></font>,&nbsp;<font class="keyword">use</font>=<font class="literal"><a href="#tic-ecma_index">ecma+index</a></font>,&nbsp;<font class="keyword">use</font>=<font class="literal"><a href="#tic-xterm_keypad">xterm+keypad</a></font>,&nbsp;<font class="keyword">use</font>=<font class="literal"><a href="#tic-vt420_lrmm">vt420+lrmm</a></font>,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font class="keyword">use</font>=<font class="literal"><a href="#tic-xterm_sm_1006">xterm+sm+1006</a></font>,&nbsp;<font class="keyword">use</font>=<font class="literal"><a href="#tic-ansi_rep">ansi+rep</a></font>,&nbsp;<font class="keyword">use</font>=<font class="literal"><a href="#tic-ecma_strikeout">ecma+strikeout</a></font>,&nbsp;<font class="keyword">use</font>=<font class="literal"><a href="#tic-xterm_pcfkeys">xterm+pcfkeys</a></font>,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font class="keyword">use</font>=<font class="literal"><a href="#tic-xterm_tmux">xterm+tmux</a></font>,&nbsp;<font class="keyword">use</font>=<font class="literal"><a href="#tic-xterm_nofkeys">xterm+nofkeys</a></font>,&nbsp;<font class="keyword">use</font>=<font class="literal"><a href="#tic-bracketed_paste">bracketed+paste</a></font>,&nbsp;<font class="keyword">use</font>=<font class="literal"><a href="#tic-report_version">report+version</a></font>,<br>
@@ -631,8 +632,9 @@
 <font class="comment">#&nbsp;The&nbsp;response&nbsp;is&nbsp;a&nbsp;DSR&nbsp;sequence&nbsp;identifying&nbsp;the&nbsp;version:&nbsp;DCS&nbsp;>&nbsp;|&nbsp;text&nbsp;ST</font><br>
 <font class="comment">#&nbsp;For&nbsp;example:</font><br>
 <font class="comment">#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^[P>|XTerm(354)^[\</font><br>
+<font class="comment">#&nbsp;This&nbsp;generic&nbsp;building-block&nbsp;matches&nbsp;ncurses.</font><br>
 <a href="terminfo-entries.html#tic-report_version" name="tic-report_version" target="index">report+version</a><font class="literal">|</font><font class="comment"><a href="terminfo-entries.html#tic-_Report_xterm_name_and_version__X_T_V_E_R_S_I_O_N_" name="tic-_Report_xterm_name_and_version__X_T_V_E_R_S_I_O_N_" target="index">Report&nbsp;xterm&nbsp;name&nbsp;and&nbsp;version&nbsp;(XTVERSION).</a></font>,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;XR=<font class="literal">\E[>0q</font>,&nbsp;xr=<font class="literal">\EP>\\|XTerm\\([1-9][0-9]+\\)\E\\\\</font>,&nbsp;<font class="keyword">use</font>=<font class="literal"><a href="#tic-report_da2">report+da2</a></font>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;XR=<font class="literal">\E[>0q</font>,&nbsp;xr=<font class="literal">\EP>\\|[\s-~]+\E\\\\</font>,&nbsp;<font class="keyword">use</font>=<font class="literal"><a href="#tic-report_da2">report+da2</a></font>,<br>
 <br>
 <font class="comment">#&nbsp;Vim&nbsp;uses&nbsp;RV&nbsp;to&nbsp;denote&nbsp;the&nbsp;secondary&nbsp;device&nbsp;attributes.&nbsp;&nbsp;Xterm&nbsp;documents&nbsp;the</font><br>
 <font class="comment">#&nbsp;-&nbsp;first&nbsp;parameter&nbsp;as&nbsp;the&nbsp;terminal&nbsp;type&nbsp;(extending&nbsp;it&nbsp;to&nbsp;VT100),</font><br>
@@ -641,8 +643,9 @@
 <font class="comment">#&nbsp;Other&nbsp;terminals&nbsp;may&nbsp;provide&nbsp;useful&nbsp;responses,&nbsp;though&nbsp;few&nbsp;are&nbsp;documented.</font><br>
 <font class="comment">#</font><br>
 <font class="comment">#&nbsp;Since&nbsp;patch&nbsp;#280&nbsp;2012/06/24,&nbsp;xterm&nbsp;by&nbsp;default&nbsp;reports&nbsp;itself&nbsp;as&nbsp;a&nbsp;VT420.</font><br>
+<font class="comment">#&nbsp;This&nbsp;generic&nbsp;building-block&nbsp;matches&nbsp;ncurses.</font><br>
 <a href="terminfo-entries.html#tic-report_da2" name="tic-report_da2" target="index">report+da2</a><font class="literal">|</font><font class="comment"><a href="terminfo-entries.html#tic-report_secondary_device_attributes__D_A2_" name="tic-report_secondary_device_attributes__D_A2_" target="index">report&nbsp;secondary&nbsp;device&nbsp;attributes&nbsp;(DA2)</a></font>,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RV=<font class="literal">\E[>c</font>,&nbsp;rv=<font class="literal">\E\\[41;[1-6][0-9][0-9];0c</font>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RV=<font class="literal">\E[>c</font>,&nbsp;rv=<font class="literal">\E\\[>[0-9]+;[0-9]+;[0-9]+c</font>,<br>
 <br>
 <font class="comment">#&nbsp;This&nbsp;chunk&nbsp;is&nbsp;used&nbsp;for&nbsp;building&nbsp;the&nbsp;VT220/Sun/PC&nbsp;keyboard&nbsp;variants.</font><br>
 <a href="terminfo-entries.html#tic-xterm-basic" name="tic-xterm-basic" target="index">xterm-basic</a><font class="literal">|</font><font class="comment"><a href="terminfo-entries.html#tic-modern_xterm_terminal_emulator_-_common" name="tic-modern_xterm_terminal_emulator_-_common" target="index">modern&nbsp;xterm&nbsp;terminal&nbsp;emulator&nbsp;-&nbsp;common</a></font>,<br>
@@ -1355,7 +1358,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m</font>,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font class="keyword">use</font>=<font class="literal"><a href="#tic-xterm_256color">xterm+256color</a></font>,<br>
 <a href="terminfo-entries.html#tic-xterm-256color" name="tic-xterm-256color" target="index">xterm-256color</a><font class="literal">|</font><font class="comment"><a href="terminfo-entries.html#tic-xterm_with_256_colors" name="tic-xterm_with_256_colors" target="index">xterm&nbsp;with&nbsp;256&nbsp;colors</a></font>,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font class="keyword">use</font>=<font class="literal"><a href="#tic-xterm_256color2">xterm+256color2</a></font>,&nbsp;<font class="keyword">use</font>=<font class="literal"><a href="#tic-xterm_osc104">xterm+osc104</a></font>,&nbsp;<font class="keyword">use</font>=<font class="literal"><a href="#tic-xterm-new">xterm-new</a></font>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font class="keyword">use</font>=<font class="literal"><a href="#tic-xterm_256color">xterm+256color</a></font>,&nbsp;<font class="keyword">use</font>=<font class="literal"><a href="#tic-xterm_osc104">xterm+osc104</a></font>,&nbsp;<font class="keyword">use</font>=<font class="literal"><a href="#tic-xterm-new">xterm-new</a></font>,<br>
 <a href="terminfo-entries.html#tic-xterm-88color" name="tic-xterm-88color" target="index">xterm-88color</a><font class="literal">|</font><font class="comment"><a href="terminfo-entries.html#tic-xterm_with_88_colors" name="tic-xterm_with_88_colors" target="index">xterm&nbsp;with&nbsp;88&nbsp;colors</a></font>,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font class="keyword">colors</font>#<font class="number">88</font>,&nbsp;<font class="keyword">pairs</font>#<font class="number">7744</font>,&nbsp;<font class="keyword">use</font>=<font class="literal"><a href="#tic-xterm-256color">xterm-256color</a></font>,<br>
 <br>

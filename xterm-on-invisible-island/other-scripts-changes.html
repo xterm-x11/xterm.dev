@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.8.0">
 <title>Change-Log for OTHER-SCRIPTS</title>
 <link rel="author" href="mailto:dickey@invisible-island.net">
 <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
@@ -23,6 +23,67 @@
 <hr>
 
 <pre>
+<a name="t20251005" href="#index-t20251005" id="t20251005">2025-10-05</a>
+
+        * man2html: copyright date
+
+        * man2html: add $opt_leftside
+
+        * man2html: indent
+
+        * man2html:
+        workaround for groff 1.23.0, which uses double-overstrike for subsection ".SS"
+
+<a name="t20250921" href="#index-t20250921" id="t20250921">2025-09-21</a>
+
+        * linklint: fix old-package-separator warnings
+
+<a name="t20250504" href="#index-t20250504" id="t20250504">2025-05-04</a>
+
+        * rcs2log:
+        shellcheck warnings - use double-quotes where a single word is expected in
+        variable expansion
+
+        * rcs2log:
+        add "-a" option to cause this to always show all revision dates rather than
+        the most recent.
+
+<a name="t20240105" href="#index-t20240105" id="t20240105">2024-01-05</a>
+
+        * man2html:
+        add option "-mixsecs" to check for overemphasized section/subsection titles
+        only when specifically asked, because it interferes with pre-existing usage,
+        e.g., in xterm's ctlseqs.ms formatting.
+
+<a name="t20231217" href="#index-t20231217" id="t20231217">2023-12-17</a>
+
+        * man2html:
+        allow a special case of bold italics (used in captoinfo.1m in ncurses)
+
+<a name="t20231202" href="#index-t20231202" id="t20231202">2023-12-02</a>
+
+        * man2html:
+        provide a special case for ncurses's main manpage, which now uses italics
+        for the subsections defining environment variables, rather than bold.
+
+<a name="t20230319" href="#index-t20230319" id="t20230319">2023-03-19</a>
+
+        * man2html: indent...
+
+        * man2html:
+        convert remaining tabs to spaces (perl tidy already did most).
+
+        * man2html:
+        reset variable used to splice links which are broken by hyphenation, if
+        the bold text happens to not match the see-also pattern.  This occurred
+        with ncurses curs_refresh.3x.html file.
+
+<a name="t20230318" href="#index-t20230318" id="t20230318">2023-03-18</a>
+
+        * man2html:
+        fix a case where optional pattern in substitution did not match, causing an
+        uninitialized-variable warning.
+
 <a name="t20221106" href="#index-t20221106" id="t20221106">2022-11-06</a>
 
         * rcs2log: fix a case where ":" was split from the list of filenames
@@ -465,6 +526,22 @@
 <div class="nav">
 <ul>
 <li class="nav-top"><a href="CHANGES.html">(top)</a></li>
+
+<li><a name="index-t20251005" href="#t20251005" id="index-t20251005">2025-10-05</a></li>
+
+<li><a name="index-t20250921" href="#t20250921" id="index-t20250921">2025-09-21</a></li>
+
+<li><a name="index-t20250504" href="#t20250504" id="index-t20250504">2025-05-04</a></li>
+
+<li><a name="index-t20240105" href="#t20240105" id="index-t20240105">2024-01-05</a></li>
+
+<li><a name="index-t20231217" href="#t20231217" id="index-t20231217">2023-12-17</a></li>
+
+<li><a name="index-t20231202" href="#t20231202" id="index-t20231202">2023-12-02</a></li>
+
+<li><a name="index-t20230319" href="#t20230319" id="index-t20230319">2023-03-19</a></li>
+
+<li><a name="index-t20230318" href="#t20230318" id="index-t20230318">2023-03-18</a></li>
 
 <li><a name="index-t20221106" href="#t20221106" id="index-t20221106">2022-11-06</a></li>
 

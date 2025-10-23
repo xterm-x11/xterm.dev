@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.8.0">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="generator" content="Manpage converted by man2html - see https://invisible-island.net/scripts/readme.html#others_scripts">
 <title>resize(1)</title>
@@ -81,66 +81,66 @@ href="/xterm/">xterm/</a>
 
        <b>-s</b> [<i>rows columns</i>]
                This option indicates that Sun console escape sequences will be
-               used instead of the VT100-style <i>xterm</i> escape  codes.   If  <i>rows</i>
-               and  <i>columns</i>  are  given,  <i>resize</i>  will ask the <i>xterm</i> to resize
+               used  instead  of  the VT100-style <i>xterm</i> escape codes.  If <i>rows</i>
+               and <i>columns</i> are given, <i>resize</i> will  ask  the  <i>xterm</i>  to  resize
                itself using those values.
 
-               Both of the escape sequences used for  this  option  (first  to
-               obtain  the window size and second to modify it) are subject to
-               <i>xterm</i>'s <b>allowWindowOps</b> resource setting.   The  window  manager
+               Both  of  the  escape  sequences used for this option (first to
+               obtain the window size and second to modify it) are subject  to
+               <i>xterm</i>'s  <b>allowWindowOps</b>  resource  setting.  The window manager
                may also choose to disallow the change.
 
-               The  VT100-style  escape  sequence used to determine the screen
-               size always works for VT100-compatible terminals.  VT100s  have
+               The VT100-style escape sequence used to  determine  the  screen
+               size  always works for VT100-compatible terminals.  VT100s have
                no corresponding way to modify the screensize.
 
-       <b>-u</b>      This  option  indicates  that  Bourne  shell commands should be
-               generated even if the user's current shell does not  appear  to
+       <b>-u</b>      This option indicates that  Bourne  shell  commands  should  be
+               generated  even  if the user's current shell does not appear to
                use Bourne shell syntax.
 
-       <b>-v</b>      This  causes  <i>resize</i>  to print a version number to the standard
+       <b>-v</b>      This causes <i>resize</i> to print a version number  to  the  standard
                output, and then exit.
 
-       Note that the Sun console escape sequences are  recognized  by  XFree86
-       <i>xterm</i>  and  by <i>dtterm</i>.  The <i>resize</i> program may be installed as <i>sunsize</i>,
+       Note  that  the  Sun console escape sequences are recognized by XFree86
+       <i>xterm</i> and by <i>dtterm</i>.  The <i>resize</i> program may be installed  as  <i>sunsize</i>,
        which causes makes it assume the <b>-s</b> option.
 
-       The <i>rows</i> and <i>columns</i>  arguments  must  appear  last;  though  they  are
+       The  <i>rows</i>  and  <i>columns</i>  arguments  must  appear  last; though they are
        normally associated with the <b>-s</b> option, they are parsed separately.
 
 </pre>
 <h2><a name="h2-ENVIRONMENT" id="h2-ENVIRONMENT">ENVIRONMENT</a></h2>
-<pre>       SHELL          Unless  overridden  by  the <b>-c</b> option, <i>resize</i> determines
+<pre>       SHELL          Unless overridden by the <b>-c</b>  option,  <i>resize</i>  determines
                       the user's current shell by
 
                       <b>o</b>   first checking if <b>$SHELL</b> is set, and using that,
 
-                      <b>o</b>   otherwise  <i>resize</i>  looks  in   the   password   file
+                      <b>o</b>   otherwise   <i>resize</i>   looks   in  the  password  file
                           (/etc/passwd).
 
-                      Generally  Bourne-shell  variants (including <i>ksh</i>) do not
-                      modify <b>$SHELL</b>, so  it  is  possible  for  <i>resize</i>  to  be
-                      confused  if one runs <i>resize</i> from a Bourne shell spawned
+                      Generally Bourne-shell variants (including <i>ksh</i>)  do  not
+                      modify  <b>$SHELL</b>,  so  it  is  possible  for  <i>resize</i> to be
+                      confused if one runs <i>resize</i> from a Bourne shell  spawned
                       from a C shell.
 
-                      After determining the user's shell, <i>resize</i>   checks  the
-                      shell's  name  against a table of known shell names.  If
-                      it does not find the name in its table, <i>resize</i> will  use
+                      After  determining  the user's shell, <i>resize</i>  checks the
+                      shell's name against a table of known shell  names.   If
+                      it  does not find the name in its table, <i>resize</i> will use
                       C  shell  syntax  for  the  generated  commands  to  set
                       environment variables.
 
-       TERM           <i>Resize</i>'s generated shell command sets  this  to  "xterm-
+       TERM           <i>Resize</i>'s  generated  shell  command sets this to "xterm-
                       new" if not already set.
 
-       TERMCAP        <i>Resize</i>'s  generated  shell command sets this variable on
-                      systems using termcap, e.g., when <i>resize</i> is linked  with
+       TERMCAP        <i>Resize</i>'s generated shell command sets this  variable  on
+                      systems  using termcap, e.g., when <i>resize</i> is linked with
                       the <i>termcap</i> library rather than a <i>terminfo</i> library.  The
                       latter does not provide the complete text for a  termcap
                       entry.
 
        COLUMNS, LINES <i>Resize</i>'s generated shell command sets these variables on
-                      systems using terminfo.   Many  applications  (including
-                      the  curses  library)  use  those  variables when set to
+                      systems  using  terminfo.   Many applications (including
+                      the curses library) use  those  variables  when  set  to
                       override their screensize.
 
 </pre>
@@ -151,9 +151,9 @@ href="/xterm/">xterm/</a>
 
 </pre>
 <h2><a name="h2-EXAMPLES" id="h2-EXAMPLES">EXAMPLES</a></h2>
-<pre>       For <i>resize</i>'s output to take effect, <i>resize</i> must either be evaluated  as
-       part  of the command line (usually done with a shell alias or function)
-       or else redirected to a file which can then be read  in.   From  the  C
+<pre>       For  <i>resize</i>'s output to take effect, <i>resize</i> must either be evaluated as
+       part of the command line (usually done with a shell alias or  function)
+       or  else  redirected  to  a file which can then be read in.  From the C
        shell (usually known as <i>/bin/csh</i>), the following alias could be defined
        in the user's <i>.cshrc</i>:
 
@@ -183,7 +183,7 @@ href="/xterm/">xterm/</a>
        <a href="https://www.freebsd.org/cgi/man.cgi?query=csh&amp;apropos=0&amp;sektion=1&amp;manpath=SunOS+4.1.3&amp;arch=default&amp;format=html"><b>csh(1)</b></a>, <b><a href="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/stty.html">stty(1)</a></b>, <a href="/ncurses/man/tset.1.html"><b>tset(1)</b></a>
        <a href="/xterm/manpage/xterm.html"><b>xterm(1)</b></a>
 
-Patch #398                        2025-04-11                         <b>RESIZE(1)</b>
+Patch #403                        2025-10-19                         <b>RESIZE(1)</b>
 </pre>
 <div class="nav">
 <ul>

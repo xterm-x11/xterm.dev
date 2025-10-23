@@ -1,3 +1,64 @@
+2025-10-05  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* man2html: copyright date
+
+	* man2html: add $opt_leftside
+
+	* man2html: indent
+
+	* man2html:
+	workaround for groff 1.23.0, which uses double-overstrike for subsection ".SS"
+
+2025-09-21  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* linklint: fix old-package-separator warnings
+
+2025-05-04  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* rcs2log:
+	shellcheck warnings - use double-quotes where a single word is expected in
+	variable expansion
+
+	* rcs2log:
+	add "-a" option to cause this to always show all revision dates rather than
+	the most recent.
+
+2024-01-05  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* man2html:
+	add option "-mixsecs" to check for overemphasized section/subsection titles
+	only when specifically asked, because it interferes with pre-existing usage,
+	e.g., in xterm's ctlseqs.ms formatting.
+
+2023-12-17  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* man2html:
+	allow a special case of bold italics (used in captoinfo.1m in ncurses)
+
+2023-12-02  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* man2html:
+	provide a special case for ncurses's main manpage, which now uses italics
+	for the subsections defining environment variables, rather than bold.
+
+2023-03-19  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* man2html: indent...
+
+	* man2html:
+	convert remaining tabs to spaces (perl tidy already did most).
+
+	* man2html:
+	reset variable used to splice links which are broken by hyphenation, if
+	the bold text happens to not match the see-also pattern.  This occurred
+	with ncurses curs_refresh.3x.html file.
+
+2023-03-18  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* man2html:
+	fix a case where optional pattern in substitution did not match, causing an
+	uninitialized-variable warning.
+
 2022-11-06  Thomas E. Dickey  <dickey@invisible-island.net>
 
 	* rcs2log: fix a case where ":" was split from the list of filenames

@@ -32,7 +32,7 @@
                              <i>Thomas Dickey</i>
                       XFree86 Project (1996-2006)
                     invisible-island.net (2006-2025)
-               updated for XTerm Patch #398 (2025/03/30)
+               updated for XTerm Patch #401 (2025/06/22)
 
 </pre>
 <h2><a name="h2-Definitions" id="h2-Definitions">Definitions</a></h2>
@@ -552,9 +552,12 @@ C1 controls, ordered by the final character(s).
           Request Termcap/Terminfo String (XTGETTCAP), <i>xterm</i>.  The
           string following the "q" is a list of names encoded in
           hexadecimal (2 digits per character) separated by ; which
-          correspond to termcap or terminfo key names.
-          A few special features are also recognized, which are not key
-          names:
+          correspond to termcap or terminfo capability names for special
+          keyboard keys.  A terminal description will include other
+          capabilities, e.g., for cursor movement, which are
+          intentionally not part of this interface.
+          A few more terminal capabilities are recognized, which are not
+          names of special keys:
 
           <b>o</b>   <i>Co</i> for termcap colors (or <i>colors</i> for terminfo colors), and
 
@@ -563,6 +566,15 @@ C1 controls, ordered by the final character(s).
           <b>o</b>   <i>RGB</i> for the ncurses direct-color extension.
               Only a terminfo name is provided, since termcap
               applications cannot use this information.
+
+          These capabilities fall into two categories:
+
+          <b>o</b>   Terminal capabilities which may be dynamically adjusted in
+              <i>xterm</i> so they do not necessarily match a terminal
+              description.
+
+          <b>o</b>   The name of the terminal description, which an application
+              can use to obtain the static set of capabilities.
 
           <i>xterm</i> responds with
           DCS 1 + r <i>Pt</i> ST for valid requests, adding to <i>Pt</i> an = , and
@@ -2168,7 +2180,8 @@ C1 controls, ordered by the final character(s).
             OSC 6 0  ; <i>Pt</i> ST
 
           where <i>Pt</i> is a comma-separated list of the <i>allowed</i> optional
-          runtime features, i.e., zero or more of these resource names:
+          runtime feature categories, i.e., zero or more of these
+          resource names:
 
             <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:allowColorOps">allowColorOps</a></b>
             <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:allowFontOps">allowFontOps</a></b>
@@ -2178,15 +2191,31 @@ C1 controls, ordered by the final character(s).
             <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:allowTitleOps">allowTitleOps</a></b>
             <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:allowWindowOps">allowWindowOps</a></b>
 
+          Except for <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:allowPasteControls">allowPasteControls</a></b>, those resources can be enabled
+          or disabled at runtime using menus.  They cannot be changed
+          using control sequences.
+
             <a name="h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-6-1.101B"><i>Ps</i> = 6 1</a>  &#8658;&nbsp; Query disallowed features (XTQDISALLOWED).  The
-          second parameter (i.e., the main feature) must be one of the
-          resource names returned by OSC 6 0 .  <i>XTerm</i> replies with
+          second parameter (i.e., the main feature category) must be one
+          of the resource names returned by OSC 6 0 .  <i>XTerm</i> replies
+          with
 
             OSC 6 1  ; <i>Pt</i> ST
 
           where <i>Pt</i> is a comma-separated list of the optional runtime
-          features which would be disallowed if the main feature is
-          disabled.
+          feature subcategories which would be disallowed if the main
+          feature is disabled.
+
+            <a name="h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-6-2.101C"><i>Ps</i> = 6 2</a>  &#8658;&nbsp; Query allowable features (XTQALLOWABLE).  The
+          second parameter (i.e., the main feature category) must be one
+          of the resource names that might be returned by OSC 6 0 .
+          <i>XTerm</i> replies with
+
+            OSC 6 2  ; <i>Pt</i> ST
+
+          where <i>Pt</i> is a comma-separated list of the optional runtime
+          feature subcategories which correspond to the main feature
+          category.
 
             <a name="h4-Operating-System-Commands:OSC-Ps;Pt-ST:Ps-=-1-0-4;c.1114"><i>Ps</i> = 1 0 4 ; <i>c</i></a> &#8658;&nbsp; Reset Color Number <i>c</i>.  It is reset to the
           color specified by the corresponding X resource.  Any number
@@ -3757,44 +3786,44 @@ and less-detailed manual pages.
         be used in termcap for <b><a href="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/vi.html">vi(1)</a></b>, for example, to turn off saving of
         lines, but restore whatever the original state was on exit.
 
-    while the SCOSC/SCORC  pair  was  added  in  1995  by  XFree86  (and
+    while  the  SCOSC/SCORC  pair  was  added  in  1995  by XFree86 (and
     documented long afterwards).
 
-    The  SCO  <i>ANSI</i>  console  terminal  descriptions  did  not  use these
-    controls (they used the VT100-compatible SC/RC  pair).   SCOSC/SCORC
-    were  an artifact of DOS 2.00 (January 1983), by Microsoft and later
+    The SCO  <i>ANSI</i>  console  terminal  descriptions  did  not  use  these
+    controls  (they  used the VT100-compatible SC/RC pair).  SCOSC/SCORC
+    were an artifact of DOS 2.00 (January 1983), by Microsoft and  later
     supported by SCO and other vendors.
 
-    The SCOSC/SCORC pair is considered a <i>private mode</i> because the  final
+    The  SCOSC/SCORC pair is considered a <i>private mode</i> because the final
     characters (s  and u ) fall in the range from "`" to "~" (octal 0140
-    to octal 0176).  Other <i>private</i> control sequences can be  constructed
+    to  octal 0176).  Other <i>private</i> control sequences can be constructed
     by using octets 074 to 077 (characters "&lt;", "=", "&gt;", or "?") at the
     beginning  of  the  parameter  string.   The  XTSAVE  and  XTRESTORE
     controls use "?") in this manner.
 
     Because  the  XTSAVE  and  XTRESTORE  controls  are  private,  other
-    terminals may behave differently.  For example, DEC  (a  contributor
-    to  the  early <i>xterm</i> as well as a manufacturer of terminals) used an
-    incompatible private control in one of its terminals more than  five
+    terminals  may  behave differently.  For example, DEC (a contributor
+    to the early <i>xterm</i> as well as a manufacturer of terminals)  used  an
+    incompatible  private control in one of its terminals more than five
     years later (for the VT420 PCTerm, announced in February 1992).
 
-    In  that  model  of  the  VT420, CSI ? <i>Pm</i> ; <i>Pc</i> r selects the <i>PC TERM</i>
-    emulation mode.  When this mode is enabled, the keyboard sends  <i>scan</i>
-    <i>codes</i>  rather than characters (analogous to X keyboard events).  The
-    first parameter of this private control enables or disables <i>PC  TERM</i>
+    In that model of the VT420, CSI ? <i>Pm</i> ; <i>Pc</i>  r  selects  the  <i>PC  TERM</i>
+    emulation  mode.  When this mode is enabled, the keyboard sends <i>scan</i>
+    <i>codes</i> rather than characters (analogous to X keyboard events).   The
+    first  parameter of this private control enables or disables <i>PC TERM</i>
     mode, while the second selects a character set.  An ambiguity arises
     if an application omits the second parameter.  In that special case,
-    it  cannot  be  distinguished from XTRESTORE.  DEC did not take this
+    it cannot be distinguished from XTRESTORE.  DEC did  not  take  this
     into account when designing the feature.
 
-    If there were potential users, <i>xterm</i> could  accommodate  this  by  a
-    resource  setting.   In  retrospect (thirty years later), there have
-    been no uses of <i>PC TERM</i>, while the XTRESTORE  feature  is  still  in
+    If  there  were  potential  users, <i>xterm</i> could accommodate this by a
+    resource setting.  In retrospect (thirty years  later),  there  have
+    been  no  uses  of  <i>PC TERM</i>, while the XTRESTORE feature is still in
     use.
 
 <b>o</b>   The <i>aixterm</i> manual page gives the format of the control sequence for
-    foreground and background colors 8-15, but  does  not  specify  what
-    those  colors  are.  That is implied by the description's mention of
+    foreground  and  background  colors  8-15, but does not specify what
+    those colors are.  That is implied by the description's  mention  of
     <i>HFT</i>:
 
         The aixterm command provides a standard terminal type for
@@ -3804,9 +3833,9 @@ and less-detailed manual pages.
         the -v flag.
 
     Unlike <i>xterm</i>, there are no resource names for the 16 colors, leaving
-    the  reader  to  assume that the mapping is hard-coded.  The control
-    sequences for colors 8-15 are not specified by ECMA-48,  but  rather
-    (as  done  in  other instances by <i>xterm</i>) chosen to not conflict with
+    the reader to assume that the mapping is  hard-coded.   The  control
+    sequences  for  colors 8-15 are not specified by ECMA-48, but rather
+    (as done in other instances by <i>xterm</i>) chosen to  not  conflict  with
     current or future standards.
 </pre>
 <div class="nav">
