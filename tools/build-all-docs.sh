@@ -20,7 +20,11 @@ set -e
 git checkout -b website_build_$(date -I)
 
 # go one level up to the parent, /docs/ dir
-cd ..
+# not needed for now
+# cd ..
+
+# not needed for now because stored in root dir
+# cp docs/CNAME -t .
 
 # run "the command to build mks docs (see mks docs docs)"
 
@@ -70,6 +74,8 @@ bash \
 # ./downstream-changelog-xterm.sh
 
 cd ..
+
+cp CNAME -t docs/
 
 git add .
 
