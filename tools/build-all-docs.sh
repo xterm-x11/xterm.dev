@@ -19,9 +19,8 @@ set -e
 
 git checkout -b website_build_$(date -I)
 
-# go one level up to the parent, /docs/ dir
-# not needed for now
-# cd ..
+# go one level up to the parent
+cd ..
 
 # not needed for now because stored in root dir
 # cp docs/CNAME -t .
