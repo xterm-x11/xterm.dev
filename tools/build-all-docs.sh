@@ -74,7 +74,7 @@ bash \
 
 cd ..
 
-cp CNAME -t docs/
+cp CNAME docs/CNAME
 
 git add .
 
