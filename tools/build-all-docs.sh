@@ -36,21 +36,21 @@ cd tools
 # run the script for downstreaming the local copies of the invisible-island.net pages
 
 # draft (WIP)
-downstream-changelog-luit.sh
-downstream-changelog-tack.sh
-downstream-changelog-tctest.sh
-downstream-changelog-vttest.sh
-downstream-changelog-xterm.sh
-downstream-manpage-koi8rterm.sh
-downstream-manpage-luit.sh
-downstream-manpage-resize.sh
-downstream-manpage-tack.sh
-downstream-manpage-tctest.sh
-downstream-manpage-uxterm.sh
-downstream-manpage-vttest.sh
-downstream-manpage-xcursor.sh
-downstream-manpage-xft.sh
-downstream-manpage-xterm.sh
+source downstream-changelog-luit.sh
+source downstream-changelog-tack.sh
+source downstream-changelog-tctest.sh
+source downstream-changelog-vttest.sh
+source downstream-changelog-xterm.sh
+source downstream-manpage-koi8rterm.sh
+source downstream-manpage-luit.sh
+source downstream-manpage-resize.sh
+source downstream-manpage-tack.sh
+source downstream-manpage-tctest.sh
+source downstream-manpage-uxterm.sh
+source downstream-manpage-vttest.sh
+source downstream-manpage-xcursor.sh
+source downstream-manpage-xft.sh
+source downstream-manpage-xterm.sh
 
 # temp list (WIP)
 # ./downstream-manpage-koi8rterm.sh
