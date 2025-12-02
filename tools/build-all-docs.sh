@@ -50,7 +50,7 @@ source downstream-manpage-uxterm.sh
 source downstream-manpage-vttest.sh
 source downstream-manpage-xcursor.sh
 source downstream-manpage-xft.sh
-source downstream-manpage-xterm.sh
+# source downstream-manpage-xterm.sh
 
 # temp list (WIP)
 # ./downstream-manpage-koi8rterm.sh
