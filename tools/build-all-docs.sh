@@ -23,7 +23,7 @@ git checkout -b website_build_$(date -I)
 cd ..
 
 # not needed for now because stored in root dir
-# cp docs/CNAME -t .
+# cp docs/CNAME CNAME
 
 # run "the command to build mks docs (see mks docs docs)"
 
