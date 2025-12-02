@@ -30,7 +30,7 @@
  * sale, use or other dealings in this Software without prior written        *
  * authorization.                                                            *
  *****************************************************************************
-  $XTermId: xterm.log.html,v 1.2734 2025/10/20 00:06:26 tom Exp $
+  $XTermId: xterm.log.html,v 1.2744 2025/11/30 23:50:10 tom Exp $
   -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
@@ -75,6 +75,7 @@
   <div class="nav">
     <ul>
       <li class="nav-top"><a href="xterm.log.html">(top)</a></li>
+      <li><a href="#xterm_404">Patch #404 - 2025/11/30</a></li>
       <li><a href="#xterm_403">Patch #403 - 2025/10/19</a></li>
       <li><a href="#xterm_402">Patch #402 - 2025/09/08</a></li>
       <li><a href="#xterm_401">Patch #401 - 2025/07/02</a></li>
@@ -691,6 +692,32 @@
       <li><a href="#xterm_01">Patch #1 - 1996/1/6</a></li>
     </ul>
   </div>
+  <h2><a name="xterm_404" id="xterm_404">Patch #404 -
+  2025/11/30</a></h2>
+  <ul>
+    <li>add numeric keypad codes to XTGETTCAP.</li>
+    <li>implement parsing and cursor positioning for Unicode
+    variation selectors 15 and 16.</li>
+    <li>improve limit-checking for mouse button and motion events
+    (report by James Holderness).</li>
+    <li>fix a bug in printer code in xterm <a href=
+    "/xterm/xterm.log.html#xterm_403">#403</a> (report by Felix
+    Brockmeier).</li>
+    <li>change <tt>wcwidth</tt> for private-use codes, to make them
+    consistently neutral width, i.e., single/double width according
+    to whether they are used for CJK.</li>
+    <li>improve test-driver for <tt>wcwidth</tt>, adding options to
+    test the predefined ranges listed in UnicodeData, as well as
+    suppressing output where it only shows that the system's
+    <tt>wcwidth</tt> lacks a definition for codes.</li>
+    <li>add some of the OpenBSD local-patches, including an
+    ifdef-improvement for <tt>DEF_DISALLOWED_WINDOW</tt> (patch by
+    Matthieu Herrb).</li>
+    <li>modify configure script macros to widen pattern for
+    <tt>$host_os</tt> from “linux*gnu” to “linux*gnu*” to cover
+    targets such as i686-pc-linux-gnut64 (GenToo <a href=
+    "https://bugs.gentoo.org/show_bug.cgi?id=963725">#963725</a>).</li>
+  </ul>
   <h2><a name="xterm_403" id="xterm_403">Patch #403 -
   2025/10/19</a></h2>
   <ul>
