@@ -51,7 +51,7 @@ bash \
 ./downstream-manpage-vttest.sh && \
 ./downstream-manpage-xcursor.sh && \
 ./downstream-manpage-xft.sh && \
-./downstream-manpage-xterm.sh && \
+./downstream-manpage-xterm.sh
 # ./get-xterm-related-updates-from-invisible-island-net.sh
 
 # temp list (WIP)
