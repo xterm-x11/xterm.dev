@@ -101,6 +101,12 @@ wget https://invisible-island.net/datafiles/current/tack.tar.gz
 wget https://invisible-island.net/datafiles/release/tctest.tar.gz
 wget https://invisible-island.net/datafiles/release/luit.tar.gz
 #
+wget https://invisible-island.net/archives/xterm/current/xterm-405.tgz
+wget https://invisible-island.net/archives/xterm/current/xterm-405.tgz.asc
+wget https://invisible-island.net/archives/xterm/patches/xterm-405.patch.gz
+wget https://invisible-island.net/archives/xterm/patches/xterm-405.patch.gz.asc
+wget https://invisible-island.net/archives/xterm/xterm-405.tgz
+wget https://invisible-island.net/archives/xterm/xterm-405.tgz.asc
 # wget https://invisible-island.net/archives/xterm/ # --level=NUMBER ? Add the `-r` option to wget and test.
 # wget https://invisible-island.net/archives/vttest/ # --level=NUMBER ? Add the `-r` option to wget and test.
 # wget tack? ^
