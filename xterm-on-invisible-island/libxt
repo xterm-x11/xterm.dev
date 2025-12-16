@@ -55,7 +55,7 @@ if (gl.startup_calls && window.fetch) {
   });
 }
 if (gl.startup_graphql_calls && window.fetch) {
-  const headers = {"X-CSRF-Token":"U2eFhZq5D8pK3JXO8gfzbWmythF1-SM0xs2NIOTxauZcT-xwwJki0eFmW6biQ-sC2XV4kSgsXxHRRmbPKTFBzw","x-gitlab-feature-category":"groups_and_projects"};
+  const headers = {"X-CSRF-Token":"HSFzGP4ANnR2LCkuPtg3eKaY3gtaysVpiby3P6fm-3GhpejLL5KqkhZ_MpaQVYegWyewSnPLh8WAjdXRJG3D-Q","x-gitlab-feature-category":"groups_and_projects"};
   const url = `https://gitlab.freedesktop.org/api/graphql`
 
   const opts = {
@@ -83,8 +83,8 @@ if (gl.startup_graphql_calls && window.fetch) {
 
 
 <meta content="light dark" name="color-scheme">
-<link rel="stylesheet" href="/assets/application-8ee7bf957bdca959cd84fdf88ca331a58330fd5cc52da13280d69c647eb7fbac.css" media="(prefers-color-scheme: light)" />
-<link rel="stylesheet" href="/assets/application_dark-73d5a0a1fde728eef4e8aaacbe8c72e8093ba37c48da2028960821015e67643f.css" media="(prefers-color-scheme: dark)" />
+<link rel="stylesheet" href="/assets/application-59ae9d4e7b7d01e8999df286773289ffa474123a7b129150e7e77fa443e2c2e4.css" media="(prefers-color-scheme: light)" />
+<link rel="stylesheet" href="/assets/application_dark-18c1dccdcc67b178f5f5ced6b712949c6bf7c7c7232d218b2b630b7bb6a7c047.css" media="(prefers-color-scheme: dark)" />
 <link rel="stylesheet" href="/assets/page_bundles/project-84c702fec0d46898f3752e2d11cffd1198f91161651f5a64ba96d3320173c207.css" /><link rel="stylesheet" href="/assets/page_bundles/tree-ec52278884118afa6586dc439192678436d712b0d37c76f65fcd1dfb19a539dc.css" /><link rel="stylesheet" href="/assets/page_bundles/commit_description-9e7efe20f0cef17d0606edabfad0418e9eb224aaeaa2dae32c817060fa60abcc.css" /><link rel="stylesheet" href="/assets/page_bundles/projects-5ff1d9a4f328199704b89fcdbf5501b932b19e481ac1139171ece972e7cf4c7f.css" /><link rel="stylesheet" href="/assets/page_bundles/work_items-9f34e9e1785e95144a97edb25299b8dd0d2e641f7efb2d8b7bea3717104ed8f2.css" /><link rel="stylesheet" href="/assets/page_bundles/notes_shared-a4dff941637ebef2cf76105ce3c2b1b2cb2c523f2af7710be4e47d6892e03c41.css" />
 <link rel="stylesheet" href="/assets/tailwind_cqs-de28f8d90ad9af296011cb3f71159cd95a46c3d2741eb02f3146ede54bf818ca.css" />
 
@@ -93,15 +93,15 @@ if (gl.startup_graphql_calls && window.fetch) {
 <link rel="stylesheet" href="/assets/highlight/themes/white-9669e20d2bac0337d55977e9ba6cf7540fcbb9d11ec33b69e51bae1d72e40db3.css" media="(prefers-color-scheme: light)" />
 <link rel="stylesheet" href="/assets/highlight/themes/dark-c73a404d1f019e02345db3f656cde81011d1ed7ae616045770ab85f7deac07d6.css" media="(prefers-color-scheme: dark)" />
 
-<script src="/assets/webpack/runtime.7343b90b.bundle.js" defer="defer"></script>
-<script src="/assets/webpack/main.72dfc60d.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/runtime.2c23d346.bundle.js" defer="defer"></script>
+<script src="/assets/webpack/main.cf3ff92e.chunk.js" defer="defer"></script>
 <script src="/assets/webpack/tracker.4ac2efa2.chunk.js" defer="defer"></script>
 <script>
 //<![CDATA[
 window.snowplowOptions = {"namespace":"gl","hostname":"gitlab.freedesktop.org:443","postPath":"/-/collect_events","forceSecureTracker":true,"appId":"gitlab_sm"}
 
 gl = window.gl || {};
-gl.snowplowStandardContext = {"schema":"iglu:com.gitlab/gitlab_standard/jsonschema/1-1-7","data":{"environment":"self-managed","source":"gitlab-rails","correlation_id":"01KBGEDFDP77TMHKT9N27639QT","plan":"free","extra":{},"user_id":null,"global_user_id":null,"user_type":null,"is_gitlab_team_member":null,"namespace_id":2211,"ultimate_parent_namespace_id":1154,"project_id":731,"feature_enabled_by_namespace_ids":null,"realm":"self-managed","deployment_type":"self-managed","instance_id":"6eec72ed-e2cf-4c68-adc1-42c55b2314f0","unique_instance_id":"51e20f18-020e-5d44-8415-3d3e6c7aea3b","host_name":"gitlab.freedesktop.org","instance_version":"18.6.1","context_generated_at":"2025-12-02T21:10:09.945Z"}}
+gl.snowplowStandardContext = {"schema":"iglu:com.gitlab/gitlab_standard/jsonschema/1-1-7","data":{"environment":"self-managed","source":"gitlab-rails","correlation_id":"01KCMGTHA36BC2YQTHBY572NE1","plan":"free","extra":{},"user_id":null,"global_user_id":null,"user_type":null,"is_gitlab_team_member":null,"namespace_id":2211,"ultimate_parent_namespace_id":1154,"project_id":731,"feature_enabled_by_namespace_ids":null,"realm":"self-managed","deployment_type":"self-managed","instance_id":"6eec72ed-e2cf-4c68-adc1-42c55b2314f0","unique_instance_id":"51e20f18-020e-5d44-8415-3d3e6c7aea3b","host_name":"gitlab.freedesktop.org","instance_version":"18.6.2","context_generated_at":"2025-12-16T21:24:54.493Z"}}
 gl.snowplowPseudonymizedPageUrl = "https://gitlab.freedesktop.org/namespace2211/project731";
 gl.maskedDefaultReferrerUrl = null;
 gl.ga4MeasurementId = 'G-ENFH3X7M5Y';
@@ -111,7 +111,7 @@ gl.onlySendDuoEvents = false;
 
 //]]>
 </script>
-<link rel="preload" href="/assets/application-8ee7bf957bdca959cd84fdf88ca331a58330fd5cc52da13280d69c647eb7fbac.css" as="style" type="text/css">
+<link rel="preload" href="/assets/application-59ae9d4e7b7d01e8999df286773289ffa474123a7b129150e7e77fa443e2c2e4.css" as="style" type="text/css">
 <link rel="preload" href="/assets/highlight/themes/white-9669e20d2bac0337d55977e9ba6cf7540fcbb9d11ec33b69e51bae1d72e40db3.css" as="style" type="text/css">
 
 
@@ -151,7 +151,7 @@ gl.onlySendDuoEvents = false;
 <meta content="https://gitlab.freedesktop.org/assets/twitter_card-570ddb06edf56a2312253c5872489847a0f385112ddbcd71ccfa1570febab5d2.jpg" property="twitter:image">
 
 <meta name="csrf-param" content="authenticity_token" />
-<meta name="csrf-token" content="ODRgHvf4l-2q4TsIU5_3LcSCJRVzV_MZXeM3KumMXOY3HAnrrdi69gFb9WBD2-9CdEXrlS6CjzxKaNzFJEx3zw" />
+<meta name="csrf-token" content="LRfRLWqgTEPH7AbYF44zMNcf731_7RdQ0aS4h87dQNmRk0r-uzLQpae_HWC5A4PoKqCBPFbsVfzYldppTVZ4UQ" />
 <meta name="csp-nonce" />
 <meta name="action-cable-url" content="/-/cable" />
 <link href="/-/manifest.json" rel="manifest">
