@@ -1,5 +1,18 @@
--- $Id: CHANGES,v 1.321 2024/12/08 20:00:18 tom Exp $
+-- $Id: CHANGES,v 1.329 2025/12/05 23:49:56 tom Exp $
 -------------------------------------------------------------------------------
+
+20251205
+	+ improve tek4014 line-drawing test by scaling mouse-clicks to the
+	  window size.
+
+	+ omit highlighting in the character set tests where a 96-character
+	  set is selected into G0; that target only works for 94-characters.
+
+	+ use ncurses MIT-X11 license consistently
+
+	+ improve configure-script platform-specific definitions
+
+	+ update config.guess, config.sub
 
 20241208
 	+ modify sixel.c to show all of the font glyphs, for context, and also

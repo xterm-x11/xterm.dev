@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.8.0">
 <title>Change-Log for VTTEST</title>
 <link rel="author" href="mailto:dickey@invisible-island.net">
 <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
@@ -23,8 +23,21 @@
 <hr>
 
 <pre>
--- $Id: CHANGES,v 1.321 2024/12/08 20:00:18 tom Exp $
+-- $Id: CHANGES,v 1.329 2025/12/05 23:49:56 tom Exp $
 -------------------------------------------------------------------------------
+
+<a name="t20251205" href="#index-t20251205" id="t20251205">20251205</a>
+        + improve tek4014 line-drawing test by scaling mouse-clicks to the
+          window size.
+
+        + omit highlighting in the character set tests where a 96-character
+          set is selected into G0; that target only works for 94-characters.
+
+        + use ncurses MIT-X11 license consistently
+
+        + improve configure-script platform-specific definitions
+
+        + update config.guess, config.sub
 
 <a name="t20241208" href="#index-t20241208" id="t20241208">20241208</a>
         + modify sixel.c to show all of the font glyphs, for context, and also
@@ -1032,6 +1045,8 @@ VERSION 2.0
 <div class="nav">
 <ul>
 <li class="nav-top"><a href="CHANGES.html">(top)</a></li>
+
+<li><a name="index-t20251205" href="#t20251205" id="index-t20251205">2025/12/05</a></li>
 
 <li><a name="index-t20241208" href="#t20241208" id="index-t20241208">2024/12/08</a></li>
 
