@@ -40,10 +40,10 @@ cp ../docs/manpage-luit/index.html ../docs/manpage-luit/index-part-1.html
 cp ../docs/manpage-luit/index.html ../docs/manpage-luit/index-part-2.html
 
 # get the line number for this HTML element, pipe it as a variable with read, and delete the last lines of the file including the line of this HTML element
-sed -n '/downstreamed content/=' ../docs/manpage-luit/index-part-1.html | (read ; sed -i "$REPLY,$ d" ../docs/manpage-luit/index-part-1.html)
+sed -n '/<p>downstreamed content<\/p>/=' ../docs/manpage-luit/index-part-1.html | (read ; sed -i "$REPLY,$ d" ../docs/manpage-luit/index-part-1.html)
 
 # get the line number for this HTML element, pipe it as a variable with read, and delete the first lines of the file including the line of this HTML element
-sed -n '/end of downstreamed content/=' ../docs/manpage-luit/index-part-2.html | (read ; sed -i "1,$REPLY d" ../docs/manpage-luit/index-part-2.html)
+sed -n '/<p>end of downstreamed content<\/p>/=' ../docs/manpage-luit/index-part-2.html | (read ; sed -i "1,$REPLY d" ../docs/manpage-luit/index-part-2.html)
 
 cat ../docs/manpage-luit/index-part-1.html ../stage/manpage-luit-text.html ../docs/manpage-luit/index-part-2.html > ../docs/manpage-luit/index.html
 
