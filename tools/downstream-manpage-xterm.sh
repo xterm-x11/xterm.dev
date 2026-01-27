@@ -11,8 +11,8 @@ set -e
 # get the line number for this HTML element, pipe it as a variable with read, and delete the first lines of the file excluding the line of this HTML element
 sed -n '/<h2><a name="h2-NAME" id="h2-NAME">NAME<\/a><\/h2>/=' ../stage/manpage-xterm-text.html | (read ; LINEBEFORE=$(( $REPLY - 1 )); sed -i "1,$LINEBEFORE d" ../stage/manpage-xterm-text.html)
 
-# get the line number for this HTML element, pipe it as a variable with read, and delete the last lines of the file including the line of this HTML element
-sed -n '/<div class="nav">/=' ../stage/manpage-xterm-text.html | (read ; sed -i "$REPLY,$ d" ../stage/manpage-xterm-text.html)
+# delete the file lines after the manpage text, that is the nav lines to the end of the file
+sed -i '/<div class="nav">/,$d' ../stage/manpage-xterm-text.html
 
 <<comment
 
