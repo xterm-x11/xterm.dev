@@ -53,7 +53,7 @@
 -- sale, use or other dealings in this Software without prior written        --
 -- authorization.                                                            --
 -------------------------------------------------------------------------------
--- $Id: INSTALL,v 1.261 2025/11/12 00:52:57 Branden.Robinson Exp $
+-- $Id: INSTALL,v 1.263 2025/12/30 20:42:25 tom Exp $
 ---------------------------------------------------------------------
              How to install Ncurses/Terminfo on your system
 ---------------------------------------------------------------------
@@ -614,7 +614,8 @@ Ncurses has been also built in the OS/2 EMX environment.
         as such to the debugger.  See also the --disable-macros option.
 
     <strong><a name="option:enable-exp-win32" id="option:enable-exp-win32">--enable-exp-win32</a></strong>
-        When configuring for MinGW, use the experimental Windows 10 driver.
+        This is an obsolete option used for configuring the Windows 10 driver
+        for MinGW.
 
     <strong><a name="option:enable-ext-colors" id="option:enable-ext-colors">--enable-ext-colors</a></strong>
         Extend the cchar_t structure to allow more than 16 colors to be
@@ -692,6 +693,10 @@ Ncurses has been also built in the OS/2 EMX environment.
         supports mixed-case filenames (normal for UNIX, but not on other
         systems).  If you do not specify this option, the configure script
         checks the current filesystem.
+
+    <strong><a name="option:enable-named-pipes" id="option:enable-named-pipes">--enable-named-pipes</a></strong>
+        Compile-in support for named pipes, used to connect to Windows 10
+        pseudo-console.
 
     <strong><a name="option:enable-no-padding" id="option:enable-no-padding">--enable-no-padding</a></strong>
         Compile-in support for the $NCURSES_NO_PADDING environment variable,
@@ -801,9 +806,9 @@ Ncurses has been also built in the OS/2 EMX environment.
         unless you have disabled the extended functions.
 
     <strong><a name="option:enable-term-driver" id="option:enable-term-driver">--enable-term-driver</a></strong>
-        Enable experimental terminal-driver.  This is currently used for the
-        MinGW port, by providing a way to substitute the low-level terminfo
-        library with different terminal drivers.
+        Enable terminal-driver.  This is required for the MinGW port, by
+        providing a way to substitute the low-level terminfo library with
+        different terminal drivers.
 
     <strong><a name="option:enable-termcap" id="option:enable-termcap">--enable-termcap</a></strong>
         Compile in support for reading terminal descriptions from termcap if no
@@ -1483,7 +1488,32 @@ Ncurses has been also built in the OS/2 EMX environment.
     you may encounter when building a system with different versions of
     ncurses:
 
-    <a name="release:6.5" id="release:6.5">6.5 (Apt 27, 2024)</a>
+    <a name="release:6.6" id="release:6.6">6.6 (Dec 30, 2025)</a>
+        Interface changes:
+
+        + none
+
+        Added extensions:
+
+        + none
+
+        Added internal functions (other than "_sp" variants):
+
+        + _nc_is_path_found
+
+        Removed internal functions:
+
+        + none
+
+        Modified internal functions:
+
+        + These now pass a const parameter:  _nc_has_mouse,
+          _nc_reset_color_pair, _nc_free_entry, and _nc_timed_wait.
+        + These now use a NCURSES_BOOL where an int was used: 
+          _nc_setupscreen, _nc_keypad, _nc_unicode_locale, and
+          _nc_retrace_bool.
+
+    <a name="release:6.5" id="release:6.5">6.5 (Apr 27, 2024)</a>
         Interface changes:
 
         + the WINDOW structure and some related internal data types declared
@@ -2622,6 +2652,7 @@ terminfo directory directly.
 <li><a href="#option:enable-install-prefix">--enable-install-prefix</a></li>
 <li><a href="#option:enable-interop">--enable-interop</a></li>
 <li><a href="#option:enable-mixed-case">--enable-mixed-case</a></li>
+<li><a href="#option:enable-named-pipes">--enable-named-pipes</a></li>
 <li><a href="#option:enable-no-padding">--enable-no-padding</a></li>
 <li><a href="#option:enable-opaque-curses">--enable-opaque-curses</a></li>
 <li><a href="#option:enable-opaque-form">--enable-opaque-form</a></li>
@@ -2732,7 +2763,8 @@ terminfo directory directly.
 </li>
 <li><a href="#COMPATIBILITY-WITH-OLDER-RELEASES"><strong>COMPATIBILITY WITH OLDER RELEASES</strong></a>
 <ul>
-<li><a href="#release:6.5">6.5 (Apt 27, 2024)</a></li>
+<li><a href="#release:6.6">6.6 (Dec 30, 2025)</a></li>
+<li><a href="#release:6.5">6.5 (Apr 27, 2024)</a></li>
 <li><a href="#release:6.4">6.4 (Dec 31, 2022)</a></li>
 <li><a href="#release:6.3">6.3 (Oct 21, 2021)</a></li>
 <li><a href="#release:6.2">6.2 (Feb 12, 2020)</a></li>
