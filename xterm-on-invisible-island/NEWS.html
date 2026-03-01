@@ -51,7 +51,7 @@
 -- sale, use or other dealings in this Software without prior written        --
 -- authorization.                                                            --
 -------------------------------------------------------------------------------
--- $Id: NEWS,v 1.4414 2026/01/25 01:28:03 tom Exp $
+-- $Id: NEWS,v 1.4424 2026/02/22 01:44:49 tom Exp $
 -------------------------------------------------------------------------------
 
 This is a log of changes that ncurses has gone through since Zeyd started
@@ -70,6 +70,32 @@ See the AUTHORS file for the corresponding full names.
 
 Changes through 1.9.9e did not credit all contributions;
 it is not possible to add this information.
+
+<a name="t20260221" href="#index-t20260221" id="t20260221">20260221</a>
+        + correct strikeout for iterm2 -TD
+        + add some xterm-style modified special-keys to iterm2 -TD
+        + modify configure script regex check to provide for Windows libraries
+          having regcomp (report by Juergen Pfeifer).
+        + modify configure script --with-pcre2 option to allow specifying the
+          pkgconfig name for pcre2 (prompted by discussion with George Goffe).
+
+<a name="t20260214" href="#index-t20260214" id="t20260214">20260214</a>
+        + add ech to screen terminfo (Debian <a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=707308">#707308</a>).
+        + review/update screen5, adding screen5.xterm-new and
+          screen4.xterm-new -TD
+
+<a name="t20260207" href="#index-t20260207" id="t20260207">20260207</a>
+        + improve infocmp "-i" option, to make it easier to see unrecognized
+          escape sequences in initialization strings, as well as extending the
+          tables.
+        + correct DECKPNM in vt220 is2 (Aaro Koskinen)
+        + correct DECSTR in some Wyse terminfo entries -TD
+
+<a name="t20260131" href="#index-t20260131" id="t20260131">20260131</a>
+        + add putty+3keys -TD
+        + add dim to putty -TD
+        + add xterm+3keys -TD
+        + add note explaining origin of ecma+overline -TD
 
 <a name="t20260124" href="#index-t20260124" id="t20260124">20260124</a>
         + add xterm+indirect16, vt100+keypad+emul, putty-direct,
@@ -16306,6 +16332,14 @@ available separately from netcom.com:pub/zmbenhal/
 <div class="nav">
 <ul>
 <li class="nav-top"><a href="NEWS.html">(top)</a></li>
+
+<li><a name="index-t20260221" href="#t20260221" id="index-t20260221">2026/02/21</a></li>
+
+<li><a name="index-t20260214" href="#t20260214" id="index-t20260214">2026/02/14</a></li>
+
+<li><a name="index-t20260207" href="#t20260207" id="index-t20260207">2026/02/07</a></li>
+
+<li><a name="index-t20260131" href="#t20260131" id="index-t20260131">2026/01/31</a></li>
 
 <li><a name="index-t20260124" href="#t20260124" id="index-t20260124">2026/01/24</a></li>
 
