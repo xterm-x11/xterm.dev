@@ -419,6 +419,15 @@
 
                <b>NOTE:</b> This must be the <b>last option</b> on the command line.
 
+       <b><a title="OPTIONS:-emoji_width" name="OPTIONS:-emoji_width">-emoji_width</a></b>
+               Set the <b><a href="#VT100-Widget-Resources:emojiWidth">emojiWidth</a></b> resource to "true".  When turned on, Unicode
+               variation  selectors  VS15 and VS16 are interpreted, overriding
+               the  number  of  cells  for  the  immediately  preceding  Emoji
+               character.  The default is "false"
+
+       <b><a title="OPTIONS:+emoji_width" name="OPTIONS:_emoji_width">+emoji_width</a></b>
+               Reset the <b><a href="#VT100-Widget-Resources:emojiWidth">emojiWidth</a></b> resource.
+
        <b><a title="OPTIONS:-en" name="OPTIONS:-en">-en</a></b> <i>encoding</i>
                This  option  determines  the encoding on which <i>xterm</i> runs.  It
                sets the <b><a href="#VT100-Widget-Resources:locale">locale</a></b>  resource.   Encodings  other  than  UTF-8  are
@@ -796,6 +805,16 @@
 
        <b><a title="OPTIONS:+pob" name="OPTIONS:_pob">+pob</a></b>    This option indicates that the  window  should  not  be  raised
                whenever a Control-G is received.
+
+       <b><a title="OPTIONS:-rca" name="OPTIONS:-rca">-rca</a></b>    This  option  enables cursor position adjustment during resize.
+               When the terminal width shrinks, the cursor is clamped  to  the
+               new  width.   With  this option (the default), cursor movements
+               while shrunk are tracked, and on grow the cursor is adjusted to
+               stay in sync with the shell.
+
+       <b><a title="OPTIONS:+rca" name="OPTIONS:_rca">+rca</a></b>    Disable cursor position adjustment.  The cursor  stays  at  its
+               visual position when the terminal grows, but shell commands may
+               misbehave after resize and cursor movement.
 
        <b><a title="OPTIONS:-report-charclass" name="OPTIONS:-report-charclass">-report-charclass</a></b>
                Print a report to the standard output showing information about
@@ -3058,6 +3077,12 @@
                default  is  an empty string, i.e., "", which does not override
                anything.
 
+       <b><a title="VT100 Widget Resources:emojiWidth" name="VT100-Widget-Resources:emojiWidth">emojiWidth</a></b> (class <b>EmojiWidth</b>)
+               Specifies whether to interpret Unicode variation selectors VS15
+               and  VS16.   Those  override  the  character   width   of   the
+               immediately  preceding  character, if it is an Emoji, to one or
+               two cells, respectively.  The default is "false".
+
        <b><a title="VT100 Widget Resources:eraseSavedLines" name="VT100-Widget-Resources:eraseSavedLines">eraseSavedLines</a></b> (class <b>EraseSavedLines</b>)
                Specifies whether or not  to  allow  <i>xterm</i>  extended  ED/DECSED
                control  sequences to erase the saved-line buffer.  The default
@@ -4309,85 +4334,112 @@
                terminal is reset, and color changes  in  any  graphic   affect
                all graphics.  The default is "true".
 
+       <b><a title="VT100 Widget Resources:privateWidth" name="VT100-Widget-Resources:privateWidth">privateWidth</a></b> (class <b>PrivateWidth</b>)
+               Tells  <i>xterm</i>  whether  to  assume that codes in the Unicode PUA
+               (private use area) are single-width, or neutral  (matching  the
+               <b><a href="#VT100-Widget-Resources:cjkWidth">cjkWidth</a></b>  setting.   The  default  is  "true" to assume single-
+               width.
+
        <b><a title="VT100 Widget Resources:quietGrab" name="VT100-Widget-Resources:quietGrab">quietGrab</a></b> (class <b>QuietGrab</b>)
-               Controls  whether  the  cursor is repainted when <i>NotifyGrab</i> and
-               <i>NotifyUngrab</i> event types are received during change  of  focus.
+               Controls whether the cursor is repainted  when  <i>NotifyGrab</i>  and
+               <i>NotifyUngrab</i>  event  types are received during change of focus.
                The default is "false".
 
        <b><a title="VT100 Widget Resources:regisDefaultFont" name="VT100-Widget-Resources:regisDefaultFont">regisDefaultFont</a></b> (class <b>RegisDefaultFont</b>)
                If <i>xterm</i> is configured to support ReGIS graphics, this resource
-               tells  <i>xterm</i>  which  font  to  use  if  the ReGIS data does not
-               specify one.  No default value is specified;  <i>xterm</i>  accepts  a
+               tells <i>xterm</i> which font to  use  if  the  ReGIS  data  does  not
+               specify  one.   No  default value is specified; <i>xterm</i> accepts a
                TrueType font specification as in the <b><a href="#VT100-Widget-Resources:faceName">faceName</a></b> resource.
 
-               If  no  value  is  specified, <i>xterm</i> draws a bitmap indicating a
+               If no value is specified, <i>xterm</i> draws  a  bitmap  indicating  a
                missing character.
 
        <b><a title="VT100 Widget Resources:regisScreenSize" name="VT100-Widget-Resources:regisScreenSize">regisScreenSize</a></b> (class <b>RegisScreenSize</b>)
                If <i>xterm</i> is configured to support ReGIS graphics, this resource
-               tells <i>xterm</i> the default size (in pixels)  for  these  graphics,
-               which  also  sets the default coordinate space to [0,0] (upper-
+               tells  <i>xterm</i>  the  default size (in pixels) for these graphics,
+               which also sets the default coordinate space to  [0,0]  (upper-
                left) and [<i>width</i>,<i>height</i>] (lower-right).
 
-               The application using ReGIS may use the "A" option of  the  "S"
-               command   to   adjust   the  coordinate  space  or  change  the
+               The  application  using ReGIS may use the "A" option of the "S"
+               command  to  adjust  the  coordinate  space   or   change   the
                addressable portion of the screen.
 
-               <i>Xterm</i> accepts a special  resource  value  "auto",  which  tells
-               <i>xterm</i>  to  use the <b><a href="#VT100-Widget-Resources:decGraphicsID">decGraphicsID</a></b> and <b><a href="#VT100-Widget-Resources:decTerminalID">decTerminalID</a></b> resources to
-               set the default size based on the hardware  terminal's  limits.
+               <i>Xterm</i>  accepts  a  special  resource  value "auto", which tells
+               <i>xterm</i> to use the <b><a href="#VT100-Widget-Resources:decGraphicsID">decGraphicsID</a></b> and <b><a href="#VT100-Widget-Resources:decTerminalID">decTerminalID</a></b>  resources  to
+               set  the  default size based on the hardware terminal's limits.
                Those limits are the same as for the <b><a href="#VT100-Widget-Resources:maxGraphicSize">maxGraphicSize</a></b> resource.
 
                The default is "auto".
 
        <b><a title="VT100 Widget Resources:renderFont" name="VT100-Widget-Resources:renderFont">renderFont</a></b> (class <b>RenderFont</b>)
-               If  <i>xterm</i>  is built with the Xft library, this controls whether
+               If <i>xterm</i> is built with the Xft library, this  controls  whether
                the <b><a href="#VT100-Widget-Resources:faceName">faceName</a></b> resource is used.  The default is "default".
 
-               The resource values are strings, evaluated  as  booleans  after
+               The  resource  values  are strings, evaluated as booleans after
                startup.
 
                false
                     disable the feature and use the normal (bitmap) font.
 
                true
-                    startup  using the TrueType font specified by the <b><a href="#VT100-Widget-Resources:faceName">faceName</a></b>
-                    and <b><a href="#VT100-Widget-Resources:faceSize">faceSize</a></b> resource settings.  If there is no value  for
-                    <b><a href="#VT100-Widget-Resources:faceName">faceName</a></b>,  disable the feature and use the normal (bitmap)
+                    startup using the TrueType font specified by the  <b><a href="#VT100-Widget-Resources:faceName">faceName</a></b>
+                    and  <b><a href="#VT100-Widget-Resources:faceSize">faceSize</a></b> resource settings.  If there is no value for
+                    <b><a href="#VT100-Widget-Resources:faceName">faceName</a></b>, disable the feature and use the normal  (bitmap)
                     font.
 
-                    After startup, you can still  switch  to/from  the  bitmap
+                    After  startup,  you  can  still switch to/from the bitmap
                     font using the "TrueType Fonts" menu entry.
 
                default
-                    Enable  the  "TrueType  Fonts" menu entry to allow runtime
-                    switching to/from TrueType fonts.  The initial  font  used
+                    Enable the "TrueType Fonts" menu entry  to  allow  runtime
+                    switching  to/from  TrueType fonts.  The initial font used
                     depends upon whether the <b><a href="#VT100-Widget-Resources:faceName">faceName</a></b> resource is set:
 
-                    <b>o</b>   If  the  <b><a href="#VT100-Widget-Resources:faceName">faceName</a></b>  resource is not set, start by using
+                    <b>o</b>   If the <b><a href="#VT100-Widget-Resources:faceName">faceName</a></b> resource is not set,  start  by  using
                         the  normal  (bitmap)  font.   <i>Xterm</i>  has  a  separate
-                        compiled-in  value for <b><a href="#VT100-Widget-Resources:faceName">faceName</a></b> for this special case.
+                        compiled-in value for <b><a href="#VT100-Widget-Resources:faceName">faceName</a></b> for this special  case.
                         That is normally "mono".
 
-                    <b>o</b>   If the <b><a href="#VT100-Widget-Resources:faceName">faceName</a></b> resource is set, then start  by  using
+                    <b>o</b>   If  the  <b><a href="#VT100-Widget-Resources:faceName">faceName</a></b> resource is set, then start by using
                         the TrueType font rather than the bitmap font.
 
                defaultOff
-                    Enable  the  "TrueType  Fonts" menu entry to allow runtime
-                    switching to/from TrueType  fonts,  but  allow  it  to  be
+                    Enable the "TrueType Fonts" menu entry  to  allow  runtime
+                    switching  to/from  TrueType  fonts,  but  allow  it to be
                     initially unselected if no <b><a href="#VT100-Widget-Resources:faceName">faceName</a></b> resource was given.
 
        <b><a title="VT100 Widget Resources:resizeByPixel" name="VT100-Widget-Resources:resizeByPixel">resizeByPixel</a></b> (class <b>ResizeByPixel</b>)
-               Set  this  "true"  to  disable hints to the window manager that
+               Set this "true" to disable hints to  the  window  manager  that
                request resizing by character rather than pixels.
 
-               Most window managers provide visual feedback showing  the  size
-               of  a  window  as  you  resize it, using these hints.  When you
-               maximize <i>xterm</i>, it disables those hints  to  allow  the  window
-               manager  to  make  better  use  of  fractional rows or columns.
+               Most  window  managers provide visual feedback showing the size
+               of a window as you resize it,  using  these  hints.   When  you
+               maximize  <i>xterm</i>,  it  disables  those hints to allow the window
+               manager to make better  use  of  fractional  rows  or  columns.
                Setting this resource disables the hints all the time.
 
                The default is "false".
+
+       <b><a title="VT100 Widget Resources:resizeCursorAdjust" name="VT100-Widget-Resources:resizeCursorAdjust">resizeCursorAdjust</a></b> (class <b>ResizeCursorAdjust</b>)
+               Controls  cursor  position  tracking  when  the  terminal width
+               changes.  When the terminal shrinks and  the  cursor  would  be
+               beyond  the new width, <i>xterm</i> clamps the cursor to the rightmost
+               column.  This resource controls what happens when you move  the
+               cursor while shrunk, then grow the terminal back:
+
+               true
+                  Adjust  the  saved cursor position by cursor movement delta.
+                  This keeps <i>xterm</i>'s cursor in sync with the shell's  idea  of
+                  cursor   position.    Shell  commands  like  Ctrl+A  (go  to
+                  beginning of line) will work correctly.  However, the cursor
+                  may visually "jump" when the terminal grows.   This  is  the
+                  default.
+
+               false
+                  Clear the saved cursor position on any cursor movement.  The
+                  cursor stays at its visual position when the terminal grows.
+                  Shell  commands  may  behave  unexpectedly  after resize and
+                  cursor movement.
 
        <b><a title="VT100 Widget Resources:resizeGravity" name="VT100-Widget-Resources:resizeGravity">resizeGravity</a></b> (class <b>ResizeGravity</b>)
                Affects the behavior when the window is resized to be taller or
@@ -8123,7 +8175,7 @@
            when  incorporating other work from XFree86 into Xorg.  The feature
            is still supported in Xorg, though undocumented as of 2019.
 
-Patch #404                        2025-11-30                          <b>XTERM(1)</b>
+Patch #407                        2026-02-16                          <b>XTERM(1)</b>
 </pre>
 <div class="nav">
 <ul>

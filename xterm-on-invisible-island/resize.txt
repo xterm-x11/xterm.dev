@@ -155,4 +155,4 @@ SEE ALSO
        csh(1), stty(1), tset(1)
        xterm(1)
 
-Patch #404                        2025-11-30                         RESIZE(1)
+Patch #407                        2026-02-16                         RESIZE(1)
