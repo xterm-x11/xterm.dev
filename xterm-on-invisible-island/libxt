@@ -54,7 +54,7 @@ if (gl.startup_calls && window.fetch) {
   });
 }
 if (gl.startup_graphql_calls && window.fetch) {
-  const headers = {"X-CSRF-Token":"UbVcc20D38vrzjnu1tK6BTLtu0J6n7Od5eMGvkn01CKoPhorU35ANIPc8PJg0VTejAJpyb2q-rsvHnbk1pVrzw","x-gitlab-feature-category":"groups_and_projects"};
+  const headers = {"X-CSRF-Token":"uGwZtZOavKbgZeRUcmXOwIV0LlwfxWjOLBQRJ1S8RowUcwqWvBNT95nMErKhwyZI-vA4vXh63PVPuNeE6vholQ","x-gitlab-feature-category":"groups_and_projects"};
   const url = `https://gitlab.freedesktop.org/api/graphql`
 
   const opts = {
@@ -99,7 +99,7 @@ if (gl.startup_graphql_calls && window.fetch) {
 //<![CDATA[
 window.snowplowOptions = {"namespace":"gl","hostname":"gitlab.freedesktop.org:443","postPath":"/-/collect_events","forceSecureTracker":true,"appId":"gitlab_sm"};
 gl = window.gl || {};
-gl.snowplowStandardContext = {"schema":"iglu:com.gitlab/gitlab_standard/jsonschema/1-1-7","data":{"environment":"self-managed","source":"gitlab-rails","correlation_id":"01KJNN0Z3RB0P3GQKQFSJG78J1","extra":{},"user_id":null,"global_user_id":null,"user_type":null,"is_gitlab_team_member":null,"namespace_id":2211,"ultimate_parent_namespace_id":1154,"project_id":731,"feature_enabled_by_namespace_ids":null,"realm":"self-managed","deployment_type":"self-managed","context_generated_at":"2026-03-01T21:31:44.796Z"}};
+gl.snowplowStandardContext = {"schema":"iglu:com.gitlab/gitlab_standard/jsonschema/1-1-7","data":{"environment":"self-managed","source":"gitlab-rails","correlation_id":"01KM1H5NFF4E3VS60B35C4RV4R","extra":{},"user_id":null,"global_user_id":null,"user_type":null,"is_gitlab_team_member":null,"namespace_id":2211,"ultimate_parent_namespace_id":1154,"project_id":731,"feature_enabled_by_namespace_ids":null,"realm":"self-managed","deployment_type":"self-managed","context_generated_at":"2026-03-18T22:30:59.543Z"}};
 gl.snowplowPseudonymizedPageUrl = "https://gitlab.freedesktop.org/namespace2211/project731";
 gl.maskedDefaultReferrerUrl = null;
 gl.ga4MeasurementId = 'G-ENFH3X7M5Y';
@@ -148,7 +148,7 @@ gl.onlySendDuoEvents = false;
 <meta content="https://gitlab.freedesktop.org/assets/twitter_card-570ddb06edf56a2312253c5872489847a0f385112ddbcd71ccfa1570febab5d2.jpg" property="twitter:image">
 
 <meta name="csrf-param" content="authenticity_token" />
-<meta name="csrf-token" content="NAKQndu4lnYZKyB5bNMx38Cw7YEvenptvK03PlQ7_-7NidbF5cUJiXE56WXa0N8Efl8_CuhPM0t2UEdky1pAAw" />
+<meta name="csrf-token" content="LWHPln1MPPeSTCh5UM8ZFqMxHn8x34m-po6awGi1te-Bfty1UsXTpuvl3p-DafGe3LUInlZgPYXFIlxj1vGb9g" />
 <meta name="csp-nonce" />
 <meta name="action-cable-url" content="/-/cable" />
 <link href="/-/manifest.json" rel="manifest">

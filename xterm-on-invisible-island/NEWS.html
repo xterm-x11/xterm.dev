@@ -51,7 +51,7 @@
 -- sale, use or other dealings in this Software without prior written        --
 -- authorization.                                                            --
 -------------------------------------------------------------------------------
--- $Id: NEWS,v 1.4424 2026/02/22 01:44:49 tom Exp $
+-- $Id: NEWS,v 1.4434 2026/03/14 22:39:14 tom Exp $
 -------------------------------------------------------------------------------
 
 This is a log of changes that ncurses has gone through since Zeyd started
@@ -70,6 +70,23 @@ See the AUTHORS file for the corresponding full names.
 
 Changes through 1.9.9e did not credit all contributions;
 it is not possible to add this information.
+
+<a name="t20260314" href="#index-t20260314" id="t20260314">20260314</a>
+        + fixes for pangoterm and wezterm, from tic warnings -TD
+        + improve man page description of getmaxyx (report by Lucas Veltkamp).
+        + add configure option --enable-conpty, and modify configure script to
+          allow the low-level term-driver and conpty driver as part of termlib.
+
+<a name="t20260307" href="#index-t20260307" id="t20260307">20260307</a>
+        + add tic checks for pairs of user-caps strings which are listed in
+          Caps-ncurses.
+        + fix a few gcc warnings.
+        + fix inconsistent checks for expanding special characters with infocmp
+          -L option (report by Stephane Chazelas).
+
+<a name="t20260301" href="#index-t20260301" id="t20260301">20260301</a>
+        + modify mouse parsing to handle events with no delay between button
+          press and release (report by Vincent Lefevre).
 
 <a name="t20260221" href="#index-t20260221" id="t20260221">20260221</a>
         + correct strikeout for iterm2 -TD
@@ -2186,7 +2203,7 @@ it is not possible to add this information.
         &gt; additional changes for building with Visual Studio C++ and msys2
           (patches by "Maarten Anonymous"):
         + adjust headers/declarations to provide for "dllimport" vs "dllexport"
-          declarations when constructing DLLs, to worko with Visual Studio C++.
+          declarations when constructing DLLs, to work with Visual Studio C++.
 
 <a name="t20200627" href="#index-t20200627" id="t20200627">20200627</a>
         + build-fixes for gnat 10.1.1, whose gnatmake drops integration with
@@ -16332,6 +16349,12 @@ available separately from netcom.com:pub/zmbenhal/
 <div class="nav">
 <ul>
 <li class="nav-top"><a href="NEWS.html">(top)</a></li>
+
+<li><a name="index-t20260314" href="#t20260314" id="index-t20260314">2026/03/14</a></li>
+
+<li><a name="index-t20260307" href="#t20260307" id="index-t20260307">2026/03/07</a></li>
+
+<li><a name="index-t20260301" href="#t20260301" id="index-t20260301">2026/03/01</a></li>
 
 <li><a name="index-t20260221" href="#t20260221" id="index-t20260221">2026/02/21</a></li>
 
