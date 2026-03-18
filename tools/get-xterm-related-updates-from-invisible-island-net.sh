@@ -187,6 +187,8 @@ wget https://invisible-island.net/xterm/xtoolkit/intrinsics.html
 wget https://invisible-island.net/xterm/xtoolkit/intrinsics.pdf
 wget https://invisible-island.net/xterm/xtoolkit/manpage-index.html # include all linked pages after the first link because those are separate pages
 
+wget https://invisible-island.net/athena_widgets/index.html
+
 git add .
 
 git commit -m "downstreaming at $(date -Iminutes)"
