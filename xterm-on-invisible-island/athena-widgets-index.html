@@ -1,0 +1,1261 @@
+<!--
+  $Id: index.html,v 1.56 2022/12/26 11:27:58 tom Exp $
+  -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for HTML5 for Linux version 5.6.0">
+  <title>Athena Widgets</title>
+  <link rel="author" href="mailto:dickey@invisible-island.net">
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=us-ascii">
+  <meta name="keywords" content=
+  "xterm, vi-like-emacs, Athena, widgets">
+  <meta name="description" content=
+  "a discussion of the variations of Athena Widgets which used in xterm and vile">
+  <link rel="SHORTCUT ICON" href="/img/icons/vile.ico" type=
+  "image/x-icon">
+  <link rel="stylesheet" href="/css/simplestyle.css" type=
+  "text/css">
+  <style type="text/css">
+  @import "/css/simplenavXX.css" all;
+  </style>
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1">
+</head>
+<body>
+  <hr>
+
+  <p><a href="/">http://invisible-island.net/</a><br>
+  Copyright &copy; 2015-2019,2022 by Thomas E. Dickey</p>
+
+  <hr>
+
+  <div class="nav">
+    <ul>
+      <li class="nav-top"><a href=
+      "/athena_widgets/index.html">(top)</a></li>
+
+      <li><a href="#synopsis">Synopsis</a></li>
+
+      <li>
+        <a href="#libraries">Libraries</a>
+        <ul>
+          <li><a href="#item:Xaw">Xaw</a></li>
+
+          <li><a href="#item:Xaw3d">Xaw3d</a></li>
+
+          <li><a href="#item:XawPlus">XawPlus</a></li>
+
+          <li><a href="#item:neXtaw">neXtaw</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#involved">My involvement</a></li>
+
+      <li><a href="#configuration">Configuration</a></li>
+
+      <li>
+        <a href="#metrics">Metrics</a>
+        <ul>
+          <li><a href="#metrics-xaw">Xaw</a></li>
+
+          <li><a href="#metrics-xaw3d">Xaw3d</a></li>
+
+          <li><a href="#metrics-xawplus">XawPlus</a></li>
+
+          <li><a href="#metrics-nextaw">neXtaw</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#screenshots">Screenshots</a>
+        <ul>
+          <li><a href="#screen-xaw">Xaw</a></li>
+
+          <li><a href="#screen-xaw3d">Xaw3d</a></li>
+
+          <li><a href="#screen-xawplus">XawPlus</a></li>
+
+          <li><a href="#screen-nextaw">neXtaw</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#changes">Changes</a></li>
+
+      <li><a href="#download">Download</a></li>
+
+      <li><a href="#related">Related Links</a></li>
+    </ul>
+  </div>
+
+  <h1 class="no-header">Athena Widgets</h1>
+
+  <h2 id="synopsis-h2"><a name="synopsis" id=
+  "synopsis">Synopsis</a></h2>
+
+  <p>This page discusses the variations of Athena Widgets which I
+  have used in <em><a href="/xterm/xterm.html">xterm</a></em> and
+  <em><a href="/vile/vile.html">vile</a></em>.</p>
+
+  <h2 id="libraries-h2"><a name="libraries" id=
+  "libraries">Libraries</a></h2>
+
+  <h3><a name="item:Xaw" id="item:Xaw">Xaw</a></h3>
+
+  <p>The original <strong>Xaw</strong> library, developed by Ralph
+  Swick and Chris D. Peterson, dates back to the late-1980s . The
+  first X release with this library was <em>X.V11R2</em> in March
+  1988. It is not as old as <em>xterm</em> (part of
+  <em>X.V10R3</em> in early 1986).</p>
+
+  <p>At <em>Xaw</em>'s first release, <em>xterm</em> was linked to
+  <em>Xaw</em> for the scrollbar widget; the header files were
+  still found directly under the X11 directory.</p>
+
+  <p>With <em>X11R4</em> (December 1989), <em>Xaw</em>'s header
+  files were installed as a subdirectory of X11. At that point,
+  there were only a few X libraries:</p>
+
+  <blockquote>
+    <p>CLX oldX X Xau <em>Xaw</em> Xdmcp Xmu Xt</p>
+  </blockquote>
+
+  <p>As one can see from the <a href="#metrics-xaw">table</a>,
+  <em>Xaw</em> grew with development until X11R6. In 2004, the
+  improvements and extensions done by the XFree86 project were
+  released as <em>X11R6.7</em>. After that, minor improvements were
+  made. The current version is in Xorg's <a href=
+  "http://cgit.freedesktop.org/xorg/lib/libXaw/log/">git</a>.</p>
+
+  <p>Although <em>xterm</em> and <em>xvile</em> (the X version of
+  vi like emacs) are different applications (terminal emulator and
+  text editor), they use the same features from <em>Xaw</em>:</p>
+
+  <blockquote>
+    <dl>
+      <dt><strong>Scrollbar</strong>
+      </dt>
+
+      <dd>
+        <p><em>Xterm</em>'s scrollbar is optional: it can be turned
+        on and off at runtime. A feature of <em>X.V10R4</em>
+        (December 1986), it predates <em>Xaw</em>. When turning it
+        on or off, <em>xterm</em> resizes its <code>VT100</code>
+        widget, and shows (or hides) the scrollbar on top of the
+        the <code>VT100</code> widget.</p>
+      </dd>
+
+      <dt><strong>Popup menus</strong>
+      </dt>
+
+      <dd>
+        <p>In <em>xterm</em>, these are actuated by the mouse using
+        <em>shift</em> and <em>control</em> modifiers. The first
+        release with <em>X.V11R2</em> did not make this
+        configurable with the <em>translations</em> resource.
+        Instead, <em>xterm</em> contained its own state table for
+        mouse clicks. The <em>translations</em> resource, which was
+        introduced in <em>X.V11R3</em>, was short:</p>
+
+        <blockquote>
+          <pre class="code-block">
+            &lt;KeyPress&gt;:              insert()        \n\
+ Ctrl ~Meta &lt;Btn1Down&gt;:              mode-menu()     \n\
+      ~Meta &lt;Btn1Down&gt;:              select-start()  \n\
+      ~Meta &lt;Btn1Motion&gt;:    select-extend() \n\
+ Ctrl ~Meta &lt;Btn2Down&gt;:              mode-menu()     \n\
+~Ctrl ~Meta &lt;Btn2Down&gt;:              ignore()        \n\
+      ~Meta &lt;Btn2Up&gt;:                insert-selection(PRIMARY, CUT_BUFFER0) \n\
+~Ctrl ~Meta &lt;Btn3Down&gt;:              start-extend()  \n\
+      ~Meta &lt;Btn3Motion&gt;:    select-extend() \n\
+      ~Meta &lt;BtnUp&gt;:         select-end(PRIMARY, CUT_BUFFER0) \n\
+            &lt;BtnDown&gt;:               bell(0)         \
+</pre>
+        </blockquote>
+      </dd>
+
+      <dt><strong>Menu bar</strong>
+      </dt>
+
+      <dd>
+        <p>I added optional support to <em>xterm</em> for a menu
+        bar (referred to as a &ldquo;toolbar&rdquo; in <em><a href=
+        "/xterm/xterm.log.html#xterm_113">patch #113</a></em>) late
+        in 1999. To do this, I changed the widget hierarchy in
+        <em>xterm</em>, adding a level so that the menu bar could
+        be in a form widget.</p>
+
+        <p>While it works for me, there are some corner cases in
+        dynamic layout that can break the program. For that reason,
+        I advised against using in Debian <a href=
+        "https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=406169">#406169</a>
+        Some packagers (Cygwin, Gentoo and OpenSUSE) offer this
+        feature.</p>
+      </dd>
+    </dl>
+  </blockquote>
+
+  <h3><a name="item:Xaw3d" id="item:Xaw3d">Xaw3d</a></h3>
+
+  <p>The Xaw3d (three-dimensional) library dates to the 1990s. It
+  is the most well-known fork of <em>Xaw</em>. The current version
+  (starting from an import of Xaw3d 1.5 and 1.5E in 2011) is in
+  Xorg's <a href=
+  "http://cgit.freedesktop.org/xorg/lib/libXaw3d/log/">git</a>.
+  Xaw3d 1.5 was released in May 1998. Following a <em>beta</em>
+  (November 1992), the initial release was 0.6 (March 1993). A few
+  of those older versions could be found here:</p>
+
+  <blockquote>
+    <p><del>http://ftp.x.org/contrib/widgets/Xaw3d/</del>
+    </p>
+  </blockquote>
+
+  <p>but that is defunct, likewise most of the sites listed in
+  X.org's mirrors.</p>
+
+  <blockquote>
+    <p><a href=
+    "https://www.x.org/wiki/Releases/Download/">https://www.x.org/wiki/Releases/Download/</a></p>
+  </blockquote>
+
+  <p>provide only the newer releases. There are a few mirrors which
+  are reasonably complete in 2022, e.g.,</p>
+
+  <blockquote>
+    <p><a href=
+    "https://ftp.metu.edu.tr/pub/mirrors/ftp.x.org/contrib/widgets/Xaw3d/">
+    https://ftp.metu.edu.tr/pub/mirrors/ftp.x.org/contrib/widgets/Xaw3d/</a></p>
+  </blockquote>
+
+  <p>The gitlab repository begins with the last of those
+  snapshots.</p>
+
+  <h3><a name="item:XawPlus" id="item:XawPlus">XawPlus</a></h3>
+
+  <p>The developer's page for XawPlus is long gone, without an
+  archival copy (perhaps since 2010, given the <a href=
+  "https://codeberg.org/FreeBSD/freebsd-ports/src/branch/main/MOVED#L2522">
+  hint</a> in FreeBSD ports, which confirmed that it was not
+  available in <a href=
+  "https://github.com/bsdlabs/ports/commit/447afa504542bc5ad48d798108e9643fcbe0bbe0">
+  September 2011</a>):</p>
+
+  <blockquote>
+    <del>http://people.freenet.de/kra/XawPlus</del>
+  </blockquote>
+
+  <p>Like <em>ftp.x.org</em>, the sources are hard to find. I have
+  collected the sources from the mirror of <em>ftp.x.org</em>
+  mentioned above:</p>
+
+  <blockquote>
+    <p><a href="/archives/XawPlus/">/archives/XawPlus/</a></p>
+  </blockquote>
+
+  <h3><a name="item:neXtaw" id="item:neXtaw">neXtaw</a></h3>
+
+  <p>There is a <a href="https://siag.nu/neXtaw/">developer's
+  site</a> for neXtaw:</p>
+
+  <blockquote>
+    <p class="code-block">neXtaw is a replacement library for the
+    Athena (libXaw) widget set. It is based on Xaw3d, by Kaleb
+    Keithley and is almost 100% backward compatible with it. Its
+    goal is to try to emulate the look and feel of the N*XTSTEP
+    GUI.</p>
+
+    <p class="code-block">neXtaw was created by Alfredo Kojima,
+    before he started working on -- and became totally absorbed by
+    -- Window Maker. neXtaw was maintained by Carlos A M dos Santos
+    from 1999 to 2001, when I (Ulric) took over.</p>
+  </blockquote>
+
+  <p>However it has not been updated since 2003:</p>
+
+  <blockquote>
+    <p><a href=
+    "http://siag.nu/pub/neXtaw/">http://siag.nu/pub/neXtaw/</a></p>
+  </blockquote>
+
+  <p>I have collected those sources, adding an older version (from
+  the Debian archive):</p>
+
+  <blockquote>
+    <p><a href="/archives/neXtaw/">/archives/neXtaw/</a></p>
+  </blockquote>
+
+  <h2><a name="involved" id="involved">My involvement</a></h2>
+
+  <ul>
+    <li>
+      <p>Support for Xaw in xterm predates my involvement (see
+      <a href="#item:Xaw">above</a>).</p>
+    </li>
+
+    <li>
+      <p>I added support for Xaw menus to vile in <a href=
+      "/vile/CHANGES.R7.html#v7_0i">April 1997</a>.</p>
+
+      <p>That was prompted by Philippe Chassany's introduction of
+      Motif menus.</p>
+    </li>
+
+    <li>
+      <p>I added support for Xaw3d and neXtaw to xterm in <a href=
+      "/vile/CHANGES.R7.html#v7_2f">September 1997</a>.</p>
+
+      <p>Because they share autoconf macros, this was available
+      shortly after in vile (<a href=
+      "/vile/CHANGES.R7.html#v7_2f">October 1997</a>).</p>
+    </li>
+
+    <li>
+      <p>I added support for XawPlus to vile in <a href=
+      "/vile/CHANGES.html#v9_3j">January 2003</a>, and then to
+      xterm in <a href="/xterm/xterm.log.html#xterm_176">March
+      2003</a>.</p>
+    </li>
+  </ul>
+
+  <p>As a long-term user of Xaw and its variants, I have an
+  interest in keeping those working. One aspect of that entails
+  cleaning up compiler warnings as discussed in my &ldquo;<a href=
+  "/personal/lint-tools.html">Lint Tools</a>&rdquo; page.</p>
+
+  <p>In addition to test-builds with different compilers, as
+  outlined in the section on <em><a href=
+  "/scripts/readme.html#build_scripts">Build-Scripts</a></em>, I
+  have used scripts <tt>build-lib-xterm</tt> (since 2003) and
+  <tt>build-lib-vile</tt> (since 2010) to test xterm and vile with
+  these libraries. The latter also tests building vile with
+  termcap, curses, etc., which is a different topic.</p>
+
+  <p>Initially, I found it sufficient to just make a custom build
+  of whatever flavor of Xaw my machine lacked, but after a while
+  realized that a couple (XawPlus and neXtaw) were not generally
+  available via packages. That became more of an issue beginning in
+  2010 when I switched to development using <a href=
+  "/personal/twenties.html#h3_2010s_virtual">virtual machines</a>
+  (increasing the number of machines to install and upgrade).
+  Because I was developing test packages for my other programs to
+  ease the installation of machines that I use for checking ports,
+  I did the same for these.</p>
+
+  <p>These four libraries are not all the same source:</p>
+
+  <ul>
+    <li>
+      <p>Xaw started from X Consortium sources, (e.g., X11R6),
+      which provided for compiling with K&amp;R or standard C via
+      ifdef's. That approach led to source code which relied
+      heavily on C's legacy mode (where K&amp;R code sufficed).</p>
+
+      <p>Xaw was adopted and improved in XFree86, e.g., <a href=
+      "/ansification/ansification.html">ANSIfication</a>
+      (eliminating the K&amp;R ifdef's) in 1998. X.Org uses that
+      version.</p>
+
+      <p>For development, I need more than that. I spent the time
+      in 2019 to cleanup stricter warnings dealing with mismatched
+      types (as of December 2022, there are still 480 warnings
+      about <tt>const</tt>).</p>
+    </li>
+
+    <li>
+      <p>Xaw3d also started from X Consortium sources, but while
+      David J. Hawkey, Jr. used the updated version (from XFree86)
+      as a basis for improving Xaw3d, incorporating both ideas and
+      source code for 1.5E (for example <tt>Tip.c,</tt>), he did
+      not eliminate the K&amp;R ifdef's. That was done by Yaakov
+      Selkowitz in 2011.</p>
+
+      <p>As of December 2022, I have not gotten around to fixing
+      the stricter compiler warnings in Xaw3d (there are about
+      1700).</p>
+    </li>
+
+    <li>
+      <p>XawPlus is based on the X Consortium sources.</p>
+
+      <p>In December 2022, I spent the time to ensure that all of
+      the functions are prototyped. That cut the stricter warnings
+      from 2500 to 700.</p>
+    </li>
+
+    <li>
+      <p>neXtaw is based on Xaw3d.</p>
+
+      <p>I spent some time to clean this up in 2015, leaving 85
+      warnings.</p>
+    </li>
+  </ul>
+
+  <h2 id="configuration-h2"><a name="configuration" id=
+  "configuration">Configuration</a></h2>
+
+  <p>In addition to cleaning up compiler warnings, there are chunks
+  of obsolete code in the libraries which are due to having forked
+  at different points without resyncing from the original code. For
+  instance, a large part of the difference in XawPlus versus the X
+  Consortium releases is due to <tt>AsciiSrc.c</tt> and
+  <tt>MultiSrc.c</tt> not having been updated to reflect a newer
+  release.</p>
+
+  <p>Though they started from the same point, the layout and
+  configuration of the programs has changed:</p>
+
+  <ul>
+    <li>
+      <p>Xaw originally had all of the C code in the same
+      directory, e.g., <tt>lib/Xaw</tt>. While there was
+      documentation in another part of the X source tree, the parts
+      that would be built and installed were in the same place.</p>
+    </li>
+
+    <li>
+      <p>Like Xaw, Xaw3d and neXtaw used <em><a href=
+      "https://www.x.org/archive/X11R7.7/doc/man/man1/imake.1.xhtml">
+      imake</a></em> for building. Unlike <em>xterm</em> (which has
+      many optional features), these libraries require only the
+      basic platform-specific configuration details which
+      <em>imake</em> provides.</p>
+
+      <p>Since these were not part of the X source tree, they were
+      built using <em><a href=
+      "https://www.x.org/archive/X11R7.7/doc/man/man1/xmkmf.1.xhtml">
+      xmkmf</a></em> to generate a <tt>Makefile</tt> from the
+      included <tt>Imakefile</tt>.</p>
+    </li>
+
+    <li>
+      <p>Later (beginning in 2001), neXtaw 0.10 replaced the
+      <em>imake</em> configuration with an autoconf script (like
+      <em>xterm</em> &mdash; but providing no options).</p>
+    </li>
+
+    <li>
+      <p>XawPlus diverged from this pattern. It did not provide an
+      <tt>Imakefile</tt>. Nor did it provide a configure script.
+      The developer did not use <em>imake</em>, providing only a
+      Linux-specific makefile.</p>
+
+      <p>XawPlus moved the header files into a subdirectory,
+      imitating the layout of the installed headers. While this
+      simplified the makefile, it required changing all of the C
+      files to adjust the <tt>#include</tt> statements. In more
+      than half of those files, XawPlus's developer made no other
+      change than adding a comment stating that it was modified for
+      XawPlus.</p>
+
+      <p>That change was not necessary (the header layout is
+      configurable in <em><a href=
+      "https://github.com/ThomasDickey/ncurses-snapshots/blob/6068ad4da61ee0fc68ff2f39ef4150b54f6013f5/INSTALL#L397">
+      ncurses</a></em>, <em><a href=
+      "/dialog/CHANGES.html#t20110118">dialog</a></em> and
+      <em><a href="/cdk/CHANGES.html#t20120323">cdk</a></em>), and
+      is factored out of the comparisons below.</p>
+    </li>
+
+    <li>
+      <p>Later, other developers provided simple configuration
+      scripts for Xaw (2005) and Xaw3d (2011) to replace
+      <em>imake</em>. Unlike the one in neXtaw, these provided a
+      few options.</p>
+
+      <p>Like XawPlus, those developers separated the headers from
+      the C files, putting those in an include-directory to imitate
+      the installed location.</p>
+    </li>
+
+    <li>I added a configure script for <a href=
+    "/athena_widgets/XawPlus/CHANGES.html#t20150102">XawPlus</a>
+    and rewrote the one in <a href=
+    "/athena_widgets/neXtaw/ChangeLog.html#t20150118">neXtaw</a>.</li>
+  </ul>
+
+  <h2 id="metrics-h2"><a name="metrics" id="metrics">Metrics</a></h2>
+
+  <p>Here are a few tables showing how these related libraries grew
+  over time.</p>
+
+  <h3><a name="metrics-xaw" id="metrics-xaw">Xaw</a></h3>
+
+  <p>This table shows the growth of Xaw across the X Consortium and
+  X.Org releases:</p>
+
+  <ul>
+    <li>The column for <em>Text&gt;</em> counts makefiles,
+    readme's.</li>
+
+    <li>The column for <em>SLOCS</em> counts C source and headers
+    using <a href="/c_count/c_count.html">c_count</a>.</li>
+
+    <li>The <em>Widgets</em> count is the number of
+    <code>WidgetClass</code> variables in the library.</li>
+  </ul>
+
+  <p>The other data should be self explanatory.</p>
+
+  <blockquote>
+    <table border="1" summary="Growth of Xaw">
+      <tr>
+        <th>Release</th>
+        <th>Date</th>
+        <th>Text</th>
+        <th>SLOCs</th>
+        <th>Widgets</th>
+      </tr>
+
+      <tr>
+        <td>X.V11R2</td>
+        <td>1988/03/01</td>
+        <td align="right">14069</td>
+        <td align="right">13696</td>
+        <td align="center">18</td>
+      </tr>
+
+      <tr>
+        <td>X.V11R3</td>
+        <td>1988/10/27</td>
+        <td align="right">17274</td>
+        <td align="right">16459</td>
+        <td align="center">19</td>
+      </tr>
+
+      <tr>
+        <td>X11R4</td>
+        <td>1989/12/23</td>
+        <td align="right">29174</td>
+        <td align="right">28241</td>
+        <td align="center">32</td>
+      </tr>
+
+      <tr>
+        <td>X11R5</td>
+        <td>1994/04/26</td>
+        <td align="right">34064</td>
+        <td align="right">33659</td>
+        <td align="center">43</td>
+      </tr>
+
+      <tr>
+        <td>X11R6</td>
+        <td>1995/01/30</td>
+        <td align="right">40874</td>
+        <td align="right">40304</td>
+        <td align="center">45</td>
+      </tr>
+
+      <tr>
+        <td>X11R6.1</td>
+        <td>1996/03/12</td>
+        <td align="right">40711</td>
+        <td align="right">40141</td>
+        <td align="center">45</td>
+      </tr>
+
+      <tr>
+        <td>X11R6.3</td>
+        <td>1997/07/15</td>
+        <td align="right">40713</td>
+        <td align="right">40142</td>
+        <td align="center">45</td>
+      </tr>
+
+      <tr>
+        <td>X11R6.4</td>
+        <td>1998/04/02</td>
+        <td align="right">40309</td>
+        <td align="right">39604</td>
+        <td align="center">45</td>
+      </tr>
+
+      <tr>
+        <td>X11R6.5.1</td>
+        <td>2000/08/29</td>
+        <td align="right">40436</td>
+        <td align="right">39731</td>
+        <td align="center">45</td>
+      </tr>
+
+      <tr>
+        <td>X11R6.6</td>
+        <td>2001/04/06</td>
+        <td align="right">40883</td>
+        <td align="right">40178</td>
+        <td align="center">45</td>
+      </tr>
+
+      <tr>
+        <td>X11R6.7</td>
+        <td>2004/04/07</td>
+        <td align="right">58730</td>
+        <td align="right">56009</td>
+        <td align="center">41</td>
+      </tr>
+
+      <tr>
+        <td>X11R6.8</td>
+        <td>2004/09/07</td>
+        <td align="right">59817</td>
+        <td align="right">57092</td>
+        <td align="center">42</td>
+      </tr>
+
+      <tr>
+        <td>X11R6.9</td>
+        <td>2005/12/21</td>
+        <td align="right">59997</td>
+        <td align="right">57252</td>
+        <td align="center">42</td>
+      </tr>
+    </table>
+  </blockquote>
+
+  <p>The increase between X11R6.6 and X11R6.7 is due to
+  incorporating changes from XFree86 (mostly from 1998-1999, but as
+  late as May 2003).</p>
+
+  <h3><a name="metrics-xaw3d" id="metrics-xaw3d">Xaw3d</a></h3>
+
+  <p>The following table summarizes the older versions of Xaw3d.
+  The "difference" is measured with <a href=
+  "/diffstat/diffstat.html">diffstat</a> against the corresponding
+  X release of Xaw, ignoring blanks.</p>
+
+  <blockquote>
+    <table border="1" summary="Growth of Xaw3d">
+      <tr>
+        <th rowspan="2">Release</th>
+        <th rowspan="2">Date</th>
+        <th rowspan="2">SLOCs</th>
+        <th rowspan="2">Widgets</th>
+        <th rowspan="2">X Release</th>
+        <th colspan="4">Difference</th>
+      </tr>
+
+      <tr>
+        <th>Added</th>
+        <th>Deleted</th>
+        <th>Modified</th>
+        <th>Equal</th>
+      </tr>
+
+      <tr>
+        <td>Xaw3d.R4</td>
+        <td>1992/11/13</td>
+        <td>19637</td>
+        <td>35</td>
+        <td>X11R4</td>
+        <td>+5676</td>
+        <td>-288</td>
+        <td>!1152</td>
+        <td>=27349</td>
+      </tr>
+
+      <tr>
+        <td>Xaw3d-0.6B</td>
+        <td>1993/03/19</td>
+        <td>22889</td>
+        <td>50</td>
+        <td>X11R4</td>
+        <td>+11155</td>
+        <td>-701</td>
+        <td>!2656</td>
+        <td>=25432</td>
+      </tr>
+
+      <tr>
+        <td>Xaw3d-1.0</td>
+        <td>1994/07/20</td>
+        <td>27636</td>
+        <td>49</td>
+        <td>X11R5</td>
+        <td>+16634</td>
+        <td>-176</td>
+        <td>!2713</td>
+        <td>=28800</td>
+      </tr>
+
+      <tr>
+        <td>Xaw3d-1.1</td>
+        <td>1995/04/03</td>
+        <td>27651</td>
+        <td>49</td>
+        <td>X11R6</td>
+        <td>+6277</td>
+        <td>-166</td>
+        <td>!805</td>
+        <td>=39709</td>
+      </tr>
+
+      <tr>
+        <td>Xaw3d-1.2</td>
+        <td>1995/08/25</td>
+        <td>27826</td>
+        <td>49</td>
+        <td>X11R6</td>
+        <td>+8073</td>
+        <td>-175</td>
+        <td>!835</td>
+        <td>=39670</td>
+      </tr>
+
+      <tr>
+        <td>Xaw3d-1.3</td>
+        <td>1996/06/03</td>
+        <td>26469</td>
+        <td>49</td>
+        <td>X11R6.1</td>
+        <td>+5221</td>
+        <td>-77</td>
+        <td>!818</td>
+        <td>=39492</td>
+      </tr>
+
+      <tr>
+        <td>Xaw3d-1.4</td>
+        <td>1998/04/21</td>
+        <td>26430</td>
+        <td>49</td>
+        <td>X11R6.4</td>
+        <td>+5045</td>
+        <td>-151</td>
+        <td>!1479</td>
+        <td>=38351</td>
+      </tr>
+
+      <tr>
+        <td>Xaw3d-1.5</td>
+        <td>1998/05/15</td>
+        <td>26456</td>
+        <td>49</td>
+        <td>X11R6.4</td>
+        <td>+5083</td>
+        <td>-172</td>
+        <td>!1516</td>
+        <td>=38293</td>
+      </tr>
+
+      <tr>
+        <td>Xaw3d-1.5E</td>
+        <td>2003/03/09</td>
+        <td>28510</td>
+        <td>50</td>
+        <td>XFree86 4.3.0</td>
+        <td>+7913</td>
+        <td>-10841</td>
+        <td>!18026</td>
+        <td>=22026</td>
+      </tr>
+    </table>
+  </blockquote>
+
+  <p>The last entry (for XFree86) is given to show that although
+  Xaw3d used parts from that source, that it was still far from
+  using all of the improvements made by XFree86 developers over the
+  preceding five years.</p>
+
+  <h3><a name="metrics-xawplus" id="metrics-xawplus">XawPlus</a></h3>
+
+  <blockquote>
+    <table border="1" summary="Growth of XawPlus">
+      <tr>
+        <th rowspan="2">Release</th>
+        <th rowspan="2">Date</th>
+        <th rowspan="2">SLOCs</th>
+        <th rowspan="2">Widgets</th>
+        <th rowspan="2">X Release</th>
+        <th colspan="4">Difference</th>
+      </tr>
+
+      <tr>
+        <th>Added</th>
+        <th>Deleted</th>
+        <th>Modified</th>
+        <th>Equal</th>
+      </tr>
+
+      <tr>
+        <td>XawPlus-2.0</td>
+        <td>1999/02/17</td>
+        <td>37351</td>
+        <td>39</td>
+        <td>X11R5</td>
+        <td>+5251</td>
+        <td>-691</td>
+        <td>!1763</td>
+        <td>=30731</td>
+      </tr>
+
+      <tr>
+        <td>XawPlus-2.0.1</td>
+        <td>1999/04/23</td>
+        <td>37333</td>
+        <td>39</td>
+        <td>X11R5</td>
+        <td>+5258</td>
+        <td>-699</td>
+        <td>!1771</td>
+        <td>=30715</td>
+      </tr>
+
+      <tr>
+        <td>XawPlus-2.0.2</td>
+        <td>1999/05/18</td>
+        <td>37436</td>
+        <td>39</td>
+        <td>X11R5</td>
+        <td>+5396</td>
+        <td>-718</td>
+        <td>!1814</td>
+        <td>=30653</td>
+      </tr>
+
+      <tr>
+        <td>XawPlus-2.1.0</td>
+        <td>1999/11/16</td>
+        <td>37839</td>
+        <td>38</td>
+        <td>X11R5</td>
+        <td>+5970</td>
+        <td>-717</td>
+        <td>!1928</td>
+        <td>=30507</td>
+      </tr>
+
+      <tr>
+        <td>XawPlus-3.0</td>
+        <td>2000/05/07</td>
+        <td>42771</td>
+        <td>38</td>
+        <td>X11R6.4</td>
+        <td>+5317</td>
+        <td>-929</td>
+        <td>!2846</td>
+        <td>=35299</td>
+      </tr>
+
+      <tr>
+        <td>XawPlus-3.0.1</td>
+        <td>2000/05/14</td>
+        <td>42771</td>
+        <td>38</td>
+        <td>X11R6.4</td>
+        <td>+5324</td>
+        <td>-929</td>
+        <td>!2846</td>
+        <td>=35299</td>
+      </tr>
+
+      <tr>
+        <td>XawPlus-3.1.0</td>
+        <td>2000/09/13</td>
+        <td>43778</td>
+        <td>38</td>
+        <td>X11R6.6</td>
+        <td>+6152</td>
+        <td>-889</td>
+        <td>!2801</td>
+        <td>=35926</td>
+      </tr>
+    </table>
+  </blockquote>
+
+  <p>Although the comments in the sources as well as the
+  accompanying sample clients hint that development started in
+  1996-1997, the oldest available release is 2.0 in 1999. An
+  undated <a href=
+  "https://github.com/ThomasDickey/XawPlus-snapshots/blob/master/README">
+  <em>README</em></a> file summarizes the features of each
+  release.</p>
+
+  <h3><a name="metrics-nextaw" id="metrics-nextaw">neXtaw</a></h3>
+
+  <blockquote>
+    <table border="1" summary="Growth of neXtaw">
+      <tr>
+        <th rowspan="2">Release</th>
+        <th rowspan="2">Date</th>
+        <th rowspan="2">SLOCs</th>
+        <th rowspan="2">Widgets</th>
+        <th rowspan="2">X Release</th>
+        <th colspan="4">Difference</th>
+      </tr>
+
+      <tr>
+        <th>Added</th>
+        <th>Deleted</th>
+        <th>Modified</th>
+        <th>Equal</th>
+      </tr>
+
+      <tr>
+        <td>neXtaw-0.5.1</td>
+        <td>1997/01/14</td>
+        <td>45172</td>
+        <td>37</td>
+        <td>Xaw3d-1.3</td>
+        <td>+2699</td>
+        <td>-444</td>
+        <td>!918</td>
+        <td>=44299</td>
+      </tr>
+
+      <tr>
+        <td>neXtaw-0.9</td>
+        <td>2000/05/16</td>
+        <td>46653</td>
+        <td>37</td>
+        <td>Xaw3d-1.5</td>
+        <td>+8088</td>
+        <td>-514</td>
+        <td>!919</td>
+        <td>=43459</td>
+      </tr>
+
+      <tr>
+        <td>neXtaw-0.10</td>
+        <td>2001/12/13</td>
+        <td>49780</td>
+        <td>37</td>
+        <td>Xaw3d-1.5</td>
+        <td>+26563</td>
+        <td>-307</td>
+        <td>!900</td>
+        <td>=43178</td>
+      </tr>
+
+      <tr>
+        <td>neXtaw-0.11</td>
+        <td>2002/01/26</td>
+        <td>49788</td>
+        <td>37</td>
+        <td>Xaw3d-1.5</td>
+        <td>+38717</td>
+        <td>-307</td>
+        <td>!900</td>
+        <td>=43178</td>
+      </tr>
+
+      <tr>
+        <td>neXtaw-0.12</td>
+        <td>2002/03/14</td>
+        <td>49788</td>
+        <td>37</td>
+        <td>Xaw3d-1.5</td>
+        <td>+38305</td>
+        <td>-307</td>
+        <td>!900</td>
+        <td>=43178</td>
+      </tr>
+
+      <tr>
+        <td>neXtaw-0.13</td>
+        <td>2003/01/15</td>
+        <td>49887</td>
+        <td>36</td>
+        <td>Xaw3d-1.5</td>
+        <td>+41458</td>
+        <td>-298</td>
+        <td>!901</td>
+        <td>=43186</td>
+      </tr>
+
+      <tr>
+        <td>neXtaw-0.14</td>
+        <td>2003/02/26</td>
+        <td>50047</td>
+        <td>37</td>
+        <td>Xaw3d-1.5</td>
+        <td>+41683</td>
+        <td>-298</td>
+        <td>!908</td>
+        <td>=43179</td>
+      </tr>
+
+      <tr>
+        <td>neXtaw-0.14.1</td>
+        <td>2003/08/22</td>
+        <td>50033</td>
+        <td>37</td>
+        <td>Xaw3d-1.5E</td>
+        <td>+40085</td>
+        <td>-1821</td>
+        <td>!1994</td>
+        <td>=42308</td>
+      </tr>
+
+      <tr>
+        <td>neXtaw-0.15.0</td>
+        <td>2003/09/02</td>
+        <td>51228</td>
+        <td>37</td>
+        <td>Xaw3d-1.5E</td>
+        <td>+40085</td>
+        <td>-1821</td>
+        <td>!1994</td>
+        <td>=42308</td>
+      </tr>
+
+      <tr>
+        <td>neXtaw-0.15.1</td>
+        <td>2003/09/19</td>
+        <td>51267</td>
+        <td>36</td>
+        <td>Xaw3d-1.5E</td>
+        <td>+40183</td>
+        <td>-1852</td>
+        <td>!2025</td>
+        <td>=42246</td>
+      </tr>
+    </table>
+  </blockquote>
+
+  <p>Like XawPlus, the original developer for neXtaw provided an
+  undated summary of <a href=
+  "https://github.com/ThomasDickey/neXtaw-snapshots/blob/master/doc/CHANGES">
+  changes</a> for each release. Subsequent developers gave dates
+  for their <a href=
+  "https://github.com/ThomasDickey/neXtaw-snapshots/blob/afc4a7f09407c4b43424e925ef4208df586293c4/ChangeLog">
+  changes</a>, but fewer details.</p>
+
+  <h2 id="screenshots-h2"><a name="screenshots" id=
+  "screenshots">Screenshots</a></h2>
+
+  <h3><a name="screen-xaw" id="screen-xaw">Xaw</a></h3>
+
+  <table summary="Compare xvile/xterm for Xaw widgets" cellpadding=
+  "8%">
+    <caption>
+      Compare xvile/xterm for Xaw widgets
+    </caption>
+
+    <colgroup>
+      <col width="50%">
+      <col width="50%">
+    </colgroup>
+
+    <tr>
+      <th>xvile</th>
+      <th>xterm</th>
+    </tr>
+
+    <tr valign="top">
+      <td><a href=
+      "/athena_widgets/images/xvile-Xaw.png"><img width="500" src=
+      "/athena_widgets/images/xvile-Xaw.png" alt="xvile - Xaw"></a>
+      </td>
+      <td><a href=
+      "/athena_widgets/images/xterm-Xaw.png"><img width="500" src=
+      "/athena_widgets/images/xterm-Xaw.png" alt="xterm - Xaw"></a>
+      </td>
+    </tr>
+  </table>
+
+  <h3><a name="screen-xaw3d" id="screen-xaw3d">Xaw3d</a></h3>
+
+  <table summary="Compare xvile/xterm for Xaw3d widgets"
+  cellpadding="8%">
+    <caption>
+      Compare xvile/xterm for Xaw3d widgets
+    </caption>
+
+    <colgroup>
+      <col width="50%">
+      <col width="50%">
+    </colgroup>
+
+    <tr>
+      <th>xvile</th>
+      <th>xterm</th>
+    </tr>
+
+    <tr valign="top">
+      <td><a href=
+      "/athena_widgets/images/xvile-Xaw3d.png"><img width="500"
+      src="/athena_widgets/images/xvile-Xaw3d.png" alt=
+      "xvile - Xaw3d"></a>
+      </td>
+      <td><a href=
+      "/athena_widgets/images/xterm-Xaw3d.png"><img width="500"
+      src="/athena_widgets/images/xterm-Xaw3d.png" alt=
+      "xterm - Xaw3d"></a>
+      </td>
+    </tr>
+
+    <tr valign="top">
+      <td><a href=
+      "/athena_widgets/images/xvile-Xaw3dxft.png"><img width="500"
+      src="/athena_widgets/images/xvile-Xaw3dxft.png" alt=
+      "xvile - Xaw3dxft"></a>
+      </td>
+      <td><a href=
+      "/athena_widgets/images/xterm-Xaw3dxft.png"><img width="500"
+      src="/athena_widgets/images/xterm-Xaw3dxft.png" alt=
+      "xterm - Xaw3dxft"></a>
+      </td>
+    </tr>
+  </table>
+
+  <h3><a name="screen-xawplus" id="screen-xawplus">XawPlus</a></h3>
+
+  <table summary="Compare xvile/xterm for XawPlus widgets"
+  cellpadding="8%">
+    <caption>
+      Compare xvile/xterm for XawPlus widgets
+    </caption>
+
+    <colgroup>
+      <col width="50%">
+      <col width="50%">
+    </colgroup>
+
+    <tr>
+      <th>xvile</th>
+      <th>xterm</th>
+    </tr>
+
+    <tr valign="top">
+      <td><a href=
+      "/athena_widgets/images/xvile-XawPlus.png"><img width="500"
+      src="/athena_widgets/images/xvile-XawPlus.png" alt=
+      "xvile - XawPlus"></a>
+      </td>
+      <td><a href=
+      "/athena_widgets/images/xterm-XawPlus.png"><img width="500"
+      src="/athena_widgets/images/xterm-XawPlus.png" alt=
+      "xterm - XawPlus"></a>
+      </td>
+    </tr>
+  </table>
+
+  <h3><a name="screen-nextaw" id="screen-nextaw">neXtaw</a></h3>
+
+  <table summary="Compare xvile/xterm for neXtaw widgets"
+  cellpadding="8%">
+    <caption>
+      Compare xvile/xterm for neXtaw widgets
+    </caption>
+
+    <colgroup>
+      <col width="50%">
+      <col width="50%">
+    </colgroup>
+
+    <tr>
+      <th>xvile</th>
+      <th>xterm</th>
+    </tr>
+
+    <tr valign="top">
+      <td><a href=
+      "/athena_widgets/images/xvile-neXtaw.png"><img width="500"
+      src="/athena_widgets/images/xvile-neXtaw.png" alt=
+      "xvile - neXtaw"></a>
+      </td>
+      <td><a href=
+      "/athena_widgets/images/xterm-neXtaw.png"><img width="500"
+      src="/athena_widgets/images/xterm-neXtaw.png" alt=
+      "xterm - neXtaw"></a>
+      </td>
+    </tr>
+  </table>
+
+  <h2 id="changes-h2"><a name="changes" id="changes">Changes</a></h2>
+
+  <ul>
+    <li>
+      <p>Xaw <a href=
+      "https://gitlab.freedesktop.org/xorg/lib/libxaw">(gitlab)</a></p>
+    </li>
+
+    <li>
+      <p>Xaw3d <a href=
+      "https://gitlab.freedesktop.org/xorg/lib/libxaw3d">(gitlab)</a></p>
+    </li>
+
+    <li>
+      <p><a href="/athena_widgets/XawPlus/CHANGES.html">XawPlus</a>
+      <a href=
+      "https://github.com/ThomasDickey/XawPlus-snapshots">(github)</a></p>
+    </li>
+
+    <li>
+      <p><a href="/athena_widgets/neXtaw/ChangeLog.html">neXtaw</a>
+      <a href=
+      "https://github.com/ThomasDickey/neXtaw-snapshots">(github)</a></p>
+    </li>
+  </ul>
+
+  <h2 id="download-h2"><a name="download" id=
+  "download">Download</a></h2>
+
+  <ul>
+    <li>
+      <p><a href="/archives/XawPlus/XawPlus.tar.gz">XawPlus</a></p>
+    </li>
+
+    <li>
+      <p><a href="/archives/neXtaw/neXtaw.tar.gz">neXtaw</a></p>
+    </li>
+  </ul>
+
+  <h2 id="related-h2"><a name="related" id="related">Related
+  Links</a></h2>
+
+  <ul>
+    <li>
+      <p><a href=
+      "http://www.ibiblio.org/pub/X11/contrib/widgets/">Contributed
+      X11 widgets</a></p>
+    </li>
+
+    <li>
+      <p><a href="http://www.efalk.org/Widgets/"><em>Survey of
+      Widget Sets</em></a> by Edward Falk (last updated
+      2002/02/13)</p>
+
+      <blockquote>
+        <p class="code-block">This page serves as a survey of the
+        various free widget sets written for the X intrinsics. Most
+        of these widget sets are variations on the standard
+        <em>Athena</em> widget set, <em>Xaw</em>.</p>
+      </blockquote>
+    </li>
+
+    <li>
+      <p><a href=
+      "https://www.x.org/releases/X11R7.6/doc/man/man3/Xaw.3.xhtml">
+      Xaw &mdash; Athena Widgets</a> on X.Org</p>
+
+      <p>The manual page is not sufficient.<br>
+      Most of the information is in the <a href=
+      "https://www.x.org/releases/X11R7.6/doc/">developer</a>
+      documentation, e.g.,<br>
+      <a href=
+      "http://www.x.org/releases/X11R7.6/doc/libXaw/libXaw.html"><em>
+      Athena Widget Set &ndash; C Language Interface</em></a>.<br>
+      There are also <a href=
+      "http://www.x.org/releases/X11R7.6/doc/libXaw/libXaw.pdf">PDF</a>
+      and <a href=
+      "http://www.x.org/releases/X11R7.6/doc/libXaw/libXaw.txt">TXT</a>
+      versions.</p>
+
+      <p>Alternate links from this site: 
+      <a href="/athena_widgets/libXaw.html">HTML</a>
+      <a href="/athena_widgets/libXaw.pdf">PDF</a> and
+      <a href="/athena_widgets/libXaw.ps">PS</a> and
+      <a href="/athena_widgets/libXaw.txt">TXT</a>,
+    </li>
+
+    <li>
+      <p><a href="/athena_widgets/XawPlus/">XawPlus</a> version of
+      the <em>Athena Widget Set</em> documentation.</p>
+    </li>
+  </ul>
+</body>
+</html>
