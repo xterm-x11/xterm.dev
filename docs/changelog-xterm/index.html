@@ -1554,6 +1554,7 @@
 <h1 id="xterm-changelog-release-notes">XTerm changelog (release notes)</h1>
   <div class="nav">
     <ul>
+      <li><a href="#xterm_407">Patch #407 - 2026/02/16</a></li>
       <li><a href="#xterm_406">Patch #406 - 2025/12/21</a></li>
       <li><a href="#xterm_405">Patch #405 - 2025/12/14</a></li>
       <li><a href="#xterm_404">Patch #404 - 2025/11/30</a></li>
@@ -2173,9 +2174,38 @@
       <li><a href="#xterm_01">Patch #1 - 1996/1/6</a></li>
     </ul>
   </div>
+  <h2><a name="xterm_407" id="xterm_407">Patch #407 -
+  2026/02/16</a></h2>
+  <ul>
+    <li>add private modes 1020 to 1023 for reporting whether xterm
+    uses UTF-8, whether CJK-width is set, whether Emoji-width is
+    set, and whether private-width is set.</li>
+    <li>add resource <tt>privateWidth</tt> to control whether PUA
+    (private use area) codes are neutral width or
+    single-width.</li>
+    <li>improve fix for Debian <a href=
+    "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=738794">#738794</a>,
+    to show boxes for codes which are neither combining characters
+    or valid Unicode characters (Debian <a href=
+    "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1123877">#1123877</a>).</li>
+    <li>improve switching to/from UTF-8 mode by saving, restoring
+    and resetting the G0-G3 array (Debian <a href=
+    "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1124802">#1124802</a>).</li>
+    <li>use <tt>ST</tt> consistently in terminfo rather than legacy
+    <tt>BEL</tt></li>
+    <li>minor updates to configure script and terminfo</li>
+    <li>add option <tt>--enable-resize-adjust</tt> for saving and
+    repainting parts of the window which are lost when the user
+    resizes the window (integrated patch by Kirill A
+    Korinsky).</li>
+  </ul>
   <h2><a name="xterm_406" id="xterm_406">Patch #406 -
   2025/12/21</a></h2>
   <ul>
+    <li>add configure option <tt>--enable-resize-adjust</tt>, to
+    provide support for cursor-adjustment and repainting of saved
+    data when resizing the window (patch by Kirill A
+    Korinsky).</li>
     <li>add option <tt>-emoji_width</tt> and resource
     <tt>emojiWidth</tt> to allow enabling/disabling VS15/VS16
     feature introduced in <a href="#xterm_404">patch #404</a>
