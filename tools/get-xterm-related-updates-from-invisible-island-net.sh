@@ -27,6 +27,7 @@ wget https://invisible-island.net/xterm/xterm.log.html
 wget https://invisible-island.net/lynx/lynx.html
 wget https://invisible-island.net/lynx/lynx-develop.html
 wget https://lynx.invisible-island.net/current/index.html # check for more links
+mv index.html lynx-index.html
 wget https://lynx.invisible-island.net/current/CHANGES.html
 mv CHANGES.html lynx-changes.html
 wget https://lynx.invisible-island.net/current/CHANGES
@@ -116,6 +117,8 @@ wget https://invisible-island.net/archives/xterm/xterm-405.tgz.asc
 # See more links to manpages under https://invisible-island.net/xterm/xterm.faq.html#more_info
 #
 # Copy the information to be published on xterm.org from the xterm-related pages on https://invisible-island.net/ that are not expected to be updated:
+wget https://invisible-island.net/athena_widgets/index.html
+mv index.html athena-widgets-index.html
 # (This list is for the pages that are to be downloaded only once (or so).)
 wget http://www.bitsavers.org/pdf/dec/vax/vaxstation100/AA-N660A-TE_VAXstation_100_Users_Guide_Jun84.pdf
 # wget http://www.bitsavers.org/pdf/dec/standards/EL-SM070-00_DEC_STD_070_Video_Systems_Reference_Manual_Dec91.pdf # already downloaded, commenting out to avoid lsf warning messages pointing to https://git-lfs.com/ during script runs
@@ -186,8 +189,6 @@ wget https://raw.githubusercontent.com/xterm-x11/xterm.dev/main/xterm-on-invisib
 wget https://invisible-island.net/xterm/xtoolkit/intrinsics.html
 wget https://invisible-island.net/xterm/xtoolkit/intrinsics.pdf
 wget https://invisible-island.net/xterm/xtoolkit/manpage-index.html # include all linked pages after the first link because those are separate pages
-
-wget https://invisible-island.net/athena_widgets/index.html
 
 git add .
 
