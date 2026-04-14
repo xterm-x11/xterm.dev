@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.8.0">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="generator" content="Manpage converted by man2html - see https://invisible-island.net/scripts/readme.html#others_scripts">
 <title>ctlseqs(ms)</title>
@@ -31,8 +31,8 @@
 
                              <i>Thomas Dickey</i>
                       XFree86 Project (1996-2006)
-                    invisible-island.net (2006-2025)
-               updated for XTerm Patch #401 (2025/06/22)
+                    invisible-island.net (2006-2026)
+               updated for XTerm Patch #407 (2026/02/16)
 
 </pre>
 <h2><a name="h2-Definitions" id="h2-Definitions">Definitions</a></h2>
@@ -663,7 +663,7 @@ C1 controls, ordered by the final character(s).
 
 <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-pound-R.1DF5">CSI # R</a>   Report the current entry on the palette stack, and the number
           of palettes stored on the stack, using the same form as
-          XTPOPCOLOR (default = 0) (XTREPORTCOLORS), <i>xterm</i>.
+          XTPOPCOLORS (default = 0) (XTREPORTCOLORS), <i>xterm</i>.
 
 <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-S.1C93">CSI <i>Ps</i> S</a>  Scroll up <i>Ps</i> lines (default = 1) (SU), VT420, ECMA-48.
 
@@ -994,6 +994,10 @@ C1 controls, ordered by the final character(s).
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-1-4.1F7D"><i>Ps</i> = 1 0 1 4</a>  &#8658;&nbsp; Enable <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:fastScroll">fastScroll</a></b> resource, <i>xterm</i>.
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-1-5.1F7E"><i>Ps</i> = 1 0 1 5</a>  &#8658;&nbsp; Enable urxvt Mouse Mode.
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-1-6.1F7F"><i>Ps</i> = 1 0 1 6</a>  &#8658;&nbsp; Enable SGR Mouse PixelMode, <i>xterm</i>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-2-0.1F7A"><i>Ps</i> = 1 0 2 0</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:utf8">utf8</a></b> resource setting, <i>xterm</i>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-2-1.1F7B"><i>Ps</i> = 1 0 2 1</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:cjkWidth">cjkWidth</a></b> resource setting, <i>xterm</i>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-2-2.1F7C"><i>Ps</i> = 1 0 2 2</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:emojiWidth">emojiWidth</a></b> resource setting, <i>xterm</i>.
+            <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-2-3.1F7D"><i>Ps</i> = 1 0 2 3</a>  &#8658;&nbsp; <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:privateWidth">privateWidth</a></b> resource setting, <i>xterm</i>.
             <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-?-Pm-h:Ps-=-1-0-3-4.1F7F"><i>Ps</i> = 1 0 3 4</a>  &#8658;&nbsp; Interpret "meta" key, <i>xterm</i>.  This sets the
           eighth bit of keyboard input (and enables the <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:eightBitInput">eightBitInput</a></b>
           resource).
@@ -1516,12 +1520,14 @@ C1 controls, ordered by the final character(s).
           Request DEC private mode (DECRQM).  For VT300 and up, reply
           DECRPM is
             CSI ? <i>Ps</i> ; <i>Pm</i> $ y
-          where <i>Ps</i> is the mode number as in DECSET/DECSET, <i>Pm</i> is the
+          where <i>Ps</i> is the mode number as in DECSET/DECRST, <i>Pm</i> is the
           mode value as in the ANSI DECRQM.
-          Two private modes are read-only (i.e., 1 3  and 1 4 ),
-          provided only for reporting their values using this control
-          sequence.  They correspond to the resources <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:cursorBlink">cursorBlink</a></b> and
-          <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:cursorBlinkXOR">cursorBlinkXOR</a></b>.
+          A few private modes are read-only, provided only for reporting
+          their values using this control sequence.
+          <b>o</b>   1 3  and 1 4  correspond to the resources <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:cursorBlink">cursorBlink</a></b> and
+              <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:cursorBlinkXOR">cursorBlinkXOR</a></b>.
+          <b>o</b>   1 0 2 0  to 1 0 2 3  correspond to the resources <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:utf8">utf8</a></b>,
+              <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:cjkWidth">cjkWidth</a></b>, <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:emojiWidth">emojiWidth</a></b>, and <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:privateWidth">privateWidth</a></b> respectively.
 <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-pound-p.1E13">CSI # p</a>
 <a name="h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Pm-pound-p.1EFD">CSI <i>Pm</i> # p</a>
           Push video attributes onto stack (XTPUSHSGR), <i>xterm</i>.  This is
@@ -1624,7 +1630,7 @@ C1 controls, ordered by the final character(s).
           These controls may be disabled using the <b><a href="/xterm/manpage/xterm.html#VT100-Widget-Resources:allowWindowOps">allowWindowOps</a></b>
           resource.
 
-          <i>xterm</i> uses <i>Extended Window Manager Hints</i> (<a href="https://specifications.freedesktop.org/wm-spec/wm-spec-1.3.html"><b>EWMH</b></a>) to maximize
+          <i>xterm</i> uses <i>Extended Window Manager Hints</i> (<a href="https://specifications.freedesktop.org/wm/1.5/"><b>EWMH</b></a>) to maximize
           the window.  Some window managers have incomplete support for
           EWMH.  For instance, <i>fvwm</i>, <i>flwm</i> and <i>quartz-wm</i> advertise
           support for maximizing windows horizontally or vertically, but
@@ -3796,7 +3802,7 @@ and less-detailed manual pages.
 
     The  SCOSC/SCORC pair is considered a <i>private mode</i> because the final
     characters (s  and u ) fall in the range from "`" to "~" (octal 0140
-    to  octal 0176).  Other <i>private</i> control sequences can be constructed
+    to octal 0176).  Other <i>private</i> control sequences can be  constructed
     by using octets 074 to 077 (characters "&lt;", "=", "&gt;", or "?") at the
     beginning  of  the  parameter  string.   The  XTSAVE  and  XTRESTORE
     controls use "?") in this manner.
@@ -3822,8 +3828,8 @@ and less-detailed manual pages.
     use.
 
 <b>o</b>   The <i>aixterm</i> manual page gives the format of the control sequence for
-    foreground  and  background  colors  8-15, but does not specify what
-    those colors are.  That is implied by the description's  mention  of
+    foreground and background colors 8-15, but  does  not  specify  what
+    those  colors  are.  That is implied by the description's mention of
     <i>HFT</i>:
 
         The aixterm command provides a standard terminal type for

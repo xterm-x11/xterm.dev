@@ -30,7 +30,7 @@
  * sale, use or other dealings in this Software without prior written        *
  * authorization.                                                            *
  *****************************************************************************
-  $XTermId: xterm.log.html,v 1.2764 2026/02/17 00:53:54 tom Exp $
+  $XTermId: xterm.log.html,v 1.2774 2026/04/13 21:35:18 tom Exp $
   -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
@@ -75,6 +75,8 @@
   <div class="nav">
     <ul>
       <li class="nav-top"><a href="xterm.log.html">(top)</a></li>
+      <li><a href="#xterm_409">Patch #409 - 2026/04/13</a></li>
+      <li><a href="#xterm_408">Patch #408 - 2026/04/12</a></li>
       <li><a href="#xterm_407">Patch #407 - 2026/02/16</a></li>
       <li><a href="#xterm_406">Patch #406 - 2025/12/21</a></li>
       <li><a href="#xterm_405">Patch #405 - 2025/12/14</a></li>
@@ -695,6 +697,31 @@
       <li><a href="#xterm_01">Patch #1 - 1996/1/6</a></li>
     </ul>
   </div>
+  <h2><a name="xterm_409" id="xterm_409">Patch #409 -
+  2026/04/13</a></h2>
+  <ul>
+    <li>correct one of the special cases added for Debian <a href=
+    "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1123877">#1123877</a>
+    in <a href="#xterm_408">patch #408</a> (report by H Merijn
+    Brand).</li>
+    <li>update version for <em>Extended Window Manager Hints</em>
+    (EWMH), in manpage.</li>
+  </ul>
+  <h2><a name="xterm_408" id="xterm_408">Patch #408 -
+  2026/04/12</a></h2>
+  <ul>
+    <li>fix some gcc, cppcheck, clang and coverity warnings.</li>
+    <li>fix a regression in <a href="#xterm_404">patch #404</a>
+    which prevented key-press/release events from working with
+    selection-related actions (report by Julio Bacel).</li>
+    <li>improve feature which retains selection/highlighting when
+    screen is scrolled (Debian <a href=
+    "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1128961">#1128961</a>,
+    cf Debian <a href=
+    "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=291787">#291787</a>).</li>
+    <li>fill in a few more special cases for Debian <a href=
+    "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1123877">#1123877</a>.</li>
+  </ul>
   <h2><a name="xterm_407" id="xterm_407">Patch #407 -
   2026/02/16</a></h2>
   <ul>
