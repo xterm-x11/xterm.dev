@@ -1,3 +1,23 @@
+2026-04-01  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* configure: regen
+
+	* aclocal.m4: resync with my-autoconf
+
+	* configure.in: update to later naming of autoconf-2.52
+
+	* configure: regen
+
+	* aclocal.m4: resync with my-autoconf
+
+	* package/debian/copyright: dep5 formatting
+
+	* COPYING, VERSION, package/debian/changelog, package/tctest.spec: bump
+
+2025-06-08  Thomas E. Dickey  <dickey@invisible-island.net>
+
+	* install-sh: fix license
+
 2025-01-21  Thomas E. Dickey  <dickey@invisible-island.net>
 
 	* tctest.c:
@@ -192,8 +212,13 @@
 
 	* makefile.in: add docs rule
 
-	* testing/entry-size2.gnu, testing/entry-size.gnu, testing/waste-size.gnu:
-	RCS_BASE
+	* testing/entry-size2.gnu:
+	gnuplot script to illustrate entry size distribution differences
+
+	* testing/entry-size.gnu:
+	gnuplot file to illustrate entry-size distribution
+
+	* testing/waste-size.gnu: gnuplot file for illustrating wasted space.
 
 	* testing/includes.ref: resync for a case where names cannot be found
 
@@ -209,7 +234,7 @@
 
 2011-09-30  Thomas E. Dickey  <dickey@invisible-island.net>
 
-	* testing/bsd44.ref, testing/3bsd.ref: RCS_BASE
+	* testing/bsd44.ref, testing/3bsd.ref: reference
 
 	* tctest.c:
 	if -g and -s are set, get counts for number of capabilities with subcategory
@@ -277,13 +302,13 @@
 	* tctest.c:
 	check for NetBSD's "ZZ" entry, to get the resolved size of the entry
 
-	* testing/includes.ref: RCS_BASE
+	* testing/includes.ref: BSD 4.2 reference
 
 2011-08-11  Thomas E. Dickey  <dickey@invisible-island.net>
 
 	* tctest.c: add counts for tc's before/after
 
-	* testing/includes.tc: RCS_BASE
+	* testing/includes.tc: test-case for tc's
 
 	* tctest.c:
 	consolidate the two instances of unsetenv() into one ifdef'd fallback.
@@ -431,7 +456,9 @@
 
 	* tctest.c: add another debug-trace
 
-	* testing/escapes.ref, testing/escapes.tc: RCS_BASE
+	* testing/escapes.ref: reference for escapes.tc
+
+	* testing/escapes.tc: testcase for escapes
 
 	* testing/freebsd.ref, testing/bsd43.ref, testing/bsd42.ref:
 	regen with fixed BSD4.2 library which checks for dangling backslash at the
@@ -491,7 +518,9 @@
 	* testing/run_test.sh:
 	prefer "-b" option, since the termcaps may contain nonstandard entries
 
-	* testing/bsd43.ref, testing/bsd42.ref: RCS_BASE
+	* testing/bsd43.ref: reference for bsd43.tc
+
+	* testing/bsd42.ref: reference for BSD 4.2 termcap
 
 2011-07-26  Thomas E. Dickey  <dickey@invisible-island.net>
 
@@ -535,8 +564,13 @@
 
 	* configure: regen
 
-	* tctest.1, package/debian/copyright, COPYING, package/tctest.spec:
-	RCS_BASE
+	* tctest.1: manpage for tctest
+
+	* package/debian/copyright: copyright
+
+	* COPYING: copyright notice
+
+	* package/tctest.spec: build-script
 
 	* tctest.c: add copyright and version message
 
@@ -544,12 +578,12 @@
 
 	* package/debian/rules, package/debian/docs, package/debian/watch,
 	  package/debian/control, package/debian/changelog:
-	RCS_BASE
+	build-script
 
 	* testing/run_test.sh:
 	only summarize results with diffstat since they can be quite large.
 
-	* VERSION: RCS_BASE
+	* VERSION: version for tctest
 
 	* testing/run_test.sh:
 	try to override some of the environment variables that can affect results
@@ -583,12 +617,14 @@
 
 	* makefile.in: use test-script
 
-	* testing/freebsd.ref, testing/vim-amiga.ref: RCS_BASE
+	* testing/freebsd.ref, testing/vim-amiga.ref: reference data
 
 	* tctest.c:
 	format result as a termcap file, one capability per line, to simplify diffs
 
-	* testing/run_test.sh, README: RCS_BASE
+	* testing/run_test.sh: test-script for tctest
+
+	* README: description of tctest
 
 	* tctest.c: add -a option
 
@@ -602,7 +638,13 @@
 
 	* tctest.c: start adding options: -b, -e and -f.
 
-	* makefile.in, aclocal.m4, configure, configure.in: RCS_BASE
+	* makefile.in: makefile template for tctest
+
+	* aclocal.m4: autoconf macros for tctest
+
+	* configure: configure script
+
+	* configure.in: configure script for tctest
 
 	* tctest.c: todo "-o"
 
@@ -613,23 +655,24 @@
 	* tctest.c:
 	for a start, trim out the features that assume I have terminfo, from ncurses.
 
-	* testing/vim-amiga.tc: RCS_BASE
+	* testing/vim-amiga.tc:
+	sample termcap, using unusual formatting and embedded nulls
 
 2011-04-01  Thomas E. Dickey  <dickey@invisible-island.net>
 
-	* config.sub: RCS_BASE
+	* config.sub: configure utility script
 
 2011-02-02  Thomas E. Dickey  <dickey@invisible-island.net>
 
-	* config.guess: RCS_BASE
+	* config.guess: configure utility script
 
 2011-01-15  Thomas E. Dickey  <dickey@invisible-island.net>
 
-	* tctest.c: RCS_BASE
+	* tctest.c: test-program for termcap
 
 2010-09-04  Thomas E. Dickey  <dickey@invisible-island.net>
 
-	* package/debian/source/format: RCS_BASE
+	* package/debian/source/format: build-script
 
 2010-08-08  gavin
 
@@ -637,31 +680,31 @@
 
 2010-04-20  Thomas E. Dickey  <dickey@invisible-island.net>
 
-	* package/debian/compat: RCS_BASE
+	* package/debian/compat: build-script
 
 2003-11-29  Thomas E. Dickey  <dickey@invisible-island.net>
 
-	* install-sh: RCS_BASE
+	* install-sh: configure utility script
 
 1994-07-11  Thomas E. Dickey  <dickey@clark.net>
 
-	* config_h.in: RCS_BASE
-
 	* config_h.in: s/Header/Id/
+
+	* config_h.in: template for config.h
 
 1992-08-25  dickey@software.org
 
-	* testing/bsd44.tc: RCS_BASE
+	* testing/bsd44.tc: BSD 4.4 termcap, for reference
 
 1990-05-21  dickey@software.org
 
-	* testing/bsd43.tc: RCS_BASE
+	* testing/bsd43.tc: BSD 4.3 (reno) termcap
 
 1983-07-01  Thomas E. Dickey
 
-	* testing/bsd42.tc: RCS_BASE
+	* testing/bsd42.tc: BSD 4.2 termcap, for reference
 
 1979-12-31  Thomas E. Dickey
 
-	* testing/3bsd.tc: RCS_BASE
+	* testing/3bsd.tc: termcap from 3BSD
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
 <head>
-<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.6.0">
+<meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.8.0">
 <title>Change-Log for TCTEST</title>
 <link rel="author" href="mailto:dickey@invisible-island.net">
 <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
@@ -23,6 +23,26 @@
 <hr>
 
 <pre>
+<a name="t20260401" href="#index-t20260401" id="t20260401">2026-04-01</a>
+
+        * configure: regen
+
+        * aclocal.m4: resync with my-autoconf
+
+        * configure.in: update to later naming of autoconf-2.52
+
+        * configure: regen
+
+        * aclocal.m4: resync with my-autoconf
+
+        * package/debian/copyright: dep5 formatting
+
+        * COPYING, VERSION, package/debian/changelog, package/tctest.spec: bump
+
+<a name="t20250608" href="#index-t20250608" id="t20250608">2025-06-08</a>
+
+        * install-sh: fix license
+
 <a name="t20250121" href="#index-t20250121" id="t20250121">2025-01-21</a>
 
         * tctest.c:
@@ -217,8 +237,13 @@
 
         * makefile.in: add docs rule
 
-        * testing/entry-size2.gnu, testing/entry-size.gnu, testing/waste-size.gnu:
-        RCS_BASE
+        * testing/entry-size2.gnu:
+        gnuplot script to illustrate entry size distribution differences
+
+        * testing/entry-size.gnu:
+        gnuplot file to illustrate entry-size distribution
+
+        * testing/waste-size.gnu: gnuplot file for illustrating wasted space.
 
         * testing/includes.ref: resync for a case where names cannot be found
 
@@ -234,7 +259,7 @@
 
 <a name="t20110930" href="#index-t20110930" id="t20110930">2011-09-30</a>
 
-        * testing/bsd44.ref, testing/3bsd.ref: RCS_BASE
+        * testing/bsd44.ref, testing/3bsd.ref: reference
 
         * tctest.c:
         if -g and -s are set, get counts for number of capabilities with subcategory
@@ -302,13 +327,13 @@
         * tctest.c:
         check for NetBSD's "ZZ" entry, to get the resolved size of the entry
 
-        * testing/includes.ref: RCS_BASE
+        * testing/includes.ref: BSD 4.2 reference
 
 <a name="t20110811" href="#index-t20110811" id="t20110811">2011-08-11</a>
 
         * tctest.c: add counts for tc's before/after
 
-        * testing/includes.tc: RCS_BASE
+        * testing/includes.tc: test-case for tc's
 
         * tctest.c:
         consolidate the two instances of unsetenv() into one ifdef'd fallback.
@@ -456,7 +481,9 @@
 
         * tctest.c: add another debug-trace
 
-        * testing/escapes.ref, testing/escapes.tc: RCS_BASE
+        * testing/escapes.ref: reference for escapes.tc
+
+        * testing/escapes.tc: testcase for escapes
 
         * testing/freebsd.ref, testing/bsd43.ref, testing/bsd42.ref:
         regen with fixed BSD4.2 library which checks for dangling backslash at the
@@ -516,7 +543,9 @@
         * testing/run_test.sh:
         prefer "-b" option, since the termcaps may contain nonstandard entries
 
-        * testing/bsd43.ref, testing/bsd42.ref: RCS_BASE
+        * testing/bsd43.ref: reference for bsd43.tc
+
+        * testing/bsd42.ref: reference for BSD 4.2 termcap
 
 <a name="t20110726" href="#index-t20110726" id="t20110726">2011-07-26</a>
 
@@ -560,8 +589,13 @@
 
         * configure: regen
 
-        * tctest.1, package/debian/copyright, COPYING, package/tctest.spec:
-        RCS_BASE
+        * tctest.1: manpage for tctest
+
+        * package/debian/copyright: copyright
+
+        * COPYING: copyright notice
+
+        * package/tctest.spec: build-script
 
         * tctest.c: add copyright and version message
 
@@ -569,12 +603,12 @@
 
         * package/debian/rules, package/debian/docs, package/debian/watch,
           package/debian/control, package/debian/changelog:
-        RCS_BASE
+        build-script
 
         * testing/run_test.sh:
         only summarize results with diffstat since they can be quite large.
 
-        * VERSION: RCS_BASE
+        * VERSION: version for tctest
 
         * testing/run_test.sh:
         try to override some of the environment variables that can affect results
@@ -608,12 +642,14 @@
 
         * makefile.in: use test-script
 
-        * testing/freebsd.ref, testing/vim-amiga.ref: RCS_BASE
+        * testing/freebsd.ref, testing/vim-amiga.ref: reference data
 
         * tctest.c:
         format result as a termcap file, one capability per line, to simplify diffs
 
-        * testing/run_test.sh, README: RCS_BASE
+        * testing/run_test.sh: test-script for tctest
+
+        * README: description of tctest
 
         * tctest.c: add -a option
 
@@ -627,7 +663,13 @@
 
         * tctest.c: start adding options: -b, -e and -f.
 
-        * makefile.in, aclocal.m4, configure, configure.in: RCS_BASE
+        * makefile.in: makefile template for tctest
+
+        * aclocal.m4: autoconf macros for tctest
+
+        * configure: configure script
+
+        * configure.in: configure script for tctest
 
         * tctest.c: todo "-o"
 
@@ -638,23 +680,24 @@
         * tctest.c:
         for a start, trim out the features that assume I have terminfo, from ncurses.
 
-        * testing/vim-amiga.tc: RCS_BASE
+        * testing/vim-amiga.tc:
+        sample termcap, using unusual formatting and embedded nulls
 
 <a name="t20110401" href="#index-t20110401" id="t20110401">2011-04-01</a>
 
-        * config.sub: RCS_BASE
+        * config.sub: configure utility script
 
 <a name="t20110202" href="#index-t20110202" id="t20110202">2011-02-02</a>
 
-        * config.guess: RCS_BASE
+        * config.guess: configure utility script
 
 <a name="t20110115" href="#index-t20110115" id="t20110115">2011-01-15</a>
 
-        * tctest.c: RCS_BASE
+        * tctest.c: test-program for termcap
 
 <a name="t20100904" href="#index-t20100904" id="t20100904">2010-09-04</a>
 
-        * package/debian/source/format: RCS_BASE
+        * package/debian/source/format: build-script
 
 <a name="t20100808" href="#index-t20100808" id="t20100808">2010-08-08  gavin</a>
 
@@ -662,39 +705,43 @@
 
 <a name="t20100420" href="#index-t20100420" id="t20100420">2010-04-20</a>
 
-        * package/debian/compat: RCS_BASE
+        * package/debian/compat: build-script
 
 <a name="t20031129" href="#index-t20031129" id="t20031129">2003-11-29</a>
 
-        * install-sh: RCS_BASE
+        * install-sh: configure utility script
 
 <a name="t19940711" href="#index-t19940711" id="t19940711">1994-07-11</a>
 
-        * config_h.in: RCS_BASE
-
         * config_h.in: s/Header/Id/
+
+        * config_h.in: template for config.h
 
 <a name="t19920825" href="#index-t19920825" id="t19920825">1992-08-25  dickey@software.org</a>
 
-        * testing/bsd44.tc: RCS_BASE
+        * testing/bsd44.tc: BSD 4.4 termcap, for reference
 
 <a name="t19900521" href="#index-t19900521" id="t19900521">1990-05-21  dickey@software.org</a>
 
-        * testing/bsd43.tc: RCS_BASE
+        * testing/bsd43.tc: BSD 4.3 (reno) termcap
 
 <a name="t19830701" href="#index-t19830701" id="t19830701">1983-07-01  Thomas E. Dickey</a>
 
-        * testing/bsd42.tc: RCS_BASE
+        * testing/bsd42.tc: BSD 4.2 termcap, for reference
 
 <a name="t19791231" href="#index-t19791231" id="t19791231">1979-12-31  Thomas E. Dickey</a>
 
-        * testing/3bsd.tc: RCS_BASE
+        * testing/3bsd.tc: termcap from 3BSD
 
 </pre>
 
 <div class="nav">
 <ul>
 <li class="nav-top"><a href="CHANGES.html">(top)</a></li>
+
+<li><a name="index-t20260401" href="#t20260401" id="index-t20260401">2026-04-01</a></li>
+
+<li><a name="index-t20250608" href="#t20250608" id="index-t20250608">2025-06-08</a></li>
 
 <li><a name="index-t20250121" href="#t20250121" id="index-t20250121">2025-01-21</a></li>
 
