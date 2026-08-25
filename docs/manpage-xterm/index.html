@@ -3784,6 +3784,10 @@
                The bitmap scaling feature is also used by <i>xterm</i>  to  implement
                VT102 double-width and double-height characters.
 
+       <b><a title="VT100 Widget Resources:brokenCopyArea" name="VT100-Widget-Resources:brokenCopyArea">brokenCopyArea</a></b> (class <b>BrokenCopyArea</b>)
+               If true, <i>xterm</i> uses an alternative method to compensate for the
+               removal of hardware acceleration from recent X servers.
+
        <b><a title="VT100 Widget Resources:brokenLinuxOSC" name="VT100-Widget-Resources:brokenLinuxOSC">brokenLinuxOSC</a></b> (class <b>BrokenLinuxOSC</b>)
                If true, <i>xterm</i> applies a workaround to ignore malformed control
                sequences  that a Linux script might send.  Compare the palette
@@ -7595,23 +7599,27 @@
                      corresponds  to  the  <b><a href="#OPTIONS:-ai">-ai</a></b>  option  and   the   <b><a href="#VT100-Widget-Resources:activeIcon">activeIcon</a></b>
                      resource.
 
+              <b><a title="VT Options:Enable XCopyArea Icon" name="VT-Options:Enable-XCopyArea-Icon">Enable XCopyArea Icon</a></b> (resource <b><a href="#Menu-Resources:brokenCopyArea">brokenCopyArea</a></b>)
+                     Enable  (or disable) a workaround for removal of hardware
+                     acceleration from recent X servers.
+
               <b><a title="VT Options:Sixel Scrolling" name="VT-Options:Sixel-Scrolling">Sixel Scrolling</a></b> (resource <b><a href="#Menu-Resources:sixelScrolling">sixelScrolling</a></b>)
-                     This  corresponds to the <b><a href="#VT100-Widget-Resources:sixelScrolling">sixelScrolling</a></b> resource.  It can
-                     also be turned off and on using the private  mode  DECSDM
+                     This corresponds to the <b><a href="#VT100-Widget-Resources:sixelScrolling">sixelScrolling</a></b> resource.  It  can
+                     also  be  turned off and on using the private mode DECSDM
                      (Sixel Display Mode).
 
-                     <b>o</b>   When  enabled,  <i>xterm</i>  draws  sixel  graphics  at the
-                         current text cursor  location,  scrolling  the  image
-                         vertically  if  it  is  larger  than  the screen, and
-                         leaving the text cursor at the  same  column  in  the
-                         next  complete line after the image when returning to
+                     <b>o</b>   When enabled,  <i>xterm</i>  draws  sixel  graphics  at  the
+                         current  text  cursor  location,  scrolling the image
+                         vertically if it  is  larger  than  the  screen,  and
+                         leaving  the  text  cursor  at the same column in the
+                         next complete line after the image when returning  to
                          text mode
 
-                         This is the default, which corresponds to  the  <i>reset</i>
+                         This  is  the default, which corresponds to the <i>reset</i>
                          state of DECSDM.
 
                      <b>o</b>   When disabled, <i>xterm</i> draws sixel graphics starting at
-                         the  upper  left  of  the screen, cropping to fit the
+                         the upper left of the screen,  cropping  to  fit  the
                          screen, and does not alter the text cursor location.
 
                          This corresponds to the <i>set</i> state of DECSDM.
@@ -7619,53 +7627,53 @@
                      There is no corresponding command-line option.
 
               <b><a title="VT Options:Private Color Registers" name="VT-Options:Private-Color-Registers">Private Color Registers</a></b> (resource <b><a href="#Menu-Resources:privateColorRegisters">privateColorRegisters</a></b>)
-                     If <i>xterm</i> is configured to support  ReGIS  graphics,  this
+                     If  <i>xterm</i>  is  configured to support ReGIS graphics, this
                      controls whether a private color palette can be used.
 
-                     When  enabled,  each graphic image uses a separate set of
-                     color registers, so that it  essentially  has  a  private
-                     palette  (this  is  the  default).  If it is not set, all
-                     graphics images share a common set of registers which  is
-                     how  sixel  and ReGIS graphics worked on actual hardware.
-                     The default is  likely  a  more  useful  mode  on  modern
+                     When enabled, each graphic image uses a separate  set  of
+                     color  registers,  so  that  it essentially has a private
+                     palette (this is the default).  If it  is  not  set,  all
+                     graphics  images share a common set of registers which is
+                     how sixel and ReGIS graphics worked on  actual  hardware.
+                     The  default  is  likely  a  more  useful  mode on modern
                      TrueColor hardware.
 
-                     This  corresponds  to the <b><a href="#VT100-Widget-Resources:privateColorRegisters">privateColorRegisters</a></b> resource.
+                     This corresponds to the  <b><a href="#VT100-Widget-Resources:privateColorRegisters">privateColorRegisters</a></b>  resource.
                      There is no corresponding command-line option.
 
        VT<i>xxx</i> Commands:
 
               <b><a title="VT Options:Do Soft Reset" name="VT-Options:Do-Soft-Reset">Do Soft Reset</a></b> (resource <b><a href="#Menu-Resources:softreset">softreset</a></b>)
                      This corresponds to the VT220 DECSTR control sequence.  A
-                     soft reset leaves the contents of the window intact,  but
+                     soft  reset leaves the contents of the window intact, but
                      resets modes which affect subsequent updates:
 
                      Soft reset differs from full reset in a minor detail:
 
-                     <b>o</b>   Set  the  saved  cursor  position  to  the upper-left
+                     <b>o</b>   Set the  saved  cursor  position  to  the  upper-left
                          corner of the window.
 
                      <b>o</b>   Exit from the status-line without erasing it.
 
                      Both soft/full resets do the following:
 
-                     <b>o</b>   Make the cursor visible, with shape  reset  according
+                     <b>o</b>   Make  the  cursor visible, with shape reset according
                          to the <b><a href="#VT100-Widget-Resources:cursorUnderLine">cursorUnderLine</a></b> and <b><a href="#VT100-Widget-Resources:cursorBar">cursorBar</a></b> resources.
 
                      <b>o</b>   Enable or disable the cursor-blinking state according
-                         to  the  <b><a href="#VT100-Widget-Resources:cursorBlink">cursorBlink</a></b>  resource,  and  set  the <i>Enable</i>
+                         to the  <b><a href="#VT100-Widget-Resources:cursorBlink">cursorBlink</a></b>  resource,  and  set  the  <i>Enable</i>
                          <i>Blinking Cursor</i> menu checkmark to match.
 
                      <b>o</b>   Reset   video   attributes,   e.g.,   bold,   italic,
                          underline, blink.
 
-                     <b>o</b>   Reset  the  ANSI  color  mode  to  the  <i>xterm</i> default
+                     <b>o</b>   Reset the  ANSI  color  mode  to  the  <i>xterm</i>  default
                          foreground and background.
 
                      <b>o</b>   Reset the 256-color palette to its initial state.
 
-                     <b>o</b>   Reset  the  selected  character  set,  e.g.,   ASCII,
-                         alternate  character  set.   The  UTF-8 modes are not
+                     <b>o</b>   Reset   the  selected  character  set,  e.g.,  ASCII,
+                         alternate character set.  The  UTF-8  modes  are  not
                          changed.
 
                      <b>o</b>   Reset ECMA-48 KAM.
@@ -7684,19 +7692,19 @@
 
                              <b><a href="#VT100-Widget-Resources:modifyCursorKeys">modifyCursorKeys</a></b>,             <b><a href="#VT100-Widget-Resources:modifyFunctionKeys">modifyFunctionKeys</a></b>,
                              <b><a href="#VT100-Widget-Resources:modifyKeyboard">modifyKeyboard</a></b>,                 <b><a href="#VT100-Widget-Resources:modifyKeypadKeys">modifyKeypadKeys</a></b>,
-                             <b><a href="#VT100-Widget-Resources:modifyModifierKeys">modifyModifierKeys</a></b>,      <b><a href="#VT100-Widget-Resources:modifyOtherKeys">modifyOtherKeys</a></b>,     and
+                             <b><a href="#VT100-Widget-Resources:modifyModifierKeys">modifyModifierKeys</a></b>,     <b><a href="#VT100-Widget-Resources:modifyOtherKeys">modifyOtherKeys</a></b>,      and
                              <b><a href="#VT100-Widget-Resources:modifySpecialKeys">modifySpecialKeys</a></b>.
 
                      <b>o</b>   Reset origin mode (DECOM).
 
-                     <b>o</b>   Reset all margins (i.e., top/bottom and  left/right).
+                     <b>o</b>   Reset  all margins (i.e., top/bottom and left/right).
                          This can be convenient when some program has left the
                          scroll regions set incorrectly.
 
-                     <b>o</b>   Set  autowrap  and  reverse wrapping according to the
+                     <b>o</b>   Set autowrap and reverse wrapping  according  to  the
                          resource values <b><a href="#VT100-Widget-Resources:autoWrap">autoWrap</a></b> and <b><a href="#VT100-Widget-Resources:reverseWrap">reverseWrap</a></b>.
 
-                     <b>o</b>   Reset checksum  extension  to  the  <b><a href="#VT100-Widget-Resources:checksumExtension">checksumExtension</a></b>
+                     <b>o</b>   Reset  checksum  extension  to  the <b><a href="#VT100-Widget-Resources:checksumExtension">checksumExtension</a></b>
                          resource.
 
               <b><a title="VT Options:Do Full Reset" name="VT-Options:Do-Full-Reset">Do Full Reset</a></b> (resource <b><a href="#Menu-Resources:hardreset">hardreset</a></b>)
@@ -7708,34 +7716,34 @@
 
                      <b>o</b>   Reset the screen to match the <b><a href="#VT100-Widget-Resources:reverseVideo">reverseVideo</a></b> resource.
 
-                     <b>o</b>   Resize  the  screen  to 80 columns if 132-column mode
+                     <b>o</b>   Resize the screen to 80 columns  if  132-column  mode
                          was initially enabled with the <b><a href="#VT100-Widget-Resources:c132">c132</a></b> resource.
 
-                     <b>o</b>   Reset  scrolling  (jump  versus   smooth)   per   the
+                     <b>o</b>   Reset   scrolling   (jump   versus  smooth)  per  the
                          <b><a href="#VT100-Widget-Resources:jumpScroll">jumpScroll</a></b> resource.
 
-                     <b>o</b>   Enable  linefeed  mode (ECMA-48 LNM) and send/receive
+                     <b>o</b>   Enable linefeed mode (ECMA-48 LNM)  and  send/receive
                          mode (ECMA-48 SRM).
 
                      <b>o</b>   Reset DEC user-defined keys (DECUDK).
 
-                     <b>o</b>   Disable application mode for cursor- and  keypad-keys
+                     <b>o</b>   Disable  application mode for cursor- and keypad-keys
                          (DECCKM, DECKPAM).
 
-                     <b>o</b>   Reset   menu   entry  <i>8-bit  Controls</i>,  per  resource
+                     <b>o</b>   Reset  menu  entry  <i>8-bit  Controls</i>,   per   resource
                          <b><a href="#VT100-Widget-Resources:eightBitControl">eightBitControl</a></b>.
 
-                     <b>o</b>   Reset  interpretation  of  the  backarrow  key,   per
+                     <b>o</b>   Reset   interpretation  of  the  backarrow  key,  per
                          initial resource settings.
 
-                     <b>o</b>   Set  the  keyboard  type  according  to the resources
-                         <b><a href="#Application-Resources:keyboardType">keyboardType</a></b>,    <b><a href="#Application-Resources:hpFunctionKeys">hpFunctionKeys</a></b>,     <b><a href="#Application-Resources:scoFunctionKeys">scoFunctionKeys</a></b>,
-                         <b><a href="#Application-Resources:sunFunctionKeys">sunFunctionKeys</a></b>,  <b><a href="#Application-Resources:tcapFunctionKeys">tcapFunctionKeys</a></b>, <b><a href="#VT100-Widget-Resources:oldXtermFKeys">oldXtermFKeys</a></b> and
+                     <b>o</b>   Set the keyboard  type  according  to  the  resources
+                         <b><a href="#Application-Resources:keyboardType">keyboardType</a></b>,     <b><a href="#Application-Resources:hpFunctionKeys">hpFunctionKeys</a></b>,    <b><a href="#Application-Resources:scoFunctionKeys">scoFunctionKeys</a></b>,
+                         <b><a href="#Application-Resources:sunFunctionKeys">sunFunctionKeys</a></b>, <b><a href="#Application-Resources:tcapFunctionKeys">tcapFunctionKeys</a></b>, <b><a href="#VT100-Widget-Resources:oldXtermFKeys">oldXtermFKeys</a></b>  and
                          <b><a href="#Application-Resources:sunKeyboard">sunKeyboard</a></b>.
 
                      <b>o</b>   Turn mouse tracking off.
 
-                     <b>o</b>   Reset  title  and   pointer   modes   per   resources
+                     <b>o</b>   Reset   title   and   pointer   modes  per  resources
                          <b><a href="#VT100-Widget-Resources:titleModes">titleModes</a></b> and <b><a href="#VT100-Widget-Resources:pointerMode">pointerMode</a></b>.
 
                      <b>o</b>   Reset the readline and bracketed paste modes.
@@ -7743,45 +7751,45 @@
                      <b>o</b>   Discard  all  SIXEL  and  ReGIS  graphics  data  from
                          memory.
 
-                     <b>o</b>   Reset <b><a href="#VT100-Widget-Resources:sixelScrolling">sixelScrolling</a></b> and  <b><a href="#VT100-Widget-Resources:privateColorRegisters">privateColorRegisters</a></b>  from
+                     <b>o</b>   Reset  <b><a href="#VT100-Widget-Resources:sixelScrolling">sixelScrolling</a></b>  and <b><a href="#VT100-Widget-Resources:privateColorRegisters">privateColorRegisters</a></b> from
                          initial resource values.
 
-                     <b>o</b>   Set  DECSDM  if  the <b><a href="#VT100-Widget-Resources:sixelScrolling">sixelScrolling</a></b> resource is true.
+                     <b>o</b>   Set DECSDM if the <b><a href="#VT100-Widget-Resources:sixelScrolling">sixelScrolling</a></b>  resource  is  true.
                          Otherwise, reset DECSDM.
 
                      A full reset does this, unlike a soft reset:
 
-                     <b>o</b>   Move the cursor  to  the  upper-left  corner  of  the
+                     <b>o</b>   Move  the  cursor  to  the  upper-left  corner of the
                          window, and then save that position.
 
-                     <b>o</b>   Hide  the  status-line,  setting  its display-type to
+                     <b>o</b>   Hide the status-line,  setting  its  display-type  to
                          "none".
 
               <b><a title="VT Options:Reset and Clear Saved Lines" name="VT-Options:Reset-and-Clear-Saved-Lines">Reset and Clear Saved Lines</a></b> (resource <b><a href="#Menu-Resources:clearsavedlines">clearsavedlines</a></b>)
                      Perform a full reset, and also clear the saved lines.
 
-                     This corresponds to the VT102 RIS control sequence,  with
-                     a  few obvious differences.  For example, your session is
+                     This  corresponds to the VT102 RIS control sequence, with
+                     a few obvious differences.  For example, your session  is
                      not disconnected as a real VT102 would do.
 
        Commands for setting the current screen:
 
               <b><a title="VT Options:Show Tek Window" name="VT-Options:Show-Tek-Window">Show Tek Window</a></b> (resource <b><a href="#Menu-Resources:tekshow">tekshow</a></b>)
                      When enabled, pops the Tektronix 4014 window up (makes it
-                     visible).   When  disabled,  hides  the  Tektronix   4014
+                     visible).    When  disabled,  hides  the  Tektronix  4014
                      window.
 
               <b><a title="VT Options:Switch to Tek Mode" name="VT-Options:Switch-to-Tek-Mode">Switch to Tek Mode</a></b> (resource <b><a href="#Menu-Resources:tekmode">tekmode</a></b>)
-                     When  enabled, pops the Tektronix 4014 window up if it is
-                     not already visible, and switches  the  input  stream  to
-                     that  window.   When  disabled,  hides the Tektronix 4014
+                     When enabled, pops the Tektronix 4014 window up if it  is
+                     not  already  visible,  and  switches the input stream to
+                     that window.  When disabled,  hides  the  Tektronix  4014
                      window and switches input back to the VT<i>xxx</i> window.
 
               <b><a title="VT Options:Hide VT Window" name="VT-Options:Hide-VT-Window">Hide VT Window</a></b> (resource <b><a href="#Menu-Resources:vthide">vthide</a></b>)
                      When enabled, hides the VT<i>xxx</i> window, shows the Tektronix
-                     4014 window if it was not already  visible  and  switches
-                     the  input  stream  to that window.  When disabled, shows
-                     the VT<i>xxx</i> window, and switches the input stream  to  that
+                     4014  window  if  it was not already visible and switches
+                     the input stream to that window.   When  disabled,  shows
+                     the  VT<i>xxx</i>  window, and switches the input stream to that
                      window.
 
               <b><a title="VT Options:Show Alternate Screen" name="VT-Options:Show-Alternate-Screen">Show Alternate Screen</a></b> (resource <b><a href="#Menu-Resources:altscreen">altscreen</a></b>)
@@ -7791,16 +7799,16 @@
 
 </pre>
 <h3><a name="h3-VT-Fonts" id="h3-VT-Fonts">VT Fonts</a></h3>
-<pre>       The  <i>xterm  fontMenu</i>  pops up when the "control" key and pointer button
-       three are pressed in a window.  It sets the  font  used  in  the  VT<i>xxx</i>
-       window,  or modifies the way the font is specified or displayed.  There
+<pre>       The <i>xterm fontMenu</i> pops up when the "control" key  and  pointer  button
+       three  are  pressed  in  a  window.  It sets the font used in the VT<i>xxx</i>
+       window, or modifies the way the font is specified or displayed.   There
        are several sections.
 
-       The first section  allows  you  to  select  the  font  from  a  set  of
+       The  first  section  allows  you  to  select  the  font  from  a set of
        alternatives:
 
               <b><a title="VT Fonts:Default" name="VT-Fonts:Default">Default</a></b> (resource <b><a href="#Menu-Resources:fontdefault">fontdefault</a></b>)
-                     Set  the  font  to  the  default, i.e., that given by the
+                     Set the font to the default,  i.e.,  that  given  by  the
                      <b>*VT100.font</b> resource.
 
               <b><a title="VT Fonts:Unreadable" name="VT-Fonts:Unreadable">Unreadable</a></b> (resource <b><a href="#Menu-Resources:font1">font1</a></b>)
@@ -7829,21 +7837,21 @@
                      Font escape sequence (see <i>Xterm Control Sequences</i>).
 
               <b><a title="VT Fonts:Selection" name="VT-Fonts:Selection">Selection</a></b> (resource <b><a href="#Menu-Resources:fontsel">fontsel</a></b>)
-                     This allows you to set the  font  specified  the  current
-                     selection  as  a  font  name (if the <b><a href="#h3-PRIMARY">PRIMARY</a></b> selection is
+                     This  allows  you  to  set the font specified the current
+                     selection as a font name (if  the  <b><a href="#h3-PRIMARY">PRIMARY</a></b>  selection  is
                      owned).
 
        The second section allows you to modify the way it is displayed:
 
               <b><a title="VT Fonts:Bold Fonts" name="VT-Fonts:Bold-Fonts">Bold Fonts</a></b> (resource <b><a href="#Menu-Resources:allow-bold-fonts">allow-bold-fonts</a></b>)
-                     This is  normally  checked  (enabled).   When  unchecked,
-                     <i>xterm</i>  will  not  use  bold  fonts.   The  menu selection
+                     This  is  normally  checked  (enabled).   When unchecked,
+                     <i>xterm</i> will  not  use  bold  fonts.   The  menu  selection
                      modifies the <b><a href="#VT100-Widget-Resources:allowBoldFonts">allowBoldFonts</a></b> resource.
 
               <b><a title="VT Fonts:Line-Drawing Characters" name="VT-Fonts:Line-Drawing-Characters">Line-Drawing Characters</a></b> (resource <b><a href="#Menu-Resources:font-linedrawing">font-linedrawing</a></b>)
-                     When set,  tells  <i>xterm</i>  to  draw  its  own  line-drawing
-                     characters.   Otherwise  it relies on the font containing
-                     these.  The menu  selection  modifies  the  <b><a href="#VT100-Widget-Resources:forceBoxChars">forceBoxChars</a></b>
+                     When  set,  tells  <i>xterm</i>  to  draw  its  own line-drawing
+                     characters.  Otherwise it relies on the  font  containing
+                     these.   The  menu  selection  modifies the <b><a href="#VT100-Widget-Resources:forceBoxChars">forceBoxChars</a></b>
                      resource.
 
               <b><a title="VT Fonts:Packed Font" name="VT-Fonts:Packed-Font">Packed Font</a></b> (resource <b><a href="#Menu-Resources:font-packed">font-packed</a></b>)
@@ -7860,49 +7868,49 @@
        The third section allows you to modify the way it is specified:
 
               <b><a title="VT Fonts:TrueType Fonts" name="VT-Fonts:TrueType-Fonts">TrueType Fonts</a></b> (resource <b><a href="#Menu-Resources:render-font">render-font</a></b>)
-                     If the <b><a href="#VT100-Widget-Resources:renderFont">renderFont</a></b> and corresponding resources  were  set,
+                     If  the  <b><a href="#VT100-Widget-Resources:renderFont">renderFont</a></b> and corresponding resources were set,
                      this is a further control whether <i>xterm</i> will actually use
                      the Xft library calls to obtain a font.
 
               <b><a title="VT Fonts:UTF-8 Encoding" name="VT-Fonts:UTF-8-Encoding">UTF-8 Encoding</a></b> (resource <b><a href="#Menu-Resources:utf8-mode">utf8-mode</a></b>)
                      This  controls  whether  <i>xterm</i>  uses  UTF-8  encoding  of
-                     input/output.  It is  useful  for  temporarily  switching
-                     <i>xterm</i>  to display text from an application which does not
-                     follow the locale settings.  It corresponds to  the  <b><a href="#VT100-Widget-Resources:utf8">utf8</a></b>
+                     input/output.   It  is  useful  for temporarily switching
+                     <i>xterm</i> to display text from an application which does  not
+                     follow  the  locale settings.  It corresponds to the <b><a href="#VT100-Widget-Resources:utf8">utf8</a></b>
                      resource.
 
               <b><a title="VT Fonts:UTF-8 Fonts" name="VT-Fonts:UTF-8-Fonts">UTF-8 Fonts</a></b> (resource <b><a href="#Menu-Resources:utf8-fonts">utf8-fonts</a></b>)
                      This controls whether <i>xterm</i> uses UTF-8 fonts for display.
-                     It  is  useful for temporarily switching <i>xterm</i> to display
+                     It is useful for temporarily switching <i>xterm</i>  to  display
                      text from an application which does not follow the locale
-                     settings.  It combines the <b><a href="#VT100-Widget-Resources:utf8">utf8</a></b> and <b><a href="#VT100-Widget-Resources:utf8Fonts">utf8Fonts</a></b>  resources,
+                     settings.   It combines the <b><a href="#VT100-Widget-Resources:utf8">utf8</a></b> and <b><a href="#VT100-Widget-Resources:utf8Fonts">utf8Fonts</a></b> resources,
                      subject to the <b><a href="#VT100-Widget-Resources:locale">locale</a></b> resource.
 
               <b><a title="VT Fonts:UTF-8 Titles" name="VT-Fonts:UTF-8-Titles">UTF-8 Titles</a></b> (resource <b><a href="#Menu-Resources:utf8-title">utf8-title</a></b>)
-                     This  controls  whether  <i>xterm</i> accepts UTF-8 encoding for
+                     This controls whether <i>xterm</i> accepts  UTF-8  encoding  for
                      title control sequences.  It corresponds to the <b><a href="#VT100-Widget-Resources:utf8Fonts">utf8Fonts</a></b>
                      resource.
 
                      Initially the checkmark is set according to both the <b><a href="#VT100-Widget-Resources:utf8">utf8</a></b>
-                     and <b><a href="#VT100-Widget-Resources:utf8Fonts">utf8Fonts</a></b> resource values.  If the latter is  set  to
-                     "always",  the checkmark is disabled.  Likewise, if there
-                     are no fonts given in the  <b><a href="#VT100-Widget-Resources:utf8Fonts">utf8Fonts</a></b>  subresources,  then
+                     and  <b><a href="#VT100-Widget-Resources:utf8Fonts">utf8Fonts</a></b>  resource values.  If the latter is set to
+                     "always", the checkmark is disabled.  Likewise, if  there
+                     are  no  fonts  given in the <b><a href="#VT100-Widget-Resources:utf8Fonts">utf8Fonts</a></b> subresources, then
                      the checkmark also is disabled.
 
                      The standard <b>XTerm</b> app-defaults file defines both sets of
-                     fonts,  while  the  <b>UXTerm</b> app-defaults file defines only
-                     one set.  Assuming the standard app-defaults files,  this
-                     command  will  launch  <i>xterm</i> able to switch between UTF-8
+                     fonts, while the <b>UXTerm</b> app-defaults  file  defines  only
+                     one  set.  Assuming the standard app-defaults files, this
+                     command will launch <i>xterm</i> able to  switch  between  UTF-8
                      and ISO-8859-1 encoded fonts:
 
                          uxterm -class XTerm
 
-       The fourth section allows you to enable or disable  special  operations
-       which  can  be  controlled by writing escape sequences to the terminal.
+       The  fourth  section allows you to enable or disable special operations
+       which can be controlled by writing escape sequences  to  the  terminal.
        These are disabled if the SendEvents feature is enabled:
 
               <b><a title="VT Fonts:Allow Color Ops" name="VT-Fonts:Allow-Color-Ops">Allow Color Ops</a></b> (resource <b><a href="#Menu-Resources:allow-color-ops">allow-color-ops</a></b>)
-                     This corresponds to the <b><a href="#VT100-Widget-Resources:allowColorOps">allowColorOps</a></b>  resource.   Enable
+                     This  corresponds  to the <b><a href="#VT100-Widget-Resources:allowColorOps">allowColorOps</a></b> resource.  Enable
                      or disable control sequences that set/query the colors.
 
               <b><a title="VT Fonts:Allow Font Ops" name="VT-Fonts:Allow-Font-Ops">Allow Font Ops</a></b> (resource <b><a href="#Menu-Resources:allow-font-ops">allow-font-ops</a></b>)
@@ -7911,31 +7919,31 @@
 
               <b><a title="VT Fonts:Allow Mouse Ops" name="VT-Fonts:Allow-Mouse-Ops">Allow Mouse Ops</a></b> (resource <b><a href="#Menu-Resources:allow-mouse-ops">allow-mouse-ops</a></b>)
                      Enable  or  disable  control  sequences  that  cause  the
-                     terminal to send escape sequences on  pointer-clicks  and
-                     movement.    This   corresponds   to   the  <b><a href="#VT100-Widget-Resources:allowMouseOps">allowMouseOps</a></b>
+                     terminal  to  send escape sequences on pointer-clicks and
+                     movement.   This   corresponds   to   the   <b><a href="#VT100-Widget-Resources:allowMouseOps">allowMouseOps</a></b>
                      resource.
 
               <b><a title="VT Fonts:Allow Tcap Ops" name="VT-Fonts:Allow-Tcap-Ops">Allow Tcap Ops</a></b> (resource <b><a href="#Menu-Resources:allow-tcap-ops">allow-tcap-ops</a></b>)
                      Enable  or  disable  control  sequences  that  query  the
                      terminal's notion of its function-key strings, as termcap
-                     or   terminfo  capabilities.   This  corresponds  to  the
+                     or  terminfo  capabilities.   This  corresponds  to   the
                      <b><a href="#VT100-Widget-Resources:allowTcapOps">allowTcapOps</a></b> resource.
 
               <b><a title="VT Fonts:Allow Title Ops" name="VT-Fonts:Allow-Title-Ops">Allow Title Ops</a></b> (resource <b><a href="#Menu-Resources:allow-title-ops">allow-title-ops</a></b>)
-                     Enable or  disable  control  sequences  that  modify  the
-                     window  title  or  icon  name.   This  corresponds to the
+                     Enable  or  disable  control  sequences  that  modify the
+                     window title or  icon  name.   This  corresponds  to  the
                      <b><a href="#VT100-Widget-Resources:allowTitleOps">allowTitleOps</a></b> resource.
 
               <b><a title="VT Fonts:Allow Window Ops" name="VT-Fonts:Allow-Window-Ops">Allow Window Ops</a></b> (resource <b><a href="#Menu-Resources:allow-window-ops">allow-window-ops</a></b>)
-                     Enable or disable extended window control  sequences  (as
-                     used  in <i>dtterm</i>).  This corresponds to the <b><a href="#VT100-Widget-Resources:allowWindowOps">allowWindowOps</a></b>
+                     Enable  or  disable extended window control sequences (as
+                     used in <i>dtterm</i>).  This corresponds to the  <b><a href="#VT100-Widget-Resources:allowWindowOps">allowWindowOps</a></b>
                      resource.
 
 </pre>
 <h3><a name="h3-Tek-Options" id="h3-Tek-Options">Tek Options</a></h3>
 <pre>       The <i>xterm tekMenu</i> sets various modes in the Tektronix emulation, and is
-       popped up when the "control" key and pointer button two are pressed  in
-       the  Tektronix  window.   The current font size is checked in the modes
+       popped  up when the "control" key and pointer button two are pressed in
+       the Tektronix window.  The current font size is checked  in  the  modes
        section of the menu.
 
               <b><a title="Tek Options:Large Characters" name="Tek-Options:Large-Characters">Large Characters</a></b> (resource <b><a href="#Menu-Resources:tektextlarge">tektextlarge</a></b>)
@@ -7959,12 +7967,12 @@
 
               <b><a title="Tek Options:RESET" name="Tek-Options:RESET">RESET</a></b> (resource <b><a href="#Menu-Resources:tekreset">tekreset</a></b>)
                      Unlike the similarly-named Tektronix "RESET" button, this
-                     does everything that <b><a href="#Tek-Options:PAGE">PAGE</a></b> does as well as  resetting  the
+                     does  everything  that <b><a href="#Tek-Options:PAGE">PAGE</a></b> does as well as resetting the
                      line-type and font-size to their default values.
 
               <b><a title="Tek Options:COPY" name="Tek-Options:COPY">COPY</a></b> (resource <b><a href="#Menu-Resources:tekcopy">tekcopy</a></b>)
-                     Simulates  the  Tektronix  "COPY"  button  (which makes a
-                     hard-copy of the screen) by writing the information to  a
+                     Simulates the Tektronix  "COPY"  button  (which  makes  a
+                     hard-copy  of the screen) by writing the information to a
                      text file.
 
        Windows:
@@ -7979,87 +7987,87 @@
 <h2><a name="h2-SECURITY" id="h2-SECURITY">SECURITY</a></h2>
 <pre>       X environments differ in their security consciousness.
 
-       <b>o</b>   Most  servers, run under <i>xdm</i>, are capable of using a "magic cookie"
+       <b>o</b>   Most servers, run under <i>xdm</i>, are capable of using a "magic  cookie"
            authorization  scheme  that  can  provide  a  reasonable  level  of
-           security  for  many  people.   If your server is only using a host-
-           based mechanism to control access to  the  server  (see  <a href="https://www.x.org/releases/X11R7.7/doc/man/man1/xhost.1.xhtml"><b>xhost(1)</b></a>),
-           then  if  you  enable  access  for  a host and other users are also
-           permitted to run clients on that same host,  it  is  possible  that
+           security for many people.  If your server is  only  using  a  host-
+           based  mechanism  to  control  access to the server (see <a href="https://www.x.org/releases/X11R7.7/doc/man/man1/xhost.1.xhtml"><b>xhost(1)</b></a>),
+           then if you enable access for a  host  and  other  users  are  also
+           permitted  to  run  clients  on that same host, it is possible that
            someone can run an application which uses the basic services of the
-           X  protocol  to  snoop  on your activities, potentially capturing a
+           X protocol to snoop on your  activities,  potentially  capturing  a
            transcript of everything you type at the keyboard.
 
        <b>o</b>   Any process which has access to your X display can manipulate it in
-           ways that you might not anticipate, even redirecting your  keyboard
-           to  itself  and sending events to your application's windows.  This
-           is true even with the "magic cookie" authorization  scheme.   While
-           the   <b><a href="#VT100-Widget-Resources:allowSendEvents">allowSendEvents</a></b>   provides   some  protection  against  rogue
-           applications tampering  with  your  programs,  guarding  against  a
+           ways  that you might not anticipate, even redirecting your keyboard
+           to itself and sending events to your application's  windows.   This
+           is  true  even with the "magic cookie" authorization scheme.  While
+           the  <b><a href="#VT100-Widget-Resources:allowSendEvents">allowSendEvents</a></b>  provides  some   protection   against   rogue
+           applications  tampering  with  your  programs,  guarding  against a
            snooper is harder.
 
-       <b>o</b>   The  X input extension for instance allows an application to bypass
-           all of the other (limited)  authorization  and  security  features,
+       <b>o</b>   The X input extension for instance allows an application to  bypass
+           all  of  the  other  (limited) authorization and security features,
            including the GrabKeyboard protocol.
 
-       <b>o</b>   The  possibility  of an application spying on your keystrokes is of
-           particular concern when you want to type in  a  password  or  other
-           sensitive  data.   The  best  solution  to this problem is to use a
+       <b>o</b>   The possibility of an application spying on your keystrokes  is  of
+           particular  concern  when  you  want to type in a password or other
+           sensitive data.  The best solution to this  problem  is  to  use  a
            better authorization mechanism than is provided by X.
 
-       Subject to  all  of  these  caveats,  a  simple  mechanism  exists  for
+       Subject  to  all  of  these  caveats,  a  simple  mechanism  exists for
        protecting keyboard input in <i>xterm</i>.
 
-       The  <i>xterm</i>  menu  (see  <b><a href="#h2-MENUS">MENUS</a></b>  above)  contains a <b><a href="#Main-Options:Secure-Keyboard">Secure Keyboard</a></b> entry
-       which, when enabled, attempts to ensure  that  all  keyboard  input  is
+       The <i>xterm</i> menu (see <b><a href="#h2-MENUS">MENUS</a></b>  above)  contains  a  <b><a href="#Main-Options:Secure-Keyboard">Secure  Keyboard</a></b>  entry
+       which,  when  enabled,  attempts  to  ensure that all keyboard input is
        directed <i>only</i> to <i>xterm</i> (using the GrabKeyboard protocol request).  When
-       an  application  prompts  you for a password (or other sensitive data),
-       you can enable <b><a href="#Main-Options:Secure-Keyboard">Secure Keyboard</a></b> using the menu, type in  the  data,  and
+       an application prompts you for a password (or  other  sensitive  data),
+       you  can  enable  <b><a href="#Main-Options:Secure-Keyboard">Secure Keyboard</a></b> using the menu, type in the data, and
        then disable <b><a href="#Main-Options:Secure-Keyboard">Secure Keyboard</a></b> using the menu again.
 
-       <b>o</b>   This   ensures  that  you  know  which  window  is  accepting  your
+       <b>o</b>   This  ensures  that  you  know  which  window  is  accepting   your
            keystrokes.
 
-       <b>o</b>   It cannot ensure that there are no processes which have  access  to
+       <b>o</b>   It  cannot  ensure that there are no processes which have access to
            your X display that might be observing the keystrokes as well.
 
-       Only  one X client at a time can grab the keyboard, so when you attempt
-       to enable <b><a href="#Main-Options:Secure-Keyboard">Secure Keyboard</a></b> it may fail.  In this  case,  the  bell  will
-       sound.   If the <b><a href="#Main-Options:Secure-Keyboard">Secure Keyboard</a></b> succeeds, the foreground and background
-       colors will be exchanged (as if you selected the <b><a href="#VT-Options:Enable-Reverse-Video">Enable  Reverse  Video</a></b>
-       entry  in  the  <b>Modes</b> menu); they will be exchanged again when you exit
-       secure mode.  If the colors do <i>not</i> switch,  then  you  should  be  <i>very</i>
-       suspicious  that  you  are  being  spoofed.  If the application you are
-       running displays a prompt before asking for the password, it is  safest
+       Only one X client at a time can grab the keyboard, so when you  attempt
+       to  enable  <b><a href="#Main-Options:Secure-Keyboard">Secure  Keyboard</a></b>  it may fail.  In this case, the bell will
+       sound.  If the <b><a href="#Main-Options:Secure-Keyboard">Secure Keyboard</a></b> succeeds, the foreground and  background
+       colors  will  be exchanged (as if you selected the <b><a href="#VT-Options:Enable-Reverse-Video">Enable Reverse Video</a></b>
+       entry in the <b>Modes</b> menu); they will be exchanged again  when  you  exit
+       secure  mode.   If  the  colors  do <i>not</i> switch, then you should be <i>very</i>
+       suspicious that you are being spoofed.   If  the  application  you  are
+       running  displays a prompt before asking for the password, it is safest
        to enter secure mode <i>before</i> the prompt gets displayed, and to make sure
-       that  the  prompt  gets  displayed  correctly  (in  the new colors), to
-       minimize the probability of spoofing.  You can also bring up  the  menu
+       that the prompt gets  displayed  correctly  (in  the  new  colors),  to
+       minimize  the  probability of spoofing.  You can also bring up the menu
        again and make sure that a check mark appears next to the entry.
 
-       <b><a href="#Main-Options:Secure-Keyboard">Secure  Keyboard</a></b>  mode  will  be  disabled  automatically if your <i>xterm</i>
-       window becomes iconified (or otherwise unmapped), or if you start up  a
+       <b><a href="#Main-Options:Secure-Keyboard">Secure Keyboard</a></b> mode will  be  disabled  automatically  if  your  <i>xterm</i>
+       window  becomes iconified (or otherwise unmapped), or if you start up a
        reparenting window manager (that places a title bar or other decoration
-       around  the  window) while in <b><a href="#Main-Options:Secure-Keyboard">Secure Keyboard</a></b> mode.  (This is a feature
-       of the X  protocol  not  easily  overcome.)   When  this  happens,  the
-       foreground  and  background  colors  will be switched back and the bell
+       around the window) while in <b><a href="#Main-Options:Secure-Keyboard">Secure Keyboard</a></b> mode.  (This is  a  feature
+       of  the  X  protocol  not  easily  overcome.)   When  this happens, the
+       foreground and background colors will be switched  back  and  the  bell
        will sound in warning.
 
 </pre>
 <h2><a name="h2-CHARACTER-CLASSES" id="h2-CHARACTER-CLASSES">CHARACTER CLASSES</a></h2>
-<pre>       Clicking the left pointer button twice  in  rapid  succession  (double-
+<pre>       Clicking  the  left  pointer  button twice in rapid succession (double-
        clicking) causes all characters of the same class (e.g., letters, white
        space, punctuation) to be selected as a "word".  Since different people
-       have  different  preferences  for what should be selected (for example,
+       have different preferences for what should be  selected  (for  example,
        should filenames be selected as a whole or only the separate subnames),
-       the default mapping can be overridden through the use of the  <b><a href="#VT100-Widget-Resources:charClass">charClass</a></b>
+       the  default mapping can be overridden through the use of the <b><a href="#VT100-Widget-Resources:charClass">charClass</a></b>
        (class <i>CharClass</i>) resource.
 
        This resource is a series of comma-separated <i>range</i>:<i>value</i> pairs.
 
-       <b>o</b>   The  <i>range</i>  is either a single number or <i>low</i>-<i>high</i> in the range of 0
+       <b>o</b>   The <i>range</i> is either a single number or <i>low</i>-<i>high</i> in the range  of  0
            to 65535, corresponding to the code for the character or characters
            to be set.
 
-       <b>o</b>   The <i>value</i> is arbitrary.  For example, the default  table  uses  the
+       <b>o</b>   The  <i>value</i>  is  arbitrary.  For example, the default table uses the
            character number of the first character occurring in the set.  When
            not in UTF-8 mode, only the first 256 entries of this table will be
            used.
@@ -8132,23 +8140,23 @@
            /*  o/   u`   u'   u^   u:   y'    P   y: */
                48,  48,  48,  48,  48,  48,  48,  48};
 
-              For  example,  the string "33:48,37:48,45-47:48,38:48" indicates
-              that the exclamation mark, percent sign,  dash,  period,  slash,
-              and  ampersand  characters  should  be  treated  the same way as
-              characters and numbers.  This is useful for cutting and  pasting
+              For example, the string  "33:48,37:48,45-47:48,38:48"  indicates
+              that  the  exclamation  mark, percent sign, dash, period, slash,
+              and ampersand characters should  be  treated  the  same  way  as
+              characters  and numbers.  This is useful for cutting and pasting
               electronic mailing addresses and filenames.
 
 </pre>
 <h2><a name="h2-KEY-BINDINGS" id="h2-KEY-BINDINGS">KEY BINDINGS</a></h2>
-<pre>       It  is  possible  to  rebind  keys  (or sequences of keys) to arbitrary
+<pre>       It is possible to rebind keys  (or  sequences  of  keys)  to  arbitrary
        strings for input, by changing the <b><a href="#VT100-Widget-Resources:translations">translations</a></b> resources for the vt100
-       or tek4014 widgets.  Changing  the  <b><a href="#VT100-Widget-Resources:translations">translations</a></b>  resource  for  events
-       other  than  key  and  button  events  is  not expected, and will cause
+       or  tek4014  widgets.   Changing  the  <b><a href="#VT100-Widget-Resources:translations">translations</a></b> resource for events
+       other than key and button  events  is  not  expected,  and  will  cause
        unpredictable behavior.
 
 </pre>
 <h3><a name="h3-Actions" id="h3-Actions">Actions</a></h3>
-<pre>       The following actions are provided for use within the <i>vt100</i> or  <i>tek4014</i>
+<pre>       The  following actions are provided for use within the <i>vt100</i> or <i>tek4014</i>
        <b><a href="#VT100-Widget-Resources:translations">translations</a></b> resources:
 
        <b><a title="Actions:allow-bold-fonts" name="Actions:allow-bold-fonts">allow-bold-fonts</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
@@ -8156,28 +8164,28 @@
                and is also invoked by the <b><a href="#Actions:allow-bold-fonts">allow-bold-fonts</a></b> entry in <i>fontMenu</i>.
 
        <b><a title="Actions:allow-color-ops" name="Actions:allow-color-ops">allow-color-ops</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This  action sets, unsets or toggles the <b><a href="#VT100-Widget-Resources:allowColorOps">allowColorOps</a></b> resource
+               This action sets, unsets or toggles the <b><a href="#VT100-Widget-Resources:allowColorOps">allowColorOps</a></b>  resource
                and is also invoked by the <b><a href="#Actions:allow-color-ops">allow-color-ops</a></b> entry in <i>fontMenu</i>.
 
        <b><a title="Actions:allow-font-ops" name="Actions:allow-font-ops">allow-font-ops</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This action sets, unsets or toggles the  <b><a href="#VT100-Widget-Resources:allowFontOps">allowFontOps</a></b>  resource
+               This  action  sets, unsets or toggles the <b><a href="#VT100-Widget-Resources:allowFontOps">allowFontOps</a></b> resource
                and is also invoked by the <b><a href="#Actions:allow-font-ops">allow-font-ops</a></b> entry in <i>fontMenu</i>.
 
        <b><a title="Actions:allow-mouse-ops" name="Actions:allow-mouse-ops">allow-mouse-ops</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This  action sets, unsets or toggles the <b><a href="#VT100-Widget-Resources:allowMouseOps">allowMouseOps</a></b> resource
+               This action sets, unsets or toggles the <b><a href="#VT100-Widget-Resources:allowMouseOps">allowMouseOps</a></b>  resource
                and is also invoked by the <b><a href="#Actions:allow-mouse-ops">allow-mouse-ops</a></b> entry in <i>fontMenu</i>.
 
        <b><a title="Actions:allow-send-events" name="Actions:allow-send-events">allow-send-events</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This  action  sets,  unsets  or  toggles  the   <b><a href="#VT100-Widget-Resources:allowSendEvents">allowSendEvents</a></b>
-               resource  and  is  also  invoked  by  the  <b><a href="#Menu-Resources:allowsends">allowsends</a></b>  entry in
+               This   action  sets,  unsets  or  toggles  the  <b><a href="#VT100-Widget-Resources:allowSendEvents">allowSendEvents</a></b>
+               resource and  is  also  invoked  by  the  <b><a href="#Menu-Resources:allowsends">allowsends</a></b>  entry  in
                <i>mainMenu</i>.
 
        <b><a title="Actions:allow-tcap-ops" name="Actions:allow-tcap-ops">allow-tcap-ops</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This action sets, unsets or toggles the  <b><a href="#VT100-Widget-Resources:allowTcapOps">allowTcapOps</a></b>  resource
+               This  action  sets, unsets or toggles the <b><a href="#VT100-Widget-Resources:allowTcapOps">allowTcapOps</a></b> resource
                and is also invoked by the <b><a href="#Actions:allow-tcap-ops">allow-tcap-ops</a></b> entry in <i>fontMenu</i>.
 
        <b><a title="Actions:allow-title-ops" name="Actions:allow-title-ops">allow-title-ops</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This  action sets, unsets or toggles the <b><a href="#VT100-Widget-Resources:allowTitleOps">allowTitleOps</a></b> resource
+               This action sets, unsets or toggles the <b><a href="#VT100-Widget-Resources:allowTitleOps">allowTitleOps</a></b>  resource
                and is also invoked by the <b><a href="#Actions:allow-title-ops">allow-title-ops</a></b> entry in <i>fontMenu</i>.
 
        <b><a title="Actions:allow-window-ops" name="Actions:allow-window-ops">allow-window-ops</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
@@ -8192,32 +8200,32 @@
                above or below the base volume.
 
        <b><a title="Actions:clear-saved-lines" name="Actions:clear-saved-lines">clear-saved-lines</a></b><b>()</b>
-               This action does <b><a href="#Actions:hard-reset">hard-reset</a></b><b>()</b> and also clears  the  history  of
+               This  action  does  <b><a href="#Actions:hard-reset">hard-reset</a></b><b>()</b> and also clears the history of
                lines saved off the top of the screen.  It is also invoked from
-               the  <b><a href="#Menu-Resources:clearsavedlines">clearsavedlines</a></b>  entry in <i>vtMenu</i>.  The effect is identical
+               the <b><a href="#Menu-Resources:clearsavedlines">clearsavedlines</a></b> entry in <i>vtMenu</i>.  The effect  is  identical
                to a hardware reset (RIS) control sequence.
 
        <b><a title="Actions:copy-selection" name="Actions:copy-selection">copy-selection</a></b><b>(</b><i>destname</i> <b>[,</b> <b>...])</b>
-               This action puts the currently selected text into  all  of  the
-               selections   or   cutbuffers  specified  by  <i>destname</i>.   Unlike
-               <b><a href="#Actions:select-end">select-end</a></b>, it does not send  a  mouse  position  or  otherwise
+               This  action  puts  the currently selected text into all of the
+               selections  or  cutbuffers  specified  by   <i>destname</i>.    Unlike
+               <b><a href="#Actions:select-end">select-end</a></b>,  it  does  not  send  a mouse position or otherwise
                modify the internal selection state.
 
        <b><a title="Actions:create-menu" name="Actions:create-menu">create-menu</a></b><b>(</b><i>m/v/f/t</i><b>)</b>
-               This  action  creates one of the menus used by <i>xterm</i>, if it has
+               This action creates one of the menus used by <i>xterm</i>, if  it  has
                not been previously created.  The parameter values are the menu
                names: <i>mainMenu</i>, <i>vtMenu</i>, <i>fontMenu</i>, <i>tekMenu</i>, respectively.
 
        <b><a title="Actions:dabbrev-expand" name="Actions:dabbrev-expand">dabbrev-expand</a></b><b>()</b>
-               Expands the word before cursor by searching  in  the  preceding
-               text  on  the  screen  and  in  the scrollback buffer for words
-               starting with that  abbreviation.   Repeating  <b><a href="#Actions:dabbrev-expand">dabbrev-expand</a></b><b>()</b>
+               Expands  the  word  before cursor by searching in the preceding
+               text on the screen and  in  the  scrollback  buffer  for  words
+               starting  with  that  abbreviation.  Repeating <b><a href="#Actions:dabbrev-expand">dabbrev-expand</a></b><b>()</b>
                several times in sequence searches for an alternative expansion
                by looking farther back.  Lack of more matches is signaled by a
-               bell.   Attempts  to expand an empty word (i.e., when cursor is
-               preceded by a space) yield  successively  all  previous  words.
+               bell.  Attempts to expand an empty word (i.e., when  cursor  is
+               preceded  by  a  space)  yield successively all previous words.
                Consecutive identical expansions are ignored.  The word here is
-               defined  as  a  sequence  of  non-whitespace  characters.  This
+               defined as  a  sequence  of  non-whitespace  characters.   This
                feature   partially   emulates   the   behavior   of   "dynamic
                abbreviation" expansion in Emacs (bound there to M-/).  Here is
                a resource setting for <i>xterm</i> which will do the same thing:
@@ -8232,8 +8240,8 @@
                This action toggles the state of the <b><a href="#VT100-Widget-Resources:deleteIsDEL">deleteIsDEL</a></b> resource.
 
        <b><a title="Actions:dired-button" name="Actions:dired-button">dired-button</a></b><b>()</b>
-               Handles  a  button  event  (other  than  press  and release) by
-               echoing the event's position (i.e., character line and  column)
+               Handles a button  event  (other  than  press  and  release)  by
+               echoing  the event's position (i.e., character line and column)
                in the following format:
 
                    ^X ESC G &lt;line+" "&gt; &lt;col+" "&gt;
@@ -8245,17 +8253,17 @@
                Invokes the <b><a href="#Main-Options:SVG-Screen-Dump">SVG Screen Dump</a></b> feature.
 
        <b><a title="Actions:exec-formatted" name="Actions:exec-formatted">exec-formatted</a></b><b>(</b><i>format</i><b>,</b> <i>sourcename</i> <b>[,</b> <b>...])</b>
-               Execute  an  external  command, using the current selection for
-               part of the command's parameters.  The first parameter,  <i>format</i>
-               gives  the  basic  command.   Succeeding parameters specify the
+               Execute an external command, using the  current  selection  for
+               part  of the command's parameters.  The first parameter, <i>format</i>
+               gives the basic command.   Succeeding  parameters  specify  the
                selection source as in <b><a href="#Actions:insert-selection">insert-selection</a></b>.
 
                The <i>format</i> parameter allows these substitutions:
 
                %%   inserts a "%".
 
-               %P   the screen-position at the beginning  of  the  highlighted
-                    region,  as  a  semicolon-separated pair of integers using
+               %P   the  screen-position  at  the beginning of the highlighted
+                    region, as a semicolon-separated pair  of  integers  using
                     the values that the CUP control sequence would use.
 
                %p   the screen-position after the beginning of the highlighted
@@ -8267,37 +8275,37 @@
 
                %T   the length of the string that "%t" would insert.
 
-               %t   the selection,  trimmed  of  leading/trailing  whitespace.
+               %t   the  selection,  trimmed  of  leading/trailing whitespace.
                     Embedded spaces (and newlines) are copied as is.
 
                %R   the length of the string that "%r" would insert.
 
                %r   the selection, trimmed of trailing whitespace.
 
-               %V   the  video  attributes at the beginning of the highlighted
-                    region, as a semicolon-separated list  of  integers  using
+               %V   the video attributes at the beginning of  the  highlighted
+                    region,  as  a  semicolon-separated list of integers using
                     the values that the SGR control sequence would use.
 
-               %v   the  video  attributes  after  the  end of the highlighted
+               %v   the video attributes after  the  end  of  the  highlighted
                     region, using the same convention as "%V".
 
                After constructing the command-string, <i>xterm</i> forks a subprocess
-               and executes the  command,  which  completes  independently  of
+               and  executes  the  command,  which  completes independently of
                <i>xterm</i>.
 
-               For  example, this translation would invoke a new <i>xterm</i> process
-               to view a file whose name is selected while holding  the  shift
-               key  down.  The new process is started when the mouse button is
+               For example, this translation would invoke a new <i>xterm</i>  process
+               to  view  a file whose name is selected while holding the shift
+               key down.  The new process is started when the mouse button  is
                released:
 
                    *VT100*translations: #override Shift \
                        &lt;Btn1Up&gt;:<b><a href="#Actions:exec-formatted">exec-formatted</a></b>("xterm -e view '%t'", <b><a href="#h3-SELECT">SELECT</a></b>)
 
        <b><a title="Actions:exec-selectable" name="Actions:exec-selectable">exec-selectable</a></b><b>(</b><i>format</i><b>,</b> <i>onClicks</i><b>)</b>
-               Execute an external command, using data copied from the  screen
-               for  part  of  the  command's parameters.  The first parameter,
-               <i>format</i> gives the  basic  command  as  in  <b><a href="#Actions:exec-formatted">exec-formatted</a></b>.   The
-               second  parameter  specifies the method for copying the data as
+               Execute  an external command, using data copied from the screen
+               for part of the command's  parameters.   The  first  parameter,
+               <i>format</i>  gives  the  basic  command  as  in <b><a href="#Actions:exec-formatted">exec-formatted</a></b>.  The
+               second parameter specifies the method for copying the  data  as
                in the <b><a href="#VT100-Widget-Resources:on2Clicks">on2Clicks</a></b> resource.
 
        <b><a title="Actions:fullscreen" name="Actions:fullscreen">fullscreen</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
@@ -8312,7 +8320,7 @@
                Iconifies the window.
 
        <b><a title="Actions:ignore" name="Actions:ignore">ignore</a></b><b>()</b>
-               This action ignores the event but checks  for  special  pointer
+               This  action  ignores  the event but checks for special pointer
                position escape sequences.
 
        <b><a title="Actions:insert" name="Actions:insert">insert</a></b><b>()</b>
@@ -8320,17 +8328,17 @@
                key that was pressed.
 
        <b><a title="Actions:insert-eight-bit" name="Actions:insert-eight-bit">insert-eight-bit</a></b><b>()</b>
-               This   action  inserts  an  eight-bit  (Meta)  version  of  the
-               character or string associated with the key that  was  pressed.
-               Only  single-byte  values  are  treated  specially.   The exact
-               action depends on the  value  of  the  <b><a href="#VT100-Widget-Resources:altSendsEscape">altSendsEscape</a></b>  and  the
+               This  action  inserts  an  eight-bit  (Meta)  version  of   the
+               character  or  string associated with the key that was pressed.
+               Only single-byte  values  are  treated  specially.   The  exact
+               action  depends  on  the  value  of  the <b><a href="#VT100-Widget-Resources:altSendsEscape">altSendsEscape</a></b> and the
                <b><a href="#VT100-Widget-Resources:metaSendsEscape">metaSendsEscape</a></b>   and   the   <b><a href="#VT100-Widget-Resources:eightBitInput">eightBitInput</a></b>   resources.    The
-               <b><a href="#VT100-Widget-Resources:metaSendsEscape">metaSendsEscape</a></b>   resource   is   tested   first.    See    the
+               <b><a href="#VT100-Widget-Resources:metaSendsEscape">metaSendsEscape</a></b>    resource   is   tested   first.    See   the
                <b><a href="#VT100-Widget-Resources:eightBitInput">eightBitInput</a></b> resource for a full discussion.
 
-               The  term "eight-bit" is misleading: <i>xterm</i> checks if the key is
-               in the range 128 to 255 (the eighth bit is set).  If the  value
-               is  in  that range, depending on the resource values, <i>xterm</i> may
+               The term "eight-bit" is misleading: <i>xterm</i> checks if the key  is
+               in  the range 128 to 255 (the eighth bit is set).  If the value
+               is in that range, depending on the resource values,  <i>xterm</i>  may
                then do one of the following:
 
                <b>o</b>   add 128 to the value, setting its eighth bit,
@@ -8340,45 +8348,45 @@
                <b>o</b>   send the key unaltered.
 
        <b><a title="Actions:insert-formatted" name="Actions:insert-formatted">insert-formatted</a></b><b>(</b><i>format</i><b>,</b> <i>sourcename</i> <b>[,</b> <b>...])</b>
-               Insert the current selection or data related to it,  formatted.
-               The  first parameter, <i>format</i> gives the template for the data as
+               Insert  the current selection or data related to it, formatted.
+               The first parameter, <i>format</i> gives the template for the data  as
                in <b><a href="#Actions:exec-formatted">exec-formatted</a></b>.  Succeeding parameters specify the selection
                source as in <b><a href="#Actions:insert-selection">insert-selection</a></b>.
 
        <b><a title="Actions:insert-selectable" name="Actions:insert-selectable">insert-selectable</a></b><b>(</b><i>format</i><b>,</b> <i>onClicks</i><b>)</b>
-               Insert data copied  from  the  screen,  formatted.   The  first
-               parameter,  <i>format</i>  gives  the  template  for  the  data  as in
-               <b><a href="#Actions:exec-formatted">exec-formatted</a></b>.  The second parameter specifies the method  for
+               Insert  data  copied  from  the  screen,  formatted.  The first
+               parameter, <i>format</i>  gives  the  template  for  the  data  as  in
+               <b><a href="#Actions:exec-formatted">exec-formatted</a></b>.   The second parameter specifies the method for
                copying the data as in the <b><a href="#VT100-Widget-Resources:on2Clicks">on2Clicks</a></b> resource.
 
        <b><a title="Actions:insert-selection" name="Actions:insert-selection">insert-selection</a></b><b>(</b><i>sourcename</i> <b>[,</b> <b>...])</b>
-               This  action  inserts  the  string  found  in  the selection or
-               cutbuffer indicated by <i>sourcename</i>.  Sources are checked in  the
-               order   given   (case  is  significant)  until  one  is  found.
-               Commonly-used  selections  include:  <b><a href="#h3-PRIMARY">PRIMARY</a></b>,  <b><a href="#h3-SECONDARY">SECONDARY</a></b>,   and
+               This action inserts  the  string  found  in  the  selection  or
+               cutbuffer  indicated by <i>sourcename</i>.  Sources are checked in the
+               order  given  (case  is  significant)  until  one   is   found.
+               Commonly-used   selections  include:  <b><a href="#h3-PRIMARY">PRIMARY</a></b>,  <b><a href="#h3-SECONDARY">SECONDARY</a></b>,  and
                <b><a href="#h3-CLIPBOARD">CLIPBOARD</a></b>.  Cut buffers are typically named <b>CUT_BUFFER0</b> through
                <b>CUT_BUFFER7</b>.
 
        <b><a title="Actions:insert-seven-bit" name="Actions:insert-seven-bit">insert-seven-bit</a></b><b>()</b>
                This action is a synonym for <b><a href="#Actions:insert">insert</a></b><b>()</b>.  The term "seven-bit" is
-               misleading:  it only implies that <i>xterm</i> does not try to add 128
+               misleading: it only implies that <i>xterm</i> does not try to add  128
                to the key's value as in <b><a href="#Actions:insert-eight-bit">insert-eight-bit</a></b><b>()</b>.
 
        <b><a title="Actions:interpret" name="Actions:interpret">interpret</a></b><b>(</b><i>control-sequence</i><b>)</b>
-               Interpret the given control  sequence  locally,  i.e.,  without
-               passing  it  to  the host.  This works by inserting the control
-               sequence at the front of the input buffer.  Use "\"  to  escape
-               octal  digits  in  the  string.  Xt does not allow you to put a
+               Interpret  the  given  control  sequence locally, i.e., without
+               passing it to the host.  This works by  inserting  the  control
+               sequence  at  the front of the input buffer.  Use "\" to escape
+               octal digits in the string.  Xt does not allow  you  to  put  a
                null character (i.e., "\000") in the string.
 
        <b><a title="Actions:keymap" name="Actions:keymap">keymap</a></b><b>(</b><i>name</i><b>)</b>
-               This action dynamically defines a new translation  table  whose
-               resource   name   is  <i>name</i>  with  the  suffix  "<i>Keymap</i>"  (i.e.,
+               This  action  dynamically defines a new translation table whose
+               resource  name  is  <i>name</i>  with  the  suffix   "<i>Keymap</i>"   (i.e.,
                <a href="#VT100-Widget-Resources:..name..Keymap"><i>name</i><b>Keymap</b></a>, where case is significant).  The name <i>None</i> restores
                the original translation table.
 
        <b><a title="Actions:larger-vt-font" name="Actions:larger-vt-font">larger-vt-font</a></b><b>()</b>
-               Set the font  to  the  next  larger  one,  based  on  the  font
+               Set  the  font  to  the  next  larger  one,  based  on the font
                dimensions.  See also <b><a href="#Actions:set-vt-font">set-vt-font</a></b><b>()</b>.
 
        <b><a title="Actions:load-vt-fonts" name="Actions:load-vt-fonts">load-vt-fonts</a></b><b>(</b><i>name</i><b>[,</b><i>class</i><b>])</b>
@@ -8386,10 +8394,10 @@
                is, load the "*VT100.<i>name</i>.font", resource as "*VT100.font" etc.
                If no name is given, the original set of fontnames is restored.
 
-               Unlike  <b><a href="#Actions:set-vt-font">set-vt-font</a></b><b>()</b>,  this  does  not  affect the escape- and
+               Unlike <b><a href="#Actions:set-vt-font">set-vt-font</a></b><b>()</b>, this does  not  affect  the  escape-  and
                select-fonts, since those are not based on resource values.  It
-               does affect the fonts loosely  organized  under  the  "Default"
-               menu    entry,   including   <b><a href="#VT100-Widget-Resources:font">font</a></b>,   <b><a href="#VT100-Widget-Resources:boldFont">boldFont</a></b>,   <b><a href="#VT100-Widget-Resources:wideFont">wideFont</a></b>   and
+               does  affect  the  fonts  loosely organized under the "Default"
+               menu   entry,   including   <b><a href="#VT100-Widget-Resources:font">font</a></b>,   <b><a href="#VT100-Widget-Resources:boldFont">boldFont</a></b>,   <b><a href="#VT100-Widget-Resources:wideFont">wideFont</a></b>    and
                <b><a href="#VT100-Widget-Resources:wideBoldFont">wideBoldFont</a></b>.
 
        <b><a title="Actions:maximize" name="Actions:maximize">maximize</a></b><b>()</b>
@@ -8399,18 +8407,18 @@
                This action toggles the state of the <b><a href="#VT100-Widget-Resources:metaSendsEscape">metaSendsEscape</a></b> resource.
 
        <b><a title="Actions:pointer-button" name="Actions:pointer-button">pointer-button</a></b><b>()</b>
-               Use this action as a fall-back  to  handle  button  press-  and
+               Use  this  action  as  a  fall-back to handle button press- and
                release-events for the mouse control sequence protocol when the
-               selection-related   translations   are   suppressed   with  the
+               selection-related  translations   are   suppressed   with   the
                <b><a href="#Application-Resources:omitTranslation">omitTranslation</a></b> resource.
 
        <b><a title="Actions:pointer-motion" name="Actions:pointer-motion">pointer-motion</a></b><b>()</b>
-               Use this action as a fall-back to handle motion-events for  the
-               mouse  control  sequence  protocol  when  the selection-related
+               Use  this action as a fall-back to handle motion-events for the
+               mouse control  sequence  protocol  when  the  selection-related
                translations are suppressed with the <b><a href="#Application-Resources:omitTranslation">omitTranslation</a></b> resource.
 
        <b><a title="Actions:popup-menu" name="Actions:popup-menu">popup-menu</a></b><b>(</b><i>menuname</i><b>)</b>
-               This action displays the specified  popup  menu.   Valid  names
+               This  action  displays  the  specified popup menu.  Valid names
                (case is significant) include:  <i>mainMenu</i>, <i>vtMenu</i>, <i>fontMenu</i>, and
                <i>tekMenu</i>.
 
@@ -8419,99 +8427,99 @@
                entry in <i>mainMenu</i>.
 
                The  action  accepts  optional  parameters,  which  temporarily
-               override resource settings.  The parameter values  are  matched
+               override  resource  settings.  The parameter values are matched
                ignoring case:
 
                noFormFeed
-                    no  form  feed  will  be  sent at the end of the last line
+                    no form feed will be sent at the  end  of  the  last  line
                     printed (i.e., <b><a href="#VT100-Widget-Resources:printerFormFeed">printerFormFeed</a></b> is "false").
 
                FormFeed
-                    a form feed will be sent at  the  end  of  the  last  line
+                    a  form  feed  will  be  sent  at the end of the last line
                     printed (i.e., <b><a href="#VT100-Widget-Resources:printerFormFeed">printerFormFeed</a></b> is "true").
 
                noNewLine
-                    no  newline  will  be  sent  at  the  end of the last line
-                    printed, and wrapped lines  will  be  combined  into  long
+                    no newline will be sent  at  the  end  of  the  last  line
+                    printed,  and  wrapped  lines  will  be combined into long
                     lines (i.e., <b><a href="#VT100-Widget-Resources:printerNewLine">printerNewLine</a></b> is "false").
 
                NewLine
-                    a  newline  will  be  sent  at  the  end  of the last line
-                    printed, and each  line  will  be  limited  (by  adding  a
-                    newline)  to  the  screen  width  (i.e., <b><a href="#VT100-Widget-Resources:printerNewLine">printerNewLine</a></b> is
+                    a newline will be  sent  at  the  end  of  the  last  line
+                    printed,  and  each  line  will  be  limited  (by adding a
+                    newline) to the  screen  width  (i.e.,  <b><a href="#VT100-Widget-Resources:printerNewLine">printerNewLine</a></b>  is
                     "true").
 
                noAttrs
-                    the   page   is   printed   without   attributes    (i.e.,
+                    the    page   is   printed   without   attributes   (i.e.,
                     <b><a href="#VT100-Widget-Resources:printAttributes">printAttributes</a></b> is "0").
 
                monoAttrs
-                    the  page  is  printed  with monochrome (vt220) attributes
+                    the page is printed  with  monochrome  (vt220)  attributes
                     (i.e., <b><a href="#VT100-Widget-Resources:printAttributes">printAttributes</a></b> is "1").
 
                colorAttrs
-                    the page is printed  with  ANSI  color  attributes  (i.e.,
+                    the  page  is  printed  with  ANSI color attributes (i.e.,
                     <b><a href="#VT100-Widget-Resources:printAttributes">printAttributes</a></b> is "2").
 
        <b><a title="Actions:print-everything" name="Actions:print-everything">print-everything</a></b><b>(</b><i>printer-flags</i><b>)</b>
-               This  action  sends the entire text history, in addition to the
-               text  currently  visible,  to  the   program   given   in   the
-               <b><a href="#VT100-Widget-Resources:printerCommand">printerCommand</a></b>   resource.    It   allows   the  same  optional
-               parameters as  the  <b><a href="#Actions:print">print</a></b>  action.   With  a  suitable  printer
-               command,  the action can be used to load the text history in an
+               This action sends the entire text history, in addition  to  the
+               text   currently   visible,   to   the  program  given  in  the
+               <b><a href="#VT100-Widget-Resources:printerCommand">printerCommand</a></b>  resource.   It   allows   the   same   optional
+               parameters  as  the  <b><a href="#Actions:print">print</a></b>  action.   With  a  suitable printer
+               command, the action can be used to load the text history in  an
                editor.
 
        <b><a title="Actions:print-immediate" name="Actions:print-immediate">print-immediate</a></b><b>()</b>
-               Sends the text of the current window directly  to  a  file,  as
-               specified  by  the  <b><a href="#VT100-Widget-Resources:printFileImmediate">printFileImmediate</a></b>,  <b><a href="#VT100-Widget-Resources:printModeImmediate">printModeImmediate</a></b> and
+               Sends  the  text  of  the current window directly to a file, as
+               specified by  the  <b><a href="#VT100-Widget-Resources:printFileImmediate">printFileImmediate</a></b>,  <b><a href="#VT100-Widget-Resources:printModeImmediate">printModeImmediate</a></b>  and
                <b><a href="#VT100-Widget-Resources:printOptsImmediate">printOptsImmediate</a></b> resources.
 
        <b><a title="Actions:print-on-error" name="Actions:print-on-error">print-on-error</a></b><b>()</b>
-               Toggles a flag telling <i>xterm</i> that if it exits with an X  error,
-               to  send  the text of the current window directly to a file, as
-               specified  by  the  <b><a href="#VT100-Widget-Resources:printFileOnXError">printFileOnXError</a></b>,  <b><a href="#VT100-Widget-Resources:printModeOnXError">printModeOnXError</a></b>   and
+               Toggles  a flag telling <i>xterm</i> that if it exits with an X error,
+               to send the text of the current window directly to a  file,  as
+               specified   by  the  <b><a href="#VT100-Widget-Resources:printFileOnXError">printFileOnXError</a></b>,  <b><a href="#VT100-Widget-Resources:printModeOnXError">printModeOnXError</a></b>  and
                <b><a href="#VT100-Widget-Resources:printOptsOnXError">printOptsOnXError</a></b> resources.
 
        <b><a title="Actions:print-redir" name="Actions:print-redir">print-redir</a></b><b>()</b>
-               This  action  toggles  the  <b><a href="#VT100-Widget-Resources:printerControlMode">printerControlMode</a></b> between 0 and 2.
-               The corresponding popup menu entry is useful for switching  the
+               This action toggles the <b><a href="#VT100-Widget-Resources:printerControlMode">printerControlMode</a></b>  between  0  and  2.
+               The  corresponding popup menu entry is useful for switching the
                printer off if you happen to change your mind after deciding to
                print random binary files on the terminal.
 
        <b><a title="Actions:quit" name="Actions:quit">quit</a></b><b>()</b>
-               This  action sends a SIGHUP to the subprogram and exits.  It is
+               This action sends a SIGHUP to the subprogram and exits.  It  is
                also invoked by the <b><a href="#Actions:quit">quit</a></b> entry in <i>mainMenu</i>.
 
        <b><a title="Actions:readline-button" name="Actions:readline-button">readline-button</a></b><b>()</b>
-               Supports the optional  readline  feature  by  echoing  repeated
-               cursor  forward or backward control sequences on button release
-               event, to request that the host application update  its  notion
+               Supports  the  optional  readline  feature  by echoing repeated
+               cursor forward or backward control sequences on button  release
+               event,  to  request that the host application update its notion
                of the cursor's position to match the button event.
 
        <b><a title="Actions:redraw" name="Actions:redraw">redraw</a></b><b>()</b>
-               This  action  redraws  the  window.   It is also invoked by the
+               This action redraws the window.  It  is  also  invoked  by  the
                <b><a href="#Actions:redraw">redraw</a></b> entry in <i>mainMenu</i>.
 
        <b><a title="Actions:restore" name="Actions:restore">restore</a></b><b>()</b>
                Restores the window to the size before it was last maximized.
 
        <b><a title="Actions:scroll-back" name="Actions:scroll-back">scroll-back</a></b><b>(</b><i>count</i> <b>[,</b><i>units</i> <b>[,</b><i>mouse</i><b>]</b> <b>])</b>
-               This action scrolls the text window backward so that text  that
-               had  previously  scrolled  off  the  top  of  the screen is now
+               This  action scrolls the text window backward so that text that
+               had previously scrolled off  the  top  of  the  screen  is  now
                visible.
 
-               The <i>count</i> argument indicates the number of <i>units</i> (which may  be
-               <i>page</i>,  <i>halfpage</i>,  <i>pixel</i>,  or  <i>line</i>)  by which to scroll.  If no
-               <i>count</i> parameter is given, <i>xterm</i> uses the number of lines  given
+               The  <i>count</i> argument indicates the number of <i>units</i> (which may be
+               <i>page</i>, <i>halfpage</i>, <i>pixel</i>, or <i>line</i>) by  which  to  scroll.   If  no
+               <i>count</i>  parameter is given, <i>xterm</i> uses the number of lines given
                by the <b><a href="#VT100-Widget-Resources:scrollLines">scrollLines</a></b> resource.
 
-               An  adjustment  can be specified for the <i>page</i> or <i>halfpage</i> units
-               by appending a "+" or "-" sign  followed  by  a  number,  e.g.,
+               An adjustment can be specified for the <i>page</i> or  <i>halfpage</i>  units
+               by  appending  a  "+"  or  "-" sign followed by a number, e.g.,
                <i>page-2</i> to specify 2 lines less than a page.
 
                If the second parameter is omitted "lines" is used.
 
-               If  the  third  parameter <i>mouse</i> is given, the action is ignored
+               If the third parameter <i>mouse</i> is given, the  action  is  ignored
                when mouse reporting is enabled.
 
        <b><a title="Actions:scroll-forw" name="Actions:scroll-forw">scroll-forw</a></b><b>(</b><i>count</i> <b>[,</b><i>units</i> <b>[,</b><i>mouse</i><b>]</b> <b>])</b>
@@ -8519,46 +8527,46 @@
                the other direction.
 
        <b><a title="Actions:scroll-lock" name="Actions:scroll-lock">scroll-lock</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This action sets, unsets or toggles internal state which  tells
-               <i>xterm</i>   whether   Scroll   Lock   is  active,  subject  to  the
+               This  action sets, unsets or toggles internal state which tells
+               <i>xterm</i>  whether  Scroll  Lock  is   active,   subject   to   the
                <b><a href="#VT100-Widget-Resources:allowScrollLock">allowScrollLock</a></b> resource.
 
        <b><a title="Actions:scroll-to" name="Actions:scroll-to">scroll-to</a></b><b>(</b><i>count</i><b>)</b>
-               Scroll to the given line  relative  to  the  beginning  of  the
-               saved-lines.   For instance, "<b><a href="#Actions:scroll-to">scroll-to</a>(0)</b>" would scroll to the
+               Scroll  to  the  given  line  relative  to the beginning of the
+               saved-lines.  For instance, "<b><a href="#Actions:scroll-to">scroll-to</a>(0)</b>" would scroll to  the
                beginning.  Two special nonnumeric parameters are recognized:
 
                <b><a href="#Actions:scroll-to">scroll-to</a>(begin)</b>
                        Scroll to the beginning of the saved lines.
 
                <b><a href="#Actions:scroll-to">scroll-to</a>(end)</b>
-                       Scroll to the end of the  saved  lines,  i.e.,  to  the
+                       Scroll  to  the  end  of  the saved lines, i.e., to the
                        currently active page.
 
        <b><a title="Actions:secure" name="Actions:secure">secure</a></b><b>()</b>
-               This  action  toggles  the <i>Secure Keyboard</i> mode (see <b><a href="#h2-SECURITY">SECURITY</a></b>),
+               This action toggles the <i>Secure Keyboard</i>  mode  (see  <b><a href="#h2-SECURITY">SECURITY</a></b>),
                and is invoked from the <b><a href="#Menu-Resources:securekbd">securekbd</a></b> entry in <i>mainMenu</i>.
 
        <b><a title="Actions:select-cursor-end" name="Actions:select-cursor-end">select-cursor-end</a></b><b>(</b><i>destname</i> <b>[,</b> <b>...])</b>
-               This action is similar to <b><a href="#Actions:select-end">select-end</a></b> except that it  should  be
+               This  action  is similar to <b><a href="#Actions:select-end">select-end</a></b> except that it should be
                used with <b><a href="#Actions:select-cursor-start">select-cursor-start</a></b>.
 
        <b><a title="Actions:select-cursor-extend" name="Actions:select-cursor-extend">select-cursor-extend</a></b><b>()</b>
-               This  action  is similar to <b><a href="#Actions:select-extend">select-extend</a></b> except that it should
+               This action is similar to <b><a href="#Actions:select-extend">select-extend</a></b> except that  it  should
                be used with <b><a href="#Actions:select-cursor-start">select-cursor-start</a></b>.
 
        <b><a title="Actions:select-cursor-start" name="Actions:select-cursor-start">select-cursor-start</a></b><b>()</b>
-               This action is similar to <b><a href="#Actions:select-start">select-start</a></b> except  that  it  begins
+               This  action  is  similar to <b><a href="#Actions:select-start">select-start</a></b> except that it begins
                the selection at the current text cursor position.
 
        <b><a title="Actions:select-end" name="Actions:select-end">select-end</a></b><b>(</b><i>destname</i> <b>[,</b> <b>...])</b>
-               This  action  puts  the currently selected text into all of the
-               selections or cutbuffers specified by <i>destname</i>.  It also  sends
-               a  mouse  position  and updates the internal selection state to
+               This action puts the currently selected text into  all  of  the
+               selections  or cutbuffers specified by <i>destname</i>.  It also sends
+               a mouse position and updates the internal  selection  state  to
                reflect the end of the selection process.
 
        <b><a title="Actions:select-extend" name="Actions:select-extend">select-extend</a></b><b>()</b>
-               This action tracks the pointer and extends the  selection.   It
+               This  action  tracks the pointer and extends the selection.  It
                should only be bound to Motion events.
 
        <b><a title="Actions:select-set" name="Actions:select-set">select-set</a></b><b>()</b>
@@ -8566,45 +8574,45 @@
                selection, without affecting the selection mode.
 
        <b><a title="Actions:select-start" name="Actions:select-start">select-start</a></b><b>()</b>
-               This action  begins  text  selection  at  the  current  pointer
-               location.   See the section on <b><a href="#h2-POINTER-USAGE">POINTER USAGE</a></b> for information on
+               This  action  begins  text  selection  at  the  current pointer
+               location.  See the section on <b><a href="#h2-POINTER-USAGE">POINTER USAGE</a></b> for information  on
                making selections.
 
-               If <i>xterm</i> is configured to support block-selection, this  action
-               accepts  a  parameter "block" which initiates a block-selection
+               If  <i>xterm</i> is configured to support block-selection, this action
+               accepts a parameter "block" which initiates  a  block-selection
                rather than the default character-oriented selection.
 
        <b><a title="Actions:send-signal" name="Actions:send-signal">send-signal</a></b><b>(</b><i>signame</i><b>)</b>
-               This action sends the signal named  by  <i>signame</i>  to  the  <i>xterm</i>
-               subprocess  (the shell or program specified with the <i>-e</i> command
-               line option).  It is also invoked  by  the  <b><a href="#Menu-Resources:suspend">suspend</a></b>,  <b><a href="#Menu-Resources:continue">continue</a></b>,
-               <b><a href="#Menu-Resources:interrupt">interrupt</a></b>,  <b><a href="#Menu-Resources:hangup">hangup</a></b>,  <b><a href="#Menu-Resources:terminate">terminate</a></b>,  and  <b><a href="#Menu-Resources:kill">kill</a></b> entries in <i>mainMenu</i>.
-               Allowable signal names are (case is not significant): <i>tstp</i>  (if
-               supported  by  the  operating  system), <i>suspend</i> (same as <i>tstp</i>),
-               <i>cont</i> (if supported by the operating system),  <i>int</i>,  <i>hup</i>,  <i>term</i>,
+               This  action  sends  the  signal  named by <i>signame</i> to the <i>xterm</i>
+               subprocess (the shell or program specified with the <i>-e</i>  command
+               line  option).   It  is  also invoked by the <b><a href="#Menu-Resources:suspend">suspend</a></b>, <b><a href="#Menu-Resources:continue">continue</a></b>,
+               <b><a href="#Menu-Resources:interrupt">interrupt</a></b>, <b><a href="#Menu-Resources:hangup">hangup</a></b>, <b><a href="#Menu-Resources:terminate">terminate</a></b>, and  <b><a href="#Menu-Resources:kill">kill</a></b>  entries  in  <i>mainMenu</i>.
+               Allowable  signal names are (case is not significant): <i>tstp</i> (if
+               supported by the operating system),  <i>suspend</i>  (same  as  <i>tstp</i>),
+               <i>cont</i>  (if  supported  by the operating system), <i>int</i>, <i>hup</i>, <i>term</i>,
                <i>quit</i>, <i>alrm</i>, <i>alarm</i> (same as <i>alrm</i>) and <i>kill</i>.
 
        <b><a title="Actions:set-8-bit-control" name="Actions:set-8-bit-control">set-8-bit-control</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This   action  sets,  unsets  or  toggles  the  <b><a href="#VT100-Widget-Resources:eightBitControl">eightBitControl</a></b>
-               resource.  It is also invoked from the <b><a href="#Menu-Resources:8-bit-control">8-bit-control</a></b>  entry  in
+               This  action  sets,  unsets  or  toggles  the   <b><a href="#VT100-Widget-Resources:eightBitControl">eightBitControl</a></b>
+               resource.   It  is also invoked from the <b><a href="#Menu-Resources:8-bit-control">8-bit-control</a></b> entry in
                <i>vtMenu</i>.
 
        <b><a title="Actions:set-allow132" name="Actions:set-allow132">set-allow132</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This  action  sets, unsets or toggles the <b><a href="#VT100-Widget-Resources:c132">c132</a></b> resource.  It is
+               This action sets, unsets or toggles the <b><a href="#VT100-Widget-Resources:c132">c132</a></b> resource.   It  is
                also invoked from the <b><a href="#Menu-Resources:allow132">allow132</a></b> entry in <i>vtMenu</i>.
 
        <b><a title="Actions:set-altscreen" name="Actions:set-altscreen">set-altscreen</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This action sets, unsets or toggles between the  alternate  and
+               This  action  sets, unsets or toggles between the alternate and
                current screens.
 
        <b><a title="Actions:set-appcursor" name="Actions:set-appcursor">set-appcursor</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This  action  sets,  unsets or toggles the handling Application
-               Cursor Key mode and is also invoked by the <b><a href="#Menu-Resources:appcursor">appcursor</a></b>  entry  in
+               This action sets, unsets or toggles  the  handling  Application
+               Cursor  Key  mode and is also invoked by the <b><a href="#Menu-Resources:appcursor">appcursor</a></b> entry in
                <i>vtMenu</i>.
 
        <b><a title="Actions:set-appkeypad" name="Actions:set-appkeypad">set-appkeypad</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
                This action sets, unsets or toggles the handling of Application
-               Keypad  mode  and  is  also  invoked  by the <b><a href="#Menu-Resources:appkeypad">appkeypad</a></b> entry in
+               Keypad mode and is also  invoked  by  the  <b><a href="#Menu-Resources:appkeypad">appkeypad</a></b>  entry  in
                <i>vtMenu</i>.
 
        <b><a title="Actions:set-autolinefeed" name="Actions:set-autolinefeed">set-autolinefeed</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
@@ -8612,15 +8620,15 @@
                feeds.  It is also invoked by the <b><a href="#Menu-Resources:autolinefeed">autolinefeed</a></b> entry in <i>vtMenu</i>.
 
        <b><a title="Actions:set-autowrap" name="Actions:set-autowrap">set-autowrap</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This action sets, unsets or toggles automatic wrapping of  long
+               This  action sets, unsets or toggles automatic wrapping of long
                lines.  It is also invoked by the <b><a href="#Menu-Resources:autowrap">autowrap</a></b> entry in <i>vtMenu</i>.
 
        <b><a title="Actions:set-backarrow" name="Actions:set-backarrow">set-backarrow</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This  action sets, unsets or toggles the <b><a href="#VT100-Widget-Resources:backarrowKey">backarrowKey</a></b> resource.
+               This action sets, unsets or toggles the <b><a href="#VT100-Widget-Resources:backarrowKey">backarrowKey</a></b>  resource.
                It is also invoked from the <b><a href="#Menu-Resources:backarrow-key">backarrow key</a></b> entry in <i>vtMenu</i>.
 
        <b><a title="Actions:set-bellIsUrgent" name="Actions:set-bellIsUrgent">set-bellIsUrgent</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This action sets, unsets or toggles the <b><a href="#VT100-Widget-Resources:bellIsUrgent">bellIsUrgent</a></b>  resource.
+               This  action sets, unsets or toggles the <b><a href="#VT100-Widget-Resources:bellIsUrgent">bellIsUrgent</a></b> resource.
                It is also invoked by the <b><a href="#VT100-Widget-Resources:bellIsUrgent">bellIsUrgent</a></b> entry in <i>vtMenu</i>.
 
        <b><a title="Actions:set-cursesemul" name="Actions:set-cursesemul">set-cursesemul</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
@@ -8628,33 +8636,33 @@
                also invoked from the <b><a href="#Menu-Resources:cursesemul">cursesemul</a></b> entry in <i>vtMenu</i>.
 
        <b><a title="Actions:set-cursorblink" name="Actions:set-cursorblink">set-cursorblink</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This  action  sets, unsets or toggles the <b><a href="#VT100-Widget-Resources:cursorBlink">cursorBlink</a></b> resource.
+               This action sets, unsets or toggles the  <b><a href="#VT100-Widget-Resources:cursorBlink">cursorBlink</a></b>  resource.
                It is also invoked from the <b><a href="#Menu-Resources:cursorblink">cursorblink</a></b> entry in <i>vtMenu</i>.
 
        <b><a title="Actions:set-font-doublesize" name="Actions:set-font-doublesize">set-font-doublesize</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This  action  sets,  unsets  or  toggles   the   <b><a href="#VT100-Widget-Resources:fontDoublesize">fontDoublesize</a></b>
-               resource.   It  is also invoked by the <b><a href="#Menu-Resources:font-doublesize">font-doublesize</a></b> entry in
+               This   action   sets,  unsets  or  toggles  the  <b><a href="#VT100-Widget-Resources:fontDoublesize">fontDoublesize</a></b>
+               resource.  It is also invoked by the <b><a href="#Menu-Resources:font-doublesize">font-doublesize</a></b>  entry  in
                <i>fontMenu</i>.
 
        <b><a title="Actions:set-font-linedrawing" name="Actions:set-font-linedrawing">set-font-linedrawing</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
                This action sets, unsets or toggles the <i>xterm</i>'s state regarding
                whether  the  current  font  has  line-drawing  characters  and
-               whether  it  should  draw them directly.  It is also invoked by
+               whether it should draw them directly.  It is  also  invoked  by
                the <b><a href="#Menu-Resources:font-linedrawing">font-linedrawing</a></b> entry in <i>fontMenu</i>.
 
        <b><a title="Actions:set-font-packed" name="Actions:set-font-packed">set-font-packed</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This  action  sets,  unsets  or  toggles  the   <b><a href="#VT100-Widget-Resources:forcePackedFont">forcePackedFont</a></b>
-               resource  which  controls  use of the font's minimum or maximum
-               glyph width.  It is also invoked by the  <b><a href="#Menu-Resources:font-packed">font-packed</a></b>  entry  in
+               This   action  sets,  unsets  or  toggles  the  <b><a href="#VT100-Widget-Resources:forcePackedFont">forcePackedFont</a></b>
+               resource which controls use of the font's  minimum  or  maximum
+               glyph  width.   It  is also invoked by the <b><a href="#Menu-Resources:font-packed">font-packed</a></b> entry in
                <i>fontMenu</i>.
 
        <b><a title="Actions:set-hp-function-keys" name="Actions:set-hp-function-keys">set-hp-function-keys</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This   action   sets,  unsets  or  toggles  the  <b><a href="#Application-Resources:hpFunctionKeys">hpFunctionKeys</a></b>
-               resource.  It is also invoked by the  <b><a href="#Application-Resources:hpFunctionKeys">hpFunctionKeys</a></b>  entry  in
+               This  action  sets,  unsets  or  toggles   the   <b><a href="#Application-Resources:hpFunctionKeys">hpFunctionKeys</a></b>
+               resource.   It  is  also invoked by the <b><a href="#Application-Resources:hpFunctionKeys">hpFunctionKeys</a></b> entry in
                <i>mainMenu</i>.
 
        <b><a title="Actions:set-jumpscroll" name="Actions:set-jumpscroll">set-jumpscroll</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This  action  sets,  unsets or toggles the <b><a href="#Menu-Resources:jumpscroll">jumpscroll</a></b> resource.
+               This action sets, unsets or toggles  the  <b><a href="#Menu-Resources:jumpscroll">jumpscroll</a></b>  resource.
                It is also invoked by the <b><a href="#Menu-Resources:jumpscroll">jumpscroll</a></b> entry in <i>vtMenu</i>.
 
        <b><a title="Actions:set-keep-clipboard" name="Actions:set-keep-clipboard">set-keep-clipboard</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
@@ -8665,7 +8673,7 @@
                It is also invoked by the <b><a href="#VT100-Widget-Resources:keepSelection">keepSelection</a></b> entry in <i>vtMenu</i>.
 
        <b><a title="Actions:set-logging" name="Actions:set-logging">set-logging</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This action sets, unsets or toggles the state  of  the  logging
+               This  action  sets,  unsets or toggles the state of the logging
                option.
 
        <b><a title="Actions:set-marginbell" name="Actions:set-marginbell">set-marginbell</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
@@ -8675,7 +8683,7 @@
                This action toggles the state of the <b><a href="#VT100-Widget-Resources:numLock">numLock</a></b> resource.
 
        <b><a title="Actions:set-old-function-keys" name="Actions:set-old-function-keys">set-old-function-keys</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This  action  sets,  unsets  or  toggles  the  state  of legacy
+               This action  sets,  unsets  or  toggles  the  state  of  legacy
                function keys.  It is also invoked by the <b><a href="#Menu-Resources:oldFunctionKeys">oldFunctionKeys</a></b> entry
                in <i>mainMenu</i>.
 
@@ -8684,24 +8692,24 @@
                is also invoked by the <b><a href="#Menu-Resources:poponbell">poponbell</a></b> entry in <i>vtMenu</i>.
 
        <b><a title="Actions:set-private-colors" name="Actions:set-private-colors">set-private-colors</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This action sets, unsets or toggles  the  <b><a href="#VT100-Widget-Resources:privateColorRegisters">privateColorRegisters</a></b>
+               This  action  sets, unsets or toggles the <b><a href="#VT100-Widget-Resources:privateColorRegisters">privateColorRegisters</a></b>
                resource.
 
        <b><a title="Actions:set-render-font" name="Actions:set-render-font">set-render-font</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This  action  sets,  unsets or toggles the <b><a href="#VT100-Widget-Resources:renderFont">renderFont</a></b> resource.
+               This action sets, unsets or toggles  the  <b><a href="#VT100-Widget-Resources:renderFont">renderFont</a></b>  resource.
                It is also invoked by the <b><a href="#Menu-Resources:render-font">render-font</a></b> entry in <i>fontMenu</i>.
 
        <b><a title="Actions:set-reverse-video" name="Actions:set-reverse-video">set-reverse-video</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This action sets, unsets or toggles the <b><a href="#VT100-Widget-Resources:reverseVideo">reverseVideo</a></b>  resource.
+               This  action sets, unsets or toggles the <b><a href="#VT100-Widget-Resources:reverseVideo">reverseVideo</a></b> resource.
                It is also invoked by the <b><a href="#Menu-Resources:reversevideo">reversevideo</a></b> entry in <i>vtMenu</i>.
 
        <b><a title="Actions:set-reversewrap" name="Actions:set-reversewrap">set-reversewrap</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This  action  sets, unsets or toggles the <b><a href="#VT100-Widget-Resources:reverseWrap">reverseWrap</a></b> resource.
+               This action sets, unsets or toggles the  <b><a href="#VT100-Widget-Resources:reverseWrap">reverseWrap</a></b>  resource.
                It is also invoked by the <b><a href="#Menu-Resources:reversewrap">reversewrap</a></b> entry in <i>vtMenu</i>.
 
        <b><a title="Actions:set-sco-function-keys" name="Actions:set-sco-function-keys">set-sco-function-keys</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This  action  sets,  unsets  or  toggles  the   <b><a href="#Application-Resources:scoFunctionKeys">scoFunctionKeys</a></b>
-               resource.   It  is also invoked by the <b><a href="#Application-Resources:scoFunctionKeys">scoFunctionKeys</a></b> entry in
+               This   action  sets,  unsets  or  toggles  the  <b><a href="#Application-Resources:scoFunctionKeys">scoFunctionKeys</a></b>
+               resource.  It is also invoked by the <b><a href="#Application-Resources:scoFunctionKeys">scoFunctionKeys</a></b>  entry  in
                <i>mainMenu</i>.
 
        <b><a title="Actions:set-scroll-on-key" name="Actions:set-scroll-on-key">set-scroll-on-key</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
@@ -8709,7 +8717,7 @@
                is also invoked from the <b><a href="#Menu-Resources:scrollkey">scrollkey</a></b> entry in <i>vtMenu</i>.
 
        <b><a title="Actions:set-scroll-on-tty-output" name="Actions:set-scroll-on-tty-output">set-scroll-on-tty-output</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This  action  sets,  unsets  or  toggles  the   <b><a href="#VT100-Widget-Resources:scrollTtyOutput">scrollTtyOutput</a></b>
+               This   action  sets,  unsets  or  toggles  the  <b><a href="#VT100-Widget-Resources:scrollTtyOutput">scrollTtyOutput</a></b>
                resource.  It is also invoked from the <b><a href="#Menu-Resources:scrollttyoutput">scrollttyoutput</a></b> entry in
                <i>vtMenu</i>.
 
@@ -8718,29 +8726,29 @@
                is also invoked by the <b><a href="#Menu-Resources:scrollbar">scrollbar</a></b> entry in <i>vtMenu</i>.
 
        <b><a title="Actions:set-select" name="Actions:set-select">set-select</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This  action  sets,  unsets  or  toggles  the <b><a href="#VT100-Widget-Resources:selectToClipboard">selectToClipboard</a></b>
+               This action  sets,  unsets  or  toggles  the  <b><a href="#VT100-Widget-Resources:selectToClipboard">selectToClipboard</a></b>
                resource.  It is also invoked by the <b><a href="#VT100-Widget-Resources:selectToClipboard">selectToClipboard</a></b> entry in
                <i>vtMenu</i>.
 
        <b><a title="Actions:set-sixel-scrolling" name="Actions:set-sixel-scrolling">set-sixel-scrolling</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
                This  action  toggles  between  inline  (sixel  scrolling)  and
-               absolute  positioning.   It  can  also  be  controlled  via DEC
-               private mode 80 (DECSDM) or from the  <b><a href="#VT100-Widget-Resources:sixelScrolling">sixelScrolling</a></b>  entry  in
+               absolute positioning.   It  can  also  be  controlled  via  DEC
+               private  mode  80  (DECSDM) or from the <b><a href="#VT100-Widget-Resources:sixelScrolling">sixelScrolling</a></b> entry in
                the <i>btMenu</i>.
 
        <b><a title="Actions:set-sun-function-keys" name="Actions:set-sun-function-keys">set-sun-function-keys</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This   action  sets,  unsets  or  toggles  the  <b><a href="#Application-Resources:sunFunctionKeys">sunFunctionKeys</a></b>
-               resource.  It is also invoked by the <b><a href="#Application-Resources:sunFunctionKeys">sunFunctionKeys</a></b>  entry  in
+               This  action  sets,  unsets  or  toggles  the   <b><a href="#Application-Resources:sunFunctionKeys">sunFunctionKeys</a></b>
+               resource.   It  is also invoked by the <b><a href="#Application-Resources:sunFunctionKeys">sunFunctionKeys</a></b> entry in
                <i>mainMenu</i>.
 
        <b><a title="Actions:set-sun-keyboard" name="Actions:set-sun-keyboard">set-sun-keyboard</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This  action  sets, unsets or toggles the <b><a href="#Application-Resources:sunKeyboard">sunKeyboard</a></b> resource.
+               This action sets, unsets or toggles the  <b><a href="#Application-Resources:sunKeyboard">sunKeyboard</a></b>  resource.
                It is also invoked by the <b><a href="#Application-Resources:sunKeyboard">sunKeyboard</a></b> entry in <i>mainMenu</i>.
 
        <b><a title="Actions:set-tek-text" name="Actions:set-tek-text">set-tek-text</a></b><b>(</b><i>large/2/3/small</i><b>)</b>
-               This action sets the font used in the Tektronix window  to  the
-               value  of the selected resource according to the argument.  The
-               argument can be either a keyword  or  single-letter  alias,  as
+               This  action  sets the font used in the Tektronix window to the
+               value of the selected resource according to the argument.   The
+               argument  can  be  either  a keyword or single-letter alias, as
                shown in parentheses:
 
                large (l)
@@ -8756,13 +8764,13 @@
                     Use resource <b><a href="#Tek4014-Widget-Resources:fontSmall">fontSmall</a></b>, same as menu entry <b><a href="#Menu-Resources:tektextsmall">tektextsmall</a></b>.
 
        <b><a title="Actions:set-terminal-type" name="Actions:set-terminal-type">set-terminal-type</a></b><b>(</b><i>type</i><b>)</b>
-               This  action  directs  output  to either the <i>vt</i> or <i>tek</i> windows,
-               according to the <i>type</i>  string.   It  is  also  invoked  by  the
+               This action directs output to either the  <i>vt</i>  or  <i>tek</i>  windows,
+               according  to  the  <i>type</i>  string.   It  is  also invoked by the
                <b><a href="#Menu-Resources:tekmode">tekmode</a></b> entry in <i>vtMenu</i> and the <b><a href="#Menu-Resources:vtmode">vtmode</a></b> entry in <i>tekMenu</i>.
 
        <b><a title="Actions:set-titeInhibit" name="Actions:set-titeInhibit">set-titeInhibit</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This  action  sets, unsets or toggles the <b><a href="#VT100-Widget-Resources:titeInhibit">titeInhibit</a></b> resource,
-               which controls switching  between  the  alternate  and  current
+               This action sets, unsets or toggles the  <b><a href="#VT100-Widget-Resources:titeInhibit">titeInhibit</a></b>  resource,
+               which  controls  switching  between  the  alternate and current
                screens.
 
        <b><a title="Actions:set-toolbar" name="Actions:set-toolbar">set-toolbar</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
@@ -8774,7 +8782,7 @@
                is also invoked by the <b><a href="#Menu-Resources:utf8-fonts">utf8-fonts</a></b> entry in <i>fontMenu</i>.
 
        <b><a title="Actions:set-utf8-mode" name="Actions:set-utf8-mode">set-utf8-mode</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This  action  sets, unsets or toggles the <b><a href="#VT100-Widget-Resources:utf8">utf8</a></b> resource.  It is
+               This action sets, unsets or toggles the <b><a href="#VT100-Widget-Resources:utf8">utf8</a></b> resource.   It  is
                also invoked by the <b><a href="#Menu-Resources:utf8-mode">utf8-mode</a></b> entry in <i>fontMenu</i>.
 
        <b><a title="Actions:set-utf8-title" name="Actions:set-utf8-title">set-utf8-title</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
@@ -8782,60 +8790,60 @@
                is also invoked by the <b><a href="#Menu-Resources:utf8-title">utf8-title</a></b> entry in <i>fontMenu</i>.
 
        <b><a title="Actions:set-visibility" name="Actions:set-visibility">set-visibility</a></b><b>(</b><i>vt/tek</i><b>,</b><i>on/off/toggle</i><b>)</b>
-               This action sets, unsets or toggles whether or not  the  <i>vt</i>  or
-               <i>tek</i>  windows  are visible.  It is also invoked from the <b><a href="#Menu-Resources:tekshow">tekshow</a></b>
+               This  action  sets,  unsets or toggles whether or not the <i>vt</i> or
+               <i>tek</i> windows are visible.  It is also invoked from  the  <b><a href="#Menu-Resources:tekshow">tekshow</a></b>
                and <b><a href="#Menu-Resources:vthide">vthide</a></b> entries in <i>vtMenu</i> and the <b><a href="#Menu-Resources:vtshow">vtshow</a></b> and <b><a href="#Menu-Resources:tekhide">tekhide</a></b> entries
                in <i>tekMenu</i>.
 
        <b><a title="Actions:set-visual-bell" name="Actions:set-visual-bell">set-visual-bell</a></b><b>(</b><i>on/off/toggle</i><b>)</b>
-               This action sets, unsets or toggles  the  <b><a href="#VT100-Widget-Resources:visualBell">visualBell</a></b>  resource.
+               This  action  sets,  unsets or toggles the <b><a href="#VT100-Widget-Resources:visualBell">visualBell</a></b> resource.
                It is also invoked by the <b><a href="#Menu-Resources:visualbell">visualbell</a></b> entry in <i>vtMenu</i>.
 
        <b><a title="Actions:set-vt-font" name="Actions:set-vt-font">set-vt-font</a></b><b>(</b><i>d/1/2/3/4/5/6/7/e/s</i> <b>[,</b><i>normalfont</i> <b>[,</b> <i>boldfont</i><b>]])</b>
-               This  action sets the font or fonts currently being used in the
-               VT<i>xxx</i> window.  The first argument is a  single  character  that
+               This action sets the font or fonts currently being used in  the
+               VT<i>xxx</i>  window.   The  first argument is a single character that
                specifies the font to be used:
 
-               <i>d</i>  or <i>D</i> indicate the default font (the font initially used when
+               <i>d</i> or <i>D</i> indicate the default font (the font initially used  when
                       <i>xterm</i> was started),
 
-               <i>1</i> through <i>7</i> indicate the fonts specified by the  <b><a href="#VT100-Widget-Resources:font1">font1</a></b>  through
+               <i>1</i>  through  <i>7</i> indicate the fonts specified by the <b><a href="#VT100-Widget-Resources:font1">font1</a></b> through
                       <b><a href="#VT100-Widget-Resources:font7">font7</a></b> resources,
 
-               <i>e</i>  or  <i>E</i>  indicate the normal and bold fonts that have been set
-                      through escape codes (or specified  as  the  second  and
+               <i>e</i> or <i>E</i> indicate the normal and bold fonts that  have  been  set
+                      through  escape  codes  (or  specified as the second and
                       third action arguments, respectively), and
 
                <i>s</i> or <i>S</i> indicate the font selection (as made by programs such as
                       <a href="https://linux.die.net/man/1/xfontsel"><b>xfontsel(1)</b></a>) indicated by the second action argument.
 
-               If   <i>xterm</i>   is  configured  to  support  wide  characters,  an
-               additional two optional parameters are  recognized  for  the  <i>e</i>
+               If  <i>xterm</i>  is  configured  to  support  wide   characters,   an
+               additional  two  optional  parameters  are recognized for the <i>e</i>
                argument: wide font and wide bold font.
 
        <b><a title="Actions:smaller-vt-font" name="Actions:smaller-vt-font">smaller-vt-font</a></b><b>()</b>
-               Set  the  font  to  the  next  smaller  one,  based on the font
+               Set the font to  the  next  smaller  one,  based  on  the  font
                dimensions.  See also <b><a href="#Actions:set-vt-font">set-vt-font</a></b><b>()</b>.
 
        <b><a title="Actions:soft-reset" name="Actions:soft-reset">soft-reset</a></b><b>()</b>
-               This action resets the scrolling region.  It  is  also  invoked
+               This  action  resets  the scrolling region.  It is also invoked
                from the <b><a href="#Menu-Resources:softreset">softreset</a></b> entry in <i>vtMenu</i>.  The effect is identical to
                a soft reset (DECSTR) control sequence.
 
        <b><a title="Actions:spawn-new-terminal" name="Actions:spawn-new-terminal">spawn-new-terminal</a></b><b>(</b><i>params</i><b>)</b>
-               Spawn  a new <i>xterm</i> process.  This is available on systems which
+               Spawn a new <i>xterm</i> process.  This is available on systems  which
                have a modern version of the process filesystem, e.g., "/proc",
                which <i>xterm</i> can read.
 
-               Use the "cwd" process entry, e.g.,  /proc/12345/cwd  to  obtain
-               the  working  directory  of the process which is running in the
+               Use  the  "cwd"  process entry, e.g., /proc/12345/cwd to obtain
+               the working directory of the process which is  running  in  the
                current <i>xterm</i>.
 
-               On  systems  which  have  the  "exe"   process   entry,   e.g.,
-               /proc/12345/exe,  use  this  to  obtain  the actual executable.
+               On   systems   which   have  the  "exe"  process  entry,  e.g.,
+               /proc/12345/exe, use this  to  obtain  the  actual  executable.
                Otherwise, use the <b>$PATH</b> variable to find <i>xterm</i>.
 
-               If parameters are given in the action, pass  them  to  the  new
+               If  parameters  are  given  in the action, pass them to the new
                <i>xterm</i> process.
 
        <b><a title="Actions:start-cursor-extend" name="Actions:start-cursor-extend">start-cursor-extend</a></b><b>()</b>
@@ -8843,20 +8851,20 @@
                selection is extended to the current text cursor position.
 
        <b><a title="Actions:start-extend" name="Actions:start-extend">start-extend</a></b><b>()</b>
-               This  action  is  similar  to  <b><a href="#Actions:select-start">select-start</a></b>  except  that   the
+               This   action  is  similar  to  <b><a href="#Actions:select-start">select-start</a></b>  except  that  the
                selection is extended to the current pointer location.
 
        <b><a title="Actions:string" name="Actions:string">string</a></b><b>(</b><i>string</i><b>)</b>
                This action inserts the specified text string as if it had been
-               typed.    Quotation   is   necessary  if  the  string  contains
+               typed.   Quotation  is  necessary  if   the   string   contains
                whitespace  or  non-alphanumeric  characters.   If  the  string
-               argument  begins with the characters "0x", it is interpreted as
+               argument begins with the characters "0x", it is interpreted  as
                a hex character constant.
 
        <b><a title="Actions:tek-copy" name="Actions:tek-copy">tek-copy</a></b><b>()</b>
-               This action copies  the  escape  codes  used  to  generate  the
-               current  window  contents  to  a  file in the current directory
-               beginning with the name COPY.  It  is  also  invoked  from  the
+               This  action  copies  the  escape  codes  used  to generate the
+               current window contents to a  file  in  the  current  directory
+               beginning  with  the  name  COPY.   It is also invoked from the
                <b><a href="#Menu-Resources:tekcopy">tekcopy</a></b> entry in <i>tekMenu</i>.
 
        <b><a title="Actions:tek-page" name="Actions:tek-page">tek-page</a></b><b>()</b>
@@ -8868,8 +8876,8 @@
                the <b><a href="#Menu-Resources:tekreset">tekreset</a></b> entry in <i>tekMenu</i>.
 
        <b><a title="Actions:vi-button" name="Actions:vi-button">vi-button</a></b><b>()</b>
-               Handles  a  button  event  (other  than  press  and release) by
-               echoing a control  sequence  computed  from  the  event's  line
+               Handles a button  event  (other  than  press  and  release)  by
+               echoing  a  control  sequence  computed  from  the event's line
                number in the screen relative to the current line:
 
                    ESC ^P
@@ -8878,10 +8886,10 @@
 
                    ESC ^N
 
-               according  to whether the event is before, or after the current
-               line, respectively.  The ^N (or ^P) is repeated once  for  each
+               according to whether the event is before, or after the  current
+               line,  respectively.   The ^N (or ^P) is repeated once for each
                line that the event differs from the current line.  The control
-               sequence  is  omitted  altogether if the button event is on the
+               sequence is omitted altogether if the button event  is  on  the
                current line.
 
        <b><a title="Actions:visual-bell" name="Actions:visual-bell">visual-bell</a></b><b>()</b>
@@ -8945,7 +8953,7 @@
                                     &lt;BtnUp&gt;:<b><a href="#Actions:pointer-button">pointer-button</a></b>() \n\
                                   &lt;BtnDown&gt;:<b><a href="#Actions:ignore">ignore</a></b>()
 
-       The default bindings in the Tektronix window  are  analogous  but  less
+       The  default  bindings  in  the Tektronix window are analogous but less
        extensive.  These are for the <i>tek4014</i> widget:
 
                             ~Meta&lt;KeyPress&gt;: <b><a href="#Actions:insert-seven-bit">insert-seven-bit</a></b>() \n\
@@ -8967,16 +8975,16 @@
 
 </pre>
 <h3><a name="h3-Custom-Key-Bindings" id="h3-Custom-Key-Bindings">Custom Key Bindings</a></h3>
-<pre>       You  can modify the <b><a href="#VT100-Widget-Resources:translations">translations</a></b> resource by overriding parts of it, or
+<pre>       You can modify the <b><a href="#VT100-Widget-Resources:translations">translations</a></b> resource by overriding parts of it,  or
        merging your resources with it.
 
-       Here is an example which uses  shifted  select/paste  to  copy  to  the
-       clipboard,  and  unshifted  select/paste for the primary selection.  In
-       each case, a (different) cut buffer is also a target or source  of  the
-       select/paste  operation.  It is important to remember however, that cut
-       buffers store data in ISO-8859-1 encoding, while selections  can  store
-       data  in  a  variety  of  formats  and encodings.  While <i>xterm</i> owns the
-       selection, it highlights it.  When it loses the selection,  it  removes
+       Here  is  an  example  which  uses  shifted select/paste to copy to the
+       clipboard, and unshifted select/paste for the  primary  selection.   In
+       each  case,  a (different) cut buffer is also a target or source of the
+       select/paste operation.  It is important to remember however, that  cut
+       buffers  store  data in ISO-8859-1 encoding, while selections can store
+       data in a variety of formats  and  encodings.   While  <i>xterm</i>  owns  the
+       selection,  it  highlights it.  When it loses the selection, it removes
        the  corresponding  highlight.   But  you  can  still  paste  from  the
        corresponding cut buffer.
 
@@ -8986,17 +8994,17 @@
               ~Shift     &lt;BtnUp&gt; : <b><a href="#Actions:select-end">select-end</a></b>(<b><a href="#h3-PRIMARY">PRIMARY</a></b>, <b>CUT_BUFFER0</b>) \n\
                Shift     &lt;BtnUp&gt; : <b><a href="#Actions:select-end">select-end</a></b>(<b><a href="#h3-CLIPBOARD">CLIPBOARD</a></b>, <b>CUT_BUFFER1</b>)
 
-       In the example, the class name <b>VT100</b> is used  rather  than  the  widget
-       name.   These  are different; a class name could apply to more than one
-       widget.  A leading "*" is used because the widget hierarchy  above  the
-       <i>vt100</i>  widget  depends  on whether the toolbar support is compiled into
+       In  the  example,  the  class name <b>VT100</b> is used rather than the widget
+       name.  These are different; a class name could apply to more  than  one
+       widget.   A  leading "*" is used because the widget hierarchy above the
+       <i>vt100</i> widget depends on whether the toolbar support  is  compiled  into
        <i>xterm</i>.
 
-       Most of the predefined translations are related to the  mouse,  with  a
-       few  that  use  some of the special keys on the keyboard.  Applications
-       use  special  keys  (function-keys,  cursor-keys,   keypad-keys)   with
-       modifiers  (shift, control, alt).  If <i>xterm</i> defines a translation for a
-       given  combination  of  special  key  and  modifier,  that   makes   it
+       Most  of  the  predefined translations are related to the mouse, with a
+       few that use some of the special keys on  the  keyboard.   Applications
+       use   special   keys  (function-keys,  cursor-keys,  keypad-keys)  with
+       modifiers (shift, control, alt).  If <i>xterm</i> defines a translation for  a
+       given   combination   of  special  key  and  modifier,  that  makes  it
        unavailable for use by applications within the terminal.  For instance,
        one might extend the use of <i>Page Up</i> and <i>Page Down</i> keys seen here:
 
@@ -9011,8 +9019,8 @@
        but  then  shift-<i>Home</i>  and  shift-<i>End</i>  would  then  be  unavailable  to
        applications.
 
-       Not everyone finds the three-button mouse bindings easy to use.   In  a
-       wheel  mouse, the middle button might be the wheel.  As an alternative,
+       Not  everyone  finds the three-button mouse bindings easy to use.  In a
+       wheel mouse, the middle button might be the wheel.  As an  alternative,
        you could add a binding using shifted keys:
 
            *VT100*translations:      #override \n\
@@ -9021,21 +9029,21 @@
                Ctrl Shift &lt;Key&gt;C:  <b><a href="#Actions:copy-selection">copy-selection</a></b>(<b><a href="#h3-SELECT">SELECT</a></b>) \n\
                Ctrl Shift &lt;Key&gt;V:  <b><a href="#Actions:insert-selection">insert-selection</a></b>(<b><a href="#h3-SELECT">SELECT</a></b>)
 
-       You would still use the left- and right-mouse buttons (typically 1  and
+       You  would still use the left- and right-mouse buttons (typically 1 and
        3) for beginning and extending selections.
 
-       Besides  mouse  problems,  there  are  also keyboards with inconvenient
+       Besides mouse problems, there  are  also  keyboards  with  inconvenient
        layouts.  Some lack a numeric keypad, making it hard to use the shifted
-       keypad plus and minus bindings for switching between font  sizes.   You
-       can  work around that by assigning the actions to more readily accessed
+       keypad  plus  and minus bindings for switching between font sizes.  You
+       can work around that by assigning the actions to more readily  accessed
        keys:
 
            *VT100*translations:      #override \n\
                Ctrl &lt;Key&gt; +:       <b><a href="#Actions:larger-vt-font">larger-vt-font</a></b>() \n\
                Ctrl &lt;Key&gt; -:       <b><a href="#Actions:smaller-vt-font">smaller-vt-font</a></b>()
 
-       The keymap feature allows you to switch between sets  of  translations.
-       The  sample  below  shows  how  the  <b><a href="#Actions:keymap">keymap</a></b><b>()</b> action may be used to add
+       The  keymap  feature allows you to switch between sets of translations.
+       The sample below shows how the <b><a href="#Actions:keymap">keymap</a></b><b>()</b>  action  may  be  used  to  add
        special keys for entering commonly-typed words:
 
            *VT100.Translations: #override &lt;Key&gt;F13: keymap(dbx)
@@ -9052,19 +9060,19 @@
 
 </pre>
 <h3><a name="h3-Default-Scrollbar-Bindings" id="h3-Default-Scrollbar-Bindings">Default Scrollbar Bindings</a></h3>
-<pre>       Key bindings are normally associated with the <i>vt100</i> or <i>tek4014</i>  widgets
-       which  act as terminal emulators.  <i>Xterm</i>'s scrollbar (and toolbar if it
-       is configured) are separate widgets.  Because  all  of  these  use  the
+<pre>       Key  bindings are normally associated with the <i>vt100</i> or <i>tek4014</i> widgets
+       which act as terminal emulators.  <i>Xterm</i>'s scrollbar (and toolbar if  it
+       is  configured)  are  separate  widgets.   Because all of these use the
        <i>X Toolkit</i>,  they  have  corresponding  <b><a href="#VT100-Widget-Resources:translations">translations</a></b>  resources.   Those
        resources  are  distinct,  and  match  different  patterns,  e.g.,  the
-       differences  in  widget-name and number of levels of widgets which they
+       differences in widget-name and number of levels of widgets  which  they
        may contain.
 
-       The <i>scrollbar</i> widget is a child of the <i>vt100</i> widget.  It is  positioned
-       on  top  of the <i>vt100</i> widget.  Toggling the scrollbar on and off causes
+       The  <i>scrollbar</i> widget is a child of the <i>vt100</i> widget.  It is positioned
+       on top of the <i>vt100</i> widget.  Toggling the scrollbar on and  off  causes
        the <i>vt100</i> widget to resize.
 
-       The default bindings for the scrollbar  widget  use  only  mouse-button
+       The  default  bindings  for  the scrollbar widget use only mouse-button
        events:
 
               &lt;Btn5Down&gt;: StartScroll(Forward) \n\
@@ -9078,29 +9086,29 @@
        Events which the <i>scrollbar</i> widget does not recognize at all are lost.
 
        However, at startup, <i>xterm</i> augments these translations with the default
-       translations  used  for  the  <i>vt100</i>  widget, together with the resource
-       "actions" which those translations  use.   Because  the  <i>scrollbar</i>  (or
-       <i>menubar</i>)  widgets  do not recognize these actions (but because it has a
+       translations used for the <i>vt100</i>  widget,  together  with  the  resource
+       "actions"  which  those  translations  use.   Because the <i>scrollbar</i> (or
+       <i>menubar</i>) widgets do not recognize these actions (but because it  has  a
        corresponding translation), they are passed on to the <i>vt100</i> widget.
 
        This augmenting of the scrollbar's translations has a few limitations:
 
-       <b>o</b>   <i>Xterm</i> knows what the default translations  are,  but  there  is  no
-           suitable  library  interface  for determining what customizations a
-           user may have added to the <i>vt100</i> widget.  All that <i>xterm</i> can do  is
+       <b>o</b>   <i>Xterm</i>  knows  what  the  default  translations are, but there is no
+           suitable library interface for determining  what  customizations  a
+           user  may have added to the <i>vt100</i> widget.  All that <i>xterm</i> can do is
            augment the <i>scrollbar</i> widget to give it the same starting point for
            further customization by the user.
 
        <b>o</b>   Events in the gap between the widgets may be lost.
 
-       <b>o</b>   Compose  sequences  begun  in one widget cannot be completed in the
-           other, because the input methods  for  each  widget  do  not  share
+       <b>o</b>   Compose sequences begun in one widget cannot be  completed  in  the
+           other,  because  the  input  methods  for  each widget do not share
            context information.
 
-       Most  customizations  of  the scrollbar translations do not concern key
-       bindings.  Rather, users are generally more interested in changing  the
-       bindings  of  the mouse buttons.  For example, some people prefer using
-       the left pointer button for dragging the scrollbar thumb.  That can  be
+       Most customizations of the scrollbar translations do  not  concern  key
+       bindings.   Rather, users are generally more interested in changing the
+       bindings of the mouse buttons.  For example, some people  prefer  using
+       the  left pointer button for dragging the scrollbar thumb.  That can be
        set up by altering the translations resource, e.g.,
 
            *VT100.scrollbar.translations:  #override \n\
@@ -9120,50 +9128,50 @@
            rules for the <i>format</i> of these sequences of characters.
 
        <b>o</b>   While the original VT100 was claimed to be ANSI-compatible (against
-           x3.64),  there  is no freely available version of the ANSI standard
-           to show where the VT100  differs.   Most  of  the  documents  which
-           mention  the ANSI standard have additions not found in the original
-           (such as those based on <b>ansi.sys</b>).  So this discussion  focuses  on
+           x3.64), there is no freely available version of the  ANSI  standard
+           to  show  where  the  VT100  differs.   Most of the documents which
+           mention the ANSI standard have additions not found in the  original
+           (such  as  those based on <b>ansi.sys</b>).  So this discussion focuses on
            the ISO standards.
 
-       <b>o</b>   The  standard  describes  only  sequences sent from the host to the
-           terminal.  There is no standard for sequences sent by special  keys
-           from  the  terminal  to  the host.  By convention (and referring to
+       <b>o</b>   The standard describes only sequences sent from  the  host  to  the
+           terminal.   There is no standard for sequences sent by special keys
+           from the terminal to the host.  By  convention  (and  referring  to
            existing terminals), the format of those sequences usually conforms
            to the host-to-terminal standard.
 
-       <b>o</b>   Some of <i>xterm</i>'s sequences do not  fit  into  the  standard  scheme.
-           Technically  those  are  "unspecified".   As an example, DEC Screen
+       <b>o</b>   Some  of  <i>xterm</i>'s  sequences  do  not fit into the standard scheme.
+           Technically those are "unspecified".  As  an  example,  DEC  Screen
            Alignment Test (DECALN) is this three-character sequence:
 
                <i>ESC</i> # 8
 
-       <b>o</b>   Some sequences fit into the standard format, but are not listed  in
-           the  standard.   These  include  the  sequences used for setting up
+       <b>o</b>   Some  sequences fit into the standard format, but are not listed in
+           the standard.  These include the  sequences  used  for  setting  up
            scrolling margins and doing forward/reverse scrolling.
 
-       <b>o</b>   Some  of  the  sequences  (in  particular,   the   single-character
-           functions  such  as  tab  and  backspace) do not include the <i>escape</i>
+       <b>o</b>   Some   of   the  sequences  (in  particular,  the  single-character
+           functions such as tab and backspace)  do  not  include  the  <i>escape</i>
            character.
 
-       With all of that in mind, the standard refers  to  these  sequences  of
+       With  all  of  that  in mind, the standard refers to these sequences of
        characters as "control sequences".
 
-       <i>Xterm   Control   Sequences</i>   lists  the  control  sequences  which  an
+       <i>Xterm  Control  Sequences</i>  lists  the  control   sequences   which   an
        application can send <i>xterm</i> to make it perform various operations.  Most
-       of these operations are standardized, from either the DEC or  Tektronix
+       of  these operations are standardized, from either the DEC or Tektronix
        terminals, or from more widely used standards such as ISO-6429.
 
        A few examples of usage are given in this section.
 
 </pre>
 <h3><a name="h3-Window-and-Icon-Titles" id="h3-Window-and-Icon-Titles">Window and Icon Titles</a></h3>
-<pre>       Some  scripts  use  <b>echo</b>  with  options  <b><a href="#OPTIONS:-e">-e</a></b> and <b><a href="#Old-Options:-n">-n</a></b> to tell the shell to
-       interpret the string "\e" as the <i>escape</i> character  and  to  suppress  a
-       trailing  newline  on output.  Those are not portable, nor recommended.
+<pre>       Some scripts use <b>echo</b> with options <b><a href="#OPTIONS:-e">-e</a></b> and  <b><a href="#Old-Options:-n">-n</a></b>  to  tell  the  shell  to
+       interpret  the  string  "\e"  as the <i>escape</i> character and to suppress a
+       trailing newline on output.  Those are not portable,  nor  recommended.
        Instead, use <b><a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/printf.html">printf(1)</a></b> (POSIX).
 
-       For example, to set the <i>window title</i> to "Hello world!", you  could  use
+       For  example,  to set the <i>window title</i> to "Hello world!", you could use
        one of these commands in a script:
 
            printf '\033]2;Hello world!\033\\'
@@ -9172,10 +9180,10 @@
            printf '\033]2;%s\007' "Hello world!"
 
        The <b><a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/printf.html">printf(1)</a></b> command interprets the octal value "\033" for <i>escape</i>, and
-       (since  it  was  not given in the format) omits a trailing newline from
+       (since it was not given in the format) omits a  trailing  newline  from
        the output.
 
-       Some programs (such as <a href="https://www.gnu.org/software/screen/manual/screen.html"><b>screen(1)</b></a>) set both window- and  icon-titles  at
+       Some  programs  (such as <a href="https://www.gnu.org/software/screen/manual/screen.html"><b>screen(1)</b></a>) set both window- and icon-titles at
        the same time, using a slightly different control sequence:
 
            printf '\033]0;Hello world!\033\\'
@@ -9183,10 +9191,10 @@
            printf '\033]0;%s\033\\' "Hello world!"
            printf '\033]0;%s\007' "Hello world!"
 
-       The  difference  is  the  <i>parameter</i>  "0"  in each command.  Most window
-       managers will honor either window title or icon title.  Some will  make
-       a  distinction  and allow you to set just the icon title.  You can tell
-       <i>xterm</i> to ask for  this  with  a  different  parameter  in  the  control
+       The difference is the <i>parameter</i>  "0"  in  each  command.   Most  window
+       managers  will honor either window title or icon title.  Some will make
+       a distinction and allow you to set just the icon title.  You  can  tell
+       <i>xterm</i>  to  ask  for  this  with  a  different  parameter in the control
        sequence:
 
            printf '\033]1;Hello world!\033\\'
@@ -9196,48 +9204,48 @@
 
 </pre>
 <h3><a name="h3-Special-Keys" id="h3-Special-Keys">Special Keys</a></h3>
-<pre>       <i>Xterm</i>,  like  any VT100-compatible terminal emulator, has two modes for
-       the <i>special keys</i> (cursor-keys, numeric keypad,  and  certain  function-
+<pre>       <i>Xterm</i>, like any VT100-compatible terminal emulator, has two  modes  for
+       the  <i>special  keys</i>  (cursor-keys, numeric keypad, and certain function-
        keys):
 
        <b>o</b>   <i>normal  mode</i>,  which  makes  the  special  keys  transmit  "useful"
-           sequences such as the control sequence for cursor-up when  pressing
+           sequences  such as the control sequence for cursor-up when pressing
            the up-arrow, and
 
-       <b>o</b>   <i>application  mode</i>,  which  uses  a  different control sequence that
+       <b>o</b>   <i>application mode</i>, which uses  a  different  control  sequence  that
            cannot be mistaken for the "useful" sequences.
 
        The main difference between the two modes is that normal mode sequences
        start with <i>CSI</i> (<i>escape [</i>) and application mode sequences start with <i>SS3</i>
        (<i>escape O</i>).
 
-       The terminal is initialized into one of these two  modes  (usually  the
-       normal  mode), based on the terminal description (termcap or terminfo).
-       The terminal description also has capabilities  (strings)  defined  for
+       The  terminal  is  initialized into one of these two modes (usually the
+       normal mode), based on the terminal description (termcap or  terminfo).
+       The  terminal  description  also has capabilities (strings) defined for
        the keypad mode used in curses applications.
 
-       There  is  a problem in using the terminal description for applications
-       that are not  intended  to  be  full-screen  curses  applications:  the
+       There is a problem in using the terminal description  for  applications
+       that  are  not  intended  to  be  full-screen  curses applications: the
        definitions of special keys are only correct for this keypad mode.  For
-       example,  some  shells  (unlike <a href="http://cdesktopenv.sourceforge.net/man1/ksh.html"><b>ksh(1)</b></a>, which appears to be hard-coded,
-       not even using termcap) allow their users  to  customize  key-bindings,
+       example, some shells (unlike <a href="http://cdesktopenv.sourceforge.net/man1/ksh.html"><b>ksh(1)</b></a>, which appears  to  be  hard-coded,
+       not  even  using  termcap) allow their users to customize key-bindings,
        assigning shell actions to special keys.
 
-       <b>o</b>   <a href="https://www.gnu.org/software/bash/manual/bash.html"><b>bash(1)</b></a>  allows <i>constant</i> strings to be assigned to functions.  This
-           is only successful if the terminal is  initialized  to  application
-           mode  by  default, because <b>bash</b> lacks flexibility in this area.  It
-           uses a (less expressive than <b>bash</b>'s)  <b>readline</b>  scripting  language
-           for  setting  up  key  bindings,  which  relies  upon  the  user to
-           statically enumerate the possible  bindings  for  given  values  of
+       <b>o</b>   <a href="https://www.gnu.org/software/bash/manual/bash.html"><b>bash(1)</b></a> allows <i>constant</i> strings to be assigned to functions.   This
+           is  only  successful  if the terminal is initialized to application
+           mode by default, because <b>bash</b> lacks flexibility in this  area.   It
+           uses  a  (less  expressive than <b>bash</b>'s) <b>readline</b> scripting language
+           for setting  up  key  bindings,  which  relies  upon  the  user  to
+           statically  enumerate  the  possible  bindings  for given values of
            <b><a href="#System-Independent:TERM">$TERM</a></b>.
 
-       <b>o</b>   <a href="http://zsh.sourceforge.net/Doc/Release/zsh_toc.html"><b>zsh(1)</b></a>  provides  an  analogous  feature,  but  it  accepts runtime
-           expressions, as well as providing a <b>$terminfo</b>  array  for  scripts.
+       <b>o</b>   <a href="http://zsh.sourceforge.net/Doc/Release/zsh_toc.html"><b>zsh(1)</b></a> provides  an  analogous  feature,  but  it  accepts  runtime
+           expressions,  as  well  as providing a <b>$terminfo</b> array for scripts.
            In particular, one can use the terminal database, transforming when
            defining a key-binding.  By transforming the output so that <i>CSI</i> and
            <i>SS3</i> are equated, <b>zsh</b> can use the terminal database to obtain useful
-           definitions  for  its  command-line  use  regardless of whether the
-           terminal uses normal or application mode  initially.   Here  is  an
+           definitions for its command-line  use  regardless  of  whether  the
+           terminal  uses  normal  or  application mode initially.  Here is an
            example:
 
                [[ "$terminfo[kcuu1]" == "^[O"* ]] &amp;&amp; \
@@ -9246,41 +9254,41 @@
 
 </pre>
 <h3><a name="h3-Changing-Colors" id="h3-Changing-Colors">Changing Colors</a></h3>
-<pre>       A  few  shell  programs  provide the ability for users to add color and
-       other video attributes to the shell prompt strings.  Users can do  this
-       by  setting <b>$PS1</b> (the primary prompt string).  Again, <b>bash</b> and <b>zsh</b> have
-       provided features not found in <b>ksh</b>.  There is a problem,  however:  the
-       prompt's  width  on  the screen will not necessarily be the same as the
-       number of characters.  Because  there  is  no  guidance  in  the  POSIX
+<pre>       A few shell programs provide the ability for users  to  add  color  and
+       other  video attributes to the shell prompt strings.  Users can do this
+       by setting <b>$PS1</b> (the primary prompt string).  Again, <b>bash</b> and <b>zsh</b>  have
+       provided  features  not found in <b>ksh</b>.  There is a problem, however: the
+       prompt's width on the screen will not necessarily be the  same  as  the
+       number  of  characters.   Because  there  is  no  guidance in the POSIX
        standard, each shell addresses the problem in a different way:
 
-       <b>o</b>   <b>bash</b>  treats  characters within "\[" and "\]" as nonprinting (using
+       <b>o</b>   <b>bash</b> treats characters within "\[" and "\]" as  nonprinting  (using
            no width on the screen).
 
        <b>o</b>   <b>zsh</b> treats characters within "%{" and "%}" as nonprinting.
 
-       In addition to the difference in syntax, the shells  provide  different
+       In  addition  to the difference in syntax, the shells provide different
        methods for obtaining useful escape sequences:
 
-       <b>o</b>   As  noted in <b><a href="#h3-Special-Keys">Special Keys</a></b>, <b>zsh</b> initializes the $terminfo array with
+       <b>o</b>   As noted in <b><a href="#h3-Special-Keys">Special Keys</a></b>, <b>zsh</b> initializes the $terminfo array  with
            the terminal capabilities.
 
-           It also provides a function <b>echoti</b>  which  works  like  <a href="/ncurses/man/tput.1.html"><b>tput(1)</b></a>  to
-           convert  a  terminal  capability  with its parameters into a string
+           It  also  provides  a  function  <b>echoti</b> which works like <a href="/ncurses/man/tput.1.html"><b>tput(1)</b></a> to
+           convert a terminal capability with its  parameters  into  a  string
            that can be written to the terminal.
 
-       <b>o</b>   Shells lacking a comparable feature (such as <b>bash</b>) can  always  use
+       <b>o</b>   Shells  lacking  a comparable feature (such as <b>bash</b>) can always use
            the program <a href="/ncurses/man/tput.1.html"><b>tput(1)</b></a> to do this transformation.
 
-       Hard-coded  escape  sequences  are supported by each shell, but are not
-       recommended because  those  rely  upon  particular  configurations  and
+       Hard-coded escape sequences are supported by each shell,  but  are  not
+       recommended  because  those  rely  upon  particular  configurations and
        cannot be easily moved between different user environments.
 
 </pre>
 <h2><a name="h2-ENVIRONMENT" id="h2-ENVIRONMENT">ENVIRONMENT</a></h2>
-<pre>       <i>Xterm</i>  sets  several  environment  variables.   It also removes certain
-       environment  variables  which  are  known  to  interfere   with   other
-       applications.   For instance, it removes <b><a href="#System-Dependent:COLUMNS">COLUMNS</a></b>, <b><a href="#System-Dependent:LINES">LINES</a></b>, and <b><a href="#System-Dependent:TERMCAP">TERMCAP</a></b> in
+<pre>       <i>Xterm</i> sets several environment  variables.   It  also  removes  certain
+       environment   variables   which  are  known  to  interfere  with  other
+       applications.  For instance, it removes <b><a href="#System-Dependent:COLUMNS">COLUMNS</a></b>, <b><a href="#System-Dependent:LINES">LINES</a></b>, and <b><a href="#System-Dependent:TERMCAP">TERMCAP</a></b>  in
        configurations where those are unnecessary.
 
 </pre>
@@ -9288,15 +9296,15 @@
 <pre>       Some variables are used on every system:
 
        <b><a title="System Independent:DISPLAY" name="System-Independent:DISPLAY">DISPLAY</a></b>
-            is the display name, pointing to the X server (see  <i>DISPLAY  NAMES</i>
+            is  the  display name, pointing to the X server (see <i>DISPLAY NAMES</i>
             in <a href="https://www.x.org/releases/X11R7.7/doc/man/man7/X.7.xhtml"><b>X(7)</b></a>).
 
        <b><a title="System Independent:TERM" name="System-Independent:TERM">TERM</a></b>
-            is  set  according  to the terminfo (or termcap) entry which it is
+            is set according to the terminfo (or termcap) entry  which  it  is
             using as a reference.
 
-            On some systems, you may  encounter  situations  where  the  shell
-            which  you  use and <i>xterm</i> are built using libraries with different
+            On  some  systems,  you  may  encounter situations where the shell
+            which you use and <i>xterm</i> are built using libraries  with  different
             terminal  databases.   In  that  situation,  <i>xterm</i>  may  choose  a
             terminal description not known to the shell.
 
@@ -9304,23 +9312,23 @@
             is set to the X window id number of the <i>xterm</i> window.
 
        <b><a title="System Independent:XTERM_FILTER" name="System-Independent:XTERM_FILTER">XTERM_FILTER</a></b>
-            is  set  if a locale-filter is used.  The value is the pathname of
+            is set if a locale-filter is used.  The value is the  pathname  of
             the filter.
 
        <b><a title="System Independent:XTERM_LOCALE" name="System-Independent:XTERM_LOCALE">XTERM_LOCALE</a></b>
-            shows the locale which was used by <i>xterm</i> on startup.   Some  shell
+            shows  the  locale which was used by <i>xterm</i> on startup.  Some shell
             initialization scripts may set a different locale.
 
        <b><a title="System Independent:XTERM_SHELL" name="System-Independent:XTERM_SHELL">XTERM_SHELL</a></b>
-            is  set  to the pathname of the program which is invoked.  Usually
+            is set to the pathname of the program which is  invoked.   Usually
             that  is  a  shell  program,  e.g.,  <i>/bin/sh</i>.   Since  it  is  not
             necessarily a shell program however, it is distinct from "SHELL".
 
        <b><a title="System Independent:XTERM_VERSION" name="System-Independent:XTERM_VERSION">XTERM_VERSION</a></b>
-            is  set  to  the string displayed by the <b><a href="#OPTIONS:-version">-version</a></b> option.  That is
-            normally an identifier for the X Window libraries  used  to  build
+            is set to the string displayed by the <b><a href="#OPTIONS:-version">-version</a></b>  option.   That  is
+            normally  an  identifier  for the X Window libraries used to build
             <i>xterm</i>, followed by <i>xterm</i>'s patch number in parenthesis.  The patch
-            number  is  also  part  of  the  response  to  a  Secondary Device
+            number is  also  part  of  the  response  to  a  Secondary  Device
             Attributes (DA) control sequence (see <i>Xterm Control Sequences</i>).
 
 </pre>
@@ -9331,11 +9339,11 @@
        <b><a title="System Dependent:COLUMNS" name="System-Dependent:COLUMNS">COLUMNS</a></b>
             the width of the <i>xterm</i> in characters (cf: "stty columns").
 
-            When  this variable is set, <i>curses</i> applications (and most terminal
+            When this variable is set, <i>curses</i> applications (and most  terminal
             programs) will assume that the terminal has this many columns.
 
-            <i>Xterm</i> would do this for systems which have no ability to tell  the
-            size  of  the  terminal.  Those are very rare, none newer than the
+            <i>Xterm</i>  would do this for systems which have no ability to tell the
+            size of the terminal.  Those are very rare, none  newer  than  the
             mid 1990s when SVR4 became prevalent.
 
        <b><a title="System Dependent:HOME" name="System-Dependent:HOME">HOME</a></b>
@@ -9344,45 +9352,45 @@
        <b><a title="System Dependent:LINES" name="System-Dependent:LINES">LINES</a></b>
             the height of the <i>xterm</i> in characters (cf: "stty rows").
 
-            When this variable is set, <i>curses</i> applications (and most  terminal
-            programs)  will  assume  that  the  terminal  has  this many lines
+            When  this variable is set, <i>curses</i> applications (and most terminal
+            programs) will assume  that  the  terminal  has  this  many  lines
             (rows).
 
-            <i>Xterm</i> would do this for systems which have no ability to tell  the
-            size  of  the  terminal.  Those are very rare, none newer than the
+            <i>Xterm</i>  would do this for systems which have no ability to tell the
+            size of the terminal.  Those are very rare, none  newer  than  the
             mid 1990s when SVR4 became prevalent.
 
        <b><a title="System Dependent:LOGNAME" name="System-Dependent:LOGNAME">LOGNAME</a></b>
             when <i>xterm</i> is configured (at build-time) to update utmp.
 
-            Your configuration may have set <b><a href="#System-Dependent:LOGNAME">LOGNAME</a></b>;  <i>xterm</i>  does  not  modify
+            Your  configuration  may  have  set <b><a href="#System-Dependent:LOGNAME">LOGNAME</a></b>; <i>xterm</i> does not modify
             that.  If it is unset, <i>xterm</i> will use <b>USER</b> if it is set.  Finally,
             if neither is set, <i>xterm</i> will use the <b><a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/getlogin.html">getlogin(3)</a></b> function.
 
        <b><a title="System Dependent:SHELL" name="System-Dependent:SHELL">SHELL</a></b>
-            when  <i>xterm</i>  is  configured (at build-time) to update utmp.  It is
-            also set if you  provide  a  valid  shell  name  as  the  optional
+            when <i>xterm</i> is configured (at build-time) to update  utmp.   It  is
+            also  set  if  you  provide  a  valid  shell  name as the optional
             parameter.
 
-            <i>Xterm</i>  sets  this  to  an  absolute pathname.  If you have set the
-            variable to a relative pathname, <i>xterm</i> may set it to  a  different
+            <i>Xterm</i> sets this to an absolute pathname.   If  you  have  set  the
+            variable  to  a relative pathname, <i>xterm</i> may set it to a different
             shell pathname.
 
             If you have set this to an pathname which does not correspond to a
             valid shell, <i>xterm</i> may unset it, to avoid confusion.
 
        <b><a title="System Dependent:TERMCAP" name="System-Dependent:TERMCAP">TERMCAP</a></b>
-            the  contents  of  the  termcap entry corresponding to <b><a href="#System-Independent:TERM">$TERM</a></b>, with
-            lines and columns values substituted for the  actual  size  window
+            the contents of the termcap entry  corresponding  to  <b><a href="#System-Independent:TERM">$TERM</a></b>,  with
+            lines  and  columns  values substituted for the actual size window
             you have created.
 
             This  feature  is,  like  <b><a href="#System-Dependent:LINES">LINES</a></b>  and  <b><a href="#System-Dependent:COLUMNS">COLUMNS</a></b>,  used  rarely.   It
-            addresses the same limitation of a few older systems by  providing
-            a  way  for  <i>termcap</i>-based  applications to get the initial screen
+            addresses  the same limitation of a few older systems by providing
+            a way for <i>termcap</i>-based applications to  get  the  initial  screen
             size.
 
        <b><a title="System Dependent:TERMINFO" name="System-Dependent:TERMINFO">TERMINFO</a></b>
-            may be defined to  a  nonstandard  location  using  the  configure
+            may  be  defined  to  a  nonstandard  location using the configure
             script.
 
        <b><a title="System Dependent:XCURSOR_THEME" name="System-Dependent:XCURSOR_THEME">XCURSOR_THEME</a></b>
@@ -9395,37 +9403,37 @@
 </pre>
 <h3><a name="h3-Properties-set-by-X-Toolkit" id="h3-Properties-set-by-X-Toolkit">Properties set by X Toolkit</a></h3>
 <pre>       <b><a title="Properties set by X Toolkit:WM_CLASS" name="Properties-set-by-X-Toolkit:WM_CLASS">WM_CLASS</a></b>
-            This  shows  the <i>instance name</i> and the X resource <i>class</i>, passed to
+            This shows the <i>instance name</i> and the X resource <i>class</i>,  passed  to
             <i>X Toolkit</i> during initialization of <i>xterm</i>, e.g.,
 
                 WM_CLASS(STRING) = "xterm", "UXTerm"
 
        <b><a title="Properties set by X Toolkit:WM_CLIENT_LEADER" name="Properties-set-by-X-Toolkit:WM_CLIENT_LEADER">WM_CLIENT_LEADER</a></b>
-            This shows the window-id which <i>xterm</i> provides with an  environment
+            This  shows the window-id which <i>xterm</i> provides with an environment
             variable (<b><a href="#System-Independent:WINDOWID">WINDOWID</a></b>), e.g.,
 
                 WM_CLIENT_LEADER(WINDOW): window id # 0x800023
 
        <b><a title="Properties set by X Toolkit:WM_COMMAND" name="Properties-set-by-X-Toolkit:WM_COMMAND">WM_COMMAND</a></b>
-            This  shows  the command-line arguments for <i>xterm</i> which are passed
+            This shows the command-line arguments for <i>xterm</i> which  are  passed
             to <i>X Toolkit</i> during initialization, e.g.,
 
                 WM_COMMAND(STRING) = { "xterm", "-class", "UXTerm", "-title", "uxterm", "-u8" }
 
        <b><a title="Properties set by X Toolkit:WM_ICON_NAME" name="Properties-set-by-X-Toolkit:WM_ICON_NAME">WM_ICON_NAME</a></b>
-            This holds the icon title, which different window managers  handle
-            in   various   ways.    It  is  set  via  the  <b><a href="#Application-Resources:iconName">iconName</a></b>  resource.
+            This  holds the icon title, which different window managers handle
+            in  various  ways.   It  is  set  via   the   <b><a href="#Application-Resources:iconName">iconName</a></b>   resource.
             Applications can change this using control sequences.
 
        <b><a title="Properties set by X Toolkit:WM_LOCALE_NAME" name="Properties-set-by-X-Toolkit:WM_LOCALE_NAME">WM_LOCALE_NAME</a></b>
-            This shows the result  from  the  <b><a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/setlocale.html">setlocale(3)</a></b>  function  for  the
+            This  shows  the  result  from  the  <b><a href="http://pubs.opengroup.org/onlinepubs/9699919799/functions/setlocale.html">setlocale(3)</a></b> function for the
             <i>LC_CTYPE</i> category, e.g.,
 
                 WM_LOCALE_NAME(STRING) = "en_US.UTF-8"
 
        <b><a title="Properties set by X Toolkit:WM_NAME" name="Properties-set-by-X-Toolkit:WM_NAME">WM_NAME</a></b>
-            This  holds  the  window  title,  normally  at  the top of <i>xterm</i>'s
-            window.  It is set  via  the  <b><a href="#Application-Resources:title">title</a></b>  resource.   Applications  can
+            This holds the window  title,  normally  at  the  top  of  <i>xterm</i>'s
+            window.   It  is  set  via  the  <b><a href="#Application-Resources:title">title</a></b> resource.  Applications can
             change this using control sequences.
 
 </pre>
@@ -9444,17 +9452,17 @@
 </pre>
 <h3><a name="h3-Properties-used-by-Xterm" id="h3-Properties-used-by-Xterm">Properties used by Xterm</a></h3>
 <pre>       <b><a title="Properties used by Xterm:_NET_SUPPORTED" name="Properties-used-by-Xterm:_NET_SUPPORTED">_NET_SUPPORTED</a></b>
-            Xterm  checks  this property on the <i>supporting window</i> to decide if
-            the window manager supports specific maximizing styles.  That  may
+            Xterm checks this property on the <i>supporting window</i> to  decide  if
+            the  window manager supports specific maximizing styles.  That may
             include other window manager hints; <i>xterm</i> uses the X library calls
             to manage those.
 
        <b><a title="Properties used by Xterm:_NET_SUPPORTING_WM_CHECK" name="Properties-used-by-Xterm:_NET_SUPPORTING_WM_CHECK">_NET_SUPPORTING_WM_CHECK</a></b>
-            Xterm  checks  this  to  ensure  that it will only update the EWMH
+            Xterm checks this to ensure that it  will  only  update  the  EWMH
             properties for a window manager which claims EWMH compliance.
 
        <b><a title="Properties used by Xterm:_NET_WM_STATE" name="Properties-used-by-Xterm:_NET_WM_STATE">_NET_WM_STATE</a></b>
-            This tells <i>xterm</i> whether its window  has  been  maximized  by  the
+            This  tells  <i>xterm</i>  whether  its  window has been maximized by the
             window manager, and if so, what type of maximizing:
 
             <b><a title="Properties used by Xterm:_NET_WM_STATE_FULLSCREEN" name="Properties-used-by-Xterm:_NET_WM_STATE_FULLSCREEN">_NET_WM_STATE_FULLSCREEN</a></b>
@@ -9468,12 +9476,12 @@
 <pre>       The actual pathnames given may differ on your system.
 
        <i>/etc/shells</i>
-            contains  a  list of valid shell programs, used by <i>xterm</i> to decide
-            if the "SHELL" environment variable should be set for the  process
+            contains a list of valid shell programs, used by <i>xterm</i>  to  decide
+            if  the "SHELL" environment variable should be set for the process
             started by <i>xterm</i>.
 
-            On  systems  which  have the <i>getusershell</i> function, <i>xterm</i> will use
-            that function rather than directly reading  the  file,  since  the
+            On systems which have the <i>getusershell</i> function,  <i>xterm</i>  will  use
+            that  function  rather  than  directly reading the file, since the
             file may not be present if the system uses default settings.
 
        <i>/var/run/utmp</i>
@@ -9486,13 +9494,13 @@
             the <i>xterm</i> default application resources.
 
        <i>/etc/X11/app-defaults/XTerm-color</i>
-            the  <i>xterm</i>  color application resources.  If your display supports
+            the <i>xterm</i> color application resources.  If your  display  supports
             color, use this
 
                 *customization: -color
 
-            in your .Xdefaults file to automatically use  this  resource  file
-            rather  than  <i>/etc/X11/app-defaults/XTerm</i>.  If you do not do this,
+            in  your  .Xdefaults  file to automatically use this resource file
+            rather than <i>/etc/X11/app-defaults/XTerm</i>.  If you do not  do  this,
             <i>xterm</i> uses its compiled-in default resource settings for colors.
 
        <i>/usr/share/pixmaps</i>
@@ -9504,7 +9512,7 @@
 
            xterm: Error <i>XXX</i>, errno <i>YYY</i>: <i>ZZZ</i>
 
-       The <i>XXX</i> codes (which are used by <i>xterm</i> as  its  exit-code)  are  listed
+       The  <i>XXX</i>  codes  (which  are used by <i>xterm</i> as its exit-code) are listed
        below, with a brief explanation.
 
        1    ERROR_MISC
@@ -9629,41 +9637,41 @@
 
 </pre>
 <h2><a name="h2-BUGS" id="h2-BUGS">BUGS</a></h2>
-<pre>       Large  pastes do not work on some systems.  This is not a bug in <i>xterm</i>;
-       it is a bug in the pseudo terminal  driver  of  those  systems.   <i>Xterm</i>
+<pre>       Large pastes do not work on some systems.  This is not a bug in  <i>xterm</i>;
+       it  is  a  bug  in  the pseudo terminal driver of those systems.  <i>Xterm</i>
        feeds large pastes to the pty only as fast as the pty will accept data,
-       but  some  pty  drivers do not return enough information to know if the
+       but some pty drivers do not return enough information to  know  if  the
        write has succeeded.
 
-       When connected to an input method, it is possible for <i>xterm</i> to hang  if
+       When  connected to an input method, it is possible for <i>xterm</i> to hang if
        the XIM server is suspended or killed.
 
        Many of the options are not resettable after <i>xterm</i> starts.
 
        This program still needs to be rewritten.  It should be split into very
-       modular  sections, with the various emulators being completely separate
-       widgets that do not know about each other.  Ideally, you'd like  to  be
-       able  to  pick and choose emulator widgets and stick them into a single
+       modular sections, with the various emulators being completely  separate
+       widgets  that  do not know about each other.  Ideally, you'd like to be
+       able to pick and choose emulator widgets and stick them into  a  single
        control widget.
 
-       There needs to be a dialog box to allow entry  of  the  Tek  COPY  file
+       There  needs  to  be  a  dialog box to allow entry of the Tek COPY file
        name.
 
 </pre>
 <h2><a name="h2-AUTHORS" id="h2-AUTHORS">AUTHORS</a></h2>
 <pre>       Far too many people.
 
-       These  contributed  to the X Consortium: Loretta Guarino Reid (DEC-UEG-
+       These contributed to the X Consortium: Loretta Guarino  Reid  (DEC-UEG-
        WSL),  Joel  McCormack  (DEC-UEG-WSL),  Terry  Weissman  (DEC-UEG-WSL),
-       Edward  Moy  (Berkeley),  Ralph R. Swick (MIT-Athena), Mark Vandevoorde
-       (MIT-Athena), Bob McNamara  (DEC-MAD),  Jim  Gettys  (MIT-Athena),  Bob
-       Scheifler   (MIT   X  Consortium),  Doug  Mink  (SAO),  Steve  Pitschke
+       Edward Moy (Berkeley), Ralph R. Swick  (MIT-Athena),  Mark  Vandevoorde
+       (MIT-Athena),  Bob  McNamara  (DEC-MAD),  Jim  Gettys (MIT-Athena), Bob
+       Scheifler  (MIT  X  Consortium),  Doug  Mink  (SAO),   Steve   Pitschke
        (Stellar), Ron Newman (MIT-Athena), Jim Fulton (MIT X Consortium), Dave
        Serisky (HP), Jonathan Kamens (MIT-Athena).
 
-       Beginning with XFree86, there were far more identifiable  contributors.
+       Beginning  with XFree86, there were far more identifiable contributors.
        The <i>THANKS</i> file in <i>xterm</i>'s source lists 243 in June 2022.  Keep in mind
-       these:  Jason  Bacon,  Jens  Schweikhardt, Ross Combs, Stephen P. Wall,
+       these: Jason Bacon, Jens Schweikhardt, Ross  Combs,  Stephen  P.  Wall,
        David Wexelblat, and Thomas Dickey (invisible-island.net).
 
 </pre>
@@ -9689,7 +9697,7 @@
        X Desktop Group (version 1.5, 2011).
 
        EWMH uses <i>UTF8_STRING</i> pervasively without defining it, but does mention
-       the ICCCM.  Version 2.0 of the ICCCM does not address UTF-8.   That  is
+       the  ICCCM.   Version 2.0 of the ICCCM does not address UTF-8.  That is
        an extension added in XFree86.
 
        <b>o</b>   Markus Kuhn summarized this in <i>UTF-8 and Unicode FAQ for Unix/Linux</i>
@@ -9697,16 +9705,16 @@
 
            <a href="https://www.cl.cam.ac.uk/~mgk25/unicode.html">https://www.cl.cam.ac.uk/~mgk25/unicode.html</a>
 
-       <b>o</b>   Juliusz  Chroboczek  proposed  the  UTF8_STRING  selection  atom in
+       <b>o</b>   Juliusz Chroboczek  proposed  the  UTF8_STRING  selection  atom  in
            1999/2000, which became part of the ICCCM in XFree86.
 
            <a href="https://www.irif.fr/~jch/software/UTF8_STRING/">https://www.irif.fr/~jch/software/UTF8_STRING/</a>
 
-           An Xorg developer removed that part of the  documentation  in  2004
-           when  incorporating other work from XFree86 into Xorg.  The feature
+           An  Xorg  developer  removed that part of the documentation in 2004
+           when incorporating other work from XFree86 into Xorg.  The  feature
            is still supported in Xorg, though undocumented as of 2019.
 
-Patch #409                        2026-04-13                          <b>XTERM(1)</b>
+Patch #411                        2026-08-24                          <b>XTERM(1)</b>
 </pre>
 
               
