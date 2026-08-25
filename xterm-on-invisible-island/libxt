@@ -2,15 +2,20 @@
 
 
 <!DOCTYPE html>
-<html class="gl-system ui-neutral with-top-bar with-header application-chrome page-with-panels with-gl-container-queries  user-logged-out" lang="en">
+<html class="gl-system ui-neutral with-top-bar with-header page-theme-background page-with-panels with-gl-container-queries  user-logged-out" lang="en">
 <head prefix="og: http://ogp.me/ns#">
 <meta charset="utf-8">
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <meta content="width=device-width, initial-scale=1" name="viewport">
 <title>xorg / lib / libXt · GitLab</title>
+<link as="font" crossorigin="" href="/assets/gitlab-sans/GitLabSans-9892dc17af892e03de41625c0ee325117a3b8ee4ba6005f3a3eac68510030aed.woff2" rel="preload">
+<link as="font" crossorigin="" href="/assets/gitlab-sans/GitLabSans-Italic-f96f17332d67b21ada2dfba5f0c0e1d5801eab99330472057bf18edd93d4ccf7.woff2" rel="preload">
+<link as="font" crossorigin="" href="/assets/gitlab-mono/GitLabMono-29c2152dac8739499dd0fe5cd37a486ebcc7d4798c9b6d3aeab65b3172375b05.woff2" rel="preload">
+<link as="font" crossorigin="" href="/assets/gitlab-mono/GitLabMono-Italic-af36701a2188df32a9dcea12e0424c380019698d4f76da9ad8ea2fd59432cf83.woff2" rel="preload">
+
 <script>
 //<![CDATA[
-window.gon={};gon.math_rendering_limits_enabled=true;gon.features={"allowIframesInMarkdown":false,"inlineBlame":false,"removeMonitorMetrics":true,"pageSpecificStyles":false,"repositoryFileTreeBrowser":true};
+window.gon={};gon.math_rendering_limits_enabled=true;gon.features={"allowIframesInMarkdown":false,"inlineBlame":true,"removeMonitorMetrics":true,"pageSpecificStyles":false,"vue3MigrateRepository":false};
 //]]>
 </script>
 
@@ -34,7 +39,7 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e)
 <script>
 //<![CDATA[
 var gl = window.gl || {};
-gl.startup_calls = {"/xorg/lib/libxt/-/refs/master/logs_tree/?format=json\u0026offset=0\u0026ref_type=HEADS":{},"/xorg/lib/libxt/-/blob/master/README.md?format=json\u0026viewer=rich":{}};
+gl.startup_calls = {"/xorg/lib/libxt/-/refs/master/logs_tree/?format=json\u0026offset=0\u0026ref_type=HEADS":{},"/xorg/lib/libxt/-/blob/master/README.md?format=json\u0026ref_type=heads\u0026viewer=rich":{}};
 gl.startup_graphql_calls = [{"query":"# @feature_category: source_code_management\nquery pathLastCommit($projectPath: ID!, $path: String, $ref: String!, $refType: RefType) {\n  project(fullPath: $projectPath) {\n    __typename\n    id\n    repository {\n      __typename\n      lastCommit(path: $path, ref: $ref, refType: $refType) {\n        __typename\n        id\n        sha\n        title\n        titleHtml\n        descriptionHtml\n        message\n        webPath\n        committerName\n        committerEmail\n        committedDate\n        authoredDate\n        authorName\n        authorEmail\n        authorGravatar\n        author {\n          __typename\n          id\n          name\n          avatarUrl\n          webPath\n        }\n        signature {\n          __typename\n          ... on GpgSignature {\n            gpgKeyPrimaryKeyid\n            verificationStatus\n          }\n          ... on X509Signature {\n            verificationStatus\n            x509Certificate {\n              id\n              subject\n              subjectKeyIdentifier\n              x509Issuer {\n                id\n                subject\n                subjectKeyIdentifier\n              }\n            }\n          }\n          ... on SshSignature {\n            verificationStatus\n            keyFingerprintSha256\n          }\n        }\n        pipelines(ref: $ref, first: 1) {\n          __typename\n          edges {\n            __typename\n            node {\n              __typename\n              id\n              detailedStatus {\n                __typename\n                id\n                detailsPath\n                icon\n                text\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n}\n","variables":{"projectPath":"xorg/lib/libxt","ref":"master","path":""}}];
 
 if (gl.startup_calls && window.fetch) {
@@ -54,7 +59,7 @@ if (gl.startup_calls && window.fetch) {
   });
 }
 if (gl.startup_graphql_calls && window.fetch) {
-  const headers = {"X-CSRF-Token":"h4U2OnT5SQMWWpL6O3mIP5lX2lwKAhedSZfJto-eAZUpQi1z1x1cxZaqqdxeHekqbxRmkwyB9yzYQHIyfLjtXQ","x-gitlab-feature-category":"groups_and_projects"};
+  const headers = {"X-CSRF-Token":"qVBp2wINGp37j9vlQxRmfvMReH2KQHilKgSb6auKj0E6Tsr4OXsjtvTuExxKDaKsT2WeWE4NqeZp0wdr83XOGQ","x-gitlab-feature-category":"groups_and_projects"};
   const url = `https://gitlab.freedesktop.org/api/graphql`
 
   const opts = {
@@ -82,24 +87,24 @@ if (gl.startup_graphql_calls && window.fetch) {
 
 
 <meta content="light dark" name="color-scheme">
-<link rel="stylesheet" href="/assets/application-6be94c37406653e47bdb70afcadda996d60407322e4b979fbfdff1d2509411e5.css" media="(prefers-color-scheme: light)" />
-<link rel="stylesheet" href="/assets/application_dark-466217db14149b93ed8e25829673abe5881c76f5e5a8ecb67b9f332268786bd0.css" media="(prefers-color-scheme: dark)" />
-<link rel="stylesheet" href="/assets/page_bundles/project-76549d883cca142b10a8fe4a3383f467c938ce9b7b4316eb01a110353bb299e9.css" /><link rel="stylesheet" href="/assets/page_bundles/tree-fb7df91c595e3158c2ad5a485cfb0039d488d3ba8e39d62b61cd585c78608e64.css" /><link rel="stylesheet" href="/assets/page_bundles/commit_description-9e7efe20f0cef17d0606edabfad0418e9eb224aaeaa2dae32c817060fa60abcc.css" /><link rel="stylesheet" href="/assets/page_bundles/projects-5ff1d9a4f328199704b89fcdbf5501b932b19e481ac1139171ece972e7cf4c7f.css" /><link rel="stylesheet" href="/assets/page_bundles/work_items-af321897c3b1ae7c1f6f0cb993681211b837df7ec8e5ff59e3795fd08ab83a13.css" /><link rel="stylesheet" href="/assets/page_bundles/notes_shared-e58f07f39b2c4557134baf9f32b68c875fffb37fe1c5d8808fb7607d19f5690b.css" />
-<link rel="stylesheet" href="/assets/tailwind_cqs-92f3865c0fca5c3810f03152813a404eb28e77c54b528a543f06b8c9c197778f.css" />
+<link rel="stylesheet" href="/assets/application-c0db9f6b5fa2a9075af366ea162e5ff09ac843d2acd9381b24b0edfdaf7d10c5.css" media="(prefers-color-scheme: light)" />
+<link rel="stylesheet" href="/assets/application_dark-c075ebb2a06d49adb535ed3b4289e0d0b168d8ce6baa93e171a166c586444e8e.css" media="(prefers-color-scheme: dark)" />
+<link rel="stylesheet" href="/assets/page_bundles/project-1227ff1f211c312fb669b3f9c361df324ad842e1dae08be6345b883553bd129e.css" /><link rel="stylesheet" href="/assets/page_bundles/tree-97914a558239c8f15ee05af37b5840df11dcc8dfd873393993f9830cbf002a38.css" /><link rel="stylesheet" href="/assets/page_bundles/commit_description-9e7efe20f0cef17d0606edabfad0418e9eb224aaeaa2dae32c817060fa60abcc.css" /><link rel="stylesheet" href="/assets/page_bundles/projects-2d5b0f8de7829b78958778a73c6202488874e74d1b301ae6c825cacadb153dfb.css" /><link rel="stylesheet" href="/assets/page_bundles/work_items-9b3a7bc660bfe63384ce36523abc336295685aabd2afbfd8689610b7f607c656.css" /><link rel="stylesheet" href="/assets/page_bundles/notes_shared-1a99012f97ba760b6bc57563b5b2863243958d14d14a25fee12843f0268c2731.css" />
+<link rel="stylesheet" href="/assets/tailwind-ad93154e157cd2f99c20087ee19714a952eae5474bee8af8172a9e9c728928f7.css" />
 
 
 <link rel="stylesheet" href="/assets/fonts-deb7ad1d55ca77c0172d8538d53442af63604ff490c74acc2859db295c125bdb.css" />
-<link rel="stylesheet" href="/assets/highlight/themes/white-d436882f650831f756a6394bdaa66486d5ef99218601d4839f4d640558a4f307.css" media="(prefers-color-scheme: light)" />
-<link rel="stylesheet" href="/assets/highlight/themes/dark-9afe7e06099105c59ea8fe5379843ddf5c5dfcb3cc523eed3a9d4147f6ba7c5b.css" media="(prefers-color-scheme: dark)" />
+<link rel="stylesheet" href="/assets/highlight/themes/white-c3211f67c1e8d8cfb47de179b2da35275ab7865cdf299ab44b4a8cc52d5cafd3.css" media="(prefers-color-scheme: light)" />
+<link rel="stylesheet" href="/assets/highlight/themes/dark-8cae80594d7953b52bc449bf1b4f2de402c87cc39fffc7aa0187b5f881c0cfd7.css" media="(prefers-color-scheme: dark)" />
 
-<script src="/assets/webpack/runtime.65649b9e.bundle.js" defer="defer"></script>
-<script src="/assets/webpack/main.ccaa68c2.chunk.js" defer="defer"></script>
-<script src="/assets/webpack/tracker.3bba319e.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/runtime.6e62b843.bundle.js" defer="defer"></script>
+<script src="/assets/webpack/main.4801ec46.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/tracker.1eb446cb.chunk.js" defer="defer"></script>
 <script>
 //<![CDATA[
 window.snowplowOptions = {"namespace":"gl","hostname":"gitlab.freedesktop.org:443","postPath":"/-/collect_events","forceSecureTracker":true,"appId":"gitlab_sm"};
 gl = window.gl || {};
-gl.snowplowStandardContext = {"schema":"iglu:com.gitlab/gitlab_standard/jsonschema/1-1-7","data":{"environment":"self-managed","source":"gitlab-rails","correlation_id":"01KP5E60VA21Q0BKPYTA9ZJP0N","extra":{},"user_id":null,"global_user_id":null,"user_type":null,"is_gitlab_team_member":null,"namespace_id":2211,"ultimate_parent_namespace_id":1154,"project_id":731,"feature_enabled_by_namespace_ids":null,"realm":"self-managed","deployment_type":"self-managed","context_generated_at":"2026-04-14T07:27:06.756Z"}};
+gl.snowplowStandardContext = {"schema":"iglu:com.gitlab/gitlab_standard/jsonschema/1-1-8","data":{"environment":"self-managed","source":"gitlab-rails","correlation_id":"01M0WSSS1RGKA4MP6DXT7AB0P4","extra":{},"user_id":null,"global_user_id":null,"user_type":null,"is_gitlab_team_member":null,"namespace_id":2211,"ultimate_parent_namespace_id":1154,"project_id":731,"feature_enabled_by_namespace_ids":null,"realm":"self-managed","deployment_type":"self-managed","context_generated_at":"2026-08-25T15:49:38.693Z","organization_id":1}};
 gl.snowplowPseudonymizedPageUrl = "https://gitlab.freedesktop.org/namespace2211/project731";
 gl.maskedDefaultReferrerUrl = null;
 gl.ga4MeasurementId = 'G-ENFH3X7M5Y';
@@ -109,30 +114,28 @@ gl.onlySendDuoEvents = false;
 
 //]]>
 </script>
-<link rel="preload" href="/assets/application-6be94c37406653e47bdb70afcadda996d60407322e4b979fbfdff1d2509411e5.css" as="style" type="text/css">
-<link rel="preload" href="/assets/highlight/themes/white-d436882f650831f756a6394bdaa66486d5ef99218601d4839f4d640558a4f307.css" as="style" type="text/css">
 
 
 
-
-<script src="/assets/webpack/commons-pages.search.show-super_sidebar.b3610a2f.chunk.js" defer="defer"></script>
-<script src="/assets/webpack/super_sidebar.a36fbd92.chunk.js" defer="defer"></script>
-<script src="/assets/webpack/commons-pages.projects-pages.projects.activity-pages.projects.alert_management.details-pages.project-2589d178.925bc2ce.chunk.js" defer="defer"></script>
-<script src="/assets/webpack/commons-pages.admin.application_settings-pages.admin.application_settings.appearances.preview_sign_i-489f33f7.b35a3019.chunk.js" defer="defer"></script>
-<script src="/assets/webpack/commons-pages.admin.impersonation_tokens-pages.groups.issues-pages.groups.merge_requests-pages.group-5be7a22a.fc0cb7ea.chunk.js" defer="defer"></script>
-<script src="/assets/webpack/commons-pages.import.bitbucket_server.new-pages.import.gitea.new-pages.import.gitlab_projects.new-pa-0ee6e2d3.dbc2858a.chunk.js" defer="defer"></script>
-<script src="/assets/webpack/commons-pages.projects.blob.show-pages.projects.show-pages.projects.snippets.edit-pages.projects.sni-42df7d4c.3c670189.chunk.js" defer="defer"></script>
-<script src="/assets/webpack/commons-pages.projects.blob.show-pages.projects.show-pages.projects.snippets.show-pages.projects.tre-c684fcf6.a539901e.chunk.js" defer="defer"></script>
-<script src="/assets/webpack/commons-pages.projects.blob.edit-pages.projects.blob.new-pages.projects.blob.show-pages.projects.sho-ec79e51c.636a4d78.chunk.js" defer="defer"></script>
-<script src="/assets/webpack/commons-pages.projects.blob.show-pages.projects.commits.show-pages.projects.show-pages.projects.tree.show.5f2d91dd.chunk.js" defer="defer"></script>
-<script src="/assets/webpack/commons-pages.projects.blob.show-pages.projects.show-pages.projects.tree.show-pages.search.show.728daa4a.chunk.js" defer="defer"></script>
-<script src="/assets/webpack/ca242944.66c3e7a5.chunk.js" defer="defer"></script>
-<script src="/assets/webpack/commons-pages.projects.blame.show-pages.projects.blob.show-pages.projects.show-pages.projects.tree.show.63111eb5.chunk.js" defer="defer"></script>
-<script src="/assets/webpack/commons-pages.projects.blob.show-pages.projects.show-pages.projects.tree.show.0e5dbda4.chunk.js" defer="defer"></script>
-<script src="/assets/webpack/commons-pages.projects.home_panel-pages.projects.show.7e8a2ee6.chunk.js" defer="defer"></script>
-<script src="/assets/webpack/commons-pages.groups.show-pages.projects.show.4dd93b93.chunk.js" defer="defer"></script>
-<script src="/assets/webpack/107cfa40.bab3a5f6.chunk.js" defer="defer"></script>
-<script src="/assets/webpack/pages.projects.show.41a0d7a6.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/commons-pages.admin.sessions-pages.ldap.omniauth_callbacks-pages.omniauth_callbacks-pages.sessions-p-b70d0ef8.62b3443a.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/commons-pages.dashboard.home-pages.registrations.new-pages.sessions.new-super_sidebar.afaf6003.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/0dcf7166.63feabc4.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/commons-pages.search.show-super_sidebar.00ec466b.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/super_sidebar.9e5b0840.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/commons-pages.projects-pages.projects.activity-pages.projects.alert_management.details-pages.project-02879649.9987e5de.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/8632254b.204fd2a0.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/commons-pages.groups.dependency_proxies-pages.groups.harbor.repositories-pages.groups.infrastructure-b4b97c9b.b082fe31.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/commons-pages.projects.blob.show-pages.projects.show-pages.projects.snippets.edit-pages.projects.sni-42df7d4c.2567595a.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/9440c85a.77ded959.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/commons-pages.admin.projects.index-pages.dashboard.projects-pages.explore.projects-pages.groups.show-a1c4592e.e8dd3877.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/commons-pages.projects.blob.show-pages.projects.show-pages.projects.snippets.show-pages.projects.tre-c684fcf6.9148d855.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/commons-pages.projects.blob.edit-pages.projects.blob.new-pages.projects.blob.show-pages.projects.sho-ec79e51c.9f0fe4f1.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/commons-pages.projects.blob.show-pages.projects.commits.show-pages.projects.show-pages.projects.tree.show.3291c2ad.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/commons-pages.projects.blob.show-pages.projects.show-pages.projects.tree.show-pages.search.show.f6451016.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/6016c175.749d5963.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/commons-pages.projects.blob.show-pages.projects.show-pages.projects.tree.show.115ae311.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/f72a8004.14a134fd.chunk.js" defer="defer"></script>
+<script src="/assets/webpack/pages.projects.show.8d005cdf.chunk.js" defer="defer"></script>
 
 <meta content="object" property="og:type">
 <meta content="GitLab" property="og:site_name">
@@ -148,7 +151,7 @@ gl.onlySendDuoEvents = false;
 <meta content="https://gitlab.freedesktop.org/assets/twitter_card-570ddb06edf56a2312253c5872489847a0f385112ddbcd71ccfa1570febab5d2.jpg" property="twitter:image">
 
 <meta name="csrf-param" content="authenticity_token" />
-<meta name="csrf-token" content="uh-MCHwqFGFkh4yx1FzksEnMOtFZqgTHfBgcXpfHNOwU2JdB384Bp-R3t5exOIWlv4-GHl8p5Hbtz6faZOHYJA" />
+<meta name="csrf-token" content="0GWIEvdDiLDRBUi4-Gidi3qmysBDZ9i7MJJo88qeBuZDeysxzDWxm95kgEHxcVlZxtIs5YcqCfhzRfRxkmFHvg" />
 <meta name="csp-nonce" />
 <meta name="action-cable-url" content="/-/cable" />
 <link href="/-/manifest.json" rel="manifest">
@@ -193,25 +196,21 @@ outer.parentNode.removeChild(outer);
 document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
 
 //]]>
-</script><aside class="js-super-sidebar super-sidebar super-sidebar-loading" data-command-palette="{&quot;project_files_url&quot;:&quot;/xorg/lib/libxt/-/files/master?format=json&quot;,&quot;project_blob_url&quot;:&quot;/xorg/lib/libxt/-/blob/master&quot;}" data-is-saas="false" data-root-path="/" data-sidebar="{&quot;is_logged_in&quot;:false,&quot;compare_plans_url&quot;:&quot;https://about.gitlab.com/pricing&quot;,&quot;context_switcher_links&quot;:[{&quot;title&quot;:&quot;Explore&quot;,&quot;link&quot;:&quot;/explore&quot;,&quot;icon&quot;:&quot;compass&quot;}],&quot;current_menu_items&quot;:[{&quot;id&quot;:&quot;project_overview&quot;,&quot;title&quot;:&quot;libXt&quot;,&quot;entity_id&quot;:731,&quot;link&quot;:&quot;/xorg/lib/libxt&quot;,&quot;link_classes&quot;:&quot;shortcuts-project&quot;,&quot;is_active&quot;:true},{&quot;id&quot;:&quot;manage_menu&quot;,&quot;title&quot;:&quot;Manage&quot;,&quot;icon&quot;:&quot;users&quot;,&quot;avatar_shape&quot;:&quot;rect&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/activity&quot;,&quot;is_active&quot;:false,&quot;items&quot;:[{&quot;id&quot;:&quot;activity&quot;,&quot;title&quot;:&quot;Activity&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/activity&quot;,&quot;link_classes&quot;:&quot;shortcuts-project-activity&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;members&quot;,&quot;title&quot;:&quot;Members&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/project_members&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;labels&quot;,&quot;title&quot;:&quot;Labels&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/labels&quot;,&quot;is_active&quot;:false}],&quot;separated&quot;:false},{&quot;id&quot;:&quot;plan_menu&quot;,&quot;title&quot;:&quot;Plan&quot;,&quot;icon&quot;:&quot;planning&quot;,&quot;avatar_shape&quot;:&quot;rect&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/work_items&quot;,&quot;is_active&quot;:false,&quot;items&quot;:[{&quot;id&quot;:&quot;project_issue_list&quot;,&quot;title&quot;:&quot;Work items&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/work_items&quot;,&quot;link_classes&quot;:&quot;shortcuts-issues has-sub-items&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;boards&quot;,&quot;title&quot;:&quot;Issue boards&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/boards&quot;,&quot;link_classes&quot;:&quot;shortcuts-issue-boards&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;milestones&quot;,&quot;title&quot;:&quot;Milestones&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/milestones&quot;,&quot;is_active&quot;:false}],&quot;separated&quot;:false},{&quot;id&quot;:&quot;code_menu&quot;,&quot;title&quot;:&quot;Code&quot;,&quot;icon&quot;:&quot;code&quot;,&quot;avatar_shape&quot;:&quot;rect&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/merge_requests&quot;,&quot;is_active&quot;:false,&quot;items&quot;:[{&quot;id&quot;:&quot;project_merge_request_list&quot;,&quot;title&quot;:&quot;Merge requests&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/merge_requests&quot;,&quot;link_classes&quot;:&quot;shortcuts-merge_requests&quot;,&quot;pill_count_field&quot;:&quot;openMergeRequestsCount&quot;,&quot;pill_count_dynamic&quot;:false,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;files&quot;,&quot;title&quot;:&quot;Repository&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/tree/master&quot;,&quot;link_classes&quot;:&quot;shortcuts-tree&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;branches&quot;,&quot;title&quot;:&quot;Branches&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/branches&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;commits&quot;,&quot;title&quot;:&quot;Commits&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/commits/master?ref_type=heads&quot;,&quot;link_classes&quot;:&quot;shortcuts-commits&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;tags&quot;,&quot;title&quot;:&quot;Tags&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/tags&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;graphs&quot;,&quot;title&quot;:&quot;Repository graph&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/network/master?ref_type=heads&quot;,&quot;link_classes&quot;:&quot;shortcuts-network&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;compare&quot;,&quot;title&quot;:&quot;Compare revisions&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/compare?from=master\u0026to=master&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;project_snippets&quot;,&quot;title&quot;:&quot;Snippets&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/snippets&quot;,&quot;link_classes&quot;:&quot;shortcuts-snippets&quot;,&quot;is_active&quot;:false}],&quot;separated&quot;:false},{&quot;id&quot;:&quot;build_menu&quot;,&quot;title&quot;:&quot;Build&quot;,&quot;icon&quot;:&quot;rocket&quot;,&quot;avatar_shape&quot;:&quot;rect&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/pipelines&quot;,&quot;is_active&quot;:false,&quot;items&quot;:[{&quot;id&quot;:&quot;pipelines&quot;,&quot;title&quot;:&quot;Pipelines&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/pipelines&quot;,&quot;link_classes&quot;:&quot;shortcuts-pipelines&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;jobs&quot;,&quot;title&quot;:&quot;Jobs&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/jobs&quot;,&quot;link_classes&quot;:&quot;shortcuts-builds&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;pipeline_schedules&quot;,&quot;title&quot;:&quot;Pipeline schedules&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/pipeline_schedules&quot;,&quot;link_classes&quot;:&quot;shortcuts-builds&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;artifacts&quot;,&quot;title&quot;:&quot;Artifacts&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/artifacts&quot;,&quot;link_classes&quot;:&quot;shortcuts-builds&quot;,&quot;is_active&quot;:false}],&quot;separated&quot;:false},{&quot;id&quot;:&quot;deploy_menu&quot;,&quot;title&quot;:&quot;Deploy&quot;,&quot;icon&quot;:&quot;deployments&quot;,&quot;avatar_shape&quot;:&quot;rect&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/releases&quot;,&quot;is_active&quot;:false,&quot;items&quot;:[{&quot;id&quot;:&quot;releases&quot;,&quot;title&quot;:&quot;Releases&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/releases&quot;,&quot;link_classes&quot;:&quot;shortcuts-deployments-releases&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;container_registry&quot;,&quot;title&quot;:&quot;Container registry&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/container_registry&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;model_registry&quot;,&quot;title&quot;:&quot;Model registry&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/ml/models&quot;,&quot;is_active&quot;:false}],&quot;separated&quot;:false},{&quot;id&quot;:&quot;operations_menu&quot;,&quot;title&quot;:&quot;Operate&quot;,&quot;icon&quot;:&quot;cloud-pod&quot;,&quot;avatar_shape&quot;:&quot;rect&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/environments&quot;,&quot;is_active&quot;:false,&quot;items&quot;:[{&quot;id&quot;:&quot;environments&quot;,&quot;title&quot;:&quot;Environments&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/environments&quot;,&quot;link_classes&quot;:&quot;shortcuts-environments&quot;,&quot;is_active&quot;:false}],&quot;separated&quot;:false},{&quot;id&quot;:&quot;monitor_menu&quot;,&quot;title&quot;:&quot;Monitor&quot;,&quot;icon&quot;:&quot;monitor&quot;,&quot;avatar_shape&quot;:&quot;rect&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/incidents&quot;,&quot;is_active&quot;:false,&quot;items&quot;:[{&quot;id&quot;:&quot;incidents&quot;,&quot;title&quot;:&quot;Incidents&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/incidents&quot;,&quot;is_active&quot;:false}],&quot;separated&quot;:false},{&quot;id&quot;:&quot;analyze_menu&quot;,&quot;title&quot;:&quot;Analyze&quot;,&quot;icon&quot;:&quot;chart&quot;,&quot;avatar_shape&quot;:&quot;rect&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/value_stream_analytics&quot;,&quot;is_active&quot;:false,&quot;items&quot;:[{&quot;id&quot;:&quot;cycle_analytics&quot;,&quot;title&quot;:&quot;Value stream analytics&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/value_stream_analytics&quot;,&quot;link_classes&quot;:&quot;shortcuts-project-cycle-analytics&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;contributors&quot;,&quot;title&quot;:&quot;Contributor analytics&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/graphs/master?ref_type=heads&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;ci_cd_analytics&quot;,&quot;title&quot;:&quot;CI/CD analytics&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/pipelines/charts&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;repository_analytics&quot;,&quot;title&quot;:&quot;Repository analytics&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/graphs/master/charts&quot;,&quot;link_classes&quot;:&quot;shortcuts-repository-charts&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;model_experiments&quot;,&quot;title&quot;:&quot;Model experiments&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/ml/experiments&quot;,&quot;is_active&quot;:false}],&quot;separated&quot;:false}],&quot;current_context_header&quot;:&quot;Project&quot;,&quot;university_path&quot;:&quot;https://university.gitlab.com&quot;,&quot;support_path&quot;:&quot;https://support.gitlab.com&quot;,&quot;docs_path&quot;:&quot;/help/docs&quot;,&quot;display_whats_new&quot;:false,&quot;show_version_check&quot;:null,&quot;search&quot;:{&quot;search_path&quot;:&quot;/search&quot;,&quot;issues_path&quot;:&quot;/dashboard/issues&quot;,&quot;mr_path&quot;:&quot;/dashboard/merge_requests&quot;,&quot;autocomplete_path&quot;:&quot;/search/autocomplete&quot;,&quot;settings_path&quot;:&quot;/search/settings&quot;,&quot;search_context&quot;:{&quot;group&quot;:{&quot;id&quot;:2211,&quot;name&quot;:&quot;lib&quot;,&quot;full_name&quot;:&quot;xorg / lib&quot;},&quot;group_metadata&quot;:{&quot;issues_path&quot;:&quot;/groups/xorg/lib/-/issues&quot;,&quot;mr_path&quot;:&quot;/groups/xorg/lib/-/merge_requests&quot;},&quot;project&quot;:{&quot;id&quot;:731,&quot;name&quot;:&quot;libXt&quot;},&quot;project_metadata&quot;:{&quot;mr_path&quot;:&quot;/xorg/lib/libxt/-/merge_requests&quot;,&quot;issues_path&quot;:&quot;/xorg/lib/libxt/-/issues&quot;},&quot;code_search&quot;:true,&quot;ref&quot;:&quot;master&quot;,&quot;scope&quot;:null,&quot;for_snippets&quot;:null}},&quot;panel_type&quot;:&quot;project&quot;,&quot;shortcut_links&quot;:[{&quot;title&quot;:&quot;Snippets&quot;,&quot;href&quot;:&quot;/explore/snippets&quot;,&quot;css_class&quot;:&quot;dashboard-shortcuts-snippets&quot;},{&quot;title&quot;:&quot;Groups&quot;,&quot;href&quot;:&quot;/explore/groups&quot;,&quot;css_class&quot;:&quot;dashboard-shortcuts-groups&quot;},{&quot;title&quot;:&quot;Projects&quot;,&quot;href&quot;:&quot;/explore/projects&quot;,&quot;css_class&quot;:&quot;dashboard-shortcuts-projects&quot;}],&quot;terms&quot;:&quot;/-/users/terms&quot;,&quot;sign_in_visible&quot;:&quot;true&quot;,&quot;allow_signup&quot;:&quot;true&quot;,&quot;new_user_registration_path&quot;:&quot;/users/sign_up&quot;,&quot;sign_in_path&quot;:&quot;/users/sign_in?redirect_to_referer=yes&quot;}"></aside>
+</script><aside class="js-super-sidebar super-sidebar super-sidebar-loading" data-command-palette="{&quot;project_files_url&quot;:&quot;/xorg/lib/libxt/-/files/master?format=json&quot;,&quot;project_blob_url&quot;:&quot;/xorg/lib/libxt/-/blob/master&quot;}" data-is-saas="false" data-root-path="/" data-sidebar="{&quot;is_logged_in&quot;:false,&quot;compare_plans_url&quot;:&quot;https://about.gitlab.com/pricing&quot;,&quot;current_menu_items&quot;:[{&quot;id&quot;:&quot;project_overview&quot;,&quot;title&quot;:&quot;libXt&quot;,&quot;entity_id&quot;:731,&quot;link&quot;:&quot;/xorg/lib/libxt&quot;,&quot;link_classes&quot;:&quot;shortcuts-project&quot;,&quot;is_active&quot;:true},{&quot;id&quot;:&quot;manage_menu&quot;,&quot;title&quot;:&quot;Manage&quot;,&quot;icon&quot;:&quot;users&quot;,&quot;avatar_shape&quot;:&quot;rect&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/activity&quot;,&quot;is_active&quot;:false,&quot;items&quot;:[{&quot;id&quot;:&quot;activity&quot;,&quot;title&quot;:&quot;Activity&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/activity&quot;,&quot;link_classes&quot;:&quot;shortcuts-project-activity&quot;,&quot;description&quot;:&quot;Track what your team is working on and stay informed of changes&quot;,&quot;library_icon&quot;:&quot;history&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;members&quot;,&quot;title&quot;:&quot;Members&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/project_members&quot;,&quot;description&quot;:&quot;Control who has access to your project and what they can do&quot;,&quot;library_icon&quot;:&quot;users&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;labels&quot;,&quot;title&quot;:&quot;Labels&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/labels&quot;,&quot;description&quot;:&quot;Organize and categorize work across your project with consistent labels&quot;,&quot;library_icon&quot;:&quot;labels&quot;,&quot;is_active&quot;:false}],&quot;separated&quot;:false},{&quot;id&quot;:&quot;plan_menu&quot;,&quot;title&quot;:&quot;Plan&quot;,&quot;icon&quot;:&quot;planning&quot;,&quot;avatar_shape&quot;:&quot;rect&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/work_items&quot;,&quot;is_active&quot;:false,&quot;items&quot;:[{&quot;id&quot;:&quot;project_issue_list&quot;,&quot;title&quot;:&quot;Work items&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/work_items&quot;,&quot;link_classes&quot;:&quot;shortcuts-issues has-sub-items&quot;,&quot;pill_count_field&quot;:&quot;openWorkItemsCount&quot;,&quot;pill_count_dynamic&quot;:false,&quot;description&quot;:&quot;Plan, track, and manage work in one place&quot;,&quot;library_icon&quot;:&quot;work-items&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;boards&quot;,&quot;title&quot;:&quot;Issue boards&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/boards&quot;,&quot;link_classes&quot;:&quot;shortcuts-issue-boards&quot;,&quot;description&quot;:&quot;Visualize and manage work with kanban-style boards&quot;,&quot;library_icon&quot;:&quot;work-item-issue-board&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;milestones&quot;,&quot;title&quot;:&quot;Milestones&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/milestones&quot;,&quot;description&quot;:&quot;Plan releases and group work into time-based phases&quot;,&quot;library_icon&quot;:&quot;milestone&quot;,&quot;is_active&quot;:false}],&quot;separated&quot;:false},{&quot;id&quot;:&quot;code_menu&quot;,&quot;title&quot;:&quot;Code&quot;,&quot;icon&quot;:&quot;code&quot;,&quot;avatar_shape&quot;:&quot;rect&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/merge_requests&quot;,&quot;is_active&quot;:false,&quot;items&quot;:[{&quot;id&quot;:&quot;project_merge_request_list&quot;,&quot;title&quot;:&quot;Merge requests&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/merge_requests&quot;,&quot;link_classes&quot;:&quot;shortcuts-merge_requests&quot;,&quot;pill_count_field&quot;:&quot;openMergeRequestsCount&quot;,&quot;pill_count_dynamic&quot;:false,&quot;description&quot;:&quot;Collaborate on code changes with built-in review tools&quot;,&quot;library_icon&quot;:&quot;merge-request&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;files&quot;,&quot;title&quot;:&quot;Repository&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/tree/master&quot;,&quot;link_classes&quot;:&quot;shortcuts-tree&quot;,&quot;description&quot;:&quot;Browse and manage repository files and code&quot;,&quot;library_icon&quot;:&quot;repository&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;branches&quot;,&quot;title&quot;:&quot;Branches&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/branches&quot;,&quot;description&quot;:&quot;Manage project branches and branch protection&quot;,&quot;library_icon&quot;:&quot;branch&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;commits&quot;,&quot;title&quot;:&quot;Commits&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/commits/master?ref_type=heads&quot;,&quot;link_classes&quot;:&quot;shortcuts-commits&quot;,&quot;description&quot;:&quot;View commit history and changes&quot;,&quot;library_icon&quot;:&quot;commit&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;tags&quot;,&quot;title&quot;:&quot;Tags&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/tags&quot;,&quot;description&quot;:&quot;Create and manage release tags&quot;,&quot;library_icon&quot;:&quot;tag&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;graphs&quot;,&quot;title&quot;:&quot;Repository graph&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/network/master?ref_type=heads&quot;,&quot;link_classes&quot;:&quot;shortcuts-network&quot;,&quot;description&quot;:&quot;Visualize repository commit history and branches&quot;,&quot;library_icon&quot;:&quot;repository-graph&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;compare&quot;,&quot;title&quot;:&quot;Compare revisions&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/compare?from=master\u0026to=master&quot;,&quot;description&quot;:&quot;Compare changes between revisions&quot;,&quot;library_icon&quot;:&quot;comparison&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;project_snippets&quot;,&quot;title&quot;:&quot;Snippets&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/snippets&quot;,&quot;link_classes&quot;:&quot;shortcuts-snippets&quot;,&quot;description&quot;:&quot;Store and share code snippets&quot;,&quot;library_icon&quot;:&quot;snippet&quot;,&quot;is_active&quot;:false}],&quot;separated&quot;:false},{&quot;id&quot;:&quot;build_menu&quot;,&quot;title&quot;:&quot;Build&quot;,&quot;icon&quot;:&quot;rocket&quot;,&quot;avatar_shape&quot;:&quot;rect&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/pipelines&quot;,&quot;is_active&quot;:false,&quot;items&quot;:[{&quot;id&quot;:&quot;pipelines&quot;,&quot;title&quot;:&quot;Pipelines&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/pipelines&quot;,&quot;link_classes&quot;:&quot;shortcuts-pipelines&quot;,&quot;description&quot;:&quot;Automate your build and deployment process&quot;,&quot;library_icon&quot;:&quot;pipeline&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;jobs&quot;,&quot;title&quot;:&quot;Jobs&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/jobs&quot;,&quot;link_classes&quot;:&quot;shortcuts-builds&quot;,&quot;description&quot;:&quot;Monitor individual build tasks and their results&quot;,&quot;library_icon&quot;:&quot;job&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;pipeline_schedules&quot;,&quot;title&quot;:&quot;Pipeline schedules&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/pipeline_schedules&quot;,&quot;link_classes&quot;:&quot;shortcuts-builds&quot;,&quot;description&quot;:&quot;Run your automation on a recurring schedule&quot;,&quot;library_icon&quot;:&quot;pipeline-schedule&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;artifacts&quot;,&quot;title&quot;:&quot;Artifacts&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/artifacts&quot;,&quot;link_classes&quot;:&quot;shortcuts-builds&quot;,&quot;description&quot;:&quot;Access build outputs and compiled binaries&quot;,&quot;library_icon&quot;:&quot;doc-compressed&quot;,&quot;is_active&quot;:false}],&quot;separated&quot;:false},{&quot;id&quot;:&quot;deploy_menu&quot;,&quot;title&quot;:&quot;Deploy&quot;,&quot;icon&quot;:&quot;deployments&quot;,&quot;avatar_shape&quot;:&quot;rect&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/releases&quot;,&quot;is_active&quot;:false,&quot;items&quot;:[{&quot;id&quot;:&quot;releases&quot;,&quot;title&quot;:&quot;Releases&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/releases&quot;,&quot;link_classes&quot;:&quot;shortcuts-deployments-releases&quot;,&quot;description&quot;:&quot;Create and manage project releases&quot;,&quot;library_icon&quot;:&quot;release&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;container_registry&quot;,&quot;title&quot;:&quot;Container registry&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/container_registry&quot;,&quot;description&quot;:&quot;Store and deploy container images&quot;,&quot;library_icon&quot;:&quot;container-image&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;model_registry&quot;,&quot;title&quot;:&quot;Model registry&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/ml/models&quot;,&quot;description&quot;:&quot;Store and manage machine learning models&quot;,&quot;library_icon&quot;:&quot;model-registry&quot;,&quot;is_active&quot;:false}],&quot;separated&quot;:false},{&quot;id&quot;:&quot;operations_menu&quot;,&quot;title&quot;:&quot;Operate&quot;,&quot;icon&quot;:&quot;cloud-pod&quot;,&quot;avatar_shape&quot;:&quot;rect&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/environments&quot;,&quot;is_active&quot;:false,&quot;items&quot;:[{&quot;id&quot;:&quot;environments&quot;,&quot;title&quot;:&quot;Environments&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/environments&quot;,&quot;link_classes&quot;:&quot;shortcuts-environments&quot;,&quot;description&quot;:&quot;Manage your staging and production deployments&quot;,&quot;library_icon&quot;:&quot;environment&quot;,&quot;is_active&quot;:false}],&quot;separated&quot;:false},{&quot;id&quot;:&quot;monitor_menu&quot;,&quot;title&quot;:&quot;Monitor&quot;,&quot;icon&quot;:&quot;monitor&quot;,&quot;avatar_shape&quot;:&quot;rect&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/incidents&quot;,&quot;is_active&quot;:false,&quot;items&quot;:[{&quot;id&quot;:&quot;incidents&quot;,&quot;title&quot;:&quot;Incidents&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/incidents&quot;,&quot;description&quot;:&quot;Manage incident response and resolution&quot;,&quot;library_icon&quot;:&quot;work-item-incident&quot;,&quot;is_active&quot;:false}],&quot;separated&quot;:false},{&quot;id&quot;:&quot;analyze_menu&quot;,&quot;title&quot;:&quot;Analyze&quot;,&quot;icon&quot;:&quot;chart&quot;,&quot;avatar_shape&quot;:&quot;rect&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/value_stream_analytics&quot;,&quot;is_active&quot;:false,&quot;items&quot;:[{&quot;id&quot;:&quot;cycle_analytics&quot;,&quot;title&quot;:&quot;Value stream analytics&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/value_stream_analytics&quot;,&quot;link_classes&quot;:&quot;shortcuts-project-cycle-analytics&quot;,&quot;description&quot;:&quot;Analyze value stream and cycle time&quot;,&quot;library_icon&quot;:&quot;value-stream-analytics&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;contributors&quot;,&quot;title&quot;:&quot;Contributor analytics&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/graphs/master?ref_type=heads&quot;,&quot;description&quot;:&quot;Track and view member contributions and activity&quot;,&quot;library_icon&quot;:&quot;contributor-analytics&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;ci_cd_analytics&quot;,&quot;title&quot;:&quot;CI/CD analytics&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/pipelines/charts&quot;,&quot;description&quot;:&quot;Analyze CI/CD pipeline metrics and performance&quot;,&quot;library_icon&quot;:&quot;cicd-analytics&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;repository_analytics&quot;,&quot;title&quot;:&quot;Repository analytics&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/graphs/master/charts&quot;,&quot;link_classes&quot;:&quot;shortcuts-repository-charts&quot;,&quot;description&quot;:&quot;Analyze repository coverage, statistics, and metrics&quot;,&quot;library_icon&quot;:&quot;repository-analytics&quot;,&quot;is_active&quot;:false},{&quot;id&quot;:&quot;model_experiments&quot;,&quot;title&quot;:&quot;Model experiments&quot;,&quot;link&quot;:&quot;/xorg/lib/libxt/-/ml/experiments&quot;,&quot;description&quot;:&quot;Track and manage machine learning experiments&quot;,&quot;library_icon&quot;:&quot;machine-learning&quot;,&quot;is_active&quot;:false}],&quot;separated&quot;:false}],&quot;current_context_header&quot;:&quot;Project&quot;,&quot;university_path&quot;:&quot;https://university.gitlab.com&quot;,&quot;support_path&quot;:&quot;https://support.gitlab.com&quot;,&quot;docs_path&quot;:&quot;/help/docs&quot;,&quot;display_whats_new&quot;:false,&quot;show_version_check&quot;:null,&quot;search&quot;:{&quot;search_context&quot;:{&quot;group&quot;:{&quot;id&quot;:2211,&quot;name&quot;:&quot;lib&quot;,&quot;full_name&quot;:&quot;xorg / lib&quot;},&quot;group_metadata&quot;:{&quot;issues_path&quot;:&quot;/groups/xorg/lib/-/issues&quot;,&quot;mr_path&quot;:&quot;/groups/xorg/lib/-/merge_requests&quot;},&quot;project&quot;:{&quot;id&quot;:731,&quot;name&quot;:&quot;libXt&quot;},&quot;project_metadata&quot;:{&quot;mr_path&quot;:&quot;/xorg/lib/libxt/-/merge_requests&quot;,&quot;issues_path&quot;:&quot;/xorg/lib/libxt/-/issues&quot;},&quot;code_search&quot;:true,&quot;ref&quot;:&quot;master&quot;,&quot;scope&quot;:null,&quot;for_snippets&quot;:null}},&quot;panel_type&quot;:&quot;project&quot;,&quot;shortcut_links&quot;:[{&quot;title&quot;:&quot;Snippets&quot;,&quot;href&quot;:&quot;/explore/snippets&quot;,&quot;css_class&quot;:&quot;dashboard-shortcuts-snippets&quot;},{&quot;title&quot;:&quot;Groups&quot;,&quot;href&quot;:&quot;/explore/groups&quot;,&quot;css_class&quot;:&quot;dashboard-shortcuts-groups&quot;},{&quot;title&quot;:&quot;Projects&quot;,&quot;href&quot;:&quot;/explore/projects&quot;,&quot;css_class&quot;:&quot;dashboard-shortcuts-projects&quot;}],&quot;terms&quot;:&quot;/-/users/terms&quot;,&quot;sign_in_visible&quot;:&quot;true&quot;,&quot;allow_signup&quot;:&quot;true&quot;}"></aside>
 
-<div class="panels-container gl-flex gl-gap-3">
-<div class="content-panels gl-flex-1 gl-w-full gl-flex gl-gap-3 gl-relative js-content-panels gl-@container/content-panels">
-<div class="js-static-panel static-panel content-wrapper gl-relative paneled-view gl-flex-1 gl-overflow-y-auto gl-bg-default" id="static-panel-portal">
-<div class="panel-header">
-<div class="broadcast-wrapper">
+<div class="broadcast-wrapper gl-rounded-lg gl-overflow-hidden">
 
 <div class="gl-broadcast-message banner js-broadcast-notification-10 light-red" data-broadcast-banner data-testid="banner-broadcast-message" role="alert">
 <div class="gl-broadcast-message-content">
 <div class="gl-broadcast-message-icon">
-<svg class="s16" data-testid="bullhorn-icon"><use href="/assets/icons-41229992eca580608aadaaa9b83b717650b2863442574d0ebb87f859c42a3b6c.svg#bullhorn"></use></svg>
+<svg class="s16" data-testid="bullhorn-icon"><use href="/assets/icons-744c96d42bcc6345fdb1c870432a980c5f983ed177df344a4a5f94b625ac4ce8.svg#bullhorn"></use></svg>
 </div>
 <div class="gl-broadcast-message-text">
 <h2 class="gl-sr-only">Admin message</h2>
 <p>Due to an influx of spam, we have had to impose restrictions on new accounts. Please see <a href="https://gitlab.freedesktop.org/freedesktop/freedesktop/-/wikis/home">this wiki page</a> for instructions on how to get full permissions. Sorry for the inconvenience.</p>
 </div>
 </div>
-<button class="gl-button btn btn-icon btn-sm btn-default btn-default-tertiary gl-broadcast-message-dismiss js-dismiss-current-broadcast-notification" aria-label="Close" data-id="10" data-expire-date="2030-12-01T21:21:05Z" data-cookie-key="hide_broadcast_message_10" type="button"><svg class="s16 gl-icon gl-button-icon " data-testid="close-icon"><use href="/assets/icons-41229992eca580608aadaaa9b83b717650b2863442574d0ebb87f859c42a3b6c.svg#close"></use></svg>
+<button class="gl-button btn btn-icon btn-sm btn-default btn-default-tertiary gl-broadcast-message-dismiss js-dismiss-current-broadcast-notification" aria-label="Close" data-id="10" data-expire-date="2030-12-01T21:21:05Z" data-cookie-key="hide_broadcast_message_10" type="button"><svg class="s16 gl-icon gl-button-icon " data-testid="close-icon"><use href="/assets/icons-744c96d42bcc6345fdb1c870432a980c5f983ed177df344a4a5f94b625ac4ce8.svg#close"></use></svg>
 
 </button>
 </div>
@@ -220,9 +219,11 @@ document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidt
 
 
 </div>
-<div class="top-bar-fixed container-fluid gl-rounded-t-lg gl-sticky gl-top-0 gl-left-0 gl-mx-0 gl-w-full" data-testid="top-bar">
-<div class="top-bar-container gl-flex gl-items-center gl-gap-2">
-<div class="gl-grow gl-basis-0 gl-flex gl-items-center gl-justify-start gl-gap-3">
+<div class="panels-container gl-flex gl-gap-3">
+<div class="content-panels gl-flex-1 gl-w-full gl-flex gl-gap-3 gl-relative js-content-panels gl-@container/content-panels">
+<div class="paneled-view static-panel js-static-panel js-paneled-view content-wrapper">
+<div class="panel-header">
+<div class="panel-header-inner js-panel-header-inner">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"xorg","item":"https://gitlab.freedesktop.org/xorg"},{"@type":"ListItem","position":2,"name":"lib","item":"https://gitlab.freedesktop.org/xorg/lib"},{"@type":"ListItem","position":3,"name":"libXt","item":"https://gitlab.freedesktop.org/xorg/lib/libxt"}]}
 
@@ -231,16 +232,17 @@ document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidt
 <div data-testid="breadcrumb-links" id="js-vue-page-breadcrumbs-wrapper">
 <div data-breadcrumbs-json="[{&quot;text&quot;:&quot;xorg&quot;,&quot;href&quot;:&quot;/xorg&quot;,&quot;avatarPath&quot;:&quot;/uploads/-/system/group/avatar/1154/xorg.png&quot;},{&quot;text&quot;:&quot;lib&quot;,&quot;href&quot;:&quot;/xorg/lib&quot;,&quot;avatarPath&quot;:null},{&quot;text&quot;:&quot;libXt&quot;,&quot;href&quot;:&quot;/xorg/lib/libxt&quot;,&quot;avatarPath&quot;:null}]" id="js-vue-page-breadcrumbs"></div>
 <div id="js-injected-page-breadcrumbs"></div>
+</div>
 <div id="js-page-breadcrumbs-extra"></div>
-</div>
 
 
-<div id="js-work-item-feedback"></div>
 
-</div>
-</div>
-</div>
+<div class="panel-header-inner-actions">
 
+
+<div class="panel-header-inner-actions-portal-target js-panel-actions-portal-target"></div>
+</div>
+</div>
 </div>
 <div class="panel-content">
 <div class="panel-content-inner js-static-panel-inner">
@@ -271,10 +273,12 @@ document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidt
 
 
 
+
 </div>
 
+
 <div class="container-fluid container-limited project-highlight-puc">
-<main class="content gl-@container/panel gl-pb-3" id="content-body" itemscope itemtype="http://schema.org/SoftwareSourceCode">
+<main class="content gl-pb-3 gl-@container/panel" id="content-body" itemscope itemtype="http://schema.org/SoftwareSourceCode">
 <div id="js-drawer-container"></div>
 <div class="flash-container flash-container-page sticky" data-testid="flash-container">
 <div id="js-global-alerts"></div>
@@ -289,7 +293,7 @@ document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidt
 
 
 
-<header class="project-home-panel js-show-on-project-root gl-mt-5">
+<header class="project-home-panel js-show-on-project-root gl-mt-2">
 <div class="gl-flex gl-justify-between gl-flex-wrap gl-flex-col gl-gap-5 @sm/panel:gl-flex-row">
 <div class="home-panel-title-row gl-flex gl-items-center">
 <div aria-hidden="true" class="gl-avatar gl-avatar-s48 gl-self-start gl-shrink-0 gl-mr-4 gl-avatar-identicon gl-avatar-identicon-bg4" itemprop="image">
@@ -298,12 +302,12 @@ L
 
 <h1 class="home-panel-title gl-heading-1 gl-flex gl-items-center gl-flex-wrap gl-gap-3 gl-break-anywhere gl-mb-0" data-testid="project-name-content" itemprop="name">
 libXt
-<button class="has-tooltip gl-border-0 gl-bg-transparent gl-p-0 gl-leading-0 gl-text-inherit visibility-icon gl-inline-flex" data-container="body" data-placement="top" title="Public - The project can be accessed without any authentication." type="button" aria-label="Public - The project can be accessed without any authentication."><svg class="s16 gl-fill-icon-subtle" data-testid="earth-icon"><use href="/assets/icons-41229992eca580608aadaaa9b83b717650b2863442574d0ebb87f859c42a3b6c.svg#earth"></use></svg></button>
+<button class="has-tooltip gl-border-0 gl-bg-transparent gl-p-0 gl-leading-0 gl-text-inherit visibility-icon gl-inline-flex" data-container="body" data-placement="top" title="Public - The project can be accessed without any authentication." type="button" aria-label="Public - The project can be accessed without any authentication."><svg class="s16 gl-fill-icon-subtle" data-testid="earth-icon"><use href="/assets/icons-744c96d42bcc6345fdb1c870432a980c5f983ed177df344a4a5f94b625ac4ce8.svg#earth"></use></svg></button>
 
 
 </h1>
 </div>
-<div data-can-read-project="true" data-id="731" data-is-group="false" data-is-project-empty="false" data-is-project-marked-for-deletion="false" data-project-id="731" data-project-name="libXt" data-project-visibility-level="public" data-sign-in-path="/users/sign_in?redirect_to_referer=yes" data-star-count="2" data-starred="false" data-starrers-path="/xorg/lib/libxt/-/starrers" id="js-home-panel"></div>
+<div data-can-read-project="true" data-can-request-access="false" data-can-withdraw-access-request="false" data-dashboard-path="/dashboard/projects" data-is-project-empty="false" data-is-project-marked-for-deletion="false" data-project-full-path="xorg/lib/libxt" data-project-id="731" data-project-name="libXt" data-project-visibility-level="public" data-request-access-path="/xorg/lib/libxt/-/project_members/request_access" data-sign-in-path="/users/sign_in?redirect_to_referer=yes" data-star-count="2" data-starred="false" data-starrers-path="/xorg/lib/libxt/-/starrers" data-withdraw-access-request-path="/xorg/lib/libxt/-/project_members/leave" id="js-home-panel"></div>
 </div>
 
 </header>
@@ -321,7 +325,7 @@ libXt
 </div>
 <div class="js-read-more-trigger gl-hidden gl-w-full gl-h-8 gl-absolute gl-bottom-0 gl-z-2 gl-bg-default">
 <button aria-label="Expand project information" type="button" class="gl-button btn btn-md btn-link "><span class="gl-button-text">
-<svg class="s14" data-testid="chevron-down-icon"><use href="/assets/icons-41229992eca580608aadaaa9b83b717650b2863442574d0ebb87f859c42a3b6c.svg#chevron-down"></use></svg>
+<svg class="s14" data-testid="chevron-down-icon"><use href="/assets/icons-744c96d42bcc6345fdb1c870432a980c5f983ed177df344a4a5f94b625ac4ce8.svg#chevron-down"></use></svg>
 Read more
 
 </span>
@@ -343,13 +347,13 @@ Read more
 <nav class="project-stats">
 <ul class="nav gl-gap-y-2 gl-gap-x-5">
 <li class="nav-item gl-leading-1">
-<a class="nav-link stat-link !gl-px-0 !gl-pb-2" href="/xorg/lib/libxt/-/commits/master"><svg class="s16 gl-fill-icon-subtle gl-mr-3" data-testid="commit-icon"><use href="/assets/icons-41229992eca580608aadaaa9b83b717650b2863442574d0ebb87f859c42a3b6c.svg#commit"></use></svg><strong class="project-stat-value">553</strong> Commits</a>
+<a class="nav-link stat-link !gl-px-0 !gl-pb-2" href="/xorg/lib/libxt/-/commits/master"><svg class="s16 gl-fill-icon-subtle gl-mr-3" data-testid="commit-icon"><use href="/assets/icons-744c96d42bcc6345fdb1c870432a980c5f983ed177df344a4a5f94b625ac4ce8.svg#commit"></use></svg><strong class="project-stat-value">553</strong> Commits</a>
 </li>
 <li class="nav-item gl-leading-1">
-<a class="nav-link stat-link !gl-px-0 !gl-pb-2" href="/xorg/lib/libxt/-/branches"><svg class="s16 gl-fill-icon-subtle gl-mr-3" data-testid="branch-icon"><use href="/assets/icons-41229992eca580608aadaaa9b83b717650b2863442574d0ebb87f859c42a3b6c.svg#branch"></use></svg><strong class="project-stat-value">20</strong> Branches</a>
+<a class="nav-link stat-link !gl-px-0 !gl-pb-2" href="/xorg/lib/libxt/-/branches"><svg class="s16 gl-fill-icon-subtle gl-mr-3" data-testid="branch-icon"><use href="/assets/icons-744c96d42bcc6345fdb1c870432a980c5f983ed177df344a4a5f94b625ac4ce8.svg#branch"></use></svg><strong class="project-stat-value">20</strong> Branches</a>
 </li>
 <li class="nav-item gl-leading-1">
-<a class="nav-link stat-link !gl-px-0 !gl-pb-2" href="/xorg/lib/libxt/-/tags"><svg class="s16 gl-fill-icon-subtle gl-mr-3" data-testid="label-icon"><use href="/assets/icons-41229992eca580608aadaaa9b83b717650b2863442574d0ebb87f859c42a3b6c.svg#label"></use></svg><strong class="project-stat-value">107</strong> Tags</a>
+<a class="nav-link stat-link !gl-px-0 !gl-pb-2" href="/xorg/lib/libxt/-/tags"><svg class="s16 gl-fill-icon-subtle gl-mr-3" data-testid="label-icon"><use href="/assets/icons-744c96d42bcc6345fdb1c870432a980c5f983ed177df344a4a5f94b625ac4ce8.svg#label"></use></svg><strong class="project-stat-value">107</strong> Tags</a>
 </li>
 </ul>
 
@@ -359,15 +363,16 @@ Read more
 <div class="project-buttons gl-mb-2 js-show-on-project-root" data-testid="project-buttons">
 <ul class="nav gl-gap-y-2 gl-gap-x-5">
 <li class="nav-item gl-leading-1">
-<a class="nav-link stat-link !gl-px-0 !gl-pb-2 btn-default" href="/xorg/lib/libxt/-/blob/master/README.md"><svg class="s16 gl-fill-icon-subtle gl-mr-3" data-testid="doc-text-icon"><use href="/assets/icons-41229992eca580608aadaaa9b83b717650b2863442574d0ebb87f859c42a3b6c.svg#doc-text"></use></svg>README</a>
+<a class="nav-link stat-link !gl-px-0 !gl-pb-2 btn-default" data-event-tracking="click_readme_on_project_overview" data-event-label="view" href="/xorg/lib/libxt/-/blob/master/README.md"><svg class="s16 gl-fill-icon-subtle gl-mr-3" data-testid="doc-text-icon"><use href="/assets/icons-744c96d42bcc6345fdb1c870432a980c5f983ed177df344a4a5f94b625ac4ce8.svg#doc-text"></use></svg>README</a>
 </li>
 <li class="nav-item gl-leading-1">
-<a class="nav-link stat-link !gl-px-0 !gl-pb-2 btn-default" itemprop="license" href="/xorg/lib/libxt/-/blob/master/COPYING"><svg class="s16 gl-fill-icon-subtle gl-mr-3" data-testid="scale-icon"><use href="/assets/icons-41229992eca580608aadaaa9b83b717650b2863442574d0ebb87f859c42a3b6c.svg#scale"></use></svg><span class="project-stat-value">MIT License</span></a>
+<a class="nav-link stat-link !gl-px-0 !gl-pb-2 btn-default" itemprop="license" data-event-tracking="click_license_on_project_overview" data-event-label="view" href="/xorg/lib/libxt/-/blob/master/COPYING"><svg class="s16 gl-fill-icon-subtle gl-mr-3" data-testid="scale-icon"><use href="/assets/icons-744c96d42bcc6345fdb1c870432a980c5f983ed177df344a4a5f94b625ac4ce8.svg#scale"></use></svg><span class="project-stat-value">MIT License</span></a>
 </li>
 </ul>
 
 </div>
 </div>
+
 
 <div class="project-page-sidebar-block gl-py-4">
 <p class="gl-font-bold gl-text-strong gl-m-0 gl-mb-1">Created on</p>
@@ -383,7 +388,6 @@ Read more
 <div class="gl-w-full gl-min-w-0">
 <div class="tree-holder gl-clearfix js-per-page gl-mt-4" data-blame-per-page="1000" id="tree-holder">
 <div data-breadcrumbs-can-collaborate="false" data-breadcrumbs-can-edit-tree="false" data-breadcrumbs-can-push-code="false" data-breadcrumbs-can-push-to-branch="false" data-breadcrumbs-new-blob-path="/xorg/lib/libxt/-/new/master" data-breadcrumbs-new-branch-path="/xorg/lib/libxt/-/branches/new" data-breadcrumbs-new-dir-path="/xorg/lib/libxt/-/create_dir/master" data-breadcrumbs-new-tag-path="/xorg/lib/libxt/-/tags/new" data-breadcrumbs-upload-path="/xorg/lib/libxt/-/create/master" data-download-links="[{&quot;text&quot;:&quot;zip&quot;,&quot;path&quot;:&quot;/xorg/lib/libxt/-/archive/master/libxt-master.zip?ref_type=heads&quot;},{&quot;text&quot;:&quot;tar.gz&quot;,&quot;path&quot;:&quot;/xorg/lib/libxt/-/archive/master/libxt-master.tar.gz?ref_type=heads&quot;},{&quot;text&quot;:&quot;tar.bz2&quot;,&quot;path&quot;:&quot;/xorg/lib/libxt/-/archive/master/libxt-master.tar.bz2?ref_type=heads&quot;},{&quot;text&quot;:&quot;tar&quot;,&quot;path&quot;:&quot;/xorg/lib/libxt/-/archive/master/libxt-master.tar?ref_type=heads&quot;}]" data-escaped-ref="master" data-http-url="https://gitlab.freedesktop.org/xorg/lib/libxt.git" data-project-id="731" data-project-path="xorg/lib/libxt" data-project-root-path="/xorg/lib/libxt" data-ref="master" data-ref-type="heads" data-root-ref="master" data-show-no-ssh-key-message="" data-ssh-url="git@ssh.gitlab.freedesktop.org:xorg/lib/libxt.git" data-user-settings-ssh-keys-path="/-/user_settings/ssh_keys" data-web-ide-button-default-branch="master" data-web-ide-button-options="{&quot;project_path&quot;:&quot;xorg/lib/libxt&quot;,&quot;ref&quot;:&quot;master&quot;,&quot;is_fork&quot;:false,&quot;needs_to_fork&quot;:true,&quot;gitpod_enabled&quot;:false,&quot;is_blob&quot;:false,&quot;show_edit_button&quot;:false,&quot;show_web_ide_button&quot;:false,&quot;show_gitpod_button&quot;:false,&quot;show_pipeline_editor_button&quot;:false,&quot;web_ide_url&quot;:&quot;/-/ide/project/xorg/lib/libxt/edit/master&quot;,&quot;edit_url&quot;:&quot;&quot;,&quot;pipeline_editor_url&quot;:&quot;/xorg/lib/libxt/-/ci/editor?branch_name=master&quot;,&quot;gitpod_url&quot;:&quot;&quot;,&quot;user_preferences_gitpod_path&quot;:&quot;/-/profile/preferences#user_gitpod_enabled&quot;,&quot;user_profile_enable_gitpod_path&quot;:&quot;/-/user_settings/profile?user%5Bgitpod_enabled%5D=true&quot;,&quot;fork_path&quot;:&quot;/xorg/lib/libxt/-/forks/new&quot;,&quot;fork_modal_id&quot;:null}" data-xcode-url="" id="js-repository-blob-header-app"></div>
-
 <div class="info-well project-last-commit gl-mt-5">
 <div class="gl-flex gl-items-center gl-justify-center gl-m-auto gl-min-h-9 @lg/panel:gl-min-h-[4.5rem]" data-history-link="/xorg/lib/libxt/-/commits/master" data-ref-type="heads" id="js-last-commit">
 <div class="gl-spinner-container" role="status"><span aria-hidden class="gl-spinner gl-spinner-md gl-spinner-dark !gl-align-text-bottom"></span><span class="gl-sr-only !gl-absolute">Loading</span>
@@ -400,14 +404,17 @@ Read more
 </div>
 </div>
 
+
 </main>
 </div>
 
+
 </div>
+
 
 </div>
 </div>
-<div class="js-dynamic-panel paneled-view contextual-panel gl-@container/panel !gl-absolute gl-shadow-lg @xl/content-panels:gl-w-1/2 @xl/content-panels:gl-shadow-none @xl/content-panels:!gl-relative" id="contextual-panel-portal"></div>
+<div class="paneled-view-portal gl-@container/panel !gl-absolute gl-shadow-lg @xl/content-panels:gl-w-1/2 @xl/content-panels:gl-shadow-none @xl/content-panels:!gl-relative gl-right-0" id="contextual-panel-portal"></div>
 </div>
 </div>
 
