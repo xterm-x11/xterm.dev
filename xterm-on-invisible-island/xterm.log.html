@@ -30,7 +30,7 @@
  * sale, use or other dealings in this Software without prior written        *
  * authorization.                                                            *
  *****************************************************************************
-  $XTermId: xterm.log.html,v 1.2774 2026/04/13 21:35:18 tom Exp $
+  $XTermId: xterm.log.html,v 1.2791 2026/08/24 07:18:21 tom Exp $
   -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
@@ -75,6 +75,8 @@
   <div class="nav">
     <ul>
       <li class="nav-top"><a href="xterm.log.html">(top)</a></li>
+      <li><a href="#xterm_411">Patch #411 - 2026/08/24</a></li>
+      <li><a href="#xterm_410">Patch #410 - 2026/05/01</a></li>
       <li><a href="#xterm_409">Patch #409 - 2026/04/13</a></li>
       <li><a href="#xterm_408">Patch #408 - 2026/04/12</a></li>
       <li><a href="#xterm_407">Patch #407 - 2026/02/16</a></li>
@@ -697,6 +699,50 @@
       <li><a href="#xterm_01">Patch #1 - 1996/1/6</a></li>
     </ul>
   </div>
+  <h2><a name="xterm_411" id="xterm_411">Patch #411 -
+  2026/08/24</a></h2>
+  <ul>
+    <li>add a case for <tt>DECSWT</tt> in VT520 mode (prompted by
+    discussion with James Holderness).</li>
+    <li>correct an index computation in VS15/VS16 logic for
+    <tt>-emoji_width</tt> option (report by Arpit Jain).</li>
+    <li>add <tt>ich1</tt> to <tt>terminfo</tt> where
+    appropriate.</li>
+    <li>drop “<tt>GTK_*</tt>” from environment filtering (report by
+    Stefan Klinger).</li>
+    <li>fix a couple of places in <tt>terminfo</tt> which used
+    <tt>BEL</tt> rather than <tt>ST</tt>.</li>
+    <li>add <tt>DECSCUSR 7</tt> for the “power-up” configuration,
+    which can be different from the documented VT520 behavior
+    (prompted by discussion with “heurist”).</li>
+    <li>correct a limit-check added in <a href="#xterm_399">patch
+    #399</a>, which resulted in regex-based selections to be
+    limited to the first row of a wrapped line (Redhat <a href=
+    "https://bugzilla.redhat.com/show_bug.cgi?id=2479962">#2479962</a>).</li>
+    <li>add resource <tt>brokenCopyArea</tt>, using that to control
+    whether <tt>XCopyArea</tt> is used for indexing and scrolling,
+    as well as inserting or deleting characters and lines.</li>
+    <li>amend check for validity of C1 controls to check both
+    whether wide-characters have been initialized, as well as
+    whether the current encoding is UTF-8 (Debian <a href=
+    "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=687699">#687699</a>).</li>
+    <li>call <tt>Cleanup</tt> directly when processing
+    <tt>SIGHUP</tt>, because the process running in xterm may
+    ignore a <tt>killpg</tt> sent to the top-level screen's process
+    (Debian <a href=
+    "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=243598">#243598</a>).</li>
+  </ul>
+  <h2><a name="xterm_410" id="xterm_410">Patch #410 -
+  2026/05/01</a></h2>
+  <ul>
+    <li>amend one of the fixes for Debian <a href=
+    "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=738794">#738794</a>
+    in <a href="#xterm_407">patch #407</a>, which caused combining
+    characters to be outlined (report by "Martin").</li>
+    <li>clarify in <tt>ctlseqs.ms</tt> which modes listed for
+    DECSET are readonly (prompted by discussion with Thomas
+    Wolff).</li>
+  </ul>
   <h2><a name="xterm_409" id="xterm_409">Patch #409 -
   2026/04/13</a></h2>
   <ul>
@@ -1084,7 +1130,7 @@
     <li>eliminate <tt>maxStringParse</tt> limit for SIXEL.</li>
     <li>improve logic which ignores APC, PM and SOS controls to
     also not accumulate their data temporarily in a buffer.</li>
-    <li>exclude <tt>TERM_INGRESS</tt> from cleanup of environment
+    <li>exclude <tt>TERM_INGRES</tt> from cleanup of environment
     variables (patch by Iain Riley).</li>
     <li>fix some documentation typos (report by Thomas Wolff).</li>
   </ul>

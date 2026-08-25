@@ -1,11 +1,11 @@
 <!--
-  $Id: lynx.html,v 1.103 2023/09/26 08:19:30 tom Exp $
+  $Id: lynx.html,v 1.105 2026/05/31 23:58:57 tom Exp $
   -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
 <head>
   <meta name="generator" content=
-  "HTML Tidy for HTML5 for Linux version 5.6.0">
+  "HTML Tidy for HTML5 for Linux version 5.8.0">
   <title>LYNX &ndash; The Text Web-Browser</title>
   <link rel="author" href="mailto:dickey@invisible-island.net">
   <meta http-equiv="Content-Type" content=
@@ -30,7 +30,7 @@
   <hr>
 
   <p><a href="/">https://invisible-island.net/</a><br>
-  Copyright &copy; 1997-2020,2023 by Thomas E. Dickey</p>
+  Copyright &copy; 1997-2024,2026 by Thomas E. Dickey</p>
 
   <hr>
 
@@ -113,7 +113,7 @@
       run. Your machine may already have OpenSSL installed; many
       programs use it. If not, you might find the
       &ldquo;light&rdquo; version from <a href=
-      "https://www.slproweb.com/products/Win32OpenSSL.html">this
+      "https://slproweb.com/products/Win32OpenSSL.html">this
       page</a> useful. While the <strong>Lynx</strong>
       <em>Windows</em> installer added support for the SSL
       libraries in <a href=
@@ -124,11 +124,12 @@
       around far longer (first crawled in 2004).</p>
 
       <p>There are two executables, depending on whether you use
-      the &ldquo;old&rdquo; or &ldquo;new&rdquo; OpenSSL
-      libraries:</p>
+      the &ldquo;old&rdquo; or &ldquo;new&rdquo; OpenSSL libraries.
+      With Lynx 2.9.3, installers are available for OpenSSL 4 and
+      3:</p>
 
       <dl>
-        <dt>&ldquo;Cur&rdquo; (version 3.0.x)</dt>
+        <dt>&ldquo;new&rdquo; (version 4.0.x)</dt>
 
         <dd>
           <p>You will need these DLLs, either in
@@ -136,29 +137,24 @@
           directory:</p>
 
           <ul>
-            <li><code>libssl-1_3.dll</code>
+            <li><code>libssl-4.dll</code>
+            </li>
+
+            <li><code>libcrypto-4.dll</code>
+            </li>
+          </ul>
+        </dd>
+
+        <dt>&ldquo;old&rdquo; (version 3.6.2)</dt>
+
+        <dd>
+          <p>These DLLs are used:</p>
+
+          <ul>
+            <li><code>libssl-3.dll</code>
             </li>
 
             <li><code>libcrypto-3.dll</code>
-            </li>
-          </ul>
-
-          <p>I have tested <strong>Lynx</strong> using those DLLs
-          in <strong>Lynx</strong>'s directory.</p>
-        </dd>
-
-        <dt>&ldquo;New&rdquo; (version 1.1.1)</dt>
-
-        <dd>
-          <p>I used these to run the 32-bit Lynx executables on
-          Windows 7 (again, either in <strong>Lynx</strong>'s
-          directory or in your system32 directory):</p>
-
-          <ul>
-            <li><code>libssl-1_1.dll</code>
-            </li>
-
-            <li><code>libcrypto-1_1.dll</code>
             </li>
           </ul>
         </dd>
@@ -182,12 +178,12 @@
       they do not have support for OpenSSL compiled-in, will not
       connect to <em><code>https</code></em> URLs.</p>
 
-      <p><strong>Lynx</strong> also builds/works with the
-      &ldquo;old&rdquo; version of OpenSSL (up to 1.0.2), but the
-      OpenSSL developers have abandoned that line of development,
-      and DLLs are no longer offered. Those were named based on the
-      <em>win32</em> API, which did not make it simple to see if
-      they were actually 64-bit:</p>
+      <p><strong>Lynx</strong> also builds/works with very old
+      versions of OpenSSL (e.g., 1.0.2), but the OpenSSL developers
+      have abandoned that line of development, and DLLs are no
+      longer offered. Those were named based on the <em>win32</em>
+      API, which did not make it simple to see if they were
+      actually 64-bit:</p>
 
       <ul>
         <li><code>libeay32.dll</code> (replaced by
@@ -214,7 +210,7 @@
       October 2006.</p>
 
       <p>Both of the curses configurations are built using <a href=
-      "https://pdcurses.sourceforge.net">PDCurses</a>.</p>
+      "https://pdcurses.sourceforge.io">PDCurses</a>.</p>
     </li>
 
     <li>
@@ -247,12 +243,12 @@
 
       <p>They will not work with older versions of Windows, e.g.,
       Windows XP. See <em><a href=
-      "https://social.technet.microsoft.com/Forums/windows/en-US/8a751f65-ade9-4b8b-a3d3-c720ccbd3d2c/ieshimsdll-missing?forum=w7itproinstall">
+      "https://web.archive.org/web/20140105220403/https://social.technet.microsoft.com/Forums/windows/en-US/8a751f65-ade9-4b8b-a3d3-c720ccbd3d2c/ieshimsdll-missing?forum=w7itproinstall">
       ieshims.dll missing</a></em> for possible solutions.</p>
     </li>
   </ul>
 
-  <p>Here are screenshots showing the DLL <a href=
+  <p>Here are screenshots illustrating the DLL <a href=
   "https://github.com/lucasg/Dependencies">dependencies</a>:</p>
 
   <ul>
@@ -282,28 +278,10 @@
   (Direct)</a></h3>
 
   <ul>
-    <li>Stable release
-      <ul>
-        <li><a href=
-        "/datafiles/release/lynx-oldssl-setup.exe">&ldquo;old&rdquo;
-        SSL</a></li>
-
-        <li><a href=
-        "/datafiles/release/lynx-newssl-setup.exe">&ldquo;new&rdquo;
-        SSL</a></li>
-
-        <li><a href="/datafiles/release/lynx-cs-setup.exe">curses
-        (color-style)</a></li>
-
-        <li><a href=
-        "/datafiles/release/lynx-sl-setup.exe">slang</a></li>
-      </ul>
-    </li>
-
     <li>Development version (current patch):
       <ul>
         <li><a href=
-        "/datafiles/current/lynx-curssl-setup.exe">&ldquo;cur&rdquo;
+        "/datafiles/current/lynx-oldssl-setup.exe">&ldquo;old&rdquo;
         SSL</a></li>
 
         <li><a href=
@@ -326,31 +304,11 @@
   "https://invisible-island.net/archives/lynx/">https://invisible-island.net/archives/lynx/</a></p>
 
   <ul>
-    <li>Stable release
-      <ul>
-        <li><a href=
-        "https://invisible-island.net/archives/lynx/lynx-curssl-setup.exe">
-        &ldquo;cur&rdquo; SSL</a></li>
-
-        <li><a href=
-        "https://invisible-island.net/archives/lynx/lynx-newssl-setup.exe">
-        &ldquo;new&rdquo; SSL</a></li>
-
-        <li><a href=
-        "https://invisible-island.net/archives/lynx/lynx-cs-setup.exe">
-        curses (color-style)</a></li>
-
-        <li><a href=
-        "https://invisible-island.net/archives/lynx/lynx-sl-setup.exe">
-        slang</a></li>
-      </ul>
-    </li>
-
     <li>Development version (current patch)
       <ul>
         <li><a href=
-        "https://invisible-island.net/archives/lynx/current/lynx-curssl-setup.exe">
-        &ldquo;cur&rdquo; SSL</a></li>
+        "https://invisible-island.net/archives/lynx/current/lynx-oldssl-setup.exe">
+        &ldquo;old&rdquo; SSL</a></li>
 
         <li><a href=
         "https://invisible-island.net/archives/lynx/current/lynx-newssl-setup.exe">

@@ -1,13 +1,11 @@
 <!--
-  $Id: lynx-security.html,v 1.21 2019/04/14 17:39:58 tom Exp $
+  $Id: lynx-security.html,v 1.22 2026/05/31 23:08:41 tom Exp $
   -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
-
 <html>
 <head>
   <meta name="generator" content=
-  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
-
+  "HTML Tidy for HTML5 for Linux version 5.8.0">
   <title>LYNX &ndash; SECURITY FEATURES</title>
   <link rel="author" href="mailto:dickey@invisible-island.net">
   <meta http-equiv="Content-Type" content=
@@ -19,23 +17,23 @@
   <link rel="stylesheet" href="/css/lynx-icons.css" type=
   "text/css">
   <style type="text/css">
-@import "/css/simplenavXX.css" all;
+  @import "/css/simplenavXX.css" all;
   </style>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1">
 </head>
-
 <body>
   <hr>
 
-  <p><a href="/">http://invisible-island.net/</a><a href=
+  <p><a href="/">https://invisible-island.net/</a><a href=
   "/lynx/">lynx/</a><br>
-  Copyright &copy; 2001-2013,2014 by Thomas E. Dickey</p>
+  Copyright &copy; 2001-2019,2026 by Thomas E. Dickey</p>
+
   <hr>
 
   <div class="nav">
     <ul>
-      <li class="nav-top"><a href=
-      "lynx-security.html">(top)</a></li>
+      <li class="nav-top"><a href="lynx-security.html">(top)</a></li>
 
       <li><a href="#synopsis">Synopsis</a></li>
 
@@ -69,22 +67,26 @@
   programming: <code>mkstemp</code> and <code>snprintf</code>:</p>
 
   <ul>
-    <li>The first (<code>mkstemp</code>) is a BSD extension which
-    is not for example present on Solaris. In some configurations,
-    it is known to be insecure. The problem it solves (securely
-    creating temporary files) is addressed a different way in
-    <code>lynx</code>, i.e., creating temporary files within a
-    secured directory.</li>
+    <li>
+      <p>The first (<code>mkstemp</code>) is a BSD extension which
+      is not for example present on Solaris. In some
+      configurations, it is known to be insecure. The problem it
+      solves (securely creating temporary files) is addressed a
+      different way in <code>lynx</code>, i.e., creating temporary
+      files within a secured directory.</p>
+    </li>
 
-    <li>The other (<code>snprintf</code>) falls into a similar
-    category: it is used to avoid buffer overflows arising from
-    printf-like formatting. <code>Lynx</code> has its own
-    <code>snprintf</code>-like code (actually two flavors: one
-    appends to a buffer, which is not addressed by
-    <code>snprintf</code> or the related asprintf). Like
-    <code>mkstemp</code>, some implementations of
-    <code>snprintf</code> and asprintf are known to be corrupt, so
-    we do not use them.</li>
+    <li>
+      <p>The other (<code>snprintf</code>) falls into a similar
+      category: it is used to avoid buffer overflows arising from
+      printf-like formatting. <code>Lynx</code> has its own
+      <code>snprintf</code>-like code (actually two flavors: one
+      appends to a buffer, which is not addressed by
+      <code>snprintf</code> or the related asprintf). Like
+      <code>mkstemp</code>, some implementations of
+      <code>snprintf</code> and asprintf are known to be corrupt,
+      so we do not use them.</p>
+    </li>
   </ul>
 
   <p>Not all buffer manipulations fall readily into these
@@ -114,10 +116,10 @@
   <code>lynx</code>'s competitors (<code>w3m</code> and
   <code>links</code>) suffered from the same sort of issues. See
   for example <a href=
-  "http://archives.indenial.com/hypermail/bugtraq/2001/June2001/0282.html">
-  w3m</a>. For some reason, <code>links</code> appears to be
-  ignored by BugTraq, though it is not unusual for that application
-  to dump core.</p>
+  "https://web.archive.org/web/20020619113211/http://archives.indenial.com/hypermail/bugtraq/2001/June2001/0282.html">
+  w3m</a>. For some reason, <code>links</code> appeared to be
+  ignored by BugTraq, though it was not unusual for that
+  application to dump core.</p>
 
   <p>In late 2001, I noted that while there there had been no
   security reports more recent than before lynx 2.8.3, common
@@ -138,20 +140,22 @@
   internals of larger programs, the published fixes tend to fall
   short of solving the problem.</p>
 
-  <p><a href="http://www.debian.org/security/2006/dsa-1085">This
-  advisory</a> states "several vulnerabilities", though two are
-  reported. Further, the patch (mostly code-cleanup) was one that I
-  wrote, as inprogress development. However two organizations
-  misattributed it to OpenBSD. Rather than checking with me to help
-  with a minimal patch, they simply published it.</p>
+  <p><a href=
+  "https://lists.debian.org/debian-security-announce/2005/msg00272.html">
+  This advisory</a> states "several vulnerabilities", though two
+  are reported. Further, the patch (mostly code-cleanup) was one
+  that I wrote, as inprogress development. However two
+  organizations misattributed it to OpenBSD. Rather than checking
+  with me to help with a minimal patch, they simply published
+  it.</p>
 
   <p>In an <a href=
-  "http://www.debian.org/security/2005/dsa-876">earlier
-  advisory</a>, I had responded to the report, and <a href=
-  "http://lists.gnu.org/archive/html/lynx-dev/2005-10/threads.html">
+  "https://lists.debian.org/debian-security-announce/2005/msg00272.html">
+  earlier advisory</a>, I had responded to the report, and <a href=
+  "https://lists.gnu.org/archive/html/lynx-dev/2005-10/threads.html">
   constructed a patch</a>. The security team issued a different
   patch, which did not actually solve the problem, as I noted
   <a href=
-  "http://lists.debian.org/debian-devel/2005/11/msg00922.html">here</a>.</p>
+  "https://lists.debian.org/debian-devel/2005/11/msg00922.html">here</a>.</p>
 </body>
 </html>
