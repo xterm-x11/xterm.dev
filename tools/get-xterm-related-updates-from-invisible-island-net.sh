@@ -18,7 +18,6 @@ mv uxterm.html manpage-uxterm.html
 wget https://invisible-island.net/xterm/manpage/koi8rxterm.html
 mv koi8rxterm.html manpage-koi8rxterm.html
 wget https://invisible-island.net/xterm/ctlseqs/ctlseqs.html
-mv ctlseqs.html ctlseqs-guide.html
 wget https://invisible-island.net/xterm/ctlseqs/ctlseqs-contents.html
 mv ctlseqs-contents.html ctlseqs-list.html
 #

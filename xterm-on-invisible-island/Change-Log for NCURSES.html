@@ -1,12 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
-<html>
-<head>
+<html><head>
 <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.8.0">
 <title>Change-Log for NCURSES</title>
 <link rel="author" href="mailto:bug-ncurses@gnu.org">
-<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
-<link rel="stylesheet" href="/css/simplestyle.css" type="text/css">
-<link rel="SHORTCUT ICON" href="/img/icons/favicon.ico" type="image/x-icon">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<link rel="stylesheet" href="Change-Log%20for%20NCURSES_files/simplestyle.css" type="text/css">
+<link rel="SHORTCUT ICON" href="https://invisible-island.net/img/icons/favicon.ico" type="image/x-icon">
 <meta name="keywords" content="NEWS,change-log">
 <meta name="description" content="Change-Log for NCURSES">
 <style type="text/css">
@@ -18,12 +17,11 @@
 <h1 class="no-header">Change-Log for NCURSES</h1>
 
 <hr>
-<a href="/">https://invisible-island.net/</a><a href="/ncurses/">ncurses/</a><a href="/ncurses/NEWS.html">NEWS</a>
+<a href="https://invisible-island.net/">https://invisible-island.net/</a><a href="https://invisible-island.net/ncurses/">ncurses/</a><a href="https://invisible-island.net/ncurses/NEWS.html">NEWS</a>
 
 <hr>
 
-<pre>
--------------------------------------------------------------------------------
+<pre>-------------------------------------------------------------------------------
 -- Copyright 2018-2025,2026 Thomas E. Dickey                                 --
 -- Copyright 1998-2017,2018 Free Software Foundation, Inc.                   --
 --                                                                           --
@@ -51,7 +49,7 @@
 -- sale, use or other dealings in this Software without prior written        --
 -- authorization.                                                            --
 -------------------------------------------------------------------------------
--- $Id: NEWS,v 1.4434 2026/03/14 22:39:14 tom Exp $
+-- $Id: NEWS,v 1.4547 2026/10/17 21:32:08 tom Exp $
 -------------------------------------------------------------------------------
 
 This is a log of changes that ncurses has gone through since Zeyd started
@@ -70,6 +68,275 @@ See the AUTHORS file for the corresponding full names.
 
 Changes through 1.9.9e did not credit all contributions;
 it is not possible to add this information.
+
+<a name="t20261017" href="#index-t20261017" id="t20261017">20261017</a>
+        + improve configure script check for linker search path, avoiding cache
+          rebuild on BSD systems (report by Showta Ishizaki).
+        + when adding characters to a window, check if the position to be
+          updated was part of a multicolumn character, clearing the whole
+          multicolumn character in that case (report by Vassili Courzakis).
+        + add fallback definitions for environment variables on non-multiuser
+          systems (patch by Vassili Courzakis).
+
+<a name="t20261010" href="#index-t20261010" id="t20261010">20261010</a>
+        + modify test/test_mouse.c to demonstrate mouse_get(), mouse_test() and
+          mouse_mask().
+
+<a name="t20260926" href="#index-t20260926" id="t20260926">20260926</a>
+        + in-progress work to add new mouse functions mouse_get(),
+          mouse_test(), and mouse_mask(), as well as mousetest().
+        + add attr_set.3x and attrset.3x to man_db.renames (patch by Sven
+          Joachim).
+
+<a name="t20260919" href="#index-t20260919" id="t20260919">20260919</a>
+        + revise content/formatting/style of man pages (patches by Branden
+          Robinson)
+        + add overline to ghostty (report by Jared Finder)
+        + review ghostty -TD
+        + add overline to rlogin-color -TD
+        + add null pointer check for stdscr in endwin() when saving keypad mode
+          (patch by Branden Robinson).
+        + remove an adjustment to stdscr in doupdate() when restoring keypad
+          mode (OpenSUSE <a href="https://bugzilla.opensuse.org/show_bug.cgi?id=1281268">#1281268</a>).
+
+<a name="t20260912" href="#index-t20260912" id="t20260912">20260912</a>
+        + build-fix for sizeof(mmask_t) configure check (cf:<a href="#t20260829">20260829</a>).
+        + review/fix teraterm* (report by Jakub Horky)
+        + modify flash for vt525 to use DECRARA (patch by Branden Robinson)
+        + revise content/formatting/style of man pages (patches by Branden
+          Robinson)
+        + update config.guess, config.sub
+
+<a name="t20260905" href="#index-t20260905" id="t20260905">20260905</a>
+        + modify endwin() and doupdate() to save/restore keypad and meta modes
+          (report by Ferenc Wagner).
+        + improve range-checks for xterm X10 and SGR mouse protocol.
+        + correct modifier-masking for buttons 6-11 in mouse version 3
+          (report by Ravi Arnan Irianto).
+        + build-fix for Ada95 with ABI 7 (report by Branden Robinson)
+
+<a name="t20260829" href="#index-t20260829" id="t20260829">20260829</a>
+        + add configure check to ensure that mmask_t is large enough for the
+          configured mouse version (report by Ravi Arnan Irianto)
+        + add mouse-parsing for extended buttons with mouse version 3 (report
+          by Ravi Arnan Irianto).
+
+<a name="t20260822" href="#index-t20260822" id="t20260822">20260822</a>
+        + add a limit-check in wborder (patch by Bjoern Foersterling).
+        + improve limit-checks for trace calls in read_entry.c (report by Yeo
+          JooHo).
+        + improve tic warnings regarding the empty smir/rmir strings which
+          may be added in dump_entry.c for termcap if ich/ich1 are present but 
+          smir/rmir are not.
+        + add sun+fkeys -TD
+        + add dtterm-sk, dtterm+sk -TD
+        + add ich1 to several entries, providing for support of non-curses
+          applications via termcap only -TD
+        + add dch/dch1 to rxvt-basic -TD
+        + drop redundant xterm+256setaf2 (patch by Branden Robinson)
+        + documentation improvements (patches by Branden Robinson).
+          + improve color discussion in man pages
+          + improve formatting/style of man pages
+        &gt; improve wide-character support with UCRT (patches by Liu Hao)
+          + use UCRT's wcrtomb rather than _nc_wctomb
+          + skip trailing cells of double-width characters
+
+<a name="t20260815" href="#index-t20260815" id="t20260815">20260815</a>
+        + improve tic warnings for paired capabilities, including ich/ich1.
+        + use xterm+tmux2 in xterm+nofkeys to match xterm patch <a href="https://invisible-island.net/xterm/xterm.log.html#xterm_407">#407</a> -TD
+        + use ST in xterm+osc104 -TD
+        + use ansi+sc -TD
+        + modify test/dup_field.c to also demonstrate link_field().
+        + work around use of ^D for exiting test/ncurses except in the form
+          test which uses ^D for movement (patch by Branden Robinson).
+        + improve appearance of test/dup_field and test/move_field, adding a
+          help-hint (patches by Branden Robinson).
+        + improve formatting/style of manpages (patches by Branden Robinson).
+        + add limit-checks in lib_screen.c and lib_ins_wch.c in case a 2-cell
+          character is added at the right-margin (report by Miroslav Lichvar).
+        + improve limit-check for extended names in _nc_read_termtype
+          (report/patch by Yeo JooHo).
+        + improve description of init_extended_color in man page (patch by
+          Andrew Burgess).
+        + modify test/Makefile.in to fix "make check" when ncurses is built in
+          a non-source tree (report by Bruno Haible).
+
+<a name="t20260808" href="#index-t20260808" id="t20260808">20260808</a>
+        + various improvements/fixes to test/dup_field.c
+        + correct a check for FORM* in test/tracemunch
+        + correct an ifdef in delscreen when using --enable-reentrant (report
+          by Vassili Courzakis).
+        + modify dup_field to allocate buffers needed for wide-character
+          configuration of dup_field (report by Serhiy Storchaka).
+        + correct masking of wide characters into chtype in winch (report by
+          Serhiy Storchaka).
+
+<a name="t20260801" href="#index-t20260801" id="t20260801">20260801</a>
+        + use ansi+csr in aaa+dec -TD
+        + use ansi+idc in hurd, tw100, vt420 -TD
+        + use ansi+erase in tw100 -TD
+        + add vt100+tabs -TD
+        + fix unbounded recursion in winsch if given a parameter which is not a
+          valid character in the current encoding (report/analysis by Serhiy
+          Storchaka).
+
+<a name="t20260725" href="#index-t20260725" id="t20260725">20260725</a>
+        + use ansi+cpr in beterm -TD
+        + use ansi+csr in aixterm, att6386, hirez100, iris-ansi -TD
+        + use ansi+idc in vt220-base -TD
+        + add ansi+sc -TD
+        + fixes for compiler warnings/cppcheck.
+        + amend <a href="#t20260307">20260307</a> change to read_entry.c, to allow reading terminfo
+          compiled in ncurses 6.1 and earlier (reports by Todd Richmond, Sven
+          Joachim, cf: <a href="#t20180331">20180331</a>).
+
+<a name="t20260718" href="#index-t20260718" id="t20260718">20260718</a>
+        + drop kbs from vt100+arrows and vt100+apparrows to increase usage -TD
+        + add xterm+24fkeys -TD
+        + fixes to escape comma and backslash consistently with infocmp for
+          -g/-G options.
+
+<a name="t20260711" href="#index-t20260711" id="t20260711">20260711</a>
+        + add otty -TD
+        + add vt100+arrows, vt100+apparrows -TD
+
+<a name="t20260704" href="#index-t20260704" id="t20260704">20260704</a>
+        + add zutty -TD
+        + modify winch() and winsch() to use wcstombs() to convert 8-bit codes
+          to Unicode when ncurses is configured to support Unicode but is not
+          using UTF-8 encoding (report/analysis by Serhiy Storchaka).
+        + fixes for compiler warnings/cppcheck.
+        + fixes for scan-build, valgrind build/testing.
+        + fix a memory leak in _nc_resolve_uses2 (report/testcase by
+          Yufeng Wu, Zhijie Zhang, Qizhen Xu)
+        + add a check for escaped nul in fmt_complex (report/testcase by
+          Yufeng Wu, Zhijie Zhang, Qizhen Xu).
+        + add a limit-check in _nc_tgetent (report by Utku Yildirim).
+        + add a buffer-limit check in tgetstr.
+
+<a name="t20260627" href="#index-t20260627" id="t20260627">20260627</a>
+        + add a makefile symbol for the names of the installed libraries to
+          simplify parallel build of more than one configuration (patch by
+          Luca Fancellu).
+        + change misc/Makefile to eliminate "pc-files" stamp target (report
+          by Luca Fancellu).
+        + change internal type for file-descriptor to int, eliminate cast
+          (report by Antonio Nino Diaz).
+        + add xon to several entries, based on manuals and product
+          descriptions -TD
+        + revise adm36, based on manual -TD
+        + add u6, u7, kdch1 to vp3a+ based on manual -TD
+        + add u6, u7, home, cbt to adm20 based on manual -TD
+
+<a name="t20260620" href="#index-t20260620" id="t20260620">20260620</a>
+        + add il1 to ibcs2 -TD
+        + add ich1 to several entries, providing for support of non-curses
+          applications via termcap only -TD
+        + add ich/ich1 to teraterm2.3 based on ttsrcp23.zip source-code -TD
+        + add ich/ich1 to x10term based on X.V10R4/xterm source-code -TD
+        + add ich/ich1 to xterm-r6 based on source-code -TD
+        + add ich/ich1 to mterm-ansi and decansi based on source-code -TD
+        + add ich/ich1 to tek4025a, tek4105a, tek4106brl from manual -TD
+        + modify infocmp, tic, and tgetent to omit ich1 (termcap "ic") while
+          providing termcap data when smir/rmir (termcap "im/ei") are given.
+        + reduce warning in tic regarding termcap applications which do not
+          work with smir/rmir combined with ich1.
+
+<a name="t20260613" href="#index-t20260613" id="t20260613">20260613</a>
+        + add ich/ich1 to putty -TD
+        + reorder %i's in some capabilities for better matching of blocks -TD
+        + add sc/rc to ti928 -TD
+        + add rin to ncr260vt300an and ncr260vt100an, matching the AT&amp;T
+          ind/indn -TD
+        + add rwidm, kdch1 to att730 -TD
+        + change %2d and %3d to %02d and %03d to match original termcaps -TD
+        + reduce unnecessary %2d and %3d to just %d -TD
+        + correct conversion of termcap %2 and %3 to terminfo in _nc_captoinfo.
+
+<a name="t20260608" href="#index-t20260608" id="t20260608">20260608</a>
+        + amend *.map to put recent cookie-related functions in a new tinfo
+          ".current" section (report by Sven Joachim).
+        + add npc to kmscon, fixing flash -TD
+
+<a name="t20260607" href="#index-t20260607" id="t20260607">20260607</a>
+        + actually add kmscon (report by Branden Robinson)
+
+<a name="t20260606" href="#index-t20260606" id="t20260606">20260606</a>
+        + add kmscon (report by Jocelyn Falempe) -TD
+        + fix a minor regression in infocmp -g option.
+        + fixes for compiler warnings/cppcheck.
+
+<a name="t20260530" href="#index-t20260530" id="t20260530">20260530</a>
+        + minor renaming, formatting to align with Juergen Pfeifer's fork.
+        + add configure script check for --enable-ext-mouse2, to support ABI 7.
+        + improve special case in tic for %{code} to allow any non-zero byte
+          as the result %'char'
+
+<a name="t20260523" href="#index-t20260523" id="t20260523">20260523</a>
+        + modify _nc_wacs[] to make it per-screen (from Juergen Pfeifer's fork)
+        + eliminate a special case in tic when translating %{code} to %'char',
+          since %{92} mapping to %'\' works with tparm and infocmp.
+
+<a name="t20260516" href="#index-t20260516" id="t20260516">20260516</a>
+        + defer initialization of magic-cookies, which disables some
+          capabilities, until the first screen update using a video attribute
+          which might introduce a magic cookie (report by Frank Palazzolo).
+        + correct buffer limit in recur_wgetnstr() (report by Daniel Anderson).
+        + correct logic in safe_name() function of infocmp, used in -E/-e
+          options (report/patch by Daniel Anderson).
+
+<a name="t20260509" href="#index-t20260509" id="t20260509">20260509</a>
+        + modify adjust_cancels() to allow for cancelled boolean extended
+          capabilities.
+        + cancel XF, XT in warp -TD
+        + review kitty -TD
+        + review contour -TD
+        + eliminate vt100-style line drawing from xterm-utf8 -TD
+
+<a name="t20260502" href="#index-t20260502" id="t20260502">20260502</a>
+        + add warp -TD
+        + correct loop limit in lib_twait.c (OpenSUSE <a href="https://bugzilla.opensuse.org/show_bug.cgi?id=1262780">#1262780</a>, cf: <a href="#t20260411">20260411</a>)
+
+<a name="t20260425" href="#index-t20260425" id="t20260425">20260425</a>
+        + review screen4 vs screen5 -TD
+        + review some XR/xr pairs -TD
+        + fix a few gcc analyzer warnings.
+
+<a name="t20260418" href="#index-t20260418" id="t20260418">20260418</a>
+        + note in manpage that wgetch/wget_wch consistently set errno to EBADF
+          for poll/select configurations when the input is closed.
+        + improve check in test/ncurses for errors by limiting it to the
+          latest wgetch/wget_wch (cf: <a href="#t20260404">20260404</a>).
+        &gt; fixes for problems found by Anthropic (report by David Korczynski):
+        + correct a limit-check in _nc_write_object
+        + correct a source-pointer in _nc_trim_sgr0
+        + add limit-check in read_SGR
+
+<a name="t20260411" href="#index-t20260411" id="t20260411">20260411</a>
+        + if POLLNVAL is set in revents, set errno to EBADF to improve handling
+          of closed input for poll() configuration.
+        + cancel bce and rep in some screen.X's -TD
+
+<a name="t20260404" href="#index-t20260404" id="t20260404">20260404</a>
+        + use xterm+direct in konsole-direct, add several features to
+          konsole (report by Xu Che)
+        + use dec+sl in mintty (prompted by Thomas Wolff) -TD
+        + add linux-alt1049 (report by Sebastien Hinderer) -TD
+        + add a limit-check in _nc_mouse_parse in case there are no valid
+          events (report by Giorgos Xou, cf: <a href="#t20260301">20260301</a>).
+        + amend recent change to test/ncurses to check errno before deciding
+          to exit.
+
+<a name="t20260328" href="#index-t20260328" id="t20260328">20260328</a>
+        + modify test/ncurses to close stdin when ^D is entered in the getch
+          tests, to demonstrate error return.
+        + adapt some ifdefs, etc., to reduce difference vs Juergen Pfeifer's
+          fork.
+
+<a name="t20260321" href="#index-t20260321" id="t20260321">20260321</a>
+        + build-fix for --enable-fvisibility option vs C++ shared library
+          (adapted from patch by Nicholas Vinson).
+        + improve a few configure-checks vs overly-strict compiler warnings.
 
 <a name="t20260314" href="#index-t20260314" id="t20260314">20260314</a>
         + fixes for pangoterm and wezterm, from tic warnings -TD
@@ -789,7 +1056,7 @@ it is not possible to add this information.
 
 <a name="t20240217" href="#index-t20240217" id="t20240217">20240217</a>
         + add vt100+noapp, vt100+noapp+pc, xterm+app+pc, xterm+decedit from
-          xterm <a href="/xterm/xterm.log.html#xterm_389">#389</a> -TD
+          xterm <a href="https://invisible-island.net/xterm/xterm.log.html#xterm_389">#389</a> -TD
         + fix inconsistent description of wmouse_trafo() (Debian <a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1059778">#1059778</a>).
         + modify wenclose() to handle pads (Debian <a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1059783">#1059783</a>).
         + improve manpage discussion of mouseinterval() (Debian <a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1058560">#1058560</a>).
@@ -1076,7 +1343,7 @@ it is not possible to add this information.
         + modify test-package "ncurses6-doc" to use manpage-aliases, which in
           turn required a change to the configure script to factor in the
           extra-suffix option when deriving alias names.
-        + add mode 1004 to xterm+sm+1006 from xterm <a href="/xterm/xterm.log.html#xterm_380">#380</a> -TD
+        + add mode 1004 to xterm+sm+1006 from xterm <a href="https://invisible-island.net/xterm/xterm.log.html#xterm_380">#380</a> -TD
 
 <a name="t20230506" href="#index-t20230506" id="t20230506">20230506</a>
         &gt; build-fixes related to configure-options and/or platform:
@@ -1480,7 +1747,7 @@ it is not possible to add this information.
 <a name="t20220312" href="#index-t20220312" id="t20220312">20220312</a>
         + add xterm+acs building-block -TD
         + add xterm-p370, for use in older terminals -TD
-        + add dec+sl to xterm-new, per xterm patch <a href="/xterm/xterm.log.html#xterm_371">#371</a> -TD
+        + add dec+sl to xterm-new, per xterm patch <a href="https://invisible-island.net/xterm/xterm.log.html#xterm_371">#371</a> -TD
         + add mosh and mosh-256color -TD
 
 <a name="t20220305" href="#index-t20220305" id="t20220305">20220305</a>
@@ -1716,7 +1983,7 @@ it is not possible to add this information.
         + update config.sub
 
 <a name="t20210814" href="#index-t20210814" id="t20210814">20210814</a>
-        + add workaround for broken pcre2 package in Debian 10, from xterm <a href="/xterm/xterm.log.html#xterm_369">#369</a>.
+        + add workaround for broken pcre2 package in Debian 10, from xterm <a href="https://invisible-island.net/xterm/xterm.log.html#xterm_369">#369</a>.
 
 <a name="t20210807" href="#index-t20210807" id="t20210807">20210807</a>
         + ignore "--dynamic-linker" option in generated pkg/config files,
@@ -1921,7 +2188,7 @@ it is not possible to add this information.
         + provide for wide-characters as background character in wbkgrnd
           (report/testcase by Anton Vidovic)
         + add name for Fedora's pcre2 to configure check for "--with-pcre2"
-          option, from xterm <a href="/xterm/xterm.log.html#xterm_363">#363</a> -TD
+          option, from xterm <a href="https://invisible-island.net/xterm/xterm.log.html#xterm_363">#363</a> -TD
         + modify adjustment in PutCharLR to restore the cursor position before
           writing to the lower-right corner, rather than decrementing the
           cursor column, in case it was a double-width character (cf: <a href="#t20210130">20210130</a>).
@@ -2282,7 +2549,7 @@ it is not possible to add this information.
         + fix a special case in wresize() where copying the old text did not
           check if the last cell on a row was the beginning of a fullwidth
           character (adapted from patch by Benno Schulenberg).
-        + use vt52+keypad in xterm-vt52, from xterm <a href="/xterm/xterm.log.html#xterm_354">#354</a> -TD
+        + use vt52+keypad in xterm-vt52, from xterm <a href="https://invisible-island.net/xterm/xterm.log.html#xterm_354">#354</a> -TD
         + improve see-also section of user_caps.5
 
 <a name="t20200411" href="#index-t20200411" id="t20200411">20200411</a>
@@ -2398,7 +2665,7 @@ it is not possible to add this information.
         + update alacritty entries for 0.4.0 (prompted by patch by
           Christian Durr) -TD
         + correct spelling errors found with codespell.
-        + fix for test/configure, from xterm <a href="/xterm/xterm.log.html#xterm_352">#352</a>.
+        + fix for test/configure, from xterm <a href="https://invisible-island.net/xterm/xterm.log.html#xterm_352">#352</a>.
 
 <a name="t20200111" href="#index-t20200111" id="t20200111">20200111</a>
         + improve configure macros which check for the X11/Intrinsic.h header,
@@ -2635,7 +2902,7 @@ it is not possible to add this information.
           (report by Vincent Huisman).
 
 <a name="t20190518" href="#index-t20190518" id="t20190518">20190518</a>
-        + update xterm-new to xterm patch <a href="/xterm/xterm.log.html#xterm_345">#345</a> -TD
+        + update xterm-new to xterm patch <a href="https://invisible-island.net/xterm/xterm.log.html#xterm_345">#345</a> -TD
         + add/use xterm+keypad in xterm-new (report by Alain D D Williams) -TD
         + update terminator entry -TD
         + remove hard-tabs from ti703 (report by Robert Clausecker)
@@ -3180,14 +3447,14 @@ it is not possible to add this information.
 <a name="t20180121" href="#index-t20180121" id="t20180121">20180121 pre-release</a>
         &gt; terminfo changes:
         + add xterm+noalt, xterm+titlestack, xterm+alt1049, xterm+alt+title
-          blocks from xterm <a href="/xterm/xterm.log.html#xterm_331">#331</a> -TD
+          blocks from xterm <a href="https://invisible-island.net/xterm/xterm.log.html#xterm_331">#331</a> -TD
         + add xterm+direct, xterm+indirect, xterm-direct entries from xterm
-          <a href="/xterm/xterm.log.html#xterm_331">#331</a> -TD
+          <a href="https://invisible-island.net/xterm/xterm.log.html#xterm_331">#331</a> -TD
         + modify xterm+256color and xterm+256setaf to use correct number of
           color pairs, for ncurses 6.1 -TD
         + add rs1 capability to xterm-256color -TD
         + modify xterm-r5, xterm-r6 and xterm-xf86-v32 to use xterm+kbs to
-          match xterm <a href="/xterm/xterm.log.html#xterm_272">#272</a>, reflecting packager's changes -TD
+          match xterm <a href="https://invisible-island.net/xterm/xterm.log.html#xterm_272">#272</a>, reflecting packager's changes -TD
         + remove "boolean" Se, Ss from st-0.7 -TD
         + add konsole-direct and st-direct -TD
         + remove unsupported "Tc" capability from st-0.7; use st-direct if
@@ -4976,7 +5243,7 @@ it is not possible to add this information.
           overlap with sgr functionality.
         + remove unneeded -i option from adacurses-config; put -a in the -I
           option for consistency (patch by Pascal Pignard).
-        + update xterm-new terminfo entry to xterm patch <a href="/xterm/xterm.log.html#xterm_305">#305</a> -TD
+        + update xterm-new terminfo entry to xterm patch <a href="https://invisible-island.net/xterm/xterm.log.html#xterm_305">#305</a> -TD
         + change format of test-scripts for Debian Ada95 and ncurses-examples
           packages to quilted to work around Debian <a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=700177">#700177</a> (cf: <a href="#t20130907">20130907</a>).
         + build fix for form_driver_w.c as part of ncurses-examples package for
@@ -6235,7 +6502,7 @@ it is not possible to add this information.
         + revert a change to getmouse() which had the undesirable side-effect
           of suppressing button-release events (report by Damien Guibouret,
           cf: <a href="#t20100102">20100102</a>).
-        + add xterm+kbs fragment from xterm <a href="/xterm/xterm.log.html#xterm_272">#272</a> -TD
+        + add xterm+kbs fragment from xterm <a href="https://invisible-island.net/xterm/xterm.log.html#xterm_272">#272</a> -TD
         + add configure option --with-pkg-config-libdir to provide control over
           the actual directory into which pc-files are installed, do not use
           the pkg-config environment variables (discussion with Frederic L W
@@ -6346,8 +6613,8 @@ it is not possible to add this information.
           pointer check (report/analysis by Franjo Ivancic).
         + modify configure --enable-pc-files option to take into account the
           PKG_CONFIG_PATH variable (report by Frederic L W Meunier).
-        + add/use xterm+tmux chunk from xterm <a href="/xterm/xterm.log.html#xterm_271">#271</a> -TD
-        + resync xterm-new entry from xterm <a href="/xterm/xterm.log.html#xterm_271">#271</a> -TD
+        + add/use xterm+tmux chunk from xterm <a href="https://invisible-island.net/xterm/xterm.log.html#xterm_271">#271</a> -TD
+        + resync xterm-new entry from xterm <a href="https://invisible-island.net/xterm/xterm.log.html#xterm_271">#271</a> -TD
         + add E3 extended capability to linux-basic (Miroslav Lichvar)
         + add linux2.2, linux2.6, linux3.0 entries to give context for E3 -TD
         + add SI/SO change to linux2.6 entry (Debian <a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=515609">#515609</a>) -TD
@@ -6356,7 +6623,7 @@ it is not possible to add this information.
           definition with OpenBSD toolset (Nicholas Marriott).
 
 <a name="t20110702" href="#index-t20110702" id="t20110702">20110702</a>
-        + add workaround from xterm <a href="/xterm/xterm.log.html#xterm_271">#271</a> changes to ensure that compiler flags
+        + add workaround from xterm <a href="https://invisible-island.net/xterm/xterm.log.html#xterm_271">#271</a> changes to ensure that compiler flags
           are not used in the $CC variable.
         + improve support for shared libraries, tested with AIX 5.3, 6.1 and
           7.1 with both gcc 4.2.4 and cc.
@@ -6565,7 +6832,7 @@ it is not possible to add this information.
         + fix typo in Ada95/mk-1st.awk which causes error with original awk.
 
 <a name="t20110220" href="#index-t20110220" id="t20110220">20110220</a>
-        + configure script rpath fixes from xterm <a href="/xterm/xterm.log.html#xterm_269">#269</a>.
+        + configure script rpath fixes from xterm <a href="https://invisible-island.net/xterm/xterm.log.html#xterm_269">#269</a>.
         + workaround for cygwin's non-functional features.h, to force ncurses'
           configure script to define _XOPEN_SOURCE_EXTENDED when building
           wide-character configuration.
@@ -6654,7 +6921,7 @@ it is not possible to add this information.
         + fix typo in rmso for tek4106 entry -Goran Weinholt
 
 <a name="t20101120" href="#index-t20101120" id="t20101120">20101120</a>
-        + improve checks in test/configure for X libraries, from xterm <a href="/xterm/xterm.log.html#xterm_267">#267</a>
+        + improve checks in test/configure for X libraries, from xterm <a href="https://invisible-island.net/xterm/xterm.log.html#xterm_267">#267</a>
           changes.
         + modify test/configure to allow it to use the build-tree's libraries
           e.g., when using that to configure the test-programs without the
@@ -6668,7 +6935,7 @@ it is not possible to add this information.
         + compiler warning fixes for test programs.
         + various build-fixes for test-programs with pdcurses.
         + updated configure checks for X packages in test/configure from xterm
-          <a href="/xterm/xterm.log.html#xterm_267">#267</a> changes.
+          <a href="https://invisible-island.net/xterm/xterm.log.html#xterm_267">#267</a> changes.
         + add configure check to gnatmake, to accommodate cygwin.
 
 <a name="t20101106" href="#index-t20101106" id="t20101106">20101106</a>
@@ -7681,7 +7948,7 @@ it is not possible to add this information.
         + fix memory leaks in test/demo_menus
         + fix most warnings from Klocwork tool (report by Larry Zhou).
         + modify configure script CF_XOPEN_SOURCE macro to add case for
-          "dragonfly" from xterm <a href="/xterm/xterm.log.html#xterm_236">#236</a> changes.
+          "dragonfly" from xterm <a href="https://invisible-island.net/xterm/xterm.log.html#xterm_236">#236</a> changes.
         + modify configure script --with-hashed-db to let $LIBS override the
           search for the db library (prompted by report by Samson Pierre).
 
@@ -7884,7 +8151,7 @@ it is not possible to add this information.
           softkeys were used.
 
 <a name="t20080105" href="#index-t20080105" id="t20080105">20080105</a>
-        + several improvements to terminfo entries based on xterm <a href="/xterm/xterm.log.html#xterm_230">#230</a> -TD
+        + several improvements to terminfo entries based on xterm <a href="https://invisible-island.net/xterm/xterm.log.html#xterm_230">#230</a> -TD
         + modify MKlib_gen.sh to handle keyname/key_name prototypes, so the
           "link_test" builds properly.
         + fix for toe command-line options -u/-U to ensure filename is given.
@@ -8090,7 +8357,7 @@ it is not possible to add this information.
 
 <a name="t20070612" href="#index-t20070612" id="t20070612">20070612</a>
         + corrected xterm+pcf2 terminfo modifiers for F1-F4, to match xterm
-          <a href="/xterm/xterm.log.html#xterm_226">#226</a> -TD
+          <a href="https://invisible-island.net/xterm/xterm.log.html#xterm_226">#226</a> -TD
         + split-out key_name() from MKkeyname.awk since it now depends upon
           wunctrl() which is not in libtinfo (report by Rong-En Fan).
 
@@ -8311,7 +8578,7 @@ it is not possible to add this information.
         + correct description of --enable-signed-char in configure --help
           (report by Michail Vidiassov).
         + add pattern for GNU/kFreeBSD configuration to CF_XOPEN_SOURCE,
-          which matches an earlier change to CF_SHARED_OPTS, from xterm <a href="/xterm/xterm.log.html#xterm_224">#224</a>
+          which matches an earlier change to CF_SHARED_OPTS, from xterm <a href="https://invisible-island.net/xterm/xterm.log.html#xterm_224">#224</a>
           fixes.
         + remove "${DESTDIR}" from -install_name option used for linking
           shared libraries on Darwin (report by Michail Vidiassov).
@@ -8568,7 +8835,7 @@ it is not possible to add this information.
           (patch/analysis by Miroslav Lichvar (see Redhat <a href="https://bugzilla.redhat.com/show_bug.cgi?id=202480">#202480</a>)).
 
 <a name="t20060805" href="#index-t20060805" id="t20060805">20060805</a>
-        + updated xterm function-keys terminfo to match xterm <a href="/xterm/xterm.log.html#xterm_216">#216</a> -TD
+        + updated xterm function-keys terminfo to match xterm <a href="https://invisible-island.net/xterm/xterm.log.html#xterm_216">#216</a> -TD
         + add configure --with-hashed-db option (tested only with FreeBSD 6.0,
           e.g., the db 1.8.5 interface).
 
@@ -8582,7 +8849,7 @@ it is not possible to add this information.
 <a name="t20060722" href="#index-t20060722" id="t20060722">20060722</a>
         + widen the test for xterm kmous a little to allow for other strings
           than \E[M, e.g., for xterm-sco functionality in xterm.
-        + update xterm-related terminfo entries to match xterm patch <a href="/xterm/xterm.log.html#xterm_216">#216</a> -TD
+        + update xterm-related terminfo entries to match xterm patch <a href="https://invisible-island.net/xterm/xterm.log.html#xterm_216">#216</a> -TD
         + update config.guess, config.sub
 
 <a name="t20060715" href="#index-t20060715" id="t20060715">20060715</a>
@@ -9545,7 +9812,7 @@ it is not possible to add this information.
         &gt; terminfo updates -TD
           + make xterm-xf86-v43 derived from xterm-xf86-v40 rather than
             xterm-basic -TD
-          + align with xterm patch <a href="/xterm/xterm.log.html#xterm_192">#192</a>'s use of xterm-new -TD
+          + align with xterm patch <a href="https://invisible-island.net/xterm/xterm.log.html#xterm_192">#192</a>'s use of xterm-new -TD
           + update xterm-new and xterm-8bit for cvvis/cnorm strings -TD
           + make xterm-new the default "xterm" entry -TD
 
@@ -10602,7 +10869,7 @@ it is not possible to add this information.
           string.  This happens in configurations where raw termcap information
           is processed; tic already does this and other checks.
         + modify tic's check for ich/ich1 versus rmir/smir to only warn about
-          ich1, to match xterm patch <a href="/xterm/xterm.log.html#xterm_70">#70</a> notes.
+          ich1, to match xterm patch <a href="https://invisible-island.net/xterm/xterm.log.html#xterm_70">#70</a> notes.
         + moved information for ripped-off lines into SCREEN struct to allow
           use in resizeterm().
         + add experimental wgetch_events(), ifdef'd with NCURSES_WGETCH_EVENTS
@@ -11834,7 +12101,7 @@ it is not possible to add this information.
         + completed special case for tgoto from <a href="#t20000916">20000916</a>
 
 <a name="t20000916" href="#index-t20000916" id="t20000916">20000916</a>
-        + update xterm terminfo entries to match XFree86 xterm patch <a href="/xterm/xterm.log.html#xterm_146">#146</a> -TD
+        + update xterm terminfo entries to match XFree86 xterm patch <a href="https://invisible-island.net/xterm/xterm.log.html#xterm_146">#146</a> -TD
         + add Matrix Orbital terminfo entries (from Eric Z Ayers
           &lt;eric@ale.org&gt;).
         + add special case to lib_tparm.c to allow 'screen' program to use a
@@ -16348,7 +16615,71 @@ available separately from netcom.com:pub/zmbenhal/
 
 <div class="nav">
 <ul>
-<li class="nav-top"><a href="NEWS.html">(top)</a></li>
+<li class="nav-top"><a href="https://invisible-island.net/ncurses/NEWS.html">(top)</a></li>
+
+<li><a name="index-t20261017" href="#t20261017" id="index-t20261017">2026/10/17</a></li>
+
+<li><a name="index-t20261010" href="#t20261010" id="index-t20261010">2026/10/10</a></li>
+
+<li><a name="index-t20260926" href="#t20260926" id="index-t20260926">2026/09/26</a></li>
+
+<li><a name="index-t20260919" href="#t20260919" id="index-t20260919">2026/09/19</a></li>
+
+<li><a name="index-t20260912" href="#t20260912" id="index-t20260912">2026/09/12</a></li>
+
+<li><a name="index-t20260905" href="#t20260905" id="index-t20260905">2026/09/05</a></li>
+
+<li><a name="index-t20260829" href="#t20260829" id="index-t20260829">2026/08/29</a></li>
+
+<li><a name="index-t20260822" href="#t20260822" id="index-t20260822">2026/08/22</a></li>
+
+<li><a name="index-t20260815" href="#t20260815" id="index-t20260815">2026/08/15</a></li>
+
+<li><a name="index-t20260808" href="#t20260808" id="index-t20260808">2026/08/08</a></li>
+
+<li><a name="index-t20260801" href="#t20260801" id="index-t20260801">2026/08/01</a></li>
+
+<li><a name="index-t20260725" href="#t20260725" id="index-t20260725">2026/07/25</a></li>
+
+<li><a name="index-t20260718" href="#t20260718" id="index-t20260718">2026/07/18</a></li>
+
+<li><a name="index-t20260711" href="#t20260711" id="index-t20260711">2026/07/11</a></li>
+
+<li><a name="index-t20260704" href="#t20260704" id="index-t20260704">2026/07/04</a></li>
+
+<li><a name="index-t20260627" href="#t20260627" id="index-t20260627">2026/06/27</a></li>
+
+<li><a name="index-t20260620" href="#t20260620" id="index-t20260620">2026/06/20</a></li>
+
+<li><a name="index-t20260613" href="#t20260613" id="index-t20260613">2026/06/13</a></li>
+
+<li><a name="index-t20260608" href="#t20260608" id="index-t20260608">2026/06/08</a></li>
+
+<li><a name="index-t20260607" href="#t20260607" id="index-t20260607">2026/06/07</a></li>
+
+<li><a name="index-t20260606" href="#t20260606" id="index-t20260606">2026/06/06</a></li>
+
+<li><a name="index-t20260530" href="#t20260530" id="index-t20260530">2026/05/30</a></li>
+
+<li><a name="index-t20260523" href="#t20260523" id="index-t20260523">2026/05/23</a></li>
+
+<li><a name="index-t20260516" href="#t20260516" id="index-t20260516">2026/05/16</a></li>
+
+<li><a name="index-t20260509" href="#t20260509" id="index-t20260509">2026/05/09</a></li>
+
+<li><a name="index-t20260502" href="#t20260502" id="index-t20260502">2026/05/02</a></li>
+
+<li><a name="index-t20260425" href="#t20260425" id="index-t20260425">2026/04/25</a></li>
+
+<li><a name="index-t20260418" href="#t20260418" id="index-t20260418">2026/04/18</a></li>
+
+<li><a name="index-t20260411" href="#t20260411" id="index-t20260411">2026/04/11</a></li>
+
+<li><a name="index-t20260404" href="#t20260404" id="index-t20260404">2026/04/04</a></li>
+
+<li><a name="index-t20260328" href="#t20260328" id="index-t20260328">2026/03/28</a></li>
+
+<li><a name="index-t20260321" href="#t20260321" id="index-t20260321">2026/03/21</a></li>
 
 <li><a name="index-t20260314" href="#t20260314" id="index-t20260314">2026/03/14</a></li>
 
@@ -19531,5 +19862,6 @@ available separately from netcom.com:pub/zmbenhal/
 </div>
 <!-- vile:html
   -->
-</body>
-</html>
+
+
+</body></html>

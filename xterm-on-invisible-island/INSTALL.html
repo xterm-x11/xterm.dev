@@ -26,7 +26,7 @@
 <hr>
 <pre>
 -------------------------------------------------------------------------------
--- Copyright 2018-2024,2025 Thomas E. Dickey                                 --
+-- Copyright 2018-2025,2026 Thomas E. Dickey                                 --
 -- Copyright 1998-2017,2018 Free Software Foundation, Inc.                   --
 --                                                                           --
 -- Permission is hereby granted, free of charge, to any person obtaining a   --
@@ -53,7 +53,7 @@
 -- sale, use or other dealings in this Software without prior written        --
 -- authorization.                                                            --
 -------------------------------------------------------------------------------
--- $Id: INSTALL,v 1.263 2025/12/30 20:42:25 tom Exp $
+-- $Id: INSTALL,v 1.267 2026/05/30 19:39:15 tom Exp $
 ---------------------------------------------------------------------
              How to install Ncurses/Terminfo on your system
 ---------------------------------------------------------------------
@@ -411,12 +411,14 @@ Ncurses has been also built in the OS/2 EMX environment.
 
     <strong><a name="option:disable-lp64" id="option:disable-lp64">--disable-lp64</a></strong>
         The header files will ignore use of the _LP64 symbol to make chtype
-        and mmask_t types 32 bits (they may be long on 64-bit hosts, for
-        compatibility with older releases).
+        and mmask_t types 32 bits, for compatibility with older releases.
+        The default "unsigned" for these types may be long on 64-bit hosts.
 
         NOTE: this is potentially an ABI change, depending on existing
         packages.  The default for this option is "disabled" for ncurses
         ABI 5, and "enabled" for ABI 6.
+
+        The --enable-ext-mouse2 option overrides the type used for mmask_t.
 
     <strong><a name="option:disable-macros" id="option:disable-macros">--disable-macros</a></strong>
         For testing, use functions rather than macros.  The program will run
@@ -590,6 +592,11 @@ Ncurses has been also built in the OS/2 EMX environment.
         advertising the default foreground and background colors.  During
         initialization, ncurses sets color pair 0 to match this.
 
+    <strong><a name="option:enable-conpty" id="option:enable-conpty">--enable-conpty</a></strong>
+        Experimental (in-progress development).
+
+        This also turns on --enable-named-pipes by default.
+
     <strong><a name="option:enable-const" id="option:enable-const">--enable-const</a></strong>
         The curses interface as documented in XSI is rather old, in fact
         including features that precede ANSI C.  The prototypes generally do
@@ -633,6 +640,15 @@ Ncurses has been also built in the OS/2 EMX environment.
 
         NOTE: using this option will make libraries which are not binary-
         compatible with libncursesw 5.4.  None of the interfaces change, but
+        applications which have mouse mask mmask_t's must be recompiled.
+
+    <strong><a name="option:enable-ext-mouse2" id="option:enable-ext-mouse2">--enable-ext-mouse2</a></strong>
+        Modify the encoding of mouse state to make room for 11 mouse buttons.
+        That allows one to use ncurses with extra buttons provided on some
+        a wheel mice with xterm or similar X terminal emulators.
+
+        NOTE: using this option will make libraries which are not binary-
+        compatible with ncursesw 6.x.  None of the interfaces change, but
         applications which have mouse mask mmask_t's must be recompiled.
 
     <strong><a name="option:enable-ext-putwin" id="option:enable-ext-putwin">--enable-ext-putwin</a></strong>
@@ -1206,10 +1222,12 @@ Ncurses has been also built in the OS/2 EMX environment.
         unusual configurations.  If no option value is given (or if it is
         "none"), no suffix is added.
 
-    <strong><a name="option:with-pcre2" id="option:with-pcre2">--with-pcre2</a></strong>
+    <strong><a name="option:with-pcre2" id="option:with-pcre2">--with-pcre2</a></strong><em>=[XXX]</em>
         Add PCRE2 (Perl-compatible regular expressions v2) to the build if it
         is available and the user requests it.  Assume the application will
         otherwise use the POSIX interface.
+
+        If an option value is given, try that pkgconfig name first.
 
         This is useful for MinGW builds because the usual POSIX interface is
         not supplied by the development environment, while ncurses' form
@@ -1509,7 +1527,7 @@ Ncurses has been also built in the OS/2 EMX environment.
 
         + These now pass a const parameter:  _nc_has_mouse,
           _nc_reset_color_pair, _nc_free_entry, and _nc_timed_wait.
-        + These now use a NCURSES_BOOL where an int was used: 
+        + These now use a NCURSES_BOOL where an int was used:
           _nc_setupscreen, _nc_keypad, _nc_unicode_locale, and
           _nc_retrace_bool.
 
@@ -2639,11 +2657,13 @@ terminfo directory directly.
 <li><a href="#option:enable-bsdpad">--enable-bsdpad</a></li>
 <li><a href="#option:enable-check-size">--enable-check-size</a></li>
 <li><a href="#option:enable-colorfgbg">--enable-colorfgbg</a></li>
+<li><a href="#option:enable-conpty">--enable-conpty</a></li>
 <li><a href="#option:enable-const">--enable-const</a></li>
 <li><a href="#option:enable-expanded">--enable-expanded</a></li>
 <li><a href="#option:enable-exp-win32">--enable-exp-win32</a></li>
 <li><a href="#option:enable-ext-colors">--enable-ext-colors</a></li>
 <li><a href="#option:enable-ext-mouse">--enable-ext-mouse</a></li>
+<li><a href="#option:enable-ext-mouse2">--enable-ext-mouse2</a></li>
 <li><a href="#option:enable-ext-putwin">--enable-ext-putwin</a></li>
 <li><a href="#option:enable-fvisibility">--enable-fvisibility</a></li>
 <li><a href="#option:enable-getcap">--enable-getcap</a></li>
@@ -2725,7 +2745,7 @@ terminfo directory directly.
 <li><a href="#option:with-ospeed">--with-ospeed=TYPE</a></li>
 <li><a href="#option:with-panel-libname">--with-panel-libname=NAME</a></li>
 <li><a href="#option:with-pc-suffix">--with-pc-suffix=SUFFIX</a></li>
-<li><a href="#option:with-pcre2">--with-pcre2</a></li>
+<li><a href="#option:with-pcre2">--with-pcre2=[XXX]</a></li>
 <li><a href="#option:with-pkg-config">--with-pkg-config[=CMD]</a></li>
 <li><a href="#option:with-pkg-config-libdir">--with-pkg-config-libdir[=DIR]</a></li>
 <li><a href="#option:with-profile">--with-profile</a></li>
