@@ -30,7 +30,7 @@
  * sale, use or other dealings in this Software without prior written        *
  * authorization.                                                            *
  *****************************************************************************
-  $XTermId: xterm.log.html,v 1.2791 2026/08/24 07:18:21 tom Exp $
+  $XTermId: xterm.log.html,v 1.2799 2026/10/11 23:04:59 tom Exp $
   -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
@@ -75,6 +75,7 @@
   <div class="nav">
     <ul>
       <li class="nav-top"><a href="xterm.log.html">(top)</a></li>
+      <li><a href="#xterm_412">Patch #412 - 2026/10/11</a></li>
       <li><a href="#xterm_411">Patch #411 - 2026/08/24</a></li>
       <li><a href="#xterm_410">Patch #410 - 2026/05/01</a></li>
       <li><a href="#xterm_409">Patch #409 - 2026/04/13</a></li>
@@ -699,6 +700,26 @@
       <li><a href="#xterm_01">Patch #1 - 1996/1/6</a></li>
     </ul>
   </div>
+  <h2><a name="xterm_412" id="xterm_412">Patch #412 -
+  2026/10/11</a></h2>
+  <ul>
+    <li>improve fix for regex-selection of a wrapped line (adapted
+    from patch by Albert Flügel, Redhat <a href=
+    "https://bugzilla.redhat.com/show_bug.cgi?id=2479962">#2479962</a>).</li>
+    <li>fix some cppcheck warnings.</li>
+    <li>improve a special case where an exposure event happens to
+    cause a hidden character to be drawn at the beginning of a
+    string.</li>
+    <li>correct limits for a partial screen clear operation (Debian
+    <a href=
+    "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1149533">#1149533</a>).</li>
+    <li>amend response for <tt>DECRQM 1046</tt> to return “set”
+    when <tt>titeInhibit</tt> is set rather than the reverse
+    (report by Vladislav Korikhin).</li>
+    <li>update tables in <code>wcwidth.c</code> based on Unicode
+    18.0.0</li>
+    <li>update config.guess, config.sub</li>
+  </ul>
   <h2><a name="xterm_411" id="xterm_411">Patch #411 -
   2026/08/24</a></h2>
   <ul>

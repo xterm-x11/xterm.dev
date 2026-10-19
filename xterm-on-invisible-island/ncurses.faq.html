@@ -1,5 +1,5 @@
 <!--
-  $Id: ncurses.faq.html,v 1.573 2025/04/07 07:48:47 tom Exp $
+  $Id: ncurses.faq.html,v 1.593 2026/07/12 09:47:39 tom Exp $
   -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
@@ -36,10 +36,10 @@
 <body>
   <hr>
 
-  <p><a href="/">http://invisible-island.net/</a><a href=
+  <p><a href="/">https://invisible-island.net/</a><a href=
   "/ncurses/">ncurses/</a><br>
   Thomas E. Dickey<br>
-  $Date: 2022/03/16 23:58:40 $</p>
+  $Date: 2026/07/12 09:47:39 $</p>
 
   <hr>
 
@@ -181,7 +181,7 @@
   "tctest.html#history_terminfo">discussion</a>). Some
   misinformation regarding <em>pcurses</em> was provided in a
   <a href=
-  "https://groups.google.com/d/msg/comp.terminals/qAF3c68AgkA/me4A_X3AYagJ">
+  "https://groups.google.com/g/comp.terminals/c/qAF3c68AgkA/m/me4A_X3AYagJ">
   posting</a> to <em>comp.terminals</em> long ago:</p>
 
   <blockquote>
@@ -432,7 +432,7 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
   as <a href=
   "https://web.archive.org/web/20120116185439/https://cygwin.com/faq/faq.html">
   this</a> (originally <a href=
-  "http://cygwin.com/faq/faq.html#faq.what.free">this</a>, but it
+  "https://cygwin.com/faq/faq.html#faq.what.free">this</a>, but it
   comes and goes): <!--
      This section was not present during review for ncurses 5.4,
      but was restored at some later time.  Perhaps some of the
@@ -484,7 +484,7 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
   ncurses were copyrighted in this style. The main restriction that
   affects most people is that the copyright notice must be kept on
   copies&mdash;or portions of the copies. That is not done <a href=
-  "http://www.mkssoftware.com/docs/cur_index.asp">in this online
+  "https://www.mkssoftware.com/docs/cur_index.asp">in this online
   reference</a>, which documents an older version of ncurses. The
   translation from manpage to html retains the content, but removes
   the copyright notice, which one may observe is not permitted.
@@ -616,7 +616,7 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
 
   <p>Changes made to this file are (unsurprisingly) copyrighted via
   the <a href=
-  "http://www.wipo.int/treaties/en/ip/berne/trtdocs_wo001.html">Berne
+  "https://www.wipo.int/en/web/treaties/ip/berne/index">Berne
   convention</a>. No explicit "Copyright &copy;" is required. It
   only requires that the author be identified (and this is done in
   the history comments at the end of the file):</p>
@@ -662,16 +662,17 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
   package which includes ncurses. The latter case is
   interesting.</p>
 
-  <p>For instance <a href="http://www.openqm.com/">OpenQM</a> used
-  terminfo entries which were obtained from ncurses using
-  <code>infocmp</code>. In discussion, one aspect glossed over was
-  that some of the content was copied not from ncurses itself but
-  from a <em>packager's</em> patch which merged a <a href=
-  "/xterm/xterm.html">xterm</a> terminfo which I wrote. Ultimately,
-  the responses from that discussion boiled down to saying that
-  they found it and it's theirs. (The maintainer did agree to add a
-  comment noting the origin of the &ldquo;public domain&rdquo;
-  entries).</p>
+  <p>For instance <a href=
+  "https://www.rocketsoftware.com/en-us/products/multivalue/openqm">
+  OpenQM</a> used terminfo entries which were obtained from ncurses
+  using <code>infocmp</code>. In discussion, one aspect glossed
+  over was that some of the content was copied not from ncurses
+  itself but from a <em>packager's</em> patch which merged a
+  <a href="/xterm/xterm.html">xterm</a> terminfo which I wrote.
+  Ultimately, the responses from that discussion boiled down to
+  saying that they found it and it's theirs. (The maintainer did
+  agree to add a comment noting the origin of the &ldquo;public
+  domain&rdquo; entries).</p>
 
   <h4><a href="#terminfo_copying" name="terminfo_others" id=
   "terminfo_others">Other Versions</a></h4>
@@ -974,7 +975,7 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
   <p>Curiously, NetBSD provided variants of the form and menu
   libraries in late 1999, but lacked a panel library until 2015
   (see <a href=
-  "http://cvsweb.netbsd.org/bsdweb.cgi/src/lib/libpanel/?only_with_tag=MAIN">
+  "https://cvsweb.netbsd.org/bsdweb.cgi/src/lib/libpanel/?only_with_tag=MAIN">
   source</a>). Conversely, PDCurses provides a panel library but
   lacks the form and menu libraries. Because NetBSD uses
   <em>opaque</em> structures, it is difficult to write portable
@@ -1013,8 +1014,8 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
 
     <li>
       <p><a href=
-      "https://sites.google.com/a/bostic.com/keithbostic/vi">nvi</a><br>
-
+      "https://sites.google.com/a/bostic.com/keithbostic/the-berkeley-vi-editor-home-page">
+      nvi</a><br>
       Keith Bostic introduced nvi in 4.4BSD, revised it for
       4.4BSDLite in 1994. At that point, it was using curses
       (preferably System5 curses). Lacking that, it had a bundled
@@ -1026,7 +1027,7 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
     </li>
 
     <li>
-      <p><a href="http://www.tin.org">tin</a><br>
+      <p><a href="https://www.tin.org/">tin</a><br>
       Originally in K&amp;R C using termcap, I <a href=
       "/tin/tin.html#history">modified</a> it to use curses. Most
       of the subsequent work to handle wide-characters was done by
@@ -1039,7 +1040,7 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
   <ul>
     <li>
       <p><a href=
-      "http://www.greenwoodsoftware.com/less/">less</a><br>
+      "https://www.greenwoodsoftware.com/less/">less</a><br>
       Several <code>less</code> features are undocumented. One of
       these features is the use of environment variables to
       override termcap capabilities. At startup, when
@@ -1054,7 +1055,7 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
 
     <li>
       <p><a href=
-      "http://www.gnu.org/software/screen/">screen</a><br>
+      "https://www.gnu.org/software/screen/">screen</a><br>
       The <code>screen</code> program has had more impact on
       ncurses development than the other applications because there
       were features which <code>screen</code>'s developers wanted
@@ -1073,7 +1074,7 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
     </li>
 
     <li>
-      <p><a href="http://w3m.sourceforge.net">w3m</a><br>
+      <p><a href="https://w3m.sourceforge.net">w3m</a><br>
       While <code>w3m</code> is a termcap application, it includes
       source code that makes it pretend to use curses. For
       instance, it includes a module <a href=
@@ -1083,7 +1084,7 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
       does not do <em>optimization</em> as a curses library would
       do, but uses a simpler approach (which works well with
       multibyte characters). As <a href=
-      "http://w3m.sourceforge.net/STORY">explained</a> by the
+      "https://w3m.sourceforge.net/STORY">explained</a> by the
       developer:</p>
 
       <blockquote>
@@ -1101,7 +1102,7 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
     </li>
 
     <li>
-      <p><a href="http://www.vim.org">vim</a><br>
+      <p><a href="https://www.vim.org/">vim</a><br>
       Vim's developers provide their own termcap definitions, just
       in case there is nothing good enough on the system, and
       provide features for overriding the system's termcap
@@ -1294,7 +1295,7 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
   added to Joy's original idea by making the library
   <em>reusable</em>.</p>
 
-  <p><a href="http://www.tuhs.org/">The Unix Heritage Society</a>
+  <p><a href="https://www.tuhs.org/">The Unix Heritage Society</a>
   has copies of 3BSD, 4.2BSD, 4.3BSD (multiple). <a name=
   "contrast-vi-curses" id="contrast-vi-curses">Using those, one can
   make useful comparisons</a> :</p>
@@ -1322,7 +1323,7 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
   functions, and, in the main branch of development, at AT&amp;T,
   became a terminfo application. With 4.3BSD, the termcap-based
   <em>vi</em> (and derived code such as <a href=
-  "http://heirloom.sourceforge.net/vi.html">&ldquo;heirloom
+  "https://heirloom.sourceforge.net/vi.html">&ldquo;heirloom
   vi&rdquo;</a>) was no longer the main line of development.
   Bostic's <em>nvi</em> was a re-implementation (based on
   <em>elvis</em>), done specifically to disentangle the BSD project
@@ -1357,10 +1358,10 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
     <li>
       <p>ELinks (and its ancestors links, links2), generically
       referred to as <em>(e)links(2)</em> <a href=
-      "http://elinks.or.cz/documentation/html/manual.html-chunked/ch08.html">
+      "https://web.archive.org/web/20090214164202/https://elinks.or.cz/documentation/html/manual.html-chunked/ch08.html">
       assumes</a> everything is some variation of Linux console,
       xterm or <a href="#vt100_color">color-vt100</a>. The <a href=
-      "http://www.tldp.org/HOWTO/Text-Terminal-HOWTO-17.html">Text
+      "https://tldp.org/HOWTO/Text-Terminal-HOWTO-17.html">Text
       Terminal HOWTO</a> provides some misinformation on this
       topic</p>
 
@@ -1377,15 +1378,15 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
 
     <li>
       <p>URWid (see for example <a href=
-      "http://stackoverflow.com/questions/2374614/are-there-any-tree-libraries-widgets-for-ncurses/42051716#42051716">
+      "https://stackoverflow.com/questions/2374614/are-there-any-tree-libraries-widgets-for-ncurses/42051716#42051716">
       <em>are there any tree libraries/widgets for
       (n)curses</em></a>). According to its <a href=
-      "http://urwid.org/manual/displaymodules.html">documentation</a>:</p>
+      "https://urwid.org/manual/displaymodules.html">documentation</a>:</p>
 
       <blockquote>
         <p class="code-block">If you don&rsquo;t specify a display
         module, the default main loop will use <a href=
-        "http://urwid.org/reference/display_modules.html#urwid.raw_display.Screen">
+        "https://urwid.org/reference/display_modules.html#urwid.raw_display.Screen">
         raw_display.Screen</a> by default.</p>
       </blockquote>
 
@@ -1398,10 +1399,10 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
 
     <li>
       <p>Linux <a href=
-      "http://man7.org/linux/man-pages/man1/setterm.1.html">setterm</a>,
+      "https://man7.org/linux/man-pages/man1/setterm.1.html">setterm</a>,
       which knows many of the Linux escape sequences documents
       documented in <a href=
-      "http://man7.org/linux/man-pages/man4/console_codes.4.html">console_codes</a>.
+      "https://man7.org/linux/man-pages/man4/console_codes.4.html">console_codes</a>.
       However, of its 40 command-line options, 60% &mdash; all of
       those which are frequently used &mdash; duplicate <a href=
       "man/tput.1.html"><code>tput</code></a>, <a href=
@@ -1412,9 +1413,9 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
 
     <li>
       <p><a href=
-      "http://man7.org/linux/man-pages/man1/ls.1.html">GNU ls</a>
+      "https://man7.org/linux/man-pages/man1/ls.1.html">GNU ls</a>
       and <a href=
-      "http://man7.org/linux/man-pages/man1/dircolors.1.html">dircolors</a>.
+      "https://man7.org/linux/man-pages/man1/dircolors.1.html">dircolors</a>.
       The latter program has a list of <code>TERM</code> values
       which it assumes all support color, using <a href=
       "#bce_mismatches"><code>bce</code> (back color erase)</a>,
@@ -1425,11 +1426,11 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
 
       <ul>
         <li><a href=
-        "http://unix.stackexchange.com/questions/316878/solarized-colorscheme-in-fbterm/316912#316912">
+        "https://unix.stackexchange.com/questions/316878/solarized-colorscheme-in-fbterm/316912#316912">
         <em>Solarized colorscheme in fbterm?</em></a></li>
 
         <li><a href=
-        "http://stackoverflow.com/questions/40574819/how-to-remove-dir-background-in-ls-color-output/40575734#40575734">
+        "https://stackoverflow.com/questions/40574819/how-to-remove-dir-background-in-ls-color-output/40575734#40575734">
         <em>How to remove dir background in `ls -color`
         output</em></a></li>
       </ul>
@@ -1599,14 +1600,14 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
 
     <li>
       <p id="bsd_platform-other"><a href=
-      "http://cvsweb.netbsd.org/bsdweb.cgi/src/share/terminfo/?only_with_tag=MAIN">
+      "https://cvsweb.netbsd.org/bsdweb.cgi/src/share/terminfo/?only_with_tag=MAIN">
       NetBSD</a> and <a href=
       "https://github.com/oracle/solaris-userland/tree/master/components/ncurses">
       Solaris 11</a> use ncurses' terminal database, with their
       different implementations of curses.</p>
 
       <p>NetBSD provides an add-on <a href=
-      "http://pkgsrc.se/devel/ncurses">package</a> for the ncurses
+      "https://pkgsrc.se/devel/ncurses">package</a> for the ncurses
       libraries and utilities. Although NetBSD developers prefer to
       use their own version of the curses library, as of September
       2023, slightly less than half of the packages whose build
@@ -1620,8 +1621,8 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
 
     <li>
       <p id="bsd_platform-macos">As of January 2020, <a href=
-      "https://opensource.apple.com/source/ncurses/">MacOS</a> and
-      <a href=
+      "https://web.archive.org/web/20240524114051/https://opensource.apple.com/source/ncurses/">
+      MacOS</a> and <a href=
       "https://cvsweb.openbsd.org/src/lib/libcurses/">OpenBSD</a>
       provided <a href="/ncurses/announce-5.7.html">ncurses 5.7</a>
       (from 2008) for their system curses library. A few years
@@ -1690,7 +1691,7 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
         MacPorts</a> and <a href=
         "https://formulae.brew.sh/formula/ncurses">brew</a></li>
 
-        <li><a href="http://pkgsrc.se/devel/ncurses">pkgsrc</a>,
+        <li><a href="https://pkgsrc.se/devel/ncurses">pkgsrc</a>,
         for NetBSD and others.</li>
       </ul>
 
@@ -1739,7 +1740,7 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
     </li>
 
     <li><a href=
-    "https://eisner.decus.org/anon/htnotes/note?f1=PORTING_TO_VMS&amp;f2=33.7">
+    "https://web.archive.org/web/20211025191143/https://eisner.decus.org/anon/htnotes/note?f1=PORTING_TO_VMS&amp;f2=33.7">
     ncurses - New curses library.</a> (2009-10-08)<br>
     Lists several issues which had to be addressed in a port, about
     half were specific to ncurses.</li>
@@ -1827,7 +1828,7 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
   <ul>
     <li>
       <p><a href=
-      "https://ftp.gnu.org/gnu/ncurses/ncurses-6.6.tar.gz">6.5</a>
+      "https://ftp.gnu.org/gnu/ncurses/ncurses-6.6.tar.gz">6.6</a>
       <a href="/ncurses/announce-6.6.html">(30 December 2025)</a>.
       This consolidates the MinGW and Windows terminal drivers.</p>
     </li>
@@ -2471,10 +2472,11 @@ Jesse Thilo, Warren Tucker, Peter Wemm.
   sources.</p>
 
   <p>As noted in 29 February 2004, the terminfo database at
-  <a href="http://www.catb.org/~esr/terminfo/">http://www.catb.org/~esr/terminfo/</a>
-  does not appear to be actively maintained. Since the release of
-  ncurses 5.0 in late 1999, there are numerous fixes which are not
-  in that database.</p>
+  <a href="https://web.archive.org/web/20260328025121/https://www.catb.org/~esr/terminfo/">
+  https://www.catb.org/~esr/terminfo/</a> does not appear to be
+  actively maintained. Since the release of ncurses 5.0 in late
+  1999, there are numerous fixes which are not in that
+  database.</p>
 
   <p>As of January 2012, this is still true. A check with</p>
 
@@ -3221,11 +3223,13 @@ TERMINFO=$(<strong>infocmp -0qQ1</strong>) ssh <em>remote</em>
   </ul>
 
   <p>As an example of how this extensibility feature can be used,
-  consider the case of <a href="http://www.openqm.com/">OpenQM</a>,
-  whose developers copied more than 1000 lines of ncurses library
-  code into their application to support some extended terminal
-  capability features. Here are two patches showing how that can be
-  improved by removing the nonstandard features:</p>
+  consider the case of <a href=
+  "https://www.rocketsoftware.com/en-us/products/multivalue/openqm">
+  OpenQM</a>, whose developers copied more than 1000 lines of
+  ncurses library code into their application to support some
+  extended terminal capability features. Here are two patches
+  showing how that can be improved by removing the nonstandard
+  features:</p>
 
   <ul>
     <li><a href=
@@ -3298,7 +3302,7 @@ TERMINFO=$(<strong>infocmp -0qQ1</strong>) ssh <em>remote</em>
     for ncurses' extended terminfo.</li>
 
     <li><a href=
-    "http://cvsweb.netbsd.org/bsdweb.cgi/src/lib/libterminfo/?only_with_tag=MAIN">
+    "https://cvsweb.netbsd.org/bsdweb.cgi/src/lib/libterminfo/?only_with_tag=MAIN">
     NetBSD</a> abandoned termcap in favor of terminfo, and
     developed their own terminfo library and programs. The NetBSD
     implementation includes the same limitations relative to
@@ -3345,7 +3349,7 @@ TERMINFO=$(<strong>infocmp -0qQ1</strong>) ssh <em>remote</em>
 
     <li>In this case, someone read the manual page for tmux where
     it describes <a href=
-    "http://man7.org/linux/man-pages/man1/tmux.1.html#TERMINFO_EXTENSIONS">
+    "https://man7.org/linux/man-pages/man1/tmux.1.html#TERMINFO_EXTENSIONS">
     terminfo extensions</a> which it supports. and did not
     understand that the corresponding terminal description has to
     fill in some string-values. The <code>Se</code> and
@@ -3391,7 +3395,7 @@ TERMINFO=$(<strong>infocmp -0qQ1</strong>) ssh <em>remote</em>
     #1264</a>).</li>
 
     <li>Eventually it was reported early in <a href=
-    "http://lists.gnu.org/archive/html/bug-ncurses/2018-02/msg00034.html">
+    "https://lists.gnu.org/archive/html/bug-ncurses/2018-02/msg00034.html">
     2018</a>, and the terminfo description fixed.</li>
   </ul>
 
@@ -3484,11 +3488,11 @@ TERMINFO=$(<strong>infocmp -0qQ1</strong>) ssh <em>remote</em>
 
   <p>Ncurses does not by itself know that vt100's do not do color.
   The standard reference for VT100 is its reference manual. There
-  is a copy of that on <a href="http://vt100.net/">vt100.net</a>
+  is a copy of that on <a href="https://vt100.net/">vt100.net</a>
   (look for EK-VT100-TM-003_Jul82). There are of course contrary
   sources of information about color-vt100's. The earliest one that
   I have seen is <a href=
-  "http://graphcomp.com/info/specs/ansi_col.html">this</a> (a copy
+  "https://graphcomp.com/info/specs/ansi_col.html">this</a> (a copy
   of which has also been found <a href=
   "https://web.archive.org/web/20200626080032/http://www.termsys.demon.co.uk/vtansi.htm">
   here</a>), which (besides the misinformation in its opening
@@ -3589,7 +3593,7 @@ TERMINFO=$(<strong>infocmp -0qQ1</strong>) ssh <em>remote</em>
 
   <p>After Andrey Chernov added <em>vt100-color</em> and others to
   the <a href=
-  "http://www.freebsd.org/cgi/cvsweb.cgi/src/share/termcap/">FreeBSD
+  "https://svnweb.freebsd.org/base/head/share/termcap/">FreeBSD
   termcap file</a> in 2002, I discussed this with him, pointing out
   that while there are terminal emulators which do this, the
   hardware did not. He resolved the issue by adding a comment:</p>
@@ -3608,11 +3612,11 @@ TERMINFO=$(<strong>infocmp -0qQ1</strong>) ssh <em>remote</em>
 
   <ul>
     <li><a href=
-    "http://www.nyangau.org/terminfo/terminfo.htm">Andys Terminfo
+    "https://www.nyangau.org/terminfo/terminfo.htm">Andys Terminfo
     Package</a></li>
 
     <li><a href=
-    "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=241717">Debian
+    "https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=241717">Debian
     #241717</a></li>
   </ul>
 
@@ -3868,7 +3872,7 @@ TERMINFO=$(<strong>infocmp -0qQ1</strong>) ssh <em>remote</em>
 
       <p>For instance, a change in this area the Linux 2.6.26
       console driver in <a href=
-      "http://lkml.org/lkml/2008/4/26/305">April 2008</a> was
+      "https://lkml.org/lkml/2008/4/26/305">April 2008</a> was
       reverted <a href="https://lkml.org/lkml/2008/10/3/66">6
       months later</a>. That was a bug for Linux console, because
       it broke more than <a href=
@@ -4016,10 +4020,13 @@ TERMINFO=$(<strong>infocmp -0qQ1</strong>) ssh <em>remote</em>
       <p>The choice of capability strings may work for other
       emulators, but in general does not (e.g., terminals which
       lack the back color erase capability, such as <a href=
-      "http://hp.vector.co.jp/authors/VA002416/teraterm.html">Tera
-      Term</a>, <a href="/xterm/xterm.faq.html#bug_dtterm">CDE
-      dtterm</a> and <a href=
-      "/xterm/xterm.faq.html#bug_nxterm">nxterm</a>).</p>
+      "https://web.archive.org/web/20240720005017/https://hp.vector.co.jp/authors/VA002416/teraterm.html">
+      Tera Term 2.3</a>, <a href=
+      "/xterm/xterm.faq.html#bug_dtterm">CDE dtterm</a> and
+      <a href="/xterm/xterm.faq.html#bug_nxterm">nxterm</a>,
+      <a href=
+      "/ncurses/terminfo.src.html#tic-securecrt">SecureCRT</a> and
+      <a href="/ncurses/terminfo.src.html#tic-warp">warp</a>).</p>
     </li>
 
     <li><code>slang</code>'s <a href=
@@ -4619,7 +4626,7 @@ comparing xterm-color to nsterm.
       </blockquote>
 
       <p>Some applications (such as <a href=
-      "http://vim.wikia.com/wiki/256_colors_in_vim">vim</a>) may
+      "https://vim.wikia.com/wiki/256_colors_in_vim">vim</a>) may
       allow (or even embed, hard-coded) the much simpler, but less
       efficient variant corresponding to</p>
 
@@ -4658,7 +4665,7 @@ comparing xterm-color to nsterm.
         </dt>
 
         <dd><a href=
-        "http://www.tomsarazac.com/tom/opinions/xterm-problems.html">
+        "https://www.tomsarazac.com/tom/opinions/xterm-problems.html">
         rant by an end-user</a>, <a href=
         "/xterm/xterm.log.html#xterm_28">twelve years</a> after the
         change in question (viewer discretion advisory). David
@@ -4690,7 +4697,7 @@ comparing xterm-color to nsterm.
         </dt>
 
         <dd><a href=
-        "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=444250">Debian
+        "https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=444250">Debian
         #444250</a>. Essentially the problem here was that adding a
         flag to the description telling how to enable/disable
         xterm's meta mode exposed a differing interpretation of
@@ -4712,7 +4719,7 @@ comparing xterm-color to nsterm.
   the -256color or -88color flavor.</p>
 
   <p>In the Debian distribution there was <a href=
-  "http://lists.debian.org/debian-devel/2008/09/threads.html#00435">
+  "https://lists.debian.org/challenge.html?original=%2fdebian-devel%2f2008%2f09%2fthreads.html#00435">
   an attempt in 2008</a> on the part of the ncurses package
   maintainer to provide a migration path to ABI&nbsp;6. That effort
   died, and (writing in October 2012) did not have a clear
@@ -4724,14 +4731,14 @@ comparing xterm-color to nsterm.
   <ul>
     <li>
       <p><a href=
-      "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=230990">Debian
+      "https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=230990">Debian
       #230990</a> asks for the extended mouse support. It was
       opened in February 2004.</p>
     </li>
 
     <li>
       <p><a href=
-      "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=405602">Debian
+      "https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=405602">Debian
       #405602</a> took 18 months to move the xterm-256color entry
       from the ncurses-term to the ncurses-base package in
       mid-2008.</p>
@@ -4739,7 +4746,7 @@ comparing xterm-color to nsterm.
 
     <li>
       <p><a href=
-      "http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=532537">Debian
+      "https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=532537">Debian
       #532537</a> asks for a change of <em>xterm</em> to
       <em>xterm-256color</em>. It was opened in June 2009. As
       justification, it stated that "all Debian systems have been
@@ -4754,15 +4761,16 @@ comparing xterm-color to nsterm.
       <p>In mid-2012, I noticed that Fedora&nbsp;18 would have
       <em>xterm</em> aliased to <em>xterm-256color</em>.<br>
       Some notes are in Fedora's wiki <em><a href=
-      "http://fedoraproject.org/wiki/Features/256_Color_Terminals">Features/256
-      Color Terminals</a></em>. However, the proponents of the
-      change place too much emphasis on just changing it and pay
-      less attention to the ensuing problems.</p>
+      "https://fedoraproject.org/wiki/Features/256_Color_Terminals">
+      Features/256 Color Terminals</a></em>. However, the
+      proponents of the change place too much emphasis on just
+      changing it and pay less attention to the ensuing
+      problems.</p>
     </li>
 
     <li>
       <p>Even in early 2015, postings such as <em><a href=
-      "http://stackoverflow.com/questions/13060139/how-can-i-get-more-colors-curses-python-terminal">
+      "https://stackoverflow.com/questions/13060139/how-can-i-get-more-colors-in-pythons-curses">
       How can I get more colors? [Curses] [Python]
       [Terminal]</a></em> were common.<br>
       As I noted (and because my correction was twice deleted,
@@ -4790,7 +4798,7 @@ applications will not use them.
 
       <p>Because (unlike this FAQ), StackExchange postings are
       <a href=
-      "http://www.merriam-webster.com/dictionary/ephemeral">ephemeral</a>,
+      "https://www.merriam-webster.com/dictionary/ephemeral">ephemeral</a>,
       here also are my followup comments:</p>
 
       <ul>
@@ -4838,7 +4846,7 @@ applications will not use them.
   &ldquo;xterm&rdquo;?</em></a>, setting an incorrect <tt>TERM</tt>
   only leads to problems.</p>
 
-  <p>As of 2025, not much has changed. A few developers provide
+  <p>As of 2026, not much has changed. A few developers provide
   usable terminal descriptions; others rely upon copy/paste.
   Results for the latter are poor, in particular for those choosing
   to hard-code <tt>TERM</tt> to xterm-256color. Here is an
@@ -4864,7 +4872,7 @@ applications will not use them.
   <br>
   X&nbsp;terminals<br>
   &nbsp;&nbsp;&nbsp;&nbsp;<a href=
-  "terminfo.src.html#tic-konsole">konsole</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;67%&nbsp;<font class="unchanged">===================================</font><font class="modified">~~~~~~~~</font><font class="deleted">--------</font><br>
+  "terminfo.src.html#tic-konsole">konsole</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;68%&nbsp;<font class="unchanged">====================================</font><font class="modified">~~~~~~~~</font><font class="deleted">--------</font><br>
 
   &nbsp;&nbsp;&nbsp;&nbsp;<a href=
   "terminfo.src.html#tic-mlterm">mlterm</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;84%&nbsp;<font class="unchanged">============================================</font><font class="modified">~~~~</font><font class="deleted">----</font><br>
@@ -4873,10 +4881,10 @@ applications will not use them.
   "terminfo.src.html#tic-rxvt">rxvt</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;37%&nbsp;<font class="unchanged">====================</font><font class="modified">~~~~~~~~~~~~~~~~~~</font><font class="deleted">--------------</font><font class="added">++</font><br>
 
   &nbsp;&nbsp;&nbsp;&nbsp;<a href=
-  "#no_urxvt">urxvt</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;48%&nbsp;<font class="unchanged">=========================</font><font class="modified">~~~~~~~~~~~~~~~~~~</font><font class="deleted">--------</font><font class="added">++++</font><br>
+  "ncurses-urxvt.html">urxvt</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;48%&nbsp;<font class="unchanged">=========================</font><font class="modified">~~~~~~~~~~~~~~~~~~</font><font class="deleted">--------</font><font class="added">++++</font><br>
 
   &nbsp;&nbsp;&nbsp;&nbsp;<a href=
-  "terminfo.src.html#tic-vte">vte</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80%&nbsp;<font class="unchanged">==========================================</font><font class="modified">~~~</font><font class="deleted">------</font><br>
+  "terminfo.src.html#tic-vte">vte</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80%&nbsp;<font class="unchanged">==========================================</font><font class="modified">~~~</font><font class="deleted">------</font><font class="added">+</font><br>
 
   &nbsp;&nbsp;&nbsp;&nbsp;<a href=
   "terminfo.src.html#tic-xterm">xterm</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;96%&nbsp;<font class="unchanged">==================================================</font><font class="modified">~</font><br>
@@ -4887,7 +4895,7 @@ applications will not use them.
   "terminfo.src.html#tic-alacritty">alacritty</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;92%&nbsp;<font class="unchanged">================================================</font><font class="modified">~</font><font class="deleted">---</font><br>
 
   &nbsp;&nbsp;&nbsp;&nbsp;<a href=
-  "terminfo.src.html#tic-contour">contour</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;73%&nbsp;<font class="unchanged">======================================</font><font class="modified">~~~~~~~~</font><font class="deleted">-----</font><font class="added">+</font><br>
+  "terminfo.src.html#tic-contour">contour</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;83%&nbsp;<font class="unchanged">============================================</font><font class="modified">~~~</font><font class="deleted">----</font><font class="added">+</font><br>
 
   &nbsp;&nbsp;&nbsp;&nbsp;<a href=
   "terminfo.src.html#tic-foot">foot</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;85%&nbsp;<font class="unchanged">=============================================</font><font class="modified">~~~</font><font class="deleted">----</font><br>
@@ -4896,10 +4904,16 @@ applications will not use them.
   "terminfo.src.html#tic-ghostty">ghostty</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;87%&nbsp;<font class="unchanged">==============================================</font><font class="modified">~~</font><font class="deleted">----</font><br>
 
   &nbsp;&nbsp;&nbsp;&nbsp;<a href=
-  "terminfo.src.html#tic-kitty">kitty</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;83%&nbsp;<font class="unchanged">============================================</font><font class="modified">~~</font><font class="deleted">-----</font><br>
+  "terminfo.src.html#tic-kitty">kitty</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;81%&nbsp;<font class="unchanged">===========================================</font><font class="modified">~~~</font><font class="deleted">-----</font><br>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+  "terminfo.src.html#tic-warp">warp</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;87%&nbsp;<font class="unchanged">==============================================</font><font class="deleted">------</font><br>
 
   &nbsp;&nbsp;&nbsp;&nbsp;<a href=
   "terminfo.src.html#tic-wezterm">wezterm</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;85%&nbsp;<font class="unchanged">=============================================</font><font class="modified">~</font><font class="deleted">-----</font><br>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+  "terminfo.src.html#tic-zutty">zutty</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;85%&nbsp;<font class="unchanged">=============================================</font><font class="modified">~~</font><font class="deleted">-----</font><br>
 
   <br>
   Non-X&nbsp;terminals<br>
@@ -4910,10 +4924,13 @@ applications will not use them.
   "terminfo.src.html#tic-iterm2">iterm2</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;58%&nbsp;<font class="unchanged">==============================</font><font class="modified">~~~</font><font class="deleted">------------------</font><font class="added">+</font><br>
 
   &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+  "terminfo.src.html#tic-kmscon">kmscon</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;44%&nbsp;<font class="unchanged">=======================</font><font class="modified">~~~~~</font><font class="deleted">-----------------------</font><br>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href=
   "terminfo.src.html#tic-linux">linux</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;35%&nbsp;<font class="unchanged">==================</font><font class="modified">~~~~~~~~~~</font><font class="deleted">-----------------------</font><font class="added">++</font><br>
 
   &nbsp;&nbsp;&nbsp;&nbsp;<a href=
-  "terminfo.src.html#tic-mintty">mintty</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;93%&nbsp;<font class="unchanged">=================================================</font><font class="deleted">---</font><font class="added">++</font><br>
+  "terminfo.src.html#tic-mintty">mintty</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;95%&nbsp;<font class="unchanged">==================================================</font><font class="deleted">--</font><font class="added">++</font><br>
 
   &nbsp;&nbsp;&nbsp;&nbsp;<a href=
   "terminfo.src.html#tic-ms-terminal">ms-terminal</a>&nbsp;&nbsp;&nbsp;&nbsp;91%&nbsp;<font class="unchanged">================================================</font><font class="modified">~</font><font class="deleted">---</font><br>
@@ -4922,10 +4939,13 @@ applications will not use them.
   "terminfo.src.html#tic-nsterm">nsterm</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;49%&nbsp;<font class="unchanged">=========================</font><font class="modified">~~~~~~~</font><font class="deleted">-------------------</font><font class="added">+</font><br>
 
   &nbsp;&nbsp;&nbsp;&nbsp;<a href=
-  "terminfo.src.html#tic-pccon">pccon</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;35%&nbsp;<font class="unchanged">==================</font><font class="modified">~~~~~~~~~</font><font class="deleted">------------------------</font><font class="added">+</font><br>
+  "terminfo.src.html#tic-otty">otty</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;66%&nbsp;<font class="unchanged">===================================</font><font class="deleted">-----------------</font><font class="added">+</font><br>
 
   &nbsp;&nbsp;&nbsp;&nbsp;<a href=
-  "terminfo.src.html#tic-putty">putty</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;41%&nbsp;<font class="unchanged">======================</font><font class="modified">~~~~~~~~~~~</font><font class="deleted">-------------------</font><font class="added">+++</font><br>
+  "terminfo.src.html#tic-pccon">pccon</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;41%&nbsp;<font class="unchanged">=====================</font><font class="modified">~~~~~~~</font><font class="deleted">-----------------------</font><font class="added">+</font><br>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;<a href=
+  "terminfo.src.html#tic-putty">putty</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;45%&nbsp;<font class="unchanged">=======================</font><font class="modified">~~~~~~~~~~</font><font class="deleted">------------------</font><font class="added">++</font><br>
 
   &nbsp;&nbsp;&nbsp;&nbsp;<a href=
   "terminfo.src.html#tic-teken">teken</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;32%&nbsp;<font class="unchanged">=================</font><font class="modified">~~~~~~</font><font class="deleted">-----------------------------</font><br>
@@ -5111,7 +5131,7 @@ applications will not use them.
       <p>On beginning this item (January 2014), none of the other
       terminals which I tested accepted the ISO&nbsp;8613-6 syntax
       (there were some <a href=
-      "https://gitlab.com/gnachman/iterm2/issues/218">unverified</a>
+      "https://gitlab.com/gnachman/iterm2/-/issues/218">unverified</a>
       reports).</p>
     </li>
 
@@ -5198,11 +5218,9 @@ applications will not use them.
   <ul>
     <li>
       <p>konsole uses <strong>Qt</strong>. In its source code (see
-      <a href=
-      "https://projects.kde.org/projects/kde/applications/konsole/repository">
-      KDE repository</a>), it stores the color information in a
-      <a href=
-      "http://qt-project.org/doc/qt-5.0/qtgui/qcolor.html">QColor</a>
+      <a href="https://invent.kde.org/utilities/konsole">KDE
+      repository</a>), it stores the color information in a
+      <a href="https://doc.qt.io/qt-6/qcolor.html">QColor</a>
       class. The documentation mentions</p>
 
       <blockquote class="code-block">
@@ -5213,11 +5231,11 @@ applications will not use them.
       <p>Because konsole's source code does not refer explicitly to
       QColormap, it relies on default behavior of the class.<br>
       The documentation for <a href=
-      "http://qt-project.org/doc/qt-5.0/qtwidgets/qcolormap.html">QColormap</a>
-      gives half a clue, in its comment about modes. Qt's
-      documentation is vague in many respects (in sharp contrast to
-      MSDN), leaving developers no recourse other than reading its
-      source code.</p>
+      "https://doc.qt.io/qt-6/qcolormap.html">QColormap</a> gives
+      half a clue, in its comment about modes. Qt's documentation
+      is vague in many respects (in sharp contrast to MSDN),
+      leaving developers no recourse other than reading its source
+      code.</p>
 
       <p>Here is a starting point: <a href=
       "https://code.qt.io/cgit/qt/qt.git/tree/src/gui/painting">Qt
@@ -5304,7 +5322,7 @@ applications will not use them.
   <strong>termcap</strong> (which cannot express the relevant
   escape sequences). So they incorporate some hard-coded behavior.
   For instance, in a change to emacs in <a href=
-  "http://git.savannah.gnu.org/cgit/emacs.git/commit/?id=e463e5762bbe628be3d15da066a90f079a8468b3">
+  "https://git.savannah.gnu.org/cgit/emacs.git/commit/?id=e463e5762bbe628be3d15da066a90f079a8468b3">
   February 2017</a>, the developer</p>
 
   <ul>
@@ -5360,7 +5378,7 @@ applications will not use them.
 
   <p>Some additional comments on mapping colors using
   <code>initc</code> and <code>initp</code> are found in <a href=
-  "http://lists.schmorp.de/pipermail/rxvt-unicode/2013q3/thread.html#1826">
+  "https://lists.schmorp.de/pipermail/rxvt-unicode/2013q3/thread.html#1826">
   this discussion</a>.</p>
 
   <p>Applications which <em>use</em> ncurses are a different
@@ -5394,7 +5412,7 @@ applications will not use them.
   realistic applications, which could not have that many character
   cells on a screen simultaneously (unless of course, using 1-pixel
   fonts to pretend to draw <em>graphics</em>, e.g., <a href=
-  "http://aa-project.sourceforge.net/aalib/">AA-lib</a>). Since
+  "https://aa-project.sourceforge.net/aalib/">AA-lib</a>). Since
   ncurses is used to draw <em>text</em>, that is not a valid
   issue.</p>
 
@@ -5403,15 +5421,15 @@ applications will not use them.
   code), it also is limited by the terminal descriptions, using a
   maximum color index value 32767 (<em>15</em>-bits&mdash;signed
   short). No method for changing 15 into 24 was noted in <a href=
-  "http://lists.jedsoft.org/lists/slang-users/2014/index.html#00002">
+  "https://lists.jedsoft.org/lists/slang-users/2014/index.html#00002">
   this discussion</a>. However, that led to a bug report with a
   <a href=
-  "http://www.midnight-commander.org/attachment/ticket/3145/slang-truecolor-demo.patch">
+  "https://web.archive.org/web/20140620104615/https://www.midnight-commander.org/attachment/ticket/3145/slang-truecolor-demo.patch">
   patch</a> which <a href=
-  "http://www.midnight-commander.org/ticket/3145#comment:11">isn't</a>
-  fully &ldquo;ABI compatible&rdquo;. John Davis was able to work
-  around the obvious problems in this patch by splitting up the
-  extended color field to use some space in his library's data
+  "https://web.archive.org/web/20140619233828/https://midnight-commander.org/ticket/3145/#comment%3A11">
+  isn't</a> fully &ldquo;ABI compatible&rdquo;. John Davis was able
+  to work around the obvious problems in this patch by splitting up
+  the extended color field to use some space in his library's data
   structure. Otherwise, users would have had to recompile their
   applications to use the library, since the patch altered these
   features of the interface:</p>
@@ -5428,10 +5446,10 @@ applications will not use them.
   </blockquote>
 
   <p>If you read the <a href=
-  "http://www.jedsoft.org/snapshots/">source code</a>, you will see
-  that he did not solve the problem of changing 15 into 24 (as of
-  February 2017, it still used a signed 16-bit limit for the number
-  of colors).</p>
+  "https://www.jedsoft.org/snapshots/">source code</a>, you will
+  see that he did not solve the problem of changing 15 into 24 (as
+  of February 2017, it still used a signed 16-bit limit for the
+  number of colors).</p>
 
   <p>No matter how one uses the limits based on the terminal
   database, scaling is needed to map onto the actual device.</p>
@@ -5441,12 +5459,12 @@ applications will not use them.
   the idle spectator might ask &ldquo;why not add a special ad hoc
   interface to (somehow) just do it?&rdquo; One of VTE's developers
   asked for that (see mailing list thread from <a href=
-  "http://lists.gnu.org/archive/html/bug-ncurses/2014-01/msg00010.html">
+  "https://lists.gnu.org/archive/html/bug-ncurses/2014-01/msg00010.html">
   January 2014</a>).</p>
 
   <p>The problem is that you cannot &ldquo;just do
   it&rdquo;&mdash;both ncurses and <a href=
-  "http://www.jedsoft.org/slang/">s-lang</a> do optimization to
+  "https://www.jedsoft.org/slang/">s-lang</a> do optimization to
   address their legitimate users (those who are using the superior
   performance due to working with characters, especially via remote
   connections). They have longstanding APIs which expose some of
@@ -5460,23 +5478,23 @@ applications will not use them.
   understated. The usual reason given for wanting this feature has
   been for making pretty color schemes for text editors (e.g.,
   <a href=
-  "http://www.vimninjas.com/2012/08/26/10-vim-color-schemes-you-need-to-own/">
+  "https://web.archive.org/web/20150227031603/https://www.vimninjas.com/2012/08/26/10-vim-color-schemes-you-need-to-own/">
   this</a> and <a href=
-  "http://stackoverflow.com/questions/16711226/to-fix-the-color-in-vim-or-to-take-the-plunge">
+  "https://stackoverflow.com/questions/16711226/to-fix-the-color-in-vim-or-to-take-the-plunge">
   this</a>).</p>
 
   <p>More generally, the way to &ldquo;solve&rdquo; the problem
   would be to abandon compatibility with <a href=
-  "https://www2.opengroup.org/ogsys/catalog/C094">X/Open
-  Curses</a>, using <strong><code>int</code></strong> where
+  "https://publications.opengroup.org/c243-1">X/Open Curses</a>,
+  using <strong><code>int</code></strong> where
   <strong><code>short</code></strong> is now used, and provide a
   new (incompatible) terminal database format to store bigger
   numbers. Incidentally, this would break applications which use
   the existing terminal database format, such as <a href=
-  "http://www.jedsoft.org/slang/">s-lang</a>.</p>
+  "https://www.jedsoft.org/slang/">s-lang</a>.</p>
 
   <p>This extended item was prompted by an advertisement <a href=
-  "http://lists.gnu.org/archive/html/bug-ncurses/2014-01/msg00008.html">
+  "https://lists.gnu.org/archive/html/bug-ncurses/2014-01/msg00008.html">
   early in 2014</a> posted to the ncurses mailing list. That was
   while I was working on <a href="ncurses-mapsyms.html">versioned
   symbols</a>, needed to gain packager's acceptance for <a href=
@@ -5489,7 +5507,7 @@ applications will not use them.
   <p>Beginning with a fallacious premise (using a source <a href=
   "#misinfo-ansiseq">known</a> to be erroneous), its authors (the
   two individuals mentioned in <a href=
-  "http://lists.gnu.org/archive/html/bug-ncurses/2014-01/msg00010.html">
+  "https://lists.gnu.org/archive/html/bug-ncurses/2014-01/msg00010.html">
   this thread</a>) <em>selected</em> specific instances in an
   attempt to persuade the reader that a majority of terminals
   implement TrueColor (&ldquo;16 million colors&rdquo;), and has a
@@ -5498,7 +5516,7 @@ applications will not use them.
   <ul>
     <li>
       <p>Several entries (such as <a href=
-      "http://worldwidemann.com/finally-terminated/">FinalTerm</a>)
+      "https://worldwidemann.com/finally-terminated/">FinalTerm</a>)
       are bogus.</p>
     </li>
 
@@ -5776,9 +5794,9 @@ applications will not use them.
   <p>But Emacs is different. It intentionally uses the <em>"very
   visible" blinking cursor</em> by default. There is documentation
   <a href=
-  "http://www.gnu.org/software/emacs/manual/html_node/emacs/Cursor-Display.html">
+  "https://www.gnu.org/software/emacs/manual/html_node/emacs/Cursor-Display.html">
   here</a>. The earliest available version of <a href=
-  "http://git.savannah.gnu.org/cgit/emacs.git/log/src/term.c">the
+  "https://git.savannah.gnu.org/cgit/emacs.git/log/src/term.c">the
   code</a> from 1991 uses <code>TS_visual_mode</code> in this
   way.</p>
 
@@ -5950,20 +5968,70 @@ applications will not use them.
   "/xterm/xterm.log.html#xterm_216">xterm patch #216</a>). For
   completeness, I noted in the terminal description how an
   application can set/reset &ldquo;meta&rdquo; mode. It turns out
-  that bash turns on meta mode if it is available. It is not an
+  that bash turns on meta mode if it is available. It was not an
   optional feature in bash; bash's developers assumed that you
   would use it. That is an odd assumption, since the feature is
-  rarely implemented. There are (counting xterm) only three
+  rarely implemented. There were (counting xterm) only three
   terminal descriptions in ncurses' terminal database providing
-  this (the low-level blocks for Ann Arbor, SCO, and XTerm).</p>
+  this (the low-level blocks for <a href=
+  "/ncurses/terminfo.src.html#tic-aaa_unk">Ann Arbor</a>, <a href=
+  "/ncurses/terminfo.src.html#tic-scoansi-new">SCO</a>, and
+  <a href="/ncurses/terminfo.src.html#tic-xterm_meta">XTerm</a>).</p>
 
-  <p>Making it configurable was proposed in <a href=
-  "https://bugzilla.novell.com/show_bug.cgi?id=541379">this bug
-  report</a>. Earlier, bash's maintainer had <a href=
-  "http://lists.gnu.org/archive/html/bug-ncurses/2007-04/msg00012.html">
+  <p>Making it configurable was proposed in a bug report (opened
+  2009-09-30):</p>
+
+  <blockquote>
+    <pre class="code-block">
+Date: Fri, 12 Feb 2010 09:04:48 +0000
+From: bugzilla_noreply@novell.com
+To: dickey@his.com
+Subject: [Bug 541379] ncurses linked programs always dump control characters
+        for TERM=xterm
+
+http://bugzilla.novell.com/show_bug.cgi?id=541379
+http://bugzilla.novell.com/show_bug.cgi?id=541379#c24
+
+Dr. Werner Fink &lt;werner@novell.com&gt; changed:
+
+           What    |Removed                     |Added
+----------------------------------------------------------------------------
+             Status|NEW                         |RESOLVED
+         Resolution|                            |FIXED
+
+--- Comment #24 from Dr. Werner Fink &lt;werner@novell.com&gt; 2010-02-12 09:04:42 UTC ---
+(In reply to comment #22)
+
+On SLESS11-SP1 yo'll find a version of the bash/readline which
+enables the user to configure _rl_enable_meta:
+
+--- lib/readline/bind.c
++++ lib/readline/bind.c 2009-09-30 11:25:38.087930034 +0200
+@@ -1473,6 +1473,7 @@ static const struct {
+ #if defined (VISIBLE_STATS)
+   { "visible-stats",           &amp;rl_visible_stats,              0 },
+ #endif /* VISIBLE_STATS */
++  { "meta-mode",               &amp;_rl_enable_meta,               0 },
+   { (char *)NULL, (int *)NULL }
+ };
+</pre>
+  </blockquote>
+
+  <p>More than three years earlier, bash's maintainer had <a href=
+  "https://lists.gnu.org/archive/html/bug-ncurses/2007-04/msg00012.html">
   expressed reluctance</a> to address the issue. However, bash 4.1
-  added an "enable-meta-key" feature, dated 9 October 2009. That
-  makes it possible for users to disable it.</p>
+  added an &ldquo;enable-meta-key&rdquo; feature, dated 9 October
+  2009. That makes it possible for users to disable it:</p>
+
+  <blockquote>
+    <pre class="code-block">
+    <strong>`enable-meta-key'</strong>
+          When set to `on', Readline will try to enable any meta
+          modifier key the terminal claims to support when it is
+          called.  On many terminals, the meta key is used to send
+          eight-bit characters.  The default is `on'.
+</pre>
+  </blockquote>
 
   <h4 id="home_end_keys-id"><a name="home_end_keys" id=
   "home_end_keys">My home/end keys do not work</a></h4>
@@ -6599,16 +6667,16 @@ applications will not use them.
       characters in visible form.<br>
       These include all BSD and Linux-based systems, as well as
       <a href=
-      "https://www-01.ibm.com/support/knowledgecenter/ssw_aix_71/com.ibm.aix.cmds1/cat.htm">
+      "https://www.ibm.com/docs/ssw_aix_71/com.ibm.aix.cmds1/cat.htm">
       AIX</a>, <a href=
-      "https://www.freebsd.org/cgi/man.cgi?query=cat&amp;apropos=0&amp;sektion=1&amp;manpath=HP-UX+11.11&amp;arch=default&amp;format=html">
+      "https://man.freebsd.org/cgi/man.cgi?query=cat&amp;apropos=0&amp;sektion=1&amp;manpath=HP-UX%2011.11&amp;arch=default&amp;format=html">
       HPUX</a> and <a href=
-      "https://www.freebsd.org/cgi/man.cgi?query=cat&amp;apropos=0&amp;sektion=1&amp;manpath=SunOS+5.10&amp;arch=default&amp;format=html">
+      "https://man.freebsd.org/cgi/man.cgi?query=cat&amp;apropos=0&amp;sektion=1&amp;manpath=SunOS%205.10&amp;arch=default&amp;format=html">
       Solaris</a>.</p>
 
       <p>While all of the extent Unix systems appear to have this
       feature, <a href=
-      "http://pubs.opengroup.org/onlinepubs/9699919799/utilities/cat.html">
+      "https://pubs.opengroup.org/onlinepubs/9699919799/utilities/cat.html">
       POSIX</a> does not document it.</p>
 
       <p>You would use it by typing</p>
@@ -6649,10 +6717,10 @@ cat -v
   <ul>
     <li>
       <p>A few platforms have <a href=
-      "https://www.freebsd.org/cgi/man.cgi?query=vis&amp;apropos=0&amp;sektion=1&amp;manpath=FreeBSD+11-current&amp;arch=default&amp;format=html">
+      "https://man.freebsd.org/cgi/man.cgi?query=vis&amp;apropos=0&amp;sektion=1&amp;manpath=FreeBSD%2011-current&amp;arch=default&amp;format=html">
       <code>vis</code></a>, which first appeared in 4.4BSD. There
       is a corresponding <a href=
-      "https://www.freebsd.org/cgi/man.cgi?query=unvis&amp;apropos=0&amp;sektion=1&amp;manpath=FreeBSD+11-current&amp;arch=default&amp;format=html">
+      "https://man.freebsd.org/cgi/man.cgi?query=unvis&amp;apropos=0&amp;sektion=1&amp;manpath=FreeBSD%2011-current&amp;arch=default&amp;format=html">
       <code>unvis</code></a> which can put the string back together
       (unlike <code>cat -v</code>). You would use this by using
       <code>script</code> to capture all of the bytes sent to your
@@ -6817,7 +6885,7 @@ cat -v
   </blockquote>
 
   <p>John Greco suggests a different approach <a href=
-  "http://lists.gnu.org/archive/html/bug-ncurses/2010-10/msg00041.html">
+  "https://lists.gnu.org/archive/html/bug-ncurses/2010-10/msg00041.html">
   here</a>, which discards ncurses' input functions (such as
   <code>wgetch</code>), using <code>rl_callback_read_char</code> to
   fill the <code>rl_line_buffer</code> array. That can be printed
@@ -6928,9 +6996,9 @@ cat -v
 
   <p>There is a known problem using bash's <em>checkwinsize</em>
   misfeature. See Novell <a href=
-  "https://bugzilla.novell.com/show_bug.cgi?id=828877">#828877</a>,
-  as well as the thread starting <a href=
-  "http://lists.gnu.org/archive/html/bug-bash/2013-07/msg00054.html">
+  "https://web.archive.org/web/20150828215758/https://bugzilla.novell.com/show_bug.cgi?id=828877">
+  #828877</a>, as well as the thread starting <a href=
+  "https://lists.gnu.org/archive/html/bug-bash/2013-07/msg00054.html">
   here</a> on bug-bash, and of course the manpage for <a href=
   "/ncurses/man/curs_util.3x.html#h3-use_env">use_env</a>. Shells
   which set <code>LINES</code> and <code>COLUMNS</code> might have
@@ -6951,18 +7019,20 @@ cat -v
   <code>SIGWINCH</code>.</p>
 
   <p>Though long supported on Unix-like platforms,
-  <code>SIGWINCH</code> has not been standarized. Writing in July
-  2020 (more than 35 years later), these related standardization
-  features are expected to be in <a href=
-  "https://standards.ieee.org/project/1003_1.html">P1003.1</a>
-  issue 8 (October 2022):</p>
+  <code>SIGWINCH</code> had not been standarized for more than 30
+  year. Finally these related standardization features appeared in
+  in <a href=
+  "https://standards.ieee.org/ieee/1003.1/7700/">P1003.1</a> issue
+  8 (October 2022):</p>
 
   <ul>
     <li>
       <p><a href=
       "https://austingroupbugs.net/view.php?id=1053">0001053</a>:
       <em>Add a &ldquo;size&rdquo; mode to stty(1)</em> (submitted
-      2016-05-10 19:12)</p>
+      2016-05-10 19:12, <a href=
+      "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/stty.html#tag_20_116_05_08">
+      published</a>).</p>
     </li>
 
     <li>
@@ -6970,14 +7040,18 @@ cat -v
       "https://austingroupbugs.net/view.php?id=1151">0001151</a>:
       <em>Introduce new signal SIGWINCH and functions tcsetsize(),
       tcgetsize() to get/set terminal window size</em> (submitted
-      2017-06-19 16:41)</p>
+      2017-06-19 16:41, renamed and <a href=
+      "https://pubs.opengroup.org/onlinepubs/9799919799/functions/tcgetwinsize.html">
+      published</a>)</p>
     </li>
 
     <li>
       <p><a href=
       "https://austingroupbugs.net/view.php?id=1185">0001185</a>:
       <em>Additional 3rd option for getting line size.</em>
-      (submitted 2018-02-02 04:13)</p>
+      (submitted 2018-02-02 04:13, <a href=
+      "https://pubs.opengroup.org/onlinepubs/9799919799/utilities/more.html#tag_20_81_13">
+      published</a>)</p>
     </li>
   </ul>
 
@@ -7185,7 +7259,7 @@ subscribe &lt;name&gt;@&lt;host.domain&gt;
 
   <blockquote>
     <p><a href=
-    "http://lists.gnu.org/archive/html/bug-ncurses/">http://lists.gnu.org/archive/html/bug-ncurses</a>
+    "https://lists.gnu.org/archive/html/bug-ncurses/">https://lists.gnu.org/archive/html/bug-ncurses</a>
     (also <a href=
     "https://lists.gnu.org/archive/html/bug-ncurses/">https</a>)</p>
   </blockquote>
@@ -7485,8 +7559,8 @@ subscribe &lt;name&gt;@&lt;host.domain&gt;
   1003.<em>x</em> series, referred to as the <em>Base
   Specifications</em>). It is a different standard, updated less
   frequently, and bundled as part of the <a href=
-  "http://www.unix.org/version4/overview.html"><em>Single
-  <span class="small-caps">UNIX</span> Specification</em></a>.</p>
+  "https://www.unix.org/overview.html"><em>Single <span class=
+  "small-caps">UNIX</span> Specification</em></a>.</p>
 
   <p>Quoting from <em>Advanced Programming in the UNIX
   Environment</em>, third edition (Stevens and Rago):</p>
@@ -7722,12 +7796,12 @@ subscribe &lt;name&gt;@&lt;host.domain&gt;
 
       <ul>
         <li><a href=
-        "http://www.ecma-international.org/publications/standards/Ecma-035.htm">
+        "https://ecma-international.org/publications-and-standards/standards/ecma-35/">
         ECMA-35 - Character Code Structure and Extension
         Techniques</a></li>
 
         <li><a href=
-        "http://www.ecma-international.org/publications/standards/Ecma-048.htm">
+        "https://ecma-international.org/publications-and-standards/standards/ecma-48/">
         ECMA-48 - Control Functions for Coded Character Sets</a></li>
       </ul>
 
@@ -7794,12 +7868,12 @@ subscribe &lt;name&gt;@&lt;host.domain&gt;
       the way was not VT100-compatible). Since X took over the
       computer's display, some way was needed to make the operator
       messages visible. The <a href=
-      "http://www.x.org/archive/X11R6.8.1/doc/xconsole.1.html">xconsole</a>
-      program did that; desktop systems provide analogous
-      solutions. It is not necessary to use a terminal emulator to
-      display operator messages. A few terminal emulators (such as
-      <a href="/xterm/">xterm</a>) can intercept console messages
-      as an optional feature. The <a href=
+      "https://xorg.freedesktop.org/archive/X11R6.8.1/doc/xconsole.1.html">
+      xconsole</a> program did that; desktop systems provide
+      analogous solutions. It is not necessary to use a terminal
+      emulator to display operator messages. A few terminal
+      emulators (such as <a href="/xterm/">xterm</a>) can intercept
+      console messages as an optional feature. The <a href=
       "/xterm/xterm.faq.html#bug_konsole">konsole</a> program on
       the other hand, does not perform this function,
       notwithstanding its name. Rather, it is a terminal
@@ -7840,10 +7914,10 @@ subscribe &lt;name&gt;@&lt;host.domain&gt;
         <li>
           <p>Several terminal emulators have been written using the
           Windows <a href=
-          "http://msdn.microsoft.com/en-us/library/windows/desktop/ms682087(v=vs.85).aspx">
+          "https://learn.microsoft.com/en-us/windows/console/console-reference?redirectedfrom=MSDN">
           console API</a> which run in one of these console windows
           (for example, the Cygwin terminal before <a href=
-          "http://code.google.com/p/mintty/">mintty</a>).</p>
+          "https://code.google.com/archive/p/mintty">mintty</a>).</p>
         </li>
 
         <li>
@@ -7852,7 +7926,7 @@ subscribe &lt;name&gt;@&lt;host.domain&gt;
           special case <em>not</em> using a terminal emulator. Like
           pdcurses, ncurses implements the Windows port using the
           <a href=
-          "http://msdn.microsoft.com/en-us/library/windows/desktop/ms682073(v=vs.85).aspx">
+          "https://learn.microsoft.com/en-us/windows/console/console-functions?redirectedfrom=MSDN">
           Windows Console API</a>. It does not rely upon
           <code>ANSI.SYS</code> or any of its successors.</p>
         </li>
@@ -7901,9 +7975,8 @@ subscribe &lt;name&gt;@&lt;host.domain&gt;
       series, referred to as the <em>Base Specifications</em>). It
       is a different standard, updated less frequently, and bundled
       as part of the <a href=
-      "http://www.unix.org/version4/overview.html"><em>Single
-      <span class="small-caps">UNIX</span>
-      Specification</em></a>.</p>
+      "https://www.unix.org/overview.html"><em>Single <span class=
+      "small-caps">UNIX</span> Specification</em></a>.</p>
 
       <p>Here are some useful links</p>
 
@@ -7911,7 +7984,8 @@ subscribe &lt;name&gt;@&lt;host.domain&gt;
         <li>
           <p><a href=
           "https://web.archive.org/web/20130602072639/https://www2.opengroup.org/ogsys/catalog/C094">
-          19 Apr 2013 &ndash; Issue 7</a></p>
+          19 Apr 2013 &ndash; Issue 7</a> (<a href=
+          "https://pubs.opengroup.org/onlinepubs/9699909599/toc.pdf">pdf</a>)</p>
         </li>
 
         <li>
@@ -7922,7 +7996,7 @@ subscribe &lt;name&gt;@&lt;host.domain&gt;
 
         <li>
           <p><a href=
-          "http://www.opengroup.org/onlinepubs/7908799/cursesix.html">
+          "https://pubs.opengroup.org/onlinepubs/7908799/cursesix.html">
           X/Open Curses, Issue 4, Version 2, Reference Pages</a></p>
         </li>
       </ul>
@@ -7934,7 +8008,7 @@ subscribe &lt;name&gt;@&lt;host.domain&gt;
       <ul>
         <li>
           <p><a href=
-          "http://tldp.org/HOWTO/NCURSES-Programming-HOWTO/">NCURSES-Programming-HOWTO</a>.<br>
+          "https://tldp.org/HOWTO/NCURSES-Programming-HOWTO/">NCURSES-Programming-HOWTO</a>.<br>
 
           An <a href=
           "/ncurses/howto/NCURSES-Programming-HOWTO.html">updated
@@ -7949,7 +8023,7 @@ subscribe &lt;name&gt;@&lt;host.domain&gt;
 
         <li>
           <p><a href=
-          "http://www.c-for-dummies.com/ncurses/">Programmer's
+          "https://www.c-for-dummies.com/ncurses/">Programmer's
           Guide to NCurses</a> by Dan Gookin. Wiley, 2007.<br>
           (my involvement is mentioned <a href=
           "/personal/paperstuff.html#acknowledgements">here</a>).</p>
@@ -7975,7 +8049,7 @@ subscribe &lt;name&gt;@&lt;host.domain&gt;
 
         <li>
           <p><a href=
-          "http://publibn.boulder.ibm.com/doc_link/en_US/a_doc_lib/aixprggd/genprogc/curses.htm">
+          "https://web.archive.org/web/20150903070316/https://publibn.boulder.ibm.com/doc_link/en_US/a_doc_lib/aixprggd/genprogc/curses.htm">
           AIX General Programming Concepts: Writing and Debugging
           Programs,<br>
           Chapter 2: The Curses Library</a></p>
@@ -7983,14 +8057,14 @@ subscribe &lt;name&gt;@&lt;host.domain&gt;
 
         <li>
           <p><a href=
-          "http://uw714doc.sco.com/en/man/html.3ocurses/Intro.3ocurses.html">
+          "https://uw714doc.sco.com/en/man/html.3ocurses/Intro.3ocurses.html">
           Unixware curses</a> (a rare reference to &ldquo;POSIX
           curses&rdquo;).</p>
         </li>
 
         <li>
           <p><a href=
-          "http://polarhome.com/service/man/?qf=curses&amp;tf=2&amp;of=IRIX&amp;sf=3X">
+          "https://web.archive.org/web/20160822052045/https://polarhome.com/service/man/?qf=curses&amp;tf=2&amp;of=IRIX&amp;sf=3X">
           IRIX64 curses</a></p>
         </li>
       </ul>
@@ -8063,7 +8137,7 @@ ETI is <strong>the best</strong> package for creating forms and menus.
       support added to SVr4.2 curses. Only the last feature
       (<a href="man/curs_slk.3x.html">soft-keys</a>) was
       incorporated in <a href=
-      "http://pubs.opengroup.org/onlinepubs/7908799/xcurses/slk_clear.html">
+      "https://pubs.opengroup.org/onlinepubs/7908799/xcurses/slk_clear.html">
       X/Open Curses</a>.</p>
     </li>
   </ul>
@@ -8079,64 +8153,56 @@ ETI is <strong>the best</strong> package for creating forms and menus.
 
     <li>
       <p><a href=
-      "http://www.pitman.co.za/projects/charva/index.html">CHARVA
+      "https://www.pitman.co.za/projects/charva/index.html">CHARVA
       (Java binding)</a></p>
     </li>
 
     <li>
+      <p><a href="https://cl-ncurses.common-lisp.dev/">Common Lisp
+      binding</a></p>
+    </li>
+
+    <li>
+      <p><a href="https://safe.sourceforge.net/">Eiffel binding</a></p>
+    </li>
+
+    <li>
       <p><a href=
-      "http://common-lisp.net/project/cl-ncurses/">Common Lisp
+      "https://groups.google.com/g/v8-users/c/w9HICSaZvFU">JavaScript
       binding</a></p>
     </li>
 
     <li>
       <p><a href=
-      "http://efsa.sourceforge.net/archive/ecurses/ecurses.htm">Eiffel
+      "https://ocaml.org/p/curses/latest/doc/index.html">OCaml
       binding</a></p>
     </li>
 
     <li>
       <p><a href=
-      "http://spiderape.sourceforge.net/plugins/ncurses/">JavaScript
+      "https://metacpan.org/search?size=20&amp;q=Curses">Perl
       binding</a></p>
     </li>
 
     <li>
       <p><a href=
-      "http://www.mtu-net.ru/aborovsky/lincrt/lincrt-lib.html">LinCRT
-      (Kylix binding)</a></p>
+      "https://php-legacy-docs.zend.com/manual/php5/en/ref.ncurses">
+      PHP binding</a></p>
     </li>
 
     <li>
       <p><a href=
-      "http://caml.inria.fr/cgi-bin/hump.en.cgi?contrib=100">OCaml
+      "https://docs.python.org/3/library/curses.html">Python
       binding</a></p>
+    </li>
+
+    <li>
+      <p><a href="https://github.com/ruby/curses">Ruby binding</a></p>
     </li>
 
     <li>
       <p><a href=
-      "http://search.cpan.org/search%3Fmodule=Curses">Perl
-      binding</a></p>
-    </li>
-
-    <li>
-      <p><a href="http://www.php.net/manual/en/ref.ncurses.php">PHP
-      binding</a></p>
-    </li>
-
-    <li>
-      <p><a href=
-      "http://docs.python.org/library/curses.html">Python
-      binding</a></p>
-    </li>
-
-    <li>
-      <p><a href="http://ncurses-ruby.berlios.de/">Ruby binding</a></p>
-    </li>
-
-    <li>
-      <p><a href=
-      "http://www.schwartzcomputer.com/tcl-tk/tcl-tk.html">Tcl/Tk
+      "https://www.schwartzcomputer.com/tcl-tk/tcl-tk.html">Tcl/Tk
       Extensions &amp; Information Page -&gt; ncurses cTk</a></p>
     </li>
   </ul>
@@ -8147,7 +8213,7 @@ ETI is <strong>the best</strong> package for creating forms and menus.
   <ul>
     <li>
       <p id="other-pdcurses"><a name="pdcurses" href=
-      "http://pdcurses.sourceforge.net/" id="pdcurses">PDCurses</a></p>
+      "https://pdcurses.sourceforge.io/" id="pdcurses">PDCurses</a></p>
     </li>
 
     <li>
@@ -8166,7 +8232,7 @@ ETI is <strong>the best</strong> package for creating forms and menus.
 
   <ul>
     <li>
-      <p><a href="http://xterminal.sourceforge.net/">Xterminal's
+      <p><a href="https://xterminal.sourceforge.net/">Xterminal's
       Home Page</a></p>
     </li>
 
@@ -8193,7 +8259,7 @@ ETI is <strong>the best</strong> package for creating forms and menus.
 
     <li>
       <p><a href=
-      "http://www.ditec.um.es/~piernas/manpages-es/otros/tutorial-ncurses.html">
+      "https://www.ditec.um.es/~piernas/manpages-es/otros/tutorial-ncurses.html">
       Escribir Programas con NCURSES</a></p>
     </li>
 
@@ -8227,7 +8293,7 @@ ETI is <strong>the best</strong> package for creating forms and menus.
 
     <li>
       <p>For earlier implementations, the <a href=
-      "http://www.mckusick.com/csrg/">CSRG cdroms</a> and Jonathan
+      "https://www.mckusick.com/csrg/">CSRG cdroms</a> and Jonathan
       Gray's <a href=
       "https://github.com/jonathangray/csrg">repository</a>
       (converted from SCCS) are helpful. Both have problems: the
@@ -8252,7 +8318,7 @@ ETI is <strong>the best</strong> package for creating forms and menus.
   <ul>
     <li id="misinfo-termhow2">
       <p><a href=
-      "http://www.tldp.org/HOWTO/Text-Terminal-HOWTO.html">Text-Terminal-HOWTO</a>.<br>
+      "https://tldp.org/HOWTO/Text-Terminal-HOWTO.html">Text-Terminal-HOWTO</a>.<br>
 
       I find the deliberate misstatements in this one to be
       fascinating. Still, there is some useful information as
@@ -8261,8 +8327,8 @@ ETI is <strong>the best</strong> package for creating forms and menus.
 
     <li id="misinfo-haskell">
       <p><a href=
-      "http://hackage.haskell.org/cgi-bin/hackage-scripts/package/nanocurses">
-      nanocurses (Haskell binding)</a><br>
+      "https://hackage.haskell.org/package/nanocurses">nanocurses
+      (Haskell binding)</a><br>
       <a href=
       "https://github.com/skogsbaer/hscurses/blob/f63d98aae747ef2aef41b4a2c35be451b14c7878/UI/HSCurses/Curses.hsc#L31">
       It says</a> (referring to the ncurses manpages):</p>
@@ -8275,7 +8341,7 @@ ETI is <strong>the best</strong> package for creating forms and menus.
 
       <p>First noticed in September 2008, this misattribution was
       still present as of July 2019, e.g., in the Debian <a href=
-      "https://packages.debian.org/search?keywords=libghc-hscurses-dev">
+      "https://packages.debian.org/challenge.html?original=%2fsearch%3fkeywords%3dlibghc-hscurses-dev">
       libghc-hscurses-dev</a> package (according to &ldquo;git
       blame&rdquo; the upstream comment was added in 2005).</p>
 
@@ -8285,14 +8351,14 @@ ETI is <strong>the best</strong> package for creating forms and menus.
 
       <ul>
         <li>a <a href=
-        "http://hackage.haskell.org/package/terminfo">terminfo</a>
+        "https://hackage.haskell.org/package/terminfo">terminfo</a>
         package found <a href=
-        "https://github.com/judah/terminfo">here</a>, which is
+        "https://github.com/haskell/terminfo">here</a>, which is
         undocumented. Reading the source hints that the developer
         does not understand how to develop thread-safe code.</li>
 
         <li>another <a href=
-        "http://hackage.haskell.org/package/terminfo-hs">terminfo</a>
+        "https://hackage.haskell.org/package/terminfo-hs">terminfo</a>
         package found <a href=
         "https://github.com/chreekat/terminfo-hs">here</a> also
         undocumented but (reading the source) it assumes ncurses
@@ -8340,9 +8406,9 @@ ETI is <strong>the best</strong> package for creating forms and menus.
       not updated to match the software. Besides the <a href=
       "man/resizeterm.3x.html">resizeterm</a> issue, the TechNet
       page <em><a href=
-      "https://technet.microsoft.com/en-us/library/bb463194.aspx">Curses
-      Applications on Interix</a></em> for 3.0 mentions a problem
-      which was fixed in <a href="NEWS.html#t960615">June
+      "https://learn.microsoft.com/en-us/previous-versions/tn-archive/bb463194(v=technet.10)?redirectedfrom=MSDN">
+      Curses Applications on Interix</a></em> for 3.0 mentions a
+      problem which was fixed in <a href="NEWS.html#t960615">June
       1996</a>:</p>
 
       <blockquote>
@@ -8366,17 +8432,18 @@ ETI is <strong>the best</strong> package for creating forms and menus.
       "https://en.wikipedia.org/w/index.php?title=Ncurses&amp;diff=prev&amp;oldid=297445477">
       here</a> (apparently added anonymously by the program's
       author). Its <a href=
-      "http://curses-sharp.sourceforge.net">page</a> claimed that
-      "Virtually every function in curses has its managed
-      counterpart." I noted that it implemented less than half of
-      the functions in ncurses 5.7 (206/414). As of early 2013, it
-      is (like most SourceForge projects), apparently dead.</p>
+      "https://sourceforge.net/projects/curses-sharp/">page</a>
+      claimed that "Virtually every function in curses has its
+      managed counterpart." I noted that it implemented less than
+      half of the functions in ncurses 5.7 (206/414). As of early
+      2013, it is (like most SourceForge projects), apparently
+      dead.</p>
     </li>
 
     <li id="misinfo-ansiseq">
       <p>The treatment of escape sequences <a rel="nofollow" href=
-      "http://en.wikipedia.org/wiki/ANSI_escape_code">here</a> is a
-      mish-mash of incorrect information from the DOS/Windows and
+      "https://en.wikipedia.org/wiki/ANSI_escape_code">here</a> is
+      a mish-mash of incorrect information from the DOS/Windows and
       Unix environments. There are several areas of confusion,
       e.g., mistaking common practice for standardization (and
       introducing confusion about the scope of the standards), as
@@ -8400,7 +8467,7 @@ ETI is <strong>the best</strong> package for creating forms and menus.
 
     <li id="misinfo-colorman">
       <p>The accepted answer for <a href=
-      "http://unix.stackexchange.com/questions/119/colors-in-man-pages">
+      "https://unix.stackexchange.com/questions/119/colors-in-man-pages">
       <em>Colors in Man Pages</em></a> has some issues:</p>
 
       <ul>
@@ -8411,14 +8478,14 @@ ETI is <strong>the best</strong> package for creating forms and menus.
 
         <li>It introduces some capabilities which are not supported
         by the <a href=
-        "http://www.greenwoodsoftware.com/less/"><code>less</code></a>
+        "https://www.greenwoodsoftware.com/less/"><code>less</code></a>
         pager, i.e., for superscripts and subscripts.</li>
       </ul>
     </li>
 
     <li id="misinfo-reset">
       <p>The accepted answer for <a href=
-      "http://unix.stackexchange.com/questions/79684/fix-terminal-after-displaying-a-binary-file/79686#79686">
+      "https://unix.stackexchange.com/questions/79684/fix-terminal-after-displaying-a-binary-file/79686#79686">
       <em>Fix terminal after displaying a binary file</em></a> has
       some issues:</p>
 
@@ -8428,7 +8495,7 @@ ETI is <strong>the best</strong> package for creating forms and menus.
           irrelevant to the question. It shows the effect of
           sending a binary file to the terminal, but all of the odd
           characters are the Unicode <a href=
-          "http://unicode.org/charts/PDF/UFFF0.pdf"><em>replacement
+          "https://unicode.org/charts/PDF/UFFF0.pdf"><em>replacement
           character</em></a>. That is</p>
 
           <blockquote>
@@ -8448,12 +8515,12 @@ ETI is <strong>the best</strong> package for creating forms and menus.
           <p>If the terminal were not in UTF-8 mode, it would not
           print replacement characters, and users <em>expect</em>
           it to show line-drawing characters, e.g.,. as in <a href=
-          "http://unix.stackexchange.com/questions/50752/how-to-fix-a-terminal-after-a-binary-file-has-been-dumped-inside-it">
+          "https://unix.stackexchange.com/questions/50752/how-to-fix-a-terminal-after-a-binary-file-has-been-dumped-inside-it">
           <em>How to fix a terminal after a binary file has been
           dumped inside it?</em></a>, or (older) <a href=
-          "http://tldp.org/HOWTO/Keyboard-and-Console-HOWTO-4.html">
+          "https://tldp.org/HOWTO/Keyboard-and-Console-HOWTO-4.html">
           <em>4. Resetting your terminal</em></a> in <a href=
-          "http://tldp.org/HOWTO/Keyboard-and-Console-HOWTO.html"><em>
+          "https://tldp.org/HOWTO/Keyboard-and-Console-HOWTO.html"><em>
           The Linux keyboard and console HOWTO</em></a>. But bear
           in mind that the HOWTO (2002) is fairly recent: the
           <a href=
@@ -8542,7 +8609,7 @@ ETI is <strong>the best</strong> package for creating forms and menus.
       <p>Noticed in addressing <a href=
       "/ncurses/ncurses-license.html#issues_expat">some issues</a>
       regarding the ncurses license, <a href=
-      "http://www.linfo.org">this site</a> is (like <a href=
+      "https://www.linfo.org/">this site</a> is (like <a href=
       "https://web.archive.org/web/20160322101233/http://www.osscc.net/en/">
       another</a>) apparently an anonymous work by an individual
       posing as a group of people for the sole purpose of
@@ -8552,9 +8619,9 @@ ETI is <strong>the best</strong> package for creating forms and menus.
     <li id="misinfo-man7">
       <p>On a lighter note (partly), while looking for a suitable
       webpage for online manual pages, I noticed <a href=
-      "http://man7.org/linux/man-pages/man3/ncurses.3x.html">this
+      "https://man7.org/linux/man-pages/man3/ncurses.3x.html">this
       page</a>. Unlike <a href=
-      "http://linux.die.net/man/3/ncurses">another site</a>, its
+      "https://linux.die.net/man/3/ncurses">another site</a>, its
       formatting is reasonable, and is reasonably complete.
       However:</p>
 
@@ -8603,7 +8670,7 @@ ETI is <strong>the best</strong> package for creating forms and menus.
   "copyright_text">Copyright</a></h2>
 
   <p>
-  Copyright&nbsp;&copy;&nbsp;1997&ndash;2024,&nbsp;2025&nbsp;by&nbsp;Thomas&nbsp;E.&nbsp;Dickey
+  Copyright&nbsp;&copy;&nbsp;1997&ndash;2025,&nbsp;2026&nbsp;by&nbsp;Thomas&nbsp;E.&nbsp;Dickey
   &lt;dickey@invisible-island.net&gt;<br>
   All Rights Reserved.</p>
 
